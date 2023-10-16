@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from locust import events
 import json
 import struct
 import time
 from gevent.event import Event
-from log import logger
+from common.log import logger
 import xxtea
 import traceback
 from config import SERVER_HOST, PORT
 import proto
-from gevent import socket
+from gevent import socket, monkey
 from lib import SocketProcesser
 from lib.event_handler import Handler
 from google.protobuf import json_format
@@ -19,7 +18,6 @@ from config import is_old_server, is_security
 from common.room import Room
 from lib.CustomException import *
 from common.ClientData import ClientData
-import pickle
 
 PbClass = {}
 for name in proto.__dict__:
