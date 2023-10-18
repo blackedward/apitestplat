@@ -1,20 +1,23 @@
-from common.Client import Client
+# -*- coding: utf-8 -*-
+import datetime
+import importlib
+import os
+import random
+import re
+import socket
+import struct
+import sys
+import time
+import uuid
+
 import gevent
 import requests
-import re
+
+import proto
 from common.log import logger
+from common.Client import Client
 from config import G_Distributor, G_SubDistributor, EMAIL_LOGIN_TYPE, SERVER_HOST, PORT, CLIENT_VERSION
 from lib.utils import md5
-import time
-import datetime
-import struct
-import socket
-import random
-import os
-import importlib
-import sys
-import proto
-import uuid
 
 # 获取本机的MAC地址
 mac = uuid.UUID(int=uuid.getnode()).hex[-12:]
@@ -62,7 +65,7 @@ class Player(object):
 
     def login_by_uid(self, uid, ver=CLIENT_VERSION, key='0d937722b6100ec88a4bce23ad451d0b'):
         logger.info("[login][function=run,uid={}]start".format(uid))
-        client = Client(uid)
+        client = Client(uid, self.host, self.port)
         if hasattr(client, 'is_login') and client.is_login:
             logger.info("[login][function=run,uid={}]exit".format(uid))
             return [proto.UserLoginRSP(), proto.UserLocationRSP()]
@@ -318,25 +321,24 @@ class Player(object):
         ip_addr_max = ip_addr | (~mask & 0xffffffff)
         return socket.inet_ntoa(struct.pack('>I', random.randint(ip_addr_min, ip_addr_max)))
 
-
-if __name__ == '__main__':
-    from common.Client import Client
-    from common.player import Player
-    from config import SERVER_HOST, PORT
-
-    host = SERVER_HOST
-    port = PORT
-    php_server = SERVER_HOST
-
-    player = Player(host=host, port=port)
-    for i in range(2, 3):
-        username = 'bba' + str(i)
-        player.login_by_username(username, "wwwww1")
-    # player.login_by_uid(2507859)
-    # client = player.client
-    # client.send('ClubListREQ')
-    # msg=client.recv('ClubListRSP')
-    # print(msg.body)
-    #
-    # print(msg)
-    # result2 = player.login_by_uid(2955)
+# if __name__ == '__main__':
+#     from common.Client import Client
+#     from common.player import Player
+#     from config import SERVER_HOST, PORT
+#
+#     host = SERVER_HOST
+#     port = PORT
+#     php_server = SERVER_HOST
+#
+#     player = Player(host=host, port=port)
+#     for i in range(2, 3):
+#         username = 'bba' + str(i)
+#         player.login_by_username(username, "wwwww1")
+#     # player.login_by_uid(2507859)
+#     # client = player.client
+#     # client.send('ClubListREQ')
+#     # msg=client.recv('ClubListRSP')
+#     # print(msg.body)
+#     #
+#     # print(msg)
+#     # result2 = player.login_by_uid(2955)

@@ -326,11 +326,11 @@ class ExecuteHandler(object):
         elif case.case_protocol == 2:  # 处理socket协议的用例参数
             res['protocol'] = case.case_protocol
             res['case_req'] = case.socketreq
-            res['case_params'] = case.raw['req']
+            res['case_params'] = eval(case.raw)['req']
             res['case_rsp'] = case.socketrsp
             res['host'] = env.url
             res['port'] = env.port
-            res['uid'] = case.raw['uid']
+            res['uid'] = eval(case.raw)['uid']
         elif case.case_protocol == 3:
             pass  # todo 处理ws协议的用例
         else:

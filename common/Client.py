@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import gevent.monkey
+
+gevent.monkey.patch_all()
+
 from locust import events
 import json
 import struct
@@ -102,13 +106,14 @@ class Client(object):
         start_time = time.time()
         print("attempting to connect to %s on port %s" % (host, port))
         try:
-            self.socket.connect((host, port))
+            self.socket.connect((host, int(port)))
             print("connected")
             self.isStop = False
             total_time = int((time.time() - start_time) * 1000)
             events.request_success.fire(request_type='socket', name='connect', response_time=total_time,
                                         response_length=0)
         except Exception as e:
+            logger.error(traceback.format_exc())
             print("connected failed")
             total_time = int((time.time() - start_time) * 1000)
             events.request_failure.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
@@ -390,12 +395,11 @@ class Client(object):
             logger.error(" no such pb." + name)
             return None
 
-
-if __name__ == '__main__':
-    from common.player import Player
-
-    player = Player()
-    client = Client(uid=2507859, host='beta12s.kkpoker.co', port='4000')
-    result = player.login_by_username("bba1", "wwwww1")
-    # result2 = Player().login_by_uid(2955)
-    # resault = Client(2955)
+# if __name__ == '__main__':
+#     from common.player import Player
+#
+#     player = Player()
+#     client = Client(uid=2507859, host='beta12s.kkpoker.co', port='4000')
+#     result = player.login_by_username("bba1", "wwwww1")
+#     # result2 = Player().login_by_uid(2955)
+#     # resault = Client(2955)
