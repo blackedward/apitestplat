@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import gevent.monkey
-
-gevent.monkey.patch_all()
-
 from locust import events
 import json
 import struct
@@ -110,13 +106,13 @@ class Client(object):
             print("connected")
             self.isStop = False
             total_time = int((time.time() - start_time) * 1000)
-            events.request_success.fire(request_type='socket', name='connect', response_time=total_time,
+            events.request.fire(request_type='socket', name='connect', response_time=total_time,
                                         response_length=0)
         except Exception as e:
             logger.error(traceback.format_exc())
             print("connected failed")
             total_time = int((time.time() - start_time) * 1000)
-            events.request_failure.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
+            events.request.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
                                         response_length=0)
             return False
         self.recvBuffer = bytes()
@@ -199,14 +195,14 @@ class Client(object):
                 if timeoutCode == 0:
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
-                    events.request_failure.fire(request_type="socket", name=name, response_time=total_time, exception=e,
+                    events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
                                                 response_length=0)
                     raise (e)
                     # assert (pass_time < timeout), 'time out'
                 else:
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
-                    events.request_failure.fire(request_type="socket", name=name, response_time=total_time, exception=e,
+                    events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
                                                 response_length=0)
                     return timeoutCode
             # 先挂起,等收到消息再唤醒
@@ -254,7 +250,7 @@ class Client(object):
                                 break
         if (isinstance(name, str)):
             total_time = int((time.time() - start_time) * 1000)
-            events.request_success.fire(request_type="socket", name=name, response_time=total_time, response_length=0)
+            events.request.fire(request_type="socket", name=name, response_time=total_time, response_length=0)
         return msg
 
     # 接受全部數據包信息
@@ -395,6 +391,11 @@ class Client(object):
             logger.error(" no such pb." + name)
             return None
 
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
 # if __name__ == '__main__':
 #     from common.player import Player
 #

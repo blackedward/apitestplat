@@ -103,6 +103,7 @@ class ExecuteHandler(object):
         except Exception as e:
             logger.exception(e)
             return '{"result": "组装参数失败"}', None
+        logger.info('parameterdic is :{}', parameterdic)
         if parameterdic['protocol'] == 0:
             api = Api(url=parameterdic['case_url'],
                       method=parameterdic['case_method'],
@@ -127,12 +128,13 @@ class ExecuteHandler(object):
                 Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
                     parameterdic['uid'])[1]
             client = player.client
+            logger.info('parameterdic is :{}', parameterdic)
             starttime = datetime.datetime.now()
             client.send(parameterdic['case_req'], parameterdic['case_params'])
             msg = client.recv(parameterdic['case_rsp'])
             logger.info(msg.body)
             endtime = datetime.datetime.now()
-            spend = (endtime - starttime).seconds
+            spend = (endtime - starttime).total_seconds()
             res = self.judgecase(msg.body, case_id)[0]
             if res is True:
                 self.save_case_result(msg.body, case_id, ispass=True, testevir=env_id, spend=spend)

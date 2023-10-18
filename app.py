@@ -1,7 +1,11 @@
+from gevent import monkey
+monkey.patch_all(thread=False, select=False)
+
 from app import app
 from app.users import user
 from app.projects import project
 from app.interfacecase import interfacecase
+from gevent.pywsgi import WSGIServer
 
 app.register_blueprint(user)
 app.register_blueprint(project)
@@ -14,4 +18,6 @@ def hello_world():  # put application's code here
 
 
 if __name__ == '__main__':
-    app.run()
+    app.debug = True
+    server = WSGIServer(('127.0.0.1', 5000), app)
+    server.serve_forever()
