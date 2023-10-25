@@ -1,5 +1,6 @@
 import google.protobuf.descriptor_pb2 as descriptor
 
+
 def get_messages_and_enums(proto_file_path):
     # Load the proto file
     with open(proto_file_path, 'rb') as f:
@@ -15,6 +16,7 @@ def get_messages_and_enums(proto_file_path):
             enums.append(enum_type.name)
 
     return messages, enums
+
 
 if __name__ == '__main__':
     proto_file_path = 'D:\work\protoScripts\proto\pb\achievement.proto'

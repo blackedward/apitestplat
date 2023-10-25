@@ -277,7 +277,7 @@ class ExecuteHandler(object):
                         assert_that(Decimal(result[i['expression']])).is_greater_than_or_equal_to(
                             Decimal(i['excepted_result']))
                     elif i['operator'] == 5:
-                        assert_that(str(result[i['expression']])).is_in(i['excepted_result'])
+                        assert_that(str(result[i['expression']])).is_equal_to(str(i['excepted_result']))
                     elif i['operator'] == 6:
                         assert_that(Decimal(result[i['expression']])).is_not_equal_to(Decimal(i['excepted_result']))
                     elif i['operator'] == 7:

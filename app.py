@@ -7,9 +7,9 @@ from app.projects import project
 from app.interfacecase import interfacecase
 from gevent.pywsgi import WSGIServer
 
-app.register_blueprint(user)
-app.register_blueprint(project)
-app.register_blueprint(interfacecase)
+app.register_blueprint(user, url_prefix='/user')
+app.register_blueprint(project, url_prefix='/project')
+app.register_blueprint(interfacecase, url_prefix='/interfacecase')
 
 
 @app.route('/')

@@ -1,4 +1,5 @@
 import json
+import traceback
 
 from flask import Blueprint, request
 from flask.views import MethodView
@@ -7,7 +8,7 @@ from flask_login import login_required, current_user
 from app.models import *
 from common.jsontools import reponse
 from error_message import MessageEnum
-from common.systemlog import logger
+from common.log import logger
 from common.executehandler import ExecuteHandler
 
 interfacecase = Blueprint('interfacecase', __name__)
@@ -26,7 +27,7 @@ class CreateCase(MethodView):
             interfacecase.project_id = data.get('project_id')
             interfacecase.module_id = data.get('module_id')
             interfacecase.case_protocol = data.get('case_protocol')
-            interfacecase.rely_caseid = data.get('rely_caseid')
+            interfacecase.is_relycase = data.get('is_relycase')
             interfacecase.rely_dbf = data.get('rely_dbf')
             interfacecase.url = data.get('url')
             interfacecase.method = data.get('method')
@@ -51,7 +52,7 @@ class CreateCase(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.add_case_erro.value[0], message=MessageEnum.add_case_erro.value[1])
 
 
@@ -71,7 +72,7 @@ class ModifyCase(MethodView):
             interfacecase.project_id = data.get('project_id')
             interfacecase.module_id = data.get('module_id')
             interfacecase.case_protocol = data.get('case_protocol')
-            interfacecase.rely_caseid = data.get('rely_caseid')
+            interfacecase.is_relycase = data.get('is_relycase')
             interfacecase.rely_dbf = data.get('rely_dbf')
             interfacecase.url = data.get('url')
             interfacecase.method = data.get('method')
@@ -96,7 +97,7 @@ class ModifyCase(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.case_edit_error.value[0], message=MessageEnum.case_edit_error.value[1])
 
 
@@ -125,7 +126,7 @@ class CreateAssert(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.add_assert_erro.value[0], message=MessageEnum.add_assert_erro.value[1])
 
 
@@ -148,7 +149,7 @@ class GetCaseAssert(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
 
 
@@ -175,13 +176,17 @@ class ModifyAssert(MethodView):
             interfacecaseassert.order = data.get('order')
             interfacecaseassert.created_time = data.get('created_time')
             interfacecaseassert.update_time = data.get('update_time')
-
-            db.session.add(interfacecaseassert)
-            db.session.commit()
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            try:
+                db.session.add(interfacecaseassert)
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.edit_assert_error.value[0],
+                               message=MessageEnum.edit_assert_error.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.edit_assert_error.value[0], message=MessageEnum.edit_assert_error.value[1])
 
 
@@ -211,7 +216,7 @@ class GetCaseByMod(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
 
 
@@ -249,7 +254,7 @@ class ExecuteCase(MethodView):
                                data=json.loads(res))
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0],
                            message=MessageEnum.test_error.value[1])
 
@@ -286,19 +291,18 @@ class AddPreCase(MethodView):
                 pre_case.pre_case_id = i['pre_case_id']
                 pre_case.order = i['order']
                 pre_case.status = 1
-                pre_case.created_time = i['created_time']
-                pre_case.update_time = i['update_time']
+
 
                 db.session.add(pre_case)
             try:
                 db.session.commit()
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
             except Exception as e:
-                logger.error(e)
+                logger.error(traceback.format_exc())
                 return reponse(code=MessageEnum.add_pre_case_error.value[0],
                                message=MessageEnum.add_pre_case_error.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.add_pre_case_error.value[0],
                            message=MessageEnum.add_pre_case_error.value[1])

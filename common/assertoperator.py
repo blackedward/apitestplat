@@ -7,7 +7,7 @@ class Assertopr(Enum):
     GT = 2, ">"
     LE = 3, "<="
     GE = 4, ">="
-    IN = 5, 'in'
+    SEQ = 5, 'eq'
     NE = 6, '!='
     RE = 7, 're'
     IS_NULL = 8, 'is_null'
