@@ -181,3 +181,29 @@ class SetAdminView(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.set_fail.value[0], data="设置管理员失败",
                            message=MessageEnum.set_fail.value[1])
+
+
+class UserList(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            page_index = 1
+            page_number = 10
+            if request.args.get("page_number"):
+                page_number = request.args.get('page_number')
+            if request.args.get("page_index"):
+                page_index = request.args.get('page_index')
+
+            users = User.query.filter_by(is_enable=1).paginate(int(page_index), int(page_number), False)
+            if not users:
+                return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
+                               message=MessageEnum.login_user_not_exict_message.value[1])
+            data = []
+            for user in users.items:
+                data.append(user.to_json())
+            return reponse(code=MessageEnum.successs.value[0], data=data, message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
+                           message=MessageEnum.login_user_not_exict_message.value[1])

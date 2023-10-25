@@ -51,6 +51,12 @@ class User(db.Model):
     def get_id(self):
         return self.user_id
 
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
+
 
 class Project(db.Model):
     __tablename__ = 't_projects'
