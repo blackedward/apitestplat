@@ -3,6 +3,6 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('config.ProductionConfig')
 db = SQLAlchemy(app)
 loginManager = LoginManager(app)
