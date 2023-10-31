@@ -202,7 +202,32 @@ class UserList(MethodView):
             data = []
             for user in users.items:
                 data.append(user.to_json())
-            return reponse(code=MessageEnum.successs.value[0], data=data, message=MessageEnum.successs.value[1])
+
+            ret = {"total": users.per_page, "content": data}
+            return reponse(code=MessageEnum.successs.value[0], data=ret, message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
+                           message=MessageEnum.login_user_not_exict_message.value[1])
+
+
+class Currentuser(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            user = User.query.filter_by(username=current_user.username).first()
+            if not user:
+                return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
+                               message=MessageEnum.login_user_not_exict_message.value[1])
+            data = user.to_json()
+            ret = {}
+            ret["username"] = data["username"]
+            ret["real_name"] = data["real_name"]
+            ret["is_enable"] = data["is_enable"]
+            ret["job_number"] = data["job_number"]
+            ret["is_admin"] = (data["role_id"] == 2)
+            return reponse(code=MessageEnum.successs.value[0], data=ret, message=MessageEnum.successs.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.login_user_not_exict_message.value[0],

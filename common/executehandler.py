@@ -78,7 +78,7 @@ class ExecuteHandler(object):
         # 检查用例是否存在数据依赖并执行
         try:
             rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-            if not rely_dbf_id:
+            if not rely_dbf_id or rely_dbf_id == 0:
                 pass
             else:
                 dbfresult = self.exepredbf(dbf_id=rely_dbf_id)

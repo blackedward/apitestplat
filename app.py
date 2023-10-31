@@ -1,4 +1,5 @@
 from gevent import monkey
+
 monkey.patch_all(thread=False, select=False)
 
 from app import app
@@ -17,7 +18,10 @@ def hello_world():  # put application's code here
     return 'Hello World!'
 
 
+def app_start():
+    http_server = WSGIServer(('0.0.0.0', 3000), app)
+    http_server.serve_forever()
+
+
 if __name__ == '__main__':
-    app.debug = True
-    server = WSGIServer(('127.0.0.1', 5000), app)
-    server.serve_forever()
+    app_start()

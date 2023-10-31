@@ -8,4 +8,7 @@ interfacecase.add_url_rule("/modifyassert", view_func=ModifyAssert.as_view('modi
 interfacecase.add_url_rule("/getcasebymod", view_func=GetCaseByMod.as_view('getcasebymod'))
 interfacecase.add_url_rule("/executecase", view_func=ExecuteCase.as_view('executecase'))
 interfacecase.add_url_rule("/addprecase", view_func=AddPreCase.as_view('addprecase'))
+interfacecase.add_url_rule("/addcase", view_func=AddCase.as_view('addcase'))
+interfacecase.add_url_rule("/getcasebyproj", view_func=GetCaseByProj.as_view('getcasebyproj'))
+
 

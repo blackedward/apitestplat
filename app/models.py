@@ -210,6 +210,7 @@ class InterfaceCase(db.Model):
     update_time = db.Column(db.DateTime(), default=datetime.now())
     source = db.Column(db.Integer)
     import_no = db.Column(db.Integer)
+    status = db.Column(db.Boolean(), default=True)
     case_assert = db.relationship('InterfaceCaseAssert', backref='interfacecase', lazy='dynamic')
     precase = db.relationship('Precase', backref='interfacecase', lazy='dynamic')
 

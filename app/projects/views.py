@@ -1,4 +1,5 @@
 import traceback
+from enum import Enum
 
 from flask import Blueprint, typing as ft, render_template, jsonify
 from flask import redirect, request, session, url_for, flash
@@ -162,8 +163,10 @@ class GetAllPrj(MethodView):
             rdata = []
             for i in project.items:
                 rdata.append(i.to_json())
+
+            ret = {"content": rdata, "total": project.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_search.value[0],
@@ -216,6 +219,12 @@ class CreateDb(MethodView):
                            message=MessageEnum.db_cr_error.value[1])
 
 
+class DBType(Enum):
+    MYSQL = 0
+    ORACLE = 1
+    SQLSERVER = 2
+
+
 class GetDbById(MethodView):
     @login_required
     def get(self, id):
@@ -227,7 +236,7 @@ class GetDbById(MethodView):
             rsdatat = {}
             rsdatat['id'] = dbconf.id
             rsdatat['db_name'] = dbconf.db_name
-            rsdatat['type'] = dbconf.type
+            rsdatat['type'] = DBType(dbconf.type).name
             rsdatat['desc'] = dbconf.desc
             rsdatat['url'] = dbconf.url
             rsdatat['username'] = dbconf.username
@@ -273,9 +282,14 @@ class GetAllDb(MethodView):
                                message=MessageEnum.db_search_error.value[1])
             rdata = []
             for i in dbconf.items:
+                if i.type:
+                    i.type = DBType(i.type).name
+                else:
+                    i.type = 'unknown'
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": dbconf.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.db_search_error.value[0],
@@ -406,8 +420,9 @@ class GetAllDf(MethodView):
             rdata = []
             for i in dbfac.items:
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": dbfac.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.dbfac_search_error.value[0],
@@ -626,8 +641,9 @@ class GetAllModel(MethodView):
             rdata = []
             for i in model.items:
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": model.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
