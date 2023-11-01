@@ -25,7 +25,7 @@ class CreateCase(MethodView):
 
             interfacecase = InterfaceCase()
             interfacecase.project_id = data.get('project_id')
-            interfacecase.module_id = data.get('module_id')
+            interfacecase.model_id = data.get('model_id')
             interfacecase.case_protocol = data.get('case_protocol')
             interfacecase.is_relycase = data.get('is_relycase')
             interfacecase.rely_dbf = data.get('rely_dbf')
@@ -70,7 +70,7 @@ class ModifyCase(MethodView):
                 return reponse(code=MessageEnum.case_edit_error.value[0], message=MessageEnum.case_edit_error.value[1])
 
             interfacecase.project_id = data.get('project_id')
-            interfacecase.module_id = data.get('module_id')
+            interfacecase.model_id = data.get('model_id')
             interfacecase.case_protocol = data.get('case_protocol')
             interfacecase.is_relycase = data.get('is_relycase')
             interfacecase.rely_dbf = data.get('rely_dbf')
@@ -194,8 +194,8 @@ class GetCaseByMod(MethodView):
     @login_required
     def get(self):
         try:
-            module_id = request.args.get('module_id')
-            if not module_id:
+            model_id = request.args.get('model_id')
+            if not model_id:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             page_index = 1
@@ -204,7 +204,7 @@ class GetCaseByMod(MethodView):
                 page_number = request.args.get('page_number')
             if request.args.get("page_index"):
                 page_index = request.args.get('page_index')
-            interfacecase = InterfaceCase.query.filter_by(module_id=module_id, status=1).paginate(int(page_index),
+            interfacecase = InterfaceCase.query.filter_by(model_id=model_id, status=1).paginate(int(page_index),
                                                                                                   int(page_number),
                                                                                                   False)
 
@@ -322,7 +322,7 @@ class AddCase(MethodView):
             if data.get('basicinfo') and data.get('requestinfo'):
                 interfacecase = InterfaceCase()
                 interfacecase.project_id = data.get('basicinfo')['project_id']
-                interfacecase.module_id = data.get('basicinfo')['model_id']
+                interfacecase.model_id = data.get('basicinfo')['model_id']
                 interfacecase.case_protocol = data.get('requestinfo')['caseprotcol']
                 interfacecase.is_relycase = data.get('basicinfo')['is_relycase']
                 interfacecase.rely_dbf = data.get('basicinfo')['rely_dbf']

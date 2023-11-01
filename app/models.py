@@ -189,7 +189,7 @@ class InterfaceCase(db.Model):
     __tablename__ = 't_interface_case'
     case_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     project_id = db.Column(db.Integer, db.ForeignKey('t_projects.id'))
-    module_id = db.Column(db.Integer, db.ForeignKey('t_models.id'))
+    model_id = db.Column(db.Integer, db.ForeignKey('t_models.id'))
     case_protocol = db.Column(db.Integer)
     is_relycase = db.Column(db.Boolean(), default=False)
     rely_dbf = db.Column(db.Integer, db.ForeignKey('t_datafactory.id'))
