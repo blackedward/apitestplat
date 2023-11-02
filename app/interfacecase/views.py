@@ -146,7 +146,8 @@ class GetCaseAssert(MethodView):
             res = []
             for i in interfacecaseassert:
                 res.append(i.to_json())
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+            ret = {"list": res, "total": len(interfacecaseassert)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -205,8 +206,8 @@ class GetCaseByMod(MethodView):
             if request.args.get("page_index"):
                 page_index = request.args.get('page_index')
             interfacecase = InterfaceCase.query.filter_by(model_id=model_id, status=1).paginate(int(page_index),
-                                                                                                  int(page_number),
-                                                                                                  False)
+                                                                                                int(page_number),
+                                                                                                False)
 
             if not interfacecase:
                 return reponse(code=MessageEnum.get_assert_error.value[0],
@@ -214,7 +215,7 @@ class GetCaseByMod(MethodView):
             res = []
             for i in interfacecase.items:
                 res.append(i.to_json())
-            ret = {"content": res, "total": interfacecase.per_page}
+            ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:
@@ -424,7 +425,7 @@ class GetCaseByProj(MethodView):
             res = []
             for i in interfacecase.items:
                 res.append(i.to_json())
-            ret = {"content": res, "total": interfacecase.per_page}
+            ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:

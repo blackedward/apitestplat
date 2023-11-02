@@ -223,7 +223,7 @@ class GetAllPrj(MethodView):
             for i in project.items:
                 rdata.append(i.to_json())
 
-            ret = {"content": rdata, "total": project.per_page}
+            ret = {"list": rdata, "total": len(project.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -346,7 +346,7 @@ class GetAllDb(MethodView):
                 else:
                     i.type = 'unknown'
                 rdata.append(i.to_json())
-            ret = {"content": rdata, "total": dbconf.per_page}
+            ret = {"list": rdata, "total": len(dbconf.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -479,7 +479,7 @@ class GetAllDf(MethodView):
             rdata = []
             for i in dbfac.items:
                 rdata.append(i.to_json())
-            ret = {"content": rdata, "total": dbfac.per_page}
+            ret = {"list": rdata, "total": len(dbfac.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -557,7 +557,7 @@ class GetConfForP(MethodView):
             rdata = []
             for i in envs:
                 rdata.append(i.to_json())
-            ret = {"content": rdata, "total": len(rdata)}
+            ret = {"list": rdata, "total": len(rdata)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -701,7 +701,7 @@ class GetAllModel(MethodView):
             rdata = []
             for i in model.items:
                 rdata.append(i.to_json())
-            ret = {"content": rdata, "total": model.per_page}
+            ret = {"list": rdata, "total": len(model.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -721,8 +721,9 @@ class GetModelByPrjId(MethodView):
             rdata = []
             for i in model:
                 rdata.append(i.to_json())
+            ret = {"list": rdata, "total": len(rdata)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
