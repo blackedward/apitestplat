@@ -295,7 +295,7 @@ class GetDbById(MethodView):
             rsdatat = {}
             rsdatat['id'] = dbconf.id
             rsdatat['db_name'] = dbconf.db_name
-            rsdatat['type'] = DBType(dbconf.type).name
+            rsdatat['type'] = dbconf.type
             rsdatat['desc'] = dbconf.desc
             rsdatat['url'] = dbconf.url
             rsdatat['username'] = dbconf.username
@@ -341,10 +341,6 @@ class GetAllDb(MethodView):
                                message=MessageEnum.db_search_error.value[1])
             rdata = []
             for i in dbconf.items:
-                if i.type:
-                    i.type = DBType(i.type).name
-                else:
-                    i.type = 'unknown'
                 rdata.append(i.to_json())
             ret = {"list": rdata, "total": len(dbconf.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
