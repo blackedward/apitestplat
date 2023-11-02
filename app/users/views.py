@@ -113,7 +113,7 @@ class FreezeUserView(MethodView):
                 if user.is_enable:
                     user.is_enable = False
                     db.session.commit()
-                    return reponse(code=MessageEnum.free_is_success.value[0], data="用户冻结成功",
+                    return reponse(code=MessageEnum.successs.value[0], data="用户冻结成功",
                                    message=MessageEnum.free_is_success.value[1])
                 else:
                     return reponse(code=MessageEnum.free_is_again.value[0], data="用户已经冻结，无需再次冻结",
@@ -141,7 +141,7 @@ class UnFreezeUserView(MethodView):
                 if not user.is_enable:
                     user.is_enable = True
                     db.session.commit()
-                    return reponse(code=MessageEnum.user_is_un_free.value[0], data="用户解冻成功",
+                    return reponse(code=MessageEnum.successs.value[0], data="用户解冻成功",
                                    message=MessageEnum.user_is_un_free.value[1])
                 else:
                     return reponse(code=MessageEnum.user_is_un_free.value[0], data="用户没有处于冻结状态",
@@ -195,7 +195,7 @@ class UserList(MethodView):
             if request.args.get("page_index"):
                 page_index = request.args.get('page_index')
 
-            users = User.query.filter_by(is_enable=1).paginate(int(page_index), int(page_number), False)
+            users = User.query.paginate(int(page_index), int(page_number), False)
             if not users:
                 return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
                                message=MessageEnum.login_user_not_exict_message.value[1])
