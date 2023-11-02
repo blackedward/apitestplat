@@ -259,7 +259,7 @@ class Precase(db.Model):
     update_time = db.Column(db.DateTime(), default=datetime.now())
 
     def __repr__(self):
-        return self.id
+        return str(self.id)
 
     def to_json(self):
         dict = self.__dict__
