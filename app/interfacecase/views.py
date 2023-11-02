@@ -319,14 +319,17 @@ class AddCase(MethodView):
             if not data:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            if data.get('precases') == 0:
+                rely_case = 0
+            else:
+                rely_case = 1
             if data.get('basicinfo') and data.get('requestinfo'):
                 interfacecase = InterfaceCase()
                 interfacecase.project_id = data.get('basicinfo')['project_id']
                 interfacecase.model_id = data.get('basicinfo')['model_id']
                 interfacecase.case_protocol = data.get('requestinfo')['caseprotcol']
-                interfacecase.is_relycase = data.get('basicinfo')['is_relycase']
-                interfacecase.rely_dbf = data.get('basicinfo')['rely_dbf']
+                interfacecase.is_relycase = rely_case
+                interfacecase.rely_dbf = data.get('relydbf') if data.get('relydbf') else 0
                 interfacecase.url = data.get('requestinfo')['url']
                 interfacecase.method = data.get('requestinfo')['method']
                 interfacecase.desc = data.get('basicinfo')['casedesc']
@@ -340,8 +343,10 @@ class AddCase(MethodView):
                 # interfacecase.raw_type = data.get('requestinfo')['raw_type']
                 # interfacecase.body_type = data.get('requestinfo')['body_type']
                 interfacecase.creater = current_user.user_id
-                interfacecase.created_time = data.get('basicinfo')['created_time']
-                interfacecase.update_time = data.get('basicinfo')['update_time']
+                # interfacecase.created_time = data.get('basicinfo')['created_time'] if data.get('basicinfo')[
+                #     'created_time'] else datetime.datetime.now()
+                # interfacecase.update_time = data.get('basicinfo')['update_time'] if data.get('basicinfo')[
+                #     'update_time'] else datetime.datetime.now()
                 interfacecase.source = 0
                 # interfacecase.import_no = data.get('basicinfo')['import_no']
 
