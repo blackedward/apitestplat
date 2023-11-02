@@ -20,15 +20,6 @@ class ExecuteHandler(object):
         self.is_single = False
         self.is_dbf = False
 
-    # def singleormulti(self, case_id=None):
-    #     if not case_id:
-    #         case_id = self.case_id
-    #     case = InterfaceCase.query.filter_by(case_id=case_id).first()
-    #     if case.is_relycase == 0:
-    #         self.is_single = True
-    #     else:
-    #         self.is_single = False
-
     def dbfconf(self, case_id=None):
         if not case_id:
             case_id = self.case_id
@@ -87,7 +78,7 @@ class ExecuteHandler(object):
         # 检查用例是否存在数据依赖并执行
         try:
             rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-            if not rely_dbf_id:
+            if not rely_dbf_id or rely_dbf_id == 0:
                 pass
             else:
                 dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
@@ -103,6 +94,7 @@ class ExecuteHandler(object):
         except Exception as e:
             logger.exception(e)
             return '{"result": "组装参数失败"}', None
+        logger.info('parameterdic is :{}', parameterdic)
         if parameterdic['protocol'] == 0:
             api = Api(url=parameterdic['case_url'],
                       method=parameterdic['case_method'],
@@ -127,12 +119,13 @@ class ExecuteHandler(object):
                 Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
                     parameterdic['uid'])[1]
             client = player.client
+            logger.info('parameterdic is :{}', parameterdic)
             starttime = datetime.datetime.now()
             client.send(parameterdic['case_req'], parameterdic['case_params'])
             msg = client.recv(parameterdic['case_rsp'])
             logger.info(msg.body)
             endtime = datetime.datetime.now()
-            spend = (endtime - starttime).seconds
+            spend = (endtime - starttime).total_seconds()
             res = self.judgecase(msg.body, case_id)[0]
             if res is True:
                 self.save_case_result(msg.body, case_id, ispass=True, testevir=env_id, spend=spend)
@@ -171,7 +164,7 @@ class ExecuteHandler(object):
         for i in precases:  # 执行前置用例
             precaseinfo = {}
             caseid = i.pre_case_id
-            extract_expression = i.extract_expression[3:]
+            extract_expression = i.extract_expression
             try:
                 exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
                 if not exerespon:
@@ -183,7 +176,7 @@ class ExecuteHandler(object):
                     elif res['result'] == '请求出错了':
                         return '{"result":"前置用例' + str(caseid) + '请求出错了"}', None
                     else:
-                        precaseinfo['extract_result'] = exerespon[1][extract_expression]
+                        precaseinfo['extract_result'] = exerespon[1][extract_expression[3:]]
                         precaseinfo['extract_expression'] = extract_expression
                         precaseinfo['pre_case_id'] = caseid
                         precasesinfos.append(precaseinfo)
@@ -198,11 +191,11 @@ class ExecuteHandler(object):
         except Exception as e:
             logger.exception(e)
             return '{"result": "组装参数失败"}', None
-        logger.info('precasesinfos is :{}', precasesinfos)
 
         for i in precasesinfos:  # 替换参数
             if i.get("extract_expression") in parameterdic['case_params']:
-                parameterdic['case_params'].replace(i.get("extract_expression"), i.get("extract_result"))
+                parameterdic['case_params'] = parameterdic['case_params'].replace(i.get("extract_expression"),
+                                                                                  str(i.get("extract_result")))
             else:
                 pass
 
@@ -226,7 +219,26 @@ class ExecuteHandler(object):
                 self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
                 return '{"result": "断言失败"}', apijson
         elif parameterdic['protocol'] == 1:
-            pass
+            pass  # todo grpc协议后续处理
+        elif parameterdic['protocol'] == 2:
+            player = \
+                Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
+                    parameterdic['uid'])[1]
+            client = player.client
+            logger.info('parameterdic is :{}', parameterdic)
+            starttime = datetime.datetime.now()
+            client.send(parameterdic['case_req'], parameterdic['case_params'])
+            msg = client.recv(parameterdic['case_rsp'])
+            logger.info(msg.body)
+            endtime = datetime.datetime.now()
+            spend = (endtime - starttime).total_seconds()
+            res = self.judgecase(msg.body, case_id)[0]
+            if res is True:
+                self.save_case_result(msg.body, case_id, ispass=True, testevir=env_id, spend=spend)
+                return '{"result": "断言通过"}', msg.body
+            else:
+                self.save_case_result(msg.body, case_id, ispass=False, testevir=env_id, spend=spend)
+                return '{"result": "断言失败"}', msg.body
         else:
             return '{"result": "协议错误"}', None
 
@@ -265,7 +277,7 @@ class ExecuteHandler(object):
                         assert_that(Decimal(result[i['expression']])).is_greater_than_or_equal_to(
                             Decimal(i['excepted_result']))
                     elif i['operator'] == 5:
-                        assert_that(str(result[i['expression']])).is_in(i['excepted_result'])
+                        assert_that(str(result[i['expression']])).is_equal_to(str(i['excepted_result']))
                     elif i['operator'] == 6:
                         assert_that(Decimal(result[i['expression']])).is_not_equal_to(Decimal(i['excepted_result']))
                     elif i['operator'] == 7:
@@ -326,11 +338,11 @@ class ExecuteHandler(object):
         elif case.case_protocol == 2:  # 处理socket协议的用例参数
             res['protocol'] = case.case_protocol
             res['case_req'] = case.socketreq
-            res['case_params'] = case.raw['req']
+            res['case_params'] = eval(case.raw)['req']
             res['case_rsp'] = case.socketrsp
             res['host'] = env.url
             res['port'] = env.port
-            res['uid'] = case.raw['uid']
+            res['uid'] = eval(case.raw)['uid']
         elif case.case_protocol == 3:
             pass  # todo 处理ws协议的用例
         else:

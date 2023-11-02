@@ -2,7 +2,7 @@ from flask_login import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db
-import datetime
+from datetime import datetime
 
 
 class Permisson:
@@ -20,8 +20,8 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     job_number = db.Column(db.String(10))
     is_enable = db.Column(db.Boolean(), default=True)
-    created_time = db.Column(db.DateTime(), default=datetime.datetime.now())
-    update_time = db.Column(db.DateTime(), default=datetime.datetime.now())
+    created_time = db.Column(db.DateTime(), default=datetime.now())
+    update_time = db.Column(db.DateTime(), default=datetime.now())
     real_name = db.Column(db.String(20))
     role_id = db.Column(db.Integer())
     project = db.relationship('Project', backref='users', lazy='dynamic')
@@ -50,6 +50,12 @@ class User(db.Model):
 
     def get_id(self):
         return self.user_id
+
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
 
 
 class Project(db.Model):
@@ -183,7 +189,7 @@ class InterfaceCase(db.Model):
     __tablename__ = 't_interface_case'
     case_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     project_id = db.Column(db.Integer, db.ForeignKey('t_projects.id'))
-    module_id = db.Column(db.Integer, db.ForeignKey('t_models.id'))
+    model_id = db.Column(db.Integer, db.ForeignKey('t_models.id'))
     case_protocol = db.Column(db.Integer)
     is_relycase = db.Column(db.Boolean(), default=False)
     rely_dbf = db.Column(db.Integer, db.ForeignKey('t_datafactory.id'))
@@ -200,10 +206,11 @@ class InterfaceCase(db.Model):
     raw_type = db.Column(db.String(20))
     body_type = db.Column(db.Integer)
     creater = db.Column(db.Integer, db.ForeignKey('t_user.user_id'))
-    created_time = db.Column(db.DateTime(), default=datetime.datetime.now())
-    update_time = db.Column(db.DateTime(), default=datetime.datetime.now())
+    created_time = db.Column(db.DateTime(), default=datetime.now())
+    update_time = db.Column(db.DateTime(), default=datetime.now())
     source = db.Column(db.Integer)
     import_no = db.Column(db.Integer)
+    status = db.Column(db.Boolean(), default=True)
     case_assert = db.relationship('InterfaceCaseAssert', backref='interfacecase', lazy='dynamic')
     precase = db.relationship('Precase', backref='interfacecase', lazy='dynamic')
 
@@ -227,8 +234,8 @@ class InterfaceCaseAssert(db.Model):
     operator = db.Column(db.Integer)
     excepted_result = db.Column(db.String(1000))
     order = db.Column(db.Integer)
-    created_time = db.Column(db.DateTime(), default=datetime.datetime.now())
-    update_time = db.Column(db.DateTime(), default=datetime.datetime.now())
+    created_time = db.Column(db.DateTime(), default=datetime.now())
+    update_time = db.Column(db.DateTime(), default=datetime.now())
 
     def __repr__(self):
         return self.assert_name
@@ -248,8 +255,8 @@ class Precase(db.Model):
     pre_case_id = db.Column(db.Integer)
     order = db.Column(db.Integer)
     status = db.Column(db.Boolean(), default=True)
-    created_time = db.Column(db.DateTime(), default=datetime.datetime.now())
-    update_time = db.Column(db.DateTime(), default=datetime.datetime.now())
+    created_time = db.Column(db.DateTime(), default=datetime.now())
+    update_time = db.Column(db.DateTime(), default=datetime.now())
 
     def __repr__(self):
         return self.id
@@ -268,7 +275,7 @@ class TestcaseResult(db.Model):  # 测试用例结果
     result = db.Column(db.Text(65536))
     ispass = db.Column(db.Boolean(), default=False)
     spend = db.Column(db.String(52))
-    date = db.Column(db.DateTime(), default=datetime.datetime.now())
+    date = db.Column(db.DateTime, default=datetime.now())
     testevent_id = db.Column(db.Integer, db.ForeignKey('t_environment.id'))
 
     def __repr__(self):

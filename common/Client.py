@@ -102,16 +102,17 @@ class Client(object):
         start_time = time.time()
         print("attempting to connect to %s on port %s" % (host, port))
         try:
-            self.socket.connect((host, port))
+            self.socket.connect((host, int(port)))
             print("connected")
             self.isStop = False
             total_time = int((time.time() - start_time) * 1000)
-            events.request_success.fire(request_type='socket', name='connect', response_time=total_time,
+            events.request.fire(request_type='socket', name='connect', response_time=total_time,
                                         response_length=0)
         except Exception as e:
+            logger.error(traceback.format_exc())
             print("connected failed")
             total_time = int((time.time() - start_time) * 1000)
-            events.request_failure.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
+            events.request.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
                                         response_length=0)
             return False
         self.recvBuffer = bytes()
@@ -194,14 +195,14 @@ class Client(object):
                 if timeoutCode == 0:
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
-                    events.request_failure.fire(request_type="socket", name=name, response_time=total_time, exception=e,
+                    events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
                                                 response_length=0)
                     raise (e)
                     # assert (pass_time < timeout), 'time out'
                 else:
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
-                    events.request_failure.fire(request_type="socket", name=name, response_time=total_time, exception=e,
+                    events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
                                                 response_length=0)
                     return timeoutCode
             # 先挂起,等收到消息再唤醒
@@ -249,7 +250,7 @@ class Client(object):
                                 break
         if (isinstance(name, str)):
             total_time = int((time.time() - start_time) * 1000)
-            events.request_success.fire(request_type="socket", name=name, response_time=total_time, response_length=0)
+            events.request.fire(request_type="socket", name=name, response_time=total_time, response_length=0)
         return msg
 
     # 接受全部數據包信息
@@ -390,12 +391,16 @@ class Client(object):
             logger.error(" no such pb." + name)
             return None
 
-
-if __name__ == '__main__':
-    from common.player import Player
-
-    player = Player()
-    client = Client(uid=2507859, host='beta12s.kkpoker.co', port='4000')
-    result = player.login_by_username("bba1", "wwwww1")
-    # result2 = Player().login_by_uid(2955)
-    # resault = Client(2955)
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
+# if __name__ == '__main__':
+#     from common.player import Player
+#
+#     player = Player()
+#     client = Client(uid=2507859, host='beta12s.kkpoker.co', port='4000')
+#     result = player.login_by_username("bba1", "wwwww1")
+#     # result2 = Player().login_by_uid(2955)
+#     # resault = Client(2955)

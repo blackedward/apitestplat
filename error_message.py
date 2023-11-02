@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class MessageEnum(Enum):
-    successs = 200, "成功"
+    successs = 0, "成功"
     login_username_not_message = 100001, "用户名没有输入"
     login_password_not_message = 100002, '密码没有输入'
     login_user_inactivatesd = 100003, '用户未激活,请联系管理员激活'

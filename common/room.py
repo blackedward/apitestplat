@@ -4,7 +4,7 @@ import requests
 from enum import Enum, unique
 from lib.utils import *
 from lib.CustomException import TimeOutException
-from log import logger
+from common.log import logger
 import traceback
 
 

@@ -1,3 +1,6 @@
+import traceback
+from enum import Enum
+
 from flask import Blueprint, typing as ft, render_template, jsonify
 from flask import redirect, request, session, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
@@ -8,7 +11,7 @@ from flask.views import View, MethodView
 from common.exesql import ExeSql
 from common.jsontools import reponse
 from error_message import MessageEnum
-from common.systemlog import logger
+from common.log import logger
 
 project = Blueprint('project', __name__)
 
@@ -40,7 +43,7 @@ class CreateProject(MethodView):
                 return reponse(code=MessageEnum.permiss_is_ness.value[0],
                                message=MessageEnum.permiss_is_ness.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_add_error.value[0],
                            message=MessageEnum.project_add_error.value[1])
 
@@ -69,7 +72,7 @@ class DeleteProject(MethodView):
                 return reponse(code=MessageEnum.permiss_is_ness.value[0],
                                message=MessageEnum.permiss_is_ness.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.cobfig_delete_error.value[0],
                            message=MessageEnum.cobfig_delete_error.value[1])
 
@@ -93,13 +96,72 @@ class UpdateProject(MethodView):
                                message=MessageEnum.project_search.value[1])
             if current_user.role_id == 2:
                 project.project_name = project_name
-                db.session.commit()
+                try:
+                    db.session.commit()
+                except Exception as e:
+                    db.session.rollback()
+                    logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.edit_fial.value[0],
+                                   message=MessageEnum.edit_fial.value[1])
+                if not data.get('envs'):
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+                else:
+                    newenvs = data.get('envs')
+                    oldnenvs = Environment.query.filter_by(project=project_id, status=1).all()
+                    for i in newenvs:
+                        if i.get('envid'):
+                            env = Environment.query.filter_by(id=i.get('envid')).first()
+                            env.name = i.get('name')
+                            env.url = i.get('url')
+                            env.port = i.get('port')
+                            env.protocol = i.get('protocol')
+                            env.desc = i.get('desc')
+                            env.project = project_id
+                            env.make_user = current_user.user_id
+                            env.status = 1
+                            try:
+                                db.session.commit()
+                            except Exception as e:
+                                db.session.rollback()
+                                logger.error(traceback.format_exc())
+                                return reponse(code=MessageEnum.edit_fial.value[0],
+                                               message=MessageEnum.edit_fial.value[1])
+                        else:
+                            env = Environment()
+                            env.name = i.get('name')
+                            env.url = i.get('url')
+                            env.port = i.get('port')
+                            env.protocol = i.get('protocol')
+                            env.desc = i.get('desc')
+                            env.project = project_id
+                            env.make_user = current_user.user_id
+                            env.status = 1
+                            try:
+                                db.session.add(env)
+                                db.session.commit()
+                            except Exception as e:
+                                db.session.rollback()
+                                logger.error(traceback.format_exc())
+                                return reponse(code=MessageEnum.edit_fial.value[0],
+                                               message=MessageEnum.edit_fial.value[1])
+                    for j in oldnenvs:
+                        logger.info(j.id)
+                        logger.info(newenvs)
+                        if not any(j.id == d.get('envid') for d in newenvs):
+                            j.status = 0
+                            try:
+                                db.session.commit()
+                            except Exception as e:
+                                db.session.rollback()
+                                logger.error(traceback.format_exc())
+                                return reponse(code=MessageEnum.edit_fial.value[0],
+                                               message=MessageEnum.edit_fial.value[1])
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
             else:
                 return reponse(code=MessageEnum.permiss_is_ness.value[0],
                                message=MessageEnum.permiss_is_ness.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.edit_fial.value[0],
                            message=MessageEnum.edit_fial.value[1])
 
@@ -118,7 +180,7 @@ class GetPrjById(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_search.value[0],
                            message=MessageEnum.project_search.value[1])
 
@@ -137,7 +199,7 @@ class GetPrjByName(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_search.value[0],
                            message=MessageEnum.project_search.value[1])
 
@@ -160,10 +222,12 @@ class GetAllPrj(MethodView):
             rdata = []
             for i in project.items:
                 rdata.append(i.to_json())
+
+            ret = {"content": rdata, "total": project.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_search.value[0],
                            message=MessageEnum.project_search.value[1])
 
@@ -204,17 +268,20 @@ class CreateDb(MethodView):
             dbconf.prod_url = data.get('prod_url')
             dbconf.prod_username = data.get('prod_username')
             dbconf.prod_password = data.get('prod_password')
-            dbconf.prod_url = data.get('prod_url')
-            dbconf.prod_username = data.get('prod_username')
-            dbconf.prod_password = data.get('prod_password')
 
             db.session.add(dbconf)
             db.session.commit()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.db_cr_error.value[0],
                            message=MessageEnum.db_cr_error.value[1])
+
+
+class DBType(Enum):
+    MYSQL = 0
+    ORACLE = 1
+    SQLSERVER = 2
 
 
 class GetDbById(MethodView):
@@ -228,7 +295,7 @@ class GetDbById(MethodView):
             rsdatat = {}
             rsdatat['id'] = dbconf.id
             rsdatat['db_name'] = dbconf.db_name
-            rsdatat['type'] = dbconf.type
+            rsdatat['type'] = DBType(dbconf.type).name
             rsdatat['desc'] = dbconf.desc
             rsdatat['url'] = dbconf.url
             rsdatat['username'] = dbconf.username
@@ -252,7 +319,7 @@ class GetDbById(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.db_search_error.value[0],
                            message=MessageEnum.db_search_error.value[1])
 
@@ -274,11 +341,16 @@ class GetAllDb(MethodView):
                                message=MessageEnum.db_search_error.value[1])
             rdata = []
             for i in dbconf.items:
+                if i.type:
+                    i.type = DBType(i.type).name
+                else:
+                    i.type = 'unknown'
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": dbconf.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.db_search_error.value[0],
                            message=MessageEnum.db_search_error.value[1])
 
@@ -314,15 +386,12 @@ class ModifyDb(MethodView):
             dbconf.prod_url = data.get('prod_url')
             dbconf.prod_username = data.get('prod_username')
             dbconf.prod_password = data.get('prod_password')
-            dbconf.prod_url = data.get('prod_url')
-            dbconf.prod_username = data.get('prod_username')
-            dbconf.prod_password = data.get('prod_password')
 
             db.session.add(dbconf)
             db.session.commit()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.db_edit_error.value[0],
                            message=MessageEnum.db_edit_error.value[1])
 
@@ -358,7 +427,7 @@ class CreateDbfac(MethodView):
             db.session.commit()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.dbfac_cr_error.value[0],
                            message=MessageEnum.dbfac_cr_error.value[1])
 
@@ -387,7 +456,7 @@ class GetFacByid(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.dbfac_search_error.value[0],
                            message=MessageEnum.dbfac_search_error.value[1])
 
@@ -410,10 +479,11 @@ class GetAllDf(MethodView):
             rdata = []
             for i in dbfac.items:
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": dbfac.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.dbfac_search_error.value[0],
                            message=MessageEnum.dbfac_search_error.value[1])
 
@@ -445,7 +515,7 @@ class ModifyDbf(MethodView):
             db.session.commit()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.dbfac_edit_error.value[0],
                            message=MessageEnum.dbfac_edit_error.value[1])
 
@@ -473,7 +543,7 @@ class CreateEnv(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.env_cr_error.value[0],
                            message=MessageEnum.env_cr_error.value[1])
 
@@ -487,10 +557,11 @@ class GetConfForP(MethodView):
             rdata = []
             for i in envs:
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": len(rdata)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.env_search_error.value[0],
                            message=MessageEnum.env_search_error.value[1])
 
@@ -528,7 +599,7 @@ class ModifyProConf(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.env_edit_error.value[0],
                            message=MessageEnum.env_edit_error.value[1])
 
@@ -559,7 +630,7 @@ class CreateModel(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_edit_fial.value[0],
                            message=MessageEnum.model_edit_fial.value[1])
 
@@ -585,7 +656,7 @@ class ModifyModel(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.edit_model_error.value[0],
                            message=MessageEnum.edit_model_error.value[1])
 
@@ -607,7 +678,7 @@ class GetModelById(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
                            message=MessageEnum.model_not_exict.value[1])
 
@@ -630,10 +701,11 @@ class GetAllModel(MethodView):
             rdata = []
             for i in model.items:
                 rdata.append(i.to_json())
+            ret = {"content": rdata, "total": model.per_page}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=rdata)
+                           data=ret)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
                            message=MessageEnum.model_not_exict.value[1])
 
@@ -652,7 +724,7 @@ class GetModelByPrjId(MethodView):
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rdata)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
                            message=MessageEnum.model_not_exict.value[1])
 
@@ -702,6 +774,61 @@ class ExeDbFac(MethodView):
             result = exesql.exe_sql(toexecsql)
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=result)
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_sql_query_error.value[0],
                            message=MessageEnum.test_sql_query_error.value[1])
+
+
+class AddProject(MethodView):
+    @login_required
+    def post(self):
+        data = request.get_json()
+        if not data or not data.get('projectname'):
+            return reponse(code=MessageEnum.parames_not_null.value[0],
+                           message=MessageEnum.parames_not_null.value[1])
+        try:
+            project = Project.query.filter_by(project_name=data.get('projectname')).first()
+            if project:
+                return reponse(code=MessageEnum.project_only_one.value[0],
+                               message=MessageEnum.project_only_one.value[1])
+            project = Project()
+            project.project_name = data.get('projectname')
+            project.project_user_id = current_user.user_id
+            project.status = 1
+            try:
+                db.session.add(project)
+                db.session.flush()
+                project_id = project.id
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.project_add_error.value[0],
+                               message=MessageEnum.project_add_error.value[1])
+
+            if data.get('envs'):
+
+                for i in data.get('envs'):
+                    env = Environment()
+                    env.name = i.get('envname')
+                    env.make_user = current_user.user_id
+                    env.url = i.get('url')
+                    env.port = i.get('port')
+                    env.protocol = i.get('protocol')
+                    env.desc = i.get('desc')
+                    env.project = project_id
+                    env.status = 1
+
+                    db.session.add(env)
+                try:
+                    db.session.commit()
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+                except Exception as e:
+                    db.session.rollback()
+                    logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.project_add_error.value[0],
+                                   message=MessageEnum.project_add_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.project_add_error.value[0],
+                           message=MessageEnum.project_add_error.value[1])

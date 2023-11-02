@@ -24,7 +24,12 @@ class BaseConfig(object):
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
-
+    SQLALCHEMY_ECHO = False
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:Kiwitest!1025@localhost:3306/Ktest?charset=utf8mb4"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = 'production&*12808@$!3'
+    SESSION_TYPE = 'redis'
+    SESSION_REDIS = 'redis://localhost:6379/0'
 
 class DevelopmentConfig:
     DEBUG = True

@@ -4,7 +4,7 @@ from common.requestoper import requesttool
 from common.systemlog import logger
 
 
-class Api():
+class Api:
     def __init__(self, url, method, params, headers):
         self.url = url
         self.fangsh = method
@@ -14,7 +14,6 @@ class Api():
         self.response = []
 
     def testapi(self):
-
         try:
             if self.fangsh == 'POST' or self.fangsh == 'post':
 
@@ -23,7 +22,7 @@ class Api():
                                                  headers=json.loads(self.headers))
 
             elif self.fangsh == 'GET' or self.fangsh == 'get':
-                if self.param == '':
+                if self.param is None or self.param == "":
                     response, spend = self.requ.get(url=self.url, headers=json.loads(self.headers))
                 else:
                     response, spend = self.requ.get(url=self.url, headers=json.loads(self.headers),
