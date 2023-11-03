@@ -261,7 +261,9 @@ class GetCaseByMod(MethodView):
                                message=MessageEnum.get_assert_error.value[1])
             res = []
             for i in interfacecase.items:
-                res.append(i.to_json())
+                tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
+                        'creator': i.creater}
+                res.append(tdic)
             ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
@@ -476,7 +478,9 @@ class GetCaseByProj(MethodView):
                                message=MessageEnum.get_assert_error.value[1])
             res = []
             for i in interfacecase.items:
-                res.append(i.to_json())
+                tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
+                        'creator': i.creater}
+                res.append(tdic)
             ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
@@ -717,3 +721,46 @@ class Getprecase(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_pre_case_error.value[0],
                            message=MessageEnum.get_pre_case_error.value[1])
+
+
+class Getcasedetail(MethodView):
+    @login_required
+    def get(self):
+        try:
+            case_id = request.args.get('case_id')
+            if not case_id:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            interfacecase = InterfaceCase.query.filter_by(case_id=case_id, status=1).first()
+            if interfacecase:
+                basicinfo = {'case_id': interfacecase.case_id, 'project_id': interfacecase.project_id,
+                             'model_id': interfacecase.model_id, 'desc': interfacecase.desc,
+                             'creator': interfacecase.creater}
+                requestinfo = {'caseprotcol': interfacecase.case_protocol, 'url': interfacecase.url,
+                               'method': interfacecase.method, 'headers': interfacecase.headers,
+                               'params': interfacecase.params, 'socketreq': interfacecase.socketreq,
+                               'socketrsp': interfacecase.socketrsp, 'raw': interfacecase.raw}
+                relydbf = interfacecase.rely_dbf
+            else:
+                return reponse(code=MessageEnum.get_case_detail_error.value[0],
+                               message=MessageEnum.get_case_detail_error.value[1])
+            precases = Precase.query.filter_by(parent_case_id=case_id, status=1).all()
+            precasedata = []
+            if precases:
+                for i in precases:
+                    precasedata.append(i.to_json())
+
+            asserts = InterfaceCaseAssert.query.filter_by(case_id=case_id, status=1).all()
+            assertdata = []
+            if asserts:
+                for i in asserts:
+                    assertdata.append(i.to_json())
+
+            ret = {'basicinfo': basicinfo, 'requestinfo': requestinfo, 'precases': precasedata, 'asserts': assertdata,
+                   'relydbf': relydbf}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_case_detail_error.value[0],
+                           message=MessageEnum.get_case_detail_error.value[1])

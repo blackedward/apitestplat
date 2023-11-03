@@ -218,3 +218,4 @@ class MessageEnum(Enum):
     add_pre_case_error = 100211, '添加前置用例异常'
     assert_fail = 100212, '断言失败'
     update_pre_case_error = 100213, '更新前置用例异常'
+    get_case_detail_error = 100214, '获取用例详情异常'
