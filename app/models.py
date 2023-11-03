@@ -234,6 +234,7 @@ class InterfaceCaseAssert(db.Model):
     operator = db.Column(db.Integer)
     excepted_result = db.Column(db.String(1000))
     order = db.Column(db.Integer)
+    status = db.Column(db.Boolean(), default=True)
     created_time = db.Column(db.DateTime(), default=datetime.now())
     update_time = db.Column(db.DateTime(), default=datetime.now())
 

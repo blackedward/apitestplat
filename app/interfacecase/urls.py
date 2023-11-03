@@ -11,5 +11,14 @@ interfacecase.add_url_rule("/addprecase", view_func=AddPreCase.as_view('addpreca
 interfacecase.add_url_rule("/addcase", view_func=AddCase.as_view('addcase'))
 interfacecase.add_url_rule("/getcasebyproj", view_func=GetCaseByProj.as_view('getcasebyproj'))
 interfacecase.add_url_rule("/updateprecase", view_func=Updateprecase.as_view('updateprecase'))
+interfacecase.add_url_rule("/updatecasebase", view_func=Updatecasebase.as_view('updatecasebase'))
+interfacecase.add_url_rule("/updatecasereq", view_func=Updatecasereq.as_view('updatecasereq'))
+interfacecase.add_url_rule("/updatecasesql", view_func=Updatecasesql.as_view('updatecasesql'))
+interfacecase.add_url_rule("/getprecase", view_func=Getprecase.as_view('getprecase'))
+
+
+
+
+
 
 

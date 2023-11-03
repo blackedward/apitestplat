@@ -140,7 +140,7 @@ class GetCaseAssert(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            interfacecaseassert = InterfaceCaseAssert.query.filter_by(case_id=case_id).all()
+            interfacecaseassert = InterfaceCaseAssert.query.filter_by(case_id=case_id, status=1).all()
             if not interfacecaseassert:
                 return reponse(code=MessageEnum.get_assert_error.value[0],
                                message=MessageEnum.get_assert_error.value[1])
@@ -164,29 +164,75 @@ class ModifyAssert(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            interfacecaseassert = InterfaceCaseAssert.query.filter_by(assert_id=data.get('assert_id')).first()
-            if not interfacecaseassert:
-                return reponse(code=MessageEnum.edit_assert_error.value[0],
-                               message=MessageEnum.edit_assert_error.value[1])
-
-            interfacecaseassert.assert_name = data.get('assert_name')
-            interfacecaseassert.case_id = data.get('case_id')
-            interfacecaseassert.type = data.get('type')
-            interfacecaseassert.expression = data.get('expression')
-            interfacecaseassert.operator = data.get('operator')
-            interfacecaseassert.excepted_result = data.get('excepted_result')
-            interfacecaseassert.order = data.get('order')
-            interfacecaseassert.created_time = data.get('created_time')
-            interfacecaseassert.update_time = data.get('update_time')
-            try:
-                db.session.add(interfacecaseassert)
-                db.session.commit()
+            olddata = InterfaceCaseAssert.query.filter_by(case_id=data.get('caseid')).all()
+            oldassertids = []
+            for i in olddata:
+                oldassertids.append(i.assert_id)
+            newdata = data.get('asserts')
+            if not newdata or len(newdata) == 0:
+                for j in oldassertids:
+                    logger.info('old assertid:{} not in newasserts', j)
+                    interfacecaseassert = InterfaceCaseAssert.query.filter_by(assert_id=j).first()
+                    interfacecaseassert.status = 0
+                    interfacecaseassert.update_time = datetime.now()
+                    try:
+                        db.session.commit()
+                    except Exception as e:
+                        logger.error(traceback.format_exc())
+                        return reponse(code=MessageEnum.edit_assert_error.value[0],
+                                       message=MessageEnum.edit_assert_error.value[1])
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                return reponse(code=MessageEnum.edit_assert_error.value[0],
-                               message=MessageEnum.edit_assert_error.value[1])
-
+            logger.info("老数据是：{}".format(oldassertids))
+            for i in newdata:
+                if i['assert_id'] and i['assert_id'] in oldassertids:
+                    logger.info('新传过来的 assertid:{}  在老数据里，是更新操作', i['assert_id'])
+                    interfacecaseassert = InterfaceCaseAssert.query.filter_by(assert_id=i['assert_id']).first()
+                    interfacecaseassert.assert_name = i['desc']
+                    interfacecaseassert.case_id = data.get('caseid')
+                    interfacecaseassert.type = 0
+                    interfacecaseassert.expression = i['exp']
+                    interfacecaseassert.operator = i['operator']
+                    interfacecaseassert.excepted_result = i['expres']
+                    interfacecaseassert.order = i['sort_id']
+                    interfacecaseassert.update_time = datetime.now()
+                    try:
+                        db.session.commit()
+                    except Exception as e:
+                        logger.error(traceback.format_exc())
+                        return reponse(code=MessageEnum.edit_assert_error.value[0],
+                                       message=MessageEnum.edit_assert_error.value[1])
+                else:
+                    logger.info('old assertid:{} not in newasserts', i['assert_id'])
+                    interfacecaseassert = InterfaceCaseAssert()
+                    interfacecaseassert.assert_name = i['desc']
+                    interfacecaseassert.case_id = data.get('caseid')
+                    interfacecaseassert.type = 0
+                    interfacecaseassert.expression = i['exp']
+                    interfacecaseassert.operator = i['operator']
+                    interfacecaseassert.excepted_result = i['expres']
+                    interfacecaseassert.order = i['sort_id']
+                    interfacecaseassert.created_time = datetime.now()
+                    interfacecaseassert.update_time = datetime.now()
+                    try:
+                        db.session.add(interfacecaseassert)
+                        db.session.commit()
+                    except Exception as e:
+                        logger.error(traceback.format_exc())
+                        return reponse(code=MessageEnum.edit_assert_error.value[0],
+                                       message=MessageEnum.edit_assert_error.value[1])
+            for j in oldassertids:
+                if j not in [i['assert_id'] for i in newdata]:
+                    logger.info('old assertid:{} not in newasserts', j)
+                    interfacecaseassert = InterfaceCaseAssert.query.filter_by(assert_id=j).first()
+                    interfacecaseassert.status = 0
+                    interfacecaseassert.update_time = datetime.now()
+                    try:
+                        db.session.commit()
+                    except Exception as e:
+                        logger.error(traceback.format_exc())
+                        return reponse(code=MessageEnum.edit_assert_error.value[0],
+                                       message=MessageEnum.edit_assert_error.value[1])
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.edit_assert_error.value[0], message=MessageEnum.edit_assert_error.value[1])
@@ -454,7 +500,7 @@ class Updateprecase(MethodView):
                 for i in olddata:
                     oldprecaseid.append(i.pre_case_id)
             newdata = data.get('precases')
-            if not newdata:
+            if not newdata or len(newdata) == 0:
                 for j in oldprecaseid:
                     logger.info('old precaseid:{} not in newprecases', j)
                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
@@ -468,9 +514,18 @@ class Updateprecase(MethodView):
                         db.session.rollback()
                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
                                        message=MessageEnum.update_pre_case_error.value[1])
+                    interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+                    interfacecase.is_relycase = 0
+                    interfacecase.update_time = datetime.now()
+                    try:
+                        db.session.commit()
+                    except Exception as e:
+                        logger.error(traceback.format_exc())
+                        db.session.rollback()
+                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
+                                       message=MessageEnum.update_pre_case_error.value[1])
                 return reponse(code=MessageEnum.successs.value[0],
                                message=MessageEnum.successs.value[1])
-            logger.info('old precaseids:{}', oldprecaseid)
             for i in newdata:
                 if i.get('pre_case_id') in oldprecaseid:
                     logger.info('precaseid:{} in oldprecases', i.get('pre_case_id'))
@@ -523,3 +578,142 @@ class Updateprecase(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.update_pre_case_error.value[0],
                            message=MessageEnum.update_pre_case_error.value[1])
+
+
+class Updatecasebase(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            baseinfo = data.get('basicinfo')
+            interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+            if not interfacecase:
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            interfacecase.project_id = baseinfo['project_id']
+            interfacecase.model_id = baseinfo['model_id']
+            interfacecase.desc = baseinfo['casedesc']
+            interfacecase.update_time = datetime.now()
+            interfacecase.creater = current_user.user_id
+            try:
+                db.session.commit()
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            db.session.rollback()
+            return reponse(code=MessageEnum.case_edit_error.value[0],
+                           message=MessageEnum.case_edit_error.value[1])
+
+
+class Updatecasereq(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            requestinfo = data.get('requestinfo')
+            interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+            if not interfacecase:
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            interfacecase.case_protocol = requestinfo['caseprotcol']
+            interfacecase.url = requestinfo['url']
+            interfacecase.method = requestinfo['method']
+            interfacecase.headers = requestinfo['headers']
+            interfacecase.params = requestinfo['params']
+            interfacecase.socketreq = requestinfo['socketreq']
+            interfacecase.socketrsp = requestinfo['socketrsp']
+            interfacecase.raw = requestinfo['raw']
+            interfacecase.update_time = datetime.now()
+            interfacecase.creater = current_user.user_id
+            try:
+                db.session.commit()
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            db.session.rollback()
+            return reponse(code=MessageEnum.case_edit_error.value[0],
+                           message=MessageEnum.case_edit_error.value[1])
+
+
+class Updatecasesql(MethodView):
+    @login_required
+    def post(self):
+
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+            if not data.get('relydbf') or data.get('relydbf') is None:
+                interfacecase.rely_dbf = 0
+                try:
+                    db.session.commit()
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    db.session.rollback()
+                    return reponse(code=MessageEnum.case_edit_error.value[0],
+                                   message=MessageEnum.case_edit_error.value[1])
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
+            if not interfacecase:
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            interfacecase.rely_dbf = data.get('relydbf')
+            interfacecase.update_time = datetime.now()
+            interfacecase.creater = current_user.user_id
+            try:
+                db.session.commit()
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.case_edit_error.value[0],
+                               message=MessageEnum.case_edit_error.value[1])
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            db.session.rollback()
+            return reponse(code=MessageEnum.case_edit_error.value[0],
+                           message=MessageEnum.case_edit_error.value[1])
+
+
+class Getprecase(MethodView):
+    @login_required
+    def get(self):
+        try:
+            case_id = request.args.get('case_id')
+            if not case_id:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            precases = Precase.query.filter_by(parent_case_id=case_id, status=1).all()
+            if not precases:
+                return reponse(code=MessageEnum.get_pre_case_error.value[0],
+                               message=MessageEnum.get_pre_case_error.value[1])
+            res = []
+            for i in precases:
+                res.append(i.to_json())
+            ret = {"list": res, "total": len(precases)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_pre_case_error.value[0],
+                           message=MessageEnum.get_pre_case_error.value[1])
