@@ -194,6 +194,7 @@ class ModifyAssert(MethodView):
                     interfacecaseassert.operator = i['operator']
                     interfacecaseassert.excepted_result = i['expres']
                     interfacecaseassert.order = i['sort_id']
+                    interfacecaseassert.status = 1
                     interfacecaseassert.update_time = datetime.now()
                     try:
                         db.session.commit()
