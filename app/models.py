@@ -28,7 +28,9 @@ class User(db.Model):
     interfacecase = db.relationship('InterfaceCase', backref='users', lazy='dynamic')
 
     def __repr__(self):
-        return str(self.user_id) + self.username
+        # return str(self.user_id) + self.username
+
+        return self.username
 
     def is_administrator(self):
         return self.can(Permisson.ADMIN)

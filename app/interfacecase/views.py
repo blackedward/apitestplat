@@ -262,15 +262,21 @@ class GetCaseByMod(MethodView):
                                message=MessageEnum.get_assert_error.value[1])
             res = []
             for i in interfacecase.items:
+                cr = User.query.filter_by(user_id=i.creater).first().username
+                # logger.info(type(cr))
+                pn = Project.query.filter_by(id=i.project_id).first().project_name
+                mn = Model.query.filter_by(id=i.model_id).first().model_name
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
-                        'creator': i.creater}
+                        'project_name': pn, 'creator': cr,
+                        'model_name': mn}
                 res.append(tdic)
             ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
+            return reponse(code=MessageEnum.not_find_your_case.value[0],
+                           message=MessageEnum.not_find_your_case.value[1])
 
 
 class ExecuteCase(MethodView):
@@ -479,8 +485,10 @@ class GetCaseByProj(MethodView):
                                message=MessageEnum.get_assert_error.value[1])
             res = []
             for i in interfacecase.items:
+                cr = User.query.filter_by(user_id=i.creater).first().username
+                pn = Project.query.filter_by(id=i.project_id).first().project_name
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
-                        'creator': i.creater}
+                        'creator': cr, 'project_name': pn}
                 res.append(tdic)
             ret = {"list": res, "total": len(interfacecase.items)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
@@ -735,9 +743,10 @@ class Getcasedetail(MethodView):
 
             interfacecase = InterfaceCase.query.filter_by(case_id=case_id, status=1).first()
             if interfacecase:
+                creator = User.query.filter_by(user_id=interfacecase.creater).first().username
                 basicinfo = {'case_id': interfacecase.case_id, 'project_id': interfacecase.project_id,
                              'model_id': interfacecase.model_id, 'desc': interfacecase.desc,
-                             'creator': interfacecase.creater}
+                             'creator': creator}
                 requestinfo = {'caseprotcol': interfacecase.case_protocol, 'url': interfacecase.url,
                                'method': interfacecase.method, 'headers': interfacecase.headers,
                                'params': interfacecase.params, 'socketreq': interfacecase.socketreq,
