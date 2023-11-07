@@ -652,8 +652,18 @@ class Updatecasereq(MethodView):
             interfacecase.case_protocol = requestinfo['caseprotcol']
             interfacecase.url = requestinfo['url']
             interfacecase.method = requestinfo['method']
-            interfacecase.headers = requestinfo['headers']
-            interfacecase.params = requestinfo['params']
+            if requestinfo['headers']:
+                headers = {}
+                requestheaders = json.loads(requestinfo['headers'])
+                for i in requestheaders:
+                    headers[i['name']] = i['value']
+                interfacecase.headers = json.dumps(headers)
+            if requestinfo['params']:
+                params = {}
+                requestparams = json.loads(requestinfo['params'])
+                for i in requestparams:
+                    params[i['name']] = i['value']
+                interfacecase.params = json.dumps(params)
             interfacecase.socketreq = requestinfo['socketreq']
             interfacecase.socketrsp = requestinfo['socketrsp']
             interfacecase.raw = requestinfo['raw']
