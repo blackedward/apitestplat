@@ -270,7 +270,7 @@ class GetCaseByMod(MethodView):
                         'project_name': pn, 'creator': cr,
                         'model_name': mn}
                 res.append(tdic)
-            ret = {"list": res, "total": len(interfacecase.items)}
+            ret = {"list": res, "total": interfacecase.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:
@@ -490,7 +490,7 @@ class GetCaseByProj(MethodView):
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
                         'creator': cr, 'project_name': pn}
                 res.append(tdic)
-            ret = {"list": res, "total": len(interfacecase.items)}
+            ret = {"list": res, "total": interfacecase.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:

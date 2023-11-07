@@ -223,7 +223,7 @@ class GetAllPrj(MethodView):
             for i in project.items:
                 rdata.append(i.to_json())
 
-            ret = {"list": rdata, "total": len(project.items)}
+            ret = {"list": rdata, "total": project.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -342,7 +342,7 @@ class GetAllDb(MethodView):
             rdata = []
             for i in dbconf.items:
                 rdata.append(i.to_json())
-            ret = {"list": rdata, "total": len(dbconf.items)}
+            ret = {"list": rdata, "total": dbconf.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -475,7 +475,7 @@ class GetAllDf(MethodView):
             rdata = []
             for i in dbfac.items:
                 rdata.append(i.to_json())
-            ret = {"list": rdata, "total": len(dbfac.items)}
+            ret = {"list": rdata, "total": dbfac.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
@@ -697,7 +697,7 @@ class GetAllModel(MethodView):
             rdata = []
             for i in model.items:
                 rdata.append(i.to_json())
-            ret = {"list": rdata, "total": len(model.items)}
+            ret = {"list": rdata, "total": model.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:

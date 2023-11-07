@@ -203,7 +203,7 @@ class UserList(MethodView):
             for user in users.items:
                 data.append(user.to_json())
 
-            ret = {"total": len(users.items), "list": data}
+            ret = {"total": users.total, "list": data}
             return reponse(code=MessageEnum.successs.value[0], data=ret, message=MessageEnum.successs.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
