@@ -389,8 +389,14 @@ class AddCase(MethodView):
                 interfacecase.url = data.get('requestinfo')['url']
                 interfacecase.method = data.get('requestinfo')['method']
                 interfacecase.desc = data.get('basicinfo')['casedesc']
-                interfacecase.headers = data.get('requestinfo')['headers']
-                interfacecase.params = data.get('requestinfo')['params']
+                headers = {}
+                for i in data.get('requestinfo')['headers']:
+                    headers[i['name']] = i['value']
+                interfacecase.headers = json.dumps(headers)
+                params = {}
+                for i in data.get('requestinfo')['params']:
+                    params[i['name']] = i['value']
+                interfacecase.params = json.dumps(params)
                 # interfacecase.form_data_encoded = data.get('requestinfo')['form_data_encoded']
                 # interfacecase.form_data = data.get('requestinfo')['form_data']
                 interfacecase.socketreq = data.get('requestinfo')['socketreq']
