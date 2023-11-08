@@ -375,7 +375,7 @@ class AddCase(MethodView):
             if not data:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            if data.get('precases') == 0:
+            if data.get('precases') == 0 or data.get('precases') is None or len(data.get('precases')) == 0:
                 rely_case = 0
             else:
                 rely_case = 1
@@ -524,6 +524,17 @@ class Updateprecase(MethodView):
                     oldprecaseid.append(i.pre_case_id)
             newdata = data.get('precases')
             if not newdata or len(newdata) == 0:
+                interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+                interfacecase.is_relycase = 0
+                interfacecase.update_time = datetime.now()
+                try:
+                    db.session.commit()
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    db.session.rollback()
+                    return reponse(code=MessageEnum.update_pre_case_error.value[0],
+                                   message=MessageEnum.update_pre_case_error.value[1])
+
                 for j in oldprecaseid:
                     logger.info('old precaseid:{} not in newprecases', j)
                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
@@ -537,19 +548,19 @@ class Updateprecase(MethodView):
                         db.session.rollback()
                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
                                        message=MessageEnum.update_pre_case_error.value[1])
-                    interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-                    interfacecase.is_relycase = 0
-                    interfacecase.update_time = datetime.now()
-                    try:
-                        db.session.commit()
-                    except Exception as e:
-                        logger.error(traceback.format_exc())
-                        db.session.rollback()
-                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                       message=MessageEnum.update_pre_case_error.value[1])
                 return reponse(code=MessageEnum.successs.value[0],
                                message=MessageEnum.successs.value[1])
             for i in newdata:
+                interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+                interfacecase.is_relycase = 1
+                interfacecase.update_time = datetime.now()
+                try:
+                    db.session.commit()
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    db.session.rollback()
+                    return reponse(code=MessageEnum.update_pre_case_error.value[0],
+                                   message=MessageEnum.update_pre_case_error.value[1])
                 if i.get('pre_case_id') in oldprecaseid:
                     logger.info('precaseid:{} in oldprecases', i.get('pre_case_id'))
                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
@@ -695,7 +706,7 @@ class Updatecasesql(MethodView):
                                message=MessageEnum.must_be_every_parame.value[1])
 
             interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-            if not data.get('relydbf') or data.get('relydbf') is None:
+            if not data.get('relydbf') or data.get('relydbf') is None or data.get('relydbf') == 0:
                 interfacecase.rely_dbf = 0
                 try:
                     db.session.commit()
