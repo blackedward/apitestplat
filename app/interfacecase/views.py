@@ -805,3 +805,40 @@ class Getcasedetail(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_case_detail_error.value[0],
                            message=MessageEnum.get_case_detail_error.value[1])
+
+
+class Getcaseres(MethodView):
+    @login_required
+    def get(self):
+        try:
+            case_id = request.args.get('case_id')
+            if not case_id:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            page_index = 1
+            page_number = 10
+            if request.args.get("page_number"):
+                page_number = request.args.get('page_number')
+            if request.args.get("page_index"):
+                page_index = request.args.get('page_index')
+
+            caseres = TestcaseResult.query.filter_by(case_id=case_id).paginate(int(page_index), int(page_number),
+                                                                               False)
+            if not caseres:
+                return reponse(code=MessageEnum.get_case_res_error.value[0],
+                               message=MessageEnum.get_case_res_error.value[1])
+            res = []
+            for i in caseres.items:
+                case_desc = InterfaceCase.query.filter_by(case_id=i.case_id).first().desc
+                env_name = Environment.query.filter_by(id=i.testevent_id).first().name
+                tdic = {'res_id': i.id, 'case_id': i.case_id, 'case_desc': case_desc,
+                        'env_name': env_name, 'response': i.result, 'result': i.ispass, 'testtime': i.date,
+                        'duration': i.spend}
+                res.append(tdic)
+            ret = {"list": res, "total": caseres.total}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_case_res_error.value[0],
+                           message=MessageEnum.get_case_res_error.value[1])
