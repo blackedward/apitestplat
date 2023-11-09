@@ -16,7 +16,6 @@ class Api:
     def testapi(self):
         try:
             if self.fangsh == 'POST' or self.fangsh == 'post':
-
                 response, spend = self.requ.post(url=self.url,
                                                  params=json.loads(self.param),
                                                  headers=json.loads(self.headers))

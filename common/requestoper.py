@@ -32,9 +32,8 @@ class requesttool():
                                     data=data,
                                     timeout=Interface_Time_Out,
                                     headers=headers)
-
-            if reponse.status_code != 200:
-                return {'post请求出错': "状态码返回不是200"}
+            # if reponse.status_code != 200:
+            #     return {'post请求出错': "状态码返回不是200"}
             json_response = json.loads(reponse.text)
             spend = reponse.elapsed.total_seconds()
             return json_response, spend
