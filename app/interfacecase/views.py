@@ -778,9 +778,18 @@ class Getcasedetail(MethodView):
                 basicinfo = {'case_id': interfacecase.case_id, 'project_id': interfacecase.project_id,
                              'model_id': interfacecase.model_id, 'desc': interfacecase.desc,
                              'creator': creator}
+                headers = []
+                params = []
+                if interfacecase.headers:
+                    for k, v in json.loads(interfacecase.headers).items():
+                        headers.append({'name': k, 'value': v})
+                if interfacecase.params:
+                    for k, v in json.loads(interfacecase.params).items():
+                        params.append({'name': k, 'value': v})
+
                 requestinfo = {'caseprotcol': interfacecase.case_protocol, 'url': interfacecase.url,
-                               'method': interfacecase.method, 'headers': interfacecase.headers,
-                               'params': interfacecase.params, 'socketreq': interfacecase.socketreq,
+                               'method': interfacecase.method, 'headers': headers,
+                               'params': params, 'socketreq': interfacecase.socketreq,
                                'socketrsp': interfacecase.socketrsp, 'raw': interfacecase.raw}
                 relydbf = interfacecase.rely_dbf
             else:
