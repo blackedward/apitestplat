@@ -851,3 +851,26 @@ class Getcaseres(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_case_res_error.value[0],
                            message=MessageEnum.get_case_res_error.value[1])
+
+
+class Allcases(MethodView):
+    @login_required
+    def get(self):
+        try:
+            interfacecase = InterfaceCase.query.filter_by(status=1).all()
+            if not interfacecase:
+                return reponse(code=MessageEnum.get_assert_error.value[0],
+                               message=MessageEnum.get_assert_error.value[1])
+            res = []
+            for i in interfacecase:
+                cr = User.query.filter_by(user_id=i.creater).first().username
+                pn = Project.query.filter_by(id=i.project_id).first().project_name
+                tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
+                        'creator': cr, 'project_name': pn}
+                res.append(tdic)
+            ret = {"list": res, "total": len(interfacecase)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
