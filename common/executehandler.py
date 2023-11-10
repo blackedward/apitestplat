@@ -1,4 +1,5 @@
 import json
+import traceback
 from decimal import Decimal
 
 from common.casemethod import CaseMethods
@@ -8,7 +9,7 @@ from common.player import Player
 from common.request_case import Api
 from error_message import MessageEnum
 from app.models import *
-from common.systemlog import logger
+from common.log import logger
 from assertpy import assert_that
 
 
@@ -63,12 +64,26 @@ class ExecuteHandler(object):
             return reponse(code=MessageEnum.test_sql_query_error.value[0],
                            message=MessageEnum.test_sql_query_error.value[1])
 
-        toexecsql = dbfac.sql_str
+        if dbfac.sql_str and dbfac.sql_str.__contains__(';'):
+            toexecsqls = dbfac.sql_str.split(';')
+        else:
+            toexecsqls = dbfac.sql_str
+
         linkurl = "mysql+pymysql://" + sqlusername + ":" + sqlpassword + "@" + sqlurl
         exesql = ExeSql(linkurl)
-        result = exesql.exe_sql(toexecsql)
-
-        return result
+        logger.info('待执行的SQL是{}', toexecsqls)
+        try:
+            if isinstance(toexecsqls, list):
+                for i in toexecsqls:
+                    if i:
+                        exesql.exe_sql(i)
+            else:
+                exesql.exe_sql(toexecsqls)
+            return '执行成功'
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.test_sql_query_error.value[0],
+                           message=MessageEnum.test_sql_query_error.value[1])
 
     def exesinglecase(self, case_id=None, env_id=None):  # 单个用例执行
         if not case_id:
