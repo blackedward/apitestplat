@@ -9,7 +9,7 @@ class ExeSql(object):
 
     def exe_sql(self, sql):
         conn = self.engine.connect()
-        result = conn.execute(sql).fetchall()
+        conn.execute(sql)
         conn.close()
-        emp_json_list = [dict(zip(item.keys(), item)) for item in result]
-        return emp_json_list
+        # emp_json_list = [dict(zip(item.keys(), item)) for item in result]
+        # return emp_json_list

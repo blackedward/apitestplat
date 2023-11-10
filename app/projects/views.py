@@ -763,13 +763,21 @@ class ExeDbFac(MethodView):
             else:
                 return reponse(code=MessageEnum.test_sql_query_error.value[0],
                                message=MessageEnum.test_sql_query_error.value[1])
-
-            toexecsql = dbfac.sql_str
+            if dbfac.sql_str and dbfac.sql_str.__contains__(';'):
+                toexecsqls = dbfac.sql_str.split(';')
+            else:
+                toexecsqls = dbfac.sql_str
 
             linkurl = "mysql+pymysql://" + sqlusername + ":" + sqlpassword + "@" + sqlurl
             exesql = ExeSql(linkurl)
-            result = exesql.exe_sql(toexecsql)
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=result)
+            logger.info('待执行的SQL是{}', toexecsqls)
+            if isinstance(toexecsqls, list):
+                for i in toexecsqls:
+                    if i:
+                        exesql.exe_sql(i)
+            else:
+                exesql.exe_sql(toexecsqls)
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_sql_query_error.value[0],

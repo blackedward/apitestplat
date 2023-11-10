@@ -38,6 +38,7 @@ class ExecuteHandler(object):
                            message=MessageEnum.dbfac_search_error.value[1])
 
         dbinf = dbfac.dbconf
+        logger.info(dbinf.to_json())
         if dbfac.sql_run_dev == 0:
             sqlurl = dbinf.url
             sqlusername = dbinf.username
