@@ -18,6 +18,14 @@ interfacecase.add_url_rule("/getprecase", view_func=Getprecase.as_view('getpreca
 interfacecase.add_url_rule("/getcasedetail", view_func=Getcasedetail.as_view('getcasedetail'))
 interfacecase.add_url_rule("/getcaseres", view_func=Getcaseres.as_view('getcaseres'))
 interfacecase.add_url_rule("/allcases", view_func=Allcases.as_view('allcases'))
+interfacecase.add_url_rule("/getallproto", view_func=Getallproto.as_view('getallproto'))
+interfacecase.add_url_rule("/getprotomessages", view_func=Getprotomessages.as_view('getprotomessages'))
+interfacecase.add_url_rule("/getattbymessage", view_func=Getattbymessage.as_view('getattbymessage'))
+interfacecase.add_url_rule("/executeproto", view_func=Executeproto.as_view('executeproto'))
+interfacecase.add_url_rule("/onesaveproto", view_func=Onesaveproto.as_view('onesaveproto'))
+
+
+
 
 
 

@@ -220,3 +220,4 @@ class MessageEnum(Enum):
     update_pre_case_error = 100213, '更新前置用例异常'
     get_case_detail_error = 100214, '获取用例详情异常'
     get_case_res_error = 100215, '获取用例结果异常'
+    get_proto_error = 100216, '获取proto文件异常'

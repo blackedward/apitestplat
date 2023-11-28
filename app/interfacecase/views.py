@@ -1,4 +1,6 @@
 import json
+import time
+from datetime import datetime
 import traceback
 
 from flask import Blueprint, request
@@ -10,7 +12,8 @@ from app.models import *
 from common.jsontools import reponse
 from error_message import MessageEnum
 from common.log import logger
-from common.executehandler import ExecuteHandler
+from common.executehandler import ExecuteHandler, DirectExecute
+from common.AnalysisPB import ProtoHandler, ProtoDir
 
 interfacecase = Blueprint('interfacecase', __name__)
 
@@ -874,3 +877,120 @@ class Allcases(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
+
+
+class Getallproto(MethodView):
+    @login_required
+    def get(self):
+        try:
+            protodir = ProtoDir()
+            protonames = protodir.get_all_protoname()
+            ret = {"list": protonames, "total": len(protonames)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+
+class Getprotomessages(MethodView):
+    @login_required
+    def get(self):
+        try:
+            proto_name = request.args.get('proto_name')
+            if not proto_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            protohandler = ProtoHandler(proto_name)
+            messages = protohandler.get_all_message()
+            ret = {"list": messages, "total": len(messages)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+
+class Getattbymessage(MethodView):
+    @login_required
+    def get(self):
+        try:
+            proto_name = request.args.get('proto_name')
+            message_name = request.args.get('message_name')
+            if not proto_name or not message_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            protohandler = ProtoHandler(proto_name)
+            messages = protohandler.get_attributes_by_message(proto_name, message_name)
+            ret = {"list": messages, "total": len(messages['attributes'])}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+
+class Executeproto(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('proto_name') or not data.get('proto_content') or not data.get(
+                    'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
+                'rsq_message_name'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            directExecute = DirectExecute()
+            env = Environment.query.filter_by(id=data.get('env_id')).first()
+            host = env.url
+            port = env.port
+            params = {"uid": data.get('uid'), "req": data.get('proto_content')}
+            res = directExecute.exeproto(uid=data.get('uid'), host=host, port=port,
+                                         reqmessage=data.get('req_message_name'),
+                                         rspmessage=data.get('rsq_message_name'), params=params)
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+        except  Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.test_error.value[0],
+                           message=MessageEnum.test_error.value[1])
+
+
+class Onesaveproto(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('proto_name') or not data.get('proto_content') or not data.get(
+                    'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
+                'rsq_message_name') or not data.get('project_id') or not data.get('model_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            interfacecase = InterfaceCase()
+            interfacecase.project_id = data.get('project_id')
+            interfacecase.model_id = data.get('model_id')
+            interfacecase.desc = data.get('proto_name') + str(int(time.time()))
+            interfacecase.case_protocol = 2
+            interfacecase.is_relycase = 0
+            interfacecase.rely_dbf = 0
+            interfacecase.socketreq = data.get('req_message_name')
+            interfacecase.socketrsp = data.get('rsq_message_name')
+            interfacecase.raw = json.dumps({"uid": data.get('uid'), "req": data.get('proto_content')})
+            interfacecase.creater = current_user.user_id
+            interfacecase.source = 1
+
+            try:
+                db.session.add(interfacecase)
+                db.session.flush()
+                case_id = interfacecase.case_id
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                               data=case_id)
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.add_case_erro.value[0],
+                               message=MessageEnum.add_case_erro.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.add_case_erro.value[0],
+                           message=MessageEnum.add_case_erro.value[1])

@@ -135,12 +135,11 @@ class ExecuteHandler(object):
                 Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
                     parameterdic['uid'])[1]
             client = player.client
-            logger.info('parameterdic is :{}', parameterdic)
-            starttime = datetime.datetime.now()
+            starttime = datetime.now()
             client.send(parameterdic['case_req'], parameterdic['case_params'])
             msg = client.recv(parameterdic['case_rsp'])
             logger.info(msg.body)
-            endtime = datetime.datetime.now()
+            endtime = datetime.now()
             spend = (endtime - starttime).total_seconds()
             res = self.judgecase(msg.body, case_id)[0]
             if res is True:
@@ -375,3 +374,16 @@ class ExecuteHandler(object):
         except Exception as e:
             db.session.rollback()
             logger.info('用例：%s保存测试结果失败!原因：%s' % (caseid, e))
+
+
+class DirectExecute(object):
+
+    def exeproto(self, uid, host, port, reqmessage, rspmessage, params=None):
+        player = Player(uid, host, port).login_by_uid(uid)[1]
+        client = player.client
+        client.send(reqmessage, params)
+        msg = client.recv(rspmessage)
+        return msg.body
+
+    def exehttp(self):
+        pass
