@@ -947,6 +947,7 @@ class Executeproto(MethodView):
             res = directExecute.exeproto(uid=data.get('uid'), host=host, port=port,
                                          reqmessage=data.get('req_message_name'),
                                          rspmessage=data.get('rsq_message_name'), params=params)
+            logger.info(res)
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
         except  Exception as e:
             logger.error(traceback.format_exc())

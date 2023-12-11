@@ -26,7 +26,7 @@ loguru~=0.7.0
 assertpy~=1.1
 requests~=2.31.0
 xxtea~=3.1.0
-locust~=1.4.1
+locust~=2.15.1
 gevent>=1.4.0
 protobuf~=3.20.1
 

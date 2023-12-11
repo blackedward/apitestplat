@@ -1,0 +1,215 @@
+
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for t_datafactory
+-- ----------------------------
+DROP TABLE IF EXISTS `t_datafactory`;
+CREATE TABLE `t_datafactory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `dbfac_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '数据工厂名称',
+  `type` tinyint DEFAULT NULL COMMENT '类型 0SQL 1接口 2ui',
+  `times` int DEFAULT NULL COMMENT '执行次数',
+  `failed_stop` tinyint DEFAULT NULL COMMENT '遇到错误停止运行 0是1否',
+  `sql_run_dev` tinyint DEFAULT NULL COMMENT '0dev1test2stg3prod4debug',
+  `sql_db_id` int DEFAULT NULL COMMENT '数据源编号',
+  `sql_str` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT 'sql语句',
+  `interface_suite_id` int DEFAULT NULL COMMENT '接口用例编号',
+  `ui_suite_id` int DEFAULT NULL COMMENT 'ui用例编号',
+  `execute_type` tinyint DEFAULT NULL COMMENT '执行方式 0并行1串行',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_db
+-- ----------------------------
+DROP TABLE IF EXISTS `t_db`;
+CREATE TABLE `t_db` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `db_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '名称',
+  `type` tinyint DEFAULT NULL COMMENT '0mysql 1oracle 2SqlServer',
+  `desc` varchar(100) DEFAULT NULL COMMENT '描述',
+  `url` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '连接url',
+  `username` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '用户名',
+  `password` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '密码',
+  `test_url` varchar(200) DEFAULT NULL COMMENT '测试环境url',
+  `test_username` varchar(100) DEFAULT NULL COMMENT '测试环境username',
+  `test_password` varchar(100) DEFAULT NULL COMMENT '测试环境password',
+  `dev_url` varchar(200) DEFAULT NULL COMMENT '开发环境url',
+  `dev_username` varchar(100) DEFAULT NULL COMMENT '开发环境username',
+  `dev_password` varchar(100) DEFAULT NULL COMMENT '开发环境password',
+  `stg_url` varchar(200) DEFAULT NULL COMMENT '预上线环境url',
+  `stg_username` varchar(100) DEFAULT NULL COMMENT '预上线环境username',
+  `stg_password` varchar(100) DEFAULT NULL COMMENT '预上线环境password',
+  `prod_url` varchar(200) DEFAULT NULL COMMENT '生产环境url',
+  `prod_username` varchar(100) DEFAULT NULL COMMENT '生产环境username',
+  `prod_password` varchar(100) DEFAULT NULL COMMENT '生产环境password',
+  `status` tinyint DEFAULT NULL COMMENT '0启动 1禁用',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`db_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_environment
+-- ----------------------------
+DROP TABLE IF EXISTS `t_environment`;
+CREATE TABLE `t_environment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `make_user` int DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `protocol` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `project` int DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `port` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `make_user` (`make_user`),
+  KEY `project` (`project`),
+  CONSTRAINT `ceshihuanjing_ibfk_1` FOREIGN KEY (`make_user`) REFERENCES `t_user` (`user_id`),
+  CONSTRAINT `ceshihuanjing_ibfk_2` FOREIGN KEY (`project`) REFERENCES `t_projects` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Table structure for t_interface_assert
+-- ----------------------------
+DROP TABLE IF EXISTS `t_interface_assert`;
+CREATE TABLE `t_interface_assert` (
+  `assert_id` int NOT NULL AUTO_INCREMENT COMMENT '断言编号',
+  `assert_name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '断言名称',
+  `case_id` int DEFAULT NULL COMMENT '用例编号',
+  `type` tinyint DEFAULT NULL COMMENT '提取数据类型   0json/1html/2header/3responsecode/4runtime',
+  `expression` varchar(50) DEFAULT NULL COMMENT '提取表达式',
+  `operator` tinyint DEFAULT NULL COMMENT '操作符0/=、1/< 、2/>、3/<=、4/>=、5/字符串equal、6/!=、7/re、8/isNull、9/notNull、10/contains、11/isEmpty、12/isNotEmpty',
+  `excepted_result` varchar(1000) DEFAULT NULL COMMENT '预期结果',
+  `order` int DEFAULT NULL COMMENT '排序 执行断言时按照该字段排序',
+  `created_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `status` tinyint DEFAULT NULL,
+  PRIMARY KEY (`assert_id`),
+  KEY `case_index` (`case_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_interface_case
+-- ----------------------------
+DROP TABLE IF EXISTS `t_interface_case`;
+CREATE TABLE `t_interface_case` (
+  `case_id` int NOT NULL AUTO_INCREMENT COMMENT '用例编号',
+  `project_id` int DEFAULT NULL COMMENT '项目名称',
+  `model_id` int DEFAULT NULL COMMENT '模块编号',
+  `case_protocol` int DEFAULT NULL COMMENT '用例协议类型 0http，1grpc，2socket，3ws',
+  `is_relycase` tinyint DEFAULT NULL COMMENT '依赖的其他用例id',
+  `rely_dbf` int DEFAULT NULL COMMENT '依赖的SQL数据准备',
+  `url` varchar(255) DEFAULT NULL COMMENT '请求地址',
+  `method` int DEFAULT NULL COMMENT '请求方式  0get,1post,2patch,3put,4delete,5head,6options,7trace',
+  `desc` varchar(1000) DEFAULT NULL COMMENT '用例描述',
+  `headers` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '请求头',
+  `params` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '请求参数',
+  `form_data_encoded` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT 'formdataencoded',
+  `form_data` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '请求formdata',
+  `socketreq` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'socket接口protobuf的请求对象message',
+  `socketrsp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'socket接口protobuf的接受对象message',
+  `raw` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '请求体',
+  `raw_type` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT 'raw类型 "Text" "JSON" "HTML" "XML"',
+  `body_type` tinyint DEFAULT NULL COMMENT '请求体类型0form-data 1x-www-form-Encoded 2raw 9none',
+  `creater` varchar(20) DEFAULT NULL COMMENT '用例创建人',
+  `created_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_time` datetime DEFAULT NULL COMMENT '修改日期',
+  `source` tinyint DEFAULT NULL COMMENT '来源0新增，1 一键保存的用例',
+  `import_no` varchar(100) DEFAULT NULL COMMENT '导入编号',
+  `status` tinyint NOT NULL DEFAULT '1' COMMENT '是否可用',
+  PRIMARY KEY (`case_id`),
+  KEY `project_id` (`project_id`),
+  KEY `module_id` (`model_id`),
+  KEY `status_ind` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_interface_pre_case
+-- ----------------------------
+DROP TABLE IF EXISTS `t_interface_pre_case`;
+CREATE TABLE `t_interface_pre_case` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `parent_case_id` int DEFAULT NULL COMMENT '用例id',
+  `pre_case_id` int DEFAULT NULL COMMENT '前置用例id',
+  `extract_expression` varchar(252) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `order` int DEFAULT NULL COMMENT '排序(越小越先执行)',
+  `status` tinyint DEFAULT NULL COMMENT '状态0启用1禁用',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniparent_pre` (`parent_case_id`,`pre_case_id`) USING BTREE,
+  KEY `parent_case_id` (`parent_case_id`),
+  KEY `pre_case_id` (`pre_case_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_models
+-- ----------------------------
+DROP TABLE IF EXISTS `t_models`;
+CREATE TABLE `t_models` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `model_name` varchar(256) DEFAULT NULL,
+  `model_user_id` int DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `project` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `model_user_id` (`model_user_id`),
+  KEY `project_index` (`project`) USING BTREE,
+  CONSTRAINT `models_ibfk_1` FOREIGN KEY (`model_user_id`) REFERENCES `t_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Table structure for t_projects
+-- ----------------------------
+DROP TABLE IF EXISTS `t_projects`;
+CREATE TABLE `t_projects` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_user_id` int DEFAULT NULL,
+  `project_name` varchar(252) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `project_name` (`project_name`),
+  KEY `project_user_id` (`project_user_id`),
+  CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`project_user_id`) REFERENCES `t_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_testcase_results
+-- ----------------------------
+DROP TABLE IF EXISTS `t_testcase_results`;
+CREATE TABLE `t_testcase_results` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `case_id` int DEFAULT NULL,
+  `result` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `date` datetime DEFAULT NULL,
+  `testevent_id` int DEFAULT NULL,
+  `ispass` tinyint DEFAULT NULL,
+  `spend` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `case_id` (`case_id`),
+  KEY `testevir` (`testevent_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for t_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user`;
+CREATE TABLE `t_user` (
+  `user_id` int NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `username` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '登录名',
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '密码',
+  `job_number` varchar(10) DEFAULT NULL COMMENT '工号',
+  `is_enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否启用 1启用 0禁用',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  `real_name` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '真实姓名',
+  `role_id` int DEFAULT NULL COMMENT '角色类型',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+SET FOREIGN_KEY_CHECKS = 1;
