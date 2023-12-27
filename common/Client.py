@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import inspect
+
 from locust import events
 import json
 import struct
@@ -93,7 +95,7 @@ class Client(object):
         self.isStop = True
         if hasattr(self, 'socket'):
             try:
-                self.socket.close()
+                self.socket.shutdown(socket.SHUT_RDWR)
             except Exception:
                 logger.error(traceback.format_exc())
 
@@ -196,14 +198,14 @@ class Client(object):
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
                     events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
-                                                response_length=0)
+                                        response_length=0)
                     raise (e)
                     # assert (pass_time < timeout), 'time out'
                 else:
                     total_time = int((time.time() - start_time) * 1000)
                     e = TimeOutException('time out, uid:{}'.format(self.uid))
                     events.request.fire(request_type="socket", name=name, response_time=total_time, exception=e,
-                                                response_length=0)
+                                        response_length=0)
                     return timeoutCode
             # 先挂起,等收到消息再唤醒
             if left_time > 0.1:

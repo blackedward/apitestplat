@@ -64,23 +64,23 @@ class Player(object):
     '''
 
     def login_by_uid(self, uid, ver=CLIENT_VERSION, key='0d937722b6100ec88a4bce23ad451d0b'):
-        logger.info("[login][function=run,uid={}]start".format(uid))
-        client = Client(uid, self.host, self.port)
-        if hasattr(client, 'is_login') and client.is_login:
-            logger.info("[login][function=run,uid={}]exit".format(uid))
-            return [proto.UserLoginRSP(), proto.UserLocationRSP()]
+        # logger.info("[login][function=run,uid={}]start".format(uid))
+        # client = Client(uid, self.host, self.port)
+        # if hasattr(client, 'is_login') and client.is_login:
+        #     logger.info("[login][function=run,uid={}]exit".format(uid))
+        #     return [proto.UserLoginRSP(), proto.UserLocationRSP()]
 
         while uid in global_player and not global_player[uid]:
             gevent.sleep(0.1)
-        if uid in global_player:
-            return 0, global_player[uid]
+        # if uid in global_player:
+        #     return 0, global_player[uid]
         global_player[uid] = None  # 先占位,不然两个协程同时登陆同一个uid会报错
         if not self.client:
             self.client = Client(uid=self.uid, host=self.host, port=self.port)
         if self.client.isStop:
             logger.info("connect host failed,host:{},port:{}".format(self.host, self.port))
             return
-        self.load_proto()
+        # self.load_proto()
         req = {
             'uid': uid,
             'key': key,

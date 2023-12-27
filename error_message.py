@@ -221,3 +221,6 @@ class MessageEnum(Enum):
     get_case_detail_error = 100214, '获取用例详情异常'
     get_case_res_error = 100215, '获取用例结果异常'
     get_proto_error = 100216, '获取proto文件异常'
+    process_not_found = 100217, '进程不存在'
+    get_message_error = 100218, '获取message异常'
+    get_attributes_error = 100219, '获取attributes异常'

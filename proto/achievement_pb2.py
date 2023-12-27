@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x11\x61\x63hievement.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\tvip.proto\x1a\x11trophy_base.proto\x1a\x0ctrophy.proto\x1a\nbase.proto\"y\n\x15\x41\x63hievementSeasonInfo\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x05\x12\r\n\x05index\x18\x03 \x01(\x05\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\"\x16\n\x14\x41\x63hievementSeasonREQ\"@\n\x14\x41\x63hievementSeasonRSP\x12(\n\x05infos\x18\x01 \x03(\x0b\x32\x19.pb.AchievementSeasonInfo\"\x1e\n\x1c\x41\x63hievementLatestSeasonIdREQ\"=\n\x1c\x41\x63hievementLatestSeasonIdRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"|\n\tMapDetail\x12 \n\x04tier\x18\x01 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x12\n\ntarget_num\x18\x02 \x01(\x03\x12\x12\n\nmap_length\x18\x03 \x01(\x05\x12%\n\x1d\x61\x63hievement_area_diagonal_num\x18\x04 \x01(\x05\"\xd1\x01\n\x0f\x41\x63hievementInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x18\n\x10\x61\x63hievement_name\x18\x02 \x01(\t\x12*\n\x07rewards\x18\x03 \x03(\x0b\x32\x19.pb.AchievementRewardInfo\x12!\n\x04type\x18\x04 \x01(\x0e\x32\x13.pb.AchievementType\x12\x19\n\x11\x63lient_show_order\x18\x05 \x01(\x05\x12\"\n\x0bmap_details\x18\x06 \x03(\x0b\x32\r.pb.MapDetail\"/\n\x0e\x41\x63hievementREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"S\n\x0e\x41\x63hievementRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\"\n\x05infos\x18\x02 \x03(\x0b\x32\x13.pb.AchievementInfo\"J\n\x1bUserAchievementProgressInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\";\n\x1aSelfAchievementProgressREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"k\n\x1aSelfAchievementProgressRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12.\n\x05infos\x18\x02 \x03(\x0b\x32\x1f.pb.UserAchievementProgressInfo\"\x18\n\x16\x43\x61nFetchAchievementREQ\"&\n\x16\x43\x61nFetchAchievementRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\"\x1b\n\x19\x46\x65tchAchievementRewardREQ\"y\n\x19\x46\x65tchAchievementRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x12/\n\x0creward_infos\x18\x03 \x03(\x0b\x32\x19.pb.AchievementRewardInfo\"h\n\x16LightUpMapProgressInfo\x12\x12\n\nfirst_card\x18\x01 \x01(\x05\x12\x13\n\x0bsecond_card\x18\x02 \x01(\x05\x12\x10\n\x08is_flush\x18\x03 \x01(\x08\x12\x13\n\x0b\x63urrent_num\x18\x04 \x01(\x03\"_\n\x19SelfLightUpMapProgressREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\"}\n\x19SelfLightUpMapProgressRSP\x12)\n\x05infos\x18\x01 \x03(\x0b\x32\x1a.pb.LightUpMapProgressInfo\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\"Q\n\x18\x41\x63hievementStatisticsREQ\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\"\x96\x01\n\x19\x41\x63hievementStatisticsInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x11\n\treach_num\x18\x02 \x01(\x03\x12 \n\x04tier\x18\x03 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\x04 \x01(\x05\x12\x17\n\x0fis_my_placement\x18\x05 \x01(\x08\"\xa5\x01\n\x18\x41\x63hievementStatisticsRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x03 \x01(\x03\x12H\n!sorted_achievement_statisticinfos\x18\x04 \x03(\x0b\x32\x1d.pb.AchievementStatisticsInfo\"7\n\x16\x41\x63hievementUserBestREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"\xee\x02\n\x16\x41\x63hievementUserBestRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12%\n\tbest_tier\x18\x03 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x15\n\rbest_tier_num\x18\x04 \x01(\x05\x12\x1b\n\x13\x66\x61st_achievement_id\x18\x05 \x01(\x03\x12\x11\n\tfast_tier\x18\x06 \x01(\x05\x12\x18\n\x10\x66\x61st_distinction\x18\x07 \x01(\x05\x12\x11\n\tfast_time\x18\x08 \x01(\x03\x12\x14\n\x0c\x66\x61st_ranking\x18\t \x01(\x05\x12\x18\n\x10same_players_num\x18\n \x01(\x03\x12\'\n\x0bhigher_tier\x18\x0b \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x1f\n\x17higher_tier_players_num\x18\x0c \x01(\x05\x12\x1d\n\x15\x61\x63hievement_season_id\x18\r \x01(\x03\"\xa9\x01\n\x19\x41\x63hievementLeaderBoardREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12 \n\x04tier\x18\x02 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\x12\x13\n\x0b\x64istinction\x18\x04 \x01(\x05\x12\x0c\n\x04page\x18\x05 \x01(\x05\x12\x10\n\x08page_num\x18\x06 \x01(\x05\"U\n\x1a\x41\x63hievementLeaderBoardInfo\x12\x11\n\tnick_name\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x16\n\x0eheader_img_url\x18\x03 \x01(\t\"\xf9\x02\n\x19\x41\x63hievementLeaderBoardRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x10\n\x08page_num\x18\x04 \x01(\x05\x12\x15\n\rhas_next_page\x18\x05 \x01(\x08\x12L\n$sorted_achievement_leaderboard_infos\x18\x06 \x03(\x0b\x32\x1e.pb.AchievementLeaderBoardInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x07 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x08 \x01(\x03\x12 \n\x04tier\x18\t \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\n \x01(\x05\x12\x1c\n\x14unlocked_players_num\x18\x0b \x01(\x03\x12\x11\n\tself_rank\x18\x0c \x01(\x03\x12\x16\n\x0eself_rank_time\x18\r \x01(\x03\"N\n\x15SelfActiveProgressREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x02 \x01(\x03\"\xbf\x01\n\x15SelfActiveProgressRSP\x12\x12\n\ntimestamps\x18\x01 \x03(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\x12\x17\n\x0fnext_target_num\x18\x03 \x01(\x03\x12\x18\n\x10missed_timestamp\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65st_record\x18\x05 \x01(\x05\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x06 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x07 \x01(\x03\"\xdb\x01\n\x15\x41nnualAchievementInfo\x12\x1d\n\x15\x61nnual_achievement_id\x18\x01 \x01(\x03\x12\x1f\n\x17\x61nnual_achievement_name\x18\x02 \x01(\t\x12\x0c\n\x04year\x18\x03 \x01(\x05\x12\x30\n\x07rewards\x18\x04 \x03(\x0b\x32\x1f.pb.AnnualAchievementRewardInfo\x12\'\n\x04type\x18\x05 \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x19\n\x11\x63lient_show_order\x18\x06 \x01(\x05\"$\n\x14\x41nnualAchievementREQ\x12\x0c\n\x04year\x18\x01 \x01(\x03\"N\n\x14\x41nnualAchievementRSP\x12\x0c\n\x04year\x18\x01 \x01(\x03\x12(\n\x05infos\x18\x02 \x03(\x0b\x32\x19.pb.AnnualAchievementInfo\"W\n!UserAnnualAchievementProgressInfo\x12\x1d\n\x15\x61nnual_achievement_id\x18\x01 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\"0\n SelfAnnualAchievementProgressREQ\x12\x0c\n\x04year\x18\x01 \x01(\x03\"f\n SelfAnnualAchievementProgressRSP\x12\x0c\n\x04year\x18\x01 \x01(\x03\x12\x34\n\x05infos\x18\x02 \x03(\x0b\x32%.pb.UserAnnualAchievementProgressInfo\"\x1e\n\x1c\x43\x61nFetchAnnualAchievementREQ\",\n\x1c\x43\x61nFetchAnnualAchievementRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\"!\n\x1f\x46\x65tchAnnualAchievementRewardREQ\"t\n\x1f\x46\x65tchAnnualAchievementRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x03\x12\x35\n\x0creward_infos\x18\x03 \x03(\x0b\x32\x1f.pb.AnnualAchievementRewardInfo\"\xba\x01\n\x1e\x41\x63hievementMatchResultWithInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04rank\x18\x02 \x01(\x05\x12!\n\x06reward\x18\x03 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13\x61vatar_client_label\x18\x04 \x01(\t\x12\x14\n\x0chead_img_url\x18\x05 \x01(\t\x12\x10\n\x08nickname\x18\x06 \x01(\t\x12\x15\n\rhunter_reward\x18\x07 \x01(\x03\".\n\x1c\x41\x63hievementGetMatchResultREQ\x12\x0e\n\x06set_id\x18\x01 \x01(\t\"\xe6\x01\n\x1c\x41\x63hievementGetMatchResultRSP\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12,\n\nmatch_type\x18\x02 \x01(\x0e\x32\x18.pb.AchievementMatchType\x12\x1f\n\x17special_scene_skin_type\x18\x03 \x01(\x05\x12\x1f\n\x17special_scene_skin_name\x18\x04 \x01(\t\x12\x11\n\troom_name\x18\x05 \x01(\t\x12\x33\n\x07results\x18\x06 \x03(\x0b\x32\".pb.AchievementMatchResultWithInfoB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x11\x61\x63hievement.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\tvip.proto\x1a\x11trophy_base.proto\x1a\x0ctrophy.proto\x1a\nbase.proto\"y\n\x15\x41\x63hievementSeasonInfo\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x05\x12\r\n\x05index\x18\x03 \x01(\x05\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\"\x16\n\x14\x41\x63hievementSeasonREQ\"@\n\x14\x41\x63hievementSeasonRSP\x12(\n\x05infos\x18\x01 \x03(\x0b\x32\x19.pb.AchievementSeasonInfo\"\x1e\n\x1c\x41\x63hievementLatestSeasonIdREQ\"=\n\x1c\x41\x63hievementLatestSeasonIdRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"|\n\tMapDetail\x12 \n\x04tier\x18\x01 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x12\n\ntarget_num\x18\x02 \x01(\x03\x12\x12\n\nmap_length\x18\x03 \x01(\x05\x12%\n\x1d\x61\x63hievement_area_diagonal_num\x18\x04 \x01(\x05\"\xd1\x01\n\x0f\x41\x63hievementInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x18\n\x10\x61\x63hievement_name\x18\x02 \x01(\t\x12*\n\x07rewards\x18\x03 \x03(\x0b\x32\x19.pb.AchievementRewardInfo\x12!\n\x04type\x18\x04 \x01(\x0e\x32\x13.pb.AchievementType\x12\x19\n\x11\x63lient_show_order\x18\x05 \x01(\x05\x12\"\n\x0bmap_details\x18\x06 \x03(\x0b\x32\r.pb.MapDetail\"/\n\x0e\x41\x63hievementREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"S\n\x0e\x41\x63hievementRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\"\n\x05infos\x18\x02 \x03(\x0b\x32\x13.pb.AchievementInfo\"J\n\x1bUserAchievementProgressInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\";\n\x1aSelfAchievementProgressREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"k\n\x1aSelfAchievementProgressRSP\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12.\n\x05infos\x18\x02 \x03(\x0b\x32\x1f.pb.UserAchievementProgressInfo\"\x1b\n\x19\x46\x65tchAchievementRewardREQ\"}\n\x19\x46\x65tchAchievementRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12!\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x42\x02\x18\x01\x12/\n\x0creward_infos\x18\x03 \x03(\x0b\x32\x19.pb.AchievementRewardInfo\"h\n\x16LightUpMapProgressInfo\x12\x12\n\nfirst_card\x18\x01 \x01(\x05\x12\x13\n\x0bsecond_card\x18\x02 \x01(\x05\x12\x10\n\x08is_flush\x18\x03 \x01(\x08\x12\x13\n\x0b\x63urrent_num\x18\x04 \x01(\x03\"_\n\x19SelfLightUpMapProgressREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\"}\n\x19SelfLightUpMapProgressRSP\x12)\n\x05infos\x18\x01 \x03(\x0b\x32\x1a.pb.LightUpMapProgressInfo\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\"Q\n\x18\x41\x63hievementStatisticsREQ\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x02 \x01(\x03\"\x96\x01\n\x19\x41\x63hievementStatisticsInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x01 \x01(\x03\x12\x11\n\treach_num\x18\x02 \x01(\x03\x12 \n\x04tier\x18\x03 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\x04 \x01(\x05\x12\x17\n\x0fis_my_placement\x18\x05 \x01(\x08\"\xa5\x01\n\x18\x41\x63hievementStatisticsRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x03 \x01(\x03\x12H\n!sorted_achievement_statisticinfos\x18\x04 \x03(\x0b\x32\x1d.pb.AchievementStatisticsInfo\"7\n\x16\x41\x63hievementUserBestREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\"\xee\x02\n\x16\x41\x63hievementUserBestRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12%\n\tbest_tier\x18\x03 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x15\n\rbest_tier_num\x18\x04 \x01(\x05\x12\x1b\n\x13\x66\x61st_achievement_id\x18\x05 \x01(\x03\x12\x11\n\tfast_tier\x18\x06 \x01(\x05\x12\x18\n\x10\x66\x61st_distinction\x18\x07 \x01(\x05\x12\x11\n\tfast_time\x18\x08 \x01(\x03\x12\x14\n\x0c\x66\x61st_ranking\x18\t \x01(\x05\x12\x18\n\x10same_players_num\x18\n \x01(\x03\x12\'\n\x0bhigher_tier\x18\x0b \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x1f\n\x17higher_tier_players_num\x18\x0c \x01(\x05\x12\x1d\n\x15\x61\x63hievement_season_id\x18\r \x01(\x03\"\xa9\x01\n\x19\x41\x63hievementLeaderBoardREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12 \n\x04tier\x18\x02 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x16\n\x0e\x61\x63hievement_id\x18\x03 \x01(\x03\x12\x13\n\x0b\x64istinction\x18\x04 \x01(\x05\x12\x0c\n\x04page\x18\x05 \x01(\x05\x12\x10\n\x08page_num\x18\x06 \x01(\x05\"x\n\x1a\x41\x63hievementLeaderBoardInfo\x12\x11\n\tnick_name\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x16\n\x0eheader_img_url\x18\x03 \x01(\t\x12!\n\x19\x61vatar_frame_client_label\x18\x04 \x01(\t\"\xf9\x02\n\x19\x41\x63hievementLeaderBoardRSP\x12\x0f\n\x07\x65rrcode\x18\x01 \x01(\x05\x12\x0f\n\x07\x65rr_msg\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x10\n\x08page_num\x18\x04 \x01(\x05\x12\x15\n\rhas_next_page\x18\x05 \x01(\x08\x12L\n$sorted_achievement_leaderboard_infos\x18\x06 \x03(\x0b\x32\x1e.pb.AchievementLeaderBoardInfo\x12\x16\n\x0e\x61\x63hievement_id\x18\x07 \x01(\x03\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x08 \x01(\x03\x12 \n\x04tier\x18\t \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\n \x01(\x05\x12\x1c\n\x14unlocked_players_num\x18\x0b \x01(\x03\x12\x11\n\tself_rank\x18\x0c \x01(\x03\x12\x16\n\x0eself_rank_time\x18\r \x01(\x03\"N\n\x15SelfActiveProgressREQ\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x01 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x02 \x01(\x03\"\xbf\x01\n\x15SelfActiveProgressRSP\x12\x12\n\ntimestamps\x18\x01 \x03(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\x12\x17\n\x0fnext_target_num\x18\x03 \x01(\x03\x12\x18\n\x10missed_timestamp\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65st_record\x18\x05 \x01(\x05\x12\x1d\n\x15\x61\x63hievement_season_id\x18\x06 \x01(\x03\x12\x16\n\x0e\x61\x63hievement_id\x18\x07 \x01(\x03\"\xdb\x01\n\x15\x41nnualAchievementInfo\x12\x1d\n\x15\x61nnual_achievement_id\x18\x01 \x01(\x03\x12\x1f\n\x17\x61nnual_achievement_name\x18\x02 \x01(\t\x12\x0c\n\x04year\x18\x03 \x01(\x05\x12\x30\n\x07rewards\x18\x04 \x03(\x0b\x32\x1f.pb.AnnualAchievementRewardInfo\x12\'\n\x04type\x18\x05 \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x19\n\x11\x63lient_show_order\x18\x06 \x01(\x05\"$\n\x14\x41nnualAchievementREQ\x12\x0c\n\x04year\x18\x01 \x01(\x03\"N\n\x14\x41nnualAchievementRSP\x12\x0c\n\x04year\x18\x01 \x01(\x03\x12(\n\x05infos\x18\x02 \x03(\x0b\x32\x19.pb.AnnualAchievementInfo\"W\n!UserAnnualAchievementProgressInfo\x12\x1d\n\x15\x61nnual_achievement_id\x18\x01 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x02 \x01(\x03\"0\n SelfAnnualAchievementProgressREQ\x12\x0c\n\x04year\x18\x01 \x01(\x03\"f\n SelfAnnualAchievementProgressRSP\x12\x0c\n\x04year\x18\x01 \x01(\x03\x12\x34\n\x05infos\x18\x02 \x03(\x0b\x32%.pb.UserAnnualAchievementProgressInfo\"\x1e\n\x1c\x43\x61nFetchAnnualAchievementREQ\",\n\x1c\x43\x61nFetchAnnualAchievementRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\"!\n\x1f\x46\x65tchAnnualAchievementRewardREQ\"t\n\x1f\x46\x65tchAnnualAchievementRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x03\x12\x35\n\x0creward_infos\x18\x03 \x03(\x0b\x32\x1f.pb.AnnualAchievementRewardInfo\"\xba\x01\n\x1e\x41\x63hievementMatchResultWithInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04rank\x18\x02 \x01(\x05\x12!\n\x06reward\x18\x03 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13\x61vatar_client_label\x18\x04 \x01(\t\x12\x14\n\x0chead_img_url\x18\x05 \x01(\t\x12\x10\n\x08nickname\x18\x06 \x01(\t\x12\x15\n\rhunter_reward\x18\x07 \x01(\x03\".\n\x1c\x41\x63hievementGetMatchResultREQ\x12\x0e\n\x06set_id\x18\x01 \x01(\t\"\xe6\x01\n\x1c\x41\x63hievementGetMatchResultRSP\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12,\n\nmatch_type\x18\x02 \x01(\x0e\x32\x18.pb.AchievementMatchType\x12\x1f\n\x17special_scene_skin_type\x18\x03 \x01(\x05\x12\x1f\n\x17special_scene_skin_name\x18\x04 \x01(\t\x12\x11\n\troom_name\x18\x05 \x01(\t\x12\x33\n\x07results\x18\x06 \x03(\x0b\x32\".pb.AchievementMatchResultWithInfoB\x07Z\x05../pb')
   ,
   dependencies=[achievement__base__pb2.DESCRIPTOR,vip__pb2.DESCRIPTOR,trophy__base__pb2.DESCRIPTOR,trophy__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,])
 
@@ -494,61 +494,6 @@ _SELFACHIEVEMENTPROGRESSRSP = _descriptor.Descriptor(
 )
 
 
-_CANFETCHACHIEVEMENTREQ = _descriptor.Descriptor(
-  name='CanFetchAchievementREQ',
-  full_name='pb.CanFetchAchievementREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1131,
-  serialized_end=1155,
-)
-
-
-_CANFETCHACHIEVEMENTRSP = _descriptor.Descriptor(
-  name='CanFetchAchievementRSP',
-  full_name='pb.CanFetchAchievementRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.CanFetchAchievementRSP.code', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1157,
-  serialized_end=1195,
-)
-
-
 _FETCHACHIEVEMENTREWARDREQ = _descriptor.Descriptor(
   name='FetchAchievementRewardREQ',
   full_name='pb.FetchAchievementRewardREQ',
@@ -568,8 +513,8 @@ _FETCHACHIEVEMENTREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1197,
-  serialized_end=1224,
+  serialized_start=1131,
+  serialized_end=1158,
 )
 
 
@@ -593,7 +538,7 @@ _FETCHACHIEVEMENTREWARDRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=_b('\030\001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='reward_infos', full_name='pb.FetchAchievementRewardRSP.reward_infos', index=2,
       number=3, type=11, cpp_type=10, label=3,
@@ -613,8 +558,8 @@ _FETCHACHIEVEMENTREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1226,
-  serialized_end=1347,
+  serialized_start=1160,
+  serialized_end=1285,
 )
 
 
@@ -665,8 +610,8 @@ _LIGHTUPMAPPROGRESSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1349,
-  serialized_end=1453,
+  serialized_start=1287,
+  serialized_end=1391,
 )
 
 
@@ -710,8 +655,8 @@ _SELFLIGHTUPMAPPROGRESSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1455,
-  serialized_end=1550,
+  serialized_start=1393,
+  serialized_end=1488,
 )
 
 
@@ -755,8 +700,8 @@ _SELFLIGHTUPMAPPROGRESSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1552,
-  serialized_end=1677,
+  serialized_start=1490,
+  serialized_end=1615,
 )
 
 
@@ -793,8 +738,8 @@ _ACHIEVEMENTSTATISTICSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1679,
-  serialized_end=1760,
+  serialized_start=1617,
+  serialized_end=1698,
 )
 
 
@@ -852,8 +797,8 @@ _ACHIEVEMENTSTATISTICSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1763,
-  serialized_end=1913,
+  serialized_start=1701,
+  serialized_end=1851,
 )
 
 
@@ -904,8 +849,8 @@ _ACHIEVEMENTSTATISTICSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1916,
-  serialized_end=2081,
+  serialized_start=1854,
+  serialized_end=2019,
 )
 
 
@@ -935,8 +880,8 @@ _ACHIEVEMENTUSERBESTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2083,
-  serialized_end=2138,
+  serialized_start=2021,
+  serialized_end=2076,
 )
 
 
@@ -1050,8 +995,8 @@ _ACHIEVEMENTUSERBESTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2141,
-  serialized_end=2507,
+  serialized_start=2079,
+  serialized_end=2445,
 )
 
 
@@ -1116,8 +1061,8 @@ _ACHIEVEMENTLEADERBOARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2510,
-  serialized_end=2679,
+  serialized_start=2448,
+  serialized_end=2617,
 )
 
 
@@ -1149,6 +1094,13 @@ _ACHIEVEMENTLEADERBOARDINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='avatar_frame_client_label', full_name='pb.AchievementLeaderBoardInfo.avatar_frame_client_label', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1161,8 +1113,8 @@ _ACHIEVEMENTLEADERBOARDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2681,
-  serialized_end=2766,
+  serialized_start=2619,
+  serialized_end=2739,
 )
 
 
@@ -1276,8 +1228,8 @@ _ACHIEVEMENTLEADERBOARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2769,
-  serialized_end=3146,
+  serialized_start=2742,
+  serialized_end=3119,
 )
 
 
@@ -1314,8 +1266,8 @@ _SELFACTIVEPROGRESSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3148,
-  serialized_end=3226,
+  serialized_start=3121,
+  serialized_end=3199,
 )
 
 
@@ -1387,8 +1339,8 @@ _SELFACTIVEPROGRESSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3229,
-  serialized_end=3420,
+  serialized_start=3202,
+  serialized_end=3393,
 )
 
 
@@ -1453,8 +1405,8 @@ _ANNUALACHIEVEMENTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3423,
-  serialized_end=3642,
+  serialized_start=3396,
+  serialized_end=3615,
 )
 
 
@@ -1484,8 +1436,8 @@ _ANNUALACHIEVEMENTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3644,
-  serialized_end=3680,
+  serialized_start=3617,
+  serialized_end=3653,
 )
 
 
@@ -1522,8 +1474,8 @@ _ANNUALACHIEVEMENTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3682,
-  serialized_end=3760,
+  serialized_start=3655,
+  serialized_end=3733,
 )
 
 
@@ -1560,8 +1512,8 @@ _USERANNUALACHIEVEMENTPROGRESSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3762,
-  serialized_end=3849,
+  serialized_start=3735,
+  serialized_end=3822,
 )
 
 
@@ -1591,8 +1543,8 @@ _SELFANNUALACHIEVEMENTPROGRESSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3851,
-  serialized_end=3899,
+  serialized_start=3824,
+  serialized_end=3872,
 )
 
 
@@ -1629,8 +1581,8 @@ _SELFANNUALACHIEVEMENTPROGRESSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3901,
-  serialized_end=4003,
+  serialized_start=3874,
+  serialized_end=3976,
 )
 
 
@@ -1653,8 +1605,8 @@ _CANFETCHANNUALACHIEVEMENTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4005,
-  serialized_end=4035,
+  serialized_start=3978,
+  serialized_end=4008,
 )
 
 
@@ -1684,8 +1636,8 @@ _CANFETCHANNUALACHIEVEMENTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4037,
-  serialized_end=4081,
+  serialized_start=4010,
+  serialized_end=4054,
 )
 
 
@@ -1708,8 +1660,8 @@ _FETCHANNUALACHIEVEMENTREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4083,
-  serialized_end=4116,
+  serialized_start=4056,
+  serialized_end=4089,
 )
 
 
@@ -1753,8 +1705,8 @@ _FETCHANNUALACHIEVEMENTREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4118,
-  serialized_end=4234,
+  serialized_start=4091,
+  serialized_end=4207,
 )
 
 
@@ -1826,8 +1778,8 @@ _ACHIEVEMENTMATCHRESULTWITHINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4237,
-  serialized_end=4423,
+  serialized_start=4210,
+  serialized_end=4396,
 )
 
 
@@ -1857,8 +1809,8 @@ _ACHIEVEMENTGETMATCHRESULTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4425,
-  serialized_end=4471,
+  serialized_start=4398,
+  serialized_end=4444,
 )
 
 
@@ -1923,8 +1875,8 @@ _ACHIEVEMENTGETMATCHRESULTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4474,
-  serialized_end=4704,
+  serialized_start=4447,
+  serialized_end=4677,
 )
 
 _ACHIEVEMENTSEASONRSP.fields_by_name['infos'].message_type = _ACHIEVEMENTSEASONINFO
@@ -1963,8 +1915,6 @@ DESCRIPTOR.message_types_by_name['AchievementRSP'] = _ACHIEVEMENTRSP
 DESCRIPTOR.message_types_by_name['UserAchievementProgressInfo'] = _USERACHIEVEMENTPROGRESSINFO
 DESCRIPTOR.message_types_by_name['SelfAchievementProgressREQ'] = _SELFACHIEVEMENTPROGRESSREQ
 DESCRIPTOR.message_types_by_name['SelfAchievementProgressRSP'] = _SELFACHIEVEMENTPROGRESSRSP
-DESCRIPTOR.message_types_by_name['CanFetchAchievementREQ'] = _CANFETCHACHIEVEMENTREQ
-DESCRIPTOR.message_types_by_name['CanFetchAchievementRSP'] = _CANFETCHACHIEVEMENTRSP
 DESCRIPTOR.message_types_by_name['FetchAchievementRewardREQ'] = _FETCHACHIEVEMENTREWARDREQ
 DESCRIPTOR.message_types_by_name['FetchAchievementRewardRSP'] = _FETCHACHIEVEMENTREWARDRSP
 DESCRIPTOR.message_types_by_name['LightUpMapProgressInfo'] = _LIGHTUPMAPPROGRESSINFO
@@ -2078,20 +2028,6 @@ SelfAchievementProgressRSP = _reflection.GeneratedProtocolMessageType('SelfAchie
   # @@protoc_insertion_point(class_scope:pb.SelfAchievementProgressRSP)
   ))
 _sym_db.RegisterMessage(SelfAchievementProgressRSP)
-
-CanFetchAchievementREQ = _reflection.GeneratedProtocolMessageType('CanFetchAchievementREQ', (_message.Message,), dict(
-  DESCRIPTOR = _CANFETCHACHIEVEMENTREQ,
-  __module__ = 'achievement_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CanFetchAchievementREQ)
-  ))
-_sym_db.RegisterMessage(CanFetchAchievementREQ)
-
-CanFetchAchievementRSP = _reflection.GeneratedProtocolMessageType('CanFetchAchievementRSP', (_message.Message,), dict(
-  DESCRIPTOR = _CANFETCHACHIEVEMENTRSP,
-  __module__ = 'achievement_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CanFetchAchievementRSP)
-  ))
-_sym_db.RegisterMessage(CanFetchAchievementRSP)
 
 FetchAchievementRewardREQ = _reflection.GeneratedProtocolMessageType('FetchAchievementRewardREQ', (_message.Message,), dict(
   DESCRIPTOR = _FETCHACHIEVEMENTREWARDREQ,
@@ -2291,4 +2227,5 @@ _sym_db.RegisterMessage(AchievementGetMatchResultRSP)
 
 
 DESCRIPTOR._options = None
+_FETCHACHIEVEMENTREWARDRSP.fields_by_name['achievement_season_id']._options = None
 # @@protoc_insertion_point(module_scope)

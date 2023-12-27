@@ -1,4 +1,5 @@
 import json
+import time
 import traceback
 from decimal import Decimal
 
@@ -374,16 +375,17 @@ class ExecuteHandler(object):
         except Exception as e:
             db.session.rollback()
             logger.info('用例：%s保存测试结果失败!原因：%s' % (caseid, e))
-
-
-class DirectExecute(object):
-
-    def exeproto(self, uid, host, port, reqmessage, rspmessage, params=None):
-        player = Player(uid, host, port).login_by_uid(uid)[1]
-        client = player.client
-        client.send(reqmessage, params)
-        msg = client.recv(rspmessage)
-        return msg.body
-
-    def exehttp(self):
-        pass
+#
+#
+# class DirectExecute(object):
+#
+#     def exeproto(self, uid, host, port, reqmessage, rspmessage, params=None):
+#         player = Player(uid, host, port).login_by_uid(uid)[1]
+#         client = player.client
+#         client.send(reqmessage, params)
+#         msg = client.recv(rspmessage)
+#         client.stop()
+#         return msg.body
+#
+#     def exehttp(self):
+#         pass

@@ -4,9 +4,9 @@ import re
 import importlib
 import sys
 
-from google.protobuf import descriptor
-from google.protobuf import message as _message
+from google.protobuf.descriptor_pool import DescriptorPool
 
+from common import GenerateProto
 from common.log import logger
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -52,16 +52,24 @@ class ProtoHandler(object):
         logger.info(f"message_attributes: {message_attributes}")
         return message_attributes
 
-    def get_all_message(self, proto_name=None):
+    def get_all_message(self, proto_name=None, branch_name=None):
         if proto_name is None:
             proto_name = self.proto_name
-        # 导入已生成的_pb2.py模块
-        importlib.import_module(f"proto.{proto_name}")
+        path = os.path.dirname(os.path.dirname(__file__)) + "/proto/" + branch_name
+        logger.info(f"path: {path}")
+        sys.path.append(path)
+        module_name = f"proto.{branch_name}.{proto_name}_pb2"
+        importlib.import_module(module_name)
+        logger.info(f"module_name: {module_name}")
         # 获取 FileDescriptor
-        file_descriptor = getattr(sys.modules[f"proto.{proto_name}"], "DESCRIPTOR")
+        file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
+        logger.info(file_descriptor)
         # 获取消息和属性信息
         messages = self._get_message(file_descriptor)
-        logger.info(f"messages: {messages}")
+        logger.info(f"messages: {file_descriptor.pool}")
+        if module_name in sys.modules:
+            del sys.modules[module_name]
+
         return messages
 
     def get_attributes_by_message(self, proto_name=None, message=None):
@@ -120,12 +128,15 @@ class ProtoDir(object):
             dir = proto_root
         sys.path.append(dir)
         proto_names = []
+        GenerateProto.download_and_compile_protos(os.path.basename(dir))
         for file in os.listdir(dir):
             if re.match(r".*_pb2.py", file):
                 proto_name = file.split(".")[0]
                 proto_names.append(proto_name)
         return proto_names
 
-
-if __name__ == "__main__":
-    ProtoHandler("club1_pb2").get_attributes_by_message(message='ClubRoomInfo')
+    def get_branch_protoname(self, branches=None):
+        if branches is None:
+            branches = 'master'
+        dir = os.path.join(proto_root, branches)
+        return self.get_all_protoname(dir=dir)

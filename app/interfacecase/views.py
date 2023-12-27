@@ -1,4 +1,8 @@
+import importlib
 import json
+import multiprocessing
+import os
+import sys
 import time
 from datetime import datetime
 import traceback
@@ -9,13 +13,45 @@ from flask_login import login_required, current_user
 from sqlalchemy import distinct
 
 from app.models import *
+from common import GenerateProto
+from common.Client import Client
 from common.jsontools import reponse
+from common.player import Player
 from error_message import MessageEnum
 from common.log import logger
-from common.executehandler import ExecuteHandler, DirectExecute
+from common.executehandler import ExecuteHandler
 from common.AnalysisPB import ProtoHandler, ProtoDir
+from common.GenerateProto import *
 
 interfacecase = Blueprint('interfacecase', __name__)
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+class ProcessManager:
+    def __init__(self):
+        self.process_dict = {}
+
+    def get_process(self, branch_name):
+        return self.process_dict.get(branch_name)
+
+    def create_process(self, branch_name):
+        if branch_name not in self.process_dict:
+            process = multiprocessing.Process(target=self.worker_function, args=(branch_name,))
+            self.process_dict[branch_name] = process
+            process.start()
+            return process
+        else:
+            return self.process_dict[branch_name]
+
+    @staticmethod
+    def worker_function(branch_name):
+        # 在这里执行 branch_name 对应的任务
+        # 例如：创建进程池，处理相关逻辑
+        pass
+
+
+process_manager = ProcessManager()
 
 
 class CreateCase(MethodView):
@@ -879,54 +915,180 @@ class Allcases(MethodView):
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
 
 
-class Getallproto(MethodView):
+class Getbranchproto(MethodView):
     @login_required
     def get(self):
         try:
-            protodir = ProtoDir()
-            protonames = protodir.get_all_protoname()
-            ret = {"list": protonames, "total": len(protonames)}
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
-        except Exception as e:
-            logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
-
-
-class Getprotomessages(MethodView):
-    @login_required
-    def get(self):
-        try:
-            proto_name = request.args.get('proto_name')
-            if not proto_name:
+            branch = request.args.get('branch_name')
+            if not branch:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            protohandler = ProtoHandler(proto_name)
-            messages = protohandler.get_all_message()
-            ret = {"list": messages, "total": len(messages)}
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+            process = process_manager.get_process(branch) or process_manager.create_process(branch)
+            proto_dir = ProtoDir()
+            proto_name = proto_dir.get_branch_protoname(branches=branch)
+
+            # 返回结果，包括当前进程 ID
+            current_process_id = process.pid
+            logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
+            process_info = {"branch_name": branch, "proto_name": proto_name}
+
+            ret = {"list": proto_name, "total": len(proto_name)}
+            process.terminate()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                           data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+
+def import_module_and_get_descriptor_info(branch_name, module_name):
+    try:
+        path = PROJECT_ROOT + "/proto/" + branch_name
+        os.chdir(path)
+        sys.path.append(path)
+
+        # 导入模块
+        importlib.import_module(module_name)
+
+        # 获取 FileDescriptor 信息
+        file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
+        logger.info(file_descriptor)
+        messages = [message_name for message_name in file_descriptor.message_types_by_name]
+
+        return {"messages": messages}
+
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
+
+
+class GetMessageInfo(MethodView):
+    @login_required
+    def get(self):
+        try:
+            branch_name = request.args.get('branch_name')
+            proto_name = request.args.get('proto_name')
+
+            if not branch_name or not proto_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            module_name = f"proto.{branch_name}.{proto_name}_pb2"
+
+            # 创建新的 Python 进程池
+            with multiprocessing.Pool() as pool:
+                # 在每个进程中调用 import_module_and_get_descriptor_info 函数
+                results = pool.starmap(import_module_and_get_descriptor_info, [(branch_name, module_name)])
+
+            # 获取每个进程的结果
+            result_info = results[0]
+            messages = result_info["messages"]
+            ret = {"list": messages, "total": len(messages)}
+            pool.terminate()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_message_error.value[0], message=MessageEnum.get_message_error.value[1])
+
+
+# class Getprotomessages(MethodView):
+#     @login_required
+#     def get(self):
+#         try:
+#             proto_name = request.args.get('proto_name')
+#             branch_name = request.args.get('branch_name')
+#             if not proto_name:
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#
+#             protohandler = ProtoHandler(proto_name)
+#             messages = protohandler.get_all_message(branch_name=branch_name, proto_name=proto_name)
+#             ret = {"list": messages, "total": len(messages)}
+#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+def get_message_attributes(branch_name, proto_name, message_name):
+    try:
+        module_name = f"proto.{branch_name}.{proto_name}_pb2"
+        path = PROJECT_ROOT + "/proto/" + branch_name
+        os.chdir(path)
+        sys.path.append(path)  # 将模块路径添加到 sys.path 中
+
+        # 导入模块
+        importlib.import_module(module_name)
+
+        # 获取 FileDescriptor 信息
+        file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
+        logger.info(file_descriptor)
+        # 获取 message 的属性信息
+        message_type = file_descriptor.message_types_by_name[message_name]
+        attributes = [field.name for field in message_type.fields]
+
+        return {"message_name": message_name, "attributes": attributes}
+
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
 
 
 class Getattbymessage(MethodView):
     @login_required
     def get(self):
         try:
+            branch_name = request.args.get('branch_name')
             proto_name = request.args.get('proto_name')
             message_name = request.args.get('message_name')
-            if not proto_name or not message_name:
+
+            if not branch_name or not proto_name or not message_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            protohandler = ProtoHandler(proto_name)
-            messages = protohandler.get_attributes_by_message(proto_name, message_name)
-            ret = {"list": messages, "total": len(messages['attributes'])}
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+            # 创建新的 Python 进程池
+            with multiprocessing.Pool() as pool:
+                # 在每个进程中调用 get_message_attributes 函数
+                attributes_info = pool.starmap(get_message_attributes, [(branch_name, proto_name, message_name)])[0]
+            pool.terminate()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                           data=attributes_info)
+
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+            return reponse(code=MessageEnum.get_attributes_error.value[0],
+                           message=MessageEnum.get_attributes_error.value[1])
+
+
+def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
+    try:
+        proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        env = Environment.query.filter_by(id=env_id).first()
+        host = env.url
+        port = env.port
+
+        sys.path.append(proto_path)
+
+        player = Player(uid, host, port)
+        if not player.client:
+            player.client = Client(host=host, port=port)
+        for name in os.listdir(proto_path):
+            if name == '__init__.py' or name[-3:] != '.py':
+                continue
+            module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+            for item in dir(module):
+                player.client.pb[item] = getattr(module, item)
+
+        player = player.login_by_uid(uid)[1]
+        client = player.client
+        client.send(reqmessage, params)
+        msg = client.recv(rspmessage)
+        client.stop()
+        return msg.body
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
 
 
 class Executeproto(MethodView):
@@ -936,19 +1098,20 @@ class Executeproto(MethodView):
             data = request.get_json()
             if not data.get('proto_name') or not data.get('proto_content') or not data.get(
                     'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
-                'rsq_message_name'):
+                'rsq_message_name') or not data.get('branch_name'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            directExecute = DirectExecute()
-            env = Environment.query.filter_by(id=data.get('env_id')).first()
-            host = env.url
-            port = env.port
+
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
-            res = directExecute.exeproto(uid=data.get('uid'), host=host, port=port,
-                                         reqmessage=data.get('req_message_name'),
-                                         rspmessage=data.get('rsq_message_name'), params=params)
-            logger.info(res)
+
+            with multiprocessing.Pool() as pool:
+                # 使用进程池执行 exeproto 函数
+                res = pool.apply(exeproto, (data.get('uid'), data.get('env_id'), data.get('branch_name'),
+                                            data.get('req_message_name'), data.get('rsq_message_name'),
+                                            params))
+            pool.terminate()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+
         except  Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0],
@@ -995,3 +1158,19 @@ class Onesaveproto(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.add_case_erro.value[0],
                            message=MessageEnum.add_case_erro.value[1])
+
+
+class Getbranches(MethodView):
+    @login_required
+    def get(self):
+        git_repo = 'http://git.kkpoker.co/server/doc.git'
+        try:
+            list = []
+            brancheslist = GenerateProto.get_recently_active_branches_cached(git_repo)
+            for i in brancheslist:
+                list.append(i[0])
+            ret = {"list": list, "total": len(list)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_branch_error.value[0], message=MessageEnum.get_branch_error.value[1])
