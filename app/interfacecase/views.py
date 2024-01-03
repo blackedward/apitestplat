@@ -1013,7 +1013,7 @@ class GetMessageInfo(MethodView):
 
 def get_message_attributes(branch_name, proto_name, message_name):
     try:
-        module_name = f"proto.{branch_name}.{proto_name}_pb2"
+        module_name = f"proto.{branch_name}.{proto_name}"
         path = PROJECT_ROOT + "/proto/" + branch_name
         os.chdir(path)
         sys.path.append(path)  # 将模块路径添加到 sys.path 中
