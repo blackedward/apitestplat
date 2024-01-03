@@ -224,3 +224,4 @@ class MessageEnum(Enum):
     process_not_found = 100217, '进程不存在'
     get_message_error = 100218, '获取message异常'
     get_attributes_error = 100219, '获取attributes异常'
+    get_branch_error = 100220, '获取分支异常'
