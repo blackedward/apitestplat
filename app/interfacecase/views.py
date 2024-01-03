@@ -924,19 +924,25 @@ class Getbranchproto(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            process = process_manager.get_process(branch) or process_manager.create_process(branch)
-            proto_dir = ProtoDir()
-            proto_name = proto_dir.get_branch_protoname(branches=branch)
+            process = process_manager.get_process(branch)
+            if process is None:
+                process = process_manager.create_process(branch)
+            if process:
+                proto_dir = ProtoDir()
+                proto_name = proto_dir.get_branch_protoname(branches=branch)
 
-            # 返回结果，包括当前进程 ID
-            current_process_id = process.pid
-            logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
-            process_info = {"branch_name": branch, "proto_name": proto_name}
+                # 返回结果，包括当前进程 ID
+                current_process_id = process.pid
+                logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
+                process_info = {"branch_name": branch, "proto_name": proto_name}
 
-            ret = {"list": proto_name, "total": len(proto_name)}
-            process.terminate()
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=ret)
+                ret = {"list": proto_name, "total": len(proto_name)}
+                process.terminate()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                               data=ret)
+            else:
+                return reponse(code=MessageEnum.get_proto_error.value[0],
+                               message=MessageEnum.get_proto_error.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
