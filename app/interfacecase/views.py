@@ -6,6 +6,7 @@ import sys
 import time
 from datetime import datetime
 import traceback
+from enum import Enum
 
 from flask import Blueprint, request
 from flask.views import MethodView
@@ -26,6 +27,28 @@ from common.GenerateProto import *
 interfacecase = Blueprint('interfacecase', __name__)
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+class DataType(Enum):
+    TYPE_DOUBLE = 1
+    TYPE_FLOAT = 2
+    TYPE_INT64 = 3
+    TYPE_UINT64 = 4
+    TYPE_INT32 = 5
+    TYPE_FIXED64 = 6
+    TYPE_FIXED32 = 7
+    TYPE_BOOL = 8
+    TYPE_STRING = 9
+    TYPE_GROUP = 10
+    TYPE_MESSAGE = 11
+    TYPE_BYTES = 12
+    TYPE_UINT32 = 13
+    TYPE_ENUM = 14
+    TYPE_SFIXED32 = 15
+    TYPE_SFIXED64 = 16
+    TYPE_SINT32 = 17
+    TYPE_SINT64 = 18
+    MAX_TYPE = 19
 
 
 class ProcessManager:
@@ -1030,10 +1053,32 @@ def get_message_attributes(branch_name, proto_name, message_name):
         # 获取 FileDescriptor 信息
         file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
         logger.info(file_descriptor)
+
         # 获取 message 的属性信息
         message_type = file_descriptor.message_types_by_name[message_name]
-        attributes = [field.name for field in message_type.fields]
+        attributes = []
 
+        for field in message_type.fields:
+            field_name = field.name
+            field_number = field.number
+            field_data_type = field.type  # 获取属性的数据类型
+
+            if field_data_type == 14:
+                enum_values = []
+                enum_descriptor = field.enum_type
+                for enum_value in enum_descriptor.values_by_name.values():
+                    enum_values.append({enum_value.name: enum_value.number})
+                attributes.append(
+                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name, "enum_values": enum_values})
+            elif field_data_type == 11:
+                sub_message_fields = []
+                for sub_field in field.message_type.fields:
+                    sub_message_fields.append({"name": sub_field.name, "type": DataType(sub_field.type).name})
+                attributes.append(
+                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name, "fields": sub_message_fields})
+            else:
+                attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name})
+        logger.info(attributes)
         return {"message_name": message_name, "attributes": attributes}
 
     except Exception as e:
