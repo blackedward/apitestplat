@@ -974,7 +974,7 @@ class GetMessageInfo(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            module_name = f"proto.{branch_name}.{proto_name}_pb2"
+            module_name = f"proto.{branch_name}.{proto_name}"
 
             # 创建新的 Python 进程池
             with multiprocessing.Pool() as pool:
