@@ -17,6 +17,8 @@ import pre_base_pb2 as pre__base__pb2
 import base_pb2 as base__pb2
 import base2_pb2 as base2__pb2
 import calltime_pb2 as calltime__pb2
+import go_roomsvr_pb2 as go__roomsvr__pb2
+import blackjack_pb2 as blackjack__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,9 +26,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb1.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x0e\x63\x61lltime.proto\"(\n\nPlayerOuts\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"\\\n\x08OutsInfo\x12\x15\n\x06\x65nable\x18\x01 \x02(\x08:\x05\x66\x61lse\x12\x13\n\x0bleader_uids\x18\x02 \x03(\x03\x12$\n\x0cplayers_outs\x18\x03 \x03(\x0b\x32\x0e.pb.PlayerOuts\"\xa0\x06\n\nSeatStatus\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12#\n\x0b\x61\x63tion_type\x18\x02 \x01(\x0e\x32\x0e.pb.ActionType\x12\x1d\n\x06player\x18\x03 \x01(\x0b\x32\r.pb.UserBrief\x12\x12\n\nhand_chips\x18\x04 \x01(\x03\x12\x14\n\x0c\x64\x65stop_chips\x18\x05 \x01(\x03\x12\x10\n\x08has_card\x18\x06 \x01(\x08\x12\x14\n\x0cseat_reserve\x18\x07 \x01(\x08\x12\x0f\n\x07\x63ountry\x18\x08 \x01(\t\x12\x14\n\tvip_level\x18\t \x01(\r:\x01\x30\x12\x19\n\nwait_blind\x18\n \x01(\x08:\x05\x66\x61lse\x12\x17\n\x0frebuy_left_time\x18\x0b \x01(\x05\x12\x17\n\x0frebuy_wait_auth\x18\x0c \x01(\x08\x12\x0e\n\x06\x63lubid\x18\r \x01(\x05\x12\x1b\n\x07gps_lon\x18\x0e \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x0f \x01(\x05:\n-360000000\x12\x11\n\tclub_name\x18\x10 \x01(\t\x12\x11\n\x06status\x18\x11 \x01(\x05:\x01\x30\x12\'\n\rcalltime_info\x18\x12 \x01(\x0b\x32\x10.pb.CallTimeInfo\x12\x10\n\x08is_empty\x18\x13 \x01(\x08\x12\x11\n\tis_booked\x18\x14 \x01(\x08\x12&\n\x1e\x62ook_confirm_remaining_seconds\x18\x15 \x01(\x05\x12\x17\n\x0chunter_bonus\x18\x16 \x01(\x03:\x01\x30\x12\r\n\x05\x63\x61rd1\x18\x17 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x18 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x19 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x1a \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x1b \x01(\x05\x12\x10\n\x08is_allin\x18\x1c \x01(\x08\x12\x36\n\x15special_hunter_bounty\x18\x1d \x01(\x0b\x32\x17.pb.SpecialHunterBounty\x12 \n\x18room_avatar_client_label\x18\x1e \x01(\t\x12\x1d\n\x0eis_outs_leader\x18\x1f \x01(\x08:\x05\x66\x61lse\x12#\n\x0bplayer_outs\x18  \x01(\x0b\x32\x0e.pb.PlayerOuts\"\x1c\n\nMultiBoard\x12\x0e\n\x06\x62oards\x18\x01 \x03(\x05\"A\n\x11InsurancePoolInfo\x12\x0e\n\x06poolid\x18\x01 \x01(\x05\x12\x1c\n\ralready_buyin\x18\x02 \x01(\x03:\x01\x30\x42\x02\x18\x01\"\xd1\x04\n\x0bTableStatus\x12\x12\n\nis_playing\x18\x01 \x01(\x08\x12\x12\n\naction_idx\x18\x02 \x01(\x05\x12\r\n\x05\x64_idx\x18\x03 \x01(\x05\x12\x0e\n\x06sb_idx\x18\x04 \x01(\x05\x12\x0e\n\x06\x62\x62_idx\x18\x05 \x01(\x05\x12\x1c\n\x04seat\x18\x06 \x03(\x0b\x32\x0e.pb.SeatStatus\x12\x0c\n\x04pool\x18\x07 \x03(\x03\x12\x1d\n\x05stage\x18\x08 \x01(\x0e\x32\x0e.pb.RoundStage\x12\r\n\x05\x62oard\x18\t \x03(\x05\x12\x0b\n\x03tid\x18\n \x01(\x05\x12\x16\n\x0eis_final_table\x18\x0b \x01(\x08\x12$\n\x0cmulti_boards\x18\x0c \x03(\x0b\x32\x0e.pb.MultiBoard\x12.\n\x0finsurance_pools\x18\r \x03(\x0b\x32\x15.pb.InsurancePoolInfo\x12\x14\n\x0cis_wait_sync\x18\x0e \x01(\x08\x12.\n\x0ezoom_fold_seat\x18\x0f \x03(\x0b\x32\x16.pb.ZoomFoldSeatStatus\x12\x0e\n\x06gameid\x18\x10 \x01(\t\x12\x15\n\ris_wait_prize\x18\x11 \x01(\x08\x12\x11\n\tcur_blind\x18\x12 \x01(\x03\x12\x10\n\x08\x63ur_ante\x18\x13 \x01(\x03\x12!\n\x19jackpot_reward_start_time\x18\x14 \x01(\x03\x12\x1f\n\x17is_wait_other_table_end\x18\x15 \x01(\x08\x12*\n\x0f\x62omb_pot_status\x18\x16 \x01(\x0b\x32\x11.pb.BombPotStatus\x12\x14\n\x0csecond_board\x18\x17 \x03(\x05\"\xd5\x02\n\nRoomStatus\x12\x11\n\ttime_left\x18\x01 \x01(\x05\x12\x1e\n\x06profit\x18\x02 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x1f\n\x08observer\x18\x03 \x03(\x0b\x32\r.pb.UserBrief\x12\x12\n\nauth_limit\x18\x04 \x01(\x08\x12\x12\n\nis_started\x18\x05 \x01(\x08\x12\x18\n\x10is_blind_running\x18\x06 \x01(\x08\x12\x17\n\x0fis_jackpot_open\x18\x07 \x01(\x08\x12\x1d\n\x12\x61\x64\x64_roomtime_quota\x18\x08 \x01(\x05:\x01\x30\x12\x14\n\x0cobserver_num\x18\t \x01(\x05\x12\'\n\x18is_special_hunter_bounty\x18\n \x01(\x08:\x05\x66\x61lse\x12\x1e\n\x16is_tournament_activity\x18\x0b \x01(\x08\x12\x1a\n\x12is_set_room_avatar\x18\x0c \x01(\x08\"\xa2\x06\n\tProfitSet\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0bsmall_blind\x18\x03 \x01(\x03\x12\x1c\n\x04info\x18\x04 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x11\n\tgame_time\x18\x05 \x01(\x05\x12\x0f\n\x07\x66\x65\x65type\x18\x06 \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x07 \x01(\x05\x12\x10\n\x08handsnum\x18\x08 \x01(\x05\x12\x11\n\townericon\x18\t \x01(\t\x12\x1f\n\troom_type\x18\n \x01(\x0e\x32\x0c.pb.RoomType\x12\x14\n\x0cupblind_time\x18\x0b \x01(\x05\x12\x0c\n\x04\x63ost\x18\x0c \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\r \x01(\x03\x12\x12\n\nreward_num\x18\x0e \x01(\x05\x12\x1f\n\x0cis_insurance\x18\x0f \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x10\n\x08seat_num\x18\x10 \x01(\x05\x12\x15\n\rhunter_reward\x18\x11 \x01(\x03\x12\x0e\n\x06\x63harge\x18\x12 \x01(\x03\x12\x14\n\tgame_mode\x18\x13 \x01(\x05:\x01\x30\x12\x0c\n\x04\x61nte\x18\x14 \x01(\x03\x12\x1e\n\x0fis_jackpot_used\x18\x15 \x01(\x08:\x05\x66\x61lse\x12\x12\n\nbuyin_type\x18\x16 \x01(\x05\x12\x1d\n\x15\x62uyin_item_class_name\x18\x17 \x01(\t\x12\x1b\n\x13spinup_reward_ratio\x18\x18 \x01(\x03\x12$\n\x16is_need_provide_rebate\x18\x19 \x01(\x08:\x04true\x12\x1c\n\ris_float_ante\x18\x1a \x01(\x08:\x05\x66\x61lse\x12\x16\n\x07is_vpip\x18\x1b \x01(\x08:\x05\x66\x61lse\x12\x1f\n\x10is_mtt_multi_day\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x11\n\troom_name\x18\x1d \x01(\t\x12\x13\n\x0bis_bomb_pot\x18\x1e \x01(\x08\x12\x1b\n\x10\x61\x64\x64itional_board\x18\x1f \x01(\x05:\x01\x30\x12#\n\x18\x62ombpot_additional_board\x18  \x01(\x05:\x01\x30\x12\x0f\n\x07\x62\x65t_min\x18! \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\" \x01(\x03\"\x0f\n\rProfitListREQ\"/\n\rProfitListRSP\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\"\x96\x08\n\x11\x43reateClubRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\r\n\x05\x62lind\x18\x02 \x01(\x03\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x03\x12\x11\n\tmin_buyin\x18\x04 \x01(\x03\x12\x11\n\tgame_time\x18\x05 \x01(\x05\x12\x13\n\x0b\x61\x63tion_time\x18\x06 \x01(\x05\x12\x12\n\x07\x66\x65\x65type\x18\x07 \x01(\x05:\x01\x31\x12\x13\n\x08\x66\x65\x65point\x18\x08 \x01(\x05:\x01\x35\x12\x19\n\nauth_limit\x18\t \x01(\x08:\x05\x66\x61lse\x12\x11\n\x06\x63lubid\x18\n \x01(\x05:\x01\x30\x12\x10\n\x08seat_num\x18\x0b \x01(\x05\x12\x0b\n\x03\x63\x61p\x18\x0c \x01(\x05\x12\x1a\n\x04type\x18\r \x01(\x0e\x32\x0c.pb.RoomType\x12\x11\n\tmax_buyin\x18\x0e \x01(\x03\x12\x13\n\x08timezone\x18\x0f \x01(\x05:\x01\x38\x12\x0e\n\x06roomid\x18\x10 \x01(\x05\x12\x15\n\rdefault_buyin\x18\x11 \x01(\x03\x12!\n\x12is_run_multi_times\x18\x12 \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cis_insurance\x18\x13 \x01(\x08:\x05\x66\x61lse\x12\x13\n\x08leagueid\x18\x14 \x01(\x05:\x01\x30\x12\x18\n\tgps_limit\x18\x15 \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x16 \x01(\x08:\x05\x66\x61lse\x12\x16\n\nauto_start\x18\x17 \x01(\x05:\x02-1\x12\x32\n\tgame_mode\x18\x18 \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x18\n\x10\x63\x61lltime_minutes\x18\x19 \x01(\x05\x12\x1d\n\x0ewithdraw_chips\x18\x1a \x01(\x08:\x05\x66\x61lse\x12&\n\x17is_auto_delay_room_over\x18\x1b \x01(\x08:\x05\x66\x61lse\x12&\n\x1a\x61uto_delay_room_over_times\x18\x1c \x01(\x05:\x02\x31\x32\x12!\n\x13is_auto_create_room\x18\x1d \x01(\x08:\x04true\x12\x1a\n\x0f\x63reator_user_id\x18\x1e \x01(\x03:\x01\x30\x12\x1a\n\rfeepoint_x100\x18\x1f \x01(\x05:\x03\x35\x30\x30\x12\x1c\n\ris_float_ante\x18  \x01(\x08:\x05\x66\x61lse\x12\x16\n\x07is_vpip\x18! \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0evpip_limit_min\x18\" \x01(\x05:\x01\x30\x12\x1f\n\x14vpip_limit_threshold\x18# \x01(\x05:\x01\x30\x12!\n\x12is_start_from_flop\x18$ \x01(\x08:\x05\x66\x61lse\x12&\n\rbomb_pot_info\x18% \x01(\x0b\x32\x0f.pb.BombPotInfo\x12#\n\x18\x62ombpot_additional_board\x18& \x01(\x05:\x01\x30\x12\x1b\n\x10\x61\x64\x64itional_board\x18\' \x01(\x05:\x01\x30\"R\n\x11\x43reateClubRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x1f\n\troom_info\x18\x03 \x01(\x0b\x32\x0c.pb.RoomInfo\"\xd5\x01\n\x15MultipleTableRoomInfo\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08roomtype\x18\x03 \x01(\x05\x12\x14\n\x0cis_insurance\x18\x06 \x01(\x05\x12\x1f\n\troom_mode\x18\x07 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\tgame_mode\x18\x08 \x01(\x0e\x32\x0c.pb.GameMode\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\r\n\x05\x62lind\x18\n \x01(\x05\x12\x11\n\troom_name\x18\x0b \x01(\t\"*\n\tBlitzCard\x12\x0c\n\x04\x63\x61rd\x18\x01 \x01(\x05\x12\x0f\n\x07is_mark\x18\x02 \x01(\x08\"E\n\tBlitzInfo\x12!\n\nblitz_card\x18\x01 \x03(\x0b\x32\r.pb.BlitzCard\x12\x15\n\rleft_hand_num\x18\x02 \x01(\x05\"\x99\x04\n\rPlayingStatus\x12\r\n\x05\x63\x61rd1\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x02 \x01(\x05\x12\x15\n\raction_seatid\x18\x03 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x04 \x01(\x03\x12\x12\n\nmin_chipin\x18\x05 \x01(\x03\x12\x12\n\nmax_chipin\x18\x06 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x07 \x01(\x05\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x08 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\t \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\n \x01(\x05\x12\x1c\n\rshow_straddle\x18\x0b \x01(\x08:\x05\x66\x61lse\x12\x0c\n\x04role\x18\x0c \x01(\x05\x12\x16\n\x0eroom_authority\x18\r \x01(\x08\x12\x17\n\x0fpre_action_type\x18\x0e \x01(\x05\x12\x18\n\x10pre_action_chips\x18\x0f \x01(\x03\x12\x13\n\x0b\x62\x61nned_talk\x18\x10 \x01(\x08\x12\r\n\x05\x63\x61rd5\x18\x11 \x01(\x05\x12\x15\n\ris_delay_time\x18\x12 \x01(\x08\x12\x19\n\x11is_using_timebank\x18\x13 \x01(\x08\x12\x1e\n\x16is_book_seat_confirmed\x18\x14 \x01(\x08\x12\x10\n\x08is_allin\x18\x15 \x01(\x08\x12!\n\nblitz_info\x18\x16 \x01(\x0b\x32\r.pb.BlitzInfo\x12\x1f\n\x17time_bank_limited_times\x18\x17 \x01(\x05*d\n\x16\x41utoDelayRoomOverTimes\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x0c\x12\t\n\x05THREE\x10\x03\x12\x07\n\x03SIX\x10\x06\x12\x08\n\x04NINE\x10\t\x12\n\n\x06TWELVE\x10\x0c\x12\x0f\n\x0bTWENTY_FOUR\x10\x18\x1a\x02\x10\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb1.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x0e\x63\x61lltime.proto\x1a\x10go_roomsvr.proto\x1a\x0f\x62lackjack.proto\"(\n\nPlayerOuts\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"\\\n\x08OutsInfo\x12\x15\n\x06\x65nable\x18\x01 \x02(\x08:\x05\x66\x61lse\x12\x13\n\x0bleader_uids\x18\x02 \x03(\x03\x12$\n\x0cplayers_outs\x18\x03 \x03(\x0b\x32\x0e.pb.PlayerOuts\"\xa8\x07\n\nSeatStatus\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12#\n\x0b\x61\x63tion_type\x18\x02 \x01(\x0e\x32\x0e.pb.ActionType\x12\x1d\n\x06player\x18\x03 \x01(\x0b\x32\r.pb.UserBrief\x12\x12\n\nhand_chips\x18\x04 \x01(\x03\x12\x14\n\x0c\x64\x65stop_chips\x18\x05 \x01(\x03\x12\x10\n\x08has_card\x18\x06 \x01(\x08\x12\x14\n\x0cseat_reserve\x18\x07 \x01(\x08\x12\x0f\n\x07\x63ountry\x18\x08 \x01(\t\x12\x14\n\tvip_level\x18\t \x01(\r:\x01\x30\x12\x19\n\nwait_blind\x18\n \x01(\x08:\x05\x66\x61lse\x12\x17\n\x0frebuy_left_time\x18\x0b \x01(\x05\x12\x17\n\x0frebuy_wait_auth\x18\x0c \x01(\x08\x12\x0e\n\x06\x63lubid\x18\r \x01(\x05\x12\x1b\n\x07gps_lon\x18\x0e \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x0f \x01(\x05:\n-360000000\x12\x11\n\tclub_name\x18\x10 \x01(\t\x12\x11\n\x06status\x18\x11 \x01(\x05:\x01\x30\x12\'\n\rcalltime_info\x18\x12 \x01(\x0b\x32\x10.pb.CallTimeInfo\x12\x10\n\x08is_empty\x18\x13 \x01(\x08\x12\x11\n\tis_booked\x18\x14 \x01(\x08\x12&\n\x1e\x62ook_confirm_remaining_seconds\x18\x15 \x01(\x05\x12\x17\n\x0chunter_bonus\x18\x16 \x01(\x03:\x01\x30\x12\r\n\x05\x63\x61rd1\x18\x17 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x18 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x19 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x1a \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x1b \x01(\x05\x12\x10\n\x08is_allin\x18\x1c \x01(\x08\x12\x36\n\x15special_hunter_bounty\x18\x1d \x01(\x0b\x32\x17.pb.SpecialHunterBounty\x12 \n\x18room_avatar_client_label\x18\x1e \x01(\t\x12\x1d\n\x0eis_outs_leader\x18\x1f \x01(\x08:\x05\x66\x61lse\x12#\n\x0bplayer_outs\x18  \x01(\x0b\x32\x0e.pb.PlayerOuts\x12\x1e\n\tbet_infos\x18! \x03(\x0b\x32\x0b.pb.BetInfo\x12\x34\n\x15\x62lackjack_seat_status\x18\" \x01(\x0b\x32\x15.pb.BlackjackSeatInfo\x12\x15\n\ris_delay_time\x18# \x01(\x08\x12\x19\n\x11is_using_timebank\x18$ \x01(\x08\"\x1c\n\nMultiBoard\x12\x0e\n\x06\x62oards\x18\x01 \x03(\x05\"A\n\x11InsurancePoolInfo\x12\x0e\n\x06poolid\x18\x01 \x01(\x05\x12\x1c\n\ralready_buyin\x18\x02 \x01(\x03:\x01\x30\x42\x02\x18\x01\"\x92\x06\n\x0bTableStatus\x12\x12\n\nis_playing\x18\x01 \x01(\x08\x12\x12\n\naction_idx\x18\x02 \x01(\x05\x12\r\n\x05\x64_idx\x18\x03 \x01(\x05\x12\x0e\n\x06sb_idx\x18\x04 \x01(\x05\x12\x0e\n\x06\x62\x62_idx\x18\x05 \x01(\x05\x12\x1c\n\x04seat\x18\x06 \x03(\x0b\x32\x0e.pb.SeatStatus\x12\x0c\n\x04pool\x18\x07 \x03(\x03\x12\x1d\n\x05stage\x18\x08 \x01(\x0e\x32\x0e.pb.RoundStage\x12\r\n\x05\x62oard\x18\t \x03(\x05\x12\x0b\n\x03tid\x18\n \x01(\x05\x12\x16\n\x0eis_final_table\x18\x0b \x01(\x08\x12$\n\x0cmulti_boards\x18\x0c \x03(\x0b\x32\x0e.pb.MultiBoard\x12.\n\x0finsurance_pools\x18\r \x03(\x0b\x32\x15.pb.InsurancePoolInfo\x12\x14\n\x0cis_wait_sync\x18\x0e \x01(\x08\x12.\n\x0ezoom_fold_seat\x18\x0f \x03(\x0b\x32\x16.pb.ZoomFoldSeatStatus\x12\x0e\n\x06gameid\x18\x10 \x01(\t\x12\x15\n\ris_wait_prize\x18\x11 \x01(\x08\x12\x11\n\tcur_blind\x18\x12 \x01(\x03\x12\x10\n\x08\x63ur_ante\x18\x13 \x01(\x03\x12!\n\x19jackpot_reward_start_time\x18\x14 \x01(\x03\x12\x1f\n\x17is_wait_other_table_end\x18\x15 \x01(\x08\x12*\n\x0f\x62omb_pot_status\x18\x16 \x01(\x0b\x32\x11.pb.BombPotStatus\x12\x14\n\x0csecond_board\x18\x17 \x03(\x05\x12\x16\n\x0estage_duration\x18\x18 \x01(\x03\x12\x17\n\x0fstage_time_left\x18\x19 \x01(\x03\x12\x36\n\x17\x62lackjack_dealer_status\x18\x1a \x01(\x0b\x32\x15.pb.BlackjackSeatInfo\x12!\n\x0b\x63hip_config\x18\x1b \x03(\x0b\x32\x0c.pb.ChipInfo\x12\x16\n\x0eplaying_seatid\x18\x1c \x01(\x05\x12\x1b\n\x13playing_action_over\x18\x1d \x01(\x08\"\xd5\x02\n\nRoomStatus\x12\x11\n\ttime_left\x18\x01 \x01(\x05\x12\x1e\n\x06profit\x18\x02 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x1f\n\x08observer\x18\x03 \x03(\x0b\x32\r.pb.UserBrief\x12\x12\n\nauth_limit\x18\x04 \x01(\x08\x12\x12\n\nis_started\x18\x05 \x01(\x08\x12\x18\n\x10is_blind_running\x18\x06 \x01(\x08\x12\x17\n\x0fis_jackpot_open\x18\x07 \x01(\x08\x12\x1d\n\x12\x61\x64\x64_roomtime_quota\x18\x08 \x01(\x05:\x01\x30\x12\x14\n\x0cobserver_num\x18\t \x01(\x05\x12\'\n\x18is_special_hunter_bounty\x18\n \x01(\x08:\x05\x66\x61lse\x12\x1e\n\x16is_tournament_activity\x18\x0b \x01(\x08\x12\x1a\n\x12is_set_room_avatar\x18\x0c \x01(\x08\"\xa2\x06\n\tProfitSet\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0bsmall_blind\x18\x03 \x01(\x03\x12\x1c\n\x04info\x18\x04 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x11\n\tgame_time\x18\x05 \x01(\x05\x12\x0f\n\x07\x66\x65\x65type\x18\x06 \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x07 \x01(\x05\x12\x10\n\x08handsnum\x18\x08 \x01(\x05\x12\x11\n\townericon\x18\t \x01(\t\x12\x1f\n\troom_type\x18\n \x01(\x0e\x32\x0c.pb.RoomType\x12\x14\n\x0cupblind_time\x18\x0b \x01(\x05\x12\x0c\n\x04\x63ost\x18\x0c \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\r \x01(\x03\x12\x12\n\nreward_num\x18\x0e \x01(\x05\x12\x1f\n\x0cis_insurance\x18\x0f \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x10\n\x08seat_num\x18\x10 \x01(\x05\x12\x15\n\rhunter_reward\x18\x11 \x01(\x03\x12\x0e\n\x06\x63harge\x18\x12 \x01(\x03\x12\x14\n\tgame_mode\x18\x13 \x01(\x05:\x01\x30\x12\x0c\n\x04\x61nte\x18\x14 \x01(\x03\x12\x1e\n\x0fis_jackpot_used\x18\x15 \x01(\x08:\x05\x66\x61lse\x12\x12\n\nbuyin_type\x18\x16 \x01(\x05\x12\x1d\n\x15\x62uyin_item_class_name\x18\x17 \x01(\t\x12\x1b\n\x13spinup_reward_ratio\x18\x18 \x01(\x03\x12$\n\x16is_need_provide_rebate\x18\x19 \x01(\x08:\x04true\x12\x1c\n\ris_float_ante\x18\x1a \x01(\x08:\x05\x66\x61lse\x12\x16\n\x07is_vpip\x18\x1b \x01(\x08:\x05\x66\x61lse\x12\x1f\n\x10is_mtt_multi_day\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x11\n\troom_name\x18\x1d \x01(\t\x12\x13\n\x0bis_bomb_pot\x18\x1e \x01(\x08\x12\x1b\n\x10\x61\x64\x64itional_board\x18\x1f \x01(\x05:\x01\x30\x12#\n\x18\x62ombpot_additional_board\x18  \x01(\x05:\x01\x30\x12\x0f\n\x07\x62\x65t_min\x18! \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\" \x01(\x03\"\x0f\n\rProfitListREQ\"/\n\rProfitListRSP\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\"\xd5\x01\n\x15MultipleTableRoomInfo\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08roomtype\x18\x03 \x01(\x05\x12\x14\n\x0cis_insurance\x18\x06 \x01(\x05\x12\x1f\n\troom_mode\x18\x07 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\tgame_mode\x18\x08 \x01(\x0e\x32\x0c.pb.GameMode\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\r\n\x05\x62lind\x18\n \x01(\x05\x12\x11\n\troom_name\x18\x0b \x01(\t\"*\n\tBlitzCard\x12\x0c\n\x04\x63\x61rd\x18\x01 \x01(\x05\x12\x0f\n\x07is_mark\x18\x02 \x01(\x08\"E\n\tBlitzInfo\x12!\n\nblitz_card\x18\x01 \x03(\x0b\x32\r.pb.BlitzCard\x12\x15\n\rleft_hand_num\x18\x02 \x01(\x05\"\xd4\x04\n\rPlayingStatus\x12\r\n\x05\x63\x61rd1\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x02 \x01(\x05\x12\x15\n\raction_seatid\x18\x03 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x04 \x01(\x03\x12\x12\n\nmin_chipin\x18\x05 \x01(\x03\x12\x12\n\nmax_chipin\x18\x06 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x07 \x01(\x05\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x08 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\t \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\n \x01(\x05\x12\x1c\n\rshow_straddle\x18\x0b \x01(\x08:\x05\x66\x61lse\x12\x0c\n\x04role\x18\x0c \x01(\x05\x12\x16\n\x0eroom_authority\x18\r \x01(\x08\x12\x17\n\x0fpre_action_type\x18\x0e \x01(\x05\x12\x18\n\x10pre_action_chips\x18\x0f \x01(\x03\x12\x13\n\x0b\x62\x61nned_talk\x18\x10 \x01(\x08\x12\r\n\x05\x63\x61rd5\x18\x11 \x01(\x05\x12\x15\n\ris_delay_time\x18\x12 \x01(\x08\x12\x19\n\x11is_using_timebank\x18\x13 \x01(\x08\x12\x1e\n\x16is_book_seat_confirmed\x18\x14 \x01(\x08\x12\x10\n\x08is_allin\x18\x15 \x01(\x08\x12!\n\nblitz_info\x18\x16 \x01(\x0b\x32\r.pb.BlitzInfo\x12\x1f\n\x17time_bank_limited_times\x18\x17 \x01(\x05\x12\x39\n\x15\x62lackjack_last_status\x18\x18 \x01(\x0b\x32\x1a.pb.BlackjackSelfTableInfo*d\n\x16\x41utoDelayRoomOverTimes\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x0c\x12\t\n\x05THREE\x10\x03\x12\x07\n\x03SIX\x10\x06\x12\x08\n\x04NINE\x10\t\x12\n\n\x06TWELVE\x10\x0c\x12\x0f\n\x0bTWENTY_FOUR\x10\x18\x1a\x02\x10\x01\x42\x07Z\x05../pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,calltime__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,calltime__pb2.DESCRIPTOR,go__roomsvr__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
 
 _AUTODELAYROOMOVERTIMES = _descriptor.EnumDescriptor(
   name='AutoDelayRoomOverTimes',
@@ -61,8 +63,8 @@ _AUTODELAYROOMOVERTIMES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=_b('\020\001'),
-  serialized_start=4925,
-  serialized_end=5025,
+  serialized_start=4215,
+  serialized_end=4315,
 )
 _sym_db.RegisterEnumDescriptor(_AUTODELAYROOMOVERTIMES)
 
@@ -109,8 +111,8 @@ _PLAYEROUTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=74,
-  serialized_end=114,
+  serialized_start=109,
+  serialized_end=149,
 )
 
 
@@ -154,8 +156,8 @@ _OUTSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=116,
-  serialized_end=208,
+  serialized_start=151,
+  serialized_end=243,
 )
 
 
@@ -390,6 +392,34 @@ _SEATSTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='bet_infos', full_name='pb.SeatStatus.bet_infos', index=32,
+      number=33, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_seat_status', full_name='pb.SeatStatus.blackjack_seat_status', index=33,
+      number=34, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_delay_time', full_name='pb.SeatStatus.is_delay_time', index=34,
+      number=35, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_using_timebank', full_name='pb.SeatStatus.is_using_timebank', index=35,
+      number=36, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -402,8 +432,8 @@ _SEATSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=211,
-  serialized_end=1011,
+  serialized_start=246,
+  serialized_end=1182,
 )
 
 
@@ -433,8 +463,8 @@ _MULTIBOARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1013,
-  serialized_end=1041,
+  serialized_start=1184,
+  serialized_end=1212,
 )
 
 
@@ -471,8 +501,8 @@ _INSURANCEPOOLINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1043,
-  serialized_end=1108,
+  serialized_start=1214,
+  serialized_end=1279,
 )
 
 
@@ -644,6 +674,48 @@ _TABLESTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stage_duration', full_name='pb.TableStatus.stage_duration', index=23,
+      number=24, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stage_time_left', full_name='pb.TableStatus.stage_time_left', index=24,
+      number=25, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_dealer_status', full_name='pb.TableStatus.blackjack_dealer_status', index=25,
+      number=26, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='chip_config', full_name='pb.TableStatus.chip_config', index=26,
+      number=27, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='playing_seatid', full_name='pb.TableStatus.playing_seatid', index=27,
+      number=28, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='playing_action_over', full_name='pb.TableStatus.playing_action_over', index=28,
+      number=29, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -656,8 +728,8 @@ _TABLESTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1111,
-  serialized_end=1704,
+  serialized_start=1282,
+  serialized_end=2068,
 )
 
 
@@ -764,8 +836,8 @@ _ROOMSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1707,
-  serialized_end=2048,
+  serialized_start=2071,
+  serialized_end=2412,
 )
 
 
@@ -1026,8 +1098,8 @@ _PROFITSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2051,
-  serialized_end=2853,
+  serialized_start=2415,
+  serialized_end=3217,
 )
 
 
@@ -1050,8 +1122,8 @@ _PROFITLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2855,
-  serialized_end=2870,
+  serialized_start=3219,
+  serialized_end=3234,
 )
 
 
@@ -1081,350 +1153,8 @@ _PROFITLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2872,
-  serialized_end=2919,
-)
-
-
-_CREATECLUBROOMREQ = _descriptor.Descriptor(
-  name='CreateClubRoomREQ',
-  full_name='pb.CreateClubRoomREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='room_name', full_name='pb.CreateClubRoomREQ.room_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind', full_name='pb.CreateClubRoomREQ.blind', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ante', full_name='pb.CreateClubRoomREQ.ante', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='min_buyin', full_name='pb.CreateClubRoomREQ.min_buyin', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='game_time', full_name='pb.CreateClubRoomREQ.game_time', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='action_time', full_name='pb.CreateClubRoomREQ.action_time', index=5,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='feetype', full_name='pb.CreateClubRoomREQ.feetype', index=6,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=1,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='feepoint', full_name='pb.CreateClubRoomREQ.feepoint', index=7,
-      number=8, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=5,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='auth_limit', full_name='pb.CreateClubRoomREQ.auth_limit', index=8,
-      number=9, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='clubid', full_name='pb.CreateClubRoomREQ.clubid', index=9,
-      number=10, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='seat_num', full_name='pb.CreateClubRoomREQ.seat_num', index=10,
-      number=11, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cap', full_name='pb.CreateClubRoomREQ.cap', index=11,
-      number=12, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='pb.CreateClubRoomREQ.type', index=12,
-      number=13, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='max_buyin', full_name='pb.CreateClubRoomREQ.max_buyin', index=13,
-      number=14, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='timezone', full_name='pb.CreateClubRoomREQ.timezone', index=14,
-      number=15, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=8,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='roomid', full_name='pb.CreateClubRoomREQ.roomid', index=15,
-      number=16, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='default_buyin', full_name='pb.CreateClubRoomREQ.default_buyin', index=16,
-      number=17, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_run_multi_times', full_name='pb.CreateClubRoomREQ.is_run_multi_times', index=17,
-      number=18, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_insurance', full_name='pb.CreateClubRoomREQ.is_insurance', index=18,
-      number=19, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='leagueid', full_name='pb.CreateClubRoomREQ.leagueid', index=19,
-      number=20, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='gps_limit', full_name='pb.CreateClubRoomREQ.gps_limit', index=20,
-      number=21, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ip_limit', full_name='pb.CreateClubRoomREQ.ip_limit', index=21,
-      number=22, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='auto_start', full_name='pb.CreateClubRoomREQ.auto_start', index=22,
-      number=23, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=-1,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='game_mode', full_name='pb.CreateClubRoomREQ.game_mode', index=23,
-      number=24, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='calltime_minutes', full_name='pb.CreateClubRoomREQ.calltime_minutes', index=24,
-      number=25, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='withdraw_chips', full_name='pb.CreateClubRoomREQ.withdraw_chips', index=25,
-      number=26, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_auto_delay_room_over', full_name='pb.CreateClubRoomREQ.is_auto_delay_room_over', index=26,
-      number=27, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='auto_delay_room_over_times', full_name='pb.CreateClubRoomREQ.auto_delay_room_over_times', index=27,
-      number=28, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=12,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_auto_create_room', full_name='pb.CreateClubRoomREQ.is_auto_create_room', index=28,
-      number=29, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=True,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='creator_user_id', full_name='pb.CreateClubRoomREQ.creator_user_id', index=29,
-      number=30, type=3, cpp_type=2, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='feepoint_x100', full_name='pb.CreateClubRoomREQ.feepoint_x100', index=30,
-      number=31, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=500,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_float_ante', full_name='pb.CreateClubRoomREQ.is_float_ante', index=31,
-      number=32, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_vpip', full_name='pb.CreateClubRoomREQ.is_vpip', index=32,
-      number=33, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vpip_limit_min', full_name='pb.CreateClubRoomREQ.vpip_limit_min', index=33,
-      number=34, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vpip_limit_threshold', full_name='pb.CreateClubRoomREQ.vpip_limit_threshold', index=34,
-      number=35, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_start_from_flop', full_name='pb.CreateClubRoomREQ.is_start_from_flop', index=35,
-      number=36, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='bomb_pot_info', full_name='pb.CreateClubRoomREQ.bomb_pot_info', index=36,
-      number=37, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='bombpot_additional_board', full_name='pb.CreateClubRoomREQ.bombpot_additional_board', index=37,
-      number=38, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='additional_board', full_name='pb.CreateClubRoomREQ.additional_board', index=38,
-      number=39, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2922,
-  serialized_end=3968,
-)
-
-
-_CREATECLUBROOMRSP = _descriptor.Descriptor(
-  name='CreateClubRoomRSP',
-  full_name='pb.CreateClubRoomRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.CreateClubRoomRSP.code', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='reason', full_name='pb.CreateClubRoomRSP.reason', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='room_info', full_name='pb.CreateClubRoomRSP.room_info', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3970,
-  serialized_end=4052,
+  serialized_start=3236,
+  serialized_end=3283,
 )
 
 
@@ -1510,8 +1240,8 @@ _MULTIPLETABLEROOMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4055,
-  serialized_end=4268,
+  serialized_start=3286,
+  serialized_end=3499,
 )
 
 
@@ -1548,8 +1278,8 @@ _BLITZCARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4270,
-  serialized_end=4312,
+  serialized_start=3501,
+  serialized_end=3543,
 )
 
 
@@ -1586,8 +1316,8 @@ _BLITZINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4314,
-  serialized_end=4383,
+  serialized_start=3545,
+  serialized_end=3614,
 )
 
 
@@ -1759,6 +1489,13 @@ _PLAYINGSTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_last_status', full_name='pb.PlayingStatus.blackjack_last_status', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1771,8 +1508,8 @@ _PLAYINGSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4386,
-  serialized_end=4923,
+  serialized_start=3617,
+  serialized_end=4213,
 )
 
 _OUTSINFO.fields_by_name['players_outs'].message_type = _PLAYEROUTS
@@ -1781,25 +1518,26 @@ _SEATSTATUS.fields_by_name['player'].message_type = base__pb2._USERBRIEF
 _SEATSTATUS.fields_by_name['calltime_info'].message_type = calltime__pb2._CALLTIMEINFO
 _SEATSTATUS.fields_by_name['special_hunter_bounty'].message_type = base__pb2._SPECIALHUNTERBOUNTY
 _SEATSTATUS.fields_by_name['player_outs'].message_type = _PLAYEROUTS
+_SEATSTATUS.fields_by_name['bet_infos'].message_type = go__roomsvr__pb2._BETINFO
+_SEATSTATUS.fields_by_name['blackjack_seat_status'].message_type = blackjack__pb2._BLACKJACKSEATINFO
 _TABLESTATUS.fields_by_name['seat'].message_type = _SEATSTATUS
 _TABLESTATUS.fields_by_name['stage'].enum_type = pre__base__pb2._ROUNDSTAGE
 _TABLESTATUS.fields_by_name['multi_boards'].message_type = _MULTIBOARD
 _TABLESTATUS.fields_by_name['insurance_pools'].message_type = _INSURANCEPOOLINFO
 _TABLESTATUS.fields_by_name['zoom_fold_seat'].message_type = base2__pb2._ZOOMFOLDSEATSTATUS
 _TABLESTATUS.fields_by_name['bomb_pot_status'].message_type = base2__pb2._BOMBPOTSTATUS
+_TABLESTATUS.fields_by_name['blackjack_dealer_status'].message_type = blackjack__pb2._BLACKJACKSEATINFO
+_TABLESTATUS.fields_by_name['chip_config'].message_type = go__roomsvr__pb2._CHIPINFO
 _ROOMSTATUS.fields_by_name['profit'].message_type = base__pb2._PROFITINFO
 _ROOMSTATUS.fields_by_name['observer'].message_type = base__pb2._USERBRIEF
 _PROFITSET.fields_by_name['info'].message_type = base__pb2._PROFITINFO
 _PROFITSET.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _PROFITLISTRSP.fields_by_name['profit'].message_type = base__pb2._PROFITINFO
-_CREATECLUBROOMREQ.fields_by_name['type'].enum_type = pre__base__pb2._ROOMTYPE
-_CREATECLUBROOMREQ.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
-_CREATECLUBROOMREQ.fields_by_name['bomb_pot_info'].message_type = base2__pb2._BOMBPOTINFO
-_CREATECLUBROOMRSP.fields_by_name['room_info'].message_type = base2__pb2._ROOMINFO
 _MULTIPLETABLEROOMINFO.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
 _MULTIPLETABLEROOMINFO.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
 _BLITZINFO.fields_by_name['blitz_card'].message_type = _BLITZCARD
 _PLAYINGSTATUS.fields_by_name['blitz_info'].message_type = _BLITZINFO
+_PLAYINGSTATUS.fields_by_name['blackjack_last_status'].message_type = blackjack__pb2._BLACKJACKSELFTABLEINFO
 DESCRIPTOR.message_types_by_name['PlayerOuts'] = _PLAYEROUTS
 DESCRIPTOR.message_types_by_name['OutsInfo'] = _OUTSINFO
 DESCRIPTOR.message_types_by_name['SeatStatus'] = _SEATSTATUS
@@ -1810,8 +1548,6 @@ DESCRIPTOR.message_types_by_name['RoomStatus'] = _ROOMSTATUS
 DESCRIPTOR.message_types_by_name['ProfitSet'] = _PROFITSET
 DESCRIPTOR.message_types_by_name['ProfitListREQ'] = _PROFITLISTREQ
 DESCRIPTOR.message_types_by_name['ProfitListRSP'] = _PROFITLISTRSP
-DESCRIPTOR.message_types_by_name['CreateClubRoomREQ'] = _CREATECLUBROOMREQ
-DESCRIPTOR.message_types_by_name['CreateClubRoomRSP'] = _CREATECLUBROOMRSP
 DESCRIPTOR.message_types_by_name['MultipleTableRoomInfo'] = _MULTIPLETABLEROOMINFO
 DESCRIPTOR.message_types_by_name['BlitzCard'] = _BLITZCARD
 DESCRIPTOR.message_types_by_name['BlitzInfo'] = _BLITZINFO
@@ -1888,20 +1624,6 @@ ProfitListRSP = _reflection.GeneratedProtocolMessageType('ProfitListRSP', (_mess
   # @@protoc_insertion_point(class_scope:pb.ProfitListRSP)
   ))
 _sym_db.RegisterMessage(ProfitListRSP)
-
-CreateClubRoomREQ = _reflection.GeneratedProtocolMessageType('CreateClubRoomREQ', (_message.Message,), dict(
-  DESCRIPTOR = _CREATECLUBROOMREQ,
-  __module__ = 'pb1_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CreateClubRoomREQ)
-  ))
-_sym_db.RegisterMessage(CreateClubRoomREQ)
-
-CreateClubRoomRSP = _reflection.GeneratedProtocolMessageType('CreateClubRoomRSP', (_message.Message,), dict(
-  DESCRIPTOR = _CREATECLUBROOMRSP,
-  __module__ = 'pb1_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CreateClubRoomRSP)
-  ))
-_sym_db.RegisterMessage(CreateClubRoomRSP)
 
 MultipleTableRoomInfo = _reflection.GeneratedProtocolMessageType('MultipleTableRoomInfo', (_message.Message,), dict(
   DESCRIPTOR = _MULTIPLETABLEROOMINFO,

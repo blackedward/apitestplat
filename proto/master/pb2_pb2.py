@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb2.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\"\xb2\x01\n\x0bWinningInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0e\n\x06poolid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x1a\n\x04type\x18\x04 \x01(\x0e\x32\x0c.pb.HandType\x12\x1e\n\x0finsurance_chips\x18\x05 \x01(\x05:\x01\x30\x42\x02\x18\x01\x12\x0b\n\x03uid\x18\x06 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x07 \x01(\x03\x12\x16\n\x0b\x62oard_index\x18\x08 \x01(\x05:\x01\x30\"\x81\x01\n\rWinningProfit\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x1e\n\x0finsurance_chips\x18\x03 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x18\n\rhunter_reward\x18\x04 \x01(\x03:\x01\x30\x12\x17\n\x0chunter_bonus\x18\x05 \x01(\x03:\x01\x30\"i\n\nRabbitCard\x12\x13\n\x0brabbit_card\x18\x01 \x03(\x05\x12$\n\x0c\x66inish_stage\x18\x02 \x01(\x0e\x32\x0e.pb.RoundStage\x12 \n\x18second_board_rabbit_card\x18\x03 \x03(\x05\">\n\x0f\x42litzRewardInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x0e\n\x06reward\x18\x03 \x01(\x03\"t\n\x17SpecialHunterBountyInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x12\n\nhunted_uid\x18\x02 \x01(\x03\x12\x13\n\x0bhunted_name\x18\x03 \x01(\t\x12\x13\n\x0bhunted_icon\x18\x04 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x05 \x01(\x03\"\xf3\x01\n\tWinnerRSP\x12\x1f\n\x06winner\x18\x01 \x03(\x0b\x32\x0f.pb.WinningInfo\x12!\n\x06profit\x18\x02 \x03(\x0b\x32\x11.pb.WinningProfit\x12\x1e\n\x06rabbit\x18\x03 \x01(\x0b\x32\x0e.pb.RabbitCard\x12\x11\n\x02ko\x18\x04 \x01(\x08:\x05\x66\x61lse\x12.\n\x11\x62litz_reward_info\x18\x05 \x01(\x0b\x32\x13.pb.BlitzRewardInfo\x12?\n\x1aspecial_hunter_bounty_info\x18\x06 \x03(\x0b\x32\x1b.pb.SpecialHunterBountyInfo\" \n\x11ShowRabbitCardREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"L\n\x11ShowRabbitCardRSP\x12\x12\n\nshower_uid\x18\x01 \x01(\x03\x12\x13\n\x0bshower_name\x18\x02 \x01(\t\x12\x0e\n\x06gameid\x18\x03 \x01(\t\"C\n\tStartInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x17\n\x0chunter_bonus\x18\x03 \x01(\x03:\x01\x30\"\x95\x01\n\rDealerInfoRSP\x12\x0e\n\x06\x64\x65\x61ler\x18\x01 \x01(\x05\x12\x13\n\x0bsmall_blind\x18\x02 \x01(\x05\x12\x11\n\tbig_blind\x18\x03 \x01(\x05\x12!\n\nstart_info\x18\x04 \x03(\x0b\x32\r.pb.StartInfo\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\x19\n\x11hands_to_bomb_pot\x18\x06 \x01(\x05\"4\n\x0fUserLocationRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\x06\x63lubid\x18\x02 \x01(\x05:\x01\x30\" \n\x10TableGameOverRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\"x\n\rShowMyCardREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x08\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x08\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x08\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x08\x12\x0e\n\x06gameid\x18\x06 \x01(\t\x12\r\n\x05\x63\x61rd5\x18\x07 \x01(\x08\"j\n\rShowMyCardBRC\x12\x0e\n\x06seatID\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x06 \x01(\x05\"!\n\x10\x45xchangeChipsREQ\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\"\"\n\x10\x45xchangeChipsRSP\x12\x0e\n\x06result\x18\x01 \x01(\x05\"\n\n\x08MoneyREQ\"\x19\n\x08MoneyRSP\x12\r\n\x05moeny\x18\x01 \x01(\x03\"\x16\n\x14\x43lubRoomCountdownREQ\"4\n\x14\x43lubRoomCountdownRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x16\n\x14\x43lubRoomCountdownBRC\"\x15\n\x13\x43lubRoomTimeLeftREQ\"@\n\x11\x43lubRoomTimeUpBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\x12\x1d\n\x12\x61\x64\x64_roomtime_quota\x18\x03 \x01(\x05:\x01\x30\"%\n\x12\x41\x64\x64\x43lubRoomTimeREQ\x12\x0f\n\x07minutes\x18\x01 \x01(\x05\"2\n\x12\x41\x64\x64\x43lubRoomTimeRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"C\n\x0f\x43lubRoomOverBRC\x12\x1c\n\x04info\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x12\n\nis_started\x18\x02 \x01(\x08\"\x0e\n\x0cHeartBeatREQ\"\x0e\n\x0cHeartBeatRSP\"\x0f\n\rUserLogoutREQ\"-\n\rUserLogoutRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"9\n\rBuyDiamondRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03\x61\x64\x64\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\"!\n\x10WithdrawChipsREQ\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\"2\n\x10WithdrawChipsRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x05\x63hips\x18\x02 \x01(\x03:\x01\x30\"B\n\x10WithdrawChipsBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x05\x63hips\x18\x02 \x01(\x03:\x01\x30\x12\x0e\n\x06seatid\x18\x03 \x01(\x05\"\x11\n\x0fSelfUserInfoREQ\"\x8b\x01\n\x0fSelfUserInfoRSP\x12\x1c\n\x05\x62rief\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x0c\n\x04mail\x18\x03 \x01(\t\x12\x12\n\nvalid_mail\x18\x04 \x01(\r\x12\x10\n\x08new_user\x18\x05 \x01(\x08\x12\x15\n\rregister_time\x18\x06 \x01(\x03\"?\n\x10UserValidMailRSP\x12\x10\n\x04\x63ode\x18\x01 \x01(\x05:\x02-1\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"\\\n\rRequstAuthRSP\x12\x1c\n\x05\x62rief\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08mtt_type\x18\x04 \x01(\x05\"\n\n\x08PointREQ\"H\n\x08PointRSP\x12\r\n\x05point\x18\x01 \x01(\x03\x12\x16\n\x0e\x65xpiring_point\x18\x02 \x01(\x03\x12\x15\n\rexpiring_time\x18\x03 \x01(\x03*\xf8\x01\n\x08HandType\x12\r\n\tTYPE_NONE\x10\x00\x12\x16\n\tTYPE_FOLD\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x12\n\x0eTYPE_HIGH_CARD\x10\x01\x12\r\n\tTYPE_PAIR\x10\x02\x12\x12\n\x0eTYPE_TWO_PAIRS\x10\x03\x12\x13\n\x0fTYPE_THREE_KIND\x10\x04\x12\x11\n\rTYPE_STRAIGHT\x10\x05\x12\x0e\n\nTYPE_FLUSH\x10\x06\x12\x13\n\x0fTYPE_FULL_HOUSE\x10\x07\x12\x12\n\x0eTYPE_FOUR_KIND\x10\x08\x12\x17\n\x13TYPE_STRAIGHT_FLUSH\x10\t\x12\x14\n\x10TYPE_ROYAL_FLUSH\x10\nB\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb2.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\"\xb2\x01\n\x0bWinningInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0e\n\x06poolid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x1a\n\x04type\x18\x04 \x01(\x0e\x32\x0c.pb.HandType\x12\x1e\n\x0finsurance_chips\x18\x05 \x01(\x05:\x01\x30\x42\x02\x18\x01\x12\x0b\n\x03uid\x18\x06 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x07 \x01(\x03\x12\x16\n\x0b\x62oard_index\x18\x08 \x01(\x05:\x01\x30\"\x81\x01\n\rWinningProfit\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x1e\n\x0finsurance_chips\x18\x03 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x18\n\rhunter_reward\x18\x04 \x01(\x03:\x01\x30\x12\x17\n\x0chunter_bonus\x18\x05 \x01(\x03:\x01\x30\"i\n\nRabbitCard\x12\x13\n\x0brabbit_card\x18\x01 \x03(\x05\x12$\n\x0c\x66inish_stage\x18\x02 \x01(\x0e\x32\x0e.pb.RoundStage\x12 \n\x18second_board_rabbit_card\x18\x03 \x03(\x05\">\n\x0f\x42litzRewardInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x0e\n\x06reward\x18\x03 \x01(\x03\"t\n\x17SpecialHunterBountyInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x12\n\nhunted_uid\x18\x02 \x01(\x03\x12\x13\n\x0bhunted_name\x18\x03 \x01(\t\x12\x13\n\x0bhunted_icon\x18\x04 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x05 \x01(\x03\"\xf3\x01\n\tWinnerRSP\x12\x1f\n\x06winner\x18\x01 \x03(\x0b\x32\x0f.pb.WinningInfo\x12!\n\x06profit\x18\x02 \x03(\x0b\x32\x11.pb.WinningProfit\x12\x1e\n\x06rabbit\x18\x03 \x01(\x0b\x32\x0e.pb.RabbitCard\x12\x11\n\x02ko\x18\x04 \x01(\x08:\x05\x66\x61lse\x12.\n\x11\x62litz_reward_info\x18\x05 \x01(\x0b\x32\x13.pb.BlitzRewardInfo\x12?\n\x1aspecial_hunter_bounty_info\x18\x06 \x03(\x0b\x32\x1b.pb.SpecialHunterBountyInfo\" \n\x11ShowRabbitCardREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"L\n\x11ShowRabbitCardRSP\x12\x12\n\nshower_uid\x18\x01 \x01(\x03\x12\x13\n\x0bshower_name\x18\x02 \x01(\t\x12\x0e\n\x06gameid\x18\x03 \x01(\t\"C\n\tStartInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x17\n\x0chunter_bonus\x18\x03 \x01(\x03:\x01\x30\"\x95\x01\n\rDealerInfoRSP\x12\x0e\n\x06\x64\x65\x61ler\x18\x01 \x01(\x05\x12\x13\n\x0bsmall_blind\x18\x02 \x01(\x05\x12\x11\n\tbig_blind\x18\x03 \x01(\x05\x12!\n\nstart_info\x18\x04 \x03(\x0b\x32\r.pb.StartInfo\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\x19\n\x11hands_to_bomb_pot\x18\x06 \x01(\x05\"4\n\x0fUserLocationRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\x06\x63lubid\x18\x02 \x01(\x05:\x01\x30\" \n\x10TableGameOverRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\"x\n\rShowMyCardREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x08\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x08\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x08\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x08\x12\x0e\n\x06gameid\x18\x06 \x01(\t\x12\r\n\x05\x63\x61rd5\x18\x07 \x01(\x08\"j\n\rShowMyCardBRC\x12\x0e\n\x06seatID\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x06 \x01(\x05\"!\n\x10\x45xchangeChipsREQ\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\"1\n\x10\x45xchangeChipsRSP\x12\x0e\n\x06result\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"\n\n\x08MoneyREQ\"\x19\n\x08MoneyRSP\x12\r\n\x05moeny\x18\x01 \x01(\x03\"\x16\n\x14\x43lubRoomCountdownREQ\"4\n\x14\x43lubRoomCountdownRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x16\n\x14\x43lubRoomCountdownBRC\"\x15\n\x13\x43lubRoomTimeLeftREQ\"@\n\x11\x43lubRoomTimeUpBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\x12\x1d\n\x12\x61\x64\x64_roomtime_quota\x18\x03 \x01(\x05:\x01\x30\"%\n\x12\x41\x64\x64\x43lubRoomTimeREQ\x12\x0f\n\x07minutes\x18\x01 \x01(\x05\"2\n\x12\x41\x64\x64\x43lubRoomTimeRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"C\n\x0f\x43lubRoomOverBRC\x12\x1c\n\x04info\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x12\n\nis_started\x18\x02 \x01(\x08\"\x0e\n\x0cHeartBeatREQ\"\x0e\n\x0cHeartBeatRSP\"\x0f\n\rUserLogoutREQ\"-\n\rUserLogoutRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"9\n\rBuyDiamondRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03\x61\x64\x64\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\"!\n\x10WithdrawChipsREQ\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\"2\n\x10WithdrawChipsRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x05\x63hips\x18\x02 \x01(\x03:\x01\x30\"B\n\x10WithdrawChipsBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x05\x63hips\x18\x02 \x01(\x03:\x01\x30\x12\x0e\n\x06seatid\x18\x03 \x01(\x05\"\x11\n\x0fSelfUserInfoREQ\"\x8b\x01\n\x0fSelfUserInfoRSP\x12\x1c\n\x05\x62rief\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x0c\n\x04mail\x18\x03 \x01(\t\x12\x12\n\nvalid_mail\x18\x04 \x01(\r\x12\x10\n\x08new_user\x18\x05 \x01(\x08\x12\x15\n\rregister_time\x18\x06 \x01(\x03\"?\n\x10UserValidMailRSP\x12\x10\n\x04\x63ode\x18\x01 \x01(\x05:\x02-1\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"\\\n\rRequstAuthRSP\x12\x1c\n\x05\x62rief\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x10\n\x08mtt_type\x18\x04 \x01(\x05\"\n\n\x08PointREQ\"H\n\x08PointRSP\x12\r\n\x05point\x18\x01 \x01(\x03\x12\x16\n\x0e\x65xpiring_point\x18\x02 \x01(\x03\x12\x15\n\rexpiring_time\x18\x03 \x01(\x03*\xf8\x01\n\x08HandType\x12\r\n\tTYPE_NONE\x10\x00\x12\x16\n\tTYPE_FOLD\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x12\n\x0eTYPE_HIGH_CARD\x10\x01\x12\r\n\tTYPE_PAIR\x10\x02\x12\x12\n\x0eTYPE_TWO_PAIRS\x10\x03\x12\x13\n\x0fTYPE_THREE_KIND\x10\x04\x12\x11\n\rTYPE_STRAIGHT\x10\x05\x12\x0e\n\nTYPE_FLUSH\x10\x06\x12\x13\n\x0fTYPE_FULL_HOUSE\x10\x07\x12\x12\n\x0eTYPE_FOUR_KIND\x10\x08\x12\x17\n\x13TYPE_STRAIGHT_FLUSH\x10\t\x12\x14\n\x10TYPE_ROYAL_FLUSH\x10\nB\x07Z\x05../pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,])
 
@@ -83,8 +83,8 @@ _HANDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2722,
-  serialized_end=2970,
+  serialized_start=2737,
+  serialized_end=2985,
 )
 _sym_db.RegisterEnumDescriptor(_HANDTYPE)
 
@@ -898,6 +898,13 @@ _EXCHANGECHIPSRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='chips', full_name='pb.ExchangeChipsRSP.chips', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -911,7 +918,7 @@ _EXCHANGECHIPSRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1579,
-  serialized_end=1613,
+  serialized_end=1628,
 )
 
 
@@ -934,8 +941,8 @@ _MONEYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1615,
-  serialized_end=1625,
+  serialized_start=1630,
+  serialized_end=1640,
 )
 
 
@@ -965,8 +972,8 @@ _MONEYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1627,
-  serialized_end=1652,
+  serialized_start=1642,
+  serialized_end=1667,
 )
 
 
@@ -989,8 +996,8 @@ _CLUBROOMCOUNTDOWNREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1654,
-  serialized_end=1676,
+  serialized_start=1669,
+  serialized_end=1691,
 )
 
 
@@ -1027,8 +1034,8 @@ _CLUBROOMCOUNTDOWNRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1678,
-  serialized_end=1730,
+  serialized_start=1693,
+  serialized_end=1745,
 )
 
 
@@ -1051,8 +1058,8 @@ _CLUBROOMCOUNTDOWNBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1732,
-  serialized_end=1754,
+  serialized_start=1747,
+  serialized_end=1769,
 )
 
 
@@ -1075,8 +1082,8 @@ _CLUBROOMTIMELEFTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1756,
-  serialized_end=1777,
+  serialized_start=1771,
+  serialized_end=1792,
 )
 
 
@@ -1113,8 +1120,8 @@ _CLUBROOMTIMEUPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1779,
-  serialized_end=1843,
+  serialized_start=1794,
+  serialized_end=1858,
 )
 
 
@@ -1144,8 +1151,8 @@ _ADDCLUBROOMTIMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1845,
-  serialized_end=1882,
+  serialized_start=1860,
+  serialized_end=1897,
 )
 
 
@@ -1182,8 +1189,8 @@ _ADDCLUBROOMTIMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1884,
-  serialized_end=1934,
+  serialized_start=1899,
+  serialized_end=1949,
 )
 
 
@@ -1220,8 +1227,8 @@ _CLUBROOMOVERBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1936,
-  serialized_end=2003,
+  serialized_start=1951,
+  serialized_end=2018,
 )
 
 
@@ -1244,8 +1251,8 @@ _HEARTBEATREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2005,
-  serialized_end=2019,
+  serialized_start=2020,
+  serialized_end=2034,
 )
 
 
@@ -1268,8 +1275,8 @@ _HEARTBEATRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2021,
-  serialized_end=2035,
+  serialized_start=2036,
+  serialized_end=2050,
 )
 
 
@@ -1292,8 +1299,8 @@ _USERLOGOUTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2037,
-  serialized_end=2052,
+  serialized_start=2052,
+  serialized_end=2067,
 )
 
 
@@ -1330,8 +1337,8 @@ _USERLOGOUTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2054,
-  serialized_end=2099,
+  serialized_start=2069,
+  serialized_end=2114,
 )
 
 
@@ -1375,8 +1382,8 @@ _BUYDIAMONDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2101,
-  serialized_end=2158,
+  serialized_start=2116,
+  serialized_end=2173,
 )
 
 
@@ -1406,8 +1413,8 @@ _WITHDRAWCHIPSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2160,
-  serialized_end=2193,
+  serialized_start=2175,
+  serialized_end=2208,
 )
 
 
@@ -1444,8 +1451,8 @@ _WITHDRAWCHIPSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2195,
-  serialized_end=2245,
+  serialized_start=2210,
+  serialized_end=2260,
 )
 
 
@@ -1489,8 +1496,8 @@ _WITHDRAWCHIPSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2247,
-  serialized_end=2313,
+  serialized_start=2262,
+  serialized_end=2328,
 )
 
 
@@ -1513,8 +1520,8 @@ _SELFUSERINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2315,
-  serialized_end=2332,
+  serialized_start=2330,
+  serialized_end=2347,
 )
 
 
@@ -1579,8 +1586,8 @@ _SELFUSERINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2335,
-  serialized_end=2474,
+  serialized_start=2350,
+  serialized_end=2489,
 )
 
 
@@ -1624,8 +1631,8 @@ _USERVALIDMAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2476,
-  serialized_end=2539,
+  serialized_start=2491,
+  serialized_end=2554,
 )
 
 
@@ -1676,8 +1683,8 @@ _REQUSTAUTHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2541,
-  serialized_end=2633,
+  serialized_start=2556,
+  serialized_end=2648,
 )
 
 
@@ -1700,8 +1707,8 @@ _POINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2635,
-  serialized_end=2645,
+  serialized_start=2650,
+  serialized_end=2660,
 )
 
 
@@ -1745,8 +1752,8 @@ _POINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2647,
-  serialized_end=2719,
+  serialized_start=2662,
+  serialized_end=2734,
 )
 
 _WINNINGINFO.fields_by_name['type'].enum_type = _HANDTYPE

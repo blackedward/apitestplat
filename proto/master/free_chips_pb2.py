@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10\x66ree_chips.proto\x12\x02pb\"+\n\rFreeChipsInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x0b\n\x03num\x18\x02 \x01(\x05\"\x15\n\x13GetFreeChipsInfoREQ\"m\n\x13GetFreeChipsInfoRSP\x12)\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1b.pb.GetFreeChipsInfoRSPCode\x12+\n\x10\x66ree_chips_infos\x18\x02 \x03(\x0b\x32\x11.pb.FreeChipsInfo\"\x11\n\x0f\x41\x64\x64\x46reeChipsBRC*j\n\x17GetFreeChipsInfoRSPCode\x12#\n\x1fGetFreeChipsInfoRSPCode_SUCCESS\x10\x00\x12*\n\x1dGetFreeChipsInfoRSPCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10\x66ree_chips.proto\x12\x02pb\"9\n\rFreeChipsInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x0b\n\x03num\x18\x02 \x01(\x05\x12\x0c\n\x04type\x18\x03 \x01(\x05\"\x15\n\x13GetFreeChipsInfoREQ\"m\n\x13GetFreeChipsInfoRSP\x12)\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1b.pb.GetFreeChipsInfoRSPCode\x12+\n\x10\x66ree_chips_infos\x18\x02 \x03(\x0b\x32\x11.pb.FreeChipsInfo\"\x11\n\x0f\x41\x64\x64\x46reeChipsBRC\";\n\x0c\x46reeChipsBRC\x12+\n\x10\x66ree_chips_infos\x18\x02 \x03(\x0b\x32\x11.pb.FreeChipsInfo*j\n\x17GetFreeChipsInfoRSPCode\x12#\n\x1fGetFreeChipsInfoRSPCode_SUCCESS\x10\x00\x12*\n\x1dGetFreeChipsInfoRSPCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
 )
 
 _GETFREECHIPSINFORSPCODE = _descriptor.EnumDescriptor(
@@ -40,8 +40,8 @@ _GETFREECHIPSINFORSPCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=222,
-  serialized_end=328,
+  serialized_start=297,
+  serialized_end=403,
 )
 _sym_db.RegisterEnumDescriptor(_GETFREECHIPSINFORSPCODE)
 
@@ -72,6 +72,13 @@ _FREECHIPSINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='pb.FreeChipsInfo.type', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -85,7 +92,7 @@ _FREECHIPSINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=67,
+  serialized_end=81,
 )
 
 
@@ -108,8 +115,8 @@ _GETFREECHIPSINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=90,
+  serialized_start=83,
+  serialized_end=104,
 )
 
 
@@ -146,8 +153,8 @@ _GETFREECHIPSINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=201,
+  serialized_start=106,
+  serialized_end=215,
 )
 
 
@@ -170,16 +177,49 @@ _ADDFREECHIPSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=203,
-  serialized_end=220,
+  serialized_start=217,
+  serialized_end=234,
+)
+
+
+_FREECHIPSBRC = _descriptor.Descriptor(
+  name='FreeChipsBRC',
+  full_name='pb.FreeChipsBRC',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='free_chips_infos', full_name='pb.FreeChipsBRC.free_chips_infos', index=0,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=236,
+  serialized_end=295,
 )
 
 _GETFREECHIPSINFORSP.fields_by_name['code'].enum_type = _GETFREECHIPSINFORSPCODE
 _GETFREECHIPSINFORSP.fields_by_name['free_chips_infos'].message_type = _FREECHIPSINFO
+_FREECHIPSBRC.fields_by_name['free_chips_infos'].message_type = _FREECHIPSINFO
 DESCRIPTOR.message_types_by_name['FreeChipsInfo'] = _FREECHIPSINFO
 DESCRIPTOR.message_types_by_name['GetFreeChipsInfoREQ'] = _GETFREECHIPSINFOREQ
 DESCRIPTOR.message_types_by_name['GetFreeChipsInfoRSP'] = _GETFREECHIPSINFORSP
 DESCRIPTOR.message_types_by_name['AddFreeChipsBRC'] = _ADDFREECHIPSBRC
+DESCRIPTOR.message_types_by_name['FreeChipsBRC'] = _FREECHIPSBRC
 DESCRIPTOR.enum_types_by_name['GetFreeChipsInfoRSPCode'] = _GETFREECHIPSINFORSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -210,6 +250,13 @@ AddFreeChipsBRC = _reflection.GeneratedProtocolMessageType('AddFreeChipsBRC', (_
   # @@protoc_insertion_point(class_scope:pb.AddFreeChipsBRC)
   ))
 _sym_db.RegisterMessage(AddFreeChipsBRC)
+
+FreeChipsBRC = _reflection.GeneratedProtocolMessageType('FreeChipsBRC', (_message.Message,), dict(
+  DESCRIPTOR = _FREECHIPSBRC,
+  __module__ = 'free_chips_pb2'
+  # @@protoc_insertion_point(class_scope:pb.FreeChipsBRC)
+  ))
+_sym_db.RegisterMessage(FreeChipsBRC)
 
 
 DESCRIPTOR._options = None

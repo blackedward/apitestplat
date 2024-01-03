@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x13go_roomrouter.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\nmtt2.proto\x1a\tpb1.proto\x1a\x0epre_base.proto\x1a\tsng.proto\x1a\x14mystery_bounty.proto\"\xee\x18\n\x13iPhpCreateRoomV2REQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12$\n\nmatch_type\x18\x05 \x01(\x0e\x32\x10.pb.PHPMatchType\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x06 \x01(\x05\x12\x13\n\x0bsignup_time\x18\x07 \x01(\x03\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x1c\n\x14is_auto_flipout_mode\x18\t \x01(\x08\x12\x16\n\x0emin_player_num\x18\n \x01(\x05\x12\x12\n\ntable_icon\x18\x0b \x01(\t\x12\x11\n\trebuy_num\x18\x0c \x01(\x05\x12\x12\n\nrebuy_rate\x18\r \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x0e \x01(\x05\x12\x14\n\x0cis_satellite\x18\x0f \x01(\x08\x12\x16\n\x0e\x65nd_game_level\x18\x10 \x01(\x05\x12/\n\x12mtt_multi_day_info\x18\x11 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x18\n\x10\x64\x65lay_join_level\x18\x12 \x01(\x05\x12\x13\n\x0bis_mtt_rest\x18\x13 \x01(\x08\x12\x15\n\rmtt_rest_type\x18\x14 \x01(\x05\x12\x16\n\x0eis_sitting_out\x18\x15 \x01(\x08\x12\x19\n\x11sitting_out_level\x18\x16 \x01(\x05\x12(\n\x0eroom_name_lang\x18\x17 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1f\n\x17mtt_reward_percent_type\x18\x18 \x01(\x05\x12\x11\n\tevent_key\x18\x19 \x01(\t\x12\x17\n\x0fis_fixed_reward\x18\x1a \x01(\x08\x12\x14\n\x0c\x65nsure_chips\x18\x1b \x01(\x03\x12\x15\n\ritem_class_id\x18\x1c \x01(\x03\x12\x11\n\troom_name\x18\x1d \x01(\t\x12=\n\x0ereward_setting\x18\x1e \x03(\x0b\x32%.pb.iPhpCreateRoomV2REQ.RewardSetting\x12\x19\n\x11is_sign_by_ppchip\x18\x1f \x01(\x08\x12\x19\n\x11is_sign_by_ticket\x18  \x01(\x08\x12\x15\n\rbuyin_tickets\x18! \x03(\x03\x12\x1a\n\x12is_rebuy_by_ppchip\x18\" \x01(\x08\x12\x1a\n\x12is_rebuy_by_ticket\x18# \x01(\x08\x12\x15\n\rrebuy_tickets\x18$ \x03(\x03\x12\x1a\n\x12is_addon_by_ppchip\x18% \x01(\x08\x12\x1a\n\x12is_addon_by_ticket\x18& \x01(\x08\x12\x15\n\raddon_tickets\x18\' \x03(\x03\x12\r\n\x05\x62uyin\x18( \x01(\x03\x12\x36\n\x15special_hunter_bounty\x18) \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12\x13\n\x0b\x62\x65gin_chips\x18* \x01(\x03\x12\x1b\n\x13is_mtt_hunter_match\x18+ \x01(\x08\x12\x1d\n\x15mtt_hunter_match_type\x18, \x01(\x05\x12\x18\n\x10mtt_hunter_ratio\x18- \x01(\x05\x12&\n\x0broom_avatar\x18. \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x12\n\naddon_rate\x18/ \x01(\x05\x12\x12\n\nblind_type\x18\x30 \x01(\x05\x12\x0f\n\x07rebuyin\x18\x31 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x32 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x33 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\x34 \x01(\x05\x12\x10\n\x08seat_num\x18\x35 \x01(\x05\x12\x14\n\x0cupblind_time\x18\x36 \x01(\x05\x12\x15\n\ris_auth_limit\x18\x37 \x01(\x08\x12\x16\n\x0emax_player_num\x18\x38 \x01(\x05\x12\x12\n\nbreak_time\x18\x39 \x01(\x05\x12\x1d\n\x15\x65vent_leader_board_id\x18: \x03(\x03\x12 \n\x18is_first_prize_broadcast\x18; \x01(\x08\x12\x17\n\x0fis_leader_board\x18< \x01(\x08\x12\x1e\n\x16is_notify_before_addon\x18= \x01(\x08\x12\x1e\n\x16is_notify_before_start\x18> \x01(\x08\x12\x13\n\x0bopen_clubid\x18? \x03(\x05\x12\x1a\n\x12open_user_platform\x18@ \x03(\t\x12\x1a\n\x12open_club_platform\x18\x41 \x03(\t\x12\x15\n\rsort_priority\x18\x42 \x01(\x05\x12;\n\x18mtt_special_scene_config\x18\x43 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1f\n\troom_type\x18\x44 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x45 \x01(\x0e\x32\x0c.pb.GameMode\x12\x15\n\ris_float_ante\x18\x46 \x01(\x08\x12\x13\n\x0bsmall_blind\x18G \x01(\x03\x12&\n\rbomb_pot_info\x18H \x01(\x0b\x32\x0f.pb.BombPotInfo\x12\x1a\n\x12is_start_from_flop\x18I \x01(\x08\x12\x0f\n\x07is_vpip\x18J \x01(\x08\x12\x16\n\x0evpip_limit_min\x18K \x01(\x05\x12\x1c\n\x14vpip_limit_threshold\x18L \x01(\x05\x12\x1b\n\x13is_auto_create_room\x18M \x01(\x08\x12\"\n\x1a\x61uto_delay_room_over_times\x18N \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18O \x01(\x08\x12\x18\n\x10\x63\x61lltime_minutes\x18P \x01(\x05\x12\x13\n\x0bis_withdraw\x18Q \x01(\x08\x12\x12\n\nauto_start\x18R \x01(\x05\x12\x1a\n\x12is_run_multi_times\x18S \x01(\x08\x12\x0f\n\x07\x66\x65\x65_cap\x18T \x01(\x05\x12\x15\n\rdefault_buyin\x18U \x01(\x03\x12\x11\n\tgame_time\x18V \x01(\x05\x12\x11\n\tmax_buyin\x18W \x01(\x03\x12\x11\n\tmin_buyin\x18X \x01(\x03\x12\x0c\n\x04\x61nte\x18Y \x01(\x03\x12\x13\n\x0bis_ip_limit\x18Z \x01(\x08\x12\x14\n\x0cis_gps_limit\x18[ \x01(\x08\x12\x12\n\nis_jackpot\x18\\ \x01(\x08\x12\x17\n\x0frebate_interval\x18] \x01(\x03\x12\x0e\n\x06tempid\x18^ \x01(\t\x12\x18\n\x10\x61\x64\x64itional_board\x18_ \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18` \x01(\x05\x12\x12\n\nis_dynamic\x18\x61 \x01(\x08\x12\x10\n\x08need_num\x18\x62 \x01(\x05\x12*\n\x0f\x61\x64min_room_type\x18\x63 \x01(\x0e\x32\x11.pb.AdminRoomType\x12\x12\n\ntable_skin\x18\x64 \x01(\t\x12\x0f\n\x07\x62\x65t_min\x18\x65 \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\x66 \x01(\x03\x12\x11\n\tbet_chips\x18g \x03(\x03\x12\x1b\n\x13settlement_duration\x18h \x01(\x03\x12\x14\n\x0croom_ownerid\x18i \x01(\x03\x12\x15\n\rcreate_clubid\x18j \x01(\x05\x12\x10\n\x08platform\x18k \x01(\t\x12\x11\n\tclub_name\x18l \x01(\t\x12\x0e\n\x06is_pin\x18m \x01(\x08\x12\x18\n\x10\x65nd_game_percent\x18n \x01(\x05\x12\x18\n\x10pin_before_hours\x18o \x01(\x05\x12:\n\x17\x61nnual_achievement_type\x18p \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x14\n\x0cpin_priority\x18q \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18r \x01(\x05\x12\x14\n\x0creward_count\x18s \x01(\x05\x12:\n\x17spinup_multiple_setting\x18t \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12\x19\n\x11is_mystery_bounty\x18u \x01(\x08\x12)\n\x0emystery_bounty\x18v \x03(\x0b\x32\x11.pb.MysteryBounty\x1aI\n\rRewardSetting\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0b\n\x03qty\x18\x03 \x01(\x03\x12\x0f\n\x07item_id\x18\x04 \x01(\x03\"h\n\x13iPhpCreateRoomV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x13\n\x0broom_handle\x18\x04 \x01(\r\"}\n\x18iUpdateUserMultiTableREQ\x12\x31\n\x10user_room_status\x18\x01 \x01(\x0b\x32\x17.pb.iSyncUserRoomStatus\x12\x13\n\x0broom_handle\x18\x02 \x01(\r\x12\x19\n\x11room_service_name\x18\x03 \x01(\t\"f\n\x18iUpdateUserMultiTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12,\n\troom_list\x18\x02 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\"$\n\x12iPhpDestroyRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"B\n\x12iPhpDestroyRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"!\n\x12iUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"2\n\x12iUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x0fiGetRoomUidsREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\"=\n\x0fiGetRoomUidsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\".\n\x0eiAddRoomUidREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\".\n\x0eiAddRoomUidRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iUserCurrentRoomREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"S\n\x13iUserCurrentRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"q\n!iGetMttMultiDayMatchInitDataV2REQ\x12/\n\x12mtt_multi_day_info\x18\x01 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x1b\n\x10match_start_time\x18\x02 \x01(\x03:\x01\x30\"\xb7\x01\n!iGetMttMultiDayMatchInitDataV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11\x62lind_start_level\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\tcan_start\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0enew_start_time\x18\x04 \x01(\x03:\x01\x30\x12!\n\x19have_first_level_can_join\x18\x05 \x01(\x08\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x13go_roomrouter.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\nmtt2.proto\x1a\tpb1.proto\x1a\x0epre_base.proto\x1a\tsng.proto\x1a\x14mystery_bounty.proto\"\xd4\x19\n\x13iPhpCreateRoomV2REQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12$\n\nmatch_type\x18\x05 \x01(\x0e\x32\x10.pb.PHPMatchType\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x06 \x01(\x05\x12\x13\n\x0bsignup_time\x18\x07 \x01(\x03\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x1c\n\x14is_auto_flipout_mode\x18\t \x01(\x08\x12\x16\n\x0emin_player_num\x18\n \x01(\x05\x12\x12\n\ntable_icon\x18\x0b \x01(\t\x12\x11\n\trebuy_num\x18\x0c \x01(\x05\x12\x12\n\nrebuy_rate\x18\r \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x0e \x01(\x05\x12\x14\n\x0cis_satellite\x18\x0f \x01(\x08\x12\x16\n\x0e\x65nd_game_level\x18\x10 \x01(\x05\x12/\n\x12mtt_multi_day_info\x18\x11 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x18\n\x10\x64\x65lay_join_level\x18\x12 \x01(\x05\x12\x13\n\x0bis_mtt_rest\x18\x13 \x01(\x08\x12\x15\n\rmtt_rest_type\x18\x14 \x01(\x05\x12\x16\n\x0eis_sitting_out\x18\x15 \x01(\x08\x12\x19\n\x11sitting_out_level\x18\x16 \x01(\x05\x12(\n\x0eroom_name_lang\x18\x17 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1f\n\x17mtt_reward_percent_type\x18\x18 \x01(\x05\x12\x11\n\tevent_key\x18\x19 \x01(\t\x12\x17\n\x0fis_fixed_reward\x18\x1a \x01(\x08\x12\x14\n\x0c\x65nsure_chips\x18\x1b \x01(\x03\x12\x15\n\ritem_class_id\x18\x1c \x01(\x03\x12\x11\n\troom_name\x18\x1d \x01(\t\x12=\n\x0ereward_setting\x18\x1e \x03(\x0b\x32%.pb.iPhpCreateRoomV2REQ.RewardSetting\x12\x19\n\x11is_sign_by_ppchip\x18\x1f \x01(\x08\x12\x19\n\x11is_sign_by_ticket\x18  \x01(\x08\x12\x15\n\rbuyin_tickets\x18! \x03(\x03\x12\x1a\n\x12is_rebuy_by_ppchip\x18\" \x01(\x08\x12\x1a\n\x12is_rebuy_by_ticket\x18# \x01(\x08\x12\x15\n\rrebuy_tickets\x18$ \x03(\x03\x12\x1a\n\x12is_addon_by_ppchip\x18% \x01(\x08\x12\x1a\n\x12is_addon_by_ticket\x18& \x01(\x08\x12\x15\n\raddon_tickets\x18\' \x03(\x03\x12\r\n\x05\x62uyin\x18( \x01(\x03\x12\x36\n\x15special_hunter_bounty\x18) \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12\x13\n\x0b\x62\x65gin_chips\x18* \x01(\x03\x12\x1b\n\x13is_mtt_hunter_match\x18+ \x01(\x08\x12\x1d\n\x15mtt_hunter_match_type\x18, \x01(\x05\x12\x18\n\x10mtt_hunter_ratio\x18- \x01(\x05\x12&\n\x0broom_avatar\x18. \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x12\n\naddon_rate\x18/ \x01(\x05\x12\x12\n\nblind_type\x18\x30 \x01(\x05\x12\x0f\n\x07rebuyin\x18\x31 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x32 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x33 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\x34 \x01(\x05\x12\x10\n\x08seat_num\x18\x35 \x01(\x05\x12\x14\n\x0cupblind_time\x18\x36 \x01(\x05\x12\x15\n\ris_auth_limit\x18\x37 \x01(\x08\x12\x16\n\x0emax_player_num\x18\x38 \x01(\x05\x12\x12\n\nbreak_time\x18\x39 \x01(\x05\x12\x1d\n\x15\x65vent_leader_board_id\x18: \x03(\x03\x12 \n\x18is_first_prize_broadcast\x18; \x01(\x08\x12\x17\n\x0fis_leader_board\x18< \x01(\x08\x12\x1e\n\x16is_notify_before_addon\x18= \x01(\x08\x12\x1e\n\x16is_notify_before_start\x18> \x01(\x08\x12\x13\n\x0bopen_clubid\x18? \x03(\x05\x12\x1a\n\x12open_user_platform\x18@ \x03(\t\x12\x1a\n\x12open_club_platform\x18\x41 \x03(\t\x12\x15\n\rsort_priority\x18\x42 \x01(\x05\x12;\n\x18mtt_special_scene_config\x18\x43 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1f\n\troom_type\x18\x44 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x45 \x01(\x0e\x32\x0c.pb.GameMode\x12\x15\n\ris_float_ante\x18\x46 \x01(\x08\x12\x13\n\x0bsmall_blind\x18G \x01(\x03\x12&\n\rbomb_pot_info\x18H \x01(\x0b\x32\x0f.pb.BombPotInfo\x12\x1a\n\x12is_start_from_flop\x18I \x01(\x08\x12\x0f\n\x07is_vpip\x18J \x01(\x08\x12\x16\n\x0evpip_limit_min\x18K \x01(\x05\x12\x1c\n\x14vpip_limit_threshold\x18L \x01(\x05\x12\x1b\n\x13is_auto_create_room\x18M \x01(\x08\x12\"\n\x1a\x61uto_delay_room_over_times\x18N \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18O \x01(\x08\x12\x18\n\x10\x63\x61lltime_minutes\x18P \x01(\x05\x12\x13\n\x0bis_withdraw\x18Q \x01(\x08\x12\x12\n\nauto_start\x18R \x01(\x05\x12\x1a\n\x12is_run_multi_times\x18S \x01(\x08\x12\x0f\n\x07\x66\x65\x65_cap\x18T \x01(\x05\x12\x15\n\rdefault_buyin\x18U \x01(\x03\x12\x11\n\tgame_time\x18V \x01(\x05\x12\x11\n\tmax_buyin\x18W \x01(\x03\x12\x11\n\tmin_buyin\x18X \x01(\x03\x12\x0c\n\x04\x61nte\x18Y \x01(\x03\x12\x13\n\x0bis_ip_limit\x18Z \x01(\x08\x12\x14\n\x0cis_gps_limit\x18[ \x01(\x08\x12\x12\n\nis_jackpot\x18\\ \x01(\x08\x12\x17\n\x0frebate_interval\x18] \x01(\x03\x12\x0e\n\x06tempid\x18^ \x01(\t\x12\x18\n\x10\x61\x64\x64itional_board\x18_ \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18` \x01(\x05\x12\x12\n\nis_dynamic\x18\x61 \x01(\x08\x12\x10\n\x08need_num\x18\x62 \x01(\x05\x12*\n\x0f\x61\x64min_room_type\x18\x63 \x01(\x0e\x32\x11.pb.AdminRoomType\x12\x12\n\ntable_skin\x18\x64 \x01(\t\x12\x0f\n\x07\x62\x65t_min\x18\x65 \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\x66 \x01(\x03\x12\x11\n\tbet_chips\x18g \x03(\x03\x12\x1b\n\x13settlement_duration\x18h \x01(\x03\x12\x14\n\x0croom_ownerid\x18i \x01(\x03\x12\x15\n\rcreate_clubid\x18j \x01(\x05\x12\x10\n\x08platform\x18k \x01(\t\x12\x11\n\tclub_name\x18l \x01(\t\x12\x0e\n\x06is_pin\x18m \x01(\x08\x12\x18\n\x10\x65nd_game_percent\x18n \x01(\x05\x12\x18\n\x10pin_before_hours\x18o \x01(\x05\x12:\n\x17\x61nnual_achievement_type\x18p \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x14\n\x0cpin_priority\x18q \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18r \x01(\x05\x12\x14\n\x0creward_count\x18s \x01(\x05\x12:\n\x17spinup_multiple_setting\x18t \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12\x19\n\x11is_mystery_bounty\x18u \x01(\x08\x12)\n\x0emystery_bounty\x18v \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x14\n\x0cmain_bet_min\x18w \x01(\x03\x12\x14\n\x0cmain_bet_max\x18x \x01(\x03\x12\x14\n\x0cside_bet_min\x18y \x01(\x03\x12\x14\n\x0cside_bet_max\x18z \x01(\x03\x12\x0c\n\x04tags\x18{ \x03(\t\x1aI\n\rRewardSetting\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0b\n\x03qty\x18\x03 \x01(\x03\x12\x0f\n\x07item_id\x18\x04 \x01(\x03\"h\n\x13iPhpCreateRoomV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x13\n\x0broom_handle\x18\x04 \x01(\r\"}\n\x18iUpdateUserMultiTableREQ\x12\x31\n\x10user_room_status\x18\x01 \x01(\x0b\x32\x17.pb.iSyncUserRoomStatus\x12\x13\n\x0broom_handle\x18\x02 \x01(\r\x12\x19\n\x11room_service_name\x18\x03 \x01(\t\"f\n\x18iUpdateUserMultiTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12,\n\troom_list\x18\x02 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\"$\n\x12iPhpDestroyRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"B\n\x12iPhpDestroyRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"!\n\x12iUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"2\n\x12iUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x0fiGetRoomUidsREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\"=\n\x0fiGetRoomUidsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\".\n\x0eiAddRoomUidREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\".\n\x0eiAddRoomUidRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iUserCurrentRoomREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"S\n\x13iUserCurrentRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"q\n!iGetMttMultiDayMatchInitDataV2REQ\x12/\n\x12mtt_multi_day_info\x18\x01 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x1b\n\x10match_start_time\x18\x02 \x01(\x03:\x01\x30\"\xb7\x01\n!iGetMttMultiDayMatchInitDataV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11\x62lind_start_level\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\tcan_start\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0enew_start_time\x18\x04 \x01(\x03:\x01\x30\x12!\n\x19have_first_level_can_join\x18\x05 \x01(\x08\"3\n\x1fiPhpDisableDynamicCreateRoomREQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\"?\n\x1fiPhpDisableDynamicCreateRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
   ,
   dependencies=[achievement__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
 
@@ -82,8 +82,8 @@ _IPHPCREATEROOMV2REQ_REWARDSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3276,
-  serialized_end=3349,
+  serialized_start=3378,
+  serialized_end=3451,
 )
 
 _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
@@ -919,6 +919,41 @@ _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='main_bet_min', full_name='pb.iPhpCreateRoomV2REQ.main_bet_min', index=118,
+      number=119, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='main_bet_max', full_name='pb.iPhpCreateRoomV2REQ.main_bet_max', index=119,
+      number=120, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='side_bet_min', full_name='pb.iPhpCreateRoomV2REQ.side_bet_min', index=120,
+      number=121, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='side_bet_max', full_name='pb.iPhpCreateRoomV2REQ.side_bet_max', index=121,
+      number=122, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tags', full_name='pb.iPhpCreateRoomV2REQ.tags', index=122,
+      number=123, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -932,7 +967,7 @@ _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=167,
-  serialized_end=3349,
+  serialized_end=3451,
 )
 
 
@@ -983,8 +1018,8 @@ _IPHPCREATEROOMV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3351,
-  serialized_end=3455,
+  serialized_start=3453,
+  serialized_end=3557,
 )
 
 
@@ -1028,8 +1063,8 @@ _IUPDATEUSERMULTITABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3457,
-  serialized_end=3582,
+  serialized_start=3559,
+  serialized_end=3684,
 )
 
 
@@ -1066,8 +1101,8 @@ _IUPDATEUSERMULTITABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3584,
-  serialized_end=3686,
+  serialized_start=3686,
+  serialized_end=3788,
 )
 
 
@@ -1097,8 +1132,8 @@ _IPHPDESTROYROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3688,
-  serialized_end=3724,
+  serialized_start=3790,
+  serialized_end=3826,
 )
 
 
@@ -1135,8 +1170,8 @@ _IPHPDESTROYROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3726,
-  serialized_end=3792,
+  serialized_start=3828,
+  serialized_end=3894,
 )
 
 
@@ -1166,8 +1201,8 @@ _IUSERDISCONNECTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3794,
-  serialized_end=3827,
+  serialized_start=3896,
+  serialized_end=3929,
 )
 
 
@@ -1197,8 +1232,8 @@ _IUSERDISCONNECTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3829,
-  serialized_end=3879,
+  serialized_start=3931,
+  serialized_end=3981,
 )
 
 
@@ -1228,8 +1263,8 @@ _IGETROOMUIDSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3881,
-  serialized_end=3915,
+  serialized_start=3983,
+  serialized_end=4017,
 )
 
 
@@ -1266,8 +1301,8 @@ _IGETROOMUIDSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3917,
-  serialized_end=3978,
+  serialized_start=4019,
+  serialized_end=4080,
 )
 
 
@@ -1304,8 +1339,8 @@ _IADDROOMUIDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3980,
-  serialized_end=4026,
+  serialized_start=4082,
+  serialized_end=4128,
 )
 
 
@@ -1335,8 +1370,8 @@ _IADDROOMUIDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4028,
-  serialized_end=4074,
+  serialized_start=4130,
+  serialized_end=4176,
 )
 
 
@@ -1366,8 +1401,8 @@ _IUSERCURRENTROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4076,
-  serialized_end=4110,
+  serialized_start=4178,
+  serialized_end=4212,
 )
 
 
@@ -1411,8 +1446,8 @@ _IUSERCURRENTROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4112,
-  serialized_end=4195,
+  serialized_start=4214,
+  serialized_end=4297,
 )
 
 
@@ -1449,8 +1484,8 @@ _IGETMTTMULTIDAYMATCHINITDATAV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4197,
-  serialized_end=4310,
+  serialized_start=4299,
+  serialized_end=4412,
 )
 
 
@@ -1508,8 +1543,70 @@ _IGETMTTMULTIDAYMATCHINITDATAV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4313,
-  serialized_end=4496,
+  serialized_start=4415,
+  serialized_end=4598,
+)
+
+
+_IPHPDISABLEDYNAMICCREATEROOMREQ = _descriptor.Descriptor(
+  name='iPhpDisableDynamicCreateRoomREQ',
+  full_name='pb.iPhpDisableDynamicCreateRoomREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='match_id', full_name='pb.iPhpDisableDynamicCreateRoomREQ.match_id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4600,
+  serialized_end=4651,
+)
+
+
+_IPHPDISABLEDYNAMICCREATEROOMRSP = _descriptor.Descriptor(
+  name='iPhpDisableDynamicCreateRoomRSP',
+  full_name='pb.iPhpDisableDynamicCreateRoomRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iPhpDisableDynamicCreateRoomRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4653,
+  serialized_end=4716,
 )
 
 _IPHPCREATEROOMV2REQ_REWARDSETTING.containing_type = _IPHPCREATEROOMV2REQ
@@ -1538,6 +1635,7 @@ _IADDROOMUIDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IUSERCURRENTROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETMTTMULTIDAYMATCHINITDATAV2REQ.fields_by_name['mtt_multi_day_info'].message_type = mtt2__pb2._MTTMULTIDAYINFO
 _IGETMTTMULTIDAYMATCHINITDATAV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IPHPDISABLEDYNAMICCREATEROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomV2REQ'] = _IPHPCREATEROOMV2REQ
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomV2RSP'] = _IPHPCREATEROOMV2RSP
 DESCRIPTOR.message_types_by_name['iUpdateUserMultiTableREQ'] = _IUPDATEUSERMULTITABLEREQ
@@ -1554,6 +1652,8 @@ DESCRIPTOR.message_types_by_name['iUserCurrentRoomREQ'] = _IUSERCURRENTROOMREQ
 DESCRIPTOR.message_types_by_name['iUserCurrentRoomRSP'] = _IUSERCURRENTROOMRSP
 DESCRIPTOR.message_types_by_name['iGetMttMultiDayMatchInitDataV2REQ'] = _IGETMTTMULTIDAYMATCHINITDATAV2REQ
 DESCRIPTOR.message_types_by_name['iGetMttMultiDayMatchInitDataV2RSP'] = _IGETMTTMULTIDAYMATCHINITDATAV2RSP
+DESCRIPTOR.message_types_by_name['iPhpDisableDynamicCreateRoomREQ'] = _IPHPDISABLEDYNAMICCREATEROOMREQ
+DESCRIPTOR.message_types_by_name['iPhpDisableDynamicCreateRoomRSP'] = _IPHPDISABLEDYNAMICCREATEROOMRSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iPhpCreateRoomV2REQ = _reflection.GeneratedProtocolMessageType('iPhpCreateRoomV2REQ', (_message.Message,), dict(
@@ -1675,6 +1775,20 @@ iGetMttMultiDayMatchInitDataV2RSP = _reflection.GeneratedProtocolMessageType('iG
   # @@protoc_insertion_point(class_scope:pb.iGetMttMultiDayMatchInitDataV2RSP)
   ))
 _sym_db.RegisterMessage(iGetMttMultiDayMatchInitDataV2RSP)
+
+iPhpDisableDynamicCreateRoomREQ = _reflection.GeneratedProtocolMessageType('iPhpDisableDynamicCreateRoomREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IPHPDISABLEDYNAMICCREATEROOMREQ,
+  __module__ = 'go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iPhpDisableDynamicCreateRoomREQ)
+  ))
+_sym_db.RegisterMessage(iPhpDisableDynamicCreateRoomREQ)
+
+iPhpDisableDynamicCreateRoomRSP = _reflection.GeneratedProtocolMessageType('iPhpDisableDynamicCreateRoomRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IPHPDISABLEDYNAMICCREATEROOMRSP,
+  __module__ = 'go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iPhpDisableDynamicCreateRoomRSP)
+  ))
+_sym_db.RegisterMessage(iPhpDisableDynamicCreateRoomRSP)
 
 
 DESCRIPTOR._options = None

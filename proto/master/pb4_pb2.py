@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -15,6 +16,8 @@ _sym_db = _symbol_database.Default()
 import pre_base_pb2 as pre__base__pb2
 import base_pb2 as base__pb2
 import pb1_pb2 as pb1__pb2
+import blackjack_pb2 as blackjack__pb2
+import go_roomsvr_pb2 as go__roomsvr__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,10 +25,65 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb4.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\tpb1.proto\"0\n\x0f\x44ismissTableREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08table_id\x18\x02 \x01(\x05\"\"\n\x0f\x44ismissTableRSP\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\"0\n\x0f\x44ismissTableBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08table_id\x18\x02 \x01(\x05\"\x1f\n\x0fGPSStatusReport\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"!\n\x11\x43hangeUserNameREQ\x12\x0c\n\x04name\x18\x01 \x01(\t\"/\n\x11\x43hangeUserNameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x0f\n\rRenameCostREQ\" \n\rRenameCostRSP\x12\x0f\n\x04\x63ost\x18\x01 \x01(\x05:\x01\x30\"\x1a\n\x07TextREQ\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\"\x17\n\x07TextRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x80\x01\n\x07TextBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x11\n\tvip_level\x18\x05 \x01(\r\x12!\n\nuser_brief\x18\x06 \x01(\x0b\x32\r.pb.UserBrief\"J\n\x0f\x43hatUserSetting\x12\x1b\n\rvoice_chat_on\x18\x01 \x01(\x08:\x04true\x12\x1a\n\x0ctext_chat_on\x18\x02 \x01(\x08:\x04true\":\n\x12\x43hatUserSettingREQ\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\":\n\x12\x43hatUserSettingRSP\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\"\x17\n\x15\x43hatGetUserSettingREQ\"=\n\x15\x43hatGetUserSettingRSP\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\"%\n\nBanTalkREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\n\n\x02on\x18\x02 \x01(\x08\"3\n\nBanTalkRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\n\n\x02on\x18\x02 \x01(\x08\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"+\n\x0cPreActionREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"9\n\x0cPreActionRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\"\x1b\n\rBannedTalkRSP\x12\n\n\x02on\x18\x01 \x01(\x08\"\x13\n\x11\x42\x61nnedTalkListREQ\"0\n\x11\x42\x61nnedTalkListMbr\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06status\x18\x02 \x01(\x05\"7\n\x11\x42\x61nnedTalkListRSP\x12\"\n\x03mbr\x18\x01 \x03(\x0b\x32\x15.pb.BannedTalkListMbr\"o\n\tReportGPS\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1b\n\x07gps_lon\x18\x02 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x03 \x01(\x05:\n-360000000\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0e\n\x02pc\x18\x05 \x01(\x08\x42\x02\x18\x01\"\x1f\n\x0fIllegalGPSIPRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"9\n\x0bInteractREQ\x12\n\n\x02to\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x10\n\x05times\x18\x03 \x01(\x05:\x01\x31\"U\n\x0bInteractBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x05\x12\n\n\x02to\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x10\n\x05times\x18\x05 \x01(\x05:\x01\x31\"\xd5\x01\n\x0cUserLoginREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0b\n\x03ver\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x1a\n\x0b\x63lient_type\x18\x05 \x01(\x05:\x01\x31\x42\x02\x18\x01\x12\x15\n\nlogin_type\x18\x06 \x01(\x05:\x01\x30\x12\x12\n\nentry_host\x18\x07 \x01(\t\x12\x12\n\nentry_port\x18\x08 \x01(\x05\x12\x16\n\x0emobile_network\x18\t \x01(\t\x12\x13\n\x0b\x64\x65vice_lang\x18\n \x01(\t\x12\n\n\x02os\x18\x0b \x01(\t\"h\n\x0cUserLoginRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x16\n\x0esilent_version\x18\x03 \x01(\t\x12\x12\n\nlogin_type\x18\x04 \x01(\x05\x12\x0e\n\x06now_ms\x18\x05 \x01(\x03\"\x80\x02\n\rHistoryRiskRD\x12\x12\n\x07iBBOuts\x18\x01 \x01(\x05:\x01\x30\x12\x14\n\tiChopOuts\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08iBuyOuts\x18\x03 \x01(\x05:\x01\x30\x12\x1a\n\x0fiBuyinInsurance\x18\x04 \x01(\x03:\x01\x30\x12\x1f\n\x10iChosenBackChips\x18\x05 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x1e\n\x0fiForceBackChips\x18\x06 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x12\n\niLeaderUid\x18\x07 \x01(\x03\x12\x16\n\x0biLeaderWPCT\x18\x08 \x01(\x05:\x01\x30\x12\x0f\n\x07iPoolID\x18\t \x01(\x05\x12\x16\n\x0eiRiskPoolChips\x18\n \x01(\x03\"x\n\x08\x41\x63tionRD\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x04time\x18\x02 \x01(\r:\x01\x30\x12\x1c\n\x04type\x18\x03 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x04 \x01(\x03\x12\x0b\n\x03uid\x18\x05 \x01(\x03\x12\x11\n\x06mstime\x18\x06 \x01(\x04:\x01\x30\"\xc3\x01\n\x08\x43RoundRD\x12\x1d\n\x05stage\x18\x01 \x01(\x0e\x32\x0e.pb.RoundStage\x12\x0c\n\x04\x63\x61rd\x18\x02 \x03(\x05\x12\x1c\n\x06\x61\x63tion\x18\x03 \x03(\x0b\x32\x0c.pb.ActionRD\x12)\n\x0ekHistoryRiskRD\x18\x04 \x03(\x0b\x32\x11.pb.HistoryRiskRD\x12\x11\n\tiAllChips\x18\x05 \x01(\x03\x12\x13\n\x0biPoolsChips\x18\x06 \x03(\x03\x12\x19\n\x11second_board_card\x18\x07 \x03(\x05\"\xcf\x02\n\x0bPlayerHands\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\x12\x0e\n\x06profit\x18\x04 \x01(\x03\x12\x10\n\x08position\x18\x05 \x01(\x05\x12\x16\n\x0ejackpot_reward\x18\x06 \x01(\x03\x12\x0f\n\x07\x62IsShow\x18\x07 \x01(\x08\x12\x12\n\niBeginChip\x18\x08 \x01(\x03\x12\x18\n\tbCardShow\x18\t \x01(\x08:\x05\x66\x61lse\x12\'\n\x0bplay_status\x18\n \x01(\x0e\x32\x12.pb.UserPlayStatus\x12\x1a\n\x12\x66irst_board_profit\x18\x0b \x01(\x03\x12\x1b\n\x13second_board_profit\x18\x0c \x01(\x03\x12\x1c\n\x14\x66irst_jackpot_reward\x18\r \x01(\x03\x12\x1d\n\x15second_jackpot_reward\x18\x0e \x01(\x03\"F\n\nHunterInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x15\n\rhunter_reward\x18\x02 \x01(\x03\x12\x14\n\x0chunter_bonus\x18\x03 \x01(\x03\"\x8e\x03\n\tHandsInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1e\n\x05hands\x18\x02 \x03(\x0b\x32\x0f.pb.PlayerHands\x12\r\n\x05\x62oard\x18\x03 \x03(\r\x12$\n\x0cmulti_boards\x18\x04 \x03(\x0b\x32\x0e.pb.MultiBoard\x12\x1f\n\x0cis_insurance\x18\x05 \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x1e\n\x0finsurance_chips\x18\x06 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\x06iBlind\x18\x07 \x01(\x03:\x01\x30\x12\x15\n\niStartTime\x18\x08 \x01(\x03:\x01\x30\x12\x1c\n\x06kRound\x18\t \x03(\x0b\x32\x0c.pb.CRoundRD\x12\x10\n\x05iAnte\x18\n \x01(\x03:\x01\x30\x12\x1f\n\x07hunters\x18\x0b \x03(\x0b\x32\x0e.pb.HunterInfo\x12\x19\n\x0e\x62omb_pot_chips\x18\x0c \x01(\x03:\x01\x30\x12!\n\x12is_in_double_board\x18\r \x01(\x08:\x05\x66\x61lse\x12\x14\n\x0csecond_board\x18\x0e \x03(\r\x12\x10\n\x08gametype\x18\x0f \x01(\x05\"\x1d\n\x0cHandsListREQ\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\":\n\x0cHandsListRSP\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\x12\x1b\n\x04info\x18\x02 \x03(\x0b\x32\r.pb.HandsInfo\"\x1f\n\x0eHandsListV2REQ\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\"1\n\x0eHandsListV2RSP\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\x12\x10\n\x08game_ids\x18\x03 \x03(\t\" \n\x0cHandsInfoREQ\x12\x10\n\x08game_ids\x18\x01 \x03(\t\"+\n\x0cHandsInfoRSP\x12\x1b\n\x04info\x18\x02 \x03(\x0b\x32\r.pb.HandsInfo\",\n\rRunBackground\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"\x1f\n\x10\x46\x65\x65\x64\x42\x61\x63kReplyRSP\x12\x0b\n\x03\x63nt\x18\x01 \x01(\x05\"\x12\n\x10ZoomQuickFoldREQ\" \n\x10ZoomQuickFoldRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1d\n\x0bZoomFoldBRC\x12\x0e\n\x06seatid\x18\x01 \x03(\x05\"\x16\n\x14ZoomRoomPlayerNumREQ\":\n\x14ZoomRoomPlayerNumRSP\x12\x11\n\tsited_num\x18\x01 \x01(\x05\x12\x0f\n\x07max_num\x18\x02 \x01(\x05\":\n\x14ZoomRoomPlayerNumBRC\x12\x11\n\tsited_num\x18\x01 \x01(\x05\x12\x0f\n\x07max_num\x18\x02 \x01(\x05\"?\n\tActionREQ\x12#\n\x0b\x61\x63tion_type\x18\x01 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"c\n\tActionBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12#\n\x0b\x61\x63tion_type\x18\x02 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x12\n\nhand_chips\x18\x04 \x01(\x03\"\x87\x01\n\rRoundStartBRC\x12\x1d\n\x05stage\x18\x01 \x01(\x0e\x32\x0e.pb.RoundStage\x12\r\n\x05\x62oard\x18\x02 \x03(\x05\x12\x11\n\tcur_blind\x18\x03 \x01(\x03\x12\x1f\n\touts_info\x18\x04 \x01(\x0b\x32\x0c.pb.OutsInfo\x12\x14\n\x0csecond_board\x18\x05 \x03(\x05\"\x1c\n\x0cRoundOverBRC\x12\x0c\n\x04pool\x18\x01 \x03(\x03\"{\n\x0bHandCardRSP\x12\r\n\x05\x63\x61rd1\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x05 \x01(\x05\x12!\n\nblitz_info\x18\x06 \x01(\x0b\x32\r.pb.BlitzInfo\",\n\x19TransferBroadcastToClient\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\"<\n\x0eHunterBonusBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x62onus\x18\x03 \x01(\x03\"\x1a\n\x18ZoomPrepareChangeRoomBRC\"\x13\n\x11ZoomChangeRoomBRC\"i\n\x0cShowHandInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x06 \x01(\x05\"e\n\x0bShowHandRSP\x12\x1e\n\x04info\x18\x01 \x03(\x0b\x32\x10.pb.ShowHandInfo\x12\x15\n\rwinner_seatid\x18\x02 \x03(\x05\x12\x1f\n\touts_info\x18\x03 \x01(\x0b\x32\x0c.pb.OutsInfoB\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb4.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\tpb1.proto\x1a\x0f\x62lackjack.proto\x1a\x10go_roomsvr.proto\"0\n\x0f\x44ismissTableREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08table_id\x18\x02 \x01(\x05\"\"\n\x0f\x44ismissTableRSP\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\"0\n\x0f\x44ismissTableBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08table_id\x18\x02 \x01(\x05\"\x1f\n\x0fGPSStatusReport\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"!\n\x11\x43hangeUserNameREQ\x12\x0c\n\x04name\x18\x01 \x01(\t\"/\n\x11\x43hangeUserNameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x0f\n\rRenameCostREQ\" \n\rRenameCostRSP\x12\x0f\n\x04\x63ost\x18\x01 \x01(\x05:\x01\x30\"\x1a\n\x07TextREQ\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\"\x17\n\x07TextRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x80\x01\n\x07TextBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x11\n\tvip_level\x18\x05 \x01(\r\x12!\n\nuser_brief\x18\x06 \x01(\x0b\x32\r.pb.UserBrief\"J\n\x0f\x43hatUserSetting\x12\x1b\n\rvoice_chat_on\x18\x01 \x01(\x08:\x04true\x12\x1a\n\x0ctext_chat_on\x18\x02 \x01(\x08:\x04true\":\n\x12\x43hatUserSettingREQ\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\":\n\x12\x43hatUserSettingRSP\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\"\x17\n\x15\x43hatGetUserSettingREQ\"=\n\x15\x43hatGetUserSettingRSP\x12$\n\x07setting\x18\x01 \x01(\x0b\x32\x13.pb.ChatUserSetting\"%\n\nBanTalkREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\n\n\x02on\x18\x02 \x01(\x08\"3\n\nBanTalkRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\n\n\x02on\x18\x02 \x01(\x08\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"+\n\x0cPreActionREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"9\n\x0cPreActionRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\"\x1b\n\rBannedTalkRSP\x12\n\n\x02on\x18\x01 \x01(\x08\"\x13\n\x11\x42\x61nnedTalkListREQ\"0\n\x11\x42\x61nnedTalkListMbr\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06status\x18\x02 \x01(\x05\"7\n\x11\x42\x61nnedTalkListRSP\x12\"\n\x03mbr\x18\x01 \x03(\x0b\x32\x15.pb.BannedTalkListMbr\"o\n\tReportGPS\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1b\n\x07gps_lon\x18\x02 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x03 \x01(\x05:\n-360000000\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0e\n\x02pc\x18\x05 \x01(\x08\x42\x02\x18\x01\"\x1f\n\x0fIllegalGPSIPRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"9\n\x0bInteractREQ\x12\n\n\x02to\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x10\n\x05times\x18\x03 \x01(\x05:\x01\x31\"U\n\x0bInteractBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x05\x12\n\n\x02to\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x10\n\x05times\x18\x05 \x01(\x05:\x01\x31\"\xd5\x01\n\x0cUserLoginREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0b\n\x03ver\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x1a\n\x0b\x63lient_type\x18\x05 \x01(\x05:\x01\x31\x42\x02\x18\x01\x12\x15\n\nlogin_type\x18\x06 \x01(\x05:\x01\x30\x12\x12\n\nentry_host\x18\x07 \x01(\t\x12\x12\n\nentry_port\x18\x08 \x01(\x05\x12\x16\n\x0emobile_network\x18\t \x01(\t\x12\x13\n\x0b\x64\x65vice_lang\x18\n \x01(\t\x12\n\n\x02os\x18\x0b \x01(\t\"h\n\x0cUserLoginRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x16\n\x0esilent_version\x18\x03 \x01(\t\x12\x12\n\nlogin_type\x18\x04 \x01(\x05\x12\x0e\n\x06now_ms\x18\x05 \x01(\x03\"\x80\x02\n\rHistoryRiskRD\x12\x12\n\x07iBBOuts\x18\x01 \x01(\x05:\x01\x30\x12\x14\n\tiChopOuts\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08iBuyOuts\x18\x03 \x01(\x05:\x01\x30\x12\x1a\n\x0fiBuyinInsurance\x18\x04 \x01(\x03:\x01\x30\x12\x1f\n\x10iChosenBackChips\x18\x05 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x1e\n\x0fiForceBackChips\x18\x06 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x12\n\niLeaderUid\x18\x07 \x01(\x03\x12\x16\n\x0biLeaderWPCT\x18\x08 \x01(\x05:\x01\x30\x12\x0f\n\x07iPoolID\x18\t \x01(\x05\x12\x16\n\x0eiRiskPoolChips\x18\n \x01(\x03\"x\n\x08\x41\x63tionRD\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x04time\x18\x02 \x01(\r:\x01\x30\x12\x1c\n\x04type\x18\x03 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x04 \x01(\x03\x12\x0b\n\x03uid\x18\x05 \x01(\x03\x12\x11\n\x06mstime\x18\x06 \x01(\x04:\x01\x30\"\xc3\x01\n\x08\x43RoundRD\x12\x1d\n\x05stage\x18\x01 \x01(\x0e\x32\x0e.pb.RoundStage\x12\x0c\n\x04\x63\x61rd\x18\x02 \x03(\x05\x12\x1c\n\x06\x61\x63tion\x18\x03 \x03(\x0b\x32\x0c.pb.ActionRD\x12)\n\x0ekHistoryRiskRD\x18\x04 \x03(\x0b\x32\x11.pb.HistoryRiskRD\x12\x11\n\tiAllChips\x18\x05 \x01(\x03\x12\x13\n\x0biPoolsChips\x18\x06 \x03(\x03\x12\x19\n\x11second_board_card\x18\x07 \x03(\x05\"\xcf\x02\n\x0bPlayerHands\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\x12\x0e\n\x06profit\x18\x04 \x01(\x03\x12\x10\n\x08position\x18\x05 \x01(\x05\x12\x16\n\x0ejackpot_reward\x18\x06 \x01(\x03\x12\x0f\n\x07\x62IsShow\x18\x07 \x01(\x08\x12\x12\n\niBeginChip\x18\x08 \x01(\x03\x12\x18\n\tbCardShow\x18\t \x01(\x08:\x05\x66\x61lse\x12\'\n\x0bplay_status\x18\n \x01(\x0e\x32\x12.pb.UserPlayStatus\x12\x1a\n\x12\x66irst_board_profit\x18\x0b \x01(\x03\x12\x1b\n\x13second_board_profit\x18\x0c \x01(\x03\x12\x1c\n\x14\x66irst_jackpot_reward\x18\r \x01(\x03\x12\x1d\n\x15second_jackpot_reward\x18\x0e \x01(\x03\"F\n\nHunterInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x15\n\rhunter_reward\x18\x02 \x01(\x03\x12\x14\n\x0chunter_bonus\x18\x03 \x01(\x03\"\x8e\x03\n\tHandsInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1e\n\x05hands\x18\x02 \x03(\x0b\x32\x0f.pb.PlayerHands\x12\r\n\x05\x62oard\x18\x03 \x03(\r\x12$\n\x0cmulti_boards\x18\x04 \x03(\x0b\x32\x0e.pb.MultiBoard\x12\x1f\n\x0cis_insurance\x18\x05 \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x1e\n\x0finsurance_chips\x18\x06 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\x06iBlind\x18\x07 \x01(\x03:\x01\x30\x12\x15\n\niStartTime\x18\x08 \x01(\x03:\x01\x30\x12\x1c\n\x06kRound\x18\t \x03(\x0b\x32\x0c.pb.CRoundRD\x12\x10\n\x05iAnte\x18\n \x01(\x03:\x01\x30\x12\x1f\n\x07hunters\x18\x0b \x03(\x0b\x32\x0e.pb.HunterInfo\x12\x19\n\x0e\x62omb_pot_chips\x18\x0c \x01(\x03:\x01\x30\x12!\n\x12is_in_double_board\x18\r \x01(\x08:\x05\x66\x61lse\x12\x14\n\x0csecond_board\x18\x0e \x03(\r\x12\x10\n\x08gametype\x18\x0f \x01(\x05\"\x1d\n\x0cHandsListREQ\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\":\n\x0cHandsListRSP\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\x12\x1b\n\x04info\x18\x02 \x03(\x0b\x32\r.pb.HandsInfo\"\x1f\n\x0eHandsListV2REQ\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\"1\n\x0eHandsListV2RSP\x12\r\n\x05\x62\x65gin\x18\x01 \x01(\t\x12\x10\n\x08game_ids\x18\x03 \x03(\t\" \n\x0cHandsInfoREQ\x12\x10\n\x08game_ids\x18\x01 \x03(\t\"[\n\x0cHandsInfoRSP\x12\x1b\n\x04info\x18\x02 \x03(\x0b\x32\r.pb.HandsInfo\x12.\n\x0e\x62lackjack_info\x18\x03 \x03(\x0b\x32\x16.pb.BlackjackHandsInfo\",\n\rRunBackground\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"\x1f\n\x10\x46\x65\x65\x64\x42\x61\x63kReplyRSP\x12\x0b\n\x03\x63nt\x18\x01 \x01(\x05\"\x12\n\x10ZoomQuickFoldREQ\" \n\x10ZoomQuickFoldRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1d\n\x0bZoomFoldBRC\x12\x0e\n\x06seatid\x18\x01 \x03(\x05\"\x16\n\x14ZoomRoomPlayerNumREQ\":\n\x14ZoomRoomPlayerNumRSP\x12\x11\n\tsited_num\x18\x01 \x01(\x05\x12\x0f\n\x07max_num\x18\x02 \x01(\x05\":\n\x14ZoomRoomPlayerNumBRC\x12\x11\n\tsited_num\x18\x01 \x01(\x05\x12\x0f\n\x07max_num\x18\x02 \x01(\x05\"P\n\tActionREQ\x12#\n\x0b\x61\x63tion_type\x18\x01 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x0f\n\x07\x66low_id\x18\x03 \x01(\x03\"\xa6\x01\n\tActionRSP\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12#\n\x0b\x61\x63tion_type\x18\x02 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x1c\n\x04\x63ode\x18\x04 \x01(\x0e\x32\x0e.pb.ActionCode\x12\x37\n\x13self_playing_status\x18\x05 \x01(\x0b\x32\x1a.pb.BlackjackSelfTableInfo\"\x90\x01\n\tActionBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12#\n\x0b\x61\x63tion_type\x18\x02 \x01(\x0e\x32\x0e.pb.ActionType\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x12\n\nhand_chips\x18\x04 \x01(\x03\x12+\n\x12\x62lackjack_bet_info\x18\x05 \x01(\x0b\x32\x0f.pb.SeatBetInfo\"\x87\x01\n\rRoundStartBRC\x12\x1d\n\x05stage\x18\x01 \x01(\x0e\x32\x0e.pb.RoundStage\x12\r\n\x05\x62oard\x18\x02 \x03(\x05\x12\x11\n\tcur_blind\x18\x03 \x01(\x03\x12\x1f\n\touts_info\x18\x04 \x01(\x0b\x32\x0c.pb.OutsInfo\x12\x14\n\x0csecond_board\x18\x05 \x03(\x05\"\x1c\n\x0cRoundOverBRC\x12\x0c\n\x04pool\x18\x01 \x03(\x03\"{\n\x0bHandCardRSP\x12\r\n\x05\x63\x61rd1\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x05 \x01(\x05\x12!\n\nblitz_info\x18\x06 \x01(\x0b\x32\r.pb.BlitzInfo\",\n\x19TransferBroadcastToClient\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\"<\n\x0eHunterBonusBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x62onus\x18\x03 \x01(\x03\"\x1a\n\x18ZoomPrepareChangeRoomBRC\"\x13\n\x11ZoomChangeRoomBRC\"i\n\x0cShowHandInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rd1\x18\x02 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x03 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x04 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\x05 \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\x06 \x01(\x05\"e\n\x0bShowHandRSP\x12\x1e\n\x04info\x18\x01 \x03(\x0b\x32\x10.pb.ShowHandInfo\x12\x15\n\rwinner_seatid\x18\x02 \x03(\x05\x12\x1f\n\touts_info\x18\x03 \x01(\x0b\x32\x0c.pb.OutsInfo*\x9d\x02\n\nActionCode\x12\x17\n\x13\x41\x43TION_CODE_SUCCESS\x10\x00\x12\x1e\n\x1a\x41\x43TION_CODE_FLOW_ID_REPEAT\x10\x01\x12\x1b\n\x17\x41\x43TION_CODE_STATE_ERROR\x10\x02\x12$\n ACTION_CODE_INVALID_ACTION_SPLIT\x10\x03\x12%\n!ACTION_CODE_INVALID_ACTION_DOUBLE\x10\x04\x12(\n$ACTION_CODE_INVALID_ACTION_SURRENDER\x10\x05\x12\x1c\n\x18\x41\x43TION_CODE_SEATID_ERROR\x10\x06\x12$\n ACTION_CODE_INSUFFICIENT_BALANCE\x10\x07\x42\x07Z\x05../pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,go__roomsvr__pb2.DESCRIPTOR,])
 
+_ACTIONCODE = _descriptor.EnumDescriptor(
+  name='ActionCode',
+  full_name='pb.ActionCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_FLOW_ID_REPEAT', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_STATE_ERROR', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_INVALID_ACTION_SPLIT', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_INVALID_ACTION_DOUBLE', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_INVALID_ACTION_SURRENDER', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_SEATID_ERROR', index=6, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_CODE_INSUFFICIENT_BALANCE', index=7, number=7,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4889,
+  serialized_end=5174,
+)
+_sym_db.RegisterEnumDescriptor(_ACTIONCODE)
+
+ActionCode = enum_type_wrapper.EnumTypeWrapper(_ACTIONCODE)
+ACTION_CODE_SUCCESS = 0
+ACTION_CODE_FLOW_ID_REPEAT = 1
+ACTION_CODE_STATE_ERROR = 2
+ACTION_CODE_INVALID_ACTION_SPLIT = 3
+ACTION_CODE_INVALID_ACTION_DOUBLE = 4
+ACTION_CODE_INVALID_ACTION_SURRENDER = 5
+ACTION_CODE_SEATID_ERROR = 6
+ACTION_CODE_INSUFFICIENT_BALANCE = 7
 
 
 
@@ -62,8 +120,8 @@ _DISMISSTABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=104,
+  serialized_start=91,
+  serialized_end=139,
 )
 
 
@@ -93,8 +151,8 @@ _DISMISSTABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=106,
-  serialized_end=140,
+  serialized_start=141,
+  serialized_end=175,
 )
 
 
@@ -131,8 +189,8 @@ _DISMISSTABLEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=142,
-  serialized_end=190,
+  serialized_start=177,
+  serialized_end=225,
 )
 
 
@@ -162,8 +220,8 @@ _GPSSTATUSREPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=192,
-  serialized_end=223,
+  serialized_start=227,
+  serialized_end=258,
 )
 
 
@@ -193,8 +251,8 @@ _CHANGEUSERNAMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=225,
-  serialized_end=258,
+  serialized_start=260,
+  serialized_end=293,
 )
 
 
@@ -231,8 +289,8 @@ _CHANGEUSERNAMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=307,
+  serialized_start=295,
+  serialized_end=342,
 )
 
 
@@ -255,8 +313,8 @@ _RENAMECOSTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=309,
-  serialized_end=324,
+  serialized_start=344,
+  serialized_end=359,
 )
 
 
@@ -286,8 +344,8 @@ _RENAMECOSTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=326,
-  serialized_end=358,
+  serialized_start=361,
+  serialized_end=393,
 )
 
 
@@ -317,8 +375,8 @@ _TEXTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=386,
+  serialized_start=395,
+  serialized_end=421,
 )
 
 
@@ -348,8 +406,8 @@ _TEXTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=388,
-  serialized_end=411,
+  serialized_start=423,
+  serialized_end=446,
 )
 
 
@@ -414,8 +472,8 @@ _TEXTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=414,
-  serialized_end=542,
+  serialized_start=449,
+  serialized_end=577,
 )
 
 
@@ -452,8 +510,8 @@ _CHATUSERSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=544,
-  serialized_end=618,
+  serialized_start=579,
+  serialized_end=653,
 )
 
 
@@ -483,8 +541,8 @@ _CHATUSERSETTINGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=620,
-  serialized_end=678,
+  serialized_start=655,
+  serialized_end=713,
 )
 
 
@@ -514,8 +572,8 @@ _CHATUSERSETTINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=680,
-  serialized_end=738,
+  serialized_start=715,
+  serialized_end=773,
 )
 
 
@@ -538,8 +596,8 @@ _CHATGETUSERSETTINGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=740,
-  serialized_end=763,
+  serialized_start=775,
+  serialized_end=798,
 )
 
 
@@ -569,8 +627,8 @@ _CHATGETUSERSETTINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=765,
-  serialized_end=826,
+  serialized_start=800,
+  serialized_end=861,
 )
 
 
@@ -607,8 +665,8 @@ _BANTALKREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=828,
-  serialized_end=865,
+  serialized_start=863,
+  serialized_end=900,
 )
 
 
@@ -652,8 +710,8 @@ _BANTALKRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=867,
-  serialized_end=918,
+  serialized_start=902,
+  serialized_end=953,
 )
 
 
@@ -690,8 +748,8 @@ _PREACTIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=920,
-  serialized_end=963,
+  serialized_start=955,
+  serialized_end=998,
 )
 
 
@@ -735,8 +793,8 @@ _PREACTIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=965,
-  serialized_end=1022,
+  serialized_start=1000,
+  serialized_end=1057,
 )
 
 
@@ -766,8 +824,8 @@ _BANNEDTALKRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1024,
-  serialized_end=1051,
+  serialized_start=1059,
+  serialized_end=1086,
 )
 
 
@@ -790,8 +848,8 @@ _BANNEDTALKLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1053,
-  serialized_end=1072,
+  serialized_start=1088,
+  serialized_end=1107,
 )
 
 
@@ -828,8 +886,8 @@ _BANNEDTALKLISTMBR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1074,
-  serialized_end=1122,
+  serialized_start=1109,
+  serialized_end=1157,
 )
 
 
@@ -859,8 +917,8 @@ _BANNEDTALKLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1124,
-  serialized_end=1179,
+  serialized_start=1159,
+  serialized_end=1214,
 )
 
 
@@ -918,8 +976,8 @@ _REPORTGPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1181,
-  serialized_end=1292,
+  serialized_start=1216,
+  serialized_end=1327,
 )
 
 
@@ -949,8 +1007,8 @@ _ILLEGALGPSIPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1294,
-  serialized_end=1325,
+  serialized_start=1329,
+  serialized_end=1360,
 )
 
 
@@ -994,8 +1052,8 @@ _INTERACTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1327,
-  serialized_end=1384,
+  serialized_start=1362,
+  serialized_end=1419,
 )
 
 
@@ -1053,8 +1111,8 @@ _INTERACTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1386,
-  serialized_end=1471,
+  serialized_start=1421,
+  serialized_end=1506,
 )
 
 
@@ -1154,8 +1212,8 @@ _USERLOGINREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1474,
-  serialized_end=1687,
+  serialized_start=1509,
+  serialized_end=1722,
 )
 
 
@@ -1213,8 +1271,8 @@ _USERLOGINRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1689,
-  serialized_end=1793,
+  serialized_start=1724,
+  serialized_end=1828,
 )
 
 
@@ -1307,8 +1365,8 @@ _HISTORYRISKRD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1796,
-  serialized_end=2052,
+  serialized_start=1831,
+  serialized_end=2087,
 )
 
 
@@ -1373,8 +1431,8 @@ _ACTIONRD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2054,
-  serialized_end=2174,
+  serialized_start=2089,
+  serialized_end=2209,
 )
 
 
@@ -1446,8 +1504,8 @@ _CROUNDRD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2177,
-  serialized_end=2372,
+  serialized_start=2212,
+  serialized_end=2407,
 )
 
 
@@ -1568,8 +1626,8 @@ _PLAYERHANDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2375,
-  serialized_end=2710,
+  serialized_start=2410,
+  serialized_end=2745,
 )
 
 
@@ -1613,8 +1671,8 @@ _HUNTERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2712,
-  serialized_end=2782,
+  serialized_start=2747,
+  serialized_end=2817,
 )
 
 
@@ -1742,8 +1800,8 @@ _HANDSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2785,
-  serialized_end=3183,
+  serialized_start=2820,
+  serialized_end=3218,
 )
 
 
@@ -1773,8 +1831,8 @@ _HANDSLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3185,
-  serialized_end=3214,
+  serialized_start=3220,
+  serialized_end=3249,
 )
 
 
@@ -1811,8 +1869,8 @@ _HANDSLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3216,
-  serialized_end=3274,
+  serialized_start=3251,
+  serialized_end=3309,
 )
 
 
@@ -1842,8 +1900,8 @@ _HANDSLISTV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3276,
-  serialized_end=3307,
+  serialized_start=3311,
+  serialized_end=3342,
 )
 
 
@@ -1880,8 +1938,8 @@ _HANDSLISTV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3309,
-  serialized_end=3358,
+  serialized_start=3344,
+  serialized_end=3393,
 )
 
 
@@ -1911,8 +1969,8 @@ _HANDSINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3360,
-  serialized_end=3392,
+  serialized_start=3395,
+  serialized_end=3427,
 )
 
 
@@ -1930,6 +1988,13 @@ _HANDSINFORSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_info', full_name='pb.HandsInfoRSP.blackjack_info', index=1,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1942,8 +2007,8 @@ _HANDSINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3394,
-  serialized_end=3437,
+  serialized_start=3429,
+  serialized_end=3520,
 )
 
 
@@ -1980,8 +2045,8 @@ _RUNBACKGROUND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3439,
-  serialized_end=3483,
+  serialized_start=3522,
+  serialized_end=3566,
 )
 
 
@@ -2011,8 +2076,8 @@ _FEEDBACKREPLYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3485,
-  serialized_end=3516,
+  serialized_start=3568,
+  serialized_end=3599,
 )
 
 
@@ -2035,8 +2100,8 @@ _ZOOMQUICKFOLDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3518,
-  serialized_end=3536,
+  serialized_start=3601,
+  serialized_end=3619,
 )
 
 
@@ -2066,8 +2131,8 @@ _ZOOMQUICKFOLDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3538,
-  serialized_end=3570,
+  serialized_start=3621,
+  serialized_end=3653,
 )
 
 
@@ -2097,8 +2162,8 @@ _ZOOMFOLDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3572,
-  serialized_end=3601,
+  serialized_start=3655,
+  serialized_end=3684,
 )
 
 
@@ -2121,8 +2186,8 @@ _ZOOMROOMPLAYERNUMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3603,
-  serialized_end=3625,
+  serialized_start=3686,
+  serialized_end=3708,
 )
 
 
@@ -2159,8 +2224,8 @@ _ZOOMROOMPLAYERNUMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3627,
-  serialized_end=3685,
+  serialized_start=3710,
+  serialized_end=3768,
 )
 
 
@@ -2197,8 +2262,8 @@ _ZOOMROOMPLAYERNUMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3687,
-  serialized_end=3745,
+  serialized_start=3770,
+  serialized_end=3828,
 )
 
 
@@ -2223,6 +2288,13 @@ _ACTIONREQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='flow_id', full_name='pb.ActionREQ.flow_id', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2235,8 +2307,67 @@ _ACTIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3747,
-  serialized_end=3810,
+  serialized_start=3830,
+  serialized_end=3910,
+)
+
+
+_ACTIONRSP = _descriptor.Descriptor(
+  name='ActionRSP',
+  full_name='pb.ActionRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='seatid', full_name='pb.ActionRSP.seatid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='action_type', full_name='pb.ActionRSP.action_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='chips', full_name='pb.ActionRSP.chips', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.ActionRSP.code', index=3,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='self_playing_status', full_name='pb.ActionRSP.self_playing_status', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3913,
+  serialized_end=4079,
 )
 
 
@@ -2275,6 +2406,13 @@ _ACTIONBRC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_bet_info', full_name='pb.ActionBRC.blackjack_bet_info', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2287,8 +2425,8 @@ _ACTIONBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3812,
-  serialized_end=3911,
+  serialized_start=4082,
+  serialized_end=4226,
 )
 
 
@@ -2346,8 +2484,8 @@ _ROUNDSTARTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3914,
-  serialized_end=4049,
+  serialized_start=4229,
+  serialized_end=4364,
 )
 
 
@@ -2377,8 +2515,8 @@ _ROUNDOVERBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4051,
-  serialized_end=4079,
+  serialized_start=4366,
+  serialized_end=4394,
 )
 
 
@@ -2443,8 +2581,8 @@ _HANDCARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4081,
-  serialized_end=4204,
+  serialized_start=4396,
+  serialized_end=4519,
 )
 
 
@@ -2474,8 +2612,8 @@ _TRANSFERBROADCASTTOCLIENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4206,
-  serialized_end=4250,
+  serialized_start=4521,
+  serialized_end=4565,
 )
 
 
@@ -2519,8 +2657,8 @@ _HUNTERBONUSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4252,
-  serialized_end=4312,
+  serialized_start=4567,
+  serialized_end=4627,
 )
 
 
@@ -2543,8 +2681,8 @@ _ZOOMPREPARECHANGEROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4314,
-  serialized_end=4340,
+  serialized_start=4629,
+  serialized_end=4655,
 )
 
 
@@ -2567,8 +2705,8 @@ _ZOOMCHANGEROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4342,
-  serialized_end=4361,
+  serialized_start=4657,
+  serialized_end=4676,
 )
 
 
@@ -2633,8 +2771,8 @@ _SHOWHANDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4363,
-  serialized_end=4468,
+  serialized_start=4678,
+  serialized_end=4783,
 )
 
 
@@ -2678,8 +2816,8 @@ _SHOWHANDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4470,
-  serialized_end=4571,
+  serialized_start=4785,
+  serialized_end=4886,
 )
 
 _TEXTBRC.fields_by_name['user_brief'].message_type = base__pb2._USERBRIEF
@@ -2698,8 +2836,13 @@ _HANDSINFO.fields_by_name['kRound'].message_type = _CROUNDRD
 _HANDSINFO.fields_by_name['hunters'].message_type = _HUNTERINFO
 _HANDSLISTRSP.fields_by_name['info'].message_type = _HANDSINFO
 _HANDSINFORSP.fields_by_name['info'].message_type = _HANDSINFO
+_HANDSINFORSP.fields_by_name['blackjack_info'].message_type = blackjack__pb2._BLACKJACKHANDSINFO
 _ACTIONREQ.fields_by_name['action_type'].enum_type = pre__base__pb2._ACTIONTYPE
+_ACTIONRSP.fields_by_name['action_type'].enum_type = pre__base__pb2._ACTIONTYPE
+_ACTIONRSP.fields_by_name['code'].enum_type = _ACTIONCODE
+_ACTIONRSP.fields_by_name['self_playing_status'].message_type = blackjack__pb2._BLACKJACKSELFTABLEINFO
 _ACTIONBRC.fields_by_name['action_type'].enum_type = pre__base__pb2._ACTIONTYPE
+_ACTIONBRC.fields_by_name['blackjack_bet_info'].message_type = go__roomsvr__pb2._SEATBETINFO
 _ROUNDSTARTBRC.fields_by_name['stage'].enum_type = pre__base__pb2._ROUNDSTAGE
 _ROUNDSTARTBRC.fields_by_name['outs_info'].message_type = pb1__pb2._OUTSINFO
 _HANDCARDRSP.fields_by_name['blitz_info'].message_type = pb1__pb2._BLITZINFO
@@ -2756,6 +2899,7 @@ DESCRIPTOR.message_types_by_name['ZoomRoomPlayerNumREQ'] = _ZOOMROOMPLAYERNUMREQ
 DESCRIPTOR.message_types_by_name['ZoomRoomPlayerNumRSP'] = _ZOOMROOMPLAYERNUMRSP
 DESCRIPTOR.message_types_by_name['ZoomRoomPlayerNumBRC'] = _ZOOMROOMPLAYERNUMBRC
 DESCRIPTOR.message_types_by_name['ActionREQ'] = _ACTIONREQ
+DESCRIPTOR.message_types_by_name['ActionRSP'] = _ACTIONRSP
 DESCRIPTOR.message_types_by_name['ActionBRC'] = _ACTIONBRC
 DESCRIPTOR.message_types_by_name['RoundStartBRC'] = _ROUNDSTARTBRC
 DESCRIPTOR.message_types_by_name['RoundOverBRC'] = _ROUNDOVERBRC
@@ -2766,6 +2910,7 @@ DESCRIPTOR.message_types_by_name['ZoomPrepareChangeRoomBRC'] = _ZOOMPREPARECHANG
 DESCRIPTOR.message_types_by_name['ZoomChangeRoomBRC'] = _ZOOMCHANGEROOMBRC
 DESCRIPTOR.message_types_by_name['ShowHandInfo'] = _SHOWHANDINFO
 DESCRIPTOR.message_types_by_name['ShowHandRSP'] = _SHOWHANDRSP
+DESCRIPTOR.enum_types_by_name['ActionCode'] = _ACTIONCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 DismissTableREQ = _reflection.GeneratedProtocolMessageType('DismissTableREQ', (_message.Message,), dict(
@@ -3124,6 +3269,13 @@ ActionREQ = _reflection.GeneratedProtocolMessageType('ActionREQ', (_message.Mess
   # @@protoc_insertion_point(class_scope:pb.ActionREQ)
   ))
 _sym_db.RegisterMessage(ActionREQ)
+
+ActionRSP = _reflection.GeneratedProtocolMessageType('ActionRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ACTIONRSP,
+  __module__ = 'pb4_pb2'
+  # @@protoc_insertion_point(class_scope:pb.ActionRSP)
+  ))
+_sym_db.RegisterMessage(ActionRSP)
 
 ActionBRC = _reflection.GeneratedProtocolMessageType('ActionBRC', (_message.Message,), dict(
   DESCRIPTOR = _ACTIONBRC,

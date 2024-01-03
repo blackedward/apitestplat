@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb3.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\"\x0c\n\nStandUpREQ\"e\n\nStandUpRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.StandUpCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12(\n\x0euser_vpip_info\x18\x03 \x01(\x0b\x32\x10.pb.UserVpipInfo\"/\n\x0ePineStandUpRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.StandUpCode\"\x1c\n\nStandUpBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\"\xca\x01\n\nSitDownRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.SitDownCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x12\n\x06seatid\x18\x03 \x01(\x05:\x02-1\x12\x10\n\x05\x63hips\x18\x04 \x01(\x03:\x01\x30\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x05 \x01(\x05\x12(\n\x0euser_vpip_info\x18\x06 \x01(\x0b\x32\x10.pb.UserVpipInfo\x12\x1f\n\x17time_bank_limited_times\x18\x07 \x01(\x05\"s\n\x0ePineSitDownRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.SitDownCode\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x02 \x01(\x05\x12\x12\n\x06seatid\x18\x03 \x01(\x05:\x02-1\x12\x10\n\x05\x63hips\x18\x04 \x01(\x03:\x01\x30\"&\n\x08VoiceREQ\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x05\"\x18\n\x08VoiceRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x8c\x01\n\x08VoiceBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x66ile\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x05\x12\x11\n\tvip_level\x18\x06 \x01(\r\x12!\n\nuser_brief\x18\x07 \x01(\x0b\x32\r.pb.UserBrief\"[\n\x0f\x41uthDecisionREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x02 \x01(\x08\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0f\n\x07ownerid\x18\x05 \x01(\x03\"H\n\x0f\x41uthDecisionRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\x05\"\x83\x01\n\x07\x41uthRSP\x12\x0c\n\x04\x61uth\x18\x01 \x01(\x08\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12(\n\x19is_need_confirm_book_seat\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x18\n\x10\x62ook_seat_roomid\x18\x04 \x01(\x05\x12\x18\n\x10\x62ook_seat_seatid\x18\x05 \x01(\x05\">\n\rAuthSwitchREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x07ownerid\x18\x02 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\";\n\rAuthSwitchRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\"\x1d\n\rAuthSwitchBRC\x12\x0c\n\x04\x61uth\x18\x01 \x01(\x08\"\x1d\n\x0b\x41uthListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"P\n\x08\x41uthItem\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\r\n\x05\x63hips\x18\x05 \x01(\x03\")\n\x0b\x41uthListRSP\x12\x1a\n\x04item\x18\x01 \x03(\x0b\x32\x0c.pb.AuthItem\"\x0f\n\rServerStopBRC\"\x86\x01\n\x0e\x42lindStatusBRC\x12\r\n\x05\x62lind\x18\x01 \x01(\x03\x12\x0c\n\x04time\x18\x02 \x01(\x05\x12\x12\n\nnext_blind\x18\x03 \x01(\x03\x12\x11\n\tcur_blind\x18\x04 \x01(\x03\x12\x0f\n\x07started\x18\x05 \x01(\x08\x12\x0c\n\x04\x61nte\x18\x06 \x01(\x03\x12\x11\n\tnext_ante\x18\x07 \x01(\x03\"K\n\x07MailREQ\x12\x11\n\x06\x63lubid\x18\x01 \x01(\x05:\x01\x30\x12\x14\n\x04lang\x18\x02 \x01(\t:\x02\x65nB\x02\x18\x01\x12\x17\n\x08timezone\x18\x03 \x01(\x05:\x01\x38\x42\x02\x18\x01\"(\n\x08MailItem\x12\x0c\n\x04item\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\x03\"\xdb\x01\n\x08MailInfo\x12\x0e\n\x06mailid\x18\x01 \x01(\x05\x12\x11\n\tsend_time\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x1a\n\x04item\x18\x05 \x03(\x0b\x32\x0c.pb.MailItem\x12\x11\n\x06\x63lubid\x18\x06 \x01(\x05:\x01\x30\x12\x12\n\x04type\x18\x07 \x01(\t:\x00\x42\x02\x18\x01\x12\x11\n\tread_time\x18\x08 \x01(\r\x12\x1f\n\tmail_type\x18\t \x01(\x0e\x32\x0c.pb.MailType\x12\x15\n\rrebate_clubid\x18\n \x01(\x05\"E\n\x07MailRSP\x12\x1a\n\x04mail\x18\x01 \x03(\x0b\x32\x0c.pb.MailInfo\x12\x1e\n\x08old_mail\x18\x02 \x03(\x0b\x32\x0c.pb.MailInfo\"\x1c\n\nDelMailREQ\x12\x0e\n\x06mailid\x18\x01 \x03(\x05\"6\n\nDelMailRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04mail\x18\x02 \x03(\x0b\x32\x0c.pb.MailInfo\"\x1d\n\x0bReadMailREQ\x12\x0e\n\x06mailid\x18\x01 \x03(\x05\":\n\x0eReadMailSubRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04mail\x18\x02 \x01(\x0b\x32\x0c.pb.MailInfo\".\n\x0bReadMailRSP\x12\x1f\n\x03rsp\x18\x01 \x03(\x0b\x32\x12.pb.ReadMailSubRSP\";\n\nNewMailRSP\x12\x1a\n\x04mail\x18\x01 \x01(\x0b\x32\x0c.pb.MailInfo\x12\x11\n\x06\x63lubid\x18\x02 \x01(\x05:\x01\x30\"\"\n\rNewMailNumREQ\x12\x11\n\x06\x63lubid\x18\x01 \x01(\x05:\x01\x30\",\n\rNewMailNumRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0b\n\x03num\x18\x02 \x01(\x05\"\x17\n\x07\x46\x61\x63\x65REQ\x12\x0c\n\x04type\x18\x01 \x01(\t\"5\n\x07\x46\x61\x63\x65\x42RC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x0c\n\x04type\x18\x03 \x01(\t\"-\n\x0c\x43hipsBackBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"\x12\n\x10\x41\x64\x64\x41\x63tionTimeREQ\"\x84\x01\n\x10\x41\x64\x64\x41\x63tionTimeBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x10\n\x08timeleft\x18\x03 \x01(\x05\x12\x11\n\tnext_cost\x18\x04 \x01(\x05\x12\x0c\n\x04type\x18\x05 \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18\x06 \x01(\x05\"*\n\tNoticeBRC\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\x05\"\r\n\x0bStraddleREQ\"\x1b\n\x0bStraddleRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1d\n\x0fShowStraddleRSP\x12\n\n\x02ok\x18\x01 \x01(\x08\"\x14\n\x12\x43\x61ncelWaitBlindREQ\"2\n\x12\x43\x61ncelWaitBlindBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04wait\x18\x02 \x01(\x08\"G\n\x0eRebuyNotifyRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x12\n\nrebuy_item\x18\x03 \x01(\t\"+\n\x08RebuyREQ\x12\x10\n\x08is_rebuy\x18\x01 \x01(\x08\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"P\n\x08RebuyBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x17\n\x0chunter_bonus\x18\x04 \x01(\x03:\x01\x30\"5\n\rTotalBuyinBRC\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\x12\x13\n\x0btotal_buyin\x18\x02 \x01(\x03*\x87\x03\n\x0bStandUpCode\x12\x10\n\x0cNORMAL_STAND\x10\x00\x12\x18\n\x0b\x45RROR_STAND\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x12\n\x0eNO_CHIPS_STAND\x10\x01\x12\x1b\n\x17\x43LUB_ROOM_TIME_UP_STAND\x10\x02\x12\x13\n\x0fNO_ACTION_STAND\x10\x03\x12\x10\n\x0cSYSTEM_STAND\x10\x04\x12\x15\n\x11LADDER_OVER_STAND\x10\x05\x12\x16\n\x12\x43HANGE_TABLE_STAND\x10\x06\x12\x10\n\x0cKICKED_STAND\x10\x07\x12\x16\n\x12\x46INAL_REWARD_STAND\x10\x08\x12\x12\n\x0eLACK_GPS_STAND\x10\t\x12\x1b\n\x17\x42REAK_GPS_IP_RULE_STAND\x10\n\x12\x13\n\x0fZOOM_FOLD_STAND\x10\x0b\x12\x13\n\x0f\x43\x41LLTIME_CANCEL\x10\x0c\x12\x0f\n\x0b\x41LLIN_STAND\x10\r\x12\x15\n\x11HIT_JACKPOT_STAND\x10\x0e\x12\x18\n\x14VPIP_PERCENT_TOO_LOW\x10\x0f*\xb9\x05\n\x0bSitDownCode\x12\x0f\n\x0bSIT_DOWN_OK\x10\x00\x12\x11\n\rSIT_WAIT_AUTH\x10\x01\x12\x1a\n\rSIT_ERR_MONEY\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_NOT_EMPTY\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\"\n\x15SIT_ERR_ALREADY_SITED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_SEATID\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17SIT_ERR_ALREADY_STARTED\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\'\n\x1aSIT_ERR_WAITLIST_NOT_EMPTY\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0cSIT_ERR_CLUB\x10\xf9\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0bSIT_ERR_GPS\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x17\n\nSIT_ERR_IP\x10\xf7\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13SIT_ERR_GPS_INVALID\x10\xf6\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_TICKET\x10\xf5\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_ROOM_OVER\x10\xf4\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_ROOM_FULL\x10\xf3\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_BOOKED\x10\xf2\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12SIT_ERR_IP_INVALID\x10\xf1\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0bSIT_ERR_BAN\x10\xf0\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13SIT_ERR_KYC_INVALID\x10\xee\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17SIT_ERR_SIT_AGAIN_MONEY\x10\xed\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12SIT_ERR_VPIP_LIMIT\x10\xec\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12,\n\x1fSIT_ERR_NOT_PC_OPERATION_REGION\x10\xea\xff\xff\xff\xff\xff\xff\xff\xff\x01*?\n\x08MailType\x12\x15\n\x11MAIL_TYPE_DEFAULT\x10\x00\x12\x1c\n\x18MAIL_TYPE_RECEIVE_REBATE\x10\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb3.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\"\x1d\n\nStandUpREQ\x12\x0f\n\x07seat_id\x18\x01 \x01(\x05\"\x87\x01\n\nStandUpRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.StandUpCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12(\n\x0euser_vpip_info\x18\x03 \x01(\x0b\x32\x10.pb.UserVpipInfo\x12\x0f\n\x07seat_id\x18\x04 \x01(\x05\x12\x0f\n\x07\x62\x61lance\x18\x05 \x01(\x03\"/\n\x0ePineStandUpRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.StandUpCode\"\x1c\n\nStandUpBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\"\xca\x01\n\nSitDownRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.SitDownCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x12\n\x06seatid\x18\x03 \x01(\x05:\x02-1\x12\x10\n\x05\x63hips\x18\x04 \x01(\x03:\x01\x30\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x05 \x01(\x05\x12(\n\x0euser_vpip_info\x18\x06 \x01(\x0b\x32\x10.pb.UserVpipInfo\x12\x1f\n\x17time_bank_limited_times\x18\x07 \x01(\x05\"s\n\x0ePineSitDownRSP\x12\x1d\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0f.pb.SitDownCode\x12\x1c\n\x14\x61\x64\x64_action_time_cost\x18\x02 \x01(\x05\x12\x12\n\x06seatid\x18\x03 \x01(\x05:\x02-1\x12\x10\n\x05\x63hips\x18\x04 \x01(\x03:\x01\x30\"&\n\x08VoiceREQ\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x05\"\x18\n\x08VoiceRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x8c\x01\n\x08VoiceBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x66ile\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x05\x12\x11\n\tvip_level\x18\x06 \x01(\r\x12!\n\nuser_brief\x18\x07 \x01(\x0b\x32\r.pb.UserBrief\"[\n\x0f\x41uthDecisionREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x02 \x01(\x08\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0f\n\x07ownerid\x18\x05 \x01(\x03\"H\n\x0f\x41uthDecisionRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\x05\"\x83\x01\n\x07\x41uthRSP\x12\x0c\n\x04\x61uth\x18\x01 \x01(\x08\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12(\n\x19is_need_confirm_book_seat\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x18\n\x10\x62ook_seat_roomid\x18\x04 \x01(\x05\x12\x18\n\x10\x62ook_seat_seatid\x18\x05 \x01(\x05\">\n\rAuthSwitchREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x07ownerid\x18\x02 \x01(\x03\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\";\n\rAuthSwitchRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0c\n\x04\x61uth\x18\x03 \x01(\x08\"\x1d\n\rAuthSwitchBRC\x12\x0c\n\x04\x61uth\x18\x01 \x01(\x08\"\x1d\n\x0b\x41uthListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"P\n\x08\x41uthItem\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\r\n\x05\x63hips\x18\x05 \x01(\x03\")\n\x0b\x41uthListRSP\x12\x1a\n\x04item\x18\x01 \x03(\x0b\x32\x0c.pb.AuthItem\"\x0f\n\rServerStopBRC\"\x86\x01\n\x0e\x42lindStatusBRC\x12\r\n\x05\x62lind\x18\x01 \x01(\x03\x12\x0c\n\x04time\x18\x02 \x01(\x05\x12\x12\n\nnext_blind\x18\x03 \x01(\x03\x12\x11\n\tcur_blind\x18\x04 \x01(\x03\x12\x0f\n\x07started\x18\x05 \x01(\x08\x12\x0c\n\x04\x61nte\x18\x06 \x01(\x03\x12\x11\n\tnext_ante\x18\x07 \x01(\x03\"K\n\x07MailREQ\x12\x11\n\x06\x63lubid\x18\x01 \x01(\x05:\x01\x30\x12\x14\n\x04lang\x18\x02 \x01(\t:\x02\x65nB\x02\x18\x01\x12\x17\n\x08timezone\x18\x03 \x01(\x05:\x01\x38\x42\x02\x18\x01\"(\n\x08MailItem\x12\x0c\n\x04item\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\x03\"\xdb\x01\n\x08MailInfo\x12\x0e\n\x06mailid\x18\x01 \x01(\x05\x12\x11\n\tsend_time\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x1a\n\x04item\x18\x05 \x03(\x0b\x32\x0c.pb.MailItem\x12\x11\n\x06\x63lubid\x18\x06 \x01(\x05:\x01\x30\x12\x12\n\x04type\x18\x07 \x01(\t:\x00\x42\x02\x18\x01\x12\x11\n\tread_time\x18\x08 \x01(\r\x12\x1f\n\tmail_type\x18\t \x01(\x0e\x32\x0c.pb.MailType\x12\x15\n\rrebate_clubid\x18\n \x01(\x05\"E\n\x07MailRSP\x12\x1a\n\x04mail\x18\x01 \x03(\x0b\x32\x0c.pb.MailInfo\x12\x1e\n\x08old_mail\x18\x02 \x03(\x0b\x32\x0c.pb.MailInfo\"\x1c\n\nDelMailREQ\x12\x0e\n\x06mailid\x18\x01 \x03(\x05\"6\n\nDelMailRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04mail\x18\x02 \x03(\x0b\x32\x0c.pb.MailInfo\"\x1d\n\x0bReadMailREQ\x12\x0e\n\x06mailid\x18\x01 \x03(\x05\":\n\x0eReadMailSubRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04mail\x18\x02 \x01(\x0b\x32\x0c.pb.MailInfo\".\n\x0bReadMailRSP\x12\x1f\n\x03rsp\x18\x01 \x03(\x0b\x32\x12.pb.ReadMailSubRSP\";\n\nNewMailRSP\x12\x1a\n\x04mail\x18\x01 \x01(\x0b\x32\x0c.pb.MailInfo\x12\x11\n\x06\x63lubid\x18\x02 \x01(\x05:\x01\x30\"\"\n\rNewMailNumREQ\x12\x11\n\x06\x63lubid\x18\x01 \x01(\x05:\x01\x30\",\n\rNewMailNumRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0b\n\x03num\x18\x02 \x01(\x05\"\x17\n\x07\x46\x61\x63\x65REQ\x12\x0c\n\x04type\x18\x01 \x01(\t\"5\n\x07\x46\x61\x63\x65\x42RC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x0c\n\x04type\x18\x03 \x01(\t\"-\n\x0c\x43hipsBackBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"\x12\n\x10\x41\x64\x64\x41\x63tionTimeREQ\"\x84\x01\n\x10\x41\x64\x64\x41\x63tionTimeBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x10\n\x08timeleft\x18\x03 \x01(\x05\x12\x11\n\tnext_cost\x18\x04 \x01(\x05\x12\x0c\n\x04type\x18\x05 \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18\x06 \x01(\x05\"*\n\tNoticeBRC\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\x05\"\r\n\x0bStraddleREQ\"\x1b\n\x0bStraddleRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1d\n\x0fShowStraddleRSP\x12\n\n\x02ok\x18\x01 \x01(\x08\"\x14\n\x12\x43\x61ncelWaitBlindREQ\"2\n\x12\x43\x61ncelWaitBlindBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04wait\x18\x02 \x01(\x08\"G\n\x0eRebuyNotifyRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x12\n\nrebuy_item\x18\x03 \x01(\t\"+\n\x08RebuyREQ\x12\x10\n\x08is_rebuy\x18\x01 \x01(\x08\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"P\n\x08RebuyBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\x17\n\x0chunter_bonus\x18\x04 \x01(\x03:\x01\x30\"5\n\rTotalBuyinBRC\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\x12\x13\n\x0btotal_buyin\x18\x02 \x01(\x03*\x87\x03\n\x0bStandUpCode\x12\x10\n\x0cNORMAL_STAND\x10\x00\x12\x18\n\x0b\x45RROR_STAND\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x12\n\x0eNO_CHIPS_STAND\x10\x01\x12\x1b\n\x17\x43LUB_ROOM_TIME_UP_STAND\x10\x02\x12\x13\n\x0fNO_ACTION_STAND\x10\x03\x12\x10\n\x0cSYSTEM_STAND\x10\x04\x12\x15\n\x11LADDER_OVER_STAND\x10\x05\x12\x16\n\x12\x43HANGE_TABLE_STAND\x10\x06\x12\x10\n\x0cKICKED_STAND\x10\x07\x12\x16\n\x12\x46INAL_REWARD_STAND\x10\x08\x12\x12\n\x0eLACK_GPS_STAND\x10\t\x12\x1b\n\x17\x42REAK_GPS_IP_RULE_STAND\x10\n\x12\x13\n\x0fZOOM_FOLD_STAND\x10\x0b\x12\x13\n\x0f\x43\x41LLTIME_CANCEL\x10\x0c\x12\x0f\n\x0b\x41LLIN_STAND\x10\r\x12\x15\n\x11HIT_JACKPOT_STAND\x10\x0e\x12\x18\n\x14VPIP_PERCENT_TOO_LOW\x10\x0f*\xdb\x05\n\x0bSitDownCode\x12\x0f\n\x0bSIT_DOWN_OK\x10\x00\x12\x11\n\rSIT_WAIT_AUTH\x10\x01\x12\x1a\n\rSIT_ERR_MONEY\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_NOT_EMPTY\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\"\n\x15SIT_ERR_ALREADY_SITED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_SEATID\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17SIT_ERR_ALREADY_STARTED\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\'\n\x1aSIT_ERR_WAITLIST_NOT_EMPTY\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0cSIT_ERR_CLUB\x10\xf9\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0bSIT_ERR_GPS\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x17\n\nSIT_ERR_IP\x10\xf7\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13SIT_ERR_GPS_INVALID\x10\xf6\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_TICKET\x10\xf5\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_ROOM_OVER\x10\xf4\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11SIT_ERR_ROOM_FULL\x10\xf3\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0eSIT_ERR_BOOKED\x10\xf2\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12SIT_ERR_IP_INVALID\x10\xf1\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0bSIT_ERR_BAN\x10\xf0\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13SIT_ERR_KYC_INVALID\x10\xee\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17SIT_ERR_SIT_AGAIN_MONEY\x10\xed\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12SIT_ERR_VPIP_LIMIT\x10\xec\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12,\n\x1fSIT_ERR_NOT_PC_OPERATION_REGION\x10\xea\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13SIT_ERR_NOT_IN_ROOM\x10\xe9\xff\xff\xff\xff\xff\xff\xff\xff\x01*?\n\x08MailType\x12\x15\n\x11MAIL_TYPE_DEFAULT\x10\x00\x12\x1c\n\x18MAIL_TYPE_RECEIVE_REBATE\x10\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,])
 
@@ -103,8 +103,8 @@ _STANDUPCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3047,
-  serialized_end=3438,
+  serialized_start=3099,
+  serialized_end=3490,
 )
 _sym_db.RegisterEnumDescriptor(_STANDUPCODE)
 
@@ -203,11 +203,15 @@ _SITDOWNCODE = _descriptor.EnumDescriptor(
       name='SIT_ERR_NOT_PC_OPERATION_REGION', index=21, number=-22,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SIT_ERR_NOT_IN_ROOM', index=22, number=-23,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3441,
-  serialized_end=4138,
+  serialized_start=3493,
+  serialized_end=4224,
 )
 _sym_db.RegisterEnumDescriptor(_SITDOWNCODE)
 
@@ -229,8 +233,8 @@ _MAILTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4140,
-  serialized_end=4203,
+  serialized_start=4226,
+  serialized_end=4289,
 )
 _sym_db.RegisterEnumDescriptor(_MAILTYPE)
 
@@ -274,6 +278,7 @@ SIT_ERR_KYC_INVALID = -18
 SIT_ERR_SIT_AGAIN_MONEY = -19
 SIT_ERR_VPIP_LIMIT = -20
 SIT_ERR_NOT_PC_OPERATION_REGION = -22
+SIT_ERR_NOT_IN_ROOM = -23
 MAIL_TYPE_DEFAULT = 0
 MAIL_TYPE_RECEIVE_REBATE = 1
 
@@ -286,6 +291,13 @@ _STANDUPREQ = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='seat_id', full_name='pb.StandUpREQ.seat_id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -299,7 +311,7 @@ _STANDUPREQ = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=42,
-  serialized_end=54,
+  serialized_end=71,
 )
 
 
@@ -331,6 +343,20 @@ _STANDUPRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seat_id', full_name='pb.StandUpRSP.seat_id', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='balance', full_name='pb.StandUpRSP.balance', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -343,8 +369,8 @@ _STANDUPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=157,
+  serialized_start=74,
+  serialized_end=209,
 )
 
 
@@ -374,8 +400,8 @@ _PINESTANDUPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=159,
-  serialized_end=206,
+  serialized_start=211,
+  serialized_end=258,
 )
 
 
@@ -405,8 +431,8 @@ _STANDUPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=208,
-  serialized_end=236,
+  serialized_start=260,
+  serialized_end=288,
 )
 
 
@@ -478,8 +504,8 @@ _SITDOWNRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=239,
-  serialized_end=441,
+  serialized_start=291,
+  serialized_end=493,
 )
 
 
@@ -530,8 +556,8 @@ _PINESITDOWNRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=443,
-  serialized_end=558,
+  serialized_start=495,
+  serialized_end=610,
 )
 
 
@@ -568,8 +594,8 @@ _VOICEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=560,
-  serialized_end=598,
+  serialized_start=612,
+  serialized_end=650,
 )
 
 
@@ -599,8 +625,8 @@ _VOICERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=600,
-  serialized_end=624,
+  serialized_start=652,
+  serialized_end=676,
 )
 
 
@@ -672,8 +698,8 @@ _VOICEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=627,
-  serialized_end=767,
+  serialized_start=679,
+  serialized_end=819,
 )
 
 
@@ -731,8 +757,8 @@ _AUTHDECISIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=769,
-  serialized_end=860,
+  serialized_start=821,
+  serialized_end=912,
 )
 
 
@@ -783,8 +809,8 @@ _AUTHDECISIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=862,
-  serialized_end=934,
+  serialized_start=914,
+  serialized_end=986,
 )
 
 
@@ -842,8 +868,8 @@ _AUTHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=937,
-  serialized_end=1068,
+  serialized_start=989,
+  serialized_end=1120,
 )
 
 
@@ -887,8 +913,8 @@ _AUTHSWITCHREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1070,
-  serialized_end=1132,
+  serialized_start=1122,
+  serialized_end=1184,
 )
 
 
@@ -932,8 +958,8 @@ _AUTHSWITCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1193,
+  serialized_start=1186,
+  serialized_end=1245,
 )
 
 
@@ -963,8 +989,8 @@ _AUTHSWITCHBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1195,
-  serialized_end=1224,
+  serialized_start=1247,
+  serialized_end=1276,
 )
 
 
@@ -994,8 +1020,8 @@ _AUTHLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1226,
-  serialized_end=1255,
+  serialized_start=1278,
+  serialized_end=1307,
 )
 
 
@@ -1053,8 +1079,8 @@ _AUTHITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1257,
-  serialized_end=1337,
+  serialized_start=1309,
+  serialized_end=1389,
 )
 
 
@@ -1084,8 +1110,8 @@ _AUTHLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1339,
-  serialized_end=1380,
+  serialized_start=1391,
+  serialized_end=1432,
 )
 
 
@@ -1108,8 +1134,8 @@ _SERVERSTOPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1382,
-  serialized_end=1397,
+  serialized_start=1434,
+  serialized_end=1449,
 )
 
 
@@ -1181,8 +1207,8 @@ _BLINDSTATUSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1400,
-  serialized_end=1534,
+  serialized_start=1452,
+  serialized_end=1586,
 )
 
 
@@ -1226,8 +1252,8 @@ _MAILREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1536,
-  serialized_end=1611,
+  serialized_start=1588,
+  serialized_end=1663,
 )
 
 
@@ -1264,8 +1290,8 @@ _MAILITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1613,
-  serialized_end=1653,
+  serialized_start=1665,
+  serialized_end=1705,
 )
 
 
@@ -1358,8 +1384,8 @@ _MAILINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1656,
-  serialized_end=1875,
+  serialized_start=1708,
+  serialized_end=1927,
 )
 
 
@@ -1396,8 +1422,8 @@ _MAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1877,
-  serialized_end=1946,
+  serialized_start=1929,
+  serialized_end=1998,
 )
 
 
@@ -1427,8 +1453,8 @@ _DELMAILREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1948,
-  serialized_end=1976,
+  serialized_start=2000,
+  serialized_end=2028,
 )
 
 
@@ -1465,8 +1491,8 @@ _DELMAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1978,
-  serialized_end=2032,
+  serialized_start=2030,
+  serialized_end=2084,
 )
 
 
@@ -1496,8 +1522,8 @@ _READMAILREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2034,
-  serialized_end=2063,
+  serialized_start=2086,
+  serialized_end=2115,
 )
 
 
@@ -1534,8 +1560,8 @@ _READMAILSUBRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2065,
-  serialized_end=2123,
+  serialized_start=2117,
+  serialized_end=2175,
 )
 
 
@@ -1565,8 +1591,8 @@ _READMAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2125,
-  serialized_end=2171,
+  serialized_start=2177,
+  serialized_end=2223,
 )
 
 
@@ -1603,8 +1629,8 @@ _NEWMAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2173,
-  serialized_end=2232,
+  serialized_start=2225,
+  serialized_end=2284,
 )
 
 
@@ -1634,8 +1660,8 @@ _NEWMAILNUMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2234,
-  serialized_end=2268,
+  serialized_start=2286,
+  serialized_end=2320,
 )
 
 
@@ -1672,8 +1698,8 @@ _NEWMAILNUMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2270,
-  serialized_end=2314,
+  serialized_start=2322,
+  serialized_end=2366,
 )
 
 
@@ -1703,8 +1729,8 @@ _FACEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2316,
-  serialized_end=2339,
+  serialized_start=2368,
+  serialized_end=2391,
 )
 
 
@@ -1748,8 +1774,8 @@ _FACEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2341,
-  serialized_end=2394,
+  serialized_start=2393,
+  serialized_end=2446,
 )
 
 
@@ -1786,8 +1812,8 @@ _CHIPSBACKBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2396,
-  serialized_end=2441,
+  serialized_start=2448,
+  serialized_end=2493,
 )
 
 
@@ -1810,8 +1836,8 @@ _ADDACTIONTIMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2443,
-  serialized_end=2461,
+  serialized_start=2495,
+  serialized_end=2513,
 )
 
 
@@ -1876,8 +1902,8 @@ _ADDACTIONTIMEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2464,
-  serialized_end=2596,
+  serialized_start=2516,
+  serialized_end=2648,
 )
 
 
@@ -1914,8 +1940,8 @@ _NOTICEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2598,
-  serialized_end=2640,
+  serialized_start=2650,
+  serialized_end=2692,
 )
 
 
@@ -1938,8 +1964,8 @@ _STRADDLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2642,
-  serialized_end=2655,
+  serialized_start=2694,
+  serialized_end=2707,
 )
 
 
@@ -1969,8 +1995,8 @@ _STRADDLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2657,
-  serialized_end=2684,
+  serialized_start=2709,
+  serialized_end=2736,
 )
 
 
@@ -2000,8 +2026,8 @@ _SHOWSTRADDLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2686,
-  serialized_end=2715,
+  serialized_start=2738,
+  serialized_end=2767,
 )
 
 
@@ -2024,8 +2050,8 @@ _CANCELWAITBLINDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2717,
-  serialized_end=2737,
+  serialized_start=2769,
+  serialized_end=2789,
 )
 
 
@@ -2062,8 +2088,8 @@ _CANCELWAITBLINDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2739,
-  serialized_end=2789,
+  serialized_start=2791,
+  serialized_end=2841,
 )
 
 
@@ -2107,8 +2133,8 @@ _REBUYNOTIFYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2791,
-  serialized_end=2862,
+  serialized_start=2843,
+  serialized_end=2914,
 )
 
 
@@ -2145,8 +2171,8 @@ _REBUYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2864,
-  serialized_end=2907,
+  serialized_start=2916,
+  serialized_end=2959,
 )
 
 
@@ -2197,8 +2223,8 @@ _REBUYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2909,
-  serialized_end=2989,
+  serialized_start=2961,
+  serialized_end=3041,
 )
 
 
@@ -2235,8 +2261,8 @@ _TOTALBUYINBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2991,
-  serialized_end=3044,
+  serialized_start=3043,
+  serialized_end=3096,
 )
 
 _STANDUPRSP.fields_by_name['code'].enum_type = _STANDUPCODE

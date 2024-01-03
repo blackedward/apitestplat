@@ -16,6 +16,7 @@ _sym_db = _symbol_database.Default()
 import base2_pb2 as base2__pb2
 import shark_king_flip_pb2 as shark__king__flip__pb2
 import pre_base_pb2 as pre__base__pb2
+import blackjack_pb2 as blackjack__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x1agame_record_producer.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x15shark_king_flip.proto\x1a\x0epre_base.proto\"d\n\x0fiUpsertMongoREQ\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.pb.RpcMongoType\x12\x0e\n\x06set_id\x18\x02 \x01(\t\x12\x14\n\x0cjson_content\x18\x03 \x01(\t\x12\x0b\n\x03uid\x18\x04 \x01(\x03\"/\n\x0fiUpsertMongoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"\x9b\x01\n\x14RoundChangeChipsInfo\x12\x38\n\x0b\x63hange_type\x18\x01 \x01(\x0e\x32#.pb.RoundChangeChipsInfo.ChangeType\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\":\n\nChangeType\x12\x0e\n\nENTER_ROOM\x10\x01\x12\x0e\n\nLEAVE_ROOM\x10\x02\x12\x0c\n\x08\x45XCHANGE\x10\x03\"\x90\x04\n\x12SaveUserGameRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05setid\x18\x02 \x01(\t\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\x12\x14\n\x0clicense_type\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x13\n\x0b\x62\x65gin_chips\x18\x06 \x01(\x03\x12\x11\n\tend_chips\x18\x07 \x01(\x03\x12\x11\n\twin_chips\x18\x08 \x01(\x03\x12\x0b\n\x03\x66\x65\x65\x18\t \x01(\x03\x12\x0e\n\x06\x63lubid\x18\n \x01(\x05\x12\x0f\n\x07hand_sn\x18\x0b \x01(\x05\x12\x1a\n\x12table_chips_profit\x18\x0c \x01(\x03\x12\x17\n\x0fgame_start_time\x18\r \x01(\x03\x12\x1a\n\x12gameset_start_time\x18\x0e \x01(\x03\x12\x0e\n\x06gameid\x18\x0f \x01(\t\x12\x1f\n\tgame_mode\x18\x10 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1f\n\troom_mode\x18\x11 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\troom_type\x18\x12 \x01(\x0e\x32\x0c.pb.RoomType\x12\'\n\x0csk_bet_infos\x18\x13 \x03(\x0b\x32\x11.pb.SKFlipBetInfo\x12\x11\n\tuser_name\x18\x14 \x01(\t\x12:\n\x18round_change_chips_infos\x18\x15 \x03(\x0b\x32\x18.pb.RoundChangeChipsInfo\"\xc9\x04\n\x0eSaveGameRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x17\n\x0fgame_start_time\x18\x03 \x01(\x03\x12\x15\n\rgame_end_time\x18\x04 \x01(\x03\x12\x0f\n\x07hand_sn\x18\x05 \x01(\x03\x12\x0e\n\x06gameid\x18\x06 \x01(\t\x12\x1f\n\tgame_mode\x18\x07 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1f\n\troom_mode\x18\x08 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1e\n\x08roomtype\x18\t \x01(\x0e\x32\x0c.pb.RoomType\x12\x11\n\ttotal_bet\x18\n \x01(\x03\x12\x13\n\x0btotal_prize\x18\x0b \x01(\x03\x12*\n\x07sk_info\x18\x0c \x01(\x0b\x32\x19.pb.SaveGameRecord.SKInfo\x12\x34\n\x0cwinning_info\x18\r \x03(\x0b\x32\x1e.pb.SaveGameRecord.WinningInfo\x12\x1a\n\x12gameset_start_time\x18\x0e \x01(\x03\x12\x14\n\x0corigin_setid\x18\x0f \x01(\t\x12\x0e\n\x06roomid\x18\x10 \x01(\x05\x1a*\n\x0bWinningInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06profit\x18\x02 \x01(\x03\x1ak\n\x06SKInfo\x12\x14\n\x0c\x62\x61nker_cards\x18\x01 \x03(\x03\x12\x14\n\x0cplayer_cards\x18\x02 \x03(\x03\x12\r\n\x05\x62oard\x18\x03 \x03(\x03\x12&\n\nwin_blocks\x18\x04 \x03(\x0e\x32\x12.pb.SKFlipBetBlock\"v\n\x18iSaveSkFlipGameRecordREQ\x12\'\n\x0bgame_record\x18\x01 \x01(\x0b\x32\x12.pb.SaveGameRecord\x12\x31\n\x11user_game_records\x18\x02 \x03(\x0b\x32\x16.pb.SaveUserGameRecord\"8\n\x18iSaveSkFlipGameRecordRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode*\x90\x01\n\x0cRpcMongoType\x12\x17\n\x13PLAYING_ROOMS_STATS\x10\x01\x12\x10\n\x0cGAMESET_INFO\x10\x02\x12\x0f\n\x0bGAME_RECORD\x10\x04\x12\x14\n\x10USER_GAME_RECORD\x10\x05\x12\x16\n\x12PLAYING_USER_STATS\x10\x06\x12\x16\n\x12GAME_BANKER_RECORD\x10\x07\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x1agame_record_producer.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x15shark_king_flip.proto\x1a\x0epre_base.proto\x1a\x0f\x62lackjack.proto\"d\n\x0fiUpsertMongoREQ\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.pb.RpcMongoType\x12\x0e\n\x06set_id\x18\x02 \x01(\t\x12\x14\n\x0cjson_content\x18\x03 \x01(\t\x12\x0b\n\x03uid\x18\x04 \x01(\x03\"/\n\x0fiUpsertMongoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"\x9b\x01\n\x14RoundChangeChipsInfo\x12\x38\n\x0b\x63hange_type\x18\x01 \x01(\x0e\x32#.pb.RoundChangeChipsInfo.ChangeType\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\":\n\nChangeType\x12\x0e\n\nENTER_ROOM\x10\x01\x12\x0e\n\nLEAVE_ROOM\x10\x02\x12\x0c\n\x08\x45XCHANGE\x10\x03\"\x84\x05\n\x12SaveUserGameRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05setid\x18\x02 \x01(\t\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\x12\x14\n\x0clicense_type\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x13\n\x0b\x62\x65gin_chips\x18\x06 \x01(\x03\x12\x11\n\tend_chips\x18\x07 \x01(\x03\x12\x11\n\twin_chips\x18\x08 \x01(\x03\x12\x0b\n\x03\x66\x65\x65\x18\t \x01(\x03\x12\x0e\n\x06\x63lubid\x18\n \x01(\x05\x12\x0f\n\x07hand_sn\x18\x0b \x01(\x05\x12\x1a\n\x12table_chips_profit\x18\x0c \x01(\x03\x12\x17\n\x0fgame_start_time\x18\r \x01(\x03\x12\x1a\n\x12gameset_start_time\x18\x0e \x01(\x03\x12\x0e\n\x06gameid\x18\x0f \x01(\t\x12\x1f\n\tgame_mode\x18\x10 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1f\n\troom_mode\x18\x11 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\troom_type\x18\x12 \x01(\x0e\x32\x0c.pb.RoomType\x12\'\n\x0csk_bet_infos\x18\x13 \x03(\x0b\x32\x11.pb.SKFlipBetInfo\x12\x11\n\tuser_name\x18\x14 \x01(\t\x12:\n\x18round_change_chips_infos\x18\x15 \x03(\x0b\x32\x18.pb.RoundChangeChipsInfo\x12\x12\n\nother_fee1\x18\x16 \x01(\x03\x12\x12\n\nother_fee2\x18\x17 \x01(\x03\x12\x0c\n\x04icon\x18\x18 \x01(\t\x12<\n\x16\x62lackjack_game_summary\x18\x19 \x03(\x0b\x32\x1c.pb.BlackjackUserGameSummary\"\x8b\x08\n\x0eSaveGameRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x17\n\x0fgame_start_time\x18\x03 \x01(\x03\x12\x15\n\rgame_end_time\x18\x04 \x01(\x03\x12\x0f\n\x07hand_sn\x18\x05 \x01(\x03\x12\x0e\n\x06gameid\x18\x06 \x01(\t\x12\x1f\n\tgame_mode\x18\x07 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1f\n\troom_mode\x18\x08 \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1e\n\x08roomtype\x18\t \x01(\x0e\x32\x0c.pb.RoomType\x12\x11\n\ttotal_bet\x18\n \x01(\x03\x12\x13\n\x0btotal_prize\x18\x0b \x01(\x03\x12*\n\x07sk_info\x18\x0c \x01(\x0b\x32\x19.pb.SaveGameRecord.SKInfo\x12\x34\n\x0cwinning_info\x18\r \x03(\x0b\x32\x1e.pb.SaveGameRecord.WinningInfo\x12\x1a\n\x12gameset_start_time\x18\x0e \x01(\x03\x12\x14\n\x0corigin_setid\x18\x0f \x01(\t\x12\x0e\n\x06roomid\x18\x10 \x01(\x05\x12\'\n\x05round\x18\x11 \x03(\x0b\x32\x18.pb.SaveGameRecord.Round\x12\x1e\n\x16\x62lackjack_dealer_cards\x18\x12 \x03(\x05\x12\x1c\n\x14\x62lackjack_dealer_sum\x18\x13 \x01(\x05\x1a*\n\x0bWinningInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06profit\x18\x02 \x01(\x03\x1ak\n\x06SKInfo\x12\x14\n\x0c\x62\x61nker_cards\x18\x01 \x03(\x03\x12\x14\n\x0cplayer_cards\x18\x02 \x03(\x03\x12\r\n\x05\x62oard\x18\x03 \x03(\x03\x12&\n\nwin_blocks\x18\x04 \x03(\x0e\x32\x12.pb.SKFlipBetBlock\x1a\x15\n\x04\x43\x61rd\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\x05\x1a\x8d\x01\n\x0bRoundAction\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\r\n\x05\x63hips\x18\x04 \x01(\x03\x12\x0b\n\x03uid\x18\x05 \x01(\x03\x12\x0e\n\x06mstime\x18\x06 \x01(\x03\x12&\n\x05\x63\x61rds\x18\x07 \x03(\x0b\x32\x17.pb.SaveGameRecord.Card\x1a\xb1\x01\n\x05Round\x12\r\n\x05stage\x18\x01 \x01(\x05\x12\x18\n\x10round_start_time\x18\x02 \x01(\x03\x12\x16\n\x0eround_end_time\x18\x03 \x01(\x03\x12\x1a\n\x12round_start_mstime\x18\x04 \x01(\x03\x12\x18\n\x10round_end_mstime\x18\x05 \x01(\x03\x12\x31\n\taction_v2\x18\x06 \x03(\x0b\x32\x1e.pb.SaveGameRecord.RoundAction\"v\n\x18iSaveSkFlipGameRecordREQ\x12\'\n\x0bgame_record\x18\x01 \x01(\x0b\x32\x12.pb.SaveGameRecord\x12\x31\n\x11user_game_records\x18\x02 \x03(\x0b\x32\x16.pb.SaveUserGameRecord\"8\n\x18iSaveSkFlipGameRecordRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode*\x90\x01\n\x0cRpcMongoType\x12\x17\n\x13PLAYING_ROOMS_STATS\x10\x01\x12\x10\n\x0cGAMESET_INFO\x10\x02\x12\x0f\n\x0bGAME_RECORD\x10\x04\x12\x14\n\x10USER_GAME_RECORD\x10\x05\x12\x16\n\x12PLAYING_USER_STATS\x10\x06\x12\x16\n\x12GAME_BANKER_RECORD\x10\x07\x42\x07Z\x05../pb')
   ,
-  dependencies=[base2__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,])
+  dependencies=[base2__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
 
 _RPCMONGOTYPE = _descriptor.EnumDescriptor(
   name='RpcMongoType',
@@ -60,8 +61,8 @@ _RPCMONGOTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1693,
-  serialized_end=1837,
+  serialized_start=2276,
+  serialized_end=2420,
 )
 _sym_db.RegisterEnumDescriptor(_RPCMONGOTYPE)
 
@@ -95,8 +96,8 @@ _ROUNDCHANGECHIPSINFO_CHANGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=335,
-  serialized_end=393,
+  serialized_start=352,
+  serialized_end=410,
 )
 _sym_db.RegisterEnumDescriptor(_ROUNDCHANGECHIPSINFO_CHANGETYPE)
 
@@ -148,8 +149,8 @@ _IUPSERTMONGOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=86,
-  serialized_end=186,
+  serialized_start=103,
+  serialized_end=203,
 )
 
 
@@ -179,8 +180,8 @@ _IUPSERTMONGORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=235,
+  serialized_start=205,
+  serialized_end=252,
 )
 
 
@@ -218,8 +219,8 @@ _ROUNDCHANGECHIPSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=238,
-  serialized_end=393,
+  serialized_start=255,
+  serialized_end=410,
 )
 
 
@@ -377,6 +378,34 @@ _SAVEUSERGAMERECORD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='other_fee1', full_name='pb.SaveUserGameRecord.other_fee1', index=21,
+      number=22, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='other_fee2', full_name='pb.SaveUserGameRecord.other_fee2', index=22,
+      number=23, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='icon', full_name='pb.SaveUserGameRecord.icon', index=23,
+      number=24, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_game_summary', full_name='pb.SaveUserGameRecord.blackjack_game_summary', index=24,
+      number=25, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -389,8 +418,8 @@ _SAVEUSERGAMERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=396,
-  serialized_end=924,
+  serialized_start=413,
+  serialized_end=1057,
 )
 
 
@@ -427,8 +456,8 @@ _SAVEGAMERECORD_WINNINGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1361,
-  serialized_end=1403,
+  serialized_start=1597,
+  serialized_end=1639,
 )
 
 _SAVEGAMERECORD_SKINFO = _descriptor.Descriptor(
@@ -478,8 +507,175 @@ _SAVEGAMERECORD_SKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1405,
-  serialized_end=1512,
+  serialized_start=1641,
+  serialized_end=1748,
+)
+
+_SAVEGAMERECORD_CARD = _descriptor.Descriptor(
+  name='Card',
+  full_name='pb.SaveGameRecord.Card',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cards', full_name='pb.SaveGameRecord.Card.cards', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1750,
+  serialized_end=1771,
+)
+
+_SAVEGAMERECORD_ROUNDACTION = _descriptor.Descriptor(
+  name='RoundAction',
+  full_name='pb.SaveGameRecord.RoundAction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='seatid', full_name='pb.SaveGameRecord.RoundAction.seatid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='pb.SaveGameRecord.RoundAction.time', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='pb.SaveGameRecord.RoundAction.type', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='chips', full_name='pb.SaveGameRecord.RoundAction.chips', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.SaveGameRecord.RoundAction.uid', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mstime', full_name='pb.SaveGameRecord.RoundAction.mstime', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cards', full_name='pb.SaveGameRecord.RoundAction.cards', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1774,
+  serialized_end=1915,
+)
+
+_SAVEGAMERECORD_ROUND = _descriptor.Descriptor(
+  name='Round',
+  full_name='pb.SaveGameRecord.Round',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='stage', full_name='pb.SaveGameRecord.Round.stage', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='round_start_time', full_name='pb.SaveGameRecord.Round.round_start_time', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='round_end_time', full_name='pb.SaveGameRecord.Round.round_end_time', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='round_start_mstime', full_name='pb.SaveGameRecord.Round.round_start_mstime', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='round_end_mstime', full_name='pb.SaveGameRecord.Round.round_end_mstime', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='action_v2', full_name='pb.SaveGameRecord.Round.action_v2', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1918,
+  serialized_end=2095,
 )
 
 _SAVEGAMERECORD = _descriptor.Descriptor(
@@ -601,10 +797,31 @@ _SAVEGAMERECORD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='round', full_name='pb.SaveGameRecord.round', index=16,
+      number=17, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_dealer_cards', full_name='pb.SaveGameRecord.blackjack_dealer_cards', index=17,
+      number=18, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blackjack_dealer_sum', full_name='pb.SaveGameRecord.blackjack_dealer_sum', index=18,
+      number=19, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_SAVEGAMERECORD_WINNINGINFO, _SAVEGAMERECORD_SKINFO, ],
+  nested_types=[_SAVEGAMERECORD_WINNINGINFO, _SAVEGAMERECORD_SKINFO, _SAVEGAMERECORD_CARD, _SAVEGAMERECORD_ROUNDACTION, _SAVEGAMERECORD_ROUND, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -613,8 +830,8 @@ _SAVEGAMERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=927,
-  serialized_end=1512,
+  serialized_start=1060,
+  serialized_end=2095,
 )
 
 
@@ -651,8 +868,8 @@ _ISAVESKFLIPGAMERECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1514,
-  serialized_end=1632,
+  serialized_start=2097,
+  serialized_end=2215,
 )
 
 
@@ -682,8 +899,8 @@ _ISAVESKFLIPGAMERECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1634,
-  serialized_end=1690,
+  serialized_start=2217,
+  serialized_end=2273,
 )
 
 _IUPSERTMONGOREQ.fields_by_name['type'].enum_type = _RPCMONGOTYPE
@@ -695,14 +912,21 @@ _SAVEUSERGAMERECORD.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOM
 _SAVEUSERGAMERECORD.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _SAVEUSERGAMERECORD.fields_by_name['sk_bet_infos'].message_type = shark__king__flip__pb2._SKFLIPBETINFO
 _SAVEUSERGAMERECORD.fields_by_name['round_change_chips_infos'].message_type = _ROUNDCHANGECHIPSINFO
+_SAVEUSERGAMERECORD.fields_by_name['blackjack_game_summary'].message_type = blackjack__pb2._BLACKJACKUSERGAMESUMMARY
 _SAVEGAMERECORD_WINNINGINFO.containing_type = _SAVEGAMERECORD
 _SAVEGAMERECORD_SKINFO.fields_by_name['win_blocks'].enum_type = shark__king__flip__pb2._SKFLIPBETBLOCK
 _SAVEGAMERECORD_SKINFO.containing_type = _SAVEGAMERECORD
+_SAVEGAMERECORD_CARD.containing_type = _SAVEGAMERECORD
+_SAVEGAMERECORD_ROUNDACTION.fields_by_name['cards'].message_type = _SAVEGAMERECORD_CARD
+_SAVEGAMERECORD_ROUNDACTION.containing_type = _SAVEGAMERECORD
+_SAVEGAMERECORD_ROUND.fields_by_name['action_v2'].message_type = _SAVEGAMERECORD_ROUNDACTION
+_SAVEGAMERECORD_ROUND.containing_type = _SAVEGAMERECORD
 _SAVEGAMERECORD.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
 _SAVEGAMERECORD.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
 _SAVEGAMERECORD.fields_by_name['roomtype'].enum_type = pre__base__pb2._ROOMTYPE
 _SAVEGAMERECORD.fields_by_name['sk_info'].message_type = _SAVEGAMERECORD_SKINFO
 _SAVEGAMERECORD.fields_by_name['winning_info'].message_type = _SAVEGAMERECORD_WINNINGINFO
+_SAVEGAMERECORD.fields_by_name['round'].message_type = _SAVEGAMERECORD_ROUND
 _ISAVESKFLIPGAMERECORDREQ.fields_by_name['game_record'].message_type = _SAVEGAMERECORD
 _ISAVESKFLIPGAMERECORDREQ.fields_by_name['user_game_records'].message_type = _SAVEUSERGAMERECORD
 _ISAVESKFLIPGAMERECORDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
@@ -759,6 +983,27 @@ SaveGameRecord = _reflection.GeneratedProtocolMessageType('SaveGameRecord', (_me
     # @@protoc_insertion_point(class_scope:pb.SaveGameRecord.SKInfo)
     ))
   ,
+
+  Card = _reflection.GeneratedProtocolMessageType('Card', (_message.Message,), dict(
+    DESCRIPTOR = _SAVEGAMERECORD_CARD,
+    __module__ = 'game_record_producer_pb2'
+    # @@protoc_insertion_point(class_scope:pb.SaveGameRecord.Card)
+    ))
+  ,
+
+  RoundAction = _reflection.GeneratedProtocolMessageType('RoundAction', (_message.Message,), dict(
+    DESCRIPTOR = _SAVEGAMERECORD_ROUNDACTION,
+    __module__ = 'game_record_producer_pb2'
+    # @@protoc_insertion_point(class_scope:pb.SaveGameRecord.RoundAction)
+    ))
+  ,
+
+  Round = _reflection.GeneratedProtocolMessageType('Round', (_message.Message,), dict(
+    DESCRIPTOR = _SAVEGAMERECORD_ROUND,
+    __module__ = 'game_record_producer_pb2'
+    # @@protoc_insertion_point(class_scope:pb.SaveGameRecord.Round)
+    ))
+  ,
   DESCRIPTOR = _SAVEGAMERECORD,
   __module__ = 'game_record_producer_pb2'
   # @@protoc_insertion_point(class_scope:pb.SaveGameRecord)
@@ -766,6 +1011,9 @@ SaveGameRecord = _reflection.GeneratedProtocolMessageType('SaveGameRecord', (_me
 _sym_db.RegisterMessage(SaveGameRecord)
 _sym_db.RegisterMessage(SaveGameRecord.WinningInfo)
 _sym_db.RegisterMessage(SaveGameRecord.SKInfo)
+_sym_db.RegisterMessage(SaveGameRecord.Card)
+_sym_db.RegisterMessage(SaveGameRecord.RoundAction)
+_sym_db.RegisterMessage(SaveGameRecord.Round)
 
 iSaveSkFlipGameRecordREQ = _reflection.GeneratedProtocolMessageType('iSaveSkFlipGameRecordREQ', (_message.Message,), dict(
   DESCRIPTOR = _ISAVESKFLIPGAMERECORDREQ,

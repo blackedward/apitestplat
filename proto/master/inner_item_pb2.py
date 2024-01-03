@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10inner_item.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\"\xb2\x01\n\x14iAddUserItemClassREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x15\n\ritem_class_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x1e\n\x04type\x18\x04 \x01(\x0e\x32\x10.pb.FlowItemType\x12\x0e\n\x06\x65xdata\x18\x05 \x01(\t\x12\x0f\n\x07\x66low_id\x18\x06 \x01(\x03\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\x03\x12\x13\n\x0bnotify_user\x18\x08 \x01(\x08\"\x85\x01\n\x14iAddUserItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x14\n\x0c\x66low_item_id\x18\x02 \x01(\x03\x12\"\n\x0fis_item_expired\x18\x03 \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x15\n\rflow_left_num\x18\x04 \x01(\x05\"\x0f\n\ritemFreeChips\"\x19\n\x17iGetAllItemFreeChipsREQ\"P\n\x17iGetAllItemFreeChipsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x17\n\x05items\x18\x02 \x03(\x0b\x32\x08.pb.Item\"B\n\x19iAddUserItemClassBatchREQ\x12%\n\x03req\x18\x01 \x03(\x0b\x32\x18.pb.iAddUserItemClassREQ\"`\n\x19iAddUserItemClassBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12%\n\x03rsp\x18\x02 \x03(\x0b\x32\x18.pb.iAddUserItemClassRSP\":\n\x12iRevertUserItemREQ\x12\x14\n\x0c\x66low_item_id\x18\x02 \x01(\x03\x12\x0e\n\x06reason\x18\x03 \x01(\t\"`\n\x12iRevertUserItemRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x15\n\rflow_left_num\x18\x02 \x01(\x05\x12\x15\n\ritem_class_id\x18\x03 \x01(\x03\"?\n\x17iRevertUserItemBatchREQ\x12\x14\n\x0c\x66low_item_id\x18\x01 \x03(\x03\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\\\n\x17iRevertUserItemBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12#\n\x03rsp\x18\x02 \x03(\x0b\x32\x16.pb.iRevertUserItemRSP\"\x96\x02\n\tItemClass\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x11\n\tcan_merge\x18\x03 \x01(\x08\x12\x14\n\x0creward_value\x18\x04 \x01(\x03\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03\x12\x16\n\x0evalid_duration\x18\x06 \x01(\x03\x12\x0e\n\x06status\x18\x07 \x01(\x05\x12\x0c\n\x04type\x18\x08 \x01(\x05\x12\x15\n\rname_for_read\x18\t \x01(\t\x12\r\n\x05usage\x18\n \x01(\t\x12\x19\n\x11verification_code\x18\x0b \x01(\t\x12\x0f\n\x07useable\x18\x0c \x01(\x08\x12\x13\n\x0bt_and_c_key\x18\r \x01(\t\"2\n\x13iCreateItemClassREQ\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.pb.ItemClass\"3\n\x13iCreateItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"2\n\x13iModifyItemClassREQ\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.pb.ItemClass\"3\n\x13iModifyItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode*\x9e\t\n\x0c\x46lowItemType\x12\x1a\n\x16\x46LOW_ITEM_TYPE_DEFAULT\x10\x00\x12\x19\n\x15\x46LOW_ITEM_TYPE_REVERT\x10\x01\x12\x19\n\x15\x46LOW_ITEM_TYPE_EXPIRE\x10\x02\x12\x18\n\x14\x46LOW_ITEM_TYPE_ADMIN\x10\x03\x12\x19\n\x15\x46LOW_ITEM_TYPE_REWARD\x10\x04\x12\x1b\n\x17\x46LOW_ITEM_TYPE_ACTIVITY\x10\x05\x12\x1b\n\x17\x46LOW_ITEM_TYPE_TRANSFER\x10\x06\x12\x19\n\x15\x46LOW_ITEM_TYPE_SIGNUP\x10\x07\x12\x18\n\x14\x46LOW_ITEM_TYPE_REBUY\x10\x08\x12\x18\n\x14\x46LOW_ITEM_TYPE_ADDON\x10\t\x12&\n\"FLOW_ITEM_TYPE_INVITATION_ACTIVITY\x10\n\x12\x1d\n\x19\x46LOW_ITEM_TYPE_POINT_SHOP\x10\x0b\x12\x1a\n\x16\x46LOW_ITEM_TYPE_MISSION\x10\x0c\x12#\n\x1f\x46LOW_ITEM_TYPE_DEPOSIT_ACTIVITY\x10\r\x12\x16\n\x12\x46LOW_ITEM_TYPE_USE\x10\x0e\x12\"\n\x1e\x46LOW_ITEM_TYPE_RETURN_ACTIVITY\x10\x0f\x12!\n\x1d\x46LOW_ITEM_TYPE_BIRTH_ACTIVITY\x10\x10\x12+\n\'FLOW_ITEM_TYPE_NEW_USER_ACTIVITY_202104\x10\x11\x12\x31\n-FLOW_ITEM_TYPE_NEW_USER_ACTIVITY_202104_LOGIN\x10\x12\x12!\n\x1d\x46LOW_ITEM_TYPE_LOGIN_ACTIVITY\x10\x13\x12\x19\n\x15\x46LOW_ITEM_TYPE_TICKET\x10\x14\x12*\n&FLOW_ITEM_TYPE_NEW_JAPAN_USER_ACTIVITY\x10\x15\x12\'\n#FLOW_ITEM_TYPE_HONOR_AVATAR_LOTTERY\x10\x16\x12&\n\"FLOW_ITEM_TYPE_TOURNAMENT_ACTIVITY\x10\x17\x12\x1a\n\x16\x46LOW_ITEM_TYPE_MIGRATE\x10\x18\x12\'\n#FLOW_ITEM_TYPE_VIP_RENEWAL_DISCOUNT\x10\x19\x12&\n\"FLOW_ITEM_TYPE_EXCHANGE_ITEM_TOKEN\x10\x1a\x12%\n!FLOW_ITEM_TYPE_EXCHANGE_ITEM_CARD\x10\x1b\x12\x1c\n\x18\x46LOW_ITEM_TYPE_EXPIRE_V2\x10\x1c\x12\r\n\treserved0\x10\x1d\x12\r\n\treserved1\x10\x1e\x12\r\n\treserved2\x10\x1f\x12\x1e\n\x1a\x46LOW_ITEM_TYPE_ACHIEVEMENT\x10 \x12\x32\n.FLOW_ITEM_TYPE_3RD_ANNIVERSARY_CHEERS_ACTIVITY\x10!\x12\x1d\n\x19\x46LOW_ITEM_TYPE_CASINO_BET\x10\"\x12*\n&FLOW_ITEM_TYPE_NEW_COMERS_GUIDE_REWARD\x10#B\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10inner_item.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\"\xb2\x01\n\x14iAddUserItemClassREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x15\n\ritem_class_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x1e\n\x04type\x18\x04 \x01(\x0e\x32\x10.pb.FlowItemType\x12\x0e\n\x06\x65xdata\x18\x05 \x01(\t\x12\x0f\n\x07\x66low_id\x18\x06 \x01(\x03\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\x03\x12\x13\n\x0bnotify_user\x18\x08 \x01(\x08\"\x85\x01\n\x14iAddUserItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x14\n\x0c\x66low_item_id\x18\x02 \x01(\x03\x12\"\n\x0fis_item_expired\x18\x03 \x01(\x08:\x05\x66\x61lseB\x02\x18\x01\x12\x15\n\rflow_left_num\x18\x04 \x01(\x05\"\x0f\n\ritemFreeChips\"\x7f\n\x17iGetAllItemFreeChipsREQ\x12.\n\x04type\x18\x01 \x01(\x0e\x32 .pb.iGetAllItemFreeChipsREQ.Type\"4\n\x04Type\x12\x18\n\x14TYPE_SHARK_KING_FLIP\x10\x00\x12\x12\n\x0eTYPE_BLACKJACK\x10\x01\"P\n\x17iGetAllItemFreeChipsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x17\n\x05items\x18\x02 \x03(\x0b\x32\x08.pb.Item\"B\n\x19iAddUserItemClassBatchREQ\x12%\n\x03req\x18\x01 \x03(\x0b\x32\x18.pb.iAddUserItemClassREQ\"`\n\x19iAddUserItemClassBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12%\n\x03rsp\x18\x02 \x03(\x0b\x32\x18.pb.iAddUserItemClassRSP\":\n\x12iRevertUserItemREQ\x12\x14\n\x0c\x66low_item_id\x18\x02 \x01(\x03\x12\x0e\n\x06reason\x18\x03 \x01(\t\"`\n\x12iRevertUserItemRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x15\n\rflow_left_num\x18\x02 \x01(\x05\x12\x15\n\ritem_class_id\x18\x03 \x01(\x03\"?\n\x17iRevertUserItemBatchREQ\x12\x14\n\x0c\x66low_item_id\x18\x01 \x03(\x03\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\\\n\x17iRevertUserItemBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12#\n\x03rsp\x18\x02 \x03(\x0b\x32\x16.pb.iRevertUserItemRSP\"G\n\x1fiRevertUserItemBatchByFlowIdREQ\x12\x14\n\x0c\x66low_item_id\x18\x01 \x03(\x03\x12\x0e\n\x06reason\x18\x02 \x01(\t\"d\n\x1fiRevertUserItemBatchByFlowIdRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12#\n\x03rsp\x18\x02 \x03(\x0b\x32\x16.pb.iRevertUserItemRSP\"\x96\x02\n\tItemClass\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x11\n\tcan_merge\x18\x03 \x01(\x08\x12\x14\n\x0creward_value\x18\x04 \x01(\x03\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03\x12\x16\n\x0evalid_duration\x18\x06 \x01(\x03\x12\x0e\n\x06status\x18\x07 \x01(\x05\x12\x0c\n\x04type\x18\x08 \x01(\x05\x12\x15\n\rname_for_read\x18\t \x01(\t\x12\r\n\x05usage\x18\n \x01(\t\x12\x19\n\x11verification_code\x18\x0b \x01(\t\x12\x0f\n\x07useable\x18\x0c \x01(\x08\x12\x13\n\x0bt_and_c_key\x18\r \x01(\t\"2\n\x13iCreateItemClassREQ\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.pb.ItemClass\"3\n\x13iCreateItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"2\n\x13iModifyItemClassREQ\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.pb.ItemClass\"3\n\x13iModifyItemClassRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode*\xc0\t\n\x0c\x46lowItemType\x12\x1a\n\x16\x46LOW_ITEM_TYPE_DEFAULT\x10\x00\x12\x19\n\x15\x46LOW_ITEM_TYPE_REVERT\x10\x01\x12\x19\n\x15\x46LOW_ITEM_TYPE_EXPIRE\x10\x02\x12\x18\n\x14\x46LOW_ITEM_TYPE_ADMIN\x10\x03\x12\x19\n\x15\x46LOW_ITEM_TYPE_REWARD\x10\x04\x12\x1b\n\x17\x46LOW_ITEM_TYPE_ACTIVITY\x10\x05\x12\x1b\n\x17\x46LOW_ITEM_TYPE_TRANSFER\x10\x06\x12\x19\n\x15\x46LOW_ITEM_TYPE_SIGNUP\x10\x07\x12\x18\n\x14\x46LOW_ITEM_TYPE_REBUY\x10\x08\x12\x18\n\x14\x46LOW_ITEM_TYPE_ADDON\x10\t\x12&\n\"FLOW_ITEM_TYPE_INVITATION_ACTIVITY\x10\n\x12\x1d\n\x19\x46LOW_ITEM_TYPE_POINT_SHOP\x10\x0b\x12\x1a\n\x16\x46LOW_ITEM_TYPE_MISSION\x10\x0c\x12#\n\x1f\x46LOW_ITEM_TYPE_DEPOSIT_ACTIVITY\x10\r\x12\x16\n\x12\x46LOW_ITEM_TYPE_USE\x10\x0e\x12\"\n\x1e\x46LOW_ITEM_TYPE_RETURN_ACTIVITY\x10\x0f\x12!\n\x1d\x46LOW_ITEM_TYPE_BIRTH_ACTIVITY\x10\x10\x12+\n\'FLOW_ITEM_TYPE_NEW_USER_ACTIVITY_202104\x10\x11\x12\x31\n-FLOW_ITEM_TYPE_NEW_USER_ACTIVITY_202104_LOGIN\x10\x12\x12!\n\x1d\x46LOW_ITEM_TYPE_LOGIN_ACTIVITY\x10\x13\x12\x19\n\x15\x46LOW_ITEM_TYPE_TICKET\x10\x14\x12*\n&FLOW_ITEM_TYPE_NEW_JAPAN_USER_ACTIVITY\x10\x15\x12\'\n#FLOW_ITEM_TYPE_HONOR_AVATAR_LOTTERY\x10\x16\x12&\n\"FLOW_ITEM_TYPE_TOURNAMENT_ACTIVITY\x10\x17\x12\x1a\n\x16\x46LOW_ITEM_TYPE_MIGRATE\x10\x18\x12\'\n#FLOW_ITEM_TYPE_VIP_RENEWAL_DISCOUNT\x10\x19\x12&\n\"FLOW_ITEM_TYPE_EXCHANGE_ITEM_TOKEN\x10\x1a\x12%\n!FLOW_ITEM_TYPE_EXCHANGE_ITEM_CARD\x10\x1b\x12\x1c\n\x18\x46LOW_ITEM_TYPE_EXPIRE_V2\x10\x1c\x12\r\n\treserved0\x10\x1d\x12\r\n\treserved1\x10\x1e\x12\r\n\treserved2\x10\x1f\x12\x1e\n\x1a\x46LOW_ITEM_TYPE_ACHIEVEMENT\x10 \x12\x32\n.FLOW_ITEM_TYPE_3RD_ANNIVERSARY_CHEERS_ACTIVITY\x10!\x12\x1d\n\x19\x46LOW_ITEM_TYPE_CASINO_BET\x10\"\x12*\n&FLOW_ITEM_TYPE_NEW_COMERS_GUIDE_REWARD\x10#\x12 \n\x1c\x46LOW_ITEM_TYPE_BLACKJACK_BET\x10$B\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,])
 
@@ -176,11 +176,15 @@ _FLOWITEMTYPE = _descriptor.EnumDescriptor(
       name='FLOW_ITEM_TYPE_NEW_COMERS_GUIDE_REWARD', index=35, number=35,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FLOW_ITEM_TYPE_BLACKJACK_BET', index=36, number=36,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1473,
-  serialized_end=2655,
+  serialized_start=1750,
+  serialized_end=2966,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWITEMTYPE)
 
@@ -221,7 +225,30 @@ FLOW_ITEM_TYPE_ACHIEVEMENT = 32
 FLOW_ITEM_TYPE_3RD_ANNIVERSARY_CHEERS_ACTIVITY = 33
 FLOW_ITEM_TYPE_CASINO_BET = 34
 FLOW_ITEM_TYPE_NEW_COMERS_GUIDE_REWARD = 35
+FLOW_ITEM_TYPE_BLACKJACK_BET = 36
 
+
+_IGETALLITEMFREECHIPSREQ_TYPE = _descriptor.EnumDescriptor(
+  name='Type',
+  full_name='pb.iGetAllItemFreeChipsREQ.Type',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_SHARK_KING_FLIP', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_BLACKJACK', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=464,
+  serialized_end=516,
+)
+_sym_db.RegisterEnumDescriptor(_IGETALLITEMFREECHIPSREQ_TYPE)
 
 
 _IADDUSERITEMCLASSREQ = _descriptor.Descriptor(
@@ -387,11 +414,19 @@ _IGETALLITEMFREECHIPSREQ = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='pb.iGetAllItemFreeChipsREQ.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _IGETALLITEMFREECHIPSREQ_TYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -400,7 +435,7 @@ _IGETALLITEMFREECHIPSREQ = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=389,
-  serialized_end=414,
+  serialized_end=516,
 )
 
 
@@ -437,8 +472,8 @@ _IGETALLITEMFREECHIPSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=416,
-  serialized_end=496,
+  serialized_start=518,
+  serialized_end=598,
 )
 
 
@@ -468,8 +503,8 @@ _IADDUSERITEMCLASSBATCHREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=498,
-  serialized_end=564,
+  serialized_start=600,
+  serialized_end=666,
 )
 
 
@@ -506,8 +541,8 @@ _IADDUSERITEMCLASSBATCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=566,
-  serialized_end=662,
+  serialized_start=668,
+  serialized_end=764,
 )
 
 
@@ -544,8 +579,8 @@ _IREVERTUSERITEMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=664,
-  serialized_end=722,
+  serialized_start=766,
+  serialized_end=824,
 )
 
 
@@ -589,8 +624,8 @@ _IREVERTUSERITEMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=724,
-  serialized_end=820,
+  serialized_start=826,
+  serialized_end=922,
 )
 
 
@@ -627,8 +662,8 @@ _IREVERTUSERITEMBATCHREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=822,
-  serialized_end=885,
+  serialized_start=924,
+  serialized_end=987,
 )
 
 
@@ -665,8 +700,84 @@ _IREVERTUSERITEMBATCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=887,
-  serialized_end=979,
+  serialized_start=989,
+  serialized_end=1081,
+)
+
+
+_IREVERTUSERITEMBATCHBYFLOWIDREQ = _descriptor.Descriptor(
+  name='iRevertUserItemBatchByFlowIdREQ',
+  full_name='pb.iRevertUserItemBatchByFlowIdREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='flow_item_id', full_name='pb.iRevertUserItemBatchByFlowIdREQ.flow_item_id', index=0,
+      number=1, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iRevertUserItemBatchByFlowIdREQ.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1083,
+  serialized_end=1154,
+)
+
+
+_IREVERTUSERITEMBATCHBYFLOWIDRSP = _descriptor.Descriptor(
+  name='iRevertUserItemBatchByFlowIdRSP',
+  full_name='pb.iRevertUserItemBatchByFlowIdRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iRevertUserItemBatchByFlowIdRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rsp', full_name='pb.iRevertUserItemBatchByFlowIdRSP.rsp', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1156,
+  serialized_end=1256,
 )
 
 
@@ -780,8 +891,8 @@ _ITEMCLASS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=982,
-  serialized_end=1260,
+  serialized_start=1259,
+  serialized_end=1537,
 )
 
 
@@ -811,8 +922,8 @@ _ICREATEITEMCLASSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1262,
-  serialized_end=1312,
+  serialized_start=1539,
+  serialized_end=1589,
 )
 
 
@@ -842,8 +953,8 @@ _ICREATEITEMCLASSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1314,
-  serialized_end=1365,
+  serialized_start=1591,
+  serialized_end=1642,
 )
 
 
@@ -873,8 +984,8 @@ _IMODIFYITEMCLASSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1367,
-  serialized_end=1417,
+  serialized_start=1644,
+  serialized_end=1694,
 )
 
 
@@ -904,12 +1015,14 @@ _IMODIFYITEMCLASSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1419,
-  serialized_end=1470,
+  serialized_start=1696,
+  serialized_end=1747,
 )
 
 _IADDUSERITEMCLASSREQ.fields_by_name['type'].enum_type = _FLOWITEMTYPE
 _IADDUSERITEMCLASSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETALLITEMFREECHIPSREQ.fields_by_name['type'].enum_type = _IGETALLITEMFREECHIPSREQ_TYPE
+_IGETALLITEMFREECHIPSREQ_TYPE.containing_type = _IGETALLITEMFREECHIPSREQ
 _IGETALLITEMFREECHIPSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETALLITEMFREECHIPSRSP.fields_by_name['items'].message_type = inner__base__pb2._ITEM
 _IADDUSERITEMCLASSBATCHREQ.fields_by_name['req'].message_type = _IADDUSERITEMCLASSREQ
@@ -918,6 +1031,8 @@ _IADDUSERITEMCLASSBATCHRSP.fields_by_name['rsp'].message_type = _IADDUSERITEMCLA
 _IREVERTUSERITEMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IREVERTUSERITEMBATCHRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IREVERTUSERITEMBATCHRSP.fields_by_name['rsp'].message_type = _IREVERTUSERITEMRSP
+_IREVERTUSERITEMBATCHBYFLOWIDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IREVERTUSERITEMBATCHBYFLOWIDRSP.fields_by_name['rsp'].message_type = _IREVERTUSERITEMRSP
 _ICREATEITEMCLASSREQ.fields_by_name['data'].message_type = _ITEMCLASS
 _ICREATEITEMCLASSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IMODIFYITEMCLASSREQ.fields_by_name['data'].message_type = _ITEMCLASS
@@ -933,6 +1048,8 @@ DESCRIPTOR.message_types_by_name['iRevertUserItemREQ'] = _IREVERTUSERITEMREQ
 DESCRIPTOR.message_types_by_name['iRevertUserItemRSP'] = _IREVERTUSERITEMRSP
 DESCRIPTOR.message_types_by_name['iRevertUserItemBatchREQ'] = _IREVERTUSERITEMBATCHREQ
 DESCRIPTOR.message_types_by_name['iRevertUserItemBatchRSP'] = _IREVERTUSERITEMBATCHRSP
+DESCRIPTOR.message_types_by_name['iRevertUserItemBatchByFlowIdREQ'] = _IREVERTUSERITEMBATCHBYFLOWIDREQ
+DESCRIPTOR.message_types_by_name['iRevertUserItemBatchByFlowIdRSP'] = _IREVERTUSERITEMBATCHBYFLOWIDRSP
 DESCRIPTOR.message_types_by_name['ItemClass'] = _ITEMCLASS
 DESCRIPTOR.message_types_by_name['iCreateItemClassREQ'] = _ICREATEITEMCLASSREQ
 DESCRIPTOR.message_types_by_name['iCreateItemClassRSP'] = _ICREATEITEMCLASSRSP
@@ -1017,6 +1134,20 @@ iRevertUserItemBatchRSP = _reflection.GeneratedProtocolMessageType('iRevertUserI
   # @@protoc_insertion_point(class_scope:pb.iRevertUserItemBatchRSP)
   ))
 _sym_db.RegisterMessage(iRevertUserItemBatchRSP)
+
+iRevertUserItemBatchByFlowIdREQ = _reflection.GeneratedProtocolMessageType('iRevertUserItemBatchByFlowIdREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IREVERTUSERITEMBATCHBYFLOWIDREQ,
+  __module__ = 'inner_item_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRevertUserItemBatchByFlowIdREQ)
+  ))
+_sym_db.RegisterMessage(iRevertUserItemBatchByFlowIdREQ)
+
+iRevertUserItemBatchByFlowIdRSP = _reflection.GeneratedProtocolMessageType('iRevertUserItemBatchByFlowIdRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IREVERTUSERITEMBATCHBYFLOWIDRSP,
+  __module__ = 'inner_item_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRevertUserItemBatchByFlowIdRSP)
+  ))
+_sym_db.RegisterMessage(iRevertUserItemBatchByFlowIdRSP)
 
 ItemClass = _reflection.GeneratedProtocolMessageType('ItemClass', (_message.Message,), dict(
   DESCRIPTOR = _ITEMCLASS,

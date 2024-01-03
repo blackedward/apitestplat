@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0epre_base.proto\x12\x02pb\"n\n\x13RewardConfigureItem\x12\x0f\n\x07ranking\x18\x01 \x01(\x05\x12\x14\n\x0cranking_nums\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03*\xf2\x02\n\nActionType\x12\x0f\n\x0b\x41\x43TION_NONE\x10\x00\x12\x0f\n\x0b\x41\x43TION_FOLD\x10\x01\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x02\x12\x0f\n\x0b\x41\x43TION_CALL\x10\x03\x12\x10\n\x0c\x41\x43TION_RAISE\x10\x04\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x05\x12\x10\n\x0c\x41\x43TION_SITED\x10\x06\x12\x0e\n\nACTION_BET\x10\x07\x12\r\n\tACTION_SB\x10\x08\x12\r\n\tACTION_BB\x10\t\x12\x0f\n\x0b\x41\x43TION_ANTE\x10\n\x12\x13\n\x0f\x41\x43TION_FORCE_BB\x10\x0b\x12\x16\n\x12\x41\x43TION_SYSTEM_FOLD\x10\x0c\x12\x17\n\x13\x41\x43TION_SYSTEM_CHECK\x10\r\x12\x13\n\x0f\x41\x43TION_STRADDLE\x10\x0e\x12\x0e\n\nACTION_POT\x10\x0f\x12\x14\n\x10\x41\x43TION_FAST_FOLD\x10\x10\x12\x13\n\x0f\x41\x43TION_STAND_UP\x10\x12\x12\x15\n\x11\x41\x43TION_BOMBPOT_BB\x10\x13*\x9c\x01\n\rPreActionType\x12\x13\n\x0fPRE_ACTION_NONE\x10\x00\x12\x1c\n\x18PRE_ACTION_CHECK_OR_FOLD\x10\x01\x12\x14\n\x10PRE_ACTION_CHECK\x10\x02\x12\x13\n\x0fPRE_ACTION_CALL\x10\x03\x12\x17\n\x13PRE_ACTION_CALL_ANY\x10\x04\x12\x14\n\x10PRE_ACTION_ALLIN\x10\x05*\xbd\x01\n\x08RoomType\x12\r\n\tTEST_ROOM\x10\x00\x12\x10\n\x0cNLH_MTT_ROOM\x10\x02\x12\x10\n\x0cNLH_SNG_ROOM\x10\x03\x12\x0c\n\x08NLH_ROOM\x10\x05\x12\x0e\n\nOMAHA_ROOM\x10\x08\x12\r\n\tPINE_ROOM\x10\t\x12\x12\n\x0eOMAHA_SNG_ROOM\x10\n\x12\x12\n\x0eOMAHA_MTT_ROOM\x10\x0b\x12\x0f\n\x0bSPINUP_ROOM\x10\r\x12\x18\n\x14SHARK_KING_FLIP_ROOM\x10\x0e*2\n\x08RoomMode\x12\x12\n\x0eROOM_MODE_NONE\x10\x00\x12\x12\n\x0eROOM_MODE_CLUB\x10\x03*\xcf\x07\n\x08GameMode\x12\x15\n\x11GAME_MODE_REGULAR\x10\x00\x12\x12\n\x0eGAME_MODE_ZOOM\x10\x0b\x12\x1d\n\x19GAME_MODE_ZOOM_NLH_6_PLUS\x10\x11\x12\x1e\n\x1aGAME_MODE_ZOOM_PLO_5_CARDS\x10\x12\x12\x1d\n\x19GAME_MODE_ZOOM_ALLIN_FOLD\x10\x13\x12\x18\n\x14GAME_MODE_NLH_6_PLUS\x10\x0c\x12\x19\n\x15GAME_MODE_PLO_5_CARDS\x10\n\x12#\n\x1eGAME_MODE_PLO_5_CARDS_CALLTIME\x10\xd2\x01\x12 \n\x1cGAME_MODE_PLO_5_CARDS_HUNTER\x10\x17\x12)\n%GAME_MODE_PLO_5_CARDS_SNOWBALL_HUNTER\x10\x18\x12(\n$GAME_MODE_PLO_5_CARDS_MYSTERY_BOUNTY\x10\x1c\x12\'\n#GAME_MODE_PLO_5_CARDS_MTT_SATELLITE\x10\x19\x12$\n GAME_MODE_PLO_5_CARDS_ALLIN_FOLD\x10\x1a\x12$\n GAME_MODE_PLO_4_CARDS_ALLIN_FOLD\x10\x1b\x12\x18\n\x14GAME_MODE_ALLIN_FOLD\x10\r\x12\x1f\n\x1bGAME_MODE_ALLIN_FOLD_HUNTER\x10\x14\x12(\n$GAME_MODE_ALLIN_FOLD_SNOWBALL_HUNTER\x10\x15\x12\'\n#GAME_MODE_ALLIN_FOLD_MYSTERY_BOUNTY\x10\x1d\x12&\n\"GAME_MODE_ALLIN_FOLD_MTT_SATELLITE\x10\x16\x12\x1f\n\x1aGAME_MODE_REGULAR_CALLTIME\x10\xc8\x01\x12\x14\n\x10GAME_MODE_HUNTER\x10\x0e\x12\x1d\n\x19GAME_MODE_SNOWBALL_HUNTER\x10\x0f\x12\x1c\n\x18GAME_MODE_MYSTERY_BOUNTY\x10\x1e\x12\x1b\n\x17GAME_MODE_MTT_SATELLITE\x10\x10\x12\x1d\n\x19GAME_MODE_OFC_PROGRESSIVE\x10\x01\x12\x1a\n\x16GAME_MODE_OFC_ULTIMATE\x10\x02\x12#\n\x1fGAME_MODE_OFC_WILD_CARD_REGULAR\x10\x64\x12\'\n#GAME_MODE_OFC_WILD_CARD_PROGRESSIVE\x10\x65\x12$\n GAME_MODE_OFC_WILD_CARD_ULTIMATE\x10\x66*u\n\nRoundStage\x12\x0e\n\nROUND_NONE\x10\x00\x12\x12\n\x0eROUND_PRE_FLOP\x10\x01\x12\x0e\n\nROUND_FLOP\x10\x02\x12\x0e\n\nROUND_TURN\x10\x03\x12\x0f\n\x0bROUND_RIVER\x10\x04\x12\x12\n\x0eROUND_COMPLETE\x10\x05*)\n\tValueType\x12\x0c\n\x08INVAILID\x10\x00\x12\x0e\n\nUSER_MONEY\x10\x01*8\n\nPPCurrency\x12\x14\n\x10PP_CURRENCY_NONE\x10\x00\x12\x14\n\x10PP_CURRENCY_GOLD\x10\x01*\xc7\x01\n\x0eUserRoomAction\x12\x19\n\x15USER_ROOM_ACTION_NONE\x10\x00\x12\x1b\n\x17USER_ROOM_ACTION_SIGNUP\x10\x01\x12\"\n\x1eUSER_ROOM_ACTION_CANCEL_SIGNUP\x10\x02\x12\x1c\n\x18USER_ROOM_ACTION_SITDOWN\x10\x03\x12\x1c\n\x18USER_ROOM_ACTION_STANDUP\x10\x04\x12\x1d\n\x19USER_ROOM_ACTION_WITHDRAW\x10\x05*\x9d\x03\n\nBankerType\x12\x14\n\x10\x42\x41NKER_TYPE_NONE\x10\x00\x12\x15\n\x11\x42\x41NKER_TYPE_BUYIN\x10\x01\x12\x1b\n\x17\x42\x41NKER_TYPE_DELAY_BUYIN\x10\x02\x12\x15\n\x11\x42\x41NKER_TYPE_REBUY\x10\x03\x12\x15\n\x11\x42\x41NKER_TYPE_TOPUP\x10\x04\x12\x15\n\x11\x42\x41NKER_TYPE_ADDON\x10\x05\x12\x1b\n\x17\x42\x41NKER_TYPE_GAME_REWARD\x10\x06\x12\x1d\n\x19\x42\x41NKER_TYPE_HUNTER_REWARD\x10\x07\x12\x16\n\x12\x42\x41NKER_TYPE_REFUND\x10\x64\x12\x1e\n\x1a\x42\x41NKER_TYPE_JACKPOT_REWARD\x10\x08\x12\x17\n\x13\x42\x41NKER_TYPE_CASHOUT\x10\x65\x12\x1c\n\x18\x42\x41NKER_TYPE_CHANGE_TABLE\x10\x66\x12\x1e\n\x1a\x42\x41NKER_TYPE_WITHDRAW_CHIPS\x10g\x12\x16\n\x12\x42\x41NKER_TYPE_SIGNUP\x10h\x12\x1d\n\x19\x42\x41NKER_TYPE_CANCEL_SIGNUP\x10i*\x80\x02\n\x14MttRewardPercentType\x12\x13\n\x0fMTT_TEN_PERCENT\x10\x00\x12\x17\n\x13MTT_FIFTEEN_PERCENT\x10\x01\x12\x16\n\x12MTT_TWENTY_PERCENT\x10\x02\x12\x17\n\x13MTT_NEW_TEN_PERCENT\x10\x03\x12\x1b\n\x17MTT_NEW_FIFTEEN_PERCENT\x10\x04\x12\x1a\n\x16MTT_NEW_TWENTY_PERCENT\x10\x05\x12\x17\n\x13MTT_PKO_TEN_PERCENT\x10\x06\x12\x1b\n\x17MTT_PKO_FIFTEEN_PERCENT\x10\x07\x12\x1a\n\x16MTT_PKO_TWENTY_PERCENT\x10\x08*u\n\x11GameSetPlayStatus\x12\x1d\n\x19GAME_SET_PLAY_STATUS_NONE\x10\x00\x12 \n\x1cGAME_SET_PLAY_STATUS_PLAYING\x10\x01\x12\x1f\n\x1bGAME_SET_PLAY_STATUS_FINISH\x10\x64*\xe4\x01\n\x0eUserPlayStatus\x12\x1b\n\x17USER_PLAY_STATUS_NOT_IN\x10\x00\x12\x1b\n\x17USER_PLAY_STATUS_SIGNUP\x10\x01\x12\x1c\n\x18USER_PLAY_STATUS_PLAYING\x10\x02\x12\x1c\n\x18USER_PLAY_STATUS_STANDUP\x10\x03\x12\x1c\n\x18USER_PLAY_STATUS_SITTING\x10\x04\x12\x1b\n\x17USER_PLAY_STATUS_RETURN\x10\x05\x12!\n\x1dUSER_PLAY_STATUS_CHANGE_TABLE\x10\x06*\xc7\x01\n\tMttStatus\x12\x18\n\x14MTT_STATUS_NOT_START\x10\x01\x12\x19\n\x15MTT_STATUS_DELAY_JOIN\x10\x02\x12\x1e\n\x1aMTT_STATUS_STOP_DELAY_JOIN\x10\x03\x12\x17\n\x13MTT_STATUS_FINISHED\x10\x04\x12\x17\n\x13MTT_STATUS_HAS_DAY1\x10\x05\x12\x16\n\x12MTT_STATUS_NO_DAY1\x10\x06\x12\x1b\n\x17MTT_STATUS_ENDING_SCENE\x10\x07\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0epre_base.proto\x12\x02pb\"n\n\x13RewardConfigureItem\x12\x0f\n\x07ranking\x18\x01 \x01(\x05\x12\x14\n\x0cranking_nums\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03*\xba\x05\n\nActionType\x12\x0f\n\x0b\x41\x43TION_NONE\x10\x00\x12\x0f\n\x0b\x41\x43TION_FOLD\x10\x01\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x02\x12\x0f\n\x0b\x41\x43TION_CALL\x10\x03\x12\x10\n\x0c\x41\x43TION_RAISE\x10\x04\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x05\x12\x10\n\x0c\x41\x43TION_SITED\x10\x06\x12\x0e\n\nACTION_BET\x10\x07\x12\r\n\tACTION_SB\x10\x08\x12\r\n\tACTION_BB\x10\t\x12\x0f\n\x0b\x41\x43TION_ANTE\x10\n\x12\x13\n\x0f\x41\x43TION_FORCE_BB\x10\x0b\x12\x16\n\x12\x41\x43TION_SYSTEM_FOLD\x10\x0c\x12\x17\n\x13\x41\x43TION_SYSTEM_CHECK\x10\r\x12\x13\n\x0f\x41\x43TION_STRADDLE\x10\x0e\x12\x0e\n\nACTION_POT\x10\x0f\x12\x14\n\x10\x41\x43TION_FAST_FOLD\x10\x10\x12\x13\n\x0f\x41\x43TION_STAND_UP\x10\x12\x12\x15\n\x11\x41\x43TION_BOMBPOT_BB\x10\x13\x12\x18\n\x14\x41\x43TION_BLACKJACK_HIT\x10\x64\x12\x1a\n\x16\x41\x43TION_BLACKJACK_STAND\x10\x65\x12\x1a\n\x16\x41\x43TION_BLACKJACK_SPLIT\x10\x66\x12\x1b\n\x17\x41\x43TION_BLACKJACK_DOUBLE\x10g\x12!\n\x1d\x41\x43TION_BLACKJACK_SYSTEM_STAND\x10h\x12\x1e\n\x1a\x41\x43TION_BLACKJACK_SURRENDER\x10i\x12#\n\x1f\x41\x43TION_BLACKJACK_EVENMONEY_TRUE\x10j\x12$\n ACTION_BLACKJACK_EVENMONEY_FALSE\x10k\x12#\n\x1f\x41\x43TION_BLACKJACK_INSURANCE_TRUE\x10l\x12$\n ACTION_BLACKJACK_INSURANCE_FALSE\x10m*\x9c\x01\n\rPreActionType\x12\x13\n\x0fPRE_ACTION_NONE\x10\x00\x12\x1c\n\x18PRE_ACTION_CHECK_OR_FOLD\x10\x01\x12\x14\n\x10PRE_ACTION_CHECK\x10\x02\x12\x13\n\x0fPRE_ACTION_CALL\x10\x03\x12\x17\n\x13PRE_ACTION_CALL_ANY\x10\x04\x12\x14\n\x10PRE_ACTION_ALLIN\x10\x05*\xd1\x01\n\x08RoomType\x12\r\n\tTEST_ROOM\x10\x00\x12\x10\n\x0cNLH_MTT_ROOM\x10\x02\x12\x10\n\x0cNLH_SNG_ROOM\x10\x03\x12\x0c\n\x08NLH_ROOM\x10\x05\x12\x0e\n\nOMAHA_ROOM\x10\x08\x12\r\n\tPINE_ROOM\x10\t\x12\x12\n\x0eOMAHA_SNG_ROOM\x10\n\x12\x12\n\x0eOMAHA_MTT_ROOM\x10\x0b\x12\x0f\n\x0bSPINUP_ROOM\x10\r\x12\x18\n\x14SHARK_KING_FLIP_ROOM\x10\x0e\x12\x12\n\x0e\x42LACKJACK_ROOM\x10\x0f*2\n\x08RoomMode\x12\x12\n\x0eROOM_MODE_NONE\x10\x00\x12\x12\n\x0eROOM_MODE_CLUB\x10\x03*\xcf\x07\n\x08GameMode\x12\x15\n\x11GAME_MODE_REGULAR\x10\x00\x12\x12\n\x0eGAME_MODE_ZOOM\x10\x0b\x12\x1d\n\x19GAME_MODE_ZOOM_NLH_6_PLUS\x10\x11\x12\x1e\n\x1aGAME_MODE_ZOOM_PLO_5_CARDS\x10\x12\x12\x1d\n\x19GAME_MODE_ZOOM_ALLIN_FOLD\x10\x13\x12\x18\n\x14GAME_MODE_NLH_6_PLUS\x10\x0c\x12\x19\n\x15GAME_MODE_PLO_5_CARDS\x10\n\x12#\n\x1eGAME_MODE_PLO_5_CARDS_CALLTIME\x10\xd2\x01\x12 \n\x1cGAME_MODE_PLO_5_CARDS_HUNTER\x10\x17\x12)\n%GAME_MODE_PLO_5_CARDS_SNOWBALL_HUNTER\x10\x18\x12(\n$GAME_MODE_PLO_5_CARDS_MYSTERY_BOUNTY\x10\x1c\x12\'\n#GAME_MODE_PLO_5_CARDS_MTT_SATELLITE\x10\x19\x12$\n GAME_MODE_PLO_5_CARDS_ALLIN_FOLD\x10\x1a\x12$\n GAME_MODE_PLO_4_CARDS_ALLIN_FOLD\x10\x1b\x12\x18\n\x14GAME_MODE_ALLIN_FOLD\x10\r\x12\x1f\n\x1bGAME_MODE_ALLIN_FOLD_HUNTER\x10\x14\x12(\n$GAME_MODE_ALLIN_FOLD_SNOWBALL_HUNTER\x10\x15\x12\'\n#GAME_MODE_ALLIN_FOLD_MYSTERY_BOUNTY\x10\x1d\x12&\n\"GAME_MODE_ALLIN_FOLD_MTT_SATELLITE\x10\x16\x12\x1f\n\x1aGAME_MODE_REGULAR_CALLTIME\x10\xc8\x01\x12\x14\n\x10GAME_MODE_HUNTER\x10\x0e\x12\x1d\n\x19GAME_MODE_SNOWBALL_HUNTER\x10\x0f\x12\x1c\n\x18GAME_MODE_MYSTERY_BOUNTY\x10\x1e\x12\x1b\n\x17GAME_MODE_MTT_SATELLITE\x10\x10\x12\x1d\n\x19GAME_MODE_OFC_PROGRESSIVE\x10\x01\x12\x1a\n\x16GAME_MODE_OFC_ULTIMATE\x10\x02\x12#\n\x1fGAME_MODE_OFC_WILD_CARD_REGULAR\x10\x64\x12\'\n#GAME_MODE_OFC_WILD_CARD_PROGRESSIVE\x10\x65\x12$\n GAME_MODE_OFC_WILD_CARD_ULTIMATE\x10\x66*\xec\x03\n\nRoundStage\x12\x0e\n\nROUND_NONE\x10\x00\x12\x12\n\x0eROUND_PRE_FLOP\x10\x01\x12\x0e\n\nROUND_FLOP\x10\x02\x12\x0e\n\nROUND_TURN\x10\x03\x12\x0f\n\x0bROUND_RIVER\x10\x04\x12\x12\n\x0eROUND_COMPLETE\x10\x05\x12\x1c\n\x18\x42LACKJACK_ROUND_NEW_GAME\x10\x64\x12\x17\n\x13\x42LACKJACK_ROUND_BET\x10\x65\x12\x1a\n\x16\x42LACKJACK_ROUND_ACTION\x10\x66\x12\x1d\n\x19\x42LACKJACK_ROUND_INSURANCE\x10g\x12!\n\x1d\x42LACKJACK_ROUND_PLAYER_ACTION\x10h\x12!\n\x1d\x42LACKJACK_ROUND_DEALER_ACTION\x10i\x12\x18\n\x14\x42LACKJACK_ROUND_OVER\x10j\x12\x1f\n\x1b\x42LACKJACK_ROUND_PLAYER_IDLE\x10k\x12,\n(BLACKJACK_ROUND_PLAYER_ACTION_EVEN_MONEY\x10l\x12)\n%BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_1\x10m\x12)\n%BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_2\x10n*)\n\tValueType\x12\x0c\n\x08INVAILID\x10\x00\x12\x0e\n\nUSER_MONEY\x10\x01*8\n\nPPCurrency\x12\x14\n\x10PP_CURRENCY_NONE\x10\x00\x12\x14\n\x10PP_CURRENCY_GOLD\x10\x01*\xe1\x01\n\x0eUserRoomAction\x12\x19\n\x15USER_ROOM_ACTION_NONE\x10\x00\x12\x1b\n\x17USER_ROOM_ACTION_SIGNUP\x10\x01\x12\"\n\x1eUSER_ROOM_ACTION_CANCEL_SIGNUP\x10\x02\x12\x1c\n\x18USER_ROOM_ACTION_SITDOWN\x10\x03\x12\x1c\n\x18USER_ROOM_ACTION_STANDUP\x10\x04\x12\x1d\n\x19USER_ROOM_ACTION_WITHDRAW\x10\x05\x12\x18\n\x14USER_ROOM_ACTION_AFK\x10\x06*\x9d\x03\n\nBankerType\x12\x14\n\x10\x42\x41NKER_TYPE_NONE\x10\x00\x12\x15\n\x11\x42\x41NKER_TYPE_BUYIN\x10\x01\x12\x1b\n\x17\x42\x41NKER_TYPE_DELAY_BUYIN\x10\x02\x12\x15\n\x11\x42\x41NKER_TYPE_REBUY\x10\x03\x12\x15\n\x11\x42\x41NKER_TYPE_TOPUP\x10\x04\x12\x15\n\x11\x42\x41NKER_TYPE_ADDON\x10\x05\x12\x1b\n\x17\x42\x41NKER_TYPE_GAME_REWARD\x10\x06\x12\x1d\n\x19\x42\x41NKER_TYPE_HUNTER_REWARD\x10\x07\x12\x16\n\x12\x42\x41NKER_TYPE_REFUND\x10\x64\x12\x1e\n\x1a\x42\x41NKER_TYPE_JACKPOT_REWARD\x10\x08\x12\x17\n\x13\x42\x41NKER_TYPE_CASHOUT\x10\x65\x12\x1c\n\x18\x42\x41NKER_TYPE_CHANGE_TABLE\x10\x66\x12\x1e\n\x1a\x42\x41NKER_TYPE_WITHDRAW_CHIPS\x10g\x12\x16\n\x12\x42\x41NKER_TYPE_SIGNUP\x10h\x12\x1d\n\x19\x42\x41NKER_TYPE_CANCEL_SIGNUP\x10i*\x80\x02\n\x14MttRewardPercentType\x12\x13\n\x0fMTT_TEN_PERCENT\x10\x00\x12\x17\n\x13MTT_FIFTEEN_PERCENT\x10\x01\x12\x16\n\x12MTT_TWENTY_PERCENT\x10\x02\x12\x17\n\x13MTT_NEW_TEN_PERCENT\x10\x03\x12\x1b\n\x17MTT_NEW_FIFTEEN_PERCENT\x10\x04\x12\x1a\n\x16MTT_NEW_TWENTY_PERCENT\x10\x05\x12\x17\n\x13MTT_PKO_TEN_PERCENT\x10\x06\x12\x1b\n\x17MTT_PKO_FIFTEEN_PERCENT\x10\x07\x12\x1a\n\x16MTT_PKO_TWENTY_PERCENT\x10\x08*u\n\x11GameSetPlayStatus\x12\x1d\n\x19GAME_SET_PLAY_STATUS_NONE\x10\x00\x12 \n\x1cGAME_SET_PLAY_STATUS_PLAYING\x10\x01\x12\x1f\n\x1bGAME_SET_PLAY_STATUS_FINISH\x10\x64*\xe4\x01\n\x0eUserPlayStatus\x12\x1b\n\x17USER_PLAY_STATUS_NOT_IN\x10\x00\x12\x1b\n\x17USER_PLAY_STATUS_SIGNUP\x10\x01\x12\x1c\n\x18USER_PLAY_STATUS_PLAYING\x10\x02\x12\x1c\n\x18USER_PLAY_STATUS_STANDUP\x10\x03\x12\x1c\n\x18USER_PLAY_STATUS_SITTING\x10\x04\x12\x1b\n\x17USER_PLAY_STATUS_RETURN\x10\x05\x12!\n\x1dUSER_PLAY_STATUS_CHANGE_TABLE\x10\x06*\xc7\x01\n\tMttStatus\x12\x18\n\x14MTT_STATUS_NOT_START\x10\x01\x12\x19\n\x15MTT_STATUS_DELAY_JOIN\x10\x02\x12\x1e\n\x1aMTT_STATUS_STOP_DELAY_JOIN\x10\x03\x12\x17\n\x13MTT_STATUS_FINISHED\x10\x04\x12\x17\n\x13MTT_STATUS_HAS_DAY1\x10\x05\x12\x16\n\x12MTT_STATUS_NO_DAY1\x10\x06\x12\x1b\n\x17MTT_STATUS_ENDING_SCENE\x10\x07\x42\x07Z\x05../pb')
 )
 
 _ACTIONTYPE = _descriptor.EnumDescriptor(
@@ -105,11 +105,51 @@ _ACTIONTYPE = _descriptor.EnumDescriptor(
       name='ACTION_BOMBPOT_BB', index=18, number=19,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_HIT', index=19, number=100,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_STAND', index=20, number=101,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_SPLIT', index=21, number=102,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_DOUBLE', index=22, number=103,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_SYSTEM_STAND', index=23, number=104,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_SURRENDER', index=24, number=105,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_EVENMONEY_TRUE', index=25, number=106,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_EVENMONEY_FALSE', index=26, number=107,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_INSURANCE_TRUE', index=27, number=108,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACTION_BLACKJACK_INSURANCE_FALSE', index=28, number=109,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=135,
-  serialized_end=505,
+  serialized_end=833,
 )
 _sym_db.RegisterEnumDescriptor(_ACTIONTYPE)
 
@@ -147,8 +187,8 @@ _PREACTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=508,
-  serialized_end=664,
+  serialized_start=836,
+  serialized_end=992,
 )
 _sym_db.RegisterEnumDescriptor(_PREACTIONTYPE)
 
@@ -199,11 +239,15 @@ _ROOMTYPE = _descriptor.EnumDescriptor(
       name='SHARK_KING_FLIP_ROOM', index=9, number=14,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROOM', index=10, number=15,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=667,
-  serialized_end=856,
+  serialized_start=995,
+  serialized_end=1204,
 )
 _sym_db.RegisterEnumDescriptor(_ROOMTYPE)
 
@@ -225,8 +269,8 @@ _ROOMMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=858,
-  serialized_end=908,
+  serialized_start=1206,
+  serialized_end=1256,
 )
 _sym_db.RegisterEnumDescriptor(_ROOMMODE)
 
@@ -356,8 +400,8 @@ _GAMEMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=911,
-  serialized_end=1886,
+  serialized_start=1259,
+  serialized_end=2234,
 )
 _sym_db.RegisterEnumDescriptor(_GAMEMODE)
 
@@ -392,11 +436,55 @@ _ROUNDSTAGE = _descriptor.EnumDescriptor(
       name='ROUND_COMPLETE', index=5, number=5,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_NEW_GAME', index=6, number=100,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_BET', index=7, number=101,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_ACTION', index=8, number=102,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_INSURANCE', index=9, number=103,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_PLAYER_ACTION', index=10, number=104,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_DEALER_ACTION', index=11, number=105,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_OVER', index=12, number=106,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_PLAYER_IDLE', index=13, number=107,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_PLAYER_ACTION_EVEN_MONEY', index=14, number=108,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_1', index=15, number=109,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_2', index=16, number=110,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1888,
-  serialized_end=2005,
+  serialized_start=2237,
+  serialized_end=2729,
 )
 _sym_db.RegisterEnumDescriptor(_ROUNDSTAGE)
 
@@ -418,8 +506,8 @@ _VALUETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2007,
-  serialized_end=2048,
+  serialized_start=2731,
+  serialized_end=2772,
 )
 _sym_db.RegisterEnumDescriptor(_VALUETYPE)
 
@@ -441,8 +529,8 @@ _PPCURRENCY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2050,
-  serialized_end=2106,
+  serialized_start=2774,
+  serialized_end=2830,
 )
 _sym_db.RegisterEnumDescriptor(_PPCURRENCY)
 
@@ -477,11 +565,15 @@ _USERROOMACTION = _descriptor.EnumDescriptor(
       name='USER_ROOM_ACTION_WITHDRAW', index=5, number=5,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='USER_ROOM_ACTION_AFK', index=6, number=6,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2109,
-  serialized_end=2308,
+  serialized_start=2833,
+  serialized_end=3058,
 )
 _sym_db.RegisterEnumDescriptor(_USERROOMACTION)
 
@@ -555,8 +647,8 @@ _BANKERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2311,
-  serialized_end=2724,
+  serialized_start=3061,
+  serialized_end=3474,
 )
 _sym_db.RegisterEnumDescriptor(_BANKERTYPE)
 
@@ -606,8 +698,8 @@ _MTTREWARDPERCENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2727,
-  serialized_end=2983,
+  serialized_start=3477,
+  serialized_end=3733,
 )
 _sym_db.RegisterEnumDescriptor(_MTTREWARDPERCENTTYPE)
 
@@ -633,8 +725,8 @@ _GAMESETPLAYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2985,
-  serialized_end=3102,
+  serialized_start=3735,
+  serialized_end=3852,
 )
 _sym_db.RegisterEnumDescriptor(_GAMESETPLAYSTATUS)
 
@@ -676,8 +768,8 @@ _USERPLAYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3105,
-  serialized_end=3333,
+  serialized_start=3855,
+  serialized_end=4083,
 )
 _sym_db.RegisterEnumDescriptor(_USERPLAYSTATUS)
 
@@ -719,8 +811,8 @@ _MTTSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3336,
-  serialized_end=3535,
+  serialized_start=4086,
+  serialized_end=4285,
 )
 _sym_db.RegisterEnumDescriptor(_MTTSTATUS)
 
@@ -744,6 +836,16 @@ ACTION_POT = 15
 ACTION_FAST_FOLD = 16
 ACTION_STAND_UP = 18
 ACTION_BOMBPOT_BB = 19
+ACTION_BLACKJACK_HIT = 100
+ACTION_BLACKJACK_STAND = 101
+ACTION_BLACKJACK_SPLIT = 102
+ACTION_BLACKJACK_DOUBLE = 103
+ACTION_BLACKJACK_SYSTEM_STAND = 104
+ACTION_BLACKJACK_SURRENDER = 105
+ACTION_BLACKJACK_EVENMONEY_TRUE = 106
+ACTION_BLACKJACK_EVENMONEY_FALSE = 107
+ACTION_BLACKJACK_INSURANCE_TRUE = 108
+ACTION_BLACKJACK_INSURANCE_FALSE = 109
 PRE_ACTION_NONE = 0
 PRE_ACTION_CHECK_OR_FOLD = 1
 PRE_ACTION_CHECK = 2
@@ -760,6 +862,7 @@ OMAHA_SNG_ROOM = 10
 OMAHA_MTT_ROOM = 11
 SPINUP_ROOM = 13
 SHARK_KING_FLIP_ROOM = 14
+BLACKJACK_ROOM = 15
 ROOM_MODE_NONE = 0
 ROOM_MODE_CLUB = 3
 GAME_MODE_REGULAR = 0
@@ -797,6 +900,17 @@ ROUND_FLOP = 2
 ROUND_TURN = 3
 ROUND_RIVER = 4
 ROUND_COMPLETE = 5
+BLACKJACK_ROUND_NEW_GAME = 100
+BLACKJACK_ROUND_BET = 101
+BLACKJACK_ROUND_ACTION = 102
+BLACKJACK_ROUND_INSURANCE = 103
+BLACKJACK_ROUND_PLAYER_ACTION = 104
+BLACKJACK_ROUND_DEALER_ACTION = 105
+BLACKJACK_ROUND_OVER = 106
+BLACKJACK_ROUND_PLAYER_IDLE = 107
+BLACKJACK_ROUND_PLAYER_ACTION_EVEN_MONEY = 108
+BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_1 = 109
+BLACKJACK_ROUND_PLAYER_ACTION_SPLIT_2 = 110
 INVAILID = 0
 USER_MONEY = 1
 PP_CURRENCY_NONE = 0
@@ -807,6 +921,7 @@ USER_ROOM_ACTION_CANCEL_SIGNUP = 2
 USER_ROOM_ACTION_SITDOWN = 3
 USER_ROOM_ACTION_STANDUP = 4
 USER_ROOM_ACTION_WITHDRAW = 5
+USER_ROOM_ACTION_AFK = 6
 BANKER_TYPE_NONE = 0
 BANKER_TYPE_BUYIN = 1
 BANKER_TYPE_DELAY_BUYIN = 2

@@ -950,25 +950,36 @@ class Getbranchproto(MethodView):
             process = process_manager.get_process(branch)
             if process is None:
                 process = process_manager.create_process(branch)
+
             if process:
-                proto_dir = ProtoDir()
-                proto_name = proto_dir.get_branch_protoname(branches=branch)
+                try:
+                    proto_dir = ProtoDir()
+                    proto_name = proto_dir.get_branch_protoname(branches=branch)
 
-                # 返回结果，包括当前进程 ID
-                current_process_id = process.pid
-                logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
-                process_info = {"branch_name": branch, "proto_name": proto_name}
+                    # 返回结果，包括当前进程 ID
+                    current_process_id = process.pid
+                    logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
+                    process_info = {"branch_name": branch, "proto_name": proto_name}
 
-                ret = {"list": proto_name, "total": len(proto_name)}
-                process.terminate()
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                               data=ret)
+                    ret = {"list": proto_name, "total": len(proto_name)}
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                                   data=ret)
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.get_proto_error.value[0],
+                                   message=MessageEnum.get_proto_error.value[1])
+                finally:
+                    # 无论发生异常与否，都会在这里进行终止和等待
+                    process.terminate()
+                    process.join()
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
                                message=MessageEnum.get_proto_error.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+            return reponse(code=MessageEnum.unexpected_error.value[0],
+                           message=MessageEnum.unexpected_error.value[1])
 
 
 def import_module_and_get_descriptor_info(branch_name, module_name):
@@ -1006,16 +1017,26 @@ class GetMessageInfo(MethodView):
             module_name = f"proto.{branch_name}.{proto_name}"
 
             # 创建新的 Python 进程池
-            with multiprocessing.Pool() as pool:
+            pool = multiprocessing.Pool()
+
+            try:
                 # 在每个进程中调用 import_module_and_get_descriptor_info 函数
                 results = pool.starmap(import_module_and_get_descriptor_info, [(branch_name, module_name)])
 
-            # 获取每个进程的结果
-            result_info = results[0]
-            messages = result_info["messages"]
-            ret = {"list": messages, "total": len(messages)}
-            pool.terminate()
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+                # 获取每个进程的结果
+                result_info = results[0]
+                messages = result_info["messages"]
+                ret = {"list": messages, "total": len(messages)}
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.get_message_error.value[0], message=MessageEnum.get_message_error.value[1])
+
+            finally:
+                # 关闭进程池
+                pool.terminate()
+                pool.join()
 
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -1099,12 +1120,23 @@ class Getattbymessage(MethodView):
                                message=MessageEnum.must_be_every_parame.value[1])
 
             # 创建新的 Python 进程池
-            with multiprocessing.Pool() as pool:
+            pool = multiprocessing.Pool()
+
+            try:
                 # 在每个进程中调用 get_message_attributes 函数
                 attributes_info = pool.starmap(get_message_attributes, [(branch_name, proto_name, message_name)])[0]
-            pool.terminate()
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                           data=attributes_info)
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                               data=attributes_info)
+
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.get_attributes_error.value[0],
+                               message=MessageEnum.get_attributes_error.value[1])
+
+            finally:
+                # 关闭进程池
+                pool.terminate()
+                pool.join()
 
         except Exception as e:
             logger.error(traceback.format_exc())
