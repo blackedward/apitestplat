@@ -1125,14 +1125,15 @@ class Onesaveproto(MethodView):
             data = request.get_json()
             if not data.get('proto_name') or not data.get('proto_content') or not data.get(
                     'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
-                'rsq_message_name') or not data.get('project_id') or not data.get('model_id'):
+                'rsq_message_name') or not data.get('project_id') or not data.get('model_id') or not data.get(
+                'case_desc'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
             interfacecase = InterfaceCase()
             interfacecase.project_id = data.get('project_id')
             interfacecase.model_id = data.get('model_id')
-            interfacecase.desc = data.get('proto_name') + str(int(time.time()))
+            interfacecase.desc = data.get('case_desc')
             interfacecase.case_protocol = 2
             interfacecase.is_relycase = 0
             interfacecase.rely_dbf = 0

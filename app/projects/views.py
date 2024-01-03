@@ -837,3 +837,24 @@ class AddProject(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_add_error.value[0],
                            message=MessageEnum.project_add_error.value[1])
+
+
+class Getallenv(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            envs = Environment.query.filter_by(status=1).all()
+            if not envs:
+                return reponse(code=MessageEnum.env_search_error.value[0],
+                               message=MessageEnum.env_search_error.value[1])
+            rdata = []
+            for i in envs:
+                rdata.append(i.to_json())
+            ret = {"list": rdata, "total": len(rdata)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                           data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.env_search_error.value[0],
+                           message=MessageEnum.env_search_error.value[1])
