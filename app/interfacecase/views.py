@@ -1195,7 +1195,7 @@ class Executeproto(MethodView):
     def post(self):
         try:
             data = request.get_json()
-            if not data.get('proto_name') or not data.get('proto_content') or not data.get(
+            if not data.get('proto_name') or not data.get(
                     'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
                 'rsq_message_name') or not data.get('branch_name'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
