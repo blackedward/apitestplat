@@ -1131,25 +1131,28 @@ class Getattbymessage(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            # 创建新的 Python 进程池
-            pool = multiprocessing.Pool()
+            process = process_manager.get_process(branch_name)
+            if process is None:
+                process = process_manager.create_process(branch_name)
 
-            try:
-                # 在每个进程中调用 get_message_attributes 函数
-                attributes_info = pool.starmap(get_message_attributes, [(branch_name, proto_name, message_name)])[0]
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                               data=attributes_info)
+            if process:
+                try:
+                    attributes_info = get_message_attributes(branch_name, proto_name, message_name)
+                    # 获取每个进程的结果
 
-            except Exception as e:
-                logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                                   data=attributes_info)
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.get_proto_error.value[0],
+                                   message=MessageEnum.get_proto_error.value[1])
+                finally:
+                    # 无论发生异常与否，都会在这里进行终止和等待
+                    process.terminate()
+                    process.join()
+            else:
                 return reponse(code=MessageEnum.get_attributes_error.value[0],
                                message=MessageEnum.get_attributes_error.value[1])
-
-            finally:
-                # 关闭进程池
-                pool.terminate()
-                pool.join()
-
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_attributes_error.value[0],
@@ -1201,26 +1204,33 @@ class Executeproto(MethodView):
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
             logger.info('当前进程号：{}'.format(os.getpid()))
 
+            process = process_manager.get_process(data.get('branch_name'))
+            if process is None:
+                process = process_manager.create_process(data.get('branch_name'))
             # 创建进程池
-            pool = multiprocessing.Pool()
-
-            try:
-                # 使用进程池执行 exeproto 函数
-                res = pool.apply(exeproto, (data.get('uid'), data.get('env_id'), data.get('branch_name'),
-                                            data.get('req_message_name'), data.get('rsq_message_name'),
-                                            params))
-            finally:
-                # 关闭并等待进程池中的所有进程结束
-                pool.terminate()
-                pool.join()
-
-            logger.info('返回数据是：{}'.format(res))
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
-
+            if process:
+                try:
+                    res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=data.get('branch_name'),
+                                   reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
+                                   params=params)
+                    logger.info('socket 返回值是:{}', res)
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                                   data=res)
+                except Exception as e:
+                    logger.error(traceback.format_exc())
+                    return reponse(code=MessageEnum.execute_proto_error.value[0],
+                                   message=MessageEnum.execute_proto_error.value[1])
+                finally:
+                    # 无论发生异常与否，都会在这里进行终止和等待
+                    process.terminate()
+                    process.join()
+            else:
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1])
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.test_error.value[0],
-                           message=MessageEnum.test_error.value[1])
+            return reponse(code=MessageEnum.execute_proto_error.value[0],
+                           message=MessageEnum.execute_proto_error.value[1])
 
 
 class Onesaveproto(MethodView):

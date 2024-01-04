@@ -227,3 +227,4 @@ class MessageEnum(Enum):
     get_branch_error = 100220, '获取分支异常'
     force_update_branch_error = 100221, '强制更新分支异常'
     unexpected_error = 100222, '未知异常'
+    execute_proto_error = 100223, '执行proto异常'
