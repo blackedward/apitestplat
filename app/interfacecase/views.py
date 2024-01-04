@@ -7,6 +7,7 @@ import time
 from datetime import datetime
 import traceback
 from enum import Enum
+from socket import socket
 
 from flask import Blueprint, request
 from flask.views import MethodView
@@ -1158,6 +1159,7 @@ class Getattbymessage(MethodView):
 
 def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
     try:
+        logger.info('执行请求方法的进程号：{}'.format(os.getpid()))
         proto_path = PROJECT_ROOT + "/proto/" + branch_name
         env = Environment.query.filter_by(id=env_id).first()
         host = env.url
@@ -1180,6 +1182,7 @@ def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
         client.send(reqmessage, params)
         msg = client.recv(rspmessage)
         client.stop()
+        client = None
         return msg.body
     except Exception as e:
         logger.error(traceback.format_exc())
@@ -1220,6 +1223,7 @@ class Executeproto(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0],
                            message=MessageEnum.test_error.value[1])
+
 
 class Onesaveproto(MethodView):
     @login_required
