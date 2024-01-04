@@ -226,3 +226,4 @@ class MessageEnum(Enum):
     get_attributes_error = 100219, '获取attributes异常'
     get_branch_error = 100220, '获取分支异常'
     force_update_branch_error = 100221, '强制更新分支异常'
+    unexpected_error = 100222, '未知异常'
