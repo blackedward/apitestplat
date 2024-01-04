@@ -71,7 +71,15 @@ class ProcessManager:
     def worker_function(branch_name):
         # 在这里执行 branch_name 对应的任务
         # 例如：创建进程池，处理相关逻辑
-        pass
+        try:
+            # 在这里执行 branch_name 对应的任务
+            # 例如：创建进程池，处理相关逻辑
+            pass
+        except Exception as e:
+            # 记录异常信息
+            logger.error(f"Error in worker_function for branch {branch_name}: {str(e)}")
+        finally:
+            logger.info(f"Process for branch {branch_name} finished")
 
 
 process_manager = ProcessManager()
@@ -1031,7 +1039,8 @@ class GetMessageInfo(MethodView):
 
             except Exception as e:
                 logger.error(traceback.format_exc())
-                return reponse(code=MessageEnum.get_message_error.value[0], message=MessageEnum.get_message_error.value[1])
+                return reponse(code=MessageEnum.get_message_error.value[0],
+                               message=MessageEnum.get_message_error.value[1])
 
             finally:
                 # 关闭进程池
@@ -1090,13 +1099,15 @@ def get_message_attributes(branch_name, proto_name, message_name):
                 for enum_value in enum_descriptor.values_by_name.values():
                     enum_values.append({enum_value.name: enum_value.number})
                 attributes.append(
-                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name, "enum_values": enum_values})
+                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                     "enum_values": enum_values})
             elif field_data_type == 11:
                 sub_message_fields = []
                 for sub_field in field.message_type.fields:
                     sub_message_fields.append({"name": sub_field.name, "type": DataType(sub_field.type).name})
                 attributes.append(
-                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name, "fields": sub_message_fields})
+                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                     "fields": sub_message_fields})
             else:
                 attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name})
         logger.info(attributes)
