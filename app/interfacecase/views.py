@@ -955,7 +955,9 @@ class Getbranchproto(MethodView):
             if not branch:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            if '/' in branch:
+                # 如果包含斜杠，则进行替换
+                branch = branch.replace('/', '_')
             process = process_manager.get_process(branch)
             if process is None:
                 process = process_manager.create_process(branch)
@@ -1023,7 +1025,9 @@ class GetMessageInfo(MethodView):
             if not branch_name or not proto_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            if '/' in branch_name:
+                # 如果包含斜杠，则进行替换
+                branch_name = branch_name.replace('/', '_')
             module_name = f"proto.{branch_name}.{proto_name}"
             process = process_manager.get_process(branch_name)
             if process is None:
@@ -1130,7 +1134,9 @@ class Getattbymessage(MethodView):
             if not branch_name or not proto_name or not message_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            if '/' in branch_name:
+                # 如果包含斜杠，则进行替换
+                branch_name = branch_name.replace('/', '_')
             process = process_manager.get_process(branch_name)
             if process is None:
                 process = process_manager.create_process(branch_name)
@@ -1200,17 +1206,20 @@ class Executeproto(MethodView):
                 'rsq_message_name') or not data.get('branch_name'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            branch_name = data.get('branch_name')
+            if '/' in branch_name:
+                # 如果包含斜杠，则进行替换
+                branch_name = branch_name.replace('/', '_')
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
             logger.info('当前进程号：{}'.format(os.getpid()))
 
-            process = process_manager.get_process(data.get('branch_name'))
+            process = process_manager.get_process(branch_name)
             if process is None:
-                process = process_manager.create_process(data.get('branch_name'))
+                process = process_manager.create_process(branch_name)
             # 创建进程池
             if process:
                 try:
-                    res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=data.get('branch_name'),
+                    res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                                    reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
                                    params=params)
                     logger.info('socket 返回值是:{}', res)
