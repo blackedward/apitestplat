@@ -970,6 +970,7 @@ class Getbranchproto(MethodView):
                     process_info = {"branch_name": branch, "proto_name": proto_name}
 
                     ret = {"list": proto_name, "total": len(proto_name)}
+                    logger.info(ret)
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                                    data=ret)
                 except Exception as e:
@@ -1269,3 +1270,31 @@ class Getbranches(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_branch_error.value[0], message=MessageEnum.get_branch_error.value[1])
+
+
+class Forceupdatebranch(MethodView):
+    @login_required
+    def get(self):
+        try:
+            branch_name = request.args.get('branch_name')
+
+            if not branch_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            GenerateProto.download_and_compile_protos(branch_name)
+            proto_names = []
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.abspath(os.path.join(script_directory, '..', '..'))
+            logger.info(project_root)
+            proto_root = os.path.join(project_root, 'proto')
+            proto_dir = os.path.join(proto_root, branch_name)
+            for file in os.listdir(proto_dir):
+                if re.match(r".*_pb2.py", file):
+                    proto_name = file.split(".")[0]
+                    proto_names.append(proto_name)
+            ret = {"list": proto_names, "total": len(proto_names)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.force_update_branch_error.value[0],
+                           message=MessageEnum.force_update_branch_error.value[1])

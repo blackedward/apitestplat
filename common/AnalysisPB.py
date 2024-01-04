@@ -124,15 +124,23 @@ class ProtoHandler(object):
 
 class ProtoDir(object):
     def get_all_protoname(self, dir=None):
+        logger.info(f"dir: {dir}")
         if dir is None:
             dir = proto_root
-        sys.path.append(dir)
         proto_names = []
-        GenerateProto.download_and_compile_protos(os.path.basename(dir))
-        for file in os.listdir(dir):
-            if re.match(r".*_pb2.py", file):
-                proto_name = file.split(".")[0]
-                proto_names.append(proto_name)
+        if os.path.exists(dir):
+            for file in os.listdir(dir):
+                if re.match(r".*_pb2.py", file):
+                    proto_name = file.split(".")[0]
+                    proto_names.append(proto_name)
+        # sys.path.append(dir)
+
+        else:
+            GenerateProto.download_and_compile_protos(os.path.basename(dir))
+            for file in os.listdir(dir):
+                if re.match(r".*_pb2.py", file):
+                    proto_name = file.split(".")[0]
+                    proto_names.append(proto_name)
         return proto_names
 
     def get_branch_protoname(self, branches=None):

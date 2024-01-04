@@ -24,6 +24,8 @@ interfacecase.add_url_rule("/getattbymessage", view_func=Getattbymessage.as_view
 interfacecase.add_url_rule("/executeproto", view_func=Executeproto.as_view('executeproto'))
 interfacecase.add_url_rule("/onesaveproto", view_func=Onesaveproto.as_view('onesaveproto'))
 interfacecase.add_url_rule("/getbranches", view_func=Getbranches.as_view('getbranches'))
+interfacecase.add_url_rule("/forceupdatebranch", view_func=Forceupdatebranch.as_view('forceupdatebranch'))
+
 
 
 
