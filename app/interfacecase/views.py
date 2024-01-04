@@ -1198,20 +1198,28 @@ class Executeproto(MethodView):
                                message=MessageEnum.must_be_every_parame.value[1])
 
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
+            logger.info('当前进程号：{}'.format(os.getpid()))
 
-            with multiprocessing.Pool() as pool:
+            # 创建进程池
+            pool = multiprocessing.Pool()
+
+            try:
                 # 使用进程池执行 exeproto 函数
                 res = pool.apply(exeproto, (data.get('uid'), data.get('env_id'), data.get('branch_name'),
                                             data.get('req_message_name'), data.get('rsq_message_name'),
                                             params))
-            pool.terminate()
+            finally:
+                # 关闭并等待进程池中的所有进程结束
+                pool.terminate()
+                pool.join()
+
+            logger.info('返回数据是：{}'.format(res))
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
 
-        except  Exception as e:
+        except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0],
                            message=MessageEnum.test_error.value[1])
-
 
 class Onesaveproto(MethodView):
     @login_required
