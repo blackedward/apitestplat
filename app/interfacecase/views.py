@@ -976,7 +976,6 @@ class Getbranchproto(MethodView):
 
             if proto_names:
                 ret = {"list": proto_names, "total": len(proto_names)}
-                logger.info(ret)
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
@@ -999,6 +998,10 @@ class Getbranchproto(MethodView):
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
+        finally:
+            sys.stdout.close()
+            sys.stderr.close()
+            sys.stdin.close()
 
 
 def import_module_and_get_descriptor_info(branch_name, module_name):
@@ -1074,6 +1077,10 @@ class GetMessageInfo(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(None)
+        finally:
+            sys.stdout.close()
+            sys.stderr.close()
+            sys.stdin.close()
 
 
 # class Getprotomessages(MethodView):
@@ -1135,7 +1142,6 @@ def get_message_attributes(branch_name, proto_name, message_name):
                      "fields": sub_message_fields})
             else:
                 attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name})
-        logger.info(attributes)
         return {"message_name": message_name, "attributes": attributes}
 
     except Exception as e:
@@ -1196,6 +1202,10 @@ class Getattbymessage(MethodView):
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
+        finally:
+            sys.stdout.close()
+            sys.stderr.close()
+            sys.stdin.close()
 
 
 def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
@@ -1284,6 +1294,10 @@ class Executeproto(MethodView):
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
+        finally:
+            sys.stdout.close()
+            sys.stderr.close()
+            sys.stdin.close()
 
 
 class Onesaveproto(MethodView):
@@ -1353,7 +1367,7 @@ class Forceupdatebranch(MethodView):
 
             if not branch_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-                                message=MessageEnum.must_be_every_parame.value[1])
+                               message=MessageEnum.must_be_every_parame.value[1])
 
             # Use multiprocessing Queue to communicate results
             result_queue = multiprocessing.Queue()
@@ -1375,12 +1389,12 @@ class Forceupdatebranch(MethodView):
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
             else:
                 return reponse(code=MessageEnum.force_update_branch_error.value[0],
-                                message=MessageEnum.force_update_branch_error.value[1])
+                               message=MessageEnum.force_update_branch_error.value[1])
 
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.force_update_branch_error.value[0],
-                            message=MessageEnum.force_update_branch_error.value[1])
+                           message=MessageEnum.force_update_branch_error.value[1])
 
     def run_in_new_process(self, branch_name, result_queue):
         try:
@@ -1405,3 +1419,7 @@ class Forceupdatebranch(MethodView):
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
+        finally:
+            sys.stdout.close()
+            sys.stderr.close()
+            sys.stdin.close()
