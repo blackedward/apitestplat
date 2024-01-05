@@ -982,8 +982,9 @@ class Getbranchproto(MethodView):
                                    message=MessageEnum.get_proto_error.value[1])
                 finally:
                     # 无论发生异常与否，都会在这里进行终止和等待
-                    process.terminate()
-                    process.join()
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
                                message=MessageEnum.get_proto_error.value[1])
@@ -1046,8 +1047,9 @@ class GetMessageInfo(MethodView):
                                    message=MessageEnum.get_proto_error.value[1])
                 finally:
                     # 无论发生异常与否，都会在这里进行终止和等待
-                    process.terminate()
-                    process.join()
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
                                message=MessageEnum.get_proto_error.value[1])
@@ -1154,8 +1156,9 @@ class Getattbymessage(MethodView):
                                    message=MessageEnum.get_proto_error.value[1])
                 finally:
                     # 无论发生异常与否，都会在这里进行终止和等待
-                    process.terminate()
-                    process.join()
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
             else:
                 return reponse(code=MessageEnum.get_attributes_error.value[0],
                                message=MessageEnum.get_attributes_error.value[1])
@@ -1213,9 +1216,9 @@ class Executeproto(MethodView):
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
             logger.info('当前进程号：{}'.format(os.getpid()))
 
-            process = process_manager.get_process(branch_name)
+            process = process_manager.get_process(branch_name + 'executeproto')
             if process is None:
-                process = process_manager.create_process(branch_name)
+                process = process_manager.create_process(branch_name + 'executeproto')
             # 创建进程池
             if process:
                 try:
@@ -1231,8 +1234,9 @@ class Executeproto(MethodView):
                                    message=MessageEnum.execute_proto_error.value[1])
                 finally:
                     # 无论发生异常与否，都会在这里进行终止和等待
-                    process.terminate()
-                    process.join()
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
             else:
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1])
