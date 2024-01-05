@@ -951,40 +951,33 @@ class Getbranchproto(MethodView):
     @login_required
     def get(self):
         try:
+            logger.info("Getbranchproto 函数 当前主进程 ID: {}".format(os.getpid()))
             branch = request.args.get('branch_name')
             if not branch:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch:
-                # 如果包含斜杠，则进行替换
                 branch = branch.replace('/', '_')
-            process = process_manager.get_process(branch)
-            if process is None:
-                process = process_manager.create_process(branch)
 
-            if process:
-                try:
-                    proto_dir = ProtoDir()
-                    proto_name = proto_dir.get_branch_protoname(branches=branch)
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
 
-                    # 返回结果，包括当前进程 ID
-                    current_process_id = process.pid
-                    logger.info("获取proto name，当前进程 ID: {}".format(current_process_id))
-                    process_info = {"branch_name": branch, "proto_name": proto_name}
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process,
+                args=(branch, result_queue)
+            )
 
-                    ret = {"list": proto_name, "total": len(proto_name)}
-                    logger.info(ret)
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                                   data=ret)
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    return reponse(code=MessageEnum.get_proto_error.value[0],
-                                   message=MessageEnum.get_proto_error.value[1])
-                finally:
-                    # 无论发生异常与否，都会在这里进行终止和等待
-                    if process.is_alive():
-                        process.terminate()
-                        process.join()
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            proto_names = result_queue.get()
+
+            if proto_names:
+                ret = {"list": proto_names, "total": len(proto_names)}
+                logger.info(ret)
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
                                message=MessageEnum.get_proto_error.value[1])
@@ -994,9 +987,23 @@ class Getbranchproto(MethodView):
             return reponse(code=MessageEnum.unexpected_error.value[0],
                            message=MessageEnum.unexpected_error.value[1])
 
+    def run_in_new_process(self, branch, result_queue):
+        try:
+            logger.info("获取proto name，在新进程中，当前进程 ID: {}".format(os.getpid()))
+            proto_dir = ProtoDir()
+            proto_names = proto_dir.get_branch_protoname(branches=branch)
+
+            # Put results into the Queue
+            result_queue.put(proto_names)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)
+
 
 def import_module_and_get_descriptor_info(branch_name, module_name):
     try:
+        logger.info("import_module_and_get_descriptor_info 函数 当前进程 ID: {}".format(os.getpid()))
         path = PROJECT_ROOT + "/proto/" + branch_name
         os.chdir(path)
         sys.path.append(path)
@@ -1020,6 +1027,7 @@ class GetMessageInfo(MethodView):
     @login_required
     def get(self):
         try:
+            logger.info("GetMessageInfo 函数 当前主进程 ID: {}".format(os.getpid()))
             branch_name = request.args.get('branch_name')
             proto_name = request.args.get('proto_name')
 
@@ -1027,36 +1035,45 @@ class GetMessageInfo(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch_name:
-                # 如果包含斜杠，则进行替换
                 branch_name = branch_name.replace('/', '_')
             module_name = f"proto.{branch_name}.{proto_name}"
-            process = process_manager.get_process(branch_name)
-            if process is None:
-                process = process_manager.create_process(branch_name)
 
-            if process:
-                try:
-                    results = import_module_and_get_descriptor_info(branch_name, module_name)
-                    # 获取每个进程的结果
-                    messages = results["messages"]
-                    ret = {"list": messages, "total": len(messages)}
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    return reponse(code=MessageEnum.get_proto_error.value[0],
-                                   message=MessageEnum.get_proto_error.value[1])
-                finally:
-                    # 无论发生异常与否，都会在这里进行终止和等待
-                    if process.is_alive():
-                        process.terminate()
-                        process.join()
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process,
+                args=(branch_name, module_name, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            results = result_queue.get()
+
+            if results:
+                messages = results["messages"]
+                ret = {"list": messages, "total": len(messages)}
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
             else:
                 return reponse(code=MessageEnum.get_proto_error.value[0],
                                message=MessageEnum.get_proto_error.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.unexpected_error.value[0],
                            message=MessageEnum.unexpected_error.value[1])
+
+    def run_in_new_process(self, branch_name, module_name, result_queue):
+        try:
+            logger.info("获取proto message，在新进程中，当前进程 ID: {}".format(os.getpid()))
+            results = import_module_and_get_descriptor_info(branch_name, module_name)
+            result_queue.put(results)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            result_queue.put(None)
 
 
 # class Getprotomessages(MethodView):
@@ -1079,6 +1096,7 @@ class GetMessageInfo(MethodView):
 
 def get_message_attributes(branch_name, proto_name, message_name):
     try:
+        logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
         module_name = f"proto.{branch_name}.{proto_name}"
         path = PROJECT_ROOT + "/proto/" + branch_name
         os.chdir(path)
@@ -1129,6 +1147,7 @@ class Getattbymessage(MethodView):
     @login_required
     def get(self):
         try:
+            logger.info("获取message里的属性 当前主进程 ID: {}".format(os.getpid()))
             branch_name = request.args.get('branch_name')
             proto_name = request.args.get('proto_name')
             message_name = request.args.get('message_name')
@@ -1137,40 +1156,51 @@ class Getattbymessage(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch_name:
-                # 如果包含斜杠，则进行替换
                 branch_name = branch_name.replace('/', '_')
-            process = process_manager.get_process(branch_name)
-            if process is None:
-                process = process_manager.create_process(branch_name)
 
-            if process:
-                try:
-                    attributes_info = get_message_attributes(branch_name, proto_name, message_name)
-                    # 获取每个进程的结果
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
 
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                                   data=attributes_info)
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    return reponse(code=MessageEnum.get_proto_error.value[0],
-                                   message=MessageEnum.get_proto_error.value[1])
-                finally:
-                    # 无论发生异常与否，都会在这里进行终止和等待
-                    if process.is_alive():
-                        process.terminate()
-                        process.join()
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process,
+                args=(branch_name, proto_name, message_name, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            attributes_info = result_queue.get()
+
+            if attributes_info:
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                               data=attributes_info)
             else:
                 return reponse(code=MessageEnum.get_attributes_error.value[0],
                                message=MessageEnum.get_attributes_error.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_attributes_error.value[0],
                            message=MessageEnum.get_attributes_error.value[1])
 
+    def run_in_new_process(self, branch_name, proto_name, message_name, result_queue):
+        try:
+            logger.info("获取attributes info，在新进程中，当前进程 ID: {}".format(os.getpid()))
+            attributes_info = get_message_attributes(branch_name, proto_name, message_name)
+
+            # Put results into the Queue
+            result_queue.put(attributes_info)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)
+
 
 def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
     try:
-        logger.info('执行请求方法的进程号：{}'.format(os.getpid()))
+        logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
         proto_path = PROJECT_ROOT + "/proto/" + branch_name
         env = Environment.query.filter_by(id=env_id).first()
         host = env.url
@@ -1203,47 +1233,57 @@ class Executeproto(MethodView):
     @login_required
     def post(self):
         try:
+            logger.info('主进程号：{}'.format(os.getpid()))
             data = request.get_json()
-            if not data.get('proto_name') or not data.get(
-                    'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
-                'rsq_message_name') or not data.get('branch_name'):
+            if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
+                    'uid') or not data.get('rsq_message_name') or not data.get('branch_name'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             branch_name = data.get('branch_name')
             if '/' in branch_name:
-                # 如果包含斜杠，则进行替换
                 branch_name = branch_name.replace('/', '_')
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
-            logger.info('当前进程号：{}'.format(os.getpid()))
 
-            process = process_manager.get_process(branch_name + 'executeproto')
-            if process is None:
-                process = process_manager.create_process(branch_name + 'executeproto')
-            # 创建进程池
-            if process:
-                try:
-                    res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
-                                   reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
-                                   params=params)
-                    logger.info('socket 返回值是:{}', res)
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                                   data=res)
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    return reponse(code=MessageEnum.execute_proto_error.value[0],
-                                   message=MessageEnum.execute_proto_error.value[1])
-                finally:
-                    # 无论发生异常与否，都会在这里进行终止和等待
-                    if process.is_alive():
-                        process.terminate()
-                        process.join()
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process,
+                args=(data, branch_name, params, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            res = result_queue.get()
+
+            if res:
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
             else:
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.execute_proto_error.value[0],
                            message=MessageEnum.execute_proto_error.value[1])
+
+    def run_in_new_process(self, data, branch_name, params, result_queue):
+        try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
+                           reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
+                           params=params)
+
+            # Put results into the Queue
+            result_queue.put(res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)
 
 
 class Onesaveproto(MethodView):
@@ -1313,8 +1353,40 @@ class Forceupdatebranch(MethodView):
 
             if not branch_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-                               message=MessageEnum.must_be_every_parame.value[1])
+                                message=MessageEnum.must_be_every_parame.value[1])
+
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process,
+                args=(branch_name, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            proto_names = result_queue.get()
+
+            if proto_names:
+                ret = {"list": proto_names, "total": len(proto_names)}
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+            else:
+                return reponse(code=MessageEnum.force_update_branch_error.value[0],
+                                message=MessageEnum.force_update_branch_error.value[1])
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.force_update_branch_error.value[0],
+                            message=MessageEnum.force_update_branch_error.value[1])
+
+    def run_in_new_process(self, branch_name, result_queue):
+        try:
+            logger.info("在新进程中执行下载和编译 proto，当前进程 ID: {}".format(os.getpid()))
             GenerateProto.download_and_compile_protos(branch_name)
+
             proto_names = []
             script_directory = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.abspath(os.path.join(script_directory, '..', '..'))
@@ -1325,9 +1397,11 @@ class Forceupdatebranch(MethodView):
                 if re.match(r".*_pb2.py", file):
                     proto_name = file.split(".")[0]
                     proto_names.append(proto_name)
-            ret = {"list": proto_names, "total": len(proto_names)}
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+            # Put results into the Queue
+            result_queue.put(proto_names)
+
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.force_update_branch_error.value[0],
-                           message=MessageEnum.force_update_branch_error.value[1])
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)

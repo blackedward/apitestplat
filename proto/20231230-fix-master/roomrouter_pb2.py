@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10roomrouter.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\nmtt2.proto\x1a\tsng.proto\x1a\x16\x61\x63hievement_base.proto\x1a\x14mystery_bounty.proto\"9\n\x15iQuitMultipleTableREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0broom_handle\x18\x02 \x03(\r\"5\n\x15iQuitMultipleTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"@\n\x1ciSkynetRoomUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0broom_handle\x18\x02 \x03(\r\"<\n\x1ciSkynetRoomUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"C\n\x1fiSkynetRoomUserMissHeartBeatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0broom_handle\x18\x02 \x03(\r\"?\n\x1fiSkynetRoomUserMissHeartBeatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x9e\t\n\x11iPhpCreateRoomREQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12:\n\x0f\x61\x64min_room_type\x18\x02 \x01(\x0e\x32\x11.pb.AdminRoomType:\x0e\x41\x44MIN_MTT_ROOM\x12\x36\n\x15special_hunter_bounty\x18\x03 \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12&\n\x0broom_avatar\x18\x04 \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x19\n\x11open_kyc_platform\x18\x05 \x03(\t\x12\x1a\n\x12open_club_platform\x18\x06 \x03(\t\x12\x17\n\x0frebate_interval\x18\x07 \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18\x08 \x01(\x08\x12\x16\n\nrebuy_rate\x18\t \x01(\x03:\x02\x31\x30\x12\x16\n\x07is_vpip\x18\n \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0evpip_limit_min\x18\x0b \x01(\x05:\x01\x30\x12\x1f\n\x14vpip_limit_threshold\x18\x0c \x01(\x05:\x01\x30\x12/\n\x12mtt_multi_day_info\x18\r \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x12\n\nis_dynamic\x18\x0e \x01(\x08\x12\x1d\n\x15\x65vent_leader_board_id\x18\x0f \x03(\x03\x12#\n\x14is_auto_flipout_mode\x18\x10 \x01(\x08:\x05\x66\x61lse\x12:\n\x17spinup_multiple_setting\x18\x11 \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12!\n\x12is_start_from_flop\x18\x12 \x01(\x08:\x05\x66\x61lse\x12&\n\rbomb_pot_info\x18\x13 \x01(\x0b\x32\x0f.pb.BombPotInfo\x12;\n\x18mtt_special_scene_config\x18\x14 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x15 \x01(\x05\x12#\n\x18\x62ombpot_additional_board\x18\x16 \x01(\x05:\x01\x30\x12\x1b\n\x10\x61\x64\x64itional_board\x18\x17 \x01(\x05:\x01\x30\x12\x0e\n\x06is_pin\x18\x18 \x01(\x08\x12\x18\n\x10pin_before_hours\x18\x19 \x01(\x05\x12\x19\n\x0egame_end_level\x18\x1a \x01(\x05:\x01\x30\x12\x1b\n\x10game_end_percent\x18\x1b \x01(\x05:\x01\x30\x12[\n\x17\x61nnual_achievement_type\x18\x1c \x01(\x0e\x32\x19.pb.AnnualAchievementType:\x1f\x41NNUAL_ACHIEVEMENT_TYPE_DEFAULT\x12\x14\n\x0cpin_priority\x18\x1d \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18\x1e \x01(\x05\x12 \n\x11is_mystery_bounty\x18\x1f \x01(\x08:\x05\x66\x61lse\x12)\n\x0emystery_bounty\x18  \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x0c\n\x04tags\x18! \x03(\t\"\x89\n\n\x11iPhpCreateRoomRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x11\n\x06roomid\x18\x02 \x01(\x05:\x01\x30\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12=\n\nerror_code\x18\x04 \x01(\x0e\x32).pb.iPhpCreateRoomRSP.CreateRoomErrorCode\"\xea\x08\n\x13\x43reateRoomErrorCode\x12\x0e\n\nNOT_DEFINE\x10\x00\x12\x0f\n\x0bSERVER_STOP\x10\x01\x12\x0f\n\x0bNO_MATCH_ID\x10\x02\x12\x14\n\x10MATCH_TYPE_ERROR\x10\x03\x12\x16\n\x12START_TIME_ILLEGAL\x10\x04\x12\x16\n\x12MYSQL_CLIENT_ERROR\x10\x05\x12$\n READ_LEAGUE_MATCH_TEMPLATE_ERROR\x10\x06\x12\x1c\n\x18MTT_PLAY_NUM_MIN_ILLEGAL\x10\x07\x12\x19\n\x15REBUY_RATE_ZERO_ERROR\x10\x08\x12-\n)MTT_MULTI_DAY_CREATE_WITH_SATELLITE_ERROR\x10\t\x12\x1a\n\x16\x44\x45LAY_JOIN_LEVEL_ERROR\x10\n\x12#\n\x1fMTT_REWARD_PERCENT_TYPE_ILLEGAL\x10\x0b\x12(\n$LEADERBOARD_ACTIVITY_EVENT_KEY_ERROR\x10\x0c\x12,\n(READ_LEAGUE_MATCH_TEMPLATE_REWARDS_ERROR\x10\r\x12\x12\n\x0eREWARD_ILLEGAL\x10\x0e\x12\x18\n\x14\x45NSURE_CHIPS_ILLEGAL\x10\x0f\x12\x19\n\x15GET_REWARD_ITEM_ERROR\x10\x10\x12\x19\n\x15\x42UYIN_TICKETS_ILLEGAL\x10\x11\x12\x19\n\x15REBUY_TICKETS_ILLEGAL\x10\x12\x12\x19\n\x15\x41\x44\x44ON_TICKETS_ILLEGAL\x10\x13\x12\x1a\n\x16\x45ND_GAME_LEVEL_ILLEGAL\x10\x14\x12\x11\n\rBUYIN_ILLEGAL\x10\x15\x12!\n\x1dMTT_HUNTER_MATCH_TYPE_ILLEGAL\x10\x16\x12\x18\n\x14\x46IXED_REWARD_ILLEGAL\x10\x17\x12\x1c\n\x18MTT_HUNTER_RATIO_ILLEGAL\x10\x18\x12&\n\"LEADERBOARD_ACTIVITY_TEAMKEY_ERROR\x10\x19\x12\x14\n\x10NOT_ENOUGH_MONEY\x10\x1a\x12\x0c\n\x08\x44\x42_ERROR\x10\x1b\x12\x0b\n\x07NO_DATA\x10\x1c\x12\x0e\n\nPARAM_FAIL\x10\x1d\x12\x10\n\x0cSYSTEM_ERROR\x10\x1e\x12\x0e\n\nCLUB_ERROR\x10\x1f\x12\x10\n\x0cLEAGUE_ERROR\x10 \x12\x13\n\x0fROOM_TYPE_ERROR\x10!\x12\x17\n\x13RANK_REWARD_ILLEGAL\x10\"\x12\x1c\n\x18\x41VATAR_ID_REWARD_ILLEGAL\x10#\x12 \n\x1c\x42LIND_VOUCHER_REWARD_ILLEGAL\x10$\x12\x1a\n\x16ITEM_ID_REWARD_ILLEGAL\x10%\x12\x0f\n\x0b\x43LUB_BANNED\x10&\x12 \n\x1cNO_ITEM_CLASS_REWARD_ILLEGAL\x10\'\x12\x18\n\x14REWARD_COUNT_ILLEGAL\x10(\x12\x1c\n\x18\x43\x41SH_BACK_REWARD_ILLEGAL\x10)B\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10roomrouter.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\nmtt2.proto\x1a\tsng.proto\x1a\x16\x61\x63hievement_base.proto\x1a\x14mystery_bounty.proto\"9\n\x15iQuitMultipleTableREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0broom_handle\x18\x02 \x03(\r\"5\n\x15iQuitMultipleTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"@\n\x1ciSkynetRoomUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0broom_handle\x18\x02 \x03(\r\"<\n\x1ciSkynetRoomUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x9e\t\n\x11iPhpCreateRoomREQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12:\n\x0f\x61\x64min_room_type\x18\x02 \x01(\x0e\x32\x11.pb.AdminRoomType:\x0e\x41\x44MIN_MTT_ROOM\x12\x36\n\x15special_hunter_bounty\x18\x03 \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12&\n\x0broom_avatar\x18\x04 \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x19\n\x11open_kyc_platform\x18\x05 \x03(\t\x12\x1a\n\x12open_club_platform\x18\x06 \x03(\t\x12\x17\n\x0frebate_interval\x18\x07 \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18\x08 \x01(\x08\x12\x16\n\nrebuy_rate\x18\t \x01(\x03:\x02\x31\x30\x12\x16\n\x07is_vpip\x18\n \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0evpip_limit_min\x18\x0b \x01(\x05:\x01\x30\x12\x1f\n\x14vpip_limit_threshold\x18\x0c \x01(\x05:\x01\x30\x12/\n\x12mtt_multi_day_info\x18\r \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x12\n\nis_dynamic\x18\x0e \x01(\x08\x12\x1d\n\x15\x65vent_leader_board_id\x18\x0f \x03(\x03\x12#\n\x14is_auto_flipout_mode\x18\x10 \x01(\x08:\x05\x66\x61lse\x12:\n\x17spinup_multiple_setting\x18\x11 \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12!\n\x12is_start_from_flop\x18\x12 \x01(\x08:\x05\x66\x61lse\x12&\n\rbomb_pot_info\x18\x13 \x01(\x0b\x32\x0f.pb.BombPotInfo\x12;\n\x18mtt_special_scene_config\x18\x14 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x15 \x01(\x05\x12#\n\x18\x62ombpot_additional_board\x18\x16 \x01(\x05:\x01\x30\x12\x1b\n\x10\x61\x64\x64itional_board\x18\x17 \x01(\x05:\x01\x30\x12\x0e\n\x06is_pin\x18\x18 \x01(\x08\x12\x18\n\x10pin_before_hours\x18\x19 \x01(\x05\x12\x19\n\x0egame_end_level\x18\x1a \x01(\x05:\x01\x30\x12\x1b\n\x10game_end_percent\x18\x1b \x01(\x05:\x01\x30\x12[\n\x17\x61nnual_achievement_type\x18\x1c \x01(\x0e\x32\x19.pb.AnnualAchievementType:\x1f\x41NNUAL_ACHIEVEMENT_TYPE_DEFAULT\x12\x14\n\x0cpin_priority\x18\x1d \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18\x1e \x01(\x05\x12 \n\x11is_mystery_bounty\x18\x1f \x01(\x08:\x05\x66\x61lse\x12)\n\x0emystery_bounty\x18  \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x0c\n\x04tags\x18! \x03(\t\"\x89\n\n\x11iPhpCreateRoomRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x11\n\x06roomid\x18\x02 \x01(\x05:\x01\x30\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12=\n\nerror_code\x18\x04 \x01(\x0e\x32).pb.iPhpCreateRoomRSP.CreateRoomErrorCode\"\xea\x08\n\x13\x43reateRoomErrorCode\x12\x0e\n\nNOT_DEFINE\x10\x00\x12\x0f\n\x0bSERVER_STOP\x10\x01\x12\x0f\n\x0bNO_MATCH_ID\x10\x02\x12\x14\n\x10MATCH_TYPE_ERROR\x10\x03\x12\x16\n\x12START_TIME_ILLEGAL\x10\x04\x12\x16\n\x12MYSQL_CLIENT_ERROR\x10\x05\x12$\n READ_LEAGUE_MATCH_TEMPLATE_ERROR\x10\x06\x12\x1c\n\x18MTT_PLAY_NUM_MIN_ILLEGAL\x10\x07\x12\x19\n\x15REBUY_RATE_ZERO_ERROR\x10\x08\x12-\n)MTT_MULTI_DAY_CREATE_WITH_SATELLITE_ERROR\x10\t\x12\x1a\n\x16\x44\x45LAY_JOIN_LEVEL_ERROR\x10\n\x12#\n\x1fMTT_REWARD_PERCENT_TYPE_ILLEGAL\x10\x0b\x12(\n$LEADERBOARD_ACTIVITY_EVENT_KEY_ERROR\x10\x0c\x12,\n(READ_LEAGUE_MATCH_TEMPLATE_REWARDS_ERROR\x10\r\x12\x12\n\x0eREWARD_ILLEGAL\x10\x0e\x12\x18\n\x14\x45NSURE_CHIPS_ILLEGAL\x10\x0f\x12\x19\n\x15GET_REWARD_ITEM_ERROR\x10\x10\x12\x19\n\x15\x42UYIN_TICKETS_ILLEGAL\x10\x11\x12\x19\n\x15REBUY_TICKETS_ILLEGAL\x10\x12\x12\x19\n\x15\x41\x44\x44ON_TICKETS_ILLEGAL\x10\x13\x12\x1a\n\x16\x45ND_GAME_LEVEL_ILLEGAL\x10\x14\x12\x11\n\rBUYIN_ILLEGAL\x10\x15\x12!\n\x1dMTT_HUNTER_MATCH_TYPE_ILLEGAL\x10\x16\x12\x18\n\x14\x46IXED_REWARD_ILLEGAL\x10\x17\x12\x1c\n\x18MTT_HUNTER_RATIO_ILLEGAL\x10\x18\x12&\n\"LEADERBOARD_ACTIVITY_TEAMKEY_ERROR\x10\x19\x12\x14\n\x10NOT_ENOUGH_MONEY\x10\x1a\x12\x0c\n\x08\x44\x42_ERROR\x10\x1b\x12\x0b\n\x07NO_DATA\x10\x1c\x12\x0e\n\nPARAM_FAIL\x10\x1d\x12\x10\n\x0cSYSTEM_ERROR\x10\x1e\x12\x0e\n\nCLUB_ERROR\x10\x1f\x12\x10\n\x0cLEAGUE_ERROR\x10 \x12\x13\n\x0fROOM_TYPE_ERROR\x10!\x12\x17\n\x13RANK_REWARD_ILLEGAL\x10\"\x12\x1c\n\x18\x41VATAR_ID_REWARD_ILLEGAL\x10#\x12 \n\x1c\x42LIND_VOUCHER_REWARD_ILLEGAL\x10$\x12\x1a\n\x16ITEM_ID_REWARD_ILLEGAL\x10%\x12\x0f\n\x0b\x43LUB_BANNED\x10&\x12 \n\x1cNO_ITEM_CLASS_REWARD_ILLEGAL\x10\'\x12\x18\n\x14REWARD_COUNT_ILLEGAL\x10(\x12\x1c\n\x18\x43\x41SH_BACK_REWARD_ILLEGAL\x10)B\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,achievement__base__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
 
@@ -209,8 +209,8 @@ _IPHPCREATEROOMRSP_CREATEROOMERRORCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1857,
-  serialized_end=2987,
+  serialized_start=1723,
+  serialized_end=2853,
 )
 _sym_db.RegisterEnumDescriptor(_IPHPCREATEROOMRSP_CREATEROOMERRORCODE)
 
@@ -350,75 +350,6 @@ _ISKYNETROOMUSERDISCONNECTRSP = _descriptor.Descriptor(
   ],
   serialized_start=316,
   serialized_end=376,
-)
-
-
-_ISKYNETROOMUSERMISSHEARTBEATREQ = _descriptor.Descriptor(
-  name='iSkynetRoomUserMissHeartBeatREQ',
-  full_name='pb.iSkynetRoomUserMissHeartBeatREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='uid', full_name='pb.iSkynetRoomUserMissHeartBeatREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='room_handle', full_name='pb.iSkynetRoomUserMissHeartBeatREQ.room_handle', index=1,
-      number=2, type=13, cpp_type=3, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=378,
-  serialized_end=445,
-)
-
-
-_ISKYNETROOMUSERMISSHEARTBEATRSP = _descriptor.Descriptor(
-  name='iSkynetRoomUserMissHeartBeatRSP',
-  full_name='pb.iSkynetRoomUserMissHeartBeatRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.iSkynetRoomUserMissHeartBeatRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=447,
-  serialized_end=510,
 )
 
 
@@ -672,8 +603,8 @@ _IPHPCREATEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=513,
-  serialized_end=1695,
+  serialized_start=379,
+  serialized_end=1561,
 )
 
 
@@ -725,13 +656,12 @@ _IPHPCREATEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1698,
-  serialized_end=2987,
+  serialized_start=1564,
+  serialized_end=2853,
 )
 
 _IQUITMULTIPLETABLERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _ISKYNETROOMUSERDISCONNECTRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
-_ISKYNETROOMUSERMISSHEARTBEATRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IPHPCREATEROOMREQ.fields_by_name['admin_room_type'].enum_type = inner__base__pb2._ADMINROOMTYPE
 _IPHPCREATEROOMREQ.fields_by_name['special_hunter_bounty'].message_type = base__pb2._SPECIALHUNTERBOUNTY
 _IPHPCREATEROOMREQ.fields_by_name['room_avatar'].message_type = inner__base__pb2._PHPROOMAVATAR
@@ -748,8 +678,6 @@ DESCRIPTOR.message_types_by_name['iQuitMultipleTableREQ'] = _IQUITMULTIPLETABLER
 DESCRIPTOR.message_types_by_name['iQuitMultipleTableRSP'] = _IQUITMULTIPLETABLERSP
 DESCRIPTOR.message_types_by_name['iSkynetRoomUserDisconnectREQ'] = _ISKYNETROOMUSERDISCONNECTREQ
 DESCRIPTOR.message_types_by_name['iSkynetRoomUserDisconnectRSP'] = _ISKYNETROOMUSERDISCONNECTRSP
-DESCRIPTOR.message_types_by_name['iSkynetRoomUserMissHeartBeatREQ'] = _ISKYNETROOMUSERMISSHEARTBEATREQ
-DESCRIPTOR.message_types_by_name['iSkynetRoomUserMissHeartBeatRSP'] = _ISKYNETROOMUSERMISSHEARTBEATRSP
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomREQ'] = _IPHPCREATEROOMREQ
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomRSP'] = _IPHPCREATEROOMRSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -781,20 +709,6 @@ iSkynetRoomUserDisconnectRSP = _reflection.GeneratedProtocolMessageType('iSkynet
   # @@protoc_insertion_point(class_scope:pb.iSkynetRoomUserDisconnectRSP)
   ))
 _sym_db.RegisterMessage(iSkynetRoomUserDisconnectRSP)
-
-iSkynetRoomUserMissHeartBeatREQ = _reflection.GeneratedProtocolMessageType('iSkynetRoomUserMissHeartBeatREQ', (_message.Message,), dict(
-  DESCRIPTOR = _ISKYNETROOMUSERMISSHEARTBEATREQ,
-  __module__ = 'roomrouter_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iSkynetRoomUserMissHeartBeatREQ)
-  ))
-_sym_db.RegisterMessage(iSkynetRoomUserMissHeartBeatREQ)
-
-iSkynetRoomUserMissHeartBeatRSP = _reflection.GeneratedProtocolMessageType('iSkynetRoomUserMissHeartBeatRSP', (_message.Message,), dict(
-  DESCRIPTOR = _ISKYNETROOMUSERMISSHEARTBEATRSP,
-  __module__ = 'roomrouter_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iSkynetRoomUserMissHeartBeatRSP)
-  ))
-_sym_db.RegisterMessage(iSkynetRoomUserMissHeartBeatRSP)
 
 iPhpCreateRoomREQ = _reflection.GeneratedProtocolMessageType('iPhpCreateRoomREQ', (_message.Message,), dict(
   DESCRIPTOR = _IPHPCREATEROOMREQ,
