@@ -989,19 +989,25 @@ class Getbranchproto(MethodView):
     def run_in_new_process(self, branch, result_queue):
         try:
             logger.info("获取proto name，在新进程中，当前进程 ID: {}".format(os.getpid()))
+
+            # Redirect standard input/output/error to /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+
+            # Create a ProtoDir instance within the new process
             proto_dir = ProtoDir()
+
+            # Get branch proto names
             proto_names = proto_dir.get_branch_protoname(branches=branch)
 
             # Put results into the Queue
             result_queue.put(proto_names)
+
         except Exception as e:
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
-        finally:
-            sys.stdout.close()
-            sys.stderr.close()
-            sys.stdin.close()
 
 
 def import_module_and_get_descriptor_info(branch_name, module_name):
@@ -1404,7 +1410,6 @@ class Forceupdatebranch(MethodView):
             proto_names = []
             script_directory = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.abspath(os.path.join(script_directory, '..', '..'))
-            logger.info(project_root)
             proto_root = os.path.join(project_root, 'proto')
             proto_dir = os.path.join(proto_root, branch_name)
             for file in os.listdir(proto_dir):
