@@ -1008,6 +1008,9 @@ class Getbranchproto(MethodView):
             logger.error(traceback.format_exc())
             # Put None into the Queue if there's an exception
             result_queue.put(None)
+        finally:
+            # Explicitly exit the process to avoid Resource temporarily unavailable error
+            sys.exit(0)
 
 
 def import_module_and_get_descriptor_info(branch_name, module_name):
@@ -1078,15 +1081,18 @@ class GetMessageInfo(MethodView):
     def run_in_new_process(self, branch_name, module_name, result_queue):
         try:
             logger.info("获取proto message，在新进程中，当前进程 ID: {}".format(os.getpid()))
+            # Redirect standard input/output/error to /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+
             results = import_module_and_get_descriptor_info(branch_name, module_name)
             result_queue.put(results)
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(None)
         finally:
-            sys.stdout.close()
-            sys.stderr.close()
-            sys.stdin.close()
+            sys.exit(0)
 
 
 # class Getprotomessages(MethodView):
@@ -1200,6 +1206,9 @@ class Getattbymessage(MethodView):
     def run_in_new_process(self, branch_name, proto_name, message_name, result_queue):
         try:
             logger.info("获取attributes info，在新进程中，当前进程 ID: {}".format(os.getpid()))
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
             attributes_info = get_message_attributes(branch_name, proto_name, message_name)
 
             # Put results into the Queue
@@ -1209,9 +1218,7 @@ class Getattbymessage(MethodView):
             # Put None into the Queue if there's an exception
             result_queue.put(None)
         finally:
-            sys.stdout.close()
-            sys.stderr.close()
-            sys.stdin.close()
+            sys.exit(0)
 
 
 def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
@@ -1289,6 +1296,10 @@ class Executeproto(MethodView):
     def run_in_new_process(self, data, branch_name, params, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
+            # Redirect standard input/output/error to /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
                            params=params)
@@ -1301,9 +1312,7 @@ class Executeproto(MethodView):
             # Put None into the Queue if there's an exception
             result_queue.put(None)
         finally:
-            sys.stdout.close()
-            sys.stderr.close()
-            sys.stdin.close()
+            sys.exit(0)
 
 
 class Onesaveproto(MethodView):
@@ -1405,6 +1414,9 @@ class Forceupdatebranch(MethodView):
     def run_in_new_process(self, branch_name, result_queue):
         try:
             logger.info("在新进程中执行下载和编译 proto，当前进程 ID: {}".format(os.getpid()))
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
             GenerateProto.download_and_compile_protos(branch_name)
 
             proto_names = []
@@ -1425,6 +1437,4 @@ class Forceupdatebranch(MethodView):
             # Put None into the Queue if there's an exception
             result_queue.put(None)
         finally:
-            sys.stdout.close()
-            sys.stderr.close()
-            sys.stdin.close()
+            sys.exit(0)
