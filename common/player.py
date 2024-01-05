@@ -122,7 +122,7 @@ class Player(object):
         else:
             url = "http://" + self.host + "/poker/api/login.php"
 
-        print(url)
+        logger.info(url)
         if not password:
             password = user_name
         data = {
@@ -147,7 +147,7 @@ class Player(object):
             lt.append(k + '=' + str(v))
         query_string = '&'.join(lt)
         login_url = url + '?' + query_string
-        print('____________________{}'.format(login_url))
+        logger.info('____________________{}'.format(login_url))
 
         headers = {'X-Forwarded-For': clientip}
         # response = requests.post(url,data=data,headers=headers)
@@ -338,7 +338,7 @@ class Player(object):
 #     # client = player.client
 #     # client.send('ClubListREQ')
 #     # msg=client.recv('ClubListRSP')
-#     # print(msg.body)
+#     # logger.info(msg.body)
 #     #
-#     # print(msg)
+#     # logger.info(msg)
 #     # result2 = player.login_by_uid(2955)

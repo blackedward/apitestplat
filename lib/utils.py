@@ -170,5 +170,4 @@ def load_proto(pb):
         for item in dir(module):
             pb[item] = getattr(module, item)
 
-if __name__ == "__main__":
-    print(get_random_device())
+

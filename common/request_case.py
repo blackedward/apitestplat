@@ -35,7 +35,7 @@ class Api:
                 spend = ""
             return response, spend
         except Exception as e:
-            print(e)
+            logger.info(e)
             logger.exception(e)
             response = "请求出错了"
             spend = "错误"

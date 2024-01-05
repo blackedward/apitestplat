@@ -58,7 +58,7 @@ class Mysqldb(object):
                 for key in insert_data:
                     values= insert_data[key]
                 sql = "insert into {table} values ({val})".format(table=table, val=values)
-                print(sql)
+                logger.info(sql)
             else:
                 # 提取插入的字段
                 key = ','.join(insert_data.keys())
@@ -66,13 +66,13 @@ class Mysqldb(object):
                 values = '.'.join(['%s'] * len(insert_data))
                 # 构建sql语句
                 sql = "insert into {table}({key}) values {val}".format(table=table, key=key,val=tuple(insert_data.values()))
-                print(sql)
+                logger.info(sql)
             try:
                 if self.__cursor.execute(sql):
-                    print('insert successful')
+                    logger.info('insert successful')
                     self.__connect.commit()
             except:
-                print('insert failed')
+                logger.info('insert failed')
         except Exception as error:
             logger.error(error)
         finally:
@@ -161,7 +161,7 @@ class Mysqldb(object):
         :return:
         """
         self._connect_db(db)
-        # print(sql)
+        # logger.info(sql)
         self.__cursor.execute(sql)
         # 返回一条数据还是所有数据
         if get_one:

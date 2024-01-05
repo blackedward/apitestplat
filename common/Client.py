@@ -23,7 +23,7 @@ from common.ClientData import ClientData
 
 PbClass = {}
 for name in proto.__dict__:
-    # print(name)
+    # logger.info(name)
     PbClass[name] = getattr(proto, name)
 
 
@@ -102,17 +102,17 @@ class Client(object):
     def connect(self, host, port):
         self.socket = socket.socket()
         start_time = time.time()
-        print("attempting to connect to %s on port %s" % (host, port))
+        logger.info("attempting to connect to %s on port %s" % (host, port))
         try:
             self.socket.connect((host, int(port)))
-            print("connected")
+            logger.info("connected")
             self.isStop = False
             total_time = int((time.time() - start_time) * 1000)
             events.request.fire(request_type='socket', name='connect', response_time=total_time,
                                         response_length=0)
         except Exception as e:
             logger.error(traceback.format_exc())
-            print("connected failed")
+            logger.info("connected failed")
             total_time = int((time.time() - start_time) * 1000)
             events.request.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
                                         response_length=0)
