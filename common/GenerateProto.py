@@ -1,9 +1,11 @@
 import re
+import subprocess
 from datetime import datetime, timedelta
 import os
 import shutil
 import traceback
-from collections import Counter
+from collections import Counter, defaultdict
+import pysvn
 from git import Repo
 import git
 from common.log import logger
@@ -11,12 +13,16 @@ from diskcache import Cache
 
 user_home = os.path.expanduser("~")
 rep_url = "http://git.kkpoker.co/server/doc.git"
+svn_url = "svn://devsvn.pppoker.net/PPPoker/proto/"
 temp_repo = user_home + "/tempcode"
 merge_dir = user_home + "/merge"
 branches = ["master"]
 destination_directory = user_home + '/tempcopile'
 cache_file = user_home + "/cachefile"
 global_cache = Cache(cache_file, expire=24 * 60 * 60)
+temp_repo_pp = user_home + "/ppproto/proto"
+merge_dir_pp = user_home + "/ppmerge"
+destination_directory_pp = user_home + '/ppcopile'
 
 
 def download_and_compile_protos(branch=None):
@@ -52,6 +58,41 @@ def download_and_compile_protos(branch=None):
         move_files(temp_repo + "/proto/trunk", merge_dir)
     compile_proto_files(merge_dir, destination_directory)
     move_compiled_files(destination_directory, code_destination)
+
+
+def download_and_compile_protos_pp(branch=None):
+    ppproto_destination = os.path.dirname(os.path.dirname(__file__)) + "/proto/pp/" + branch
+
+    if os.path.exists(merge_dir_pp):
+        shutil.rmtree(merge_dir_pp)
+    os.makedirs(merge_dir_pp)
+    if os.path.exists(destination_directory_pp):
+        shutil.rmtree(destination_directory_pp)
+    os.makedirs(destination_directory_pp)
+    if not os.path.exists(temp_repo_pp):
+        try:
+            os.makedirs(temp_repo_pp)
+            subprocess.run(["svn", "checkout", svn_url, temp_repo_pp], check=True)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+        logger.info('svn代码不存在，checkout,{}', svn_url)
+        if branch == 'trunk':
+            move_files(temp_repo_pp + "/trunk", merge_dir_pp)
+        else:
+            move_files(temp_repo_pp + "/branch/" + branch, merge_dir_pp)
+    else:
+        try:
+            subprocess.run(["svn", "update", temp_repo_pp], check=True)
+            logger.info('svn代码已经存在，执行更新')
+        except Exception as e:
+            logger.error(traceback.format_exc())
+
+        if branch == 'trunk':
+            move_files(temp_repo_pp + "/trunk", merge_dir_pp)
+        else:
+            move_files(temp_repo_pp + "/branch/" + branch, merge_dir_pp)
+    compile_proto_files(merge_dir_pp, destination_directory_pp)
+    move_compiled_files(destination_directory_pp, ppproto_destination)
 
 
 def update_proto_file(proto_file_path, new_prefix):
@@ -154,6 +195,44 @@ def get_remote_active_branches(repo_url):
     most_active_branches = Counter(commit_counts).most_common(10)
     logger.info(f"since {current_date} 10 days most_active_branches: {most_active_branches}")
     return most_active_branches
+
+
+def get_recently_active_branches_pp():
+    local_path = user_home + "/ppproto/"
+    folder_path = "proto/branch"
+    # 构建SVN命令
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=30)
+
+    # 格式化日期字符串
+    start_date_str = start_date.strftime("%Y-%m-%d")
+    end_date_str = end_date.strftime("%Y-%m-%d")
+
+    # 构建SVN命令
+    svn_command = f"svn log -r{{{start_date_str}}}:{{{end_date_str}}} -v {local_path}/{folder_path}"
+
+    try:
+        # 执行SVN命令
+        result = subprocess.run(svn_command, shell=True, capture_output=True, text=True, check=True)
+        log_output = result.stdout.splitlines()
+
+        # 解析SVN日志
+        folder_activity = defaultdict(int)
+
+        for line in log_output:
+            if line.startswith("   A") or line.startswith("   M") or line.startswith("   D"):
+                folder = line.split()[-1].split('/')[-2]  # 提取文件夹名
+                folder_activity[folder] += 1
+
+        # 获取最活跃的10个子文件夹
+        top_folders = sorted(folder_activity.items(), key=lambda x: x[1], reverse=True)[:9]
+        top_folders.append(('trunk', 0))
+        logger.info(f"top_folders: {top_folders}")
+        return top_folders
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing SVN command: {e}")
+        return None
 
 
 def get_recently_active_branches_cached(repo_url):

@@ -952,8 +952,9 @@ class Getbranchproto(MethodView):
     def get(self):
         try:
             logger.info("Getbranchproto 函数 当前主进程 ID: {}".format(os.getpid()))
+            source = request.args.get('source')
             branch = request.args.get('branch_name')
-            if not branch:
+            if not branch or not source:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch:
@@ -965,7 +966,7 @@ class Getbranchproto(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(branch, result_queue)
+                args=(branch, source, result_queue)
             )
 
             process.start()
@@ -986,7 +987,7 @@ class Getbranchproto(MethodView):
             return reponse(code=MessageEnum.unexpected_error.value[0],
                            message=MessageEnum.unexpected_error.value[1])
 
-    def run_in_new_process(self, branch, result_queue):
+    def run_in_new_process(self, branch, source, result_queue):
         try:
             logger.info("获取proto name，在新进程中，当前进程 ID: {}".format(os.getpid()))
 
@@ -999,7 +1000,7 @@ class Getbranchproto(MethodView):
             proto_dir = ProtoDir()
 
             # Get branch proto names
-            proto_names = proto_dir.get_branch_protoname(branches=branch)
+            proto_names = proto_dir.get_branch_protoname(branches=branch, source=source)
 
             # Put results into the Queue
             result_queue.put(proto_names)
@@ -1013,10 +1014,13 @@ class Getbranchproto(MethodView):
             sys.exit(0)
 
 
-def import_module_and_get_descriptor_info(branch_name, module_name):
+def import_module_and_get_descriptor_info(branch_name, module_name, source):
     try:
         logger.info("import_module_and_get_descriptor_info 函数 当前进程 ID: {}".format(os.getpid()))
-        path = PROJECT_ROOT + "/proto/" + branch_name
+        if source == 'kk' or source is None:
+            path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            path = PROJECT_ROOT + "/proto/pp/" + branch_name
         os.chdir(path)
         sys.path.append(path)
 
@@ -1042,21 +1046,24 @@ class GetMessageInfo(MethodView):
             logger.info("GetMessageInfo 函数 当前主进程 ID: {}".format(os.getpid()))
             branch_name = request.args.get('branch_name')
             proto_name = request.args.get('proto_name')
+            source = request.args.get('source')
 
             if not branch_name or not proto_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch_name:
                 branch_name = branch_name.replace('/', '_')
-            module_name = f"proto.{branch_name}.{proto_name}"
-
+            if source == 'kk' or source is None:
+                module_name = f"proto.{branch_name}.{proto_name}"
+            else:
+                module_name = f"proto.pp.{branch_name}.{proto_name}"
             # Use multiprocessing Queue to communicate results
             result_queue = multiprocessing.Queue()
 
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(branch_name, module_name, result_queue)
+                args=(branch_name, module_name, source, result_queue)
             )
 
             process.start()
@@ -1078,7 +1085,7 @@ class GetMessageInfo(MethodView):
             return reponse(code=MessageEnum.unexpected_error.value[0],
                            message=MessageEnum.unexpected_error.value[1])
 
-    def run_in_new_process(self, branch_name, module_name, result_queue):
+    def run_in_new_process(self, branch_name, module_name, source, result_queue):
         try:
             logger.info("获取proto message，在新进程中，当前进程 ID: {}".format(os.getpid()))
             # Redirect standard input/output/error to /dev/null
@@ -1086,7 +1093,7 @@ class GetMessageInfo(MethodView):
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
 
-            results = import_module_and_get_descriptor_info(branch_name, module_name)
+            results = import_module_and_get_descriptor_info(branch_name, module_name, source)
             result_queue.put(results)
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -1113,11 +1120,15 @@ class GetMessageInfo(MethodView):
 #             logger.error(traceback.format_exc())
 #             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
 
-def get_message_attributes(branch_name, proto_name, message_name):
+def get_message_attributes(branch_name, proto_name, message_name, source):
     try:
         logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
-        module_name = f"proto.{branch_name}.{proto_name}"
-        path = PROJECT_ROOT + "/proto/" + branch_name
+        if source == 'kk' or source is None:
+            module_name = f"proto.{branch_name}.{proto_name}"
+            path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            module_name = f"proto.pp.{branch_name}.{proto_name}"
+            path = PROJECT_ROOT + "/proto/pp/" + branch_name
         os.chdir(path)
         sys.path.append(path)  # 将模块路径添加到 sys.path 中
 
@@ -1169,6 +1180,7 @@ class Getattbymessage(MethodView):
             branch_name = request.args.get('branch_name')
             proto_name = request.args.get('proto_name')
             message_name = request.args.get('message_name')
+            source = request.args.get('source')
 
             if not branch_name or not proto_name or not message_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
@@ -1182,7 +1194,7 @@ class Getattbymessage(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(branch_name, proto_name, message_name, result_queue)
+                args=(branch_name, proto_name, message_name, source, result_queue)
             )
 
             process.start()
@@ -1203,13 +1215,13 @@ class Getattbymessage(MethodView):
             return reponse(code=MessageEnum.get_attributes_error.value[0],
                            message=MessageEnum.get_attributes_error.value[1])
 
-    def run_in_new_process(self, branch_name, proto_name, message_name, result_queue):
+    def run_in_new_process(self, branch_name, proto_name, message_name, source, result_queue):
         try:
             logger.info("获取attributes info，在新进程中，当前进程 ID: {}".format(os.getpid()))
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
-            attributes_info = get_message_attributes(branch_name, proto_name, message_name)
+            attributes_info = get_message_attributes(branch_name, proto_name, message_name, source)
 
             # Put results into the Queue
             result_queue.put(attributes_info)
@@ -1221,10 +1233,13 @@ class Getattbymessage(MethodView):
             sys.exit(0)
 
 
-def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
+def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params, source):
     try:
         logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
-        proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        if source == 'kk' or source is None:
+            proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
         env = Environment.query.filter_by(id=env_id).first()
         host = env.url
         port = env.port
@@ -1237,10 +1252,16 @@ def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params):
         for name in os.listdir(proto_path):
             if name == '__init__.py' or name[-3:] != '.py':
                 continue
-            module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+            if source == 'kk' or source is None:
+                module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+            else:
+                module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
             for item in dir(module):
                 player.client.pb[item] = getattr(module, item)
-        player = player.login_by_uid(uid)[1]
+        if source == 'kk' or source is None:
+            player = player.login_by_uid(uid)[1]
+        else:
+            player = player.login_by_uid_pp(uid)[1]
         client = player.client
         client.send(reqmessage, params)
         msg = client.recv(rspmessage)
@@ -1259,10 +1280,11 @@ class Executeproto(MethodView):
             logger.info('主进程号：{}'.format(os.getpid()))
             data = request.get_json()
             if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
-                    'uid') or not data.get('rsq_message_name') or not data.get('branch_name'):
+                    'uid') or not data.get('rsq_message_name') or not data.get('branch_name') or not data.get('source'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             branch_name = data.get('branch_name')
+            source = data.get('source')
             if '/' in branch_name:
                 branch_name = branch_name.replace('/', '_')
             params = {"uid": data.get('uid'), "req": data.get('proto_content')}
@@ -1273,7 +1295,7 @@ class Executeproto(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(data, branch_name, params, result_queue)
+                args=(data, branch_name, params, source, result_queue)
             )
 
             process.start()
@@ -1293,7 +1315,7 @@ class Executeproto(MethodView):
             return reponse(code=MessageEnum.execute_proto_error.value[0],
                            message=MessageEnum.execute_proto_error.value[1])
 
-    def run_in_new_process(self, data, branch_name, params, result_queue):
+    def run_in_new_process(self, data, branch_name, params, source, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
             # Redirect standard input/output/error to /dev/null
@@ -1302,7 +1324,7 @@ class Executeproto(MethodView):
             sys.stderr = open(os.devnull, 'w')
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
-                           params=params)
+                           params=params, source=source)
 
             # Put results into the Queue
             result_queue.put(res)
@@ -1361,10 +1383,15 @@ class Onesaveproto(MethodView):
 class Getbranches(MethodView):
     @login_required
     def get(self):
+        source = request.args.get('source')
         git_repo = 'http://git.kkpoker.co/server/doc.git'
+        svn_repo = 'svn://devsvn.pppoker.net/PPPoker/proto/'
         try:
             list = []
-            brancheslist = GenerateProto.get_recently_active_branches_cached(git_repo)
+            if source == 'kk' or source is None:
+                brancheslist = GenerateProto.get_recently_active_branches_cached(git_repo)
+            elif source == 'pp':
+                brancheslist = GenerateProto.get_recently_active_branches_pp()
             for i in brancheslist:
                 list.append(i[0])
             ret = {"list": list, "total": len(list)}
@@ -1379,6 +1406,7 @@ class Forceupdatebranch(MethodView):
     def get(self):
         try:
             branch_name = request.args.get('branch_name')
+            source = request.args.get('source')
 
             if not branch_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
@@ -1390,7 +1418,7 @@ class Forceupdatebranch(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(branch_name, result_queue)
+                args=(branch_name, source, result_queue)
             )
 
             process.start()
@@ -1411,19 +1439,25 @@ class Forceupdatebranch(MethodView):
             return reponse(code=MessageEnum.force_update_branch_error.value[0],
                            message=MessageEnum.force_update_branch_error.value[1])
 
-    def run_in_new_process(self, branch_name, result_queue):
+    def run_in_new_process(self, branch_name, source, result_queue):
         try:
             logger.info("在新进程中执行下载和编译 proto，当前进程 ID: {}".format(os.getpid()))
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
-            GenerateProto.download_and_compile_protos(branch_name)
+            if source == 'kk' or source is None:
+                GenerateProto.download_and_compile_protos(branch_name)
+            elif source == 'pp':
+                GenerateProto.download_and_compile_protos_pp(branch_name)
 
             proto_names = []
             script_directory = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.abspath(os.path.join(script_directory, '..', '..'))
             proto_root = os.path.join(project_root, 'proto')
-            proto_dir = os.path.join(proto_root, branch_name)
+            if source == 'kk' or source is None:
+                proto_dir = os.path.join(proto_root, branch_name)
+            else:
+                proto_dir = os.path.join(proto_root, 'pp', branch_name)
             for file in os.listdir(proto_dir):
                 if re.match(r".*_pb2.py", file):
                     proto_name = file.split(".")[0]

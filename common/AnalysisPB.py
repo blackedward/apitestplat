@@ -4,14 +4,14 @@ import re
 import importlib
 import sys
 
-from google.protobuf.descriptor_pool import DescriptorPool
-
 from common import GenerateProto
 from common.log import logger
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(script_directory, '..'))
 proto_root = os.path.join(project_root, 'proto')
+user_home = os.path.expanduser("~")
+ppproto_root = user_home + "/ppproto/proto/"
 
 
 class DataType(Enum):
@@ -143,9 +143,39 @@ class ProtoDir(object):
                     proto_names.append(proto_name)
         return proto_names
 
-    def get_branch_protoname(self, branches=None):
+    def get_branch_protoname(self, branches=None, source=None):
         logger.info("获取proto name，get_branch_protoname函数当前进程 ID: {}".format(os.getpid()))
-        if branches is None:
-            branches = 'master'
-        dir = os.path.join(proto_root, branches)
-        return self.get_all_protoname(dir=dir)
+        if source is None or source == 'KK':
+            if branches is None:
+                branches = 'master'
+            dir = os.path.join(proto_root, branches)
+            return self.get_all_protoname(dir=dir)
+        else:
+            if branches is None or branches == 'trunk':
+                dir = os.path.join(proto_root + '/pp', 'trunk')
+                return self.get_pp_protoname(dir=dir)
+            else:
+                dir = os.path.join(proto_root + '/pp', branches)
+                return self.get_pp_protoname(dir=dir)
+
+    def get_pp_protoname(self, dir=None):
+        logger.info(f"dir: {dir}")
+        if dir is None:
+            dir = proto_root
+        proto_names = []
+        if os.path.exists(dir):
+            for file in os.listdir(dir):
+                if re.match(r".*_pb2.py", file):
+                    proto_name = file.split(".")[0]
+                    proto_names.append(proto_name)
+
+        else:
+            try:
+                GenerateProto.download_and_compile_protos_pp(os.path.basename(dir))
+            except Exception as e:
+                logger.error(e)
+            for file in os.listdir(dir):
+                if re.match(r".*_pb2.py", file):
+                    proto_name = file.split(".")[0]
+                    proto_names.append(proto_name)
+        return proto_names

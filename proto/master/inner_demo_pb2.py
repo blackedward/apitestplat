@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10inner_demo.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"\x1e\n\x0eiHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"L\n\x0eiHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x1d\n\rHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x1d\n\rHelloWorldRSP\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\"\n\x12iCallHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"P\n\x12iCallHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\tB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10inner_demo.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"\x1e\n\x0eiHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"L\n\x0eiHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x1d\n\rHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x1d\n\rHelloWorldRSP\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\"\n\x12iCallHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"P\n\x12iCallHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x10\n\x0eiHelloMysqlREQ\">\n\x0eiHelloMysqlRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x10\n\x0eiHelloMongoREQ\">\n\x0eiHelloMongoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\tB\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,])
 
@@ -240,14 +240,144 @@ _ICALLHELLOWORLDRSP = _descriptor.Descriptor(
   serialized_end=325,
 )
 
+
+_IHELLOMYSQLREQ = _descriptor.Descriptor(
+  name='iHelloMysqlREQ',
+  full_name='pb.iHelloMysqlREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=327,
+  serialized_end=343,
+)
+
+
+_IHELLOMYSQLRSP = _descriptor.Descriptor(
+  name='iHelloMysqlRSP',
+  full_name='pb.iHelloMysqlRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iHelloMysqlRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iHelloMysqlRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=345,
+  serialized_end=407,
+)
+
+
+_IHELLOMONGOREQ = _descriptor.Descriptor(
+  name='iHelloMongoREQ',
+  full_name='pb.iHelloMongoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=409,
+  serialized_end=425,
+)
+
+
+_IHELLOMONGORSP = _descriptor.Descriptor(
+  name='iHelloMongoRSP',
+  full_name='pb.iHelloMongoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iHelloMongoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iHelloMongoRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=427,
+  serialized_end=489,
+)
+
 _IHELLOWORLDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _ICALLHELLOWORLDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IHELLOMYSQLRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IHELLOMONGORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iHelloWorldREQ'] = _IHELLOWORLDREQ
 DESCRIPTOR.message_types_by_name['iHelloWorldRSP'] = _IHELLOWORLDRSP
 DESCRIPTOR.message_types_by_name['HelloWorldREQ'] = _HELLOWORLDREQ
 DESCRIPTOR.message_types_by_name['HelloWorldRSP'] = _HELLOWORLDRSP
 DESCRIPTOR.message_types_by_name['iCallHelloWorldREQ'] = _ICALLHELLOWORLDREQ
 DESCRIPTOR.message_types_by_name['iCallHelloWorldRSP'] = _ICALLHELLOWORLDRSP
+DESCRIPTOR.message_types_by_name['iHelloMysqlREQ'] = _IHELLOMYSQLREQ
+DESCRIPTOR.message_types_by_name['iHelloMysqlRSP'] = _IHELLOMYSQLRSP
+DESCRIPTOR.message_types_by_name['iHelloMongoREQ'] = _IHELLOMONGOREQ
+DESCRIPTOR.message_types_by_name['iHelloMongoRSP'] = _IHELLOMONGORSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iHelloWorldREQ = _reflection.GeneratedProtocolMessageType('iHelloWorldREQ', (_message.Message,), dict(
@@ -291,6 +421,34 @@ iCallHelloWorldRSP = _reflection.GeneratedProtocolMessageType('iCallHelloWorldRS
   # @@protoc_insertion_point(class_scope:pb.iCallHelloWorldRSP)
   ))
 _sym_db.RegisterMessage(iCallHelloWorldRSP)
+
+iHelloMysqlREQ = _reflection.GeneratedProtocolMessageType('iHelloMysqlREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IHELLOMYSQLREQ,
+  __module__ = 'inner_demo_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iHelloMysqlREQ)
+  ))
+_sym_db.RegisterMessage(iHelloMysqlREQ)
+
+iHelloMysqlRSP = _reflection.GeneratedProtocolMessageType('iHelloMysqlRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IHELLOMYSQLRSP,
+  __module__ = 'inner_demo_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iHelloMysqlRSP)
+  ))
+_sym_db.RegisterMessage(iHelloMysqlRSP)
+
+iHelloMongoREQ = _reflection.GeneratedProtocolMessageType('iHelloMongoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IHELLOMONGOREQ,
+  __module__ = 'inner_demo_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iHelloMongoREQ)
+  ))
+_sym_db.RegisterMessage(iHelloMongoREQ)
+
+iHelloMongoRSP = _reflection.GeneratedProtocolMessageType('iHelloMongoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IHELLOMONGORSP,
+  __module__ = 'inner_demo_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iHelloMongoRSP)
+  ))
+_sym_db.RegisterMessage(iHelloMongoRSP)
 
 
 DESCRIPTOR._options = None

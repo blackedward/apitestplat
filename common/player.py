@@ -94,6 +94,42 @@ class Player(object):
         self.key = key
         self.client.send('UserLoginREQ', req)
         msg = self.client.recv("UserLoginRSP")
+        logger.info(msg.body)
+        if msg.body['code'] == 0:
+            logger.info('uid:{} 登录成功'.format(self.client.uid))
+            self.is_connected = True
+            global_player[uid] = self
+            return 0, self
+        else:
+            global_player.pop(uid)  # 登陆失败取消占位
+            logger.error('uid:{} 登录失败 code:{}'.format(self.client.uid, msg.body.code))
+            return 1, msg
+
+    def login_by_uid_pp(self, uid, ver=CLIENT_VERSION, key='805df5d7e37102b95cc0ce26d851d27d'):
+        while uid in global_player and not global_player[uid]:
+            gevent.sleep(0.1)
+        # if uid in global_player:
+        #     return 0, global_player[uid]
+        global_player[uid] = None  # 先占位,不然两个协程同时登陆同一个uid会报错
+        if not self.client:
+            self.client = Client(host=self.host, port=self.port)
+        if self.client.isStop:
+            logger.info("connect host failed,host:{},port:{}".format(self.host, self.port))
+            return
+        req = {
+            'uid': uid,
+            'ver': ver,
+            'key': key,
+            'ip': '127.0.0.1',
+            'client_type': 1,
+            'login_type': 0,
+            'system': 'android',
+        }
+        self.client.uid = uid
+        self.key = key
+        self.client.send('UserLoginREQ', req)
+        msg = self.client.recv("UserLoginRSP")
+        logger.info(msg.body)
         if msg.body['code'] == 0:
             logger.info('uid:{} 登录成功'.format(self.client.uid))
             self.is_connected = True
