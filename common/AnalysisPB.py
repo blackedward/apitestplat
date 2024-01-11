@@ -145,7 +145,7 @@ class ProtoDir(object):
 
     def get_branch_protoname(self, branches=None, source=None):
         logger.info("获取proto name，get_branch_protoname函数当前进程 ID: {}".format(os.getpid()))
-        if source is None or source == 'KK':
+        if source is None or source == 'kk':
             if branches is None:
                 branches = 'master'
             dir = os.path.join(proto_root, branches)
