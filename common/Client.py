@@ -169,7 +169,7 @@ class Client(object):
         else:
             raise (BaseException('socket error, uid:{}'.format(self.uid)))
 
-    def _fill_recv(self, name=None, wait_all=True, timeout=6, timeoutCode=0):
+    def _fill_recv(self, name=None, wait_all=True, timeout=10, timeoutCode=0):
         start_time = time.time()
         isDone = False
         msg = None

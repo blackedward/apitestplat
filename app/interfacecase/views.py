@@ -1472,3 +1472,115 @@ class Forceupdatebranch(MethodView):
             result_queue.put(None)
         finally:
             sys.exit(0)
+
+
+class ExecuteprotoMult(MethodView):
+    @login_required
+    def post(self):
+        try:
+            logger.info('主进程号：{}'.format(os.getpid()))
+            data = request.get_json()
+            if not data.get('env_id') or not data.get(
+                    'uid') or not data.get('branch_name') or not data.get('source') or not data.get('parainfos'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            branch_name = data.get('branch_name')
+            source = data.get('source')
+            parainfos = data.get('parainfos')
+            if '/' in branch_name:
+                branch_name = branch_name.replace('/', '_')
+
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process_mult,
+                args=(data, branch_name, source, parainfos, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            res = result_queue.get()
+
+            if res:
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+            else:
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1])
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.execute_proto_error.value[0],
+                           message=MessageEnum.execute_proto_error.value[1])
+
+    def run_in_new_process_mult(self, data, branch_name, source, parainfos, result_queue):
+        try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            # Redirect standard input/output/error to /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            res = exeprotomult(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
+                               source=source, parainfos=parainfos)
+
+            # Put results into the Queue
+            result_queue.put(res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)
+        finally:
+            sys.exit(0)
+
+
+def exeprotomult(uid, env_id, branch_name, source, parainfos):
+    try:
+        logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
+        if source == 'kk' or source is None:
+            proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
+        env = Environment.query.filter_by(id=env_id).first()
+        host = env.url
+        port = env.port
+        reslut = []
+        sys.path.append(proto_path)
+
+        player = Player(uid, host, port)
+        if not player.client:
+            player.client = Client(host=host, port=port)
+        for name in os.listdir(proto_path):
+            if name == '__init__.py' or name[-3:] != '.py':
+                continue
+            if source == 'kk' or source is None:
+                module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+            else:
+                module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
+            for item in dir(module):
+                player.client.pb[item] = getattr(module, item)
+        if source == 'kk' or source is None:
+            player = player.login_by_uid(uid)[1]
+        else:
+            player = player.login_by_uid_pp(uid)[1]
+        client = player.client
+
+        parainfos = sorted(parainfos, key=lambda x: x.get('step'))
+
+        for i in parainfos:
+            params = {"uid": uid, "req": i['proto_content']}
+            reqmessage = i['req_message_name']
+            rspmessage = i['rsq_message_name']
+            client.send(reqmessage, params)
+            msg = client.recv(rspmessage)
+            r = {i['step']: msg.body}
+            reslut.append(r)
+        client.stop()
+        client = None
+        return reslut
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
