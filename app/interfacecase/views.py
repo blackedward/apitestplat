@@ -1233,7 +1233,7 @@ class Getattbymessage(MethodView):
             sys.exit(0)
 
 
-def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params, source):
+def exeproto(uid, env_id, branch_name, reqmessage, params, source):
     try:
         logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
         if source == 'kk' or source is None:
@@ -1264,7 +1264,10 @@ def exeproto(uid, env_id, branch_name, reqmessage, rspmessage, params, source):
             player = player.login_by_uid_pp(uid)[1]
         client = player.client
         client.send(reqmessage, params)
+        logger.info('send message:{},send content:{}', reqmessage, params)
+        rspmessage = reqmessage[:-3] + "RSP"
         msg = client.recv(rspmessage)
+        logger.info('recv message:{}', msg.body)
         client.stop()
         client = None
         return msg.body
@@ -1280,7 +1283,7 @@ class Executeproto(MethodView):
             logger.info('主进程号：{}'.format(os.getpid()))
             data = request.get_json()
             if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
-                    'uid') or not data.get('rsq_message_name') or not data.get('branch_name') or not data.get('source'):
+                    'uid') or not data.get('branch_name') or not data.get('source'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             branch_name = data.get('branch_name')
@@ -1323,8 +1326,7 @@ class Executeproto(MethodView):
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
-                           reqmessage=data.get('req_message_name'), rspmessage=data.get('rsq_message_name'),
-                           params=params, source=source)
+                           reqmessage=data.get('req_message_name'), params=params, source=source)
 
             # Put results into the Queue
             result_queue.put(res)
