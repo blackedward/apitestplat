@@ -65,6 +65,7 @@ class Project(db.Model):
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     project_user_id = db.Column(db.Integer(), db.ForeignKey('t_user.user_id'))
     project_name = db.Column(db.String(252), unique=True)
+    product = db.Column(db.String(50))
     status = db.Column(db.Boolean(), default=True)
     Interfacehuan = db.relationship('Environment', backref='projects', lazy='dynamic')
     model = db.relationship('Model', backref='projects', lazy='dynamic')

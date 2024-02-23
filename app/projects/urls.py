@@ -25,6 +25,7 @@ project.add_url_rule('/getmodelbyprjid/<int:id>', view_func=GetModelByPrjId.as_v
 project.add_url_rule('/exedbfac', view_func=ExeDbFac.as_view('exedbfac'))
 project.add_url_rule("/addproject", view_func=AddProject.as_view('addproject'))
 project.add_url_rule("/getallenv", view_func=Getallenv.as_view('getallenv'))
+project.add_url_rule("/getplbypid/<int:id>", view_func=Getplbypid.as_view('getplbypid'))
 
 
 

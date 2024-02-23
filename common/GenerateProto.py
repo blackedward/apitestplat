@@ -215,15 +215,16 @@ def get_recently_active_branches_pp():
         # 执行SVN命令
         result = subprocess.run(svn_command, shell=True, capture_output=True, text=True, check=True)
         log_output = result.stdout.splitlines()
+        logger.info(f"log_output: {log_output}")
 
         # 解析SVN日志
         folder_activity = defaultdict(int)
 
         for line in log_output:
             if line.startswith("   A") or line.startswith("   M") or line.startswith("   D"):
-                folder = line.split()[-1].split('/')[-2]  # 提取文件夹名
+                folder = line.split('/')[3].split(' ')[0]  # 提取文件夹名
                 folder_activity[folder] += 1
-
+        logger.info(f"folder_activity: {folder_activity}")
         # 获取最活跃的10个子文件夹
         top_folders = sorted(folder_activity.items(), key=lambda x: x[1], reverse=True)[:9]
         top_folders.append(('trunk', 0))

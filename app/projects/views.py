@@ -858,3 +858,20 @@ class Getallenv(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.env_search_error.value[0],
                            message=MessageEnum.env_search_error.value[1])
+
+
+class Getplbypid(MethodView):
+    @login_required
+    def get(self, id):
+        try:
+            project = Project.query.filter_by(id=id).first()
+            if not project:
+                return reponse(code=MessageEnum.project_search.value[0],
+                               message=MessageEnum.project_search.value[1])
+            rdata = {'product': project.product}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                           data=rdata)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.project_search.value[0],
+                           message=MessageEnum.project_search.value[1])
