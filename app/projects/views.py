@@ -177,6 +177,7 @@ class GetPrjById(MethodView):
             rsdatat = {}
             rsdatat['project_id'] = project.id
             rsdatat['project_name'] = project.project_name
+            rsdatat['product'] = project.product
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=rsdatat)
         except Exception as e:
