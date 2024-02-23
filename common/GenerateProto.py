@@ -215,7 +215,6 @@ def get_recently_active_branches_pp():
         # 执行SVN命令
         result = subprocess.run(svn_command, shell=True, capture_output=True, text=True, check=True)
         log_output = result.stdout.splitlines()
-        logger.info(f"log_output: {log_output}")
 
         # 解析SVN日志
         folder_activity = defaultdict(int)
