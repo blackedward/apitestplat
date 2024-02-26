@@ -31,7 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x0blobby.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0fpre_base1.proto\"\x1d\n\rQuickStartREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\";\n\rQuickStartRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0c\n\x04type\x18\x03 \x01(\x05\"\"\n\x10JoinLobbyCashREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\"@\n\x10JoinLobbyCashRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06tempid\x18\x03 \x01(\t\"6\n\x0cLobbyListREQ\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType:\nLOBBY_ROOM\"\xc0\x02\n\rLobbyRoomItem\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\x12\x12\n\nblind_desc\x18\x03 \x01(\t\x12\x0b\n\x03seq\x18\x04 \x01(\x05\x12\x10\n\x08resource\x18\x05 \x01(\x05\x12\x12\n\nplayer_num\x18\x06 \x01(\x05\x12\x11\n\tgame_mode\x18\x07 \x01(\x05\x12\x1c\n\ris_big_rebate\x18\x08 \x01(\x08:\x05\x66\x61lse\x12\x0c\n\x04\x63ity\x18\t \x01(\t\x12\x11\n\tmin_chips\x18\n \x01(\x03\x12\x11\n\tmax_chips\x18\x0b \x01(\x03\x12\x13\n\x0blobby_score\x18\x0c \x01(\x03\x12\x14\n\x0c\x62ombpot_type\x18\r \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18\x0e \x01(\x05\x12\x18\n\x10\x61\x64\x64itional_board\x18\x0f \x01(\x05\"K\n\x0cLobbyListRSP\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\x04room\x18\x02 \x03(\x0b\x32\x11.pb.LobbyRoomItem\"E\n\x0f\x45xchangeRoomREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x12\n\nhand_money\x18\x03 \x01(\x03\"?\n\x0f\x45xchangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06tempid\x18\x03 \x01(\t\"%\n\x07\x46undREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05money\x18\x02 \x01(\x03\"A\n\x07\x46undRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\r\n\x05money\x18\x03 \x01(\x03\x12\x0c\n\x04name\x18\x04 \x01(\t\"2\n\x10LobbyRoomOverBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06tempid\x18\x02 \x01(\t\":\n\x12LobbyTopicStoreREQ\x12\x10\n\x08topic_id\x18\x01 \x01(\x05\x12\x12\n\ntopic_name\x18\x02 \x01(\t\"\x14\n\x12LobbyTopicStoreRSP\"\x16\n\x14\x43ountDownTableBoxREQ\"\x97\x01\n\x15\x43ountDownTableBoxInfo\x12\x10\n\x08phase_id\x18\x01 \x01(\x05\x12\x18\n\x10\x63ount_down_times\x18\x02 \x01(\x05\x12\x0e\n\x06reward\x18\x03 \x01(\x03\x12\x15\n\rcurrent_times\x18\x04 \x01(\x05\x12+\n\x06status\x18\x05 \x01(\x0e\x32\x1b.pb.CountDownTableBoxStatus\"P\n\x14\x43ountDownTableBoxRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12+\n\x08\x62ox_info\x18\x02 \x01(\x0b\x32\x19.pb.CountDownTableBoxInfo\"\x1c\n\x1a\x43ountDownTableBoxRewardREQ\"V\n\x1a\x43ountDownTableBoxRewardRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12+\n\x08\x62ox_info\x18\x02 \x01(\x0b\x32\x19.pb.CountDownTableBoxInfo\"\x15\n\x13\x46irstTableRewardREQ\"M\n\x14\x46irstTableRewardInfo\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x18.pb.FirstTableRewardType\x12\r\n\x05value\x18\x02 \x01(\x03\"Q\n\x13\x46irstTableRewardRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12-\n\x0breward_info\x18\x02 \x03(\x0b\x32\x18.pb.FirstTableRewardInfo\"n\n\x11LobbyHighValueRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\r\n\x05setid\x18\x03 \x01(\t\x12\x0e\n\x06tempid\x18\x04 \x01(\t\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\r\n\x05point\x18\x06 \x01(\x05\"\x1c\n\x1aLobbyHighValueNewRecordRSP\"N\n\x17ModifyRoomLobbyScoreRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06tempid\x18\x02 \x01(\t\x12\x13\n\x0blobby_score\x18\x03 \x01(\x03*\xb7\x01\n\x17\x43ountDownTableBoxStatus\x12$\n COUNT_DOWN_TABLE_BOX_STATUS_NONE\x10\x00\x12(\n$COUNT_DOWN_TABLE_BOX_STATUS_CONTINUE\x10\x01\x12$\n COUNT_DOWN_TABLE_BOX_STATUS_STOP\x10\x02\x12&\n\"COUNT_DOWN_TABLE_BOX_STATUS_REWARD\x10\x03*\x82\x01\n\x14\x46irstTableRewardType\x12 \n\x1c\x46IRST_TABLE_REWARD_TYPE_NONE\x10\x00\x12 \n\x1c\x46IRST_TABLE_REWARD_TYPE_GOLD\x10\x01\x12&\n\"FIRST_TABLE_REWARD_TYPE_SHARK_PACK\x10\x02\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\x0blobby.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0fpre_base1.proto\"\x1d\n\rQuickStartREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\";\n\rQuickStartRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0c\n\x04type\x18\x03 \x01(\x05\"\"\n\x10JoinLobbyCashREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\"@\n\x10JoinLobbyCashRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06tempid\x18\x03 \x01(\t\"6\n\x0cLobbyListREQ\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType:\nLOBBY_ROOM\"\xcf\x02\n\rLobbyRoomItem\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\x12\x12\n\nblind_desc\x18\x03 \x01(\t\x12\x0b\n\x03seq\x18\x04 \x01(\x05\x12\x10\n\x08resource\x18\x05 \x01(\x05\x12\x12\n\nplayer_num\x18\x06 \x01(\x05\x12\x11\n\tgame_mode\x18\x07 \x01(\x05\x12\x1c\n\ris_big_rebate\x18\x08 \x01(\x08:\x05\x66\x61lse\x12\x0c\n\x04\x63ity\x18\t \x01(\t\x12\x11\n\tmin_chips\x18\n \x01(\x03\x12\x11\n\tmax_chips\x18\x0b \x01(\x03\x12\x13\n\x0blobby_score\x18\x0c \x01(\x03\x12\x14\n\x0c\x62ombpot_type\x18\r \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18\x0e \x01(\x05\x12\x18\n\x10\x61\x64\x64itional_board\x18\x0f \x01(\x05\x12\r\n\x05is_in\x18\x10 \x01(\x08\"K\n\x0cLobbyListRSP\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\x04room\x18\x02 \x03(\x0b\x32\x11.pb.LobbyRoomItem\"E\n\x0f\x45xchangeRoomREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x12\n\nhand_money\x18\x03 \x01(\x03\"?\n\x0f\x45xchangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06tempid\x18\x03 \x01(\t\"%\n\x07\x46undREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05money\x18\x02 \x01(\x03\"A\n\x07\x46undRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\r\n\x05money\x18\x03 \x01(\x03\x12\x0c\n\x04name\x18\x04 \x01(\t\"2\n\x10LobbyRoomOverBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06tempid\x18\x02 \x01(\t\":\n\x12LobbyTopicStoreREQ\x12\x10\n\x08topic_id\x18\x01 \x01(\x05\x12\x12\n\ntopic_name\x18\x02 \x01(\t\"\x14\n\x12LobbyTopicStoreRSP\"\x16\n\x14\x43ountDownTableBoxREQ\"\x97\x01\n\x15\x43ountDownTableBoxInfo\x12\x10\n\x08phase_id\x18\x01 \x01(\x05\x12\x18\n\x10\x63ount_down_times\x18\x02 \x01(\x05\x12\x0e\n\x06reward\x18\x03 \x01(\x03\x12\x15\n\rcurrent_times\x18\x04 \x01(\x05\x12+\n\x06status\x18\x05 \x01(\x0e\x32\x1b.pb.CountDownTableBoxStatus\"P\n\x14\x43ountDownTableBoxRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12+\n\x08\x62ox_info\x18\x02 \x01(\x0b\x32\x19.pb.CountDownTableBoxInfo\"\x1c\n\x1a\x43ountDownTableBoxRewardREQ\"V\n\x1a\x43ountDownTableBoxRewardRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12+\n\x08\x62ox_info\x18\x02 \x01(\x0b\x32\x19.pb.CountDownTableBoxInfo\"\x15\n\x13\x46irstTableRewardREQ\"M\n\x14\x46irstTableRewardInfo\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x18.pb.FirstTableRewardType\x12\r\n\x05value\x18\x02 \x01(\x03\"Q\n\x13\x46irstTableRewardRSP\x12\x0b\n\x03ret\x18\x01 \x01(\x05\x12-\n\x0breward_info\x18\x02 \x03(\x0b\x32\x18.pb.FirstTableRewardInfo\"n\n\x11LobbyHighValueRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\r\n\x05setid\x18\x03 \x01(\t\x12\x0e\n\x06tempid\x18\x04 \x01(\t\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\r\n\x05point\x18\x06 \x01(\x05\"\x1c\n\x1aLobbyHighValueNewRecordRSP\"N\n\x17ModifyRoomLobbyScoreRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06tempid\x18\x02 \x01(\t\x12\x13\n\x0blobby_score\x18\x03 \x01(\x03*\xb7\x01\n\x17\x43ountDownTableBoxStatus\x12$\n COUNT_DOWN_TABLE_BOX_STATUS_NONE\x10\x00\x12(\n$COUNT_DOWN_TABLE_BOX_STATUS_CONTINUE\x10\x01\x12$\n COUNT_DOWN_TABLE_BOX_STATUS_STOP\x10\x02\x12&\n\"COUNT_DOWN_TABLE_BOX_STATUS_REWARD\x10\x03*\x82\x01\n\x14\x46irstTableRewardType\x12 \n\x1c\x46IRST_TABLE_REWARD_TYPE_NONE\x10\x00\x12 \n\x1c\x46IRST_TABLE_REWARD_TYPE_GOLD\x10\x01\x12&\n\"FIRST_TABLE_REWARD_TYPE_SHARK_PACK\x10\x02\x42\x06Z\x04./pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,])
 
@@ -60,8 +60,8 @@ _COUNTDOWNTABLEBOXSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1876,
-  serialized_end=2059,
+  serialized_start=1891,
+  serialized_end=2074,
 )
 _sym_db.RegisterEnumDescriptor(_COUNTDOWNTABLEBOXSTATUS)
 
@@ -87,8 +87,8 @@ _FIRSTTABLEREWARDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2062,
-  serialized_end=2192,
+  serialized_start=2077,
+  serialized_end=2207,
 )
 _sym_db.RegisterEnumDescriptor(_FIRSTTABLEREWARDTYPE)
 
@@ -398,6 +398,13 @@ _LOBBYROOMITEM = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_in', full_name='pb.LobbyRoomItem.is_in', index=15,
+      number=16, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -411,7 +418,7 @@ _LOBBYROOMITEM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=315,
-  serialized_end=635,
+  serialized_end=650,
 )
 
 
@@ -448,8 +455,8 @@ _LOBBYLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=637,
-  serialized_end=712,
+  serialized_start=652,
+  serialized_end=727,
 )
 
 
@@ -493,8 +500,8 @@ _EXCHANGEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=714,
-  serialized_end=783,
+  serialized_start=729,
+  serialized_end=798,
 )
 
 
@@ -538,8 +545,8 @@ _EXCHANGEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=785,
-  serialized_end=848,
+  serialized_start=800,
+  serialized_end=863,
 )
 
 
@@ -576,8 +583,8 @@ _FUNDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=850,
-  serialized_end=887,
+  serialized_start=865,
+  serialized_end=902,
 )
 
 
@@ -628,8 +635,8 @@ _FUNDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=889,
-  serialized_end=954,
+  serialized_start=904,
+  serialized_end=969,
 )
 
 
@@ -666,8 +673,8 @@ _LOBBYROOMOVERBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=956,
-  serialized_end=1006,
+  serialized_start=971,
+  serialized_end=1021,
 )
 
 
@@ -704,8 +711,8 @@ _LOBBYTOPICSTOREREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1008,
-  serialized_end=1066,
+  serialized_start=1023,
+  serialized_end=1081,
 )
 
 
@@ -728,8 +735,8 @@ _LOBBYTOPICSTORERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1068,
-  serialized_end=1088,
+  serialized_start=1083,
+  serialized_end=1103,
 )
 
 
@@ -752,8 +759,8 @@ _COUNTDOWNTABLEBOXREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1090,
-  serialized_end=1112,
+  serialized_start=1105,
+  serialized_end=1127,
 )
 
 
@@ -811,8 +818,8 @@ _COUNTDOWNTABLEBOXINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1115,
-  serialized_end=1266,
+  serialized_start=1130,
+  serialized_end=1281,
 )
 
 
@@ -849,8 +856,8 @@ _COUNTDOWNTABLEBOXRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1268,
-  serialized_end=1348,
+  serialized_start=1283,
+  serialized_end=1363,
 )
 
 
@@ -873,8 +880,8 @@ _COUNTDOWNTABLEBOXREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1350,
-  serialized_end=1378,
+  serialized_start=1365,
+  serialized_end=1393,
 )
 
 
@@ -911,8 +918,8 @@ _COUNTDOWNTABLEBOXREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1380,
-  serialized_end=1466,
+  serialized_start=1395,
+  serialized_end=1481,
 )
 
 
@@ -935,8 +942,8 @@ _FIRSTTABLEREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1468,
-  serialized_end=1489,
+  serialized_start=1483,
+  serialized_end=1504,
 )
 
 
@@ -973,8 +980,8 @@ _FIRSTTABLEREWARDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1491,
-  serialized_end=1568,
+  serialized_start=1506,
+  serialized_end=1583,
 )
 
 
@@ -1011,8 +1018,8 @@ _FIRSTTABLEREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1570,
-  serialized_end=1651,
+  serialized_start=1585,
+  serialized_end=1666,
 )
 
 
@@ -1077,8 +1084,8 @@ _LOBBYHIGHVALUERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1653,
-  serialized_end=1763,
+  serialized_start=1668,
+  serialized_end=1778,
 )
 
 
@@ -1101,8 +1108,8 @@ _LOBBYHIGHVALUENEWRECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1765,
-  serialized_end=1793,
+  serialized_start=1780,
+  serialized_end=1808,
 )
 
 
@@ -1146,8 +1153,8 @@ _MODIFYROOMLOBBYSCORERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1795,
-  serialized_end=1873,
+  serialized_start=1810,
+  serialized_end=1888,
 )
 
 _LOBBYLISTREQ.fields_by_name['type'].enum_type = pre__base__pb2._ROOMTYPE

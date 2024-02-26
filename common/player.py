@@ -127,8 +127,10 @@ class Player(object):
         }
         self.client.uid = uid
         self.key = key
+        logger.info(req)
         self.client.send('UserLoginREQ', req)
         msg = self.client.recv("UserLoginRSP")
+
         logger.info(msg.body)
         if msg.body['code'] == 0:
             logger.info('uid:{} 登录成功'.format(self.client.uid))

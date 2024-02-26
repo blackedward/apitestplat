@@ -29,7 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x0f\x63lub_base.proto\x12\x02pb\x1a\nbase.proto\x1a\x0epre_base.proto\"F\n\x0bLeagueBrief\x12\x10\n\x08room_num\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x13\n\x0broom_num_h5\x18\x03 \x01(\x05\"\x97\x02\n\tClubBrief\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\r\n\x05level\x18\x04 \x01(\x05\x12\x0c\n\x04role\x18\x05 \x01(\x05\x12\x10\n\x08room_num\x18\x06 \x01(\x05\x12$\n\x0bleague_list\x18\x07 \x03(\x0b\x32\x0f.pb.LeagueBrief\x12\x13\n\x0broom_num_h5\x18\x08 \x01(\x05\x12\x19\n\x0esuper_leagueid\x18\t \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\n \x01(\x05:\x01\x30\x12\x11\n\x06ppstid\x18\x0b \x01(\x05:\x01\x30\x12\x11\n\x06ppsrid\x18\x0c \x01(\x05:\x01\x30\x12\x15\n\x06is_new\x18\r \x01(\x08:\x05\x66\x61lse\"2\n\x0fInsuranceConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x0cLeagueConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\",\n\x08PineCost\x12\x12\n\nbase_score\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x0bTongitsCost\x12\x12\n\nbase_score\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"-\n\nZoomConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\",\n\x0eNLH6PlusConfig\x12\x0c\n\x04\x61nte\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"/\n\x0c\x45vchopConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x11\x45vchop6PlusConfig\x12\x0c\n\x04\x61nte\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"i\n\tCapConfig\x12\'\n\troom_type\x18\x01 \x01(\x0e\x32\x14.pb.ClubCashRoomType\x12\r\n\x05level\x18\x02 \x01(\x03\x12\x0e\n\x03\x63\x61p\x18\x03 \x01(\x05:\x01\x30\x12\x14\n\x05valid\x18\x04 \x01(\x08:\x05\x66\x61lse\"/\n\x10\x43ommonCostConfig\x12\r\n\x05\x62lind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"\xd8\x01\n\nPPSRConfig\x12\'\n\rleague_config\x18\x01 \x03(\x0b\x32\x10.pb.LeagueConfig\x12#\n\x0bzoom_config\x18\x02 \x03(\x0b\x32\x0e.pb.ZoomConfig\x12-\n\x11nlh_6_plus_config\x18\x03 \x03(\x0b\x32\x12.pb.NLH6PlusConfig\x12 \n\nofc_config\x18\x04 \x03(\x0b\x32\x0c.pb.PineCost\x12+\n\x15ofc_time_limit_config\x18\x05 \x03(\x0b\x32\x0c.pb.PineCost\"\xa5\x07\n\nClubConfig\x12\x14\n\x0cppchips_rate\x18\x01 \x01(\x03\x12\x10\n\x08\x63\x61p_type\x18\x02 \x01(\x05\x12\'\n\rleague_config\x18\x03 \x03(\x0b\x32\x10.pb.LeagueConfig\x12-\n\x10insurance_config\x18\x04 \x03(\x0b\x32\x13.pb.InsuranceConfig\x12\x13\n\x0bmicro_blind\x18\x05 \x01(\x08\x12\x15\n\rmtt_min_buyin\x18\x06 \x01(\x08\x12\x1f\n\tpine_cost\x18\x07 \x03(\x0b\x32\x0c.pb.PineCost\x12#\n\x0bzoom_config\x18\x08 \x03(\x0b\x32\x0e.pb.ZoomConfig\x12\x17\n\x0fofc_micro_blind\x18\t \x01(\x08\x12-\n\x11nlh_6_plus_config\x18\n \x03(\x0b\x32\x12.pb.NLH6PlusConfig\x12\x1b\n\x13jackpot_upper_limit\x18\x0b \x01(\x03\x12\x1c\n\ris_mixed_free\x18\x0c \x01(\x08:\x05\x66\x61lse\x12\'\n\revchop_config\x18\r \x03(\x0b\x32\x10.pb.EvchopConfig\x12\x32\n\x13\x65vchop_6plus_config\x18\x0e \x03(\x0b\x32\x15.pb.Evchop6PlusConfig\x12\x1c\n\ris_can_evchop\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cis_hilo_free\x18\x10 \x01(\x08:\x05\x66\x61lse\x12!\n\ncap_config\x18\x11 \x03(\x0b\x32\r.pb.CapConfig\x12\x11\n\tmin_blind\x18\x12 \x01(\x03\x12\x18\n\x10spinup_max_buyin\x18\x13 \x01(\x05\x12\x15\n\ris_can_spinup\x18\x14 \x01(\x08\x12\x17\n\x0fis_3_1_nlh_free\x18\x15 \x01(\x08\x12\x1b\n\x13is_seven_deuce_free\x18\x16 \x01(\x08\x12,\n\x0etp_cost_config\x18\x17 \x03(\x0b\x32\x14.pb.CommonCostConfig\x12\x15\n\ris_pusoy_free\x18\x18 \x01(\x08\x12#\n\x0bppsr_config\x18\x19 \x01(\x0b\x32\x0e.pb.PPSRConfig\x12\x1c\n\x10mtt_min_buyin_v2\x18\x1a \x01(\x05:\x02\x31\x30\x12\x12\n\ncolor_cost\x18\x1b \x01(\x03\x12%\n\x0ctongits_cost\x18\x1c \x03(\x0b\x32\x0f.pb.TongitsCost\x12*\n\x14pine_time_limit_cost\x18\x1d \x03(\x0b\x32\x0c.pb.PineCost\"\xa6\x02\n\rClubStatsData\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\x03\x12\r\n\x05\x62uyin\x18\x02 \x01(\x03\x12\x13\n\x0buser_profit\x18\x03 \x01(\x03\x12\x18\n\x10insurance_profit\x18\x04 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x05 \x01(\x03\x12\x16\n\x0ejackpot_reward\x18\x06 \x01(\x03\x12\x11\n\thands_cnt\x18\x07 \x01(\x05\x12\x10\n\x08sets_cnt\x18\x08 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\t \x01(\x05\x12\x11\n\tclub_name\x18\n \x01(\t\x12\x11\n\tclub_icon\x18\x0b \x01(\t\x12\x0e\n\x06ticket\x18\x0c \x01(\x03\x12\x18\n\revchop_profit\x18\r \x01(\x03:\x01\x30\x12\x18\n\rspinup_profit\x18\x0e \x01(\x03:\x01\x30\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\x0f\x63lub_base.proto\x12\x02pb\x1a\nbase.proto\x1a\x0epre_base.proto\"F\n\x0bLeagueBrief\x12\x10\n\x08room_num\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x13\n\x0broom_num_h5\x18\x03 \x01(\x05\"\x97\x02\n\tClubBrief\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\r\n\x05level\x18\x04 \x01(\x05\x12\x0c\n\x04role\x18\x05 \x01(\x05\x12\x10\n\x08room_num\x18\x06 \x01(\x05\x12$\n\x0bleague_list\x18\x07 \x03(\x0b\x32\x0f.pb.LeagueBrief\x12\x13\n\x0broom_num_h5\x18\x08 \x01(\x05\x12\x19\n\x0esuper_leagueid\x18\t \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\n \x01(\x05:\x01\x30\x12\x11\n\x06ppstid\x18\x0b \x01(\x05:\x01\x30\x12\x11\n\x06ppsrid\x18\x0c \x01(\x05:\x01\x30\x12\x15\n\x06is_new\x18\r \x01(\x08:\x05\x66\x61lse\"2\n\x0fInsuranceConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x0cLeagueConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\",\n\x08PineCost\x12\x12\n\nbase_score\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x0bTongitsCost\x12\x12\n\nbase_score\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\",\n\x08SekaCost\x12\x12\n\nbase_score\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"-\n\nZoomConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\",\n\x0eNLH6PlusConfig\x12\x0c\n\x04\x61nte\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"/\n\x0c\x45vchopConfig\x12\x11\n\tbig_blind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"/\n\x11\x45vchop6PlusConfig\x12\x0c\n\x04\x61nte\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x03\"i\n\tCapConfig\x12\'\n\troom_type\x18\x01 \x01(\x0e\x32\x14.pb.ClubCashRoomType\x12\r\n\x05level\x18\x02 \x01(\x03\x12\x0e\n\x03\x63\x61p\x18\x03 \x01(\x05:\x01\x30\x12\x14\n\x05valid\x18\x04 \x01(\x08:\x05\x66\x61lse\"/\n\x10\x43ommonCostConfig\x12\r\n\x05\x62lind\x18\x01 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x02 \x01(\x05\"\xd8\x01\n\nPPSRConfig\x12\'\n\rleague_config\x18\x01 \x03(\x0b\x32\x10.pb.LeagueConfig\x12#\n\x0bzoom_config\x18\x02 \x03(\x0b\x32\x0e.pb.ZoomConfig\x12-\n\x11nlh_6_plus_config\x18\x03 \x03(\x0b\x32\x12.pb.NLH6PlusConfig\x12 \n\nofc_config\x18\x04 \x03(\x0b\x32\x0c.pb.PineCost\x12+\n\x15ofc_time_limit_config\x18\x05 \x03(\x0b\x32\x0c.pb.PineCost\"\xc6\x07\n\nClubConfig\x12\x14\n\x0cppchips_rate\x18\x01 \x01(\x03\x12\x10\n\x08\x63\x61p_type\x18\x02 \x01(\x05\x12\'\n\rleague_config\x18\x03 \x03(\x0b\x32\x10.pb.LeagueConfig\x12-\n\x10insurance_config\x18\x04 \x03(\x0b\x32\x13.pb.InsuranceConfig\x12\x13\n\x0bmicro_blind\x18\x05 \x01(\x08\x12\x15\n\rmtt_min_buyin\x18\x06 \x01(\x08\x12\x1f\n\tpine_cost\x18\x07 \x03(\x0b\x32\x0c.pb.PineCost\x12#\n\x0bzoom_config\x18\x08 \x03(\x0b\x32\x0e.pb.ZoomConfig\x12\x17\n\x0fofc_micro_blind\x18\t \x01(\x08\x12-\n\x11nlh_6_plus_config\x18\n \x03(\x0b\x32\x12.pb.NLH6PlusConfig\x12\x1b\n\x13jackpot_upper_limit\x18\x0b \x01(\x03\x12\x1c\n\ris_mixed_free\x18\x0c \x01(\x08:\x05\x66\x61lse\x12\'\n\revchop_config\x18\r \x03(\x0b\x32\x10.pb.EvchopConfig\x12\x32\n\x13\x65vchop_6plus_config\x18\x0e \x03(\x0b\x32\x15.pb.Evchop6PlusConfig\x12\x1c\n\ris_can_evchop\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cis_hilo_free\x18\x10 \x01(\x08:\x05\x66\x61lse\x12!\n\ncap_config\x18\x11 \x03(\x0b\x32\r.pb.CapConfig\x12\x11\n\tmin_blind\x18\x12 \x01(\x03\x12\x18\n\x10spinup_max_buyin\x18\x13 \x01(\x05\x12\x15\n\ris_can_spinup\x18\x14 \x01(\x08\x12\x17\n\x0fis_3_1_nlh_free\x18\x15 \x01(\x08\x12\x1b\n\x13is_seven_deuce_free\x18\x16 \x01(\x08\x12,\n\x0etp_cost_config\x18\x17 \x03(\x0b\x32\x14.pb.CommonCostConfig\x12\x15\n\ris_pusoy_free\x18\x18 \x01(\x08\x12#\n\x0bppsr_config\x18\x19 \x01(\x0b\x32\x0e.pb.PPSRConfig\x12\x1c\n\x10mtt_min_buyin_v2\x18\x1a \x01(\x05:\x02\x31\x30\x12\x12\n\ncolor_cost\x18\x1b \x01(\x03\x12%\n\x0ctongits_cost\x18\x1c \x03(\x0b\x32\x0f.pb.TongitsCost\x12*\n\x14pine_time_limit_cost\x18\x1d \x03(\x0b\x32\x0c.pb.PineCost\x12\x1f\n\tseka_cost\x18\x1e \x03(\x0b\x32\x0c.pb.SekaCost\"\xa6\x02\n\rClubStatsData\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\x03\x12\r\n\x05\x62uyin\x18\x02 \x01(\x03\x12\x13\n\x0buser_profit\x18\x03 \x01(\x03\x12\x18\n\x10insurance_profit\x18\x04 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x05 \x01(\x03\x12\x16\n\x0ejackpot_reward\x18\x06 \x01(\x03\x12\x11\n\thands_cnt\x18\x07 \x01(\x05\x12\x10\n\x08sets_cnt\x18\x08 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\t \x01(\x05\x12\x11\n\tclub_name\x18\n \x01(\t\x12\x11\n\tclub_icon\x18\x0b \x01(\t\x12\x0e\n\x06ticket\x18\x0c \x01(\x03\x12\x18\n\revchop_profit\x18\r \x01(\x03:\x01\x30\x12\x18\n\rspinup_profit\x18\x0e \x01(\x03:\x01\x30\x42\x06Z\x04./pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,])
 
@@ -348,6 +348,44 @@ _TONGITSCOST = _descriptor.Descriptor(
 )
 
 
+_SEKACOST = _descriptor.Descriptor(
+  name='SekaCost',
+  full_name='pb.SekaCost',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='base_score', full_name='pb.SekaCost.base_score', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cost', full_name='pb.SekaCost.cost', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=601,
+  serialized_end=645,
+)
+
+
 _ZOOMCONFIG = _descriptor.Descriptor(
   name='ZoomConfig',
   full_name='pb.ZoomConfig',
@@ -381,8 +419,8 @@ _ZOOMCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=601,
-  serialized_end=646,
+  serialized_start=647,
+  serialized_end=692,
 )
 
 
@@ -419,8 +457,8 @@ _NLH6PLUSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=648,
-  serialized_end=692,
+  serialized_start=694,
+  serialized_end=738,
 )
 
 
@@ -457,8 +495,8 @@ _EVCHOPCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=694,
-  serialized_end=741,
+  serialized_start=740,
+  serialized_end=787,
 )
 
 
@@ -495,8 +533,8 @@ _EVCHOP6PLUSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=743,
-  serialized_end=790,
+  serialized_start=789,
+  serialized_end=836,
 )
 
 
@@ -547,8 +585,8 @@ _CAPCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=792,
-  serialized_end=897,
+  serialized_start=838,
+  serialized_end=943,
 )
 
 
@@ -585,8 +623,8 @@ _COMMONCOSTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=899,
-  serialized_end=946,
+  serialized_start=945,
+  serialized_end=992,
 )
 
 
@@ -644,8 +682,8 @@ _PPSRCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=949,
-  serialized_end=1165,
+  serialized_start=995,
+  serialized_end=1211,
 )
 
 
@@ -859,6 +897,13 @@ _CLUBCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_cost', full_name='pb.ClubConfig.seka_cost', index=29,
+      number=30, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -871,8 +916,8 @@ _CLUBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1168,
-  serialized_end=2101,
+  serialized_start=1214,
+  serialized_end=2180,
 )
 
 
@@ -993,8 +1038,8 @@ _CLUBSTATSDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2104,
-  serialized_end=2398,
+  serialized_start=2183,
+  serialized_end=2477,
 )
 
 _CLUBBRIEF.fields_by_name['league_list'].message_type = _LEAGUEBRIEF
@@ -1016,12 +1061,14 @@ _CLUBCONFIG.fields_by_name['tp_cost_config'].message_type = _COMMONCOSTCONFIG
 _CLUBCONFIG.fields_by_name['ppsr_config'].message_type = _PPSRCONFIG
 _CLUBCONFIG.fields_by_name['tongits_cost'].message_type = _TONGITSCOST
 _CLUBCONFIG.fields_by_name['pine_time_limit_cost'].message_type = _PINECOST
+_CLUBCONFIG.fields_by_name['seka_cost'].message_type = _SEKACOST
 DESCRIPTOR.message_types_by_name['LeagueBrief'] = _LEAGUEBRIEF
 DESCRIPTOR.message_types_by_name['ClubBrief'] = _CLUBBRIEF
 DESCRIPTOR.message_types_by_name['InsuranceConfig'] = _INSURANCECONFIG
 DESCRIPTOR.message_types_by_name['LeagueConfig'] = _LEAGUECONFIG
 DESCRIPTOR.message_types_by_name['PineCost'] = _PINECOST
 DESCRIPTOR.message_types_by_name['TongitsCost'] = _TONGITSCOST
+DESCRIPTOR.message_types_by_name['SekaCost'] = _SEKACOST
 DESCRIPTOR.message_types_by_name['ZoomConfig'] = _ZOOMCONFIG
 DESCRIPTOR.message_types_by_name['NLH6PlusConfig'] = _NLH6PLUSCONFIG
 DESCRIPTOR.message_types_by_name['EvchopConfig'] = _EVCHOPCONFIG
@@ -1074,6 +1121,13 @@ TongitsCost = _reflection.GeneratedProtocolMessageType('TongitsCost', (_message.
   # @@protoc_insertion_point(class_scope:pb.TongitsCost)
   ))
 _sym_db.RegisterMessage(TongitsCost)
+
+SekaCost = _reflection.GeneratedProtocolMessageType('SekaCost', (_message.Message,), dict(
+  DESCRIPTOR = _SEKACOST,
+  __module__ = 'club_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.SekaCost)
+  ))
+_sym_db.RegisterMessage(SekaCost)
 
 ZoomConfig = _reflection.GeneratedProtocolMessageType('ZoomConfig', (_message.Message,), dict(
   DESCRIPTOR = _ZOOMCONFIG,

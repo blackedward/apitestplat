@@ -37,6 +37,7 @@ import tp_pb2 as tp__pb2
 import lucky_draw_pb2 as lucky__draw__pb2
 import colorgame_pb2 as colorgame__pb2
 import tongits_pb2 as tongits__pb2
+import seka_pb2 as seka__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -44,9 +45,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\tpb6.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\npine.proto\x1a\x0e\x63\x61lltime.proto\x1a\x0fpre_base1.proto\x1a\tsng.proto\x1a\tpb1.proto\x1a\tpb4.proto\x1a\x0bpusoy.proto\x1a\x08tp.proto\x1a\x10lucky_draw.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\"|\n\x0eShowCaptchaRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x17\n\x0fslide_parameter\x18\x02 \x01(\x05\x12\x16\n\x0eicon_parameter\x18\x03 \x03(\x05\x12\x15\n\rnum_parameter\x18\x04 \x03(\x05\x12\x14\n\tleft_time\x18\x05 \x01(\x05:\x01\x30\"\x1d\n\rEndCaptchaRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\"b\n\nCaptchaREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x17\n\x0fslide_parameter\x18\x02 \x01(\x05\x12\x16\n\x0eicon_parameter\x18\x03 \x03(\x05\x12\x15\n\rnum_parameter\x18\x04 \x01(\x05\"\x1a\n\nCaptchaRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"v\n\x13\x43\x61ptchaFailLeaveRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x1f\n\troom_type\x18\x02 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x03 \x01(\x0e\x32\x0c.pb.GameMode\x12\r\n\x05\x62lind\x18\x04 \x01(\x05\"\x97\n\n\x0c\x45nterRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\troom_list\x18\x0e \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12\x0c\n\x04type\x18\x0f \x01(\x05\x12.\n\x0bspinup_info\x18\x10 \x01(\x0b\x32\x19.pb.SpinUpDrawLotteryInfo\x12-\n\x0fguess_hand_info\x18\x11 \x01(\x0b\x32\x14.pb.GuessHandSubInfo\x12(\n\nstorm_info\x18\x12 \x01(\x0b\x32\x14.pb.PPchipsStormInfo\x12\x39\n\x17waiting_game_start_info\x18\x13 \x01(\x0b\x32\x18.pb.WaitingGameStartInfo\x12\'\n\rcallgame_info\x18\x14 \x01(\x0b\x32\x10.pb.CallGameInfo\x12\x1f\n\tuser_vpip\x18\x15 \x01(\x0b\x32\x0c.pb.UserVpip\x12(\n\x0c\x63\x61ptcha_info\x18\x16 \x01(\x0b\x32\x12.pb.ShowCaptchaRSP\x12\x18\n\ruser_leagueid\x18\x17 \x01(\x05:\x01\x30\x12\x1e\n\x13user_super_leagueid\x18\x18 \x01(\x05:\x01\x30\x12*\n\x0fpusoy_room_info\x18\x19 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\x12.\n\x11pusoy_room_status\x18\x1a \x01(\x0b\x32\x13.pb.PusoyRoomStatus\x12$\n\x0ctp_room_info\x18\x1b \x01(\x0b\x32\x0e.pb.TpRoomInfo\x12*\n\x0ftp_table_status\x18\x1c \x01(\x0b\x32\x11.pb.TpTableStatus\x12.\n\x11lucky_draw_config\x18\x1d \x01(\x0b\x32\x13.pb.LuckyDrawConfig\x12*\n\x0f\x63olor_room_info\x18\x1e \x01(\x0b\x32\x11.pb.ColorRoomInfo\x12.\n\x11\x63olor_room_status\x18\x1f \x01(\x0b\x32\x13.pb.ColorRoomStatus\x12.\n\x11tongits_room_info\x18  \x01(\x0b\x32\x13.pb.TongitsRoomInfo\x12\x32\n\x13tongits_room_status\x18! \x01(\x0b\x32\x15.pb.TongitsRoomStatus\"&\n\x0e\x44iscardCardREQ\x12\x14\n\x0c\x64iscard_card\x18\x01 \x01(\x05\"4\n\x0e\x44iscardCardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0c\x64iscard_card\x18\x02 \x01(\x05\" \n\x0e\x44iscardCardBRC\x12\x0e\n\x06seatid\x18\x01 \x03(\x05\"#\n\x0eShowDiscardBRC\x12\x11\n\tleft_time\x18\x01 \x01(\x05\"\x0f\n\rEndDiscardBRCB\x06Z\x04./pb')
+  serialized_pb=_b('\n\tpb6.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\npine.proto\x1a\x0e\x63\x61lltime.proto\x1a\x0fpre_base1.proto\x1a\tsng.proto\x1a\tpb1.proto\x1a\tpb4.proto\x1a\x0bpusoy.proto\x1a\x08tp.proto\x1a\x10lucky_draw.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\x1a\nseka.proto\"|\n\x0eShowCaptchaRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x17\n\x0fslide_parameter\x18\x02 \x01(\x05\x12\x16\n\x0eicon_parameter\x18\x03 \x03(\x05\x12\x15\n\rnum_parameter\x18\x04 \x03(\x05\x12\x14\n\tleft_time\x18\x05 \x01(\x05:\x01\x30\"\x1d\n\rEndCaptchaRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\"b\n\nCaptchaREQ\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x17\n\x0fslide_parameter\x18\x02 \x01(\x05\x12\x16\n\x0eicon_parameter\x18\x03 \x03(\x05\x12\x15\n\rnum_parameter\x18\x04 \x01(\x05\"\x1a\n\nCaptchaRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"v\n\x13\x43\x61ptchaFailLeaveRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x1f\n\troom_type\x18\x02 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x03 \x01(\x0e\x32\x0c.pb.GameMode\x12\r\n\x05\x62lind\x18\x04 \x01(\x05\"\xef\n\n\x0c\x45nterRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\troom_list\x18\x0e \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12\x0c\n\x04type\x18\x0f \x01(\x05\x12.\n\x0bspinup_info\x18\x10 \x01(\x0b\x32\x19.pb.SpinUpDrawLotteryInfo\x12-\n\x0fguess_hand_info\x18\x11 \x01(\x0b\x32\x14.pb.GuessHandSubInfo\x12(\n\nstorm_info\x18\x12 \x01(\x0b\x32\x14.pb.PPchipsStormInfo\x12\x39\n\x17waiting_game_start_info\x18\x13 \x01(\x0b\x32\x18.pb.WaitingGameStartInfo\x12\'\n\rcallgame_info\x18\x14 \x01(\x0b\x32\x10.pb.CallGameInfo\x12\x1f\n\tuser_vpip\x18\x15 \x01(\x0b\x32\x0c.pb.UserVpip\x12(\n\x0c\x63\x61ptcha_info\x18\x16 \x01(\x0b\x32\x12.pb.ShowCaptchaRSP\x12\x18\n\ruser_leagueid\x18\x17 \x01(\x05:\x01\x30\x12\x1e\n\x13user_super_leagueid\x18\x18 \x01(\x05:\x01\x30\x12*\n\x0fpusoy_room_info\x18\x19 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\x12.\n\x11pusoy_room_status\x18\x1a \x01(\x0b\x32\x13.pb.PusoyRoomStatus\x12$\n\x0ctp_room_info\x18\x1b \x01(\x0b\x32\x0e.pb.TpRoomInfo\x12*\n\x0ftp_table_status\x18\x1c \x01(\x0b\x32\x11.pb.TpTableStatus\x12.\n\x11lucky_draw_config\x18\x1d \x01(\x0b\x32\x13.pb.LuckyDrawConfig\x12*\n\x0f\x63olor_room_info\x18\x1e \x01(\x0b\x32\x11.pb.ColorRoomInfo\x12.\n\x11\x63olor_room_status\x18\x1f \x01(\x0b\x32\x13.pb.ColorRoomStatus\x12.\n\x11tongits_room_info\x18  \x01(\x0b\x32\x13.pb.TongitsRoomInfo\x12\x32\n\x13tongits_room_status\x18! \x01(\x0b\x32\x15.pb.TongitsRoomStatus\x12(\n\x0eseka_room_info\x18\" \x01(\x0b\x32\x10.pb.SekaRoomInfo\x12,\n\x10seka_room_status\x18# \x01(\x0b\x32\x12.pb.SekaRoomStatus\"&\n\x0e\x44iscardCardREQ\x12\x14\n\x0c\x64iscard_card\x18\x01 \x01(\x05\"4\n\x0e\x44iscardCardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0c\x64iscard_card\x18\x02 \x01(\x05\" \n\x0e\x44iscardCardBRC\x12\x0e\n\x06seatid\x18\x01 \x03(\x05\"#\n\x0eShowDiscardBRC\x12\x11\n\tleft_time\x18\x01 \x01(\x05\"\x0f\n\rEndDiscardBRCB\x06Z\x04./pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,calltime__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pb4__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,lucky__draw__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,calltime__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pb4__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,lucky__draw__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,seka__pb2.DESCRIPTOR,])
 
 
 
@@ -105,8 +106,8 @@ _SHOWCAPTCHARSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=196,
-  serialized_end=320,
+  serialized_start=208,
+  serialized_end=332,
 )
 
 
@@ -136,8 +137,8 @@ _ENDCAPTCHARSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=322,
-  serialized_end=351,
+  serialized_start=334,
+  serialized_end=363,
 )
 
 
@@ -188,8 +189,8 @@ _CAPTCHAREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=353,
-  serialized_end=451,
+  serialized_start=365,
+  serialized_end=463,
 )
 
 
@@ -219,8 +220,8 @@ _CAPTCHARSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=453,
-  serialized_end=479,
+  serialized_start=465,
+  serialized_end=491,
 )
 
 
@@ -271,8 +272,8 @@ _CAPTCHAFAILLEAVERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=481,
-  serialized_end=599,
+  serialized_start=493,
+  serialized_end=611,
 )
 
 
@@ -514,6 +515,20 @@ _ENTERROOMRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room_info', full_name='pb.EnterRoomRSP.seka_room_info', index=33,
+      number=34, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room_status', full_name='pb.EnterRoomRSP.seka_room_status', index=34,
+      number=35, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -526,8 +541,8 @@ _ENTERROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=602,
-  serialized_end=1905,
+  serialized_start=614,
+  serialized_end=2005,
 )
 
 
@@ -557,8 +572,8 @@ _DISCARDCARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1907,
-  serialized_end=1945,
+  serialized_start=2007,
+  serialized_end=2045,
 )
 
 
@@ -595,8 +610,8 @@ _DISCARDCARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1947,
-  serialized_end=1999,
+  serialized_start=2047,
+  serialized_end=2099,
 )
 
 
@@ -626,8 +641,8 @@ _DISCARDCARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2001,
-  serialized_end=2033,
+  serialized_start=2101,
+  serialized_end=2133,
 )
 
 
@@ -657,8 +672,8 @@ _SHOWDISCARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2035,
-  serialized_end=2070,
+  serialized_start=2135,
+  serialized_end=2170,
 )
 
 
@@ -681,8 +696,8 @@ _ENDDISCARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2072,
-  serialized_end=2087,
+  serialized_start=2172,
+  serialized_end=2187,
 )
 
 _CAPTCHAFAILLEAVERSP.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
@@ -714,6 +729,8 @@ _ENTERROOMRSP.fields_by_name['color_room_info'].message_type = colorgame__pb2._C
 _ENTERROOMRSP.fields_by_name['color_room_status'].message_type = colorgame__pb2._COLORROOMSTATUS
 _ENTERROOMRSP.fields_by_name['tongits_room_info'].message_type = tongits__pb2._TONGITSROOMINFO
 _ENTERROOMRSP.fields_by_name['tongits_room_status'].message_type = tongits__pb2._TONGITSROOMSTATUS
+_ENTERROOMRSP.fields_by_name['seka_room_info'].message_type = seka__pb2._SEKAROOMINFO
+_ENTERROOMRSP.fields_by_name['seka_room_status'].message_type = seka__pb2._SEKAROOMSTATUS
 DESCRIPTOR.message_types_by_name['ShowCaptchaRSP'] = _SHOWCAPTCHARSP
 DESCRIPTOR.message_types_by_name['EndCaptchaRSP'] = _ENDCAPTCHARSP
 DESCRIPTOR.message_types_by_name['CaptchaREQ'] = _CAPTCHAREQ

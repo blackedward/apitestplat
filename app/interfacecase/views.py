@@ -1290,7 +1290,10 @@ class Executeproto(MethodView):
             source = data.get('source')
             if '/' in branch_name:
                 branch_name = branch_name.replace('/', '_')
-            params = {"uid": data.get('uid'), "req": data.get('proto_content')}
+            if not data.get('proto_content') or data.get('proto_content') is None:
+                params = {}
+            else:
+                params = data.get('proto_content')
 
             # Use multiprocessing Queue to communicate results
             result_queue = multiprocessing.Queue()

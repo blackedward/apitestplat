@@ -109,13 +109,13 @@ class Client(object):
             self.isStop = False
             total_time = int((time.time() - start_time) * 1000)
             events.request.fire(request_type='socket', name='connect', response_time=total_time,
-                                        response_length=0)
+                                response_length=0)
         except Exception as e:
             logger.error(traceback.format_exc())
             logger.info("connected failed")
             total_time = int((time.time() - start_time) * 1000)
             events.request.fire(request_type='socket', name='connect', response_time=total_time, exception=e,
-                                        response_length=0)
+                                response_length=0)
             return False
         self.recvBuffer = bytes()
         SocketProcesser.add({

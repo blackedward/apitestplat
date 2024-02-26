@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x12hand_mission.proto\x12\x02pb\x1a\tpb2.proto\"\xf4\x04\n\x14HandMissionGameModes\x12\x19\n\x11GAME_MODE_NLH_NLH\x18\x01 \x01(\x08\x12\x19\n\x11GAME_MODE_NLH_AOF\x18\x02 \x01(\x08\x12\x1e\n\x16GAME_MODE_NLH_SIX_PLUS\x18\x03 \x01(\x08\x12\x1c\n\x14GAME_MODE_NLH_NLH_31\x18\x04 \x01(\x08\x12\x1d\n\x15GAME_MODE_NLH_NLH_31F\x18\x05 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO4\x18\x06 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO5\x18\x07 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO6\x18\x08 \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO4HL\x18\t \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO5HL\x18\n \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO6HL\x18\x0b \x01(\x08\x12\x1b\n\x13GAME_MODE_FLASH_NLH\x18\x0c \x01(\x08\x12\x1c\n\x14GAME_MODE_FLASH_PLO4\x18\r \x01(\x08\x12\x1c\n\x14GAME_MODE_FLASH_PLO5\x18\x0e \x01(\x08\x12 \n\x18GAME_MODE_MIXED_NLH_PLO4\x18\x0f \x01(\x08\x12 \n\x18GAME_MODE_MIXED_NLH_PLO5\x18\x10 \x01(\x08\x12\x1d\n\x15GAME_MODE_OTHER_PUSOY\x18\x11 \x01(\x08\x12\x1b\n\x13GAME_MODE_OTHER_OFC\x18\x12 \x01(\x08\x12!\n\x19GAME_MODE_OTHER_TEENPATTI\x18\x13 \x01(\x08\x12\x1f\n\x17GAME_MODE_OTHER_TONGITS\x18\x14 \x01(\x08\"\xe0\x05\n\x11HandMissionConfig\x12\x1b\n\x0fhand_mission_id\x18\x01 \x01(\x03:\x02-1\x12\x14\n\x08moduleid\x18\x02 \x01(\x03:\x02-1\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\x12\x13\n\x0b\x63reator_uid\x18\x06 \x01(\x03\x12\x13\n\x0bis_repeated\x18\x07 \x01(\x05\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x16\n\x0eterminate_time\x18\n \x01(\x03\x12\x18\n\x10is_hand_with_fee\x18\x0b \x01(\x05\x12\x11\n\tmin_blind\x18\x0c \x01(\x05\x12\x11\n\tmax_blind\x18\r \x01(\x05\x12\x19\n\x11hand_mission_type\x18\x0e \x01(\x05\x12,\n\ngame_modes\x18\x0f \x01(\x0b\x32\x18.pb.HandMissionGameModes\x12\x1f\n\thand_type\x18\x10 \x01(\x0e\x32\x0c.pb.HandType\x12\x1b\n\x13target_num_of_hands\x18\x11 \x01(\x05\x12\x19\n\x11is_reward_limited\x18\x12 \x01(\x05\x12\x16\n\x0enum_of_rewards\x18\x13 \x01(\x05\x12/\n\x0breward_type\x18\x14 \x01(\x0e\x32\x1a.pb.HandMissionRewardTypes\x12\x15\n\rreward_amount\x18\x15 \x01(\x03\x12#\n\x1breward_luckydraw_base_price\x18\x16 \x01(\x05\x12#\n\x1breward_luckydraw_multiplier\x18\x17 \x01(\x05\x12\x1a\n\x12reward_description\x18\x18 \x01(\t\x12\x0e\n\x06status\x18\x19 \x01(\x05\x12\x15\n\rcanceled_time\x18\x1a \x01(\x03\x12\x14\n\x0c\x61\x62orted_time\x18\x1b \x01(\x03\x12\x11\n\tstop_time\x18\x1c \x01(\x03\"\xc0\x01\n\x0fHandMissionInfo\x12%\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12\x14\n\x0cnum_of_hands\x18\x02 \x01(\x05\x12\x18\n\x10num_of_completed\x18\x03 \x01(\x05\x12&\n\x06status\x18\x04 \x01(\x0e\x32\x16.pb.HandMissionsStatus\x12\x19\n\x11mission_time_left\x18\x05 \x01(\x03\x12\x13\n\x0breward_left\x18\x06 \x01(\x05\"\x87\x01\n\x11HandMissionRecord\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x19\n\x11reward_claim_time\x18\x03 \x01(\x03\x12\x18\n\x10pp_chips_claimed\x18\x04 \x01(\x03\x12\x1d\n\x15reward_amount_claimed\x18\x05 \x01(\x03\"I\n\x10HandMissionOpREQ\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12%\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x15.pb.HandMissionConfig\"n\n\x10HandMissionOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x61\x63tion\x18\x02 \x01(\x05\x12%\n\x06\x63onfig\x18\x03 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12\x15\n\rwarning_limit\x18\x04 \x01(\x03\"r\n\x15HandMissionSimpleInfo\x12\x19\n\x11show_hand_mission\x18\x01 \x01(\x05\x12\x1c\n\x14is_hand_mission_stop\x18\x02 \x01(\x05\x12 \n\x18num_of_complete_missions\x18\x03 \x01(\x05\"$\n\x12HandMissionInfoREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"{\n\x12HandMissionInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1c\n\x14is_hand_mission_stop\x18\x02 \x01(\x05\x12\x16\n\x0estop_time_left\x18\x03 \x01(\x05\x12!\n\x04info\x18\x04 \x03(\x0b\x32\x13.pb.HandMissionInfo\"?\n\x14HandMissionRecordREQ\x12\x17\n\x0fhand_mission_id\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\"\x8e\x01\n\x14HandMissionRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12%\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12%\n\x06record\x18\x03 \x03(\x0b\x32\x15.pb.HandMissionRecord\x12\x1a\n\x12reward_amount_sent\x18\x04 \x01(\x03\"D\n\x19HandMissionClaimRewardREQ\x12\x17\n\x0fhand_mission_id\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x03\"\xca\x01\n\x19HandMissionClaimRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12/\n\x0breward_type\x18\x02 \x01(\x0e\x32\x1a.pb.HandMissionRewardTypes\x12\x10\n\x08pp_chips\x18\x03 \x01(\x03\x12\x17\n\x0fluckydraw_index\x18\x04 \x01(\x05\x12\x13\n\x0breward_left\x18\x05 \x01(\x05\x12.\n\x0bsimple_info\x18\x06 \x01(\x0b\x32\x19.pb.HandMissionSimpleInfo\"*\n\x18HandMissionStopStatusREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"\x80\x01\n\x18HandMissionStopStatusRSP\x12\x1c\n\x14is_hand_mission_stop\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\"?\n\x1aHandMissionStopStatusOpREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\toperation\x18\x02 \x01(\x05\"\x84\x01\n\x1aHandMissionStopStatusOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x11\n\toperation\x18\x02 \x01(\x05\x12\x15\n\rwarning_limit\x18\x03 \x01(\x05\x12.\n\x0bsimple_info\x18\x04 \x01(\x0b\x32\x19.pb.HandMissionSimpleInfo*W\n\x12HandMissionsStatus\x12\x0c\n\x08ON_GOING\x10\x00\x12\t\n\x05\x43LAIM\x10\x01\x12\x0c\n\x08\x43\x41NCELED\x10\x02\x12\r\n\tCOMPLETED\x10\x03\x12\x0b\n\x07STOPPED\x10\x04*A\n\x16HandMissionRewardTypes\x12\x0c\n\x08PP_CHIPS\x10\x00\x12\r\n\tLUCKYDRAW\x10\x01\x12\n\n\x06OTHERS\x10\x02\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\x12hand_mission.proto\x12\x02pb\x1a\tpb2.proto\"\x92\x05\n\x14HandMissionGameModes\x12\x19\n\x11GAME_MODE_NLH_NLH\x18\x01 \x01(\x08\x12\x19\n\x11GAME_MODE_NLH_AOF\x18\x02 \x01(\x08\x12\x1e\n\x16GAME_MODE_NLH_SIX_PLUS\x18\x03 \x01(\x08\x12\x1c\n\x14GAME_MODE_NLH_NLH_31\x18\x04 \x01(\x08\x12\x1d\n\x15GAME_MODE_NLH_NLH_31F\x18\x05 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO4\x18\x06 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO5\x18\x07 \x01(\x08\x12\x1a\n\x12GAME_MODE_PLO_PLO6\x18\x08 \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO4HL\x18\t \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO5HL\x18\n \x01(\x08\x12\x1c\n\x14GAME_MODE_PLO_PLO6HL\x18\x0b \x01(\x08\x12\x1b\n\x13GAME_MODE_FLASH_NLH\x18\x0c \x01(\x08\x12\x1c\n\x14GAME_MODE_FLASH_PLO4\x18\r \x01(\x08\x12\x1c\n\x14GAME_MODE_FLASH_PLO5\x18\x0e \x01(\x08\x12 \n\x18GAME_MODE_MIXED_NLH_PLO4\x18\x0f \x01(\x08\x12 \n\x18GAME_MODE_MIXED_NLH_PLO5\x18\x10 \x01(\x08\x12\x1d\n\x15GAME_MODE_OTHER_PUSOY\x18\x11 \x01(\x08\x12\x1b\n\x13GAME_MODE_OTHER_OFC\x18\x12 \x01(\x08\x12!\n\x19GAME_MODE_OTHER_TEENPATTI\x18\x13 \x01(\x08\x12\x1f\n\x17GAME_MODE_OTHER_TONGITS\x18\x14 \x01(\x08\x12\x1c\n\x14GAME_MODE_OTHER_SEKA\x18\x15 \x01(\x08\"\xe0\x05\n\x11HandMissionConfig\x12\x1b\n\x0fhand_mission_id\x18\x01 \x01(\x03:\x02-1\x12\x14\n\x08moduleid\x18\x02 \x01(\x03:\x02-1\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\x12\x13\n\x0b\x63reator_uid\x18\x06 \x01(\x03\x12\x13\n\x0bis_repeated\x18\x07 \x01(\x05\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x16\n\x0eterminate_time\x18\n \x01(\x03\x12\x18\n\x10is_hand_with_fee\x18\x0b \x01(\x05\x12\x11\n\tmin_blind\x18\x0c \x01(\x05\x12\x11\n\tmax_blind\x18\r \x01(\x05\x12\x19\n\x11hand_mission_type\x18\x0e \x01(\x05\x12,\n\ngame_modes\x18\x0f \x01(\x0b\x32\x18.pb.HandMissionGameModes\x12\x1f\n\thand_type\x18\x10 \x01(\x0e\x32\x0c.pb.HandType\x12\x1b\n\x13target_num_of_hands\x18\x11 \x01(\x05\x12\x19\n\x11is_reward_limited\x18\x12 \x01(\x05\x12\x16\n\x0enum_of_rewards\x18\x13 \x01(\x05\x12/\n\x0breward_type\x18\x14 \x01(\x0e\x32\x1a.pb.HandMissionRewardTypes\x12\x15\n\rreward_amount\x18\x15 \x01(\x03\x12#\n\x1breward_luckydraw_base_price\x18\x16 \x01(\x05\x12#\n\x1breward_luckydraw_multiplier\x18\x17 \x01(\x05\x12\x1a\n\x12reward_description\x18\x18 \x01(\t\x12\x0e\n\x06status\x18\x19 \x01(\x05\x12\x15\n\rcanceled_time\x18\x1a \x01(\x03\x12\x14\n\x0c\x61\x62orted_time\x18\x1b \x01(\x03\x12\x11\n\tstop_time\x18\x1c \x01(\x03\"\xc0\x01\n\x0fHandMissionInfo\x12%\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12\x14\n\x0cnum_of_hands\x18\x02 \x01(\x05\x12\x18\n\x10num_of_completed\x18\x03 \x01(\x05\x12&\n\x06status\x18\x04 \x01(\x0e\x32\x16.pb.HandMissionsStatus\x12\x19\n\x11mission_time_left\x18\x05 \x01(\x03\x12\x13\n\x0breward_left\x18\x06 \x01(\x05\"\x87\x01\n\x11HandMissionRecord\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x19\n\x11reward_claim_time\x18\x03 \x01(\x03\x12\x18\n\x10pp_chips_claimed\x18\x04 \x01(\x03\x12\x1d\n\x15reward_amount_claimed\x18\x05 \x01(\x03\"I\n\x10HandMissionOpREQ\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12%\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x15.pb.HandMissionConfig\"n\n\x10HandMissionOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x61\x63tion\x18\x02 \x01(\x05\x12%\n\x06\x63onfig\x18\x03 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12\x15\n\rwarning_limit\x18\x04 \x01(\x03\"r\n\x15HandMissionSimpleInfo\x12\x19\n\x11show_hand_mission\x18\x01 \x01(\x05\x12\x1c\n\x14is_hand_mission_stop\x18\x02 \x01(\x05\x12 \n\x18num_of_complete_missions\x18\x03 \x01(\x05\"$\n\x12HandMissionInfoREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"{\n\x12HandMissionInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1c\n\x14is_hand_mission_stop\x18\x02 \x01(\x05\x12\x16\n\x0estop_time_left\x18\x03 \x01(\x05\x12!\n\x04info\x18\x04 \x03(\x0b\x32\x13.pb.HandMissionInfo\"?\n\x14HandMissionRecordREQ\x12\x17\n\x0fhand_mission_id\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\"\x8e\x01\n\x14HandMissionRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12%\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x15.pb.HandMissionConfig\x12%\n\x06record\x18\x03 \x03(\x0b\x32\x15.pb.HandMissionRecord\x12\x1a\n\x12reward_amount_sent\x18\x04 \x01(\x03\"D\n\x19HandMissionClaimRewardREQ\x12\x17\n\x0fhand_mission_id\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x03\"\xca\x01\n\x19HandMissionClaimRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12/\n\x0breward_type\x18\x02 \x01(\x0e\x32\x1a.pb.HandMissionRewardTypes\x12\x10\n\x08pp_chips\x18\x03 \x01(\x03\x12\x17\n\x0fluckydraw_index\x18\x04 \x01(\x05\x12\x13\n\x0breward_left\x18\x05 \x01(\x05\x12.\n\x0bsimple_info\x18\x06 \x01(\x0b\x32\x19.pb.HandMissionSimpleInfo\"*\n\x18HandMissionStopStatusREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"\x80\x01\n\x18HandMissionStopStatusRSP\x12\x1c\n\x14is_hand_mission_stop\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\"?\n\x1aHandMissionStopStatusOpREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\toperation\x18\x02 \x01(\x05\"\x84\x01\n\x1aHandMissionStopStatusOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x11\n\toperation\x18\x02 \x01(\x05\x12\x15\n\rwarning_limit\x18\x03 \x01(\x05\x12.\n\x0bsimple_info\x18\x04 \x01(\x0b\x32\x19.pb.HandMissionSimpleInfo*W\n\x12HandMissionsStatus\x12\x0c\n\x08ON_GOING\x10\x00\x12\t\n\x05\x43LAIM\x10\x01\x12\x0c\n\x08\x43\x41NCELED\x10\x02\x12\r\n\tCOMPLETED\x10\x03\x12\x0b\n\x07STOPPED\x10\x04*A\n\x16HandMissionRewardTypes\x12\x0c\n\x08PP_CHIPS\x10\x00\x12\r\n\tLUCKYDRAW\x10\x01\x12\n\n\x06OTHERS\x10\x02\x42\x06Z\x04./pb')
   ,
   dependencies=[pb2__pb2.DESCRIPTOR,])
 
@@ -54,8 +54,8 @@ _HANDMISSIONSSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3066,
-  serialized_end=3153,
+  serialized_start=3096,
+  serialized_end=3183,
 )
 _sym_db.RegisterEnumDescriptor(_HANDMISSIONSSTATUS)
 
@@ -81,8 +81,8 @@ _HANDMISSIONREWARDTYPES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3155,
-  serialized_end=3220,
+  serialized_start=3185,
+  serialized_end=3250,
 )
 _sym_db.RegisterEnumDescriptor(_HANDMISSIONREWARDTYPES)
 
@@ -245,6 +245,13 @@ _HANDMISSIONGAMEMODES = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='GAME_MODE_OTHER_SEKA', full_name='pb.HandMissionGameModes.GAME_MODE_OTHER_SEKA', index=20,
+      number=21, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -258,7 +265,7 @@ _HANDMISSIONGAMEMODES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=38,
-  serialized_end=666,
+  serialized_end=696,
 )
 
 
@@ -477,8 +484,8 @@ _HANDMISSIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=669,
-  serialized_end=1405,
+  serialized_start=699,
+  serialized_end=1435,
 )
 
 
@@ -543,8 +550,8 @@ _HANDMISSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1408,
-  serialized_end=1600,
+  serialized_start=1438,
+  serialized_end=1630,
 )
 
 
@@ -602,8 +609,8 @@ _HANDMISSIONRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1603,
-  serialized_end=1738,
+  serialized_start=1633,
+  serialized_end=1768,
 )
 
 
@@ -640,8 +647,8 @@ _HANDMISSIONOPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1740,
-  serialized_end=1813,
+  serialized_start=1770,
+  serialized_end=1843,
 )
 
 
@@ -692,8 +699,8 @@ _HANDMISSIONOPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1815,
-  serialized_end=1925,
+  serialized_start=1845,
+  serialized_end=1955,
 )
 
 
@@ -737,8 +744,8 @@ _HANDMISSIONSIMPLEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1927,
-  serialized_end=2041,
+  serialized_start=1957,
+  serialized_end=2071,
 )
 
 
@@ -768,8 +775,8 @@ _HANDMISSIONINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2043,
-  serialized_end=2079,
+  serialized_start=2073,
+  serialized_end=2109,
 )
 
 
@@ -820,8 +827,8 @@ _HANDMISSIONINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2081,
-  serialized_end=2204,
+  serialized_start=2111,
+  serialized_end=2234,
 )
 
 
@@ -858,8 +865,8 @@ _HANDMISSIONRECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2206,
-  serialized_end=2269,
+  serialized_start=2236,
+  serialized_end=2299,
 )
 
 
@@ -910,8 +917,8 @@ _HANDMISSIONRECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2272,
-  serialized_end=2414,
+  serialized_start=2302,
+  serialized_end=2444,
 )
 
 
@@ -948,8 +955,8 @@ _HANDMISSIONCLAIMREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2416,
-  serialized_end=2484,
+  serialized_start=2446,
+  serialized_end=2514,
 )
 
 
@@ -1014,8 +1021,8 @@ _HANDMISSIONCLAIMREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2487,
-  serialized_end=2689,
+  serialized_start=2517,
+  serialized_end=2719,
 )
 
 
@@ -1045,8 +1052,8 @@ _HANDMISSIONSTOPSTATUSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2691,
-  serialized_end=2733,
+  serialized_start=2721,
+  serialized_end=2763,
 )
 
 
@@ -1104,8 +1111,8 @@ _HANDMISSIONSTOPSTATUSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2736,
-  serialized_end=2864,
+  serialized_start=2766,
+  serialized_end=2894,
 )
 
 
@@ -1142,8 +1149,8 @@ _HANDMISSIONSTOPSTATUSOPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2866,
-  serialized_end=2929,
+  serialized_start=2896,
+  serialized_end=2959,
 )
 
 
@@ -1194,8 +1201,8 @@ _HANDMISSIONSTOPSTATUSOPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2932,
-  serialized_end=3064,
+  serialized_start=2962,
+  serialized_end=3094,
 )
 
 _HANDMISSIONCONFIG.fields_by_name['game_modes'].message_type = _HANDMISSIONGAMEMODES

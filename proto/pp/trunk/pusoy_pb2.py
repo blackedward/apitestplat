@@ -37,7 +37,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x0bpusoy.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\npine.proto\x1a\x0e\x63\x61lltime.proto\x1a\x0fpre_base1.proto\x1a\tsng.proto\"\xa7\x01\n\x10PusoyRateSetting\x12\x1b\n\x10normal_hand_rate\x18\x01 \x01(\x05:\x01\x31\x12\x1c\n\x11natural_hand_rate\x18\x02 \x01(\x05:\x01\x31\x12\x1a\n\x0f\x63rack_hand_rate\x18\x03 \x01(\x05:\x01\x36\x12 \n\x15winner_takes_all_rate\x18\x04 \x01(\x05:\x01\x33\x12\x1a\n\x0fpusoy_hand_rate\x18\x05 \x01(\x05:\x01\x33\"\xdb\n\n\rPusoyRoomInfo\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\r\n\x05\x62lind\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\x12\x11\n\tmin_stack\x18\x05 \x01(\x03\x12\x13\n\x08\x66\x65\x65point\x18\x06 \x01(\x05:\x01\x35\x12\x12\n\x06\x66\x65\x65\x63\x61p\x18\x07 \x01(\x05:\x02\x33\x30\x12\x1a\n\x0f\x63reator_user_id\x18\x08 \x01(\x03:\x01\x30\x12\x11\n\x06\x63lubid\x18\t \x01(\x05:\x01\x30\x12\x13\n\x08leagueid\x18\n \x01(\x05:\x01\x30\x12\x19\n\x0esuper_leagueid\x18\x0b \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\x0c \x01(\x05:\x01\x30\x12\x12\n\nowner_icon\x18\r \x01(\t\x12\x12\n\nowner_name\x18\x0e \x01(\t\x12\x0f\n\x07ownerid\x18\x0f \x01(\x03\x12\x17\n\x0fowner_vip_level\x18\x10 \x01(\r\x12\x0e\n\x06region\x18\x11 \x01(\x05\x12\x10\n\x08platform\x18\x12 \x01(\t\x12\x11\n\tclub_name\x18\x13 \x01(\t\x12\x14\n\x0c\x63lub_ownerid\x18\x14 \x01(\x03\x12\x11\n\tclub_icon\x18\x15 \x01(\t\x12\x16\n\x0eoperation_time\x18\x16 \x01(\x05\x12\x11\n\troom_time\x18\x17 \x01(\x05\x12\x10\n\x08seat_num\x18\x18 \x01(\x05\x12\x16\n\nauto_start\x18\x19 \x01(\x05:\x02-1\x12\x1f\n\troom_type\x18\x1a \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\troom_mode\x18\x1b \x01(\x0e\x32\x0c.pb.RoomMode\x12\x32\n\tgame_mode\x18\x1c \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x13\n\x08timezone\x18\x1d \x01(\x05:\x01\x38\x12\x0e\n\x06roomid\x18\x1e \x01(\x05\x12\x17\n\x08official\x18\x1f \x01(\x08:\x05\x66\x61lse\x12\x0e\n\x06passwd\x18  \x01(\t\x12&\n\x17is_auto_delay_room_over\x18! \x01(\x08:\x05\x66\x61lse\x12&\n\x1a\x61uto_delay_room_over_times\x18\" \x01(\x05:\x02\x31\x32\x12!\n\x13is_auto_create_room\x18# \x01(\x08:\x04true\x12\x13\n\x08moduleid\x18$ \x01(\x03:\x01\x30\x12\x12\n\nmulti_opid\x18% \x01(\t\x12\x0e\n\x06tempid\x18& \x01(\t\x12\x18\n\tgps_limit\x18\' \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18( \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x0e\x66orbidden_chat\x18) \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cpasswd_limit\x18* \x01(\x08:\x05\x66\x61lse\x12\x19\n\nis_captcha\x18+ \x01(\x08:\x05\x66\x61lse\x12\x18\n\tis_ban_pc\x18, \x01(\x08:\x05\x66\x61lse\x12\x1c\n\ris_check_mail\x18- \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x12gps_distance_limit\x18. \x01(\x05:\x01\x30\x12*\n\x0crate_setting\x18/ \x01(\x0b\x32\x14.pb.PusoyRateSetting\x12\x18\n\rcreate_clubid\x18\x30 \x01(\x05:\x01\x30\x12\x1e\n\x13\x66orbidden_chat_mode\x18\x31 \x01(\x05:\x01\x30\x12\x14\n\x0croom_version\x18\x32 \x01(\x05\x12\x18\n\x10\x63\x61lltime_minutes\x18\x33 \x01(\x05\x12\x15\n\ris_fixed_cost\x18\x34 \x01(\x08\x12,\n\x0e\x66ixed_cost_opt\x18\x35 \x01(\x0b\x32\x14.pb.FixedCostOptions\x12\x18\n\rcalltime_type\x18\x36 \x01(\x05:\x01\x30\"\xaf\x08\n\x12\x43reatePusoyRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\r\n\x05\x62lind\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\x12\x11\n\tmin_stack\x18\x05 \x01(\x03\x12\x13\n\x08\x66\x65\x65point\x18\x06 \x01(\x05:\x01\x35\x12\x12\n\x06\x66\x65\x65\x63\x61p\x18\x07 \x01(\x05:\x02\x33\x30\x12\x1a\n\x0f\x63reator_user_id\x18\x08 \x01(\x03:\x01\x30\x12\x11\n\x06\x63lubid\x18\t \x01(\x05:\x01\x30\x12\x13\n\x08leagueid\x18\n \x01(\x05:\x01\x30\x12\x19\n\x0esuper_leagueid\x18\x0b \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\x0c \x01(\x05:\x01\x30\x12\x16\n\x0eoperation_time\x18\r \x01(\x05\x12\x11\n\troom_time\x18\x0e \x01(\x05\x12\x10\n\x08seat_num\x18\x0f \x01(\x05\x12\x16\n\nauto_start\x18\x10 \x01(\x05:\x02-1\x12\x1f\n\troom_type\x18\x11 \x01(\x0e\x32\x0c.pb.RoomType\x12\x32\n\tgame_mode\x18\x12 \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x13\n\x08timezone\x18\x13 \x01(\x05:\x01\x38\x12\x0e\n\x06roomid\x18\x14 \x01(\x05\x12\x16\n\x0e\x64\x65rived_roomid\x18\x15 \x01(\x05\x12&\n\x17is_auto_delay_room_over\x18\x16 \x01(\x08:\x05\x66\x61lse\x12&\n\x1a\x61uto_delay_room_over_times\x18\x17 \x01(\x05:\x02\x31\x32\x12!\n\x13is_auto_create_room\x18\x18 \x01(\x08:\x04true\x12\x13\n\x08moduleid\x18\x19 \x01(\x03:\x01\x30\x12\x12\n\nmulti_opid\x18\x1a \x01(\t\x12\x15\n\x07\x63\x61n_use\x18\x1b \x01(\x08:\x04true\x12\x18\n\tgps_limit\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x1d \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x0e\x66orbidden_chat\x18\x1e \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cpasswd_limit\x18\x1f \x01(\x08:\x05\x66\x61lse\x12\x19\n\nis_captcha\x18  \x01(\x08:\x05\x66\x61lse\x12\x18\n\tis_ban_pc\x18! \x01(\x08:\x05\x66\x61lse\x12\x1c\n\ris_check_mail\x18\" \x01(\x08:\x05\x66\x61lse\x12*\n\x0crate_setting\x18# \x01(\x0b\x32\x14.pb.PusoyRateSetting\x12\x1e\n\x13\x66orbidden_chat_mode\x18$ \x01(\x05:\x01\x30\x12\x18\n\x10\x63\x61lltime_minutes\x18% \x01(\x05\x12\x10\n\x08\x62\x61n_club\x18& \x03(\x05\x12\x13\n\x0b\x62\x61n_country\x18\' \x03(\t\x12\x15\n\rcustom_passwd\x18( \x01(\t\x12\x18\n\rcalltime_type\x18) \x01(\x05:\x01\x30\"Y\n\x12\x43reatePusoyRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\npusoy_info\x18\x03 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\"%\n\x14PusoySyncHandCardREQ\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\x05\"3\n\x14PusoySyncHandCardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"S\n\x12SwapHandCardPosREQ\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x12#\n\x14swap_middle_and_back\x18\x03 \x01(\x08:\x05\x66\x61lse\"p\n\x12SwapHandCardPosRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x05\x12\n\n\x02to\x18\x03 \x01(\x05\x12#\n\x14swap_middle_and_back\x18\x04 \x01(\x08:\x05\x66\x61lse\x12\r\n\x05\x63\x61rds\x18\x05 \x03(\x05\">\n\x12SwapHandCardPosBRC\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x12\x0e\n\x06seatid\x18\x03 \x01(\x05\"!\n\x10PusoyHandCardRSP\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\x05\"\xa8\x01\n\x0fPusoySitDownREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x11\n\x02pc\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\n\n\x02ip\x18\x03 \x01(\t\x12\x1b\n\x07gps_lon\x18\x04 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x05 \x01(\x05:\n-360000000\x12\x0f\n\x07\x63hannel\x18\x06 \x01(\t\x12\x1b\n\x0cinvalid_mail\x18\x07 \x01(\x08:\x05\x66\x61lse\"\xe8\x01\n\x0fPusoyPlayerInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08icon_url\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x11\n\tclub_name\x18\x05 \x01(\t\x12\x11\n\tvip_level\x18\x06 \x01(\x05\x12\r\n\x05level\x18\x07 \x01(\x05\x12\x0f\n\x07\x63ountry\x18\x08 \x01(\t\x12\x0f\n\x07gps_lon\x18\t \x01(\x05\x12\x0f\n\x07gps_lat\x18\n \x01(\x05\x12\x16\n\x0ewaiting_status\x18\x0b \x01(\x05\x12\x18\n\rcertification\x18\x0c \x01(\x05:\x01\x30\"\xa7\x02\n\x17PusoyPlayerGamingStatus\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12(\n\nhand_cards\x18\x02 \x01(\x0b\x32\x14.pb.PusoyHandCardRSP\x12\x18\n\x10\x61rrangement_done\x18\x03 \x01(\x08\x12\x12\n\nis_playing\x18\x04 \x01(\x08\x12\x13\n\x0bis_rebuying\x18\x05 \x01(\x08\x12\x16\n\x0egame_left_time\x18\x06 \x01(\x05\x12\x17\n\x0frebuy_left_time\x18\x07 \x01(\x05\x12\x0e\n\x06profit\x18\x08 \x01(\x03\x12&\n\x17is_leaving_on_next_hand\x18\t \x01(\x08:\x05\x66\x61lse\x12\'\n\rcalltime_info\x18\n \x01(\x0b\x32\x10.pb.CallTimeInfo\"\xd2\x01\n\x0fPusoySeatStatus\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x15\n\rseat_reserved\x18\x02 \x01(\x08\x12\x10\n\x08is_empty\x18\x03 \x01(\x08\x12\x16\n\x0eis_sitting_out\x18\x04 \x01(\x08\x12(\n\x0bplayer_info\x18\x05 \x01(\x0b\x32\x13.pb.PusoyPlayerInfo\x12\x32\n\rplayer_status\x18\x06 \x01(\x0b\x32\x1b.pb.PusoyPlayerGamingStatus\x12\x10\n\x08\x66rame_id\x18\x07 \x01(\t\"K\n\x0fPusoySitDownBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12(\n\x0bseat_status\x18\x02 \x01(\x0b\x32\x13.pb.PusoySeatStatus\"\x11\n\x0fPusoyStandUpREQ\"\x1f\n\x0fPusoyStandUpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"2\n\x0fPusoyStandUpBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x04\x63ode\x18\x02 \x01(\x05:\x01\x30\"6\n\x11PusoyLeaveGameREQ\x12\r\n\x05leave\x18\x01 \x01(\x08\x12\x12\n\nleave_type\x18\x02 \x01(\x05\"0\n\x11PusoyLeaveGameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05leave\x18\x02 \x01(\x08\"0\n\x11PusoyLeaveGameBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"9\n\x1aPusoySetArrangementDoneREQ\x12\x0c\n\x04\x64one\x18\x01 \x01(\x08\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"G\n\x1aPusoySetArrangementDoneRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x64one\x18\x02 \x01(\x08\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\x05\"G\n\x1aPusoySetArrangementDoneBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04\x64one\x18\x03 \x01(\x08\"%\n\x14PusoySetGameReadyREQ\x12\r\n\x05ready\x18\x01 \x01(\x05\"\"\n\x11PusoyCountdownBRC\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\"[\n\x11PusoyGameStartBRC\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0f\n\x07game_id\x18\x02 \x01(\t\x12\"\n\x05seats\x18\x03 \x03(\x0b\x32\x13.pb.PusoySeatStatus\"K\n\x10PusoyRoomOverBRC\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x17\n\x0fis_room_started\x18\x02 \x01(\x08\"_\n\x0ePusoyScoreInfo\x12\x12\n\nbase_score\x18\x01 \x01(\x05\x12\x12\n\nchip_score\x18\x02 \x01(\x03\x12\x17\n\x0fopponent_seatid\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\x05\"\xc1\x01\n\x12PusoyHandScoreInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12(\n\x0c\x66ront_scores\x18\x03 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12&\n\nmid_scores\x18\x04 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\'\n\x0b\x62\x61\x63k_scores\x18\x05 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\x13\n\x0btotal_score\x18\x06 \x01(\x03\"\xa2\x02\n\x12PusoyGameResultBRC\x12\"\n\x05seats\x18\x01 \x03(\x0b\x32\x13.pb.PusoySeatStatus\x12-\n\rnatural_hands\x18\x02 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12-\n\rcracked_hands\x18\x03 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12,\n\x0cnormal_hands\x18\x04 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12+\n\x0bpusoy_hands\x18\x05 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12/\n\x0fwinner_take_all\x18\x06 \x01(\x0b\x32\x16.pb.PusoyHandScoreInfo\"4\n\x13PusoySimplifiedInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05score\x18\x02 \x01(\x03\"\xaf\x05\n\x19PusoySimplifiedGameResult\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\r\n\x05\x63\x61rds\x18\x04 \x03(\x05\x12(\n\x0c\x66ront_scores\x18\x05 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12&\n\nmid_scores\x18\x06 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\'\n\x0b\x62\x61\x63k_scores\x18\x07 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\x12\n\nback_score\x18\x08 \x01(\x03\x12\x11\n\tmid_score\x18\t \x01(\x03\x12\x13\n\x0b\x66ront_score\x18\n \x01(\x03\x12\x13\n\x0btotal_score\x18\x0b \x01(\x03\x12\x14\n\x0ctotal_profit\x18\x0c \x01(\x03\x12\x0c\n\x04rank\x18\r \x01(\x05\x12\x12\n\nis_cracked\x18\x0e \x01(\x08\x12\x13\n\x0b\x63rack_score\x18\x0f \x01(\x03\x12\x1c\n\x14\x63rack_score_per_seat\x18\x10 \x01(\x03\x12\x12\n\nis_natural\x18\x11 \x01(\x08\x12\x14\n\x0cnatural_type\x18\x12 \x01(\x05\x12\x15\n\rnatural_score\x18\x13 \x01(\x03\x12\x1e\n\x16natural_score_per_seat\x18\x14 \x01(\x03\x12\x1a\n\x12is_winner_take_all\x18\x15 \x01(\x08\x12&\n\x05pusoy\x18\x16 \x03(\x0b\x32\x17.pb.PusoySimplifiedInfo\x12(\n\x0bplayer_info\x18\x17 \x01(\x0b\x32\x13.pb.PusoyPlayerInfo\x12\x19\n\x11\x63rack_total_score\x18\x18 \x01(\x03\x12\x19\n\x11pusoy_total_score\x18\x19 \x01(\x03\x12\x1b\n\x13natural_total_score\x18\x1a \x01(\x03\"\x85\x01\n\x1cPusoySimplifiedGameResultBRC\x12\x32\n\x0bgame_result\x18\x01 \x03(\x0b\x32\x1d.pb.PusoySimplifiedGameResult\x12\x17\n\x0fstage_left_time\x18\x02 \x01(\x05\x12\x18\n\x10gameset_end_time\x18\x03 \x01(\x05\"\xa2\x01\n\x12PusoyPlayingStatus\x12\r\n\x05stage\x18\x01 \x01(\x05\x12\x17\n\x0fstage_left_time\x18\x02 \x01(\x05\x12\"\n\x05seats\x18\x03 \x03(\x0b\x32\x13.pb.PusoySeatStatus\x12@\n\x16simplified_game_result\x18\x04 \x01(\x0b\x32 .pb.PusoySimplifiedGameResultBRC\"\x8f\x01\n\x0fPusoyRoomStatus\x12.\n\x0eplaying_status\x18\x01 \x01(\x0b\x32\x16.pb.PusoyPlayingStatus\x12\x12\n\nis_started\x18\x02 \x01(\x08\x12\x16\n\x0eroom_left_time\x18\x03 \x01(\x05\x12 \n\tobservers\x18\x04 \x03(\x0b\x32\r.pb.UserBrief\")\n\x12PusoySittingOutREQ\x12\x13\n\x0bsitting_out\x18\x01 \x01(\x08\"7\n\x12PusoySittingOutRSP\x12\x13\n\x0bsitting_out\x18\x01 \x01(\x08\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"9\n\x12PusoySittingOutBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x13\n\x0bsitting_out\x18\x02 \x01(\x08\"\x13\n\x11PusoyStartRoomREQ\"!\n\x11PusoyStartRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x14\n\x12PusoyProfitListREQ\"4\n\x12PusoyProfitListRSP\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\"\x17\n\x15PusoyObserversListREQ\"9\n\x15PusoyObserversListRSP\x12 \n\tobservers\x18\x01 \x03(\x0b\x32\r.pb.UserBrief\"\'\n\x15PusoyExchangeChipsREQ\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x03\"%\n\x15PusoyExchangeChipsRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"f\n\x13PusoyRebuyNotifyRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x12\n\nseat_chips\x18\x03 \x01(\x03\x12\x18\n\x10\x65xchanging_chips\x18\x04 \x01(\x03\"6\n\x15PusoyExchangeChipsBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"\x14\n\x12PusoyGameIDListREQ\"4\n\x12PusoyGameIDListRSP\x12\x0f\n\x07game_id\x18\x01 \x03(\t\x12\r\n\x05total\x18\x02 \x01(\x05\")\n\x16PusoyGameRecordListREQ\x12\x0f\n\x07game_id\x18\x01 \x03(\t\"Y\n\x0fPusoyGameRecord\x12\x35\n\x0bgame_result\x18\x01 \x01(\x0b\x32 .pb.PusoySimplifiedGameResultBRC\x12\x0f\n\x07game_id\x18\x02 \x01(\t\"B\n\x16PusoyGameRecordListRSP\x12(\n\x0bgame_record\x18\x01 \x03(\x0b\x32\x13.pb.PusoyGameRecord\">\n\x1bPusoyReserveCalltimeSeatREQ\x12\x0f\n\x07reserve\x18\x01 \x01(\x08\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\"^\n\x1bPusoyReserveCalltimeSeatRSP\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12!\n\x19remained_reservation_time\x18\x03 \x01(\x05\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\x0bpusoy.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\npine.proto\x1a\x0e\x63\x61lltime.proto\x1a\x0fpre_base1.proto\x1a\tsng.proto\"\xa7\x01\n\x10PusoyRateSetting\x12\x1b\n\x10normal_hand_rate\x18\x01 \x01(\x05:\x01\x31\x12\x1c\n\x11natural_hand_rate\x18\x02 \x01(\x05:\x01\x31\x12\x1a\n\x0f\x63rack_hand_rate\x18\x03 \x01(\x05:\x01\x36\x12 \n\x15winner_takes_all_rate\x18\x04 \x01(\x05:\x01\x33\x12\x1a\n\x0fpusoy_hand_rate\x18\x05 \x01(\x05:\x01\x33\"\xf3\n\n\rPusoyRoomInfo\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\r\n\x05\x62lind\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\x12\x11\n\tmin_stack\x18\x05 \x01(\x03\x12\x13\n\x08\x66\x65\x65point\x18\x06 \x01(\x05:\x01\x35\x12\x12\n\x06\x66\x65\x65\x63\x61p\x18\x07 \x01(\x05:\x02\x33\x30\x12\x1a\n\x0f\x63reator_user_id\x18\x08 \x01(\x03:\x01\x30\x12\x11\n\x06\x63lubid\x18\t \x01(\x05:\x01\x30\x12\x13\n\x08leagueid\x18\n \x01(\x05:\x01\x30\x12\x19\n\x0esuper_leagueid\x18\x0b \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\x0c \x01(\x05:\x01\x30\x12\x12\n\nowner_icon\x18\r \x01(\t\x12\x12\n\nowner_name\x18\x0e \x01(\t\x12\x0f\n\x07ownerid\x18\x0f \x01(\x03\x12\x17\n\x0fowner_vip_level\x18\x10 \x01(\r\x12\x0e\n\x06region\x18\x11 \x01(\x05\x12\x10\n\x08platform\x18\x12 \x01(\t\x12\x11\n\tclub_name\x18\x13 \x01(\t\x12\x14\n\x0c\x63lub_ownerid\x18\x14 \x01(\x03\x12\x11\n\tclub_icon\x18\x15 \x01(\t\x12\x16\n\x0eoperation_time\x18\x16 \x01(\x05\x12\x11\n\troom_time\x18\x17 \x01(\x05\x12\x10\n\x08seat_num\x18\x18 \x01(\x05\x12\x16\n\nauto_start\x18\x19 \x01(\x05:\x02-1\x12\x1f\n\troom_type\x18\x1a \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\troom_mode\x18\x1b \x01(\x0e\x32\x0c.pb.RoomMode\x12\x32\n\tgame_mode\x18\x1c \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x13\n\x08timezone\x18\x1d \x01(\x05:\x01\x38\x12\x0e\n\x06roomid\x18\x1e \x01(\x05\x12\x17\n\x08official\x18\x1f \x01(\x08:\x05\x66\x61lse\x12\x0e\n\x06passwd\x18  \x01(\t\x12&\n\x17is_auto_delay_room_over\x18! \x01(\x08:\x05\x66\x61lse\x12&\n\x1a\x61uto_delay_room_over_times\x18\" \x01(\x05:\x02\x31\x32\x12!\n\x13is_auto_create_room\x18# \x01(\x08:\x04true\x12\x13\n\x08moduleid\x18$ \x01(\x03:\x01\x30\x12\x12\n\nmulti_opid\x18% \x01(\t\x12\x0e\n\x06tempid\x18& \x01(\t\x12\x18\n\tgps_limit\x18\' \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18( \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x0e\x66orbidden_chat\x18) \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cpasswd_limit\x18* \x01(\x08:\x05\x66\x61lse\x12\x19\n\nis_captcha\x18+ \x01(\x08:\x05\x66\x61lse\x12\x18\n\tis_ban_pc\x18, \x01(\x08:\x05\x66\x61lse\x12\x1c\n\ris_check_mail\x18- \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x12gps_distance_limit\x18. \x01(\x05:\x01\x30\x12*\n\x0crate_setting\x18/ \x01(\x0b\x32\x14.pb.PusoyRateSetting\x12\x18\n\rcreate_clubid\x18\x30 \x01(\x05:\x01\x30\x12\x1e\n\x13\x66orbidden_chat_mode\x18\x31 \x01(\x05:\x01\x30\x12\x14\n\x0croom_version\x18\x32 \x01(\x05\x12\x18\n\x10\x63\x61lltime_minutes\x18\x33 \x01(\x05\x12\x15\n\ris_fixed_cost\x18\x34 \x01(\x08\x12,\n\x0e\x66ixed_cost_opt\x18\x35 \x01(\x0b\x32\x14.pb.FixedCostOptions\x12\x18\n\rcalltime_type\x18\x36 \x01(\x05:\x01\x30\x12\x16\n\x0eowner_platform\x18\x37 \x01(\t\"\xaf\x08\n\x12\x43reatePusoyRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\r\n\x05\x62lind\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\x12\x11\n\tmin_stack\x18\x05 \x01(\x03\x12\x13\n\x08\x66\x65\x65point\x18\x06 \x01(\x05:\x01\x35\x12\x12\n\x06\x66\x65\x65\x63\x61p\x18\x07 \x01(\x05:\x02\x33\x30\x12\x1a\n\x0f\x63reator_user_id\x18\x08 \x01(\x03:\x01\x30\x12\x11\n\x06\x63lubid\x18\t \x01(\x05:\x01\x30\x12\x13\n\x08leagueid\x18\n \x01(\x05:\x01\x30\x12\x19\n\x0esuper_leagueid\x18\x0b \x01(\x05:\x01\x30\x12\x1c\n\x11super_league_type\x18\x0c \x01(\x05:\x01\x30\x12\x16\n\x0eoperation_time\x18\r \x01(\x05\x12\x11\n\troom_time\x18\x0e \x01(\x05\x12\x10\n\x08seat_num\x18\x0f \x01(\x05\x12\x16\n\nauto_start\x18\x10 \x01(\x05:\x02-1\x12\x1f\n\troom_type\x18\x11 \x01(\x0e\x32\x0c.pb.RoomType\x12\x32\n\tgame_mode\x18\x12 \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x13\n\x08timezone\x18\x13 \x01(\x05:\x01\x38\x12\x0e\n\x06roomid\x18\x14 \x01(\x05\x12\x16\n\x0e\x64\x65rived_roomid\x18\x15 \x01(\x05\x12&\n\x17is_auto_delay_room_over\x18\x16 \x01(\x08:\x05\x66\x61lse\x12&\n\x1a\x61uto_delay_room_over_times\x18\x17 \x01(\x05:\x02\x31\x32\x12!\n\x13is_auto_create_room\x18\x18 \x01(\x08:\x04true\x12\x13\n\x08moduleid\x18\x19 \x01(\x03:\x01\x30\x12\x12\n\nmulti_opid\x18\x1a \x01(\t\x12\x15\n\x07\x63\x61n_use\x18\x1b \x01(\x08:\x04true\x12\x18\n\tgps_limit\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x1d \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x0e\x66orbidden_chat\x18\x1e \x01(\x08:\x05\x66\x61lse\x12\x1b\n\x0cpasswd_limit\x18\x1f \x01(\x08:\x05\x66\x61lse\x12\x19\n\nis_captcha\x18  \x01(\x08:\x05\x66\x61lse\x12\x18\n\tis_ban_pc\x18! \x01(\x08:\x05\x66\x61lse\x12\x1c\n\ris_check_mail\x18\" \x01(\x08:\x05\x66\x61lse\x12*\n\x0crate_setting\x18# \x01(\x0b\x32\x14.pb.PusoyRateSetting\x12\x1e\n\x13\x66orbidden_chat_mode\x18$ \x01(\x05:\x01\x30\x12\x18\n\x10\x63\x61lltime_minutes\x18% \x01(\x05\x12\x10\n\x08\x62\x61n_club\x18& \x03(\x05\x12\x13\n\x0b\x62\x61n_country\x18\' \x03(\t\x12\x15\n\rcustom_passwd\x18( \x01(\t\x12\x18\n\rcalltime_type\x18) \x01(\x05:\x01\x30\"Y\n\x12\x43reatePusoyRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\npusoy_info\x18\x03 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\"%\n\x14PusoySyncHandCardREQ\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\x05\"3\n\x14PusoySyncHandCardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"S\n\x12SwapHandCardPosREQ\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x12#\n\x14swap_middle_and_back\x18\x03 \x01(\x08:\x05\x66\x61lse\"p\n\x12SwapHandCardPosRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x05\x12\n\n\x02to\x18\x03 \x01(\x05\x12#\n\x14swap_middle_and_back\x18\x04 \x01(\x08:\x05\x66\x61lse\x12\r\n\x05\x63\x61rds\x18\x05 \x03(\x05\">\n\x12SwapHandCardPosBRC\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x12\x0e\n\x06seatid\x18\x03 \x01(\x05\"!\n\x10PusoyHandCardRSP\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\x05\"\xa8\x01\n\x0fPusoySitDownREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x11\n\x02pc\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\n\n\x02ip\x18\x03 \x01(\t\x12\x1b\n\x07gps_lon\x18\x04 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x05 \x01(\x05:\n-360000000\x12\x0f\n\x07\x63hannel\x18\x06 \x01(\t\x12\x1b\n\x0cinvalid_mail\x18\x07 \x01(\x08:\x05\x66\x61lse\"\xe8\x01\n\x0fPusoyPlayerInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08icon_url\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x11\n\tclub_name\x18\x05 \x01(\t\x12\x11\n\tvip_level\x18\x06 \x01(\x05\x12\r\n\x05level\x18\x07 \x01(\x05\x12\x0f\n\x07\x63ountry\x18\x08 \x01(\t\x12\x0f\n\x07gps_lon\x18\t \x01(\x05\x12\x0f\n\x07gps_lat\x18\n \x01(\x05\x12\x16\n\x0ewaiting_status\x18\x0b \x01(\x05\x12\x18\n\rcertification\x18\x0c \x01(\x05:\x01\x30\"\xa7\x02\n\x17PusoyPlayerGamingStatus\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12(\n\nhand_cards\x18\x02 \x01(\x0b\x32\x14.pb.PusoyHandCardRSP\x12\x18\n\x10\x61rrangement_done\x18\x03 \x01(\x08\x12\x12\n\nis_playing\x18\x04 \x01(\x08\x12\x13\n\x0bis_rebuying\x18\x05 \x01(\x08\x12\x16\n\x0egame_left_time\x18\x06 \x01(\x05\x12\x17\n\x0frebuy_left_time\x18\x07 \x01(\x05\x12\x0e\n\x06profit\x18\x08 \x01(\x03\x12&\n\x17is_leaving_on_next_hand\x18\t \x01(\x08:\x05\x66\x61lse\x12\'\n\rcalltime_info\x18\n \x01(\x0b\x32\x10.pb.CallTimeInfo\"\xd2\x01\n\x0fPusoySeatStatus\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x15\n\rseat_reserved\x18\x02 \x01(\x08\x12\x10\n\x08is_empty\x18\x03 \x01(\x08\x12\x16\n\x0eis_sitting_out\x18\x04 \x01(\x08\x12(\n\x0bplayer_info\x18\x05 \x01(\x0b\x32\x13.pb.PusoyPlayerInfo\x12\x32\n\rplayer_status\x18\x06 \x01(\x0b\x32\x1b.pb.PusoyPlayerGamingStatus\x12\x10\n\x08\x66rame_id\x18\x07 \x01(\t\"K\n\x0fPusoySitDownBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12(\n\x0bseat_status\x18\x02 \x01(\x0b\x32\x13.pb.PusoySeatStatus\"\x11\n\x0fPusoyStandUpREQ\"\x1f\n\x0fPusoyStandUpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"2\n\x0fPusoyStandUpBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0f\n\x04\x63ode\x18\x02 \x01(\x05:\x01\x30\"6\n\x11PusoyLeaveGameREQ\x12\r\n\x05leave\x18\x01 \x01(\x08\x12\x12\n\nleave_type\x18\x02 \x01(\x05\"0\n\x11PusoyLeaveGameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05leave\x18\x02 \x01(\x08\"0\n\x11PusoyLeaveGameBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"9\n\x1aPusoySetArrangementDoneREQ\x12\x0c\n\x04\x64one\x18\x01 \x01(\x08\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\x05\"G\n\x1aPusoySetArrangementDoneRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x64one\x18\x02 \x01(\x08\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\x05\"G\n\x1aPusoySetArrangementDoneBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0c\n\x04\x64one\x18\x03 \x01(\x08\"%\n\x14PusoySetGameReadyREQ\x12\r\n\x05ready\x18\x01 \x01(\x05\"\"\n\x11PusoyCountdownBRC\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\"[\n\x11PusoyGameStartBRC\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0f\n\x07game_id\x18\x02 \x01(\t\x12\"\n\x05seats\x18\x03 \x03(\x0b\x32\x13.pb.PusoySeatStatus\"K\n\x10PusoyRoomOverBRC\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x17\n\x0fis_room_started\x18\x02 \x01(\x08\"_\n\x0ePusoyScoreInfo\x12\x12\n\nbase_score\x18\x01 \x01(\x05\x12\x12\n\nchip_score\x18\x02 \x01(\x03\x12\x17\n\x0fopponent_seatid\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\x05\"\xc1\x01\n\x12PusoyHandScoreInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12(\n\x0c\x66ront_scores\x18\x03 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12&\n\nmid_scores\x18\x04 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\'\n\x0b\x62\x61\x63k_scores\x18\x05 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\x13\n\x0btotal_score\x18\x06 \x01(\x03\"\xa2\x02\n\x12PusoyGameResultBRC\x12\"\n\x05seats\x18\x01 \x03(\x0b\x32\x13.pb.PusoySeatStatus\x12-\n\rnatural_hands\x18\x02 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12-\n\rcracked_hands\x18\x03 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12,\n\x0cnormal_hands\x18\x04 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12+\n\x0bpusoy_hands\x18\x05 \x03(\x0b\x32\x16.pb.PusoyHandScoreInfo\x12/\n\x0fwinner_take_all\x18\x06 \x01(\x0b\x32\x16.pb.PusoyHandScoreInfo\"4\n\x13PusoySimplifiedInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05score\x18\x02 \x01(\x03\"\xaf\x05\n\x19PusoySimplifiedGameResult\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\r\n\x05\x63\x61rds\x18\x04 \x03(\x05\x12(\n\x0c\x66ront_scores\x18\x05 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12&\n\nmid_scores\x18\x06 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\'\n\x0b\x62\x61\x63k_scores\x18\x07 \x03(\x0b\x32\x12.pb.PusoyScoreInfo\x12\x12\n\nback_score\x18\x08 \x01(\x03\x12\x11\n\tmid_score\x18\t \x01(\x03\x12\x13\n\x0b\x66ront_score\x18\n \x01(\x03\x12\x13\n\x0btotal_score\x18\x0b \x01(\x03\x12\x14\n\x0ctotal_profit\x18\x0c \x01(\x03\x12\x0c\n\x04rank\x18\r \x01(\x05\x12\x12\n\nis_cracked\x18\x0e \x01(\x08\x12\x13\n\x0b\x63rack_score\x18\x0f \x01(\x03\x12\x1c\n\x14\x63rack_score_per_seat\x18\x10 \x01(\x03\x12\x12\n\nis_natural\x18\x11 \x01(\x08\x12\x14\n\x0cnatural_type\x18\x12 \x01(\x05\x12\x15\n\rnatural_score\x18\x13 \x01(\x03\x12\x1e\n\x16natural_score_per_seat\x18\x14 \x01(\x03\x12\x1a\n\x12is_winner_take_all\x18\x15 \x01(\x08\x12&\n\x05pusoy\x18\x16 \x03(\x0b\x32\x17.pb.PusoySimplifiedInfo\x12(\n\x0bplayer_info\x18\x17 \x01(\x0b\x32\x13.pb.PusoyPlayerInfo\x12\x19\n\x11\x63rack_total_score\x18\x18 \x01(\x03\x12\x19\n\x11pusoy_total_score\x18\x19 \x01(\x03\x12\x1b\n\x13natural_total_score\x18\x1a \x01(\x03\"\x85\x01\n\x1cPusoySimplifiedGameResultBRC\x12\x32\n\x0bgame_result\x18\x01 \x03(\x0b\x32\x1d.pb.PusoySimplifiedGameResult\x12\x17\n\x0fstage_left_time\x18\x02 \x01(\x05\x12\x18\n\x10gameset_end_time\x18\x03 \x01(\x05\"\xa2\x01\n\x12PusoyPlayingStatus\x12\r\n\x05stage\x18\x01 \x01(\x05\x12\x17\n\x0fstage_left_time\x18\x02 \x01(\x05\x12\"\n\x05seats\x18\x03 \x03(\x0b\x32\x13.pb.PusoySeatStatus\x12@\n\x16simplified_game_result\x18\x04 \x01(\x0b\x32 .pb.PusoySimplifiedGameResultBRC\"\x8f\x01\n\x0fPusoyRoomStatus\x12.\n\x0eplaying_status\x18\x01 \x01(\x0b\x32\x16.pb.PusoyPlayingStatus\x12\x12\n\nis_started\x18\x02 \x01(\x08\x12\x16\n\x0eroom_left_time\x18\x03 \x01(\x05\x12 \n\tobservers\x18\x04 \x03(\x0b\x32\r.pb.UserBrief\")\n\x12PusoySittingOutREQ\x12\x13\n\x0bsitting_out\x18\x01 \x01(\x08\"7\n\x12PusoySittingOutRSP\x12\x13\n\x0bsitting_out\x18\x01 \x01(\x08\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"9\n\x12PusoySittingOutBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x13\n\x0bsitting_out\x18\x02 \x01(\x08\"\x13\n\x11PusoyStartRoomREQ\"!\n\x11PusoyStartRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x14\n\x12PusoyProfitListREQ\"4\n\x12PusoyProfitListRSP\x12\x1e\n\x06profit\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\"\x17\n\x15PusoyObserversListREQ\"9\n\x15PusoyObserversListRSP\x12 \n\tobservers\x18\x01 \x03(\x0b\x32\r.pb.UserBrief\"\'\n\x15PusoyExchangeChipsREQ\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x03\"%\n\x15PusoyExchangeChipsRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"f\n\x13PusoyRebuyNotifyRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\x12\n\nseat_chips\x18\x03 \x01(\x03\x12\x18\n\x10\x65xchanging_chips\x18\x04 \x01(\x03\"6\n\x15PusoyExchangeChipsBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\"\x14\n\x12PusoyGameIDListREQ\"4\n\x12PusoyGameIDListRSP\x12\x0f\n\x07game_id\x18\x01 \x03(\t\x12\r\n\x05total\x18\x02 \x01(\x05\")\n\x16PusoyGameRecordListREQ\x12\x0f\n\x07game_id\x18\x01 \x03(\t\"Y\n\x0fPusoyGameRecord\x12\x35\n\x0bgame_result\x18\x01 \x01(\x0b\x32 .pb.PusoySimplifiedGameResultBRC\x12\x0f\n\x07game_id\x18\x02 \x01(\t\"B\n\x16PusoyGameRecordListRSP\x12(\n\x0bgame_record\x18\x01 \x03(\x0b\x32\x13.pb.PusoyGameRecord\">\n\x1bPusoyReserveCalltimeSeatREQ\x12\x0f\n\x07reserve\x18\x01 \x01(\x08\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\"^\n\x1bPusoyReserveCalltimeSeatRSP\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12!\n\x19remained_reservation_time\x18\x03 \x01(\x05\x42\x06Z\x04./pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,calltime__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,])
 
@@ -488,6 +488,13 @@ _PUSOYROOMINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='owner_platform', full_name='pb.PusoyRoomInfo.owner_platform', index=54,
+      number=55, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -501,7 +508,7 @@ _PUSOYROOMINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=274,
-  serialized_end=1645,
+  serialized_end=1669,
 )
 
 
@@ -811,8 +818,8 @@ _CREATEPUSOYROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1648,
-  serialized_end=2719,
+  serialized_start=1672,
+  serialized_end=2743,
 )
 
 
@@ -856,8 +863,8 @@ _CREATEPUSOYROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2721,
-  serialized_end=2810,
+  serialized_start=2745,
+  serialized_end=2834,
 )
 
 
@@ -887,8 +894,8 @@ _PUSOYSYNCHANDCARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2812,
-  serialized_end=2849,
+  serialized_start=2836,
+  serialized_end=2873,
 )
 
 
@@ -925,8 +932,8 @@ _PUSOYSYNCHANDCARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2851,
-  serialized_end=2902,
+  serialized_start=2875,
+  serialized_end=2926,
 )
 
 
@@ -970,8 +977,8 @@ _SWAPHANDCARDPOSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2904,
-  serialized_end=2987,
+  serialized_start=2928,
+  serialized_end=3011,
 )
 
 
@@ -1029,8 +1036,8 @@ _SWAPHANDCARDPOSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2989,
-  serialized_end=3101,
+  serialized_start=3013,
+  serialized_end=3125,
 )
 
 
@@ -1074,8 +1081,8 @@ _SWAPHANDCARDPOSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3103,
-  serialized_end=3165,
+  serialized_start=3127,
+  serialized_end=3189,
 )
 
 
@@ -1105,8 +1112,8 @@ _PUSOYHANDCARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3167,
-  serialized_end=3200,
+  serialized_start=3191,
+  serialized_end=3224,
 )
 
 
@@ -1178,8 +1185,8 @@ _PUSOYSITDOWNREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3203,
-  serialized_end=3371,
+  serialized_start=3227,
+  serialized_end=3395,
 )
 
 
@@ -1286,8 +1293,8 @@ _PUSOYPLAYERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3374,
-  serialized_end=3606,
+  serialized_start=3398,
+  serialized_end=3630,
 )
 
 
@@ -1380,8 +1387,8 @@ _PUSOYPLAYERGAMINGSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3609,
-  serialized_end=3904,
+  serialized_start=3633,
+  serialized_end=3928,
 )
 
 
@@ -1453,8 +1460,8 @@ _PUSOYSEATSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3907,
-  serialized_end=4117,
+  serialized_start=3931,
+  serialized_end=4141,
 )
 
 
@@ -1491,8 +1498,8 @@ _PUSOYSITDOWNBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4119,
-  serialized_end=4194,
+  serialized_start=4143,
+  serialized_end=4218,
 )
 
 
@@ -1515,8 +1522,8 @@ _PUSOYSTANDUPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4196,
-  serialized_end=4213,
+  serialized_start=4220,
+  serialized_end=4237,
 )
 
 
@@ -1546,8 +1553,8 @@ _PUSOYSTANDUPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4215,
-  serialized_end=4246,
+  serialized_start=4239,
+  serialized_end=4270,
 )
 
 
@@ -1584,8 +1591,8 @@ _PUSOYSTANDUPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4248,
-  serialized_end=4298,
+  serialized_start=4272,
+  serialized_end=4322,
 )
 
 
@@ -1622,8 +1629,8 @@ _PUSOYLEAVEGAMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4300,
-  serialized_end=4354,
+  serialized_start=4324,
+  serialized_end=4378,
 )
 
 
@@ -1660,8 +1667,8 @@ _PUSOYLEAVEGAMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4356,
-  serialized_end=4404,
+  serialized_start=4380,
+  serialized_end=4428,
 )
 
 
@@ -1698,8 +1705,8 @@ _PUSOYLEAVEGAMEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4406,
-  serialized_end=4454,
+  serialized_start=4430,
+  serialized_end=4478,
 )
 
 
@@ -1736,8 +1743,8 @@ _PUSOYSETARRANGEMENTDONEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4456,
-  serialized_end=4513,
+  serialized_start=4480,
+  serialized_end=4537,
 )
 
 
@@ -1781,8 +1788,8 @@ _PUSOYSETARRANGEMENTDONERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4515,
-  serialized_end=4586,
+  serialized_start=4539,
+  serialized_end=4610,
 )
 
 
@@ -1826,8 +1833,8 @@ _PUSOYSETARRANGEMENTDONEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4588,
-  serialized_end=4659,
+  serialized_start=4612,
+  serialized_end=4683,
 )
 
 
@@ -1857,8 +1864,8 @@ _PUSOYSETGAMEREADYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4661,
-  serialized_end=4698,
+  serialized_start=4685,
+  serialized_end=4722,
 )
 
 
@@ -1888,8 +1895,8 @@ _PUSOYCOUNTDOWNBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4700,
-  serialized_end=4734,
+  serialized_start=4724,
+  serialized_end=4758,
 )
 
 
@@ -1933,8 +1940,8 @@ _PUSOYGAMESTARTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4736,
-  serialized_end=4827,
+  serialized_start=4760,
+  serialized_end=4851,
 )
 
 
@@ -1971,8 +1978,8 @@ _PUSOYROOMOVERBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4829,
-  serialized_end=4904,
+  serialized_start=4853,
+  serialized_end=4928,
 )
 
 
@@ -2023,8 +2030,8 @@ _PUSOYSCOREINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4906,
-  serialized_end=5001,
+  serialized_start=4930,
+  serialized_end=5025,
 )
 
 
@@ -2089,8 +2096,8 @@ _PUSOYHANDSCOREINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5004,
-  serialized_end=5197,
+  serialized_start=5028,
+  serialized_end=5221,
 )
 
 
@@ -2155,8 +2162,8 @@ _PUSOYGAMERESULTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5200,
-  serialized_end=5490,
+  serialized_start=5224,
+  serialized_end=5514,
 )
 
 
@@ -2193,8 +2200,8 @@ _PUSOYSIMPLIFIEDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5492,
-  serialized_end=5544,
+  serialized_start=5516,
+  serialized_end=5568,
 )
 
 
@@ -2399,8 +2406,8 @@ _PUSOYSIMPLIFIEDGAMERESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5547,
-  serialized_end=6234,
+  serialized_start=5571,
+  serialized_end=6258,
 )
 
 
@@ -2444,8 +2451,8 @@ _PUSOYSIMPLIFIEDGAMERESULTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6237,
-  serialized_end=6370,
+  serialized_start=6261,
+  serialized_end=6394,
 )
 
 
@@ -2496,8 +2503,8 @@ _PUSOYPLAYINGSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6373,
-  serialized_end=6535,
+  serialized_start=6397,
+  serialized_end=6559,
 )
 
 
@@ -2548,8 +2555,8 @@ _PUSOYROOMSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6538,
-  serialized_end=6681,
+  serialized_start=6562,
+  serialized_end=6705,
 )
 
 
@@ -2579,8 +2586,8 @@ _PUSOYSITTINGOUTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6683,
-  serialized_end=6724,
+  serialized_start=6707,
+  serialized_end=6748,
 )
 
 
@@ -2617,8 +2624,8 @@ _PUSOYSITTINGOUTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6726,
-  serialized_end=6781,
+  serialized_start=6750,
+  serialized_end=6805,
 )
 
 
@@ -2655,8 +2662,8 @@ _PUSOYSITTINGOUTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6783,
-  serialized_end=6840,
+  serialized_start=6807,
+  serialized_end=6864,
 )
 
 
@@ -2679,8 +2686,8 @@ _PUSOYSTARTROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6842,
-  serialized_end=6861,
+  serialized_start=6866,
+  serialized_end=6885,
 )
 
 
@@ -2710,8 +2717,8 @@ _PUSOYSTARTROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6863,
-  serialized_end=6896,
+  serialized_start=6887,
+  serialized_end=6920,
 )
 
 
@@ -2734,8 +2741,8 @@ _PUSOYPROFITLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6898,
-  serialized_end=6918,
+  serialized_start=6922,
+  serialized_end=6942,
 )
 
 
@@ -2765,8 +2772,8 @@ _PUSOYPROFITLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6920,
-  serialized_end=6972,
+  serialized_start=6944,
+  serialized_end=6996,
 )
 
 
@@ -2789,8 +2796,8 @@ _PUSOYOBSERVERSLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6974,
-  serialized_end=6997,
+  serialized_start=6998,
+  serialized_end=7021,
 )
 
 
@@ -2820,8 +2827,8 @@ _PUSOYOBSERVERSLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6999,
-  serialized_end=7056,
+  serialized_start=7023,
+  serialized_end=7080,
 )
 
 
@@ -2851,8 +2858,8 @@ _PUSOYEXCHANGECHIPSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7058,
-  serialized_end=7097,
+  serialized_start=7082,
+  serialized_end=7121,
 )
 
 
@@ -2882,8 +2889,8 @@ _PUSOYEXCHANGECHIPSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7099,
-  serialized_end=7136,
+  serialized_start=7123,
+  serialized_end=7160,
 )
 
 
@@ -2934,8 +2941,8 @@ _PUSOYREBUYNOTIFYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7138,
-  serialized_end=7240,
+  serialized_start=7162,
+  serialized_end=7264,
 )
 
 
@@ -2972,8 +2979,8 @@ _PUSOYEXCHANGECHIPSBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7242,
-  serialized_end=7296,
+  serialized_start=7266,
+  serialized_end=7320,
 )
 
 
@@ -2996,8 +3003,8 @@ _PUSOYGAMEIDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7298,
-  serialized_end=7318,
+  serialized_start=7322,
+  serialized_end=7342,
 )
 
 
@@ -3034,8 +3041,8 @@ _PUSOYGAMEIDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7320,
-  serialized_end=7372,
+  serialized_start=7344,
+  serialized_end=7396,
 )
 
 
@@ -3065,8 +3072,8 @@ _PUSOYGAMERECORDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7374,
-  serialized_end=7415,
+  serialized_start=7398,
+  serialized_end=7439,
 )
 
 
@@ -3103,8 +3110,8 @@ _PUSOYGAMERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7417,
-  serialized_end=7506,
+  serialized_start=7441,
+  serialized_end=7530,
 )
 
 
@@ -3134,8 +3141,8 @@ _PUSOYGAMERECORDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7508,
-  serialized_end=7574,
+  serialized_start=7532,
+  serialized_end=7598,
 )
 
 
@@ -3172,8 +3179,8 @@ _PUSOYRESERVECALLTIMESEATREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7576,
-  serialized_end=7638,
+  serialized_start=7600,
+  serialized_end=7662,
 )
 
 
@@ -3217,8 +3224,8 @@ _PUSOYRESERVECALLTIMESEATRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7640,
-  serialized_end=7734,
+  serialized_start=7664,
+  serialized_end=7758,
 )
 
 _PUSOYROOMINFO.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE

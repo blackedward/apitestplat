@@ -35,6 +35,7 @@ import pusoy_pb2 as pusoy__pb2
 import lucky_draw_pb2 as lucky__draw__pb2
 import colorgame_pb2 as colorgame__pb2
 import tongits_pb2 as tongits__pb2
+import seka_pb2 as seka__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -42,9 +43,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\tpb5.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\tpb1.proto\x1a\npine.proto\x1a\x0fpre_base1.proto\x1a\x08tp.proto\x1a\x0bpusoy.proto\x1a\x10lucky_draw.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\"\x88\x01\n\x0cLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0f\n\x04\x66lag\x18\x03 \x01(\x05:\x01\x30\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x18\n\rclient_clubid\x18\x06 \x01(\x05:\x01\x30\x12\r\n\x05leave\x18\x07 \x01(\x08\"y\n\x0cLeaveRoomREQ\x12\x0f\n\x04\x66lag\x18\x01 \x01(\x05:\x01\x30\x12\x1b\n\x0cseat_reserve\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\x18\n\rclient_clubid\x18\x03 \x01(\x05:\x01\x30\x12\r\n\x05leave\x18\x04 \x01(\x08\x12\x12\n\nleave_type\x18\x05 \x01(\x05\"b\n\x0f\x41\x63tionNotifyBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x02 \x01(\x03\x12\x12\n\nmin_chipin\x18\x03 \x01(\x03\x12\x12\n\nmax_chipin\x18\x04 \x01(\x03\"4\n\x14QuitMultipleTableREQ\x12\x0e\n\x06roomid\x18\x01 \x03(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"2\n\x14QuitMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"\x19\n\x17QuitAllMultipleTableREQ\"\'\n\x17QuitAllMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1b\n\x19RoundHintMultipleTableREQ\"\xbe\x02\n\x19RoundHintMultipleTableRSP\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x11\n\x06seatid\x18\x06 \x01(\x05:\x01\x30\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x11\n\troom_name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x1f\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\troom_type\x18\x0c \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\r \x01(\x0e\x32\x0c.pb.GameMode\x12\x11\n\x06ppsrid\x18\x0e \x01(\x05:\x01\x30\"$\n\x12\x46inishRoundHintRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\",\n\x1aMultipleTableChangeRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\":\n\x1aMultipleTableChangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\" \n\x0eGetRoomInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\x95\x07\n\x0eGetRoomInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12(\n\nstorm_info\x18\x0e \x01(\x0b\x32\x14.pb.PPchipsStormInfo\x12$\n\x0ctp_room_info\x18\x0f \x01(\x0b\x32\x0e.pb.TpRoomInfo\x12*\n\x0ftp_table_status\x18\x10 \x01(\x0b\x32\x11.pb.TpTableStatus\x12*\n\x0fpusoy_room_info\x18\x11 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\x12.\n\x11pusoy_room_status\x18\x12 \x01(\x0b\x32\x13.pb.PusoyRoomStatus\x12.\n\x11lucky_draw_config\x18\x13 \x01(\x0b\x32\x13.pb.LuckyDrawConfig\x12*\n\x0f\x63olor_room_info\x18\x14 \x01(\x0b\x32\x11.pb.ColorRoomInfo\x12.\n\x11\x63olor_room_status\x18\x15 \x01(\x0b\x32\x13.pb.ColorRoomStatus\x12.\n\x11tongits_room_info\x18\x16 \x01(\x0b\x32\x13.pb.TongitsRoomInfo\x12\x32\n\x13tongits_room_status\x18\x17 \x01(\x0b\x32\x15.pb.TongitsRoomStatus\"I\n\x14UserVipInfoChangeBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x14\n\tvip_level\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\"R\n\x12\x46orumMessageNumRSP\x12\r\n\x05total\x18\x01 \x01(\x03\x12\x0c\n\x04like\x18\x02 \x01(\x03\x12\x0f\n\x07\x63omment\x18\x03 \x01(\x03\x12\x0e\n\x06system\x18\x04 \x01(\x03\"1\n\x12PlayingRoomListREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\"P\n\x12PlayingRoomListRSP\x12,\n\troom_list\x18\x01 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"(\n\x13ShowDealerChoiceRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\"#\n\x0f\x44\x65\x61lerChoiceREQ\x12\x10\n\x08gametype\x18\x01 \x01(\x05\"\x1f\n\x0f\x44\x65\x61lerChoiceRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"#\n\x0f\x44\x65\x61lerChoiceBRC\x12\x10\n\x08gametype\x18\x01 \x01(\x05\" \n\x11OtherLeaveRoomBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"{\n\x0c\x45nterRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x03tid\x18\x02 \x01(\x05:\x02-1\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\x06\x63lubid\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\n\n\x02ip\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\x05\"\xc8\x01\n\x15PreEnterPasswdRoomREQ\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.pb.PreEnterPasswdRoomType\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x13\n\x08leagueid\x18\x05 \x01(\x05:\x01\x30\x12\x0e\n\x06passwd\x18\x06 \x01(\t\x12\x19\n\x0esuper_leagueid\x18\x07 \x01(\x05:\x01\x30\x12\x18\n\rcertification\x18\x08 \x01(\x05:\x01\x30\"\xc0\x01\n\x15PreEnterPasswdRoomRSP\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.pb.PreEnterPasswdRoomType\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x0f\n\x04\x63ode\x18\x06 \x01(\x05:\x01\x30\x12\x16\n\x07\x63hecked\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x15\n\x06kicked\x18\x08 \x01(\x08:\x05\x66\x61lse\"\xba\x02\n\x0fTableSettingREQ\x12\r\n\x05\x62\x63lub\x18\x01 \x01(\x08\x12\r\n\x05\x62open\x18\x02 \x01(\x08\x12\x1b\n\x13onebtn_molecule_num\x18\x03 \x01(\x05\x12\x1e\n\x16onebtn_denominator_num\x18\x04 \x01(\x05\x12\x1b\n\x13twobtn_molecule_num\x18\x05 \x01(\x05\x12\x1e\n\x16twobtn_denominator_num\x18\x06 \x01(\x05\x12\x1d\n\x15threebtn_molecule_num\x18\x07 \x01(\x05\x12 \n\x18threebtn_denominator_num\x18\x08 \x01(\x05\x12\x12\n\nonebtn_num\x18\t \x01(\x05\x12\x12\n\ntwobtn_num\x18\n \x01(\x05\x12\x14\n\x0cthreebtn_num\x18\x0b \x01(\x05\x12\x10\n\x08roomtype\x18\x0c \x01(\x05\"\x1f\n\x0fTableSettingRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"B\n\x11OtherEnterRoomBRC\x12\x1b\n\x04user\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\x10\n\x08\x66rame_id\x18\x02 \x01(\t\"M\n\x0eRewardItemInfo\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x0e\n\x03num\x18\x04 \x01(\x05:\x01\x30\"\x10\n\x0eQueryRewardREQ\"y\n\x0eQueryRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08item_num\x18\x02 \x01(\x05\x12%\n\titem_info\x18\x03 \x03(\x0b\x32\x12.pb.RewardItemInfo\x12\x13\n\x0breward_type\x18\x04 \x01(\x05\x12\x0b\n\x03num\x18\x05 \x01(\x05\"\x1c\n\x0e\x46\x65tchRewardREQ\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1e\n\x0e\x46\x65tchRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"@\n\x1bSetAutoChipReplenishmentREQ\x12!\n\x19\x65nable_chip_replenishment\x18\x01 \x01(\x08\"\x1d\n\x1bSetAutoChipReplenishmentRSP\" \n\x1eGetChipReplenishmentSettingREQ\"C\n\x1eGetChipReplenishmentSettingRSP\x12!\n\x19\x65nable_chip_replenishment\x18\x01 \x01(\x08*\x8a\x01\n\x16PreEnterPasswdRoomType\x12#\n\x1fPRE_ENTER_PASSWD_ROOM_TYPE_NONE\x10\x00\x12%\n!PRE_ENTER_PASSWD_ROOM_TYPE_STATUS\x10\x01\x12$\n PRE_ENTER_PASSWD_ROOM_TYPE_CHECK\x10\x02\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\tpb5.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\tpb1.proto\x1a\npine.proto\x1a\x0fpre_base1.proto\x1a\x08tp.proto\x1a\x0bpusoy.proto\x1a\x10lucky_draw.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\x1a\nseka.proto\"\x88\x01\n\x0cLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0f\n\x04\x66lag\x18\x03 \x01(\x05:\x01\x30\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x18\n\rclient_clubid\x18\x06 \x01(\x05:\x01\x30\x12\r\n\x05leave\x18\x07 \x01(\x08\"y\n\x0cLeaveRoomREQ\x12\x0f\n\x04\x66lag\x18\x01 \x01(\x05:\x01\x30\x12\x1b\n\x0cseat_reserve\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\x18\n\rclient_clubid\x18\x03 \x01(\x05:\x01\x30\x12\r\n\x05leave\x18\x04 \x01(\x08\x12\x12\n\nleave_type\x18\x05 \x01(\x05\"b\n\x0f\x41\x63tionNotifyBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x02 \x01(\x03\x12\x12\n\nmin_chipin\x18\x03 \x01(\x03\x12\x12\n\nmax_chipin\x18\x04 \x01(\x03\"4\n\x14QuitMultipleTableREQ\x12\x0e\n\x06roomid\x18\x01 \x03(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"2\n\x14QuitMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"\x19\n\x17QuitAllMultipleTableREQ\"\'\n\x17QuitAllMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1b\n\x19RoundHintMultipleTableREQ\"\xbe\x02\n\x19RoundHintMultipleTableRSP\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x11\n\x06seatid\x18\x06 \x01(\x05:\x01\x30\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x11\n\troom_name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x1f\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode\x12\x1f\n\troom_type\x18\x0c \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\r \x01(\x0e\x32\x0c.pb.GameMode\x12\x11\n\x06ppsrid\x18\x0e \x01(\x05:\x01\x30\"$\n\x12\x46inishRoundHintRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\",\n\x1aMultipleTableChangeRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\":\n\x1aMultipleTableChangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\" \n\x0eGetRoomInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\xed\x07\n\x0eGetRoomInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12(\n\nstorm_info\x18\x0e \x01(\x0b\x32\x14.pb.PPchipsStormInfo\x12$\n\x0ctp_room_info\x18\x0f \x01(\x0b\x32\x0e.pb.TpRoomInfo\x12*\n\x0ftp_table_status\x18\x10 \x01(\x0b\x32\x11.pb.TpTableStatus\x12*\n\x0fpusoy_room_info\x18\x11 \x01(\x0b\x32\x11.pb.PusoyRoomInfo\x12.\n\x11pusoy_room_status\x18\x12 \x01(\x0b\x32\x13.pb.PusoyRoomStatus\x12.\n\x11lucky_draw_config\x18\x13 \x01(\x0b\x32\x13.pb.LuckyDrawConfig\x12*\n\x0f\x63olor_room_info\x18\x14 \x01(\x0b\x32\x11.pb.ColorRoomInfo\x12.\n\x11\x63olor_room_status\x18\x15 \x01(\x0b\x32\x13.pb.ColorRoomStatus\x12.\n\x11tongits_room_info\x18\x16 \x01(\x0b\x32\x13.pb.TongitsRoomInfo\x12\x32\n\x13tongits_room_status\x18\x17 \x01(\x0b\x32\x15.pb.TongitsRoomStatus\x12(\n\x0eseka_room_info\x18\x18 \x01(\x0b\x32\x10.pb.SekaRoomInfo\x12,\n\x10seka_room_status\x18\x19 \x01(\x0b\x32\x12.pb.SekaRoomStatus\"I\n\x14UserVipInfoChangeBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x14\n\tvip_level\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\"R\n\x12\x46orumMessageNumRSP\x12\r\n\x05total\x18\x01 \x01(\x03\x12\x0c\n\x04like\x18\x02 \x01(\x03\x12\x0f\n\x07\x63omment\x18\x03 \x01(\x03\x12\x0e\n\x06system\x18\x04 \x01(\x03\"1\n\x12PlayingRoomListREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\"P\n\x12PlayingRoomListRSP\x12,\n\troom_list\x18\x01 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"(\n\x13ShowDealerChoiceRSP\x12\x11\n\tleft_time\x18\x01 \x01(\x05\"#\n\x0f\x44\x65\x61lerChoiceREQ\x12\x10\n\x08gametype\x18\x01 \x01(\x05\"\x1f\n\x0f\x44\x65\x61lerChoiceRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"#\n\x0f\x44\x65\x61lerChoiceBRC\x12\x10\n\x08gametype\x18\x01 \x01(\x05\" \n\x11OtherLeaveRoomBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"{\n\x0c\x45nterRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x03tid\x18\x02 \x01(\x05:\x02-1\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\x06\x63lubid\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\n\n\x02ip\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\x05\"\xc8\x01\n\x15PreEnterPasswdRoomREQ\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.pb.PreEnterPasswdRoomType\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x13\n\x08leagueid\x18\x05 \x01(\x05:\x01\x30\x12\x0e\n\x06passwd\x18\x06 \x01(\t\x12\x19\n\x0esuper_leagueid\x18\x07 \x01(\x05:\x01\x30\x12\x18\n\rcertification\x18\x08 \x01(\x05:\x01\x30\"\xc0\x01\n\x15PreEnterPasswdRoomRSP\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.pb.PreEnterPasswdRoomType\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x0f\n\x04\x63ode\x18\x06 \x01(\x05:\x01\x30\x12\x16\n\x07\x63hecked\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x15\n\x06kicked\x18\x08 \x01(\x08:\x05\x66\x61lse\"\xba\x02\n\x0fTableSettingREQ\x12\r\n\x05\x62\x63lub\x18\x01 \x01(\x08\x12\r\n\x05\x62open\x18\x02 \x01(\x08\x12\x1b\n\x13onebtn_molecule_num\x18\x03 \x01(\x05\x12\x1e\n\x16onebtn_denominator_num\x18\x04 \x01(\x05\x12\x1b\n\x13twobtn_molecule_num\x18\x05 \x01(\x05\x12\x1e\n\x16twobtn_denominator_num\x18\x06 \x01(\x05\x12\x1d\n\x15threebtn_molecule_num\x18\x07 \x01(\x05\x12 \n\x18threebtn_denominator_num\x18\x08 \x01(\x05\x12\x12\n\nonebtn_num\x18\t \x01(\x05\x12\x12\n\ntwobtn_num\x18\n \x01(\x05\x12\x14\n\x0cthreebtn_num\x18\x0b \x01(\x05\x12\x10\n\x08roomtype\x18\x0c \x01(\x05\"\x1f\n\x0fTableSettingRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"B\n\x11OtherEnterRoomBRC\x12\x1b\n\x04user\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\x12\x10\n\x08\x66rame_id\x18\x02 \x01(\t\"M\n\x0eRewardItemInfo\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x0e\n\x03num\x18\x04 \x01(\x05:\x01\x30\"\x10\n\x0eQueryRewardREQ\"y\n\x0eQueryRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08item_num\x18\x02 \x01(\x05\x12%\n\titem_info\x18\x03 \x03(\x0b\x32\x12.pb.RewardItemInfo\x12\x13\n\x0breward_type\x18\x04 \x01(\x05\x12\x0b\n\x03num\x18\x05 \x01(\x05\"\x1c\n\x0e\x46\x65tchRewardREQ\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1e\n\x0e\x46\x65tchRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"@\n\x1bSetAutoChipReplenishmentREQ\x12!\n\x19\x65nable_chip_replenishment\x18\x01 \x01(\x08\"\x1d\n\x1bSetAutoChipReplenishmentRSP\" \n\x1eGetChipReplenishmentSettingREQ\"C\n\x1eGetChipReplenishmentSettingRSP\x12!\n\x19\x65nable_chip_replenishment\x18\x01 \x01(\x08*\x8a\x01\n\x16PreEnterPasswdRoomType\x12#\n\x1fPRE_ENTER_PASSWD_ROOM_TYPE_NONE\x10\x00\x12%\n!PRE_ENTER_PASSWD_ROOM_TYPE_STATUS\x10\x01\x12$\n PRE_ENTER_PASSWD_ROOM_TYPE_CHECK\x10\x02\x42\x06Z\x04./pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,lucky__draw__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,lucky__draw__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,seka__pb2.DESCRIPTOR,])
 
 _PREENTERPASSWDROOMTYPE = _descriptor.EnumDescriptor(
   name='PreEnterPasswdRoomType',
@@ -67,8 +68,8 @@ _PREENTERPASSWDROOMTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4041,
-  serialized_end=4179,
+  serialized_start=4141,
+  serialized_end=4279,
 )
 _sym_db.RegisterEnumDescriptor(_PREENTERPASSWDROOMTYPE)
 
@@ -147,8 +148,8 @@ _LEAVEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=159,
-  serialized_end=295,
+  serialized_start=171,
+  serialized_end=307,
 )
 
 
@@ -206,8 +207,8 @@ _LEAVEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=297,
-  serialized_end=418,
+  serialized_start=309,
+  serialized_end=430,
 )
 
 
@@ -258,8 +259,8 @@ _ACTIONNOTIFYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=420,
-  serialized_end=518,
+  serialized_start=432,
+  serialized_end=530,
 )
 
 
@@ -296,8 +297,8 @@ _QUITMULTIPLETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=520,
-  serialized_end=572,
+  serialized_start=532,
+  serialized_end=584,
 )
 
 
@@ -334,8 +335,8 @@ _QUITMULTIPLETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=574,
-  serialized_end=624,
+  serialized_start=586,
+  serialized_end=636,
 )
 
 
@@ -358,8 +359,8 @@ _QUITALLMULTIPLETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=626,
-  serialized_end=651,
+  serialized_start=638,
+  serialized_end=663,
 )
 
 
@@ -389,8 +390,8 @@ _QUITALLMULTIPLETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=653,
-  serialized_end=692,
+  serialized_start=665,
+  serialized_end=704,
 )
 
 
@@ -413,8 +414,8 @@ _ROUNDHINTMULTIPLETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=694,
-  serialized_end=721,
+  serialized_start=706,
+  serialized_end=733,
 )
 
 
@@ -535,8 +536,8 @@ _ROUNDHINTMULTIPLETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=724,
-  serialized_end=1042,
+  serialized_start=736,
+  serialized_end=1054,
 )
 
 
@@ -566,8 +567,8 @@ _FINISHROUNDHINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1044,
-  serialized_end=1080,
+  serialized_start=1056,
+  serialized_end=1092,
 )
 
 
@@ -597,8 +598,8 @@ _MULTIPLETABLECHANGEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1082,
-  serialized_end=1126,
+  serialized_start=1094,
+  serialized_end=1138,
 )
 
 
@@ -635,8 +636,8 @@ _MULTIPLETABLECHANGEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1128,
-  serialized_end=1186,
+  serialized_start=1140,
+  serialized_end=1198,
 )
 
 
@@ -666,8 +667,8 @@ _GETROOMINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1188,
-  serialized_end=1220,
+  serialized_start=1200,
+  serialized_end=1232,
 )
 
 
@@ -839,6 +840,20 @@ _GETROOMINFORSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room_info', full_name='pb.GetRoomInfoRSP.seka_room_info', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room_status', full_name='pb.GetRoomInfoRSP.seka_room_status', index=24,
+      number=25, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -851,8 +866,8 @@ _GETROOMINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1223,
-  serialized_end=2140,
+  serialized_start=1235,
+  serialized_end=2240,
 )
 
 
@@ -896,8 +911,8 @@ _USERVIPINFOCHANGEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2142,
-  serialized_end=2215,
+  serialized_start=2242,
+  serialized_end=2315,
 )
 
 
@@ -948,8 +963,8 @@ _FORUMMESSAGENUMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2217,
-  serialized_end=2299,
+  serialized_start=2317,
+  serialized_end=2399,
 )
 
 
@@ -986,8 +1001,8 @@ _PLAYINGROOMLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2301,
-  serialized_end=2350,
+  serialized_start=2401,
+  serialized_end=2450,
 )
 
 
@@ -1024,8 +1039,8 @@ _PLAYINGROOMLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2352,
-  serialized_end=2432,
+  serialized_start=2452,
+  serialized_end=2532,
 )
 
 
@@ -1055,8 +1070,8 @@ _SHOWDEALERCHOICERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2434,
-  serialized_end=2474,
+  serialized_start=2534,
+  serialized_end=2574,
 )
 
 
@@ -1086,8 +1101,8 @@ _DEALERCHOICEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2476,
-  serialized_end=2511,
+  serialized_start=2576,
+  serialized_end=2611,
 )
 
 
@@ -1117,8 +1132,8 @@ _DEALERCHOICERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2513,
-  serialized_end=2544,
+  serialized_start=2613,
+  serialized_end=2644,
 )
 
 
@@ -1148,8 +1163,8 @@ _DEALERCHOICEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2546,
-  serialized_end=2581,
+  serialized_start=2646,
+  serialized_end=2681,
 )
 
 
@@ -1179,8 +1194,8 @@ _OTHERLEAVEROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2583,
-  serialized_end=2615,
+  serialized_start=2683,
+  serialized_end=2715,
 )
 
 
@@ -1252,8 +1267,8 @@ _ENTERROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2617,
-  serialized_end=2740,
+  serialized_start=2717,
+  serialized_end=2840,
 )
 
 
@@ -1332,8 +1347,8 @@ _PREENTERPASSWDROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2743,
-  serialized_end=2943,
+  serialized_start=2843,
+  serialized_end=3043,
 )
 
 
@@ -1412,8 +1427,8 @@ _PREENTERPASSWDROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2946,
-  serialized_end=3138,
+  serialized_start=3046,
+  serialized_end=3238,
 )
 
 
@@ -1520,8 +1535,8 @@ _TABLESETTINGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3141,
-  serialized_end=3455,
+  serialized_start=3241,
+  serialized_end=3555,
 )
 
 
@@ -1551,8 +1566,8 @@ _TABLESETTINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3457,
-  serialized_end=3488,
+  serialized_start=3557,
+  serialized_end=3588,
 )
 
 
@@ -1589,8 +1604,8 @@ _OTHERENTERROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3490,
-  serialized_end=3556,
+  serialized_start=3590,
+  serialized_end=3656,
 )
 
 
@@ -1641,8 +1656,8 @@ _REWARDITEMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3558,
-  serialized_end=3635,
+  serialized_start=3658,
+  serialized_end=3735,
 )
 
 
@@ -1665,8 +1680,8 @@ _QUERYREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3637,
-  serialized_end=3653,
+  serialized_start=3737,
+  serialized_end=3753,
 )
 
 
@@ -1724,8 +1739,8 @@ _QUERYREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3655,
-  serialized_end=3776,
+  serialized_start=3755,
+  serialized_end=3876,
 )
 
 
@@ -1755,8 +1770,8 @@ _FETCHREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3778,
-  serialized_end=3806,
+  serialized_start=3878,
+  serialized_end=3906,
 )
 
 
@@ -1786,8 +1801,8 @@ _FETCHREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3808,
-  serialized_end=3838,
+  serialized_start=3908,
+  serialized_end=3938,
 )
 
 
@@ -1817,8 +1832,8 @@ _SETAUTOCHIPREPLENISHMENTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3840,
-  serialized_end=3904,
+  serialized_start=3940,
+  serialized_end=4004,
 )
 
 
@@ -1841,8 +1856,8 @@ _SETAUTOCHIPREPLENISHMENTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3906,
-  serialized_end=3935,
+  serialized_start=4006,
+  serialized_end=4035,
 )
 
 
@@ -1865,8 +1880,8 @@ _GETCHIPREPLENISHMENTSETTINGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3937,
-  serialized_end=3969,
+  serialized_start=4037,
+  serialized_end=4069,
 )
 
 
@@ -1896,8 +1911,8 @@ _GETCHIPREPLENISHMENTSETTINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3971,
-  serialized_end=4038,
+  serialized_start=4071,
+  serialized_end=4138,
 )
 
 _ROUNDHINTMULTIPLETABLERSP.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
@@ -1923,6 +1938,8 @@ _GETROOMINFORSP.fields_by_name['color_room_info'].message_type = colorgame__pb2.
 _GETROOMINFORSP.fields_by_name['color_room_status'].message_type = colorgame__pb2._COLORROOMSTATUS
 _GETROOMINFORSP.fields_by_name['tongits_room_info'].message_type = tongits__pb2._TONGITSROOMINFO
 _GETROOMINFORSP.fields_by_name['tongits_room_status'].message_type = tongits__pb2._TONGITSROOMSTATUS
+_GETROOMINFORSP.fields_by_name['seka_room_info'].message_type = seka__pb2._SEKAROOMINFO
+_GETROOMINFORSP.fields_by_name['seka_room_status'].message_type = seka__pb2._SEKAROOMSTATUS
 _PLAYINGROOMLISTRSP.fields_by_name['room_list'].message_type = pb1__pb2._MULTIPLETABLEROOMINFO
 _PREENTERPASSWDROOMREQ.fields_by_name['type'].enum_type = _PREENTERPASSWDROOMTYPE
 _PREENTERPASSWDROOMRSP.fields_by_name['type'].enum_type = _PREENTERPASSWDROOMTYPE

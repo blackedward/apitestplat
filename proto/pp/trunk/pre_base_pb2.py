@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x0epre_base.proto\x12\x02pb\"~\n\rItemClassInfo\x12\x11\n\titem_name\x18\x01 \x01(\t\x12\x11\n\titem_type\x18\x02 \x01(\x05\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x05\x12\x11\n\tcan_merge\x18\x05 \x01(\x08\x12\r\n\x05price\x18\x06 \x01(\x03\"\xec\x01\n\rMttRewardInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x11\n\titem_name\x18\x02 \x03(\t\x12\r\n\x05score\x18\x03 \x01(\x05\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\x12\x16\n\x0cspecial_show\x18\x05 \x01(\t:\x00\x12\x12\n\nitem_price\x18\x06 \x03(\x03\x12&\n\titem_type\x18\x07 \x03(\x0e\x32\x13.pb.ClubBagpackType\x12\x16\n\nstart_rank\x18\x08 \x01(\x05:\x02-1\x12\x14\n\x08\x65nd_rank\x18\t \x01(\x05:\x02-1\x12\x18\n\rhunter_reward\x18\n \x01(\x05:\x01\x30\")\n\x04Item\x12\x0e\n\x06itemid\x18\x01 \x01(\x03\x12\x11\n\titem_name\x18\x02 \x01(\t\"\x90\x01\n\tUserBrief\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12\x11\n\tclub_name\x18\x04 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x18\n\rcertification\x18\x06 \x01(\x05:\x01\x30\x12\x19\n\x11user_ppgl_country\x18\x07 \x01(\t\"n\n\x13RewardConfigureItem\x12\x0f\n\x07ranking\x18\x01 \x01(\x05\x12\x14\n\x0cranking_nums\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03\"\x82\x02\n\x10\x46ixedCostOptions\x12\x18\n\x10union_table_cost\x18\x01 \x01(\x08\x12\x1d\n\x15union_table_extension\x18\x02 \x01(\x08\x12\x19\n\x11\x66reeroll_mtt_cost\x18\x03 \x01(\x08\x12\x13\n\x0b\x64\x61ta_export\x18\x04 \x01(\x08\x12\x13\n\x0b\x63lub_rating\x18\x05 \x01(\x08\x12\x16\n\x0erenaming_clubs\x18\x06 \x01(\x08\x12\x14\n\x0c\x62\x61n_chatting\x18\x07 \x01(\x08\x12\x1c\n\x0e\x63hips_exchange\x18\x08 \x01(\x08:\x04true\x12$\n\x16\x63hips_trade_commission\x18\t \x01(\x08:\x04true*\xdd\x02\n\nActionType\x12\x0f\n\x0b\x41\x43TION_NONE\x10\x00\x12\x0f\n\x0b\x41\x43TION_FOLD\x10\x01\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x02\x12\x0f\n\x0b\x41\x43TION_CALL\x10\x03\x12\x10\n\x0c\x41\x43TION_RAISE\x10\x04\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x05\x12\x10\n\x0c\x41\x43TION_SITED\x10\x06\x12\x0e\n\nACTION_BET\x10\x07\x12\r\n\tACTION_SB\x10\x08\x12\r\n\tACTION_BB\x10\t\x12\x0f\n\x0b\x41\x43TION_ANTE\x10\n\x12\x13\n\x0f\x41\x43TION_FORCE_BB\x10\x0b\x12\x16\n\x12\x41\x43TION_SYSTEM_FOLD\x10\x0c\x12\x17\n\x13\x41\x43TION_SYSTEM_CHECK\x10\r\x12\x13\n\x0f\x41\x43TION_STRADDLE\x10\x0e\x12\x0e\n\nACTION_POT\x10\x0f\x12\x14\n\x10\x41\x43TION_FAST_FOLD\x10\x10\x12\x15\n\x11\x41\x43TION_BOMBPOT_BB\x10\x11*\x83\x02\n\x0cTpActionType\x12\x12\n\x0eTP_ACTION_NONE\x10\x00\x12\x12\n\x0eTP_ACTION_PACK\x10\x01\x12\x13\n\x0fTP_ACTION_BLIND\x10\x02\x12\x13\n\x0fTP_ACTION_CHAAL\x10\x03\x12\x12\n\x0eTP_ACTION_SHOW\x10\x04\x12\x17\n\x13TP_ACTION_SIDE_SHOW\x10\x05\x12\x13\n\x0fTP_ACTION_SITED\x10\x06\x12\x12\n\x0eTP_ACTION_WAIT\x10\x07\x12\x12\n\x0eTP_ACTION_ANTE\x10\x08\x12\x19\n\x15TP_ACTION_SYSTEM_PACK\x10\t\x12\x1c\n\x18TP_ACTION_COMPARE_FAILED\x10\n*d\n\rPreActionType\x12\x13\n\x0fPRE_ACTION_NONE\x10\x00\x12\x13\n\x0fPRE_ACTION_FOLD\x10\x01\x12\x14\n\x10PRE_ACTION_CHECK\x10\x02\x12\x13\n\x0fPRE_ACTION_CALL\x10\x03*\xb2\x02\n\x08RoomType\x12\r\n\tTEST_ROOM\x10\x00\x12\x0f\n\x0b\x43USTOM_ROOM\x10\x01\x12\x0c\n\x08MTT_ROOM\x10\x02\x12\x0c\n\x08SNG_ROOM\x10\x03\x12\x0f\n\x0bLADDER_ROOM\x10\x04\x12\r\n\tCLUB_ROOM\x10\x05\x12\x13\n\x0f\x41LLIN_FOLD_ROOM\x10\x06\x12\x0e\n\nLOBBY_ROOM\x10\x07\x12\x0e\n\nOMAHA_ROOM\x10\x08\x12\r\n\tPINE_ROOM\x10\t\x12\x12\n\x0eOMAHA_SNG_ROOM\x10\n\x12\x12\n\x0eOMAHA_MTT_ROOM\x10\x0b\x12\x0e\n\nMIXED_ROOM\x10\x0c\x12\x0f\n\x0bSPINUP_ROOM\x10\r\x12\x0e\n\nPUSOY_ROOM\x10\x0e\x12\x0b\n\x07TP_ROOM\x10\x0f\x12\x0e\n\nCOLOR_ROOM\x10\x10\x12\x10\n\x0cTONGITS_ROOM\x10\x11*\x89\x01\n\x08RoomMode\x12\x12\n\x0eROOM_MODE_NONE\x10\x00\x12\x13\n\x0fROOM_MODE_LOBBY\x10\x01\x12\x14\n\x10ROOM_MODE_LADDER\x10\x02\x12\x12\n\x0eROOM_MODE_CLUB\x10\x03\x12\x12\n\x0eROOM_MODE_HALL\x10\x04\x12\x16\n\x12ROOM_MODE_OFFICIAL\x10\x05*\xbb\x10\n\x08GameMode\x12\x15\n\x11GAME_MODE_REGULAR\x10\x00\x12\x1d\n\x19GAME_MODE_OFC_PROGRESSIVE\x10\x01\x12\x1a\n\x16GAME_MODE_OFC_ULTIMATE\x10\x02\x12\x19\n\x15GAME_MODE_PLO_5_CARDS\x10\n\x12\x12\n\x0eGAME_MODE_ZOOM\x10\x0b\x12\x18\n\x14GAME_MODE_NLH_6_PLUS\x10\x0c\x12\x18\n\x14GAME_MODE_ALLIN_FOLD\x10\r\x12\x14\n\x10GAME_MODE_HUNTER\x10\x0e\x12\x1d\n\x19GAME_MODE_SNOWBALL_HUNTER\x10\x0f\x12\x1b\n\x17GAME_MODE_MTT_SATELLITE\x10\x10\x12\x18\n\x14GAME_MODE_MTT_ENTITY\x10\x11\x12\x19\n\x15GAME_MODE_PLO_6_CARDS\x10\x12\x12\x18\n\x14GAME_MODE_ZOOM_PLO_5\x10\x13\x12\x1b\n\x17GAME_MODE_TONGITS_JOKER\x10\x14\x12\x1c\n\x18GAME_MODE_MYSTERY_BOUNTY\x10\x15\x12\x18\n\x14GAME_MODE_MTT_6_PLUS\x10\x16\x12#\n\x1fGAME_MODE_OFC_WILD_CARD_REGULAR\x10\x64\x12\'\n#GAME_MODE_OFC_WILD_CARD_PROGRESSIVE\x10\x65\x12$\n GAME_MODE_OFC_WILD_CARD_ULTIMATE\x10\x66\x12&\n\"GAME_MODE_OFC_PROGRESSIVE_CALLTIME\x10g\x12#\n\x1fGAME_MODE_OFC_ULTIMATE_CALLTIME\x10h\x12,\n(GAME_MODE_OFC_WILD_CARD_REGULAR_CALLTIME\x10i\x12\x30\n,GAME_MODE_OFC_WILD_CARD_PROGRESSIVE_CALLTIME\x10j\x12-\n)GAME_MODE_OFC_WILD_CARD_ULTIMATE_CALLTIME\x10k\x12\x1f\n\x1aGAME_MODE_REGULAR_CALLTIME\x10\xc8\x01\x12#\n\x1eGAME_MODE_PLO_5_CARDS_CALLTIME\x10\xd2\x01\x12#\n\x1eGAME_MODE_PLO_6_CARDS_CALLTIME\x10\xd3\x01\x12\x1f\n\x1aGAME_MODE_MIXED_GAME_PLO_4\x10\xac\x02\x12\x1f\n\x1aGAME_MODE_MIXED_GAME_PLO_5\x10\xad\x02\x12#\n\x1eGAME_MODE_MIXED_PLO_4_CALLTIME\x10\xae\x02\x12#\n\x1eGAME_MODE_MIXED_PLO_5_CALLTIME\x10\xaf\x02\x12\x15\n\x10GAME_MODE_SPINUP\x10\x90\x03\x12\x1d\n\x18GAME_MODE_HUNTER_5_CARDS\x10\x9e\x03\x12&\n!GAME_MODE_SNOWBALL_HUNTER_5_CARDS\x10\x9f\x03\x12 \n\x1bGAME_MODE_SATELLITE_5_CARDS\x10\xa0\x03\x12\x1d\n\x18GAME_MODE_ENTITY_5_CARDS\x10\xa1\x03\x12%\n GAME_MODE_MYSTERY_BOUNTY_5_CARDS\x10\xa2\x03\x12\x1c\n\x17GAME_MODE_HUNTER_6_PLUS\x10\xa5\x03\x12%\n GAME_MODE_SNOWBALL_HUNTER_6_PLUS\x10\xa6\x03\x12\x1f\n\x1aGAME_MODE_SATELLITE_6_PLUS\x10\xa7\x03\x12\x1c\n\x17GAME_MODE_ENTITY_6_PLUS\x10\xa8\x03\x12$\n\x1fGAME_MODE_MYSTERY_BOUNTY_6_PLUS\x10\xa9\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_4\x10\xf4\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_5\x10\xf5\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_4_CALLTIME\x10\xf6\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_5_CALLTIME\x10\xf7\x03\x12\x16\n\x11GAME_MODE_3_1_NLH\x10\xf8\x03\x12\x1f\n\x1aGAME_MODE_3_1_NLH_CALLTIME\x10\xf9\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_6\x10\xfa\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_6_CALLTIME\x10\xfb\x03\x12\x16\n\x11GAME_MODE_AOF_NLH\x10\xfc\x03\x12\x1b\n\x16GAME_MODE_3_1_NLH_FLOP\x10\xfd\x03\x12$\n\x1fGAME_MODE_3_1_NLH_FLOP_CALLTIME\x10\xfe\x03\x12\x1a\n\x15GAME_MODE_REGULAR_72o\x10\xff\x03\x12#\n\x1eGAME_MODE_REGULAR_CALLTIME_72o\x10\x80\x04\x12\x1a\n\x15GAME_MODE_3_1_NLH_72o\x10\x81\x04\x12#\n\x1eGAME_MODE_3_1_NLH_CALLTIME_72o\x10\x82\x04\x12\x1f\n\x1aGAME_MODE_3_1_NLH_FLOP_72o\x10\x83\x04\x12(\n#GAME_MODE_3_1_NLH_FLOP_CALLTIME_72o\x10\x84\x04\x12\x16\n\x11GAME_MODE_TP_AK47\x10\xd8\x04\x12\x17\n\x12GAME_MODE_TP_HUKAM\x10\xd9\x04\x12\x18\n\x13GAME_MODE_TP_MUFLIS\x10\xda\x04\x12\x1f\n\x1aGAME_MODE_TP_AK47_CALLTIME\x10\xdb\x04\x12 \n\x1bGAME_MODE_TP_HUKAM_CALLTIME\x10\xdc\x04\x12!\n\x1cGAME_MODE_TP_MUFLIS_CALLTIME\x10\xdd\x04*\xd7\x03\n\x10\x43lubCashRoomType\x12\x1f\n\x1b\x43LUB_CASH_ROOM_TYPE_INVALID\x10\x00\x12\x1b\n\x17\x43LUB_CASH_ROOM_TYPE_NLH\x10\x01\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_NLH6\x10\x02\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO4\x10\x03\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO5\x10\x04\x12\x1b\n\x17\x43LUB_CASH_ROOM_TYPE_OFC\x10\x05\x12%\n!CLUB_CASH_ROOM_TYPE_OFC_WILD_CARD\x10\x06\x12&\n\"CLUB_CASH_ROOM_TYPE_MIXED_NLH_PLO4\x10\x07\x12&\n\"CLUB_CASH_ROOM_TYPE_MIXED_NLH_PLO5\x10\x08\x12\x1d\n\x19\x43LUB_CASH_ROOM_TYPE_FLASH\x10\t\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO6\x10\n\x12\x1d\n\x19\x43LUB_CASH_ROOM_TYPE_PUSOY\x10\x0b\x12\x1a\n\x16\x43LUB_CASH_ROOM_TYPE_TP\x10\x0c\x12\x1f\n\x1b\x43LUB_CASH_ROOM_TYPE_TONGITS\x10\r*u\n\nRoundStage\x12\x0e\n\nROUND_NONE\x10\x00\x12\x12\n\x0eROUND_PRE_FLOP\x10\x01\x12\x0e\n\nROUND_FLOP\x10\x02\x12\x0e\n\nROUND_TURN\x10\x03\x12\x0f\n\x0bROUND_RIVER\x10\x04\x12\x12\n\x0eROUND_COMPLETE\x10\x05*\xc9\x01\n\tValueType\x12\x0c\n\x08INVAILID\x10\x00\x12\x0e\n\nUSER_MONEY\x10\x01\x12\x10\n\x0cUSER_DIAMOND\x10\x02\x12\x10\n\x0cUSER_PPCHIPS\x10\x03\x12\x15\n\x11USER_LEAGUE_CHIPS\x10\x04\x12\x10\n\x0c\x43LUB_PPCHIPS\x10\x05\x12\x12\n\x0eLEAGUE_PPCHIPS\x10\x06\x12\x14\n\x10\x43LUB_AGENT_CHIPS\x10\x07\x12\x16\n\x12LEAGUE_AGENT_CHIPS\x10\x08\x12\x0f\n\x0bUSER_REBATE\x10\t*j\n\nPPCurrency\x12\x14\n\x10PP_CURRENCY_NONE\x10\x00\x12\x14\n\x10PP_CURRENCY_GOLD\x10\x01\x12\x17\n\x13PP_CURRENCY_DIAMOND\x10\x02\x12\x17\n\x13PP_CURRENCY_PPCHIPS\x10\x03*j\n\nSignupType\x12\x13\n\x0fSIGNUP_TYPE_ALL\x10\x00\x12\x15\n\x11SIGNUP_TYPE_CHIPS\x10\x01\x12\x16\n\x12SIGNUP_TYPE_TICKET\x10\x02\x12\x18\n\x14SIGNUP_TYPE_DIAMONDS\x10\x03*\x84\x01\n\x10OfficialDescType\x12\x1b\n\x17OFFICIAL_DESC_TYPE_NONE\x10\x00\x12\x1a\n\x16OFFICIAL_DESC_TYPE_HOT\x10\x01\x12\x1a\n\x16OFFICIAL_DESC_TYPE_NEW\x10\x02\x12\x1b\n\x17OFFICIAL_DESC_TYPE_FREE\x10\x03*O\n\x10OfficialLocation\x12\x1c\n\x18OFFICIAL_LOCATION_ONLINE\x10\x00\x12\x1d\n\x19OFFICIAL_LOCATION_OFFLINE\x10\x01*:\n\x0bOfficialTag\x12\x14\n\x10OFFICIAL_TAG_HOT\x10\x00\x12\x15\n\x11OFFICIAL_TAG_PPWC\x10\x01*D\n\rOfficialPopup\x12\x17\n\x13OFFICIAL_POPUP_NONE\x10\x00\x12\x1a\n\x16OFFICIAL_POPUP_DEFAULT\x10\x01*\xb5\x06\n\x0eUserRoomAction\x12\x19\n\x15USER_ROOM_ACTION_NONE\x10\x00\x12\x1b\n\x17USER_ROOM_ACTION_SIGNUP\x10\x01\x12\"\n\x1eUSER_ROOM_ACTION_CANCEL_SIGNUP\x10\x02\x12\x1c\n\x18USER_ROOM_ACTION_SITDOWN\x10\x03\x12\x1c\n\x18USER_ROOM_ACTION_STANDUP\x10\x04\x12\x1d\n\x19USER_ROOM_ACTION_WITHDRAW\x10\x05\x12#\n\x1fUSER_ROOM_ACTION_REDRAW_LOTTERY\x10\x06\x12\'\n#USER_ROOM_ACTION_USER_REQUEST_STAND\x10\x07\x12#\n\x1fUSER_ROOM_ACTION_NO_CHIPS_STAND\x10\x08\x12\"\n\x1eUSER_ROOM_ACTION_TIME_UP_STAND\x10\t\x12$\n USER_ROOM_ACTION_NO_ACTION_STAND\x10\n\x12!\n\x1dUSER_ROOM_ACTION_SYSTEM_STAND\x10\x0b\x12&\n\"USER_ROOM_ACTION_LADDER_OVER_STAND\x10\x0c\x12\'\n#USER_ROOM_ACTION_CHANGE_TABLE_STAND\x10\r\x12!\n\x1dUSER_ROOM_ACTION_KICKED_STAND\x10\x0e\x12\'\n#USER_ROOM_ACTION_FINAL_REWARD_STAND\x10\x0f\x12#\n\x1fUSER_ROOM_ACTION_LACK_GPS_STAND\x10\x10\x12+\n\'USER_ROOM_ACTION_BREAK_GPSIP_RULE_STAND\x10\x11\x12$\n USER_ROOM_ACTION_ZOOM_FOLD_STAND\x10\x12\x12*\n&USER_ROOM_ACTION_CALLTIME_CANCEL_STAND\x10\x13\x12\'\n#USER_ROOM_ACTION_UNKNOWN_TYPE_STAND\x10\x14\x12\"\n\x1eUSER_ROOM_ACTION_CAPTCHA_STAND\x10\x15*\xd5\x03\n\nBankerType\x12\x14\n\x10\x42\x41NKER_TYPE_NONE\x10\x00\x12\x15\n\x11\x42\x41NKER_TYPE_BUYIN\x10\x01\x12\x1b\n\x17\x42\x41NKER_TYPE_DELAY_BUYIN\x10\x02\x12\x15\n\x11\x42\x41NKER_TYPE_REBUY\x10\x03\x12\x15\n\x11\x42\x41NKER_TYPE_TOPUP\x10\x04\x12\x15\n\x11\x42\x41NKER_TYPE_ADDON\x10\x05\x12\x1b\n\x17\x42\x41NKER_TYPE_GAME_REWARD\x10\x06\x12\x1d\n\x19\x42\x41NKER_TYPE_HUNTER_REWARD\x10\x07\x12\x1e\n\x1a\x42\x41NKER_TYPE_JACKPOT_REWARD\x10\x08\x12\x16\n\x12\x42\x41NKER_TYPE_REFUND\x10\x64\x12\x17\n\x13\x42\x41NKER_TYPE_CASHOUT\x10\x65\x12\x1c\n\x18\x42\x41NKER_TYPE_CHANGE_TABLE\x10\x66\x12\x1e\n\x1a\x42\x41NKER_TYPE_WITHDRAW_CHIPS\x10g\x12$\n BANKER_TYPE_REDRAW_LOTTERY_CHIPS\x10h\x12$\n\x1f\x42\x41NKER_TYPE_GROUP_MTT_DAY2_INIT\x10\xc8\x01\x12!\n\x1c\x42\x41NKER_TYPE_SATELLITE_REFUND\x10\xf4\x03*\\\n\x14MttRewardPercentType\x12\x13\n\x0fMTT_TEN_PERCENT\x10\x00\x12\x17\n\x13MTT_FIFTEEN_PERCENT\x10\x01\x12\x16\n\x12MTT_TWENTY_PERCENT\x10\x02*h\n\x1aMttHunterRewardPercentType\x12\x12\n\x0eMTT_ONT_FOURTH\x10\x00\x12\x11\n\rMTT_ONT_THIRD\x10\x01\x12\x10\n\x0cMTT_ONT_HALF\x10\x02\x12\x11\n\rMTT_TWO_THIRD\x10\x03*{\n\rMttRewardMode\x12\x13\n\x0fMTT_SNG_DEFAULT\x10\x00\x12\x11\n\rMTT_TOP_HEAVY\x10\x01\x12\x0c\n\x08MTT_FALT\x10\x02\x12\x10\n\x0cMTT_CHAMPION\x10\x03\x12\x10\n\x0cSNG_STANDARD\x10\x04\x12\x10\n\x0cSNG_CHAMPION\x10\x05*u\n\x11GameSetPlayStatus\x12\x1d\n\x19GAME_SET_PLAY_STATUS_NONE\x10\x00\x12 \n\x1cGAME_SET_PLAY_STATUS_PLAYING\x10\x01\x12\x1f\n\x1bGAME_SET_PLAY_STATUS_FINISH\x10\x64*\xe4\x01\n\x0eUserPlayStatus\x12\x1b\n\x17USER_PLAY_STATUS_NOT_IN\x10\x00\x12\x1b\n\x17USER_PLAY_STATUS_SIGNUP\x10\x01\x12\x1c\n\x18USER_PLAY_STATUS_PLAYING\x10\x02\x12\x1c\n\x18USER_PLAY_STATUS_STANDUP\x10\x03\x12\x1c\n\x18USER_PLAY_STATUS_SITTING\x10\x04\x12\x1b\n\x17USER_PLAY_STATUS_RETURN\x10\x05\x12!\n\x1dUSER_PLAY_STATUS_CHANGE_TABLE\x10\x06*i\n\x0f\x43lubBagpackType\x12\x12\n\x0e\x42\x41GPACK_TICKET\x10\x00\x12\x12\n\x0e\x42\x41GPACK_ENTITY\x10\x01\x12\x14\n\x10\x42\x41GPACK_ALL_TYPE\x10\x02\x12\x18\n\x14\x42\x41GPACK_SUPER_TICKET\x10\x03*d\n\x16\x41utoDelayRoomOverTimes\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x0c\x12\t\n\x05THREE\x10\x03\x12\x07\n\x03SIX\x10\x06\x12\x08\n\x04NINE\x10\t\x12\n\n\x06TWELVE\x10\x0c\x12\x0f\n\x0bTWENTY_FOUR\x10\x18\x1a\x02\x10\x01*\xa5\t\n\x11\x43lubChipsFlowType\x12\x12\n\x0e\x46lowType_Chips\x10\x00\x12\x13\n\x0f\x46lowType_Credit\x10\x01\x12\x10\n\x0c\x46lowType_Gtd\x10\x02\x12\x13\n\x0f\x46lowType_Ticket\x10\x03\x12\x13\n\x0f\x46lowType_Entity\x10\x04\x12\x12\n\x0e\x46lowType_Storm\x10\x05\x12\x17\n\x13\x46lowType_Leave_Club\x10\x06\x12\x19\n\x15\x46lowType_Leave_Credit\x10\x07\x12\x17\n\x13\x46lowType_Add_Ticket\x10\x08\x12\x18\n\x14\x46lowType_Give_Ticket\x10\t\x12\x1b\n\x17\x46lowType_Recycle_Ticket\x10\n\x12\x1a\n\x16\x46lowType_Expire_ticket\x10\x0b\x12\x19\n\x15\x46lowType_Storm_Create\x10\x0c\x12\x19\n\x15\x46lowType_Storm_Change\x10\r\x12\x19\n\x15\x46lowType_Storm_Cancel\x10\x0e\x12\x1b\n\x17\x46lowType_Storm_Rollback\x10\x0f\x12\x1f\n\x1b\x46lowType_Ring_Game_Activity\x10\x10\x12&\n\"FlowType_Ring_Game_Activity_Create\x10\x11\x12&\n\"FlowType_Ring_Game_Activity_Change\x10\x12\x12&\n\"FlowType_Ring_Game_Activity_Cancel\x10\x13\x12(\n$FlowType_Ring_Game_Activity_Rollback\x10\x14\x12\x19\n\x15\x46lowType_Mtt_Activity\x10\x15\x12 \n\x1c\x46lowType_Mtt_Activity_Create\x10\x16\x12 \n\x1c\x46lowType_Mtt_Activity_Change\x10\x17\x12 \n\x1c\x46lowType_Mtt_Activity_Cancel\x10\x18\x12\"\n\x1e\x46lowType_Mtt_Activity_Rollback\x10\x19\x12!\n\x1d\x46lowType_SpecifiedRG_Activity\x10\x1a\x12(\n$FlowType_SpecifiedRG_Activity_Create\x10\x1b\x12(\n$FlowType_SpecifiedRG_Activity_Change\x10\x1c\x12(\n$FlowType_SpecifiedRG_Activity_Cancel\x10\x1d\x12*\n&FlowType_SpecifiedRG_Activity_Rollback\x10\x1e\x12\x1e\n\x1a\x46lowType_Club_Daily_Reward\x10\x1f\x12.\n*FlowType_HandMission_PP_Chips_Reward_Claim\x10 \x12/\n+FlowType_HandMission_LuckyDraw_Reward_Claim\x10!\x12(\n$FlowType_HandMission_PP_Chips_Reward\x10\"\x12)\n%FlowType_HandMission_LuckyDraw_Reward\x10#*W\n\x10PPPokerRangeType\x12\x17\n\x13RANGE_TYPE_PLATFORM\x10\x01\x12\x15\n\x11RANGE_TYPE_LEAGUE\x10\x02\x12\x13\n\x0fRANGE_TYPE_CLUB\x10\x03*\x84\x02\n\x13\x46ixedCostOptionsBit\x12\x19\n\x15\x46\x43OB_UNION_TABLE_COST\x10\x01\x12\x1e\n\x1a\x46\x43OB_UNION_TABLE_EXTENSION\x10\x02\x12\x1a\n\x16\x46\x43OB_FREEROLL_MTT_COST\x10\x04\x12\x14\n\x10\x46\x43OB_DATA_EXPORT\x10\x08\x12\x14\n\x10\x46\x43OB_CLUB_RATING\x10\x10\x12\x17\n\x13\x46\x43OB_RENAMING_CLUBS\x10 \x12\x15\n\x11\x46\x43OB_BAN_CHATTING\x10@\x12\x18\n\x13\x46\x43OB_CHIPS_EXCHANGE\x10\x80\x01\x12 \n\x1b\x46\x43OB_CHIPS_TRADE_COMMISSION\x10\x80\x02\x42\x06Z\x04./pb')
+  serialized_pb=_b('\n\x0epre_base.proto\x12\x02pb\"~\n\rItemClassInfo\x12\x11\n\titem_name\x18\x01 \x01(\t\x12\x11\n\titem_type\x18\x02 \x01(\x05\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x05\x12\x11\n\tcan_merge\x18\x05 \x01(\x08\x12\r\n\x05price\x18\x06 \x01(\x03\"\xec\x01\n\rMttRewardInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x11\n\titem_name\x18\x02 \x03(\t\x12\r\n\x05score\x18\x03 \x01(\x05\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\x12\x16\n\x0cspecial_show\x18\x05 \x01(\t:\x00\x12\x12\n\nitem_price\x18\x06 \x03(\x03\x12&\n\titem_type\x18\x07 \x03(\x0e\x32\x13.pb.ClubBagpackType\x12\x16\n\nstart_rank\x18\x08 \x01(\x05:\x02-1\x12\x14\n\x08\x65nd_rank\x18\t \x01(\x05:\x02-1\x12\x18\n\rhunter_reward\x18\n \x01(\x05:\x01\x30\")\n\x04Item\x12\x0e\n\x06itemid\x18\x01 \x01(\x03\x12\x11\n\titem_name\x18\x02 \x01(\t\"\x90\x01\n\tUserBrief\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12\x11\n\tclub_name\x18\x04 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x18\n\rcertification\x18\x06 \x01(\x05:\x01\x30\x12\x19\n\x11user_ppgl_country\x18\x07 \x01(\t\"n\n\x13RewardConfigureItem\x12\x0f\n\x07ranking\x18\x01 \x01(\x05\x12\x14\n\x0cranking_nums\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x05 \x01(\x03\"\x82\x02\n\x10\x46ixedCostOptions\x12\x18\n\x10union_table_cost\x18\x01 \x01(\x08\x12\x1d\n\x15union_table_extension\x18\x02 \x01(\x08\x12\x19\n\x11\x66reeroll_mtt_cost\x18\x03 \x01(\x08\x12\x13\n\x0b\x64\x61ta_export\x18\x04 \x01(\x08\x12\x13\n\x0b\x63lub_rating\x18\x05 \x01(\x08\x12\x16\n\x0erenaming_clubs\x18\x06 \x01(\x08\x12\x14\n\x0c\x62\x61n_chatting\x18\x07 \x01(\x08\x12\x1c\n\x0e\x63hips_exchange\x18\x08 \x01(\x08:\x04true\x12$\n\x16\x63hips_trade_commission\x18\t \x01(\x08:\x04true*\xdd\x02\n\nActionType\x12\x0f\n\x0b\x41\x43TION_NONE\x10\x00\x12\x0f\n\x0b\x41\x43TION_FOLD\x10\x01\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x02\x12\x0f\n\x0b\x41\x43TION_CALL\x10\x03\x12\x10\n\x0c\x41\x43TION_RAISE\x10\x04\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x05\x12\x10\n\x0c\x41\x43TION_SITED\x10\x06\x12\x0e\n\nACTION_BET\x10\x07\x12\r\n\tACTION_SB\x10\x08\x12\r\n\tACTION_BB\x10\t\x12\x0f\n\x0b\x41\x43TION_ANTE\x10\n\x12\x13\n\x0f\x41\x43TION_FORCE_BB\x10\x0b\x12\x16\n\x12\x41\x43TION_SYSTEM_FOLD\x10\x0c\x12\x17\n\x13\x41\x43TION_SYSTEM_CHECK\x10\r\x12\x13\n\x0f\x41\x43TION_STRADDLE\x10\x0e\x12\x0e\n\nACTION_POT\x10\x0f\x12\x14\n\x10\x41\x43TION_FAST_FOLD\x10\x10\x12\x15\n\x11\x41\x43TION_BOMBPOT_BB\x10\x11*\x83\x02\n\x0cTpActionType\x12\x12\n\x0eTP_ACTION_NONE\x10\x00\x12\x12\n\x0eTP_ACTION_PACK\x10\x01\x12\x13\n\x0fTP_ACTION_BLIND\x10\x02\x12\x13\n\x0fTP_ACTION_CHAAL\x10\x03\x12\x12\n\x0eTP_ACTION_SHOW\x10\x04\x12\x17\n\x13TP_ACTION_SIDE_SHOW\x10\x05\x12\x13\n\x0fTP_ACTION_SITED\x10\x06\x12\x12\n\x0eTP_ACTION_WAIT\x10\x07\x12\x12\n\x0eTP_ACTION_ANTE\x10\x08\x12\x19\n\x15TP_ACTION_SYSTEM_PACK\x10\t\x12\x1c\n\x18TP_ACTION_COMPARE_FAILED\x10\n*d\n\rPreActionType\x12\x13\n\x0fPRE_ACTION_NONE\x10\x00\x12\x13\n\x0fPRE_ACTION_FOLD\x10\x01\x12\x14\n\x10PRE_ACTION_CHECK\x10\x02\x12\x13\n\x0fPRE_ACTION_CALL\x10\x03*\xc1\x02\n\x08RoomType\x12\r\n\tTEST_ROOM\x10\x00\x12\x0f\n\x0b\x43USTOM_ROOM\x10\x01\x12\x0c\n\x08MTT_ROOM\x10\x02\x12\x0c\n\x08SNG_ROOM\x10\x03\x12\x0f\n\x0bLADDER_ROOM\x10\x04\x12\r\n\tCLUB_ROOM\x10\x05\x12\x13\n\x0f\x41LLIN_FOLD_ROOM\x10\x06\x12\x0e\n\nLOBBY_ROOM\x10\x07\x12\x0e\n\nOMAHA_ROOM\x10\x08\x12\r\n\tPINE_ROOM\x10\t\x12\x12\n\x0eOMAHA_SNG_ROOM\x10\n\x12\x12\n\x0eOMAHA_MTT_ROOM\x10\x0b\x12\x0e\n\nMIXED_ROOM\x10\x0c\x12\x0f\n\x0bSPINUP_ROOM\x10\r\x12\x0e\n\nPUSOY_ROOM\x10\x0e\x12\x0b\n\x07TP_ROOM\x10\x0f\x12\x0e\n\nCOLOR_ROOM\x10\x10\x12\x10\n\x0cTONGITS_ROOM\x10\x11\x12\r\n\tSEKA_ROOM\x10\x12*\x89\x01\n\x08RoomMode\x12\x12\n\x0eROOM_MODE_NONE\x10\x00\x12\x13\n\x0fROOM_MODE_LOBBY\x10\x01\x12\x14\n\x10ROOM_MODE_LADDER\x10\x02\x12\x12\n\x0eROOM_MODE_CLUB\x10\x03\x12\x12\n\x0eROOM_MODE_HALL\x10\x04\x12\x16\n\x12ROOM_MODE_OFFICIAL\x10\x05*\x95\x11\n\x08GameMode\x12\x15\n\x11GAME_MODE_REGULAR\x10\x00\x12\x1d\n\x19GAME_MODE_OFC_PROGRESSIVE\x10\x01\x12\x1a\n\x16GAME_MODE_OFC_ULTIMATE\x10\x02\x12\x19\n\x15GAME_MODE_PLO_5_CARDS\x10\n\x12\x12\n\x0eGAME_MODE_ZOOM\x10\x0b\x12\x18\n\x14GAME_MODE_NLH_6_PLUS\x10\x0c\x12\x18\n\x14GAME_MODE_ALLIN_FOLD\x10\r\x12\x14\n\x10GAME_MODE_HUNTER\x10\x0e\x12\x1d\n\x19GAME_MODE_SNOWBALL_HUNTER\x10\x0f\x12\x1b\n\x17GAME_MODE_MTT_SATELLITE\x10\x10\x12\x18\n\x14GAME_MODE_MTT_ENTITY\x10\x11\x12\x19\n\x15GAME_MODE_PLO_6_CARDS\x10\x12\x12\x18\n\x14GAME_MODE_ZOOM_PLO_5\x10\x13\x12\x1b\n\x17GAME_MODE_TONGITS_JOKER\x10\x14\x12\x1c\n\x18GAME_MODE_MYSTERY_BOUNTY\x10\x15\x12\x18\n\x14GAME_MODE_MTT_6_PLUS\x10\x16\x12#\n\x1fGAME_MODE_OFC_WILD_CARD_REGULAR\x10\x64\x12\'\n#GAME_MODE_OFC_WILD_CARD_PROGRESSIVE\x10\x65\x12$\n GAME_MODE_OFC_WILD_CARD_ULTIMATE\x10\x66\x12&\n\"GAME_MODE_OFC_PROGRESSIVE_CALLTIME\x10g\x12#\n\x1fGAME_MODE_OFC_ULTIMATE_CALLTIME\x10h\x12,\n(GAME_MODE_OFC_WILD_CARD_REGULAR_CALLTIME\x10i\x12\x30\n,GAME_MODE_OFC_WILD_CARD_PROGRESSIVE_CALLTIME\x10j\x12-\n)GAME_MODE_OFC_WILD_CARD_ULTIMATE_CALLTIME\x10k\x12\x1f\n\x1aGAME_MODE_REGULAR_CALLTIME\x10\xc8\x01\x12#\n\x1eGAME_MODE_PLO_5_CARDS_CALLTIME\x10\xd2\x01\x12#\n\x1eGAME_MODE_PLO_6_CARDS_CALLTIME\x10\xd3\x01\x12\x1f\n\x1aGAME_MODE_MIXED_GAME_PLO_4\x10\xac\x02\x12\x1f\n\x1aGAME_MODE_MIXED_GAME_PLO_5\x10\xad\x02\x12#\n\x1eGAME_MODE_MIXED_PLO_4_CALLTIME\x10\xae\x02\x12#\n\x1eGAME_MODE_MIXED_PLO_5_CALLTIME\x10\xaf\x02\x12\x15\n\x10GAME_MODE_SPINUP\x10\x90\x03\x12\x1d\n\x18GAME_MODE_HUNTER_5_CARDS\x10\x9e\x03\x12&\n!GAME_MODE_SNOWBALL_HUNTER_5_CARDS\x10\x9f\x03\x12 \n\x1bGAME_MODE_SATELLITE_5_CARDS\x10\xa0\x03\x12\x1d\n\x18GAME_MODE_ENTITY_5_CARDS\x10\xa1\x03\x12%\n GAME_MODE_MYSTERY_BOUNTY_5_CARDS\x10\xa2\x03\x12\x1c\n\x17GAME_MODE_HUNTER_6_PLUS\x10\xa5\x03\x12%\n GAME_MODE_SNOWBALL_HUNTER_6_PLUS\x10\xa6\x03\x12\x1f\n\x1aGAME_MODE_SATELLITE_6_PLUS\x10\xa7\x03\x12\x1c\n\x17GAME_MODE_ENTITY_6_PLUS\x10\xa8\x03\x12$\n\x1fGAME_MODE_MYSTERY_BOUNTY_6_PLUS\x10\xa9\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_4\x10\xf4\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_5\x10\xf5\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_4_CALLTIME\x10\xf6\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_5_CALLTIME\x10\xf7\x03\x12\x16\n\x11GAME_MODE_3_1_NLH\x10\xf8\x03\x12\x1f\n\x1aGAME_MODE_3_1_NLH_CALLTIME\x10\xf9\x03\x12\x19\n\x14GAME_MODE_HiLo_PLO_6\x10\xfa\x03\x12\"\n\x1dGAME_MODE_HiLo_PLO_6_CALLTIME\x10\xfb\x03\x12\x16\n\x11GAME_MODE_AOF_NLH\x10\xfc\x03\x12\x1b\n\x16GAME_MODE_3_1_NLH_FLOP\x10\xfd\x03\x12$\n\x1fGAME_MODE_3_1_NLH_FLOP_CALLTIME\x10\xfe\x03\x12\x1a\n\x15GAME_MODE_REGULAR_72o\x10\xff\x03\x12#\n\x1eGAME_MODE_REGULAR_CALLTIME_72o\x10\x80\x04\x12\x1a\n\x15GAME_MODE_3_1_NLH_72o\x10\x81\x04\x12#\n\x1eGAME_MODE_3_1_NLH_CALLTIME_72o\x10\x82\x04\x12\x1f\n\x1aGAME_MODE_3_1_NLH_FLOP_72o\x10\x83\x04\x12(\n#GAME_MODE_3_1_NLH_FLOP_CALLTIME_72o\x10\x84\x04\x12\x16\n\x11GAME_MODE_TP_AK47\x10\xd8\x04\x12\x17\n\x12GAME_MODE_TP_HUKAM\x10\xd9\x04\x12\x18\n\x13GAME_MODE_TP_MUFLIS\x10\xda\x04\x12\x1f\n\x1aGAME_MODE_TP_AK47_CALLTIME\x10\xdb\x04\x12 \n\x1bGAME_MODE_TP_HUKAM_CALLTIME\x10\xdc\x04\x12!\n\x1cGAME_MODE_TP_MUFLIS_CALLTIME\x10\xdd\x04\x12\x1c\n\x17GAME_MODE_SEKA_36_CARDS\x10\xbc\x05\x12\x1c\n\x17GAME_MODE_SEKA_32_CARDS\x10\xbd\x05\x12\x1c\n\x17GAME_MODE_SEKA_21_CARDS\x10\xbe\x05*\xf5\x03\n\x10\x43lubCashRoomType\x12\x1f\n\x1b\x43LUB_CASH_ROOM_TYPE_INVALID\x10\x00\x12\x1b\n\x17\x43LUB_CASH_ROOM_TYPE_NLH\x10\x01\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_NLH6\x10\x02\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO4\x10\x03\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO5\x10\x04\x12\x1b\n\x17\x43LUB_CASH_ROOM_TYPE_OFC\x10\x05\x12%\n!CLUB_CASH_ROOM_TYPE_OFC_WILD_CARD\x10\x06\x12&\n\"CLUB_CASH_ROOM_TYPE_MIXED_NLH_PLO4\x10\x07\x12&\n\"CLUB_CASH_ROOM_TYPE_MIXED_NLH_PLO5\x10\x08\x12\x1d\n\x19\x43LUB_CASH_ROOM_TYPE_FLASH\x10\t\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_PLO6\x10\n\x12\x1d\n\x19\x43LUB_CASH_ROOM_TYPE_PUSOY\x10\x0b\x12\x1a\n\x16\x43LUB_CASH_ROOM_TYPE_TP\x10\x0c\x12\x1f\n\x1b\x43LUB_CASH_ROOM_TYPE_TONGITS\x10\r\x12\x1c\n\x18\x43LUB_CASH_ROOM_TYPE_SEKA\x10\x0e*u\n\nRoundStage\x12\x0e\n\nROUND_NONE\x10\x00\x12\x12\n\x0eROUND_PRE_FLOP\x10\x01\x12\x0e\n\nROUND_FLOP\x10\x02\x12\x0e\n\nROUND_TURN\x10\x03\x12\x0f\n\x0bROUND_RIVER\x10\x04\x12\x12\n\x0eROUND_COMPLETE\x10\x05*\xc9\x01\n\tValueType\x12\x0c\n\x08INVAILID\x10\x00\x12\x0e\n\nUSER_MONEY\x10\x01\x12\x10\n\x0cUSER_DIAMOND\x10\x02\x12\x10\n\x0cUSER_PPCHIPS\x10\x03\x12\x15\n\x11USER_LEAGUE_CHIPS\x10\x04\x12\x10\n\x0c\x43LUB_PPCHIPS\x10\x05\x12\x12\n\x0eLEAGUE_PPCHIPS\x10\x06\x12\x14\n\x10\x43LUB_AGENT_CHIPS\x10\x07\x12\x16\n\x12LEAGUE_AGENT_CHIPS\x10\x08\x12\x0f\n\x0bUSER_REBATE\x10\t*j\n\nPPCurrency\x12\x14\n\x10PP_CURRENCY_NONE\x10\x00\x12\x14\n\x10PP_CURRENCY_GOLD\x10\x01\x12\x17\n\x13PP_CURRENCY_DIAMOND\x10\x02\x12\x17\n\x13PP_CURRENCY_PPCHIPS\x10\x03*j\n\nSignupType\x12\x13\n\x0fSIGNUP_TYPE_ALL\x10\x00\x12\x15\n\x11SIGNUP_TYPE_CHIPS\x10\x01\x12\x16\n\x12SIGNUP_TYPE_TICKET\x10\x02\x12\x18\n\x14SIGNUP_TYPE_DIAMONDS\x10\x03*\x84\x01\n\x10OfficialDescType\x12\x1b\n\x17OFFICIAL_DESC_TYPE_NONE\x10\x00\x12\x1a\n\x16OFFICIAL_DESC_TYPE_HOT\x10\x01\x12\x1a\n\x16OFFICIAL_DESC_TYPE_NEW\x10\x02\x12\x1b\n\x17OFFICIAL_DESC_TYPE_FREE\x10\x03*O\n\x10OfficialLocation\x12\x1c\n\x18OFFICIAL_LOCATION_ONLINE\x10\x00\x12\x1d\n\x19OFFICIAL_LOCATION_OFFLINE\x10\x01*:\n\x0bOfficialTag\x12\x14\n\x10OFFICIAL_TAG_HOT\x10\x00\x12\x15\n\x11OFFICIAL_TAG_PPWC\x10\x01*D\n\rOfficialPopup\x12\x17\n\x13OFFICIAL_POPUP_NONE\x10\x00\x12\x1a\n\x16OFFICIAL_POPUP_DEFAULT\x10\x01*\xb5\x06\n\x0eUserRoomAction\x12\x19\n\x15USER_ROOM_ACTION_NONE\x10\x00\x12\x1b\n\x17USER_ROOM_ACTION_SIGNUP\x10\x01\x12\"\n\x1eUSER_ROOM_ACTION_CANCEL_SIGNUP\x10\x02\x12\x1c\n\x18USER_ROOM_ACTION_SITDOWN\x10\x03\x12\x1c\n\x18USER_ROOM_ACTION_STANDUP\x10\x04\x12\x1d\n\x19USER_ROOM_ACTION_WITHDRAW\x10\x05\x12#\n\x1fUSER_ROOM_ACTION_REDRAW_LOTTERY\x10\x06\x12\'\n#USER_ROOM_ACTION_USER_REQUEST_STAND\x10\x07\x12#\n\x1fUSER_ROOM_ACTION_NO_CHIPS_STAND\x10\x08\x12\"\n\x1eUSER_ROOM_ACTION_TIME_UP_STAND\x10\t\x12$\n USER_ROOM_ACTION_NO_ACTION_STAND\x10\n\x12!\n\x1dUSER_ROOM_ACTION_SYSTEM_STAND\x10\x0b\x12&\n\"USER_ROOM_ACTION_LADDER_OVER_STAND\x10\x0c\x12\'\n#USER_ROOM_ACTION_CHANGE_TABLE_STAND\x10\r\x12!\n\x1dUSER_ROOM_ACTION_KICKED_STAND\x10\x0e\x12\'\n#USER_ROOM_ACTION_FINAL_REWARD_STAND\x10\x0f\x12#\n\x1fUSER_ROOM_ACTION_LACK_GPS_STAND\x10\x10\x12+\n\'USER_ROOM_ACTION_BREAK_GPSIP_RULE_STAND\x10\x11\x12$\n USER_ROOM_ACTION_ZOOM_FOLD_STAND\x10\x12\x12*\n&USER_ROOM_ACTION_CALLTIME_CANCEL_STAND\x10\x13\x12\'\n#USER_ROOM_ACTION_UNKNOWN_TYPE_STAND\x10\x14\x12\"\n\x1eUSER_ROOM_ACTION_CAPTCHA_STAND\x10\x15*\xd5\x03\n\nBankerType\x12\x14\n\x10\x42\x41NKER_TYPE_NONE\x10\x00\x12\x15\n\x11\x42\x41NKER_TYPE_BUYIN\x10\x01\x12\x1b\n\x17\x42\x41NKER_TYPE_DELAY_BUYIN\x10\x02\x12\x15\n\x11\x42\x41NKER_TYPE_REBUY\x10\x03\x12\x15\n\x11\x42\x41NKER_TYPE_TOPUP\x10\x04\x12\x15\n\x11\x42\x41NKER_TYPE_ADDON\x10\x05\x12\x1b\n\x17\x42\x41NKER_TYPE_GAME_REWARD\x10\x06\x12\x1d\n\x19\x42\x41NKER_TYPE_HUNTER_REWARD\x10\x07\x12\x1e\n\x1a\x42\x41NKER_TYPE_JACKPOT_REWARD\x10\x08\x12\x16\n\x12\x42\x41NKER_TYPE_REFUND\x10\x64\x12\x17\n\x13\x42\x41NKER_TYPE_CASHOUT\x10\x65\x12\x1c\n\x18\x42\x41NKER_TYPE_CHANGE_TABLE\x10\x66\x12\x1e\n\x1a\x42\x41NKER_TYPE_WITHDRAW_CHIPS\x10g\x12$\n BANKER_TYPE_REDRAW_LOTTERY_CHIPS\x10h\x12$\n\x1f\x42\x41NKER_TYPE_GROUP_MTT_DAY2_INIT\x10\xc8\x01\x12!\n\x1c\x42\x41NKER_TYPE_SATELLITE_REFUND\x10\xf4\x03*\\\n\x14MttRewardPercentType\x12\x13\n\x0fMTT_TEN_PERCENT\x10\x00\x12\x17\n\x13MTT_FIFTEEN_PERCENT\x10\x01\x12\x16\n\x12MTT_TWENTY_PERCENT\x10\x02*h\n\x1aMttHunterRewardPercentType\x12\x12\n\x0eMTT_ONT_FOURTH\x10\x00\x12\x11\n\rMTT_ONT_THIRD\x10\x01\x12\x10\n\x0cMTT_ONT_HALF\x10\x02\x12\x11\n\rMTT_TWO_THIRD\x10\x03*{\n\rMttRewardMode\x12\x13\n\x0fMTT_SNG_DEFAULT\x10\x00\x12\x11\n\rMTT_TOP_HEAVY\x10\x01\x12\x0c\n\x08MTT_FALT\x10\x02\x12\x10\n\x0cMTT_CHAMPION\x10\x03\x12\x10\n\x0cSNG_STANDARD\x10\x04\x12\x10\n\x0cSNG_CHAMPION\x10\x05*u\n\x11GameSetPlayStatus\x12\x1d\n\x19GAME_SET_PLAY_STATUS_NONE\x10\x00\x12 \n\x1cGAME_SET_PLAY_STATUS_PLAYING\x10\x01\x12\x1f\n\x1bGAME_SET_PLAY_STATUS_FINISH\x10\x64*\xe4\x01\n\x0eUserPlayStatus\x12\x1b\n\x17USER_PLAY_STATUS_NOT_IN\x10\x00\x12\x1b\n\x17USER_PLAY_STATUS_SIGNUP\x10\x01\x12\x1c\n\x18USER_PLAY_STATUS_PLAYING\x10\x02\x12\x1c\n\x18USER_PLAY_STATUS_STANDUP\x10\x03\x12\x1c\n\x18USER_PLAY_STATUS_SITTING\x10\x04\x12\x1b\n\x17USER_PLAY_STATUS_RETURN\x10\x05\x12!\n\x1dUSER_PLAY_STATUS_CHANGE_TABLE\x10\x06*i\n\x0f\x43lubBagpackType\x12\x12\n\x0e\x42\x41GPACK_TICKET\x10\x00\x12\x12\n\x0e\x42\x41GPACK_ENTITY\x10\x01\x12\x14\n\x10\x42\x41GPACK_ALL_TYPE\x10\x02\x12\x18\n\x14\x42\x41GPACK_SUPER_TICKET\x10\x03*d\n\x16\x41utoDelayRoomOverTimes\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x0c\x12\t\n\x05THREE\x10\x03\x12\x07\n\x03SIX\x10\x06\x12\x08\n\x04NINE\x10\t\x12\n\n\x06TWELVE\x10\x0c\x12\x0f\n\x0bTWENTY_FOUR\x10\x18\x1a\x02\x10\x01*\xa5\t\n\x11\x43lubChipsFlowType\x12\x12\n\x0e\x46lowType_Chips\x10\x00\x12\x13\n\x0f\x46lowType_Credit\x10\x01\x12\x10\n\x0c\x46lowType_Gtd\x10\x02\x12\x13\n\x0f\x46lowType_Ticket\x10\x03\x12\x13\n\x0f\x46lowType_Entity\x10\x04\x12\x12\n\x0e\x46lowType_Storm\x10\x05\x12\x17\n\x13\x46lowType_Leave_Club\x10\x06\x12\x19\n\x15\x46lowType_Leave_Credit\x10\x07\x12\x17\n\x13\x46lowType_Add_Ticket\x10\x08\x12\x18\n\x14\x46lowType_Give_Ticket\x10\t\x12\x1b\n\x17\x46lowType_Recycle_Ticket\x10\n\x12\x1a\n\x16\x46lowType_Expire_ticket\x10\x0b\x12\x19\n\x15\x46lowType_Storm_Create\x10\x0c\x12\x19\n\x15\x46lowType_Storm_Change\x10\r\x12\x19\n\x15\x46lowType_Storm_Cancel\x10\x0e\x12\x1b\n\x17\x46lowType_Storm_Rollback\x10\x0f\x12\x1f\n\x1b\x46lowType_Ring_Game_Activity\x10\x10\x12&\n\"FlowType_Ring_Game_Activity_Create\x10\x11\x12&\n\"FlowType_Ring_Game_Activity_Change\x10\x12\x12&\n\"FlowType_Ring_Game_Activity_Cancel\x10\x13\x12(\n$FlowType_Ring_Game_Activity_Rollback\x10\x14\x12\x19\n\x15\x46lowType_Mtt_Activity\x10\x15\x12 \n\x1c\x46lowType_Mtt_Activity_Create\x10\x16\x12 \n\x1c\x46lowType_Mtt_Activity_Change\x10\x17\x12 \n\x1c\x46lowType_Mtt_Activity_Cancel\x10\x18\x12\"\n\x1e\x46lowType_Mtt_Activity_Rollback\x10\x19\x12!\n\x1d\x46lowType_SpecifiedRG_Activity\x10\x1a\x12(\n$FlowType_SpecifiedRG_Activity_Create\x10\x1b\x12(\n$FlowType_SpecifiedRG_Activity_Change\x10\x1c\x12(\n$FlowType_SpecifiedRG_Activity_Cancel\x10\x1d\x12*\n&FlowType_SpecifiedRG_Activity_Rollback\x10\x1e\x12\x1e\n\x1a\x46lowType_Club_Daily_Reward\x10\x1f\x12.\n*FlowType_HandMission_PP_Chips_Reward_Claim\x10 \x12/\n+FlowType_HandMission_LuckyDraw_Reward_Claim\x10!\x12(\n$FlowType_HandMission_PP_Chips_Reward\x10\"\x12)\n%FlowType_HandMission_LuckyDraw_Reward\x10#*W\n\x10PPPokerRangeType\x12\x17\n\x13RANGE_TYPE_PLATFORM\x10\x01\x12\x15\n\x11RANGE_TYPE_LEAGUE\x10\x02\x12\x13\n\x0fRANGE_TYPE_CLUB\x10\x03*\x84\x02\n\x13\x46ixedCostOptionsBit\x12\x19\n\x15\x46\x43OB_UNION_TABLE_COST\x10\x01\x12\x1e\n\x1a\x46\x43OB_UNION_TABLE_EXTENSION\x10\x02\x12\x1a\n\x16\x46\x43OB_FREEROLL_MTT_COST\x10\x04\x12\x14\n\x10\x46\x43OB_DATA_EXPORT\x10\x08\x12\x14\n\x10\x46\x43OB_CLUB_RATING\x10\x10\x12\x17\n\x13\x46\x43OB_RENAMING_CLUBS\x10 \x12\x15\n\x11\x46\x43OB_BAN_CHATTING\x10@\x12\x18\n\x13\x46\x43OB_CHIPS_EXCHANGE\x10\x80\x01\x12 \n\x1b\x46\x43OB_CHIPS_TRADE_COMMISSION\x10\x80\x02\x42\x06Z\x04./pb')
 )
 
 _ACTIONTYPE = _descriptor.EnumDescriptor(
@@ -278,11 +278,15 @@ _ROOMTYPE = _descriptor.EnumDescriptor(
       name='TONGITS_ROOM', index=17, number=17,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SEKA_ROOM', index=18, number=18,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=1669,
-  serialized_end=1975,
+  serialized_end=1990,
 )
 _sym_db.RegisterEnumDescriptor(_ROOMTYPE)
 
@@ -320,8 +324,8 @@ _ROOMMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1978,
-  serialized_end=2115,
+  serialized_start=1993,
+  serialized_end=2130,
 )
 _sym_db.RegisterEnumDescriptor(_ROOMMODE)
 
@@ -592,11 +596,23 @@ _GAMEMODE = _descriptor.EnumDescriptor(
       name='GAME_MODE_TP_MUFLIS_CALLTIME', index=64, number=605,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GAME_MODE_SEKA_36_CARDS', index=65, number=700,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GAME_MODE_SEKA_32_CARDS', index=66, number=701,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GAME_MODE_SEKA_21_CARDS', index=67, number=702,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2118,
-  serialized_end=4225,
+  serialized_start=2133,
+  serialized_end=4330,
 )
 _sym_db.RegisterEnumDescriptor(_GAMEMODE)
 
@@ -663,11 +679,15 @@ _CLUBCASHROOMTYPE = _descriptor.EnumDescriptor(
       name='CLUB_CASH_ROOM_TYPE_TONGITS', index=13, number=13,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CLUB_CASH_ROOM_TYPE_SEKA', index=14, number=14,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4228,
-  serialized_end=4699,
+  serialized_start=4333,
+  serialized_end=4834,
 )
 _sym_db.RegisterEnumDescriptor(_CLUBCASHROOMTYPE)
 
@@ -705,8 +725,8 @@ _ROUNDSTAGE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4701,
-  serialized_end=4818,
+  serialized_start=4836,
+  serialized_end=4953,
 )
 _sym_db.RegisterEnumDescriptor(_ROUNDSTAGE)
 
@@ -760,8 +780,8 @@ _VALUETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4821,
-  serialized_end=5022,
+  serialized_start=4956,
+  serialized_end=5157,
 )
 _sym_db.RegisterEnumDescriptor(_VALUETYPE)
 
@@ -791,8 +811,8 @@ _PPCURRENCY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5024,
-  serialized_end=5130,
+  serialized_start=5159,
+  serialized_end=5265,
 )
 _sym_db.RegisterEnumDescriptor(_PPCURRENCY)
 
@@ -822,8 +842,8 @@ _SIGNUPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5132,
-  serialized_end=5238,
+  serialized_start=5267,
+  serialized_end=5373,
 )
 _sym_db.RegisterEnumDescriptor(_SIGNUPTYPE)
 
@@ -853,8 +873,8 @@ _OFFICIALDESCTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5241,
-  serialized_end=5373,
+  serialized_start=5376,
+  serialized_end=5508,
 )
 _sym_db.RegisterEnumDescriptor(_OFFICIALDESCTYPE)
 
@@ -876,8 +896,8 @@ _OFFICIALLOCATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5375,
-  serialized_end=5454,
+  serialized_start=5510,
+  serialized_end=5589,
 )
 _sym_db.RegisterEnumDescriptor(_OFFICIALLOCATION)
 
@@ -899,8 +919,8 @@ _OFFICIALTAG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5456,
-  serialized_end=5514,
+  serialized_start=5591,
+  serialized_end=5649,
 )
 _sym_db.RegisterEnumDescriptor(_OFFICIALTAG)
 
@@ -922,8 +942,8 @@ _OFFICIALPOPUP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5516,
-  serialized_end=5584,
+  serialized_start=5651,
+  serialized_end=5719,
 )
 _sym_db.RegisterEnumDescriptor(_OFFICIALPOPUP)
 
@@ -1025,8 +1045,8 @@ _USERROOMACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5587,
-  serialized_end=6408,
+  serialized_start=5722,
+  serialized_end=6543,
 )
 _sym_db.RegisterEnumDescriptor(_USERROOMACTION)
 
@@ -1104,8 +1124,8 @@ _BANKERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6411,
-  serialized_end=6880,
+  serialized_start=6546,
+  serialized_end=7015,
 )
 _sym_db.RegisterEnumDescriptor(_BANKERTYPE)
 
@@ -1131,8 +1151,8 @@ _MTTREWARDPERCENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6882,
-  serialized_end=6974,
+  serialized_start=7017,
+  serialized_end=7109,
 )
 _sym_db.RegisterEnumDescriptor(_MTTREWARDPERCENTTYPE)
 
@@ -1162,8 +1182,8 @@ _MTTHUNTERREWARDPERCENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6976,
-  serialized_end=7080,
+  serialized_start=7111,
+  serialized_end=7215,
 )
 _sym_db.RegisterEnumDescriptor(_MTTHUNTERREWARDPERCENTTYPE)
 
@@ -1201,8 +1221,8 @@ _MTTREWARDMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7082,
-  serialized_end=7205,
+  serialized_start=7217,
+  serialized_end=7340,
 )
 _sym_db.RegisterEnumDescriptor(_MTTREWARDMODE)
 
@@ -1228,8 +1248,8 @@ _GAMESETPLAYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7207,
-  serialized_end=7324,
+  serialized_start=7342,
+  serialized_end=7459,
 )
 _sym_db.RegisterEnumDescriptor(_GAMESETPLAYSTATUS)
 
@@ -1271,8 +1291,8 @@ _USERPLAYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7327,
-  serialized_end=7555,
+  serialized_start=7462,
+  serialized_end=7690,
 )
 _sym_db.RegisterEnumDescriptor(_USERPLAYSTATUS)
 
@@ -1302,8 +1322,8 @@ _CLUBBAGPACKTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7557,
-  serialized_end=7662,
+  serialized_start=7692,
+  serialized_end=7797,
 )
 _sym_db.RegisterEnumDescriptor(_CLUBBAGPACKTYPE)
 
@@ -1341,8 +1361,8 @@ _AUTODELAYROOMOVERTIMES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=_b('\020\001'),
-  serialized_start=7664,
-  serialized_end=7764,
+  serialized_start=7799,
+  serialized_end=7899,
 )
 _sym_db.RegisterEnumDescriptor(_AUTODELAYROOMOVERTIMES)
 
@@ -1500,8 +1520,8 @@ _CLUBCHIPSFLOWTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7767,
-  serialized_end=8956,
+  serialized_start=7902,
+  serialized_end=9091,
 )
 _sym_db.RegisterEnumDescriptor(_CLUBCHIPSFLOWTYPE)
 
@@ -1527,8 +1547,8 @@ _PPPOKERRANGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8958,
-  serialized_end=9045,
+  serialized_start=9093,
+  serialized_end=9180,
 )
 _sym_db.RegisterEnumDescriptor(_PPPOKERRANGETYPE)
 
@@ -1578,8 +1598,8 @@ _FIXEDCOSTOPTIONSBIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9048,
-  serialized_end=9308,
+  serialized_start=9183,
+  serialized_end=9443,
 )
 _sym_db.RegisterEnumDescriptor(_FIXEDCOSTOPTIONSBIT)
 
@@ -1635,6 +1655,7 @@ PUSOY_ROOM = 14
 TP_ROOM = 15
 COLOR_ROOM = 16
 TONGITS_ROOM = 17
+SEKA_ROOM = 18
 ROOM_MODE_NONE = 0
 ROOM_MODE_LOBBY = 1
 ROOM_MODE_LADDER = 2
@@ -1706,6 +1727,9 @@ GAME_MODE_TP_MUFLIS = 602
 GAME_MODE_TP_AK47_CALLTIME = 603
 GAME_MODE_TP_HUKAM_CALLTIME = 604
 GAME_MODE_TP_MUFLIS_CALLTIME = 605
+GAME_MODE_SEKA_36_CARDS = 700
+GAME_MODE_SEKA_32_CARDS = 701
+GAME_MODE_SEKA_21_CARDS = 702
 CLUB_CASH_ROOM_TYPE_INVALID = 0
 CLUB_CASH_ROOM_TYPE_NLH = 1
 CLUB_CASH_ROOM_TYPE_NLH6 = 2
@@ -1720,6 +1744,7 @@ CLUB_CASH_ROOM_TYPE_PLO6 = 10
 CLUB_CASH_ROOM_TYPE_PUSOY = 11
 CLUB_CASH_ROOM_TYPE_TP = 12
 CLUB_CASH_ROOM_TYPE_TONGITS = 13
+CLUB_CASH_ROOM_TYPE_SEKA = 14
 ROUND_NONE = 0
 ROUND_PRE_FLOP = 1
 ROUND_FLOP = 2

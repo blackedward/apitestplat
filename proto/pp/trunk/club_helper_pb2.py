@@ -31,6 +31,7 @@ import tp_pb2 as tp__pb2
 import pusoy_pb2 as pusoy__pb2
 import colorgame_pb2 as colorgame__pb2
 import tongits_pb2 as tongits__pb2
+import seka_pb2 as seka__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -38,9 +39,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\004./pb'),
-  serialized_pb=_b('\n\x11\x63lub_helper.proto\x12\x02pb\x1a\x0b\x63lub1.proto\x1a\x0b\x63lub2.proto\x1a\x0b\x63lub3.proto\x1a\x0epre_base.proto\x1a\tpb1.proto\x1a\tpb5.proto\x1a\tsng.proto\x1a\nmtt1.proto\x1a\npine.proto\x1a\x0fpre_base1.proto\x1a\x16\x63reate_club_room.proto\x1a\x08tp.proto\x1a\x0bpusoy.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\"\xce\x03\n\x0fRoomModuleOpREQ\x12\x0f\n\x07op_type\x18\x01 \x01(\x05\x12\x10\n\x08moduleid\x18\x02 \x01(\x03\x12\x1f\n\troom_type\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\'\n\x08\x63lubroom\x18\x05 \x01(\x0b\x32\x15.pb.CreateClubRoomREQ\x12%\n\x07sngroom\x18\x06 \x01(\x0b\x32\x14.pb.CreateSngRoomREQ\x12%\n\x07mttroom\x18\x07 \x01(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\'\n\x08pineroom\x18\x08 \x01(\x0b\x32\x15.pb.CreatePineRoomREQ\x12*\n\npusoy_room\x18\t \x01(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12#\n\x06tproom\x18\n \x01(\x0b\x32\x13.pb.CreateTpRoomREQ\x12*\n\ncolor_room\x18\x0b \x01(\x0b\x32\x16.pb.CreateColorRoomREQ\x12.\n\x0ctongits_room\x18\x0c \x01(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12\x1a\n\x12restriction_status\x18\r \x01(\x05\"\xcc\x03\n\x0fRoomModuleOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08moduleid\x18\x02 \x01(\x03\x12\x1f\n\troom_type\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x0f\n\x07op_type\x18\x04 \x01(\x05\x12\'\n\x08\x63lubroom\x18\x05 \x01(\x0b\x32\x15.pb.CreateClubRoomREQ\x12%\n\x07sngroom\x18\x06 \x01(\x0b\x32\x14.pb.CreateSngRoomREQ\x12%\n\x07mttroom\x18\x07 \x01(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\'\n\x08pineroom\x18\x08 \x01(\x0b\x32\x15.pb.CreatePineRoomREQ\x12*\n\npusoy_room\x18\t \x01(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12#\n\x06tproom\x18\n \x01(\x0b\x32\x13.pb.CreateTpRoomREQ\x12*\n\ncolor_room\x18\x0b \x01(\x0b\x32\x16.pb.CreateColorRoomREQ\x12.\n\x0ctongits_room\x18\x0c \x01(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12\x1a\n\x12restriction_status\x18\r \x01(\x05\"\"\n\x10GetRoomModuleREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"\xf5\x02\n\x10GetRoomModuleRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12(\n\tclubrooms\x18\x02 \x03(\x0b\x32\x15.pb.CreateClubRoomREQ\x12&\n\x08sngrooms\x18\x03 \x03(\x0b\x32\x14.pb.CreateSngRoomREQ\x12&\n\x08mttrooms\x18\x04 \x03(\x0b\x32\x14.pb.CreateMttRoomREQ\x12(\n\tpinerooms\x18\x05 \x03(\x0b\x32\x15.pb.CreatePineRoomREQ\x12+\n\x0bpusoy_rooms\x18\x06 \x03(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12$\n\x07tprooms\x18\x07 \x03(\x0b\x32\x13.pb.CreateTpRoomREQ\x12+\n\x0b\x63olor_rooms\x18\x08 \x03(\x0b\x32\x16.pb.CreateColorRoomREQ\x12/\n\rtongits_rooms\x18\t \x03(\x0b\x32\x18.pb.CreateTongitsRoomREQ\"\xfa\x04\n\x12MultiCreateRoomREQ\x12\x15\n\rclubroom_nums\x18\x01 \x03(\x05\x12(\n\tclubrooms\x18\x02 \x03(\x0b\x32\x15.pb.CreateClubRoomREQ\x12\x14\n\x0csngroom_nums\x18\x03 \x03(\x05\x12&\n\x08sngrooms\x18\x04 \x03(\x0b\x32\x14.pb.CreateSngRoomREQ\x12\x14\n\x0cmttroom_nums\x18\x05 \x03(\x05\x12&\n\x08mttrooms\x18\x06 \x03(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\x15\n\rpineroom_nums\x18\x07 \x03(\x05\x12(\n\tpinerooms\x18\x08 \x03(\x0b\x32\x15.pb.CreatePineRoomREQ\x12\x0e\n\x06\x63lubid\x18\t \x01(\x05\x12\x10\n\x08leagueid\x18\n \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x0b \x01(\x05\x12\x19\n\x11super_league_type\x18\x0c \x01(\x05\x12\x17\n\x0fpusoy_room_nums\x18\r \x03(\x05\x12+\n\x0bpusoy_rooms\x18\x0e \x03(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12\x13\n\x0btproom_nums\x18\x0f \x03(\x05\x12$\n\x07tprooms\x18\x10 \x03(\x0b\x32\x13.pb.CreateTpRoomREQ\x12\x17\n\x0f\x63olor_room_nums\x18\x11 \x03(\x05\x12+\n\x0b\x63olor_rooms\x18\x12 \x03(\x0b\x32\x16.pb.CreateColorRoomREQ\x12\x19\n\x11tongits_room_nums\x18\x13 \x03(\x05\x12/\n\rtongits_rooms\x18\x14 \x03(\x0b\x32\x18.pb.CreateTongitsRoomREQ\"\xba\x01\n\x12MultiCreateRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0csuccess_room\x18\x02 \x01(\x05\x12\x13\n\x0b\x66\x61iled_room\x18\x03 \x01(\x05\x12\x14\n\x0cuncheck_room\x18\x04 \x01(\x05\x12\x1b\n\x13\x64iamond_failed_room\x18\x05 \x01(\x05\x12\x11\n\tqueue_num\x18\x06 \x01(\x05\x12\x0f\n\x07seconds\x18\x07 \x01(\x05\x12\x14\n\x0cprocess_type\x18\x08 \x01(\x05\"\xab\x02\n\x11iExportDataRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04mail\x18\x03 \x01(\t\x12\x12\n\nstart_date\x18\x04 \x01(\r\x12\x10\n\x08\x65nd_date\x18\x05 \x01(\r\x12\x10\n\x08timezone\x18\x06 \x01(\x05\x12\x0c\n\x04lang\x18\x07 \x01(\t\x12\x10\n\x08leagueid\x18\x08 \x01(\x05\x12\x15\n\rppcoin_record\x18\t \x01(\x08\x12\x11\n\tagent_uid\x18\n \x01(\x03\x12\x14\n\x0c\x64iamond_flow\x18\x0b \x01(\x08\x12\x13\n\x0bleague_data\x18\x0c \x01(\x08\x12\x15\n\rspend_diamond\x18\r \x01(\x03\x12\x13\n\x0btimezone_id\x18\x0e \x01(\t\x12\x12\n\nutc_offset\x18\x0f \x01(\t\"\x8a\x01\n\x11iJackpotFeeRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\r\n\x05setid\x18\x04 \x01(\t\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\x12\n\nleft_chips\x18\x06 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x07 \x01(\x03\"\x96\x03\n\x14iJackpotRewardRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x11\n\tuser_icon\x18\x03 \x01(\t\x12\x13\n\x0bjackpottype\x18\x04 \x01(\x05\x12\x0e\n\x06reward\x18\x05 \x01(\x03\x12\r\n\x05\x63\x61rd1\x18\x06 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x07 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x08 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\t \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\n \x01(\x05\x12\r\n\x05\x63\x61rd6\x18\x0b \x01(\x05\x12\r\n\x05\x63\x61rd7\x18\x0c \x01(\x05\x12\r\n\x05\x63\x61rd8\x18\r \x01(\x05\x12\r\n\x05\x63\x61rd9\x18\x0e \x01(\x05\x12\x0e\n\x06\x63\x61rd10\x18\x0f \x01(\x05\x12\x10\n\x08leagueid\x18\x10 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x11 \x01(\x05\x12\r\n\x05setid\x18\x12 \x01(\t\x12\x0e\n\x06gameid\x18\x13 \x01(\t\x12\x1f\n\troom_type\x18\x14 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1a\n\x12jackpot_left_chips\x18\x15 \x01(\x03\x12\x11\n\tcard_type\x18\x16 \x01(\x05\"\x8d\x01\n\x0ciClubCoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x12\n\nmember_uid\x18\x02 \x01(\x03\x12\x13\n\x0bmanager_uid\x18\x03 \x01(\x03\x12\x10\n\x08msg_time\x18\x04 \x01(\x03\x12\x0e\n\x06ppcoin\x18\x05 \x01(\x03\x12\x10\n\x08leagueid\x18\x06 \x01(\x03\x12\x10\n\x08msg_type\x18\x07 \x01(\x05\"\x9d\x01\n\x0ciClubJoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x12\n\nmember_uid\x18\x02 \x01(\x03\x12\x13\n\x0bmanager_uid\x18\x03 \x01(\x03\x12\r\n\x05\x62time\x18\x04 \x01(\x03\x12\r\n\x05\x65time\x18\x05 \x01(\x03\x12\x10\n\x08msg_type\x18\x06 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x07 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x08 \x01(\t\"b\n\x0ciClubPushMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tpush_time\x18\x02 \x01(\x03\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x0f\n\x07userids\x18\x05 \x01(\t\"]\n\x0eiClubChipsFlow\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x13\n\x0binsert_time\x18\x03 \x01(\x03\x12\x14\n\x0c\x63hange_chips\x18\x04 \x01(\x03\"z\n\x0eiLeagueJoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x10\n\x08req_time\x18\x03 \x01(\x03\x12\x10\n\x08\x63lubname\x18\x04 \x01(\t\x12\r\n\x05msgid\x18\x05 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x06 \x01(\x05\"@\n\x17iSetExportDataRecordREQ\x12%\n\x06record\x18\x01 \x01(\x0b\x32\x15.pb.iExportDataRecord\"7\n\x15iSetClubActionFlowREQ\x12\x1e\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x0e.pb.ClubAction\"@\n\x17iSetJackpotFeeRecordREQ\x12%\n\x06record\x18\x01 \x01(\x0b\x32\x15.pb.iJackpotFeeRecord\"3\n\x12iSetClubPushMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubPushMsg\"1\n\x12iSetClubPushMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"E\n\x15iUpdateClubPushMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x1d\n\x03msg\x18\x02 \x01(\x0b\x32\x10.pb.iClubPushMsg\"3\n\x12iSetClubJoinMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubJoinMsg\"1\n\x12iSetClubJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"E\n\x15iUpdateClubJoinMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x1d\n\x03msg\x18\x02 \x01(\x0b\x32\x10.pb.iClubJoinMsg\"3\n\x12iSetClubCoinMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubCoinMsg\"1\n\x12iSetClubCoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"7\n\x13iReadClubCoinMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x11\n\tread_time\x18\x02 \x01(\x03\"F\n\x1aiSetJackpotRewardRecordREQ\x12(\n\x06record\x18\x01 \x01(\x0b\x32\x18.pb.iJackpotRewardRecord\"*\n\x1aiSetJackpotRewardRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x12iGetClubVipFlowREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\"E\n\x12iGetClubVipFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\x04\x66low\x18\x02 \x03(\x0b\x32\x13.pb.ClubVipFlowInfo\"@\n\x1ciGetRechargeJackpotRecordREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\"N\n\x1ciGetRechargeJackpotRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12 \n\x04\x66low\x18\x02 \x03(\x0b\x32\x12.pb.iClubChipsFlow\"\\\n\x14iGetLeagueJoinMsgREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x03 \x01(\x05\x12\r\n\x05msgid\x18\x04 \x01(\x05\"E\n\x14iGetLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x03msg\x18\x02 \x03(\x0b\x32\x12.pb.iLeagueJoinMsg\"k\n\x1diChangeLeagueJoinMsgStatusREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x14\n\x0cwhere_status\x18\x04 \x01(\x05\"7\n\x14iSetLeagueJoinMsgREQ\x12\x1f\n\x03msg\x18\x01 \x01(\x0b\x32\x12.pb.iLeagueJoinMsg\"3\n\x14iSetLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"=\n\x14iCntLeagueJoinMsgREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x02 \x01(\x05\"1\n\x14iCntLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03\x63nt\x18\x02 \x01(\x05\"2\n\x0f\x43hipStormReward\x12\x10\n\x08pp_chips\x18\x01 \x01(\x03\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\"\xff\x02\n\x0f\x43hipStormConfig\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x04 \x01(\x05\x12\x13\n\x0b\x63reator_uid\x18\x05 \x01(\x03\x12\x12\n\nstart_time\x18\x06 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x07 \x01(\x03\x12(\n\x0breward_data\x18\x08 \x03(\x0b\x32\x13.pb.ChipStormReward\x12\x18\n\x10max_reward_count\x18\t \x01(\x05\x12\x13\n\x0breward_prob\x18\n \x01(\x05\x12\x18\n\x10reward_broadcast\x18\x0b \x01(\x05\x12\x1c\n\x14\x61warded_player_count\x18\x0c \x01(\x05\x12\x1c\n\x14\x61warded_reward_count\x18\r \x01(\x03\x12\x1a\n\x12total_reward_count\x18\x0e \x01(\x03\x12\x0e\n\x06status\x18\x0f \x01(\x05\x12\x10\n\x08moduleid\x18\x10 \x01(\x03\"9\n\x12\x43reateChipStormREQ\x12#\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x13.pb.ChipStormConfig\"\\\n\x12\x43reateChipStormRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12#\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x13.pb.ChipStormConfig\x12\x13\n\x0bpp_remained\x18\x03 \x01(\x03\"G\n\x10\x45\x64itChipStormREQ\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12#\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x13.pb.ChipStormConfig\"\x7f\n\x10\x45\x64itChipStormRSP\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\x12\x13\n\x0bpp_remained\x18\x06 \x01(\x03\"`\n\x16\x43hipStormRecordListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\x05\"Z\n\x16\x43hipStormRecordListRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12$\n\x07\x63onfigs\x18\x03 \x03(\x0b\x32\x13.pb.ChipStormConfigB\x06Z\x04./pb')
+  serialized_pb=_b('\n\x11\x63lub_helper.proto\x12\x02pb\x1a\x0b\x63lub1.proto\x1a\x0b\x63lub2.proto\x1a\x0b\x63lub3.proto\x1a\x0epre_base.proto\x1a\tpb1.proto\x1a\tpb5.proto\x1a\tsng.proto\x1a\nmtt1.proto\x1a\npine.proto\x1a\x0fpre_base1.proto\x1a\x16\x63reate_club_room.proto\x1a\x08tp.proto\x1a\x0bpusoy.proto\x1a\x0f\x63olorgame.proto\x1a\rtongits.proto\x1a\nseka.proto\"\xf8\x03\n\x0fRoomModuleOpREQ\x12\x0f\n\x07op_type\x18\x01 \x01(\x05\x12\x10\n\x08moduleid\x18\x02 \x01(\x03\x12\x1f\n\troom_type\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\'\n\x08\x63lubroom\x18\x05 \x01(\x0b\x32\x15.pb.CreateClubRoomREQ\x12%\n\x07sngroom\x18\x06 \x01(\x0b\x32\x14.pb.CreateSngRoomREQ\x12%\n\x07mttroom\x18\x07 \x01(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\'\n\x08pineroom\x18\x08 \x01(\x0b\x32\x15.pb.CreatePineRoomREQ\x12*\n\npusoy_room\x18\t \x01(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12#\n\x06tproom\x18\n \x01(\x0b\x32\x13.pb.CreateTpRoomREQ\x12*\n\ncolor_room\x18\x0b \x01(\x0b\x32\x16.pb.CreateColorRoomREQ\x12.\n\x0ctongits_room\x18\x0c \x01(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12\x1a\n\x12restriction_status\x18\r \x01(\x05\x12(\n\tseka_room\x18\x0e \x01(\x0b\x32\x15.pb.CreateSekaRoomREQ\"\xf6\x03\n\x0fRoomModuleOpRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08moduleid\x18\x02 \x01(\x03\x12\x1f\n\troom_type\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x0f\n\x07op_type\x18\x04 \x01(\x05\x12\'\n\x08\x63lubroom\x18\x05 \x01(\x0b\x32\x15.pb.CreateClubRoomREQ\x12%\n\x07sngroom\x18\x06 \x01(\x0b\x32\x14.pb.CreateSngRoomREQ\x12%\n\x07mttroom\x18\x07 \x01(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\'\n\x08pineroom\x18\x08 \x01(\x0b\x32\x15.pb.CreatePineRoomREQ\x12*\n\npusoy_room\x18\t \x01(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12#\n\x06tproom\x18\n \x01(\x0b\x32\x13.pb.CreateTpRoomREQ\x12*\n\ncolor_room\x18\x0b \x01(\x0b\x32\x16.pb.CreateColorRoomREQ\x12.\n\x0ctongits_room\x18\x0c \x01(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12\x1a\n\x12restriction_status\x18\r \x01(\x05\x12(\n\tseka_room\x18\x0e \x01(\x0b\x32\x15.pb.CreateSekaRoomREQ\"\"\n\x10GetRoomModuleREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"D\n\x10\x43lubTemplateInfo\x12\x0f\n\x07\x63lub_id\x18\x01 \x01(\x05\x12\x11\n\tclub_name\x18\x02 \x01(\t\x12\x0c\n\x04left\x18\x03 \x01(\x08\"\x87\x01\n\x16GetClubTemplateInfoREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x03 \x01(\x05\x12\x0e\n\x06ppsrid\x18\x04 \x01(\x05\x12\x0e\n\x06ppstid\x18\x05 \x01(\x05\x12\x13\n\x0b\x62\x61n_club_id\x18\x06 \x03(\x05\"J\n\x16GetClubTemplateInfoRSP\x12\x30\n\x12\x63lub_template_info\x18\x01 \x03(\x0b\x32\x14.pb.ClubTemplateInfo\"\xa0\x03\n\x10GetRoomModuleRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12(\n\tclubrooms\x18\x02 \x03(\x0b\x32\x15.pb.CreateClubRoomREQ\x12&\n\x08sngrooms\x18\x03 \x03(\x0b\x32\x14.pb.CreateSngRoomREQ\x12&\n\x08mttrooms\x18\x04 \x03(\x0b\x32\x14.pb.CreateMttRoomREQ\x12(\n\tpinerooms\x18\x05 \x03(\x0b\x32\x15.pb.CreatePineRoomREQ\x12+\n\x0bpusoy_rooms\x18\x06 \x03(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12$\n\x07tprooms\x18\x07 \x03(\x0b\x32\x13.pb.CreateTpRoomREQ\x12+\n\x0b\x63olor_rooms\x18\x08 \x03(\x0b\x32\x16.pb.CreateColorRoomREQ\x12/\n\rtongits_rooms\x18\t \x03(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12)\n\nseka_rooms\x18\n \x03(\x0b\x32\x15.pb.CreateSekaRoomREQ\"\xbd\x05\n\x12MultiCreateRoomREQ\x12\x15\n\rclubroom_nums\x18\x01 \x03(\x05\x12(\n\tclubrooms\x18\x02 \x03(\x0b\x32\x15.pb.CreateClubRoomREQ\x12\x14\n\x0csngroom_nums\x18\x03 \x03(\x05\x12&\n\x08sngrooms\x18\x04 \x03(\x0b\x32\x14.pb.CreateSngRoomREQ\x12\x14\n\x0cmttroom_nums\x18\x05 \x03(\x05\x12&\n\x08mttrooms\x18\x06 \x03(\x0b\x32\x14.pb.CreateMttRoomREQ\x12\x15\n\rpineroom_nums\x18\x07 \x03(\x05\x12(\n\tpinerooms\x18\x08 \x03(\x0b\x32\x15.pb.CreatePineRoomREQ\x12\x0e\n\x06\x63lubid\x18\t \x01(\x05\x12\x10\n\x08leagueid\x18\n \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x0b \x01(\x05\x12\x19\n\x11super_league_type\x18\x0c \x01(\x05\x12\x17\n\x0fpusoy_room_nums\x18\r \x03(\x05\x12+\n\x0bpusoy_rooms\x18\x0e \x03(\x0b\x32\x16.pb.CreatePusoyRoomREQ\x12\x13\n\x0btproom_nums\x18\x0f \x03(\x05\x12$\n\x07tprooms\x18\x10 \x03(\x0b\x32\x13.pb.CreateTpRoomREQ\x12\x17\n\x0f\x63olor_room_nums\x18\x11 \x03(\x05\x12+\n\x0b\x63olor_rooms\x18\x12 \x03(\x0b\x32\x16.pb.CreateColorRoomREQ\x12\x19\n\x11tongits_room_nums\x18\x13 \x03(\x05\x12/\n\rtongits_rooms\x18\x14 \x03(\x0b\x32\x18.pb.CreateTongitsRoomREQ\x12\x16\n\x0eseka_room_nums\x18\x15 \x03(\x05\x12)\n\nseka_rooms\x18\x16 \x03(\x0b\x32\x15.pb.CreateSekaRoomREQ\"\xba\x01\n\x12MultiCreateRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0csuccess_room\x18\x02 \x01(\x05\x12\x13\n\x0b\x66\x61iled_room\x18\x03 \x01(\x05\x12\x14\n\x0cuncheck_room\x18\x04 \x01(\x05\x12\x1b\n\x13\x64iamond_failed_room\x18\x05 \x01(\x05\x12\x11\n\tqueue_num\x18\x06 \x01(\x05\x12\x0f\n\x07seconds\x18\x07 \x01(\x05\x12\x14\n\x0cprocess_type\x18\x08 \x01(\x05\"\xab\x02\n\x11iExportDataRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04mail\x18\x03 \x01(\t\x12\x12\n\nstart_date\x18\x04 \x01(\r\x12\x10\n\x08\x65nd_date\x18\x05 \x01(\r\x12\x10\n\x08timezone\x18\x06 \x01(\x05\x12\x0c\n\x04lang\x18\x07 \x01(\t\x12\x10\n\x08leagueid\x18\x08 \x01(\x05\x12\x15\n\rppcoin_record\x18\t \x01(\x08\x12\x11\n\tagent_uid\x18\n \x01(\x03\x12\x14\n\x0c\x64iamond_flow\x18\x0b \x01(\x08\x12\x13\n\x0bleague_data\x18\x0c \x01(\x08\x12\x15\n\rspend_diamond\x18\r \x01(\x03\x12\x13\n\x0btimezone_id\x18\x0e \x01(\t\x12\x12\n\nutc_offset\x18\x0f \x01(\t\"\x8a\x01\n\x11iJackpotFeeRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\r\n\x05setid\x18\x04 \x01(\t\x12\x0e\n\x06gameid\x18\x05 \x01(\t\x12\x12\n\nleft_chips\x18\x06 \x01(\x03\x12\x13\n\x0bjackpot_fee\x18\x07 \x01(\x03\"\x96\x03\n\x14iJackpotRewardRecord\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x11\n\tuser_icon\x18\x03 \x01(\t\x12\x13\n\x0bjackpottype\x18\x04 \x01(\x05\x12\x0e\n\x06reward\x18\x05 \x01(\x03\x12\r\n\x05\x63\x61rd1\x18\x06 \x01(\x05\x12\r\n\x05\x63\x61rd2\x18\x07 \x01(\x05\x12\r\n\x05\x63\x61rd3\x18\x08 \x01(\x05\x12\r\n\x05\x63\x61rd4\x18\t \x01(\x05\x12\r\n\x05\x63\x61rd5\x18\n \x01(\x05\x12\r\n\x05\x63\x61rd6\x18\x0b \x01(\x05\x12\r\n\x05\x63\x61rd7\x18\x0c \x01(\x05\x12\r\n\x05\x63\x61rd8\x18\r \x01(\x05\x12\r\n\x05\x63\x61rd9\x18\x0e \x01(\x05\x12\x0e\n\x06\x63\x61rd10\x18\x0f \x01(\x05\x12\x10\n\x08leagueid\x18\x10 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x11 \x01(\x05\x12\r\n\x05setid\x18\x12 \x01(\t\x12\x0e\n\x06gameid\x18\x13 \x01(\t\x12\x1f\n\troom_type\x18\x14 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1a\n\x12jackpot_left_chips\x18\x15 \x01(\x03\x12\x11\n\tcard_type\x18\x16 \x01(\x05\"\x8d\x01\n\x0ciClubCoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x12\n\nmember_uid\x18\x02 \x01(\x03\x12\x13\n\x0bmanager_uid\x18\x03 \x01(\x03\x12\x10\n\x08msg_time\x18\x04 \x01(\x03\x12\x0e\n\x06ppcoin\x18\x05 \x01(\x03\x12\x10\n\x08leagueid\x18\x06 \x01(\x03\x12\x10\n\x08msg_type\x18\x07 \x01(\x05\"\x9d\x01\n\x0ciClubJoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x12\n\nmember_uid\x18\x02 \x01(\x03\x12\x13\n\x0bmanager_uid\x18\x03 \x01(\x03\x12\r\n\x05\x62time\x18\x04 \x01(\x03\x12\r\n\x05\x65time\x18\x05 \x01(\x03\x12\x10\n\x08msg_type\x18\x06 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x07 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x08 \x01(\t\"b\n\x0ciClubPushMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tpush_time\x18\x02 \x01(\x03\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x0f\n\x07userids\x18\x05 \x01(\t\"]\n\x0eiClubChipsFlow\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x13\n\x0binsert_time\x18\x03 \x01(\x03\x12\x14\n\x0c\x63hange_chips\x18\x04 \x01(\x03\"z\n\x0eiLeagueJoinMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x10\n\x08req_time\x18\x03 \x01(\x03\x12\x10\n\x08\x63lubname\x18\x04 \x01(\t\x12\r\n\x05msgid\x18\x05 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x06 \x01(\x05\"@\n\x17iSetExportDataRecordREQ\x12%\n\x06record\x18\x01 \x01(\x0b\x32\x15.pb.iExportDataRecord\"7\n\x15iSetClubActionFlowREQ\x12\x1e\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x0e.pb.ClubAction\"@\n\x17iSetJackpotFeeRecordREQ\x12%\n\x06record\x18\x01 \x01(\x0b\x32\x15.pb.iJackpotFeeRecord\"3\n\x12iSetClubPushMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubPushMsg\"1\n\x12iSetClubPushMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"E\n\x15iUpdateClubPushMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x1d\n\x03msg\x18\x02 \x01(\x0b\x32\x10.pb.iClubPushMsg\"3\n\x12iSetClubJoinMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubJoinMsg\"1\n\x12iSetClubJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"E\n\x15iUpdateClubJoinMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x1d\n\x03msg\x18\x02 \x01(\x0b\x32\x10.pb.iClubJoinMsg\"3\n\x12iSetClubCoinMsgREQ\x12\x1d\n\x03msg\x18\x01 \x01(\x0b\x32\x10.pb.iClubCoinMsg\"1\n\x12iSetClubCoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"7\n\x13iReadClubCoinMsgREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x11\n\tread_time\x18\x02 \x01(\x03\"F\n\x1aiSetJackpotRewardRecordREQ\x12(\n\x06record\x18\x01 \x01(\x0b\x32\x18.pb.iJackpotRewardRecord\"*\n\x1aiSetJackpotRewardRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x12iGetClubVipFlowREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\"E\n\x12iGetClubVipFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\x04\x66low\x18\x02 \x03(\x0b\x32\x13.pb.ClubVipFlowInfo\"@\n\x1ciGetRechargeJackpotRecordREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\"N\n\x1ciGetRechargeJackpotRecordRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12 \n\x04\x66low\x18\x02 \x03(\x0b\x32\x12.pb.iClubChipsFlow\"\\\n\x14iGetLeagueJoinMsgREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x03 \x01(\x05\x12\r\n\x05msgid\x18\x04 \x01(\x05\"E\n\x14iGetLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x03msg\x18\x02 \x03(\x0b\x32\x12.pb.iLeagueJoinMsg\"k\n\x1diChangeLeagueJoinMsgStatusREQ\x12\r\n\x05msgid\x18\x01 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x14\n\x0cwhere_status\x18\x04 \x01(\x05\"7\n\x14iSetLeagueJoinMsgREQ\x12\x1f\n\x03msg\x18\x01 \x01(\x0b\x32\x12.pb.iLeagueJoinMsg\"3\n\x14iSetLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05msgid\x18\x02 \x01(\x05\"=\n\x14iCntLeagueJoinMsgREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x02 \x01(\x05\"1\n\x14iCntLeagueJoinMsgRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03\x63nt\x18\x02 \x01(\x05\"2\n\x0f\x43hipStormReward\x12\x10\n\x08pp_chips\x18\x01 \x01(\x03\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\"\xff\x02\n\x0f\x43hipStormConfig\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x04 \x01(\x05\x12\x13\n\x0b\x63reator_uid\x18\x05 \x01(\x03\x12\x12\n\nstart_time\x18\x06 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x07 \x01(\x03\x12(\n\x0breward_data\x18\x08 \x03(\x0b\x32\x13.pb.ChipStormReward\x12\x18\n\x10max_reward_count\x18\t \x01(\x05\x12\x13\n\x0breward_prob\x18\n \x01(\x05\x12\x18\n\x10reward_broadcast\x18\x0b \x01(\x05\x12\x1c\n\x14\x61warded_player_count\x18\x0c \x01(\x05\x12\x1c\n\x14\x61warded_reward_count\x18\r \x01(\x03\x12\x1a\n\x12total_reward_count\x18\x0e \x01(\x03\x12\x0e\n\x06status\x18\x0f \x01(\x05\x12\x10\n\x08moduleid\x18\x10 \x01(\x03\"9\n\x12\x43reateChipStormREQ\x12#\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x13.pb.ChipStormConfig\"\\\n\x12\x43reateChipStormRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12#\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x13.pb.ChipStormConfig\x12\x13\n\x0bpp_remained\x18\x03 \x01(\x03\"G\n\x10\x45\x64itChipStormREQ\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12#\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x13.pb.ChipStormConfig\"\x7f\n\x10\x45\x64itChipStormRSP\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x05 \x01(\x05\x12\x13\n\x0bpp_remained\x18\x06 \x01(\x03\"`\n\x16\x43hipStormRecordListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x16\n\x0esuper_leagueid\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\x05\"Z\n\x16\x43hipStormRecordListRSP\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12$\n\x07\x63onfigs\x18\x03 \x03(\x0b\x32\x13.pb.ChipStormConfigB\x06Z\x04./pb')
   ,
-  dependencies=[club1__pb2.DESCRIPTOR,club2__pb2.DESCRIPTOR,club3__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pb5__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,mtt1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,create__club__room__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,])
+  dependencies=[club1__pb2.DESCRIPTOR,club2__pb2.DESCRIPTOR,club3__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pb5__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,mtt1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,pre__base1__pb2.DESCRIPTOR,create__club__room__pb2.DESCRIPTOR,tp__pb2.DESCRIPTOR,pusoy__pb2.DESCRIPTOR,colorgame__pb2.DESCRIPTOR,tongits__pb2.DESCRIPTOR,seka__pb2.DESCRIPTOR,])
 
 
 
@@ -143,6 +144,13 @@ _ROOMMODULEOPREQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room', full_name='pb.RoomModuleOpREQ.seka_room', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -155,8 +163,8 @@ _ROOMMODULEOPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=696,
+  serialized_start=246,
+  serialized_end=750,
 )
 
 
@@ -258,6 +266,13 @@ _ROOMMODULEOPRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room', full_name='pb.RoomModuleOpRSP.seka_room', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -270,8 +285,8 @@ _ROOMMODULEOPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=699,
-  serialized_end=1159,
+  serialized_start=753,
+  serialized_end=1255,
 )
 
 
@@ -301,8 +316,150 @@ _GETROOMMODULEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1161,
-  serialized_end=1195,
+  serialized_start=1257,
+  serialized_end=1291,
+)
+
+
+_CLUBTEMPLATEINFO = _descriptor.Descriptor(
+  name='ClubTemplateInfo',
+  full_name='pb.ClubTemplateInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='club_id', full_name='pb.ClubTemplateInfo.club_id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='club_name', full_name='pb.ClubTemplateInfo.club_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='left', full_name='pb.ClubTemplateInfo.left', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1293,
+  serialized_end=1361,
+)
+
+
+_GETCLUBTEMPLATEINFOREQ = _descriptor.Descriptor(
+  name='GetClubTemplateInfoREQ',
+  full_name='pb.GetClubTemplateInfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.GetClubTemplateInfoREQ.clubid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leagueid', full_name='pb.GetClubTemplateInfoREQ.leagueid', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='super_leagueid', full_name='pb.GetClubTemplateInfoREQ.super_leagueid', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ppsrid', full_name='pb.GetClubTemplateInfoREQ.ppsrid', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ppstid', full_name='pb.GetClubTemplateInfoREQ.ppstid', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ban_club_id', full_name='pb.GetClubTemplateInfoREQ.ban_club_id', index=5,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1364,
+  serialized_end=1499,
+)
+
+
+_GETCLUBTEMPLATEINFORSP = _descriptor.Descriptor(
+  name='GetClubTemplateInfoRSP',
+  full_name='pb.GetClubTemplateInfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='club_template_info', full_name='pb.GetClubTemplateInfoRSP.club_template_info', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1501,
+  serialized_end=1575,
 )
 
 
@@ -376,6 +533,13 @@ _GETROOMMODULERSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_rooms', full_name='pb.GetRoomModuleRSP.seka_rooms', index=9,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -388,8 +552,8 @@ _GETROOMMODULERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1198,
-  serialized_end=1571,
+  serialized_start=1578,
+  serialized_end=1994,
 )
 
 
@@ -540,6 +704,20 @@ _MULTICREATEROOMREQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_room_nums', full_name='pb.MultiCreateRoomREQ.seka_room_nums', index=20,
+      number=21, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='seka_rooms', full_name='pb.MultiCreateRoomREQ.seka_rooms', index=21,
+      number=22, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -552,8 +730,8 @@ _MULTICREATEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1574,
-  serialized_end=2208,
+  serialized_start=1997,
+  serialized_end=2698,
 )
 
 
@@ -632,8 +810,8 @@ _MULTICREATEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2211,
-  serialized_end=2397,
+  serialized_start=2701,
+  serialized_end=2887,
 )
 
 
@@ -761,8 +939,8 @@ _IEXPORTDATARECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2400,
-  serialized_end=2699,
+  serialized_start=2890,
+  serialized_end=3189,
 )
 
 
@@ -834,8 +1012,8 @@ _IJACKPOTFEERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2702,
-  serialized_end=2840,
+  serialized_start=3192,
+  serialized_end=3330,
 )
 
 
@@ -1012,8 +1190,8 @@ _IJACKPOTREWARDRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2843,
-  serialized_end=3249,
+  serialized_start=3333,
+  serialized_end=3739,
 )
 
 
@@ -1085,8 +1263,8 @@ _ICLUBCOINMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3252,
-  serialized_end=3393,
+  serialized_start=3742,
+  serialized_end=3883,
 )
 
 
@@ -1165,8 +1343,8 @@ _ICLUBJOINMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3396,
-  serialized_end=3553,
+  serialized_start=3886,
+  serialized_end=4043,
 )
 
 
@@ -1224,8 +1402,8 @@ _ICLUBPUSHMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3555,
-  serialized_end=3653,
+  serialized_start=4045,
+  serialized_end=4143,
 )
 
 
@@ -1276,8 +1454,8 @@ _ICLUBCHIPSFLOW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3655,
-  serialized_end=3748,
+  serialized_start=4145,
+  serialized_end=4238,
 )
 
 
@@ -1342,8 +1520,8 @@ _ILEAGUEJOINMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3750,
-  serialized_end=3872,
+  serialized_start=4240,
+  serialized_end=4362,
 )
 
 
@@ -1373,8 +1551,8 @@ _ISETEXPORTDATARECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3874,
-  serialized_end=3938,
+  serialized_start=4364,
+  serialized_end=4428,
 )
 
 
@@ -1404,8 +1582,8 @@ _ISETCLUBACTIONFLOWREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3940,
-  serialized_end=3995,
+  serialized_start=4430,
+  serialized_end=4485,
 )
 
 
@@ -1435,8 +1613,8 @@ _ISETJACKPOTFEERECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3997,
-  serialized_end=4061,
+  serialized_start=4487,
+  serialized_end=4551,
 )
 
 
@@ -1466,8 +1644,8 @@ _ISETCLUBPUSHMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4063,
-  serialized_end=4114,
+  serialized_start=4553,
+  serialized_end=4604,
 )
 
 
@@ -1504,8 +1682,8 @@ _ISETCLUBPUSHMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4116,
-  serialized_end=4165,
+  serialized_start=4606,
+  serialized_end=4655,
 )
 
 
@@ -1542,8 +1720,8 @@ _IUPDATECLUBPUSHMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4167,
-  serialized_end=4236,
+  serialized_start=4657,
+  serialized_end=4726,
 )
 
 
@@ -1573,8 +1751,8 @@ _ISETCLUBJOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4238,
-  serialized_end=4289,
+  serialized_start=4728,
+  serialized_end=4779,
 )
 
 
@@ -1611,8 +1789,8 @@ _ISETCLUBJOINMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4291,
-  serialized_end=4340,
+  serialized_start=4781,
+  serialized_end=4830,
 )
 
 
@@ -1649,8 +1827,8 @@ _IUPDATECLUBJOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4342,
-  serialized_end=4411,
+  serialized_start=4832,
+  serialized_end=4901,
 )
 
 
@@ -1680,8 +1858,8 @@ _ISETCLUBCOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4413,
-  serialized_end=4464,
+  serialized_start=4903,
+  serialized_end=4954,
 )
 
 
@@ -1718,8 +1896,8 @@ _ISETCLUBCOINMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4466,
-  serialized_end=4515,
+  serialized_start=4956,
+  serialized_end=5005,
 )
 
 
@@ -1756,8 +1934,8 @@ _IREADCLUBCOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4517,
-  serialized_end=4572,
+  serialized_start=5007,
+  serialized_end=5062,
 )
 
 
@@ -1787,8 +1965,8 @@ _ISETJACKPOTREWARDRECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4574,
-  serialized_end=4644,
+  serialized_start=5064,
+  serialized_end=5134,
 )
 
 
@@ -1818,8 +1996,8 @@ _ISETJACKPOTREWARDRECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4646,
-  serialized_end=4688,
+  serialized_start=5136,
+  serialized_end=5178,
 )
 
 
@@ -1863,8 +2041,8 @@ _IGETCLUBVIPFLOWREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4690,
-  serialized_end=4758,
+  serialized_start=5180,
+  serialized_end=5248,
 )
 
 
@@ -1901,8 +2079,8 @@ _IGETCLUBVIPFLOWRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4760,
-  serialized_end=4829,
+  serialized_start=5250,
+  serialized_end=5319,
 )
 
 
@@ -1939,8 +2117,8 @@ _IGETRECHARGEJACKPOTRECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4831,
-  serialized_end=4895,
+  serialized_start=5321,
+  serialized_end=5385,
 )
 
 
@@ -1977,8 +2155,8 @@ _IGETRECHARGEJACKPOTRECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4897,
-  serialized_end=4975,
+  serialized_start=5387,
+  serialized_end=5465,
 )
 
 
@@ -2029,8 +2207,8 @@ _IGETLEAGUEJOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4977,
-  serialized_end=5069,
+  serialized_start=5467,
+  serialized_end=5559,
 )
 
 
@@ -2067,8 +2245,8 @@ _IGETLEAGUEJOINMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5071,
-  serialized_end=5140,
+  serialized_start=5561,
+  serialized_end=5630,
 )
 
 
@@ -2119,8 +2297,8 @@ _ICHANGELEAGUEJOINMSGSTATUSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5142,
-  serialized_end=5249,
+  serialized_start=5632,
+  serialized_end=5739,
 )
 
 
@@ -2150,8 +2328,8 @@ _ISETLEAGUEJOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5251,
-  serialized_end=5306,
+  serialized_start=5741,
+  serialized_end=5796,
 )
 
 
@@ -2188,8 +2366,8 @@ _ISETLEAGUEJOINMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5308,
-  serialized_end=5359,
+  serialized_start=5798,
+  serialized_end=5849,
 )
 
 
@@ -2226,8 +2404,8 @@ _ICNTLEAGUEJOINMSGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5361,
-  serialized_end=5422,
+  serialized_start=5851,
+  serialized_end=5912,
 )
 
 
@@ -2264,8 +2442,8 @@ _ICNTLEAGUEJOINMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5424,
-  serialized_end=5473,
+  serialized_start=5914,
+  serialized_end=5963,
 )
 
 
@@ -2302,8 +2480,8 @@ _CHIPSTORMREWARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5475,
-  serialized_end=5525,
+  serialized_start=5965,
+  serialized_end=6015,
 )
 
 
@@ -2438,8 +2616,8 @@ _CHIPSTORMCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5528,
-  serialized_end=5911,
+  serialized_start=6018,
+  serialized_end=6401,
 )
 
 
@@ -2469,8 +2647,8 @@ _CREATECHIPSTORMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5913,
-  serialized_end=5970,
+  serialized_start=6403,
+  serialized_end=6460,
 )
 
 
@@ -2514,8 +2692,8 @@ _CREATECHIPSTORMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5972,
-  serialized_end=6064,
+  serialized_start=6462,
+  serialized_end=6554,
 )
 
 
@@ -2552,8 +2730,8 @@ _EDITCHIPSTORMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6066,
-  serialized_end=6137,
+  serialized_start=6556,
+  serialized_end=6627,
 )
 
 
@@ -2618,8 +2796,8 @@ _EDITCHIPSTORMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6139,
-  serialized_end=6266,
+  serialized_start=6629,
+  serialized_end=6756,
 )
 
 
@@ -2670,8 +2848,8 @@ _CHIPSTORMRECORDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6268,
-  serialized_end=6364,
+  serialized_start=6758,
+  serialized_end=6854,
 )
 
 
@@ -2715,8 +2893,8 @@ _CHIPSTORMRECORDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6366,
-  serialized_end=6456,
+  serialized_start=6856,
+  serialized_end=6946,
 )
 
 _ROOMMODULEOPREQ.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
@@ -2728,6 +2906,7 @@ _ROOMMODULEOPREQ.fields_by_name['pusoy_room'].message_type = pusoy__pb2._CREATEP
 _ROOMMODULEOPREQ.fields_by_name['tproom'].message_type = tp__pb2._CREATETPROOMREQ
 _ROOMMODULEOPREQ.fields_by_name['color_room'].message_type = colorgame__pb2._CREATECOLORROOMREQ
 _ROOMMODULEOPREQ.fields_by_name['tongits_room'].message_type = tongits__pb2._CREATETONGITSROOMREQ
+_ROOMMODULEOPREQ.fields_by_name['seka_room'].message_type = seka__pb2._CREATESEKAROOMREQ
 _ROOMMODULEOPRSP.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _ROOMMODULEOPRSP.fields_by_name['clubroom'].message_type = create__club__room__pb2._CREATECLUBROOMREQ
 _ROOMMODULEOPRSP.fields_by_name['sngroom'].message_type = sng__pb2._CREATESNGROOMREQ
@@ -2737,6 +2916,8 @@ _ROOMMODULEOPRSP.fields_by_name['pusoy_room'].message_type = pusoy__pb2._CREATEP
 _ROOMMODULEOPRSP.fields_by_name['tproom'].message_type = tp__pb2._CREATETPROOMREQ
 _ROOMMODULEOPRSP.fields_by_name['color_room'].message_type = colorgame__pb2._CREATECOLORROOMREQ
 _ROOMMODULEOPRSP.fields_by_name['tongits_room'].message_type = tongits__pb2._CREATETONGITSROOMREQ
+_ROOMMODULEOPRSP.fields_by_name['seka_room'].message_type = seka__pb2._CREATESEKAROOMREQ
+_GETCLUBTEMPLATEINFORSP.fields_by_name['club_template_info'].message_type = _CLUBTEMPLATEINFO
 _GETROOMMODULERSP.fields_by_name['clubrooms'].message_type = create__club__room__pb2._CREATECLUBROOMREQ
 _GETROOMMODULERSP.fields_by_name['sngrooms'].message_type = sng__pb2._CREATESNGROOMREQ
 _GETROOMMODULERSP.fields_by_name['mttrooms'].message_type = mtt1__pb2._CREATEMTTROOMREQ
@@ -2745,6 +2926,7 @@ _GETROOMMODULERSP.fields_by_name['pusoy_rooms'].message_type = pusoy__pb2._CREAT
 _GETROOMMODULERSP.fields_by_name['tprooms'].message_type = tp__pb2._CREATETPROOMREQ
 _GETROOMMODULERSP.fields_by_name['color_rooms'].message_type = colorgame__pb2._CREATECOLORROOMREQ
 _GETROOMMODULERSP.fields_by_name['tongits_rooms'].message_type = tongits__pb2._CREATETONGITSROOMREQ
+_GETROOMMODULERSP.fields_by_name['seka_rooms'].message_type = seka__pb2._CREATESEKAROOMREQ
 _MULTICREATEROOMREQ.fields_by_name['clubrooms'].message_type = create__club__room__pb2._CREATECLUBROOMREQ
 _MULTICREATEROOMREQ.fields_by_name['sngrooms'].message_type = sng__pb2._CREATESNGROOMREQ
 _MULTICREATEROOMREQ.fields_by_name['mttrooms'].message_type = mtt1__pb2._CREATEMTTROOMREQ
@@ -2753,6 +2935,7 @@ _MULTICREATEROOMREQ.fields_by_name['pusoy_rooms'].message_type = pusoy__pb2._CRE
 _MULTICREATEROOMREQ.fields_by_name['tprooms'].message_type = tp__pb2._CREATETPROOMREQ
 _MULTICREATEROOMREQ.fields_by_name['color_rooms'].message_type = colorgame__pb2._CREATECOLORROOMREQ
 _MULTICREATEROOMREQ.fields_by_name['tongits_rooms'].message_type = tongits__pb2._CREATETONGITSROOMREQ
+_MULTICREATEROOMREQ.fields_by_name['seka_rooms'].message_type = seka__pb2._CREATESEKAROOMREQ
 _IJACKPOTREWARDRECORD.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _ISETEXPORTDATARECORDREQ.fields_by_name['record'].message_type = _IEXPORTDATARECORD
 _ISETCLUBACTIONFLOWREQ.fields_by_name['action'].message_type = club3__pb2._CLUBACTION
@@ -2775,6 +2958,9 @@ _CHIPSTORMRECORDLISTRSP.fields_by_name['configs'].message_type = _CHIPSTORMCONFI
 DESCRIPTOR.message_types_by_name['RoomModuleOpREQ'] = _ROOMMODULEOPREQ
 DESCRIPTOR.message_types_by_name['RoomModuleOpRSP'] = _ROOMMODULEOPRSP
 DESCRIPTOR.message_types_by_name['GetRoomModuleREQ'] = _GETROOMMODULEREQ
+DESCRIPTOR.message_types_by_name['ClubTemplateInfo'] = _CLUBTEMPLATEINFO
+DESCRIPTOR.message_types_by_name['GetClubTemplateInfoREQ'] = _GETCLUBTEMPLATEINFOREQ
+DESCRIPTOR.message_types_by_name['GetClubTemplateInfoRSP'] = _GETCLUBTEMPLATEINFORSP
 DESCRIPTOR.message_types_by_name['GetRoomModuleRSP'] = _GETROOMMODULERSP
 DESCRIPTOR.message_types_by_name['MultiCreateRoomREQ'] = _MULTICREATEROOMREQ
 DESCRIPTOR.message_types_by_name['MultiCreateRoomRSP'] = _MULTICREATEROOMRSP
@@ -2841,6 +3027,27 @@ GetRoomModuleREQ = _reflection.GeneratedProtocolMessageType('GetRoomModuleREQ', 
   # @@protoc_insertion_point(class_scope:pb.GetRoomModuleREQ)
   ))
 _sym_db.RegisterMessage(GetRoomModuleREQ)
+
+ClubTemplateInfo = _reflection.GeneratedProtocolMessageType('ClubTemplateInfo', (_message.Message,), dict(
+  DESCRIPTOR = _CLUBTEMPLATEINFO,
+  __module__ = 'club_helper_pb2'
+  # @@protoc_insertion_point(class_scope:pb.ClubTemplateInfo)
+  ))
+_sym_db.RegisterMessage(ClubTemplateInfo)
+
+GetClubTemplateInfoREQ = _reflection.GeneratedProtocolMessageType('GetClubTemplateInfoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUBTEMPLATEINFOREQ,
+  __module__ = 'club_helper_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetClubTemplateInfoREQ)
+  ))
+_sym_db.RegisterMessage(GetClubTemplateInfoREQ)
+
+GetClubTemplateInfoRSP = _reflection.GeneratedProtocolMessageType('GetClubTemplateInfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUBTEMPLATEINFORSP,
+  __module__ = 'club_helper_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetClubTemplateInfoRSP)
+  ))
+_sym_db.RegisterMessage(GetClubTemplateInfoRSP)
 
 GetRoomModuleRSP = _reflection.GeneratedProtocolMessageType('GetRoomModuleRSP', (_message.Message,), dict(
   DESCRIPTOR = _GETROOMMODULERSP,
