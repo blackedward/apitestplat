@@ -550,7 +550,7 @@ class GetConfForP(MethodView):
     def get(self, id):
         try:
             prj = Project.query.filter_by(id=id).first()
-            envs = prj.Interfacehuan.all()
+            envs = prj.Interfacehuan.filter_by(status=1).all()
             rdata = []
             for i in envs:
                 rdata.append(i.to_json())

@@ -351,9 +351,34 @@ class GetCaseByMod(MethodView):
 
 
 class ExecuteCase(MethodView):
+    def run_proto_case(self, data, case_raw, branch_name, params, source, result_queue):
+        try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            if not data.get('env_id'):
+                envid = case_raw['env_id']
+            else:
+                envid = data.get('env_id')
+            # 重定向标准输入/输出/错误到 /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            res = exeproto(uid=case_raw['uid'], env_id=envid, branch_name=branch_name,
+                           reqmessage=case_raw['req_message_name'], params=params, source=source)
+
+            # 将结果放入队列
+            result_queue.put(res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # 如果发生异常，则将 None 放入队列
+            result_queue.put(None)
+        finally:
+            sys.exit(0)
+
     @login_required
     def post(self):
         try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
             data = request.get_json()
             if not data:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
@@ -367,6 +392,31 @@ class ExecuteCase(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             case = InterfaceCase.query.filter_by(case_id=case_id).first()
+            if case.case_protocol == 2:
+                logger.info('开始执行proto协议用例')
+                case_raw = json.loads(case.raw)
+                # 使用 multiprocessing Queue 来通信结果
+                result_queue = multiprocessing.Queue()
+
+                # 使用 multiprocessing 在新进程中运行函数
+                process = multiprocessing.Process(
+                    target=self.run_proto_case,
+                    args=(data, case_raw, case_raw['branch_name'], case_raw['proto_content'], case_raw['source'],
+                          result_queue)
+                )
+
+                process.start()
+                process.join()
+
+                # 从队列中获取结果
+                res = result_queue.get()
+
+                if res:
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+                else:
+                    return reponse(code=MessageEnum.execute_proto_error.value[0],
+                                   message=MessageEnum.execute_proto_error.value[1])
+
             executehandler = ExecuteHandler(case_id, env_id)
             if case.is_relycase == 1:
                 res = executehandler.exemulticase(case_id=case_id, env_id=env_id)[0]
@@ -1137,7 +1187,6 @@ def get_message_attributes(branch_name, proto_name, message_name, source):
 
         # 获取 FileDescriptor 信息
         file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
-        logger.info(file_descriptor)
 
         # 获取 message 的属性信息
         message_type = file_descriptor.message_types_by_name[message_name]

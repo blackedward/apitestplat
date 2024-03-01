@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import inspect
 
+from gevent.libev._corecffi import lib
 from locust import events
 import json
 import struct
