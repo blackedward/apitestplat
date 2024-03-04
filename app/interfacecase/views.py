@@ -351,29 +351,6 @@ class GetCaseByMod(MethodView):
 
 
 class ExecuteCase(MethodView):
-    def run_proto_case(self, data, case_raw, branch_name, params, source, result_queue):
-        try:
-            logger.info('当前进程号：{}'.format(os.getpid()))
-            if not data.get('env_id'):
-                envid = case_raw['env_id']
-            else:
-                envid = data.get('env_id')
-            # 重定向标准输入/输出/错误到 /dev/null
-            sys.stdin = open(os.devnull, 'r')
-            sys.stdout = open(os.devnull, 'w')
-            sys.stderr = open(os.devnull, 'w')
-            res = exeproto(uid=case_raw['uid'], env_id=envid, branch_name=branch_name,
-                           reqmessage=case_raw['req_message_name'], params=params, source=source)
-
-            # 将结果放入队列
-            result_queue.put(res)
-
-        except Exception as e:
-            logger.error(traceback.format_exc())
-            # 如果发生异常，则将 None 放入队列
-            result_queue.put(None)
-        finally:
-            sys.exit(0)
 
     @login_required
     def post(self):
@@ -411,9 +388,17 @@ class ExecuteCase(MethodView):
                 # 从队列中获取结果
                 res = result_queue.get()
 
-                if res:
+                new_case = TestcaseResult(result=str(res),
+                                          case_id=case_id,
+                                          ispass=1, testevent_id=env_id, spend=0)
+                db.session.add(new_case)
+                try:
+                    db.session.commit()
+
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
-                else:
+                except Exception as e:
+                    db.session.rollback()
+                    logger.info('用例：%s保存测试结果失败!原因：%s' % (case_id, e))
                     return reponse(code=MessageEnum.execute_proto_error.value[0],
                                    message=MessageEnum.execute_proto_error.value[1])
 
@@ -437,6 +422,30 @@ class ExecuteCase(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0],
                            message=MessageEnum.test_error.value[1])
+
+    def run_proto_case(self, data, case_raw, branch_name, params, source, result_queue):
+        try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            if not data.get('env_id'):
+                envid = case_raw['env_id']
+            else:
+                envid = data.get('env_id')
+            # 重定向标准输入/输出/错误到 /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            res = exeproto(uid=case_raw['uid'], env_id=envid, branch_name=branch_name,
+                           reqmessage=case_raw['req_message_name'], params=params, source=source)
+
+            # 将结果放入队列
+            result_queue.put(res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # 如果发生异常，则将 None 放入队列
+            result_queue.put(None)
+        finally:
+            sys.exit(0)
 
 
 class AddPreCase(MethodView):
