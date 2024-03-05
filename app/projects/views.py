@@ -65,6 +65,8 @@ class DeleteProject(MethodView):
                 return reponse(code=MessageEnum.project_search.value[0],
                                message=MessageEnum.project_search.value[1])
             if current_user.role_id == 2:
+                db.session.query(Model).filter(Model.project == project_id).update({Model.status: 0})
+                db.session.query(Environment).filter(Environment.project == project_id).update({Environment.status: 0})
                 project.status = 0
                 db.session.commit()
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
@@ -726,6 +728,29 @@ class GetModelByPrjId(MethodView):
             return reponse(code=MessageEnum.model_not_exict.value[0],
                            message=MessageEnum.model_not_exict.value[1])
 
+class DeleteModel(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.model_cannot_empty.value[0],
+                               message=MessageEnum.model_cannot_empty.value[1])
+            model_id = data.get('model_id')
+            if not model_id:
+                return reponse(code=MessageEnum.model_cannot_empty.value[0],
+                               message=MessageEnum.model_cannot_empty.value[1])
+            model = Model.query.filter_by(id=model_id).first()
+            if not model or model.status == 0:
+                return reponse(code=MessageEnum.model_not_exict.value[0],
+                               message=MessageEnum.model_not_exict.value[1])
+            model.status = 0
+            db.session.commit()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.model_delete_error.value[0],
+                           message=MessageEnum.model_delete_error.value[1])
 
 class ExeDbFac(MethodView):
     @login_required

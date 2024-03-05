@@ -22,6 +22,7 @@ project.add_url_rule('/modifymodel', view_func=ModifyModel.as_view('modifymodel'
 project.add_url_rule('/getmodelbyid/<int:id>', view_func=GetModelById.as_view('getmodelbyid'))
 project.add_url_rule('/getallmodel', view_func=GetAllModel.as_view('getallmodel'))
 project.add_url_rule('/getmodelbyprjid/<int:id>', view_func=GetModelByPrjId.as_view('getmodelbyprjid'))
+project.add_url_rule("/deletemodel", view_func=DeleteModel.as_view('deletemodel'))
 project.add_url_rule('/exedbfac', view_func=ExeDbFac.as_view('exedbfac'))
 project.add_url_rule("/addproject", view_func=AddProject.as_view('addproject'))
 project.add_url_rule("/getallenv", view_func=Getallenv.as_view('getallenv'))

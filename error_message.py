@@ -228,3 +228,5 @@ class MessageEnum(Enum):
     force_update_branch_error = 100221, '强制更新分支异常'
     unexpected_error = 100222, '未知异常'
     execute_proto_error = 100223, '执行proto异常'
+    model_cannot_empty = 100224, '模块名称不能为空'
+    model_delete_error = 100225, '删除模块异常'
