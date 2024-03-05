@@ -1410,6 +1410,8 @@ class Onesaveproto(MethodView):
                 'case_desc') or not data.get('project_id') or not data.get('model_id'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
+            if not data["proto_content"]:
+                data["proto_content"] = {}
 
             interfacecase = InterfaceCase()
             interfacecase.project_id = data.get('project_id')
