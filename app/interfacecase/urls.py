@@ -16,6 +16,7 @@ interfacecase.add_url_rule("/updatecasereq", view_func=Updatecasereq.as_view('up
 interfacecase.add_url_rule("/updatecasesql", view_func=Updatecasesql.as_view('updatecasesql'))
 interfacecase.add_url_rule("/getprecase", view_func=Getprecase.as_view('getprecase'))
 interfacecase.add_url_rule("/getcasedetail", view_func=Getcasedetail.as_view('getcasedetail'))
+interfacecase.add_url_rule("/deletecase", view_func=Deletecase.as_view('deletecase'))
 interfacecase.add_url_rule("/getcaseres", view_func=Getcaseres.as_view('getcaseres'))
 interfacecase.add_url_rule("/allcases", view_func=Allcases.as_view('allcases'))
 interfacecase.add_url_rule("/getbranchproto", view_func=Getbranchproto.as_view('getbranchproto'))

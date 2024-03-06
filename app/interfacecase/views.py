@@ -390,7 +390,7 @@ class ExecuteCase(MethodView):
 
                 new_case = TestcaseResult(result=str(res),
                                           case_id=case_id,
-                                          ispass=1, testevent_id=env_id, spend=0)
+                                          ispass=1, testevent_id=env_id, spend=0, date=datetime.now())
                 db.session.add(new_case)
                 try:
                     db.session.commit()
@@ -944,6 +944,36 @@ class Getcasedetail(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_case_detail_error.value[0],
                            message=MessageEnum.get_case_detail_error.value[1])
+
+
+class Deletecase(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            case_id = data.get('case_id')
+            interfacecase = InterfaceCase.query.filter_by(case_id=case_id).first()
+            if not interfacecase:
+                return reponse(code=MessageEnum.case_not_exict.value[0],
+                               message=MessageEnum.case_not_exict.value[1])
+            interfacecase.status = 0
+            interfacecase.update_time = datetime.now()
+            try:
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.delete_case_error.value[0],
+                               message=MessageEnum.delete_case_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            db.session.rollback()
+            return reponse(code=MessageEnum.delete_case_error.value[0],
+                           message=MessageEnum.delete_case_error.value[1])
 
 
 class Getcaseres(MethodView):
