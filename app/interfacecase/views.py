@@ -992,8 +992,10 @@ class Getcaseres(MethodView):
             if request.args.get("page_index"):
                 page_index = request.args.get('page_index')
 
-            caseres = TestcaseResult.query.filter_by(case_id=case_id).paginate(int(page_index), int(page_number),
-                                                                               False)
+            query = TestcaseResult.query.filter_by(case_id=case_id)
+            query = query.order_by(TestcaseResult.id.desc())
+            caseres = query.paginate(int(page_index), int(page_number))
+
             if not caseres:
                 return reponse(code=MessageEnum.get_case_res_error.value[0],
                                message=MessageEnum.get_case_res_error.value[1])
