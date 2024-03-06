@@ -230,3 +230,8 @@ class MessageEnum(Enum):
     execute_proto_error = 100223, '执行proto异常'
     model_cannot_empty = 100224, '模块名称不能为空'
     model_delete_error = 100225, '删除模块异常'
+    create_suite_error = 100226, '创建套件异常'
+    get_suite_error = 100227, '获取套件异常'
+    suite_not_exict = 100228, '套件不存在'
+    update_suite_error = 100229, '更新套件异常'
+    delete_suite_error = 100230, '删除套件异常'

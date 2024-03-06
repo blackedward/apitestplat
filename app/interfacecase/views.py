@@ -1679,3 +1679,119 @@ def exeprotomult(uid, env_id, branch_name, source, parainfos):
     except Exception as e:
         logger.error(traceback.format_exc())
         raise e
+
+
+class Createsuite(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('suite_name') or not data.get('case_ids') or not data.get('project_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suite = TestSuite()
+            suite.name = data.get('suite_name')
+            suite.caseids = json.dumps(data.get('case_ids'))
+            suite.creator = current_user.user_id
+            suite.project = data.get('project_id')
+            suite.status = 1
+            try:
+                db.session.add(suite)
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.create_suite_error.value[0],
+                               message=MessageEnum.create_suite_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.create_suite_error.value[0],
+                           message=MessageEnum.create_suite_error.value[1])
+
+
+class Getsuitebyid(MethodView):
+    @login_required
+    def get(self):
+        try:
+            suite_id = request.args.get('suite_id')
+            if not suite_id:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suite = TestSuite.query.filter_by(id=suite_id).first()
+            if not suite:
+                return reponse(code=MessageEnum.get_suite_error.value[0],
+                               message=MessageEnum.get_suite_error.value[1])
+            projectname = suite.projects.project_name
+            creatorname = suite.users.username
+
+            ret = {
+                'id': suite.id,
+                'name': suite.name,
+                'caseids': suite.caseids,
+                'project_name': projectname,
+                'creator_name': creatorname
+            }
+
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_suite_error.value[0],
+                           message=MessageEnum.get_suite_error.value[1])
+
+
+class Updatesuite(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('suite_id') or not data.get('suite_name') or not data.get('case_ids') or not data.get(
+                    'project_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+            if not suite:
+                return reponse(code=MessageEnum.suite_not_exict.value[0],
+                               message=MessageEnum.suite_not_exict.value[1])
+            suite.name = data.get('suite_name')
+            suite.caseids = json.dumps(data.get('case_ids'))
+            suite.project = data.get('project_id')
+            try:
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.update_suite_error.value[0],
+                               message=MessageEnum.update_suite_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.update_suite_error.value[0],
+                           message=MessageEnum.update_suite_error.value[1])
+
+
+class Deletesuite(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('suite_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+            if not suite:
+                return reponse(code=MessageEnum.suite_not_exict.value[0],
+                               message=MessageEnum.suite_not_exict.value[1])
+            suite.status = 0
+            try:
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.delete_suite_error.value[0],
+                               message=MessageEnum.delete_suite_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.delete_suite_error.value[0],
+                           message=MessageEnum.delete_suite_error.value[1])

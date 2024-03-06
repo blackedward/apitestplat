@@ -26,6 +26,8 @@ class User(db.Model):
     role_id = db.Column(db.Integer())
     project = db.relationship('Project', backref='users', lazy='dynamic')
     interfacecase = db.relationship('InterfaceCase', backref='users', lazy='dynamic')
+    interfacesuite = db.relationship('TestSuite', backref='users', lazy='dynamic')
+
 
     def __repr__(self):
         # return str(self.user_id) + self.username
@@ -68,6 +70,7 @@ class Project(db.Model):
     product = db.Column(db.String(50))
     status = db.Column(db.Boolean(), default=True)
     Interfacehuan = db.relationship('Environment', backref='projects', lazy='dynamic')
+    Interfacesuite = db.relationship('TestSuite', backref='projects', lazy='dynamic')
     model = db.relationship('Model', backref='projects', lazy='dynamic')
     interfacecase = db.relationship('InterfaceCase', backref='projects', lazy='dynamic')
 
@@ -281,6 +284,25 @@ class TestcaseResult(db.Model):  # 测试用例结果
     spend = db.Column(db.String(52))
     date = db.Column(db.DateTime, default=datetime.now())
     testevent_id = db.Column(db.Integer, db.ForeignKey('t_environment.id'))
+
+    def __repr__(self):
+        return str(self.id)
+
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
+
+
+class TestSuite(db.Model):  # 测试套件
+    __tablename__ = 't_testsuite'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    creator = db.Column(db.Integer, db.ForeignKey('t_user.user_id'))
+    project = db.Column(db.Integer, db.ForeignKey('t_projects.id'))
+    caseids = db.Column(db.Text(255))
+    status = db.Column(db.Boolean(), default=True)
 
     def __repr__(self):
         return str(self.id)

@@ -5,7 +5,6 @@ import os
 import shutil
 import traceback
 from collections import Counter, defaultdict
-import pysvn
 from git import Repo
 import git
 from common.log import logger
@@ -19,7 +18,6 @@ merge_dir = user_home + "/merge"
 branches = ["master"]
 destination_directory = user_home + '/tempcopile'
 cache_file = user_home + "/cachefile"
-global_cache = Cache(cache_file, expire=24 * 60 * 60)
 temp_repo_pp = user_home + "/ppproto/proto"
 merge_dir_pp = user_home + "/ppmerge"
 destination_directory_pp = user_home + '/ppcopile'
@@ -164,14 +162,10 @@ def get_remote_active_branches(repo_url):
     # 克隆远程仓库到临时目录
     temp_repo_path = user_home + '/tempcodeforbranch'
     if os.path.exists(temp_repo_path):
-        # 如果目录存在，执行更新
-        repo = git.Repo(temp_repo_path)
-        repo.remotes.origin.pull()
-    else:
-        # 如果目录不存在，执行克隆
-        repo = git.Repo.clone_from(repo_url, temp_repo_path)
+        shutil.rmtree(temp_repo_path)
 
-    repo.remotes.origin.fetch()
+    repo = git.Repo.clone_from(repo_url, temp_repo_path)
+
     current_date = datetime.now()
     # 获取所有分支
     branches = [str(remote_branch).split('/')[-1] for remote_branch in repo.remotes.origin.refs]
@@ -237,6 +231,9 @@ def get_recently_active_branches_pp():
 
 def get_recently_active_branches_cached(repo_url):
     cache_key = "most_active_branches"
+    global_cache = Cache(directory=cache_file)
+
+    logger.info(f"global_cache: {global_cache.get(cache_key, None)}")
 
     # 检查全局缓存中是否存在键
     if cache_key in global_cache:
@@ -251,6 +248,6 @@ def get_recently_active_branches_cached(repo_url):
     result = get_remote_active_branches(repo_url)
 
     # 将计算结果存入全局缓存
-    global_cache[cache_key] = result
+    global_cache.set(cache_key, result, expire=60*60*24)
 
     return result
