@@ -31,6 +31,8 @@ interfacecase.add_url_rule("/createsuite", view_func=Createsuite.as_view('create
 interfacecase.add_url_rule("/getsuitebyid", view_func=Getsuitebyid.as_view('getsuitebyid'))
 interfacecase.add_url_rule("/updatesuite", view_func=Updatesuite.as_view('updatesuite'))
 interfacecase.add_url_rule("/deletesuite", view_func=Deletesuite.as_view('deletesuite'))
+interfacecase.add_url_rule("/exemulproto", view_func=Exemulproto.as_view('exemulproto'))
+
 
 
 

@@ -627,8 +627,9 @@ class GetCaseByProj(MethodView):
             for i in interfacecase.items:
                 cr = User.query.filter_by(user_id=i.creater).first().username
                 pn = Project.query.filter_by(id=i.project_id).first().project_name
+                mn = Model.query.filter_by(id=i.model_id).first().model_name
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
-                        'creator': cr, 'project_name': pn}
+                        'creator': cr, 'project_name': pn, 'model_name': mn}
                 res.append(tdic)
             ret = {"list": res, "total": interfacecase.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
@@ -1795,3 +1796,135 @@ class Deletesuite(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.delete_suite_error.value[0],
                            message=MessageEnum.delete_suite_error.value[1])
+
+
+class Exemulproto(MethodView):
+
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('suite_id') and not data.get('env_id') and not data.get('model_id') and not data.get(
+                    'project_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            caseinfos = []
+            if data.get('suite_id'):  # 执行测试套件
+                suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+                if not suite:
+                    return reponse(code=MessageEnum.suite_not_exict.value[0],
+                                   message=MessageEnum.suite_not_exict.value[1])
+                caseids = json.loads(suite.caseids)
+
+                for i in caseids:
+                    i = InterfaceCase.query.filter_by(case_id=i).first()
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            elif data.get('model_id'):  # 按模块执行
+                caselist = InterfaceCase.query.filter_by(model_id=data.get('model_id')).filter_by(status=1).all()
+                for i in caselist:
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            elif data.get('project_id'):  # 按项目执行
+                caselist = InterfaceCase.query.filter_by(project_id=data.get('project_id')).filter_by(status=1).all()
+                for i in caselist:
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            else:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            logger.info('caseinfos is {}', caseinfos)
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process_multproto,
+                args=(data, caseinfos, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            res = result_queue.get()
+
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                           data=res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.unexpected_error.value[0],
+                           message=MessageEnum.unexpected_error.value[1])
+
+    def run_in_new_process_multproto(self, data, caseinfos, result_queue):
+        try:
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            # Redirect standard input/output/error to /dev/null
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            res = exemulproto(env_id=data.get('env_id'), caseinfos=caseinfos)
+
+            # Put results into the Queue
+            result_queue.put(res)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            # Put None into the Queue if there's an exception
+            result_queue.put(None)
+        finally:
+            sys.exit(0)
+
+
+def exemulproto(env_id, caseinfos):
+    try:
+        logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
+        source = json.loads(caseinfos[0]['case_raw'])['source']
+        branch_name = json.loads(caseinfos[0]['case_raw'])['branch_name']
+        if source == 'kk' or source is None:
+            proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
+        env = Environment.query.filter_by(id=env_id).first()
+        host = env.url
+        port = env.port
+
+        sys.path.append(proto_path)
+        uid = json.loads(caseinfos[0]['case_raw'])['uid']
+        player = Player(uid, host, port)
+        if not player.client:
+            player.client = Client(host=host, port=port)
+        for name in os.listdir(proto_path):
+            if name == '__init__.py' or name[-3:] != '.py':
+                continue
+            if source == 'kk' or source is None:
+                module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+            else:
+                module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
+            for item in dir(module):
+                player.client.pb[item] = getattr(module, item)
+        if source == 'kk' or source is None:
+            player = player.login_by_uid(uid)[1]
+        else:
+            player = player.login_by_uid_pp(uid)[1]
+
+        client = player.client
+
+        reslut = []
+        for i in caseinfos:
+            params = json.loads(i['case_raw'])['proto_content']
+            reqmessage = json.loads(i['case_raw'])['req_message_name']
+            rspmessage = reqmessage[:-3] + "RSP"
+            client.send(reqmessage, params)
+            msg = client.recv(rspmessage)
+            r = {i['case_id']: msg.body}
+            reslut.append(r)
+
+        client.stop()
+        logger.info('reslut is {}', reslut)
+        return reslut
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
