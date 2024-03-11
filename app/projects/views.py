@@ -217,8 +217,13 @@ class GetAllPrj(MethodView):
                 page_number = request.args.get('page_number')
             if request.args.get("page_index"):
                 page_index = request.args.get('page_index')
-
-            project = Project.query.filter_by(status=1).paginate(int(page_index), int(page_number), False)
+            if current_user.role_id == 2:
+                project = Project.query.filter_by(status=1).paginate(int(page_index), int(page_number), False)
+            else:
+                user = User.query.filter_by(user_id=current_user.user_id).first()
+                project = Project.query.filter_by(status=1, product=user.pdline).paginate(int(page_index),
+                                                                                          int(page_number),
+                                                                                          False)
             if not project:
                 return reponse(code=MessageEnum.project_search.value[0],
                                message=MessageEnum.project_search.value[1])
@@ -707,11 +712,24 @@ class GetModelByPrjId(MethodView):
     @login_required
     def get(self, id):
         try:
-            model = Model.query.filter_by(project=id).filter_by(status=1).all()
+            page_index = 1
+            page_number = 10
+            if request.args.get("page_index"):
+                page_index = request.args.get("page_index")
+            if request.args.get("page_number"):
+                page_number = request.args.get("page_number")
+
+            model = Model.query.filter_by(project=id, status=1).paginate(int(page_index), int(page_number), False)
+            project_name = Project.query.filter_by(id=id).first().project_name
 
             rdata = []
-            for i in model:
-                rdata.append(i.to_json())
+            for i in model.items:
+                tdic = {}
+                tdic['id'] = i.id
+                tdic['model_name'] = i.model_name
+                tdic['project'] = project_name
+                tdic['status'] = i.status
+                rdata.append(tdic)
             ret = {"list": rdata, "total": len(rdata)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)

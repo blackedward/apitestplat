@@ -1399,14 +1399,11 @@ class Executeproto(MethodView):
 
             # Retrieve results from the Queue
             res = result_queue.get()
-
-            if not res:
+            if res is None:
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1])
-            logger.info(res)
             assert_info = data.get('assert_info')
             temp = res
-
             if not assert_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
             else:
@@ -1445,7 +1442,6 @@ class Executeproto(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(None)
-            raise e
         finally:
             sys.exit(0)
 

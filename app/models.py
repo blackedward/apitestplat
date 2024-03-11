@@ -23,6 +23,7 @@ class User(db.Model):
     created_time = db.Column(db.DateTime(), default=datetime.now())
     update_time = db.Column(db.DateTime(), default=datetime.now())
     real_name = db.Column(db.String(20))
+    pdline = db.Column(db.String(50))
     role_id = db.Column(db.Integer())
     project = db.relationship('Project', backref='users', lazy='dynamic')
     interfacecase = db.relationship('InterfaceCase', backref='users', lazy='dynamic')
