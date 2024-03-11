@@ -1318,7 +1318,6 @@ class Getattbymessage(MethodView):
             result_queue.put(attributes_info)
         except Exception as e:
             logger.error(traceback.format_exc())
-            # Put None into the Queue if there's an exception
             result_queue.put(None)
         finally:
             sys.exit(0)
@@ -1400,8 +1399,14 @@ class Executeproto(MethodView):
 
             # Retrieve results from the Queue
             res = result_queue.get()
+
+            if not res:
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1])
+            logger.info(res)
             assert_info = data.get('assert_info')
             temp = res
+
             if not assert_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
             else:
@@ -1417,8 +1422,6 @@ class Executeproto(MethodView):
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
                 else:
                     return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1])
-
-
 
 
         except Exception as e:
@@ -1441,8 +1444,8 @@ class Executeproto(MethodView):
 
         except Exception as e:
             logger.error(traceback.format_exc())
-            # Put None into the Queue if there's an exception
             result_queue.put(None)
+            raise e
         finally:
             sys.exit(0)
 

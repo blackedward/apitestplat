@@ -611,13 +611,7 @@ class CreateModel(MethodView):
             if not data:
                 return reponse(code=MessageEnum.model_para_error.value[0],
                                message=MessageEnum.model_para_error.value[1])
-            try:
-                modelt = Model.query.filter_by(model_name=data.get('model_name')).first()
-                if modelt:
-                    return reponse(code=MessageEnum.model_only_one.value[0],
-                                   message=MessageEnum.model_only_one.value[1])
-            except Exception as e:
-                pass
+
             model = Model()
             model.model_name = data.get('model_name')
             model.model_user_id = current_user.user_id

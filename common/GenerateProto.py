@@ -202,11 +202,14 @@ def get_recently_active_branches_pp():
     start_date_str = start_date.strftime("%Y-%m-%d")
     end_date_str = end_date.strftime("%Y-%m-%d")
 
+    svn_update_command = f"svn update {local_path}/{folder_path}"
     # 构建SVN命令
     svn_command = f"svn log -r{{{start_date_str}}}:{{{end_date_str}}} -v {local_path}/{folder_path}"
 
     try:
         # 执行SVN命令
+        subprocess.run(svn_update_command, shell=True, check=True)
+
         result = subprocess.run(svn_command, shell=True, capture_output=True, text=True, check=True)
         log_output = result.stdout.splitlines()
 
@@ -217,7 +220,6 @@ def get_recently_active_branches_pp():
             if line.startswith("   A") or line.startswith("   M") or line.startswith("   D"):
                 folder = line.split('/')[3].split(' ')[0]  # 提取文件夹名
                 folder_activity[folder] += 1
-        logger.info(f"folder_activity: {folder_activity}")
         # 获取最活跃的10个子文件夹
         top_folders = sorted(folder_activity.items(), key=lambda x: x[1], reverse=True)[:9]
         top_folders.append(('trunk', 0))
@@ -238,16 +240,13 @@ def get_recently_active_branches_cached(repo_url):
     # 检查全局缓存中是否存在键
     if cache_key in global_cache:
         # 从缓存中获取活跃分支数据
-        cached_result = global_cache[cache_key]
-        logger.info(f"Cache hit! 缓存数据是： {cached_result}")
-        return cached_result
+        result = global_cache[cache_key]
+        logger.info(f"Cache hit! 缓存数据是： {result}")
+        return result
     else:
         logger.info("Cache miss!")
-
-    # 如果全局缓存中不存在，进行计算
-    result = get_remote_active_branches(repo_url)
-
-    # 将计算结果存入全局缓存
-    global_cache.set(cache_key, result, expire=60*60*24)
+        # 从远程仓库获取活跃分支数据
+        result = get_remote_active_branches(repo_url)
+        global_cache.set(cache_key, result, expire=60 * 60 * 24)
 
     return result
