@@ -714,9 +714,7 @@ class GetModelByPrjId(MethodView):
     def get(self, id):
         try:
             model = Model.query.filter_by(project=id).filter_by(status=1).all()
-            if not model:
-                return reponse(code=MessageEnum.model_not_exict.value[0],
-                               message=MessageEnum.model_not_exict.value[1])
+
             rdata = []
             for i in model:
                 rdata.append(i.to_json())
@@ -727,6 +725,7 @@ class GetModelByPrjId(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_not_exict.value[0],
                            message=MessageEnum.model_not_exict.value[1])
+
 
 class DeleteModel(MethodView):
     @login_required
@@ -751,6 +750,7 @@ class DeleteModel(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.model_delete_error.value[0],
                            message=MessageEnum.model_delete_error.value[1])
+
 
 class ExeDbFac(MethodView):
     @login_required

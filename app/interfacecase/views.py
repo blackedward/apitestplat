@@ -1400,12 +1400,26 @@ class Executeproto(MethodView):
 
             # Retrieve results from the Queue
             res = result_queue.get()
-
-            if res:
+            assert_info = data.get('assert_info')
+            temp = res
+            if not assert_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
             else:
-                return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1])
+                expected = assert_info.get('excepted_result')
+                expression = assert_info.get('expression')
+
+                if '.' in expression:
+                    for i in expression.split('.'):
+                        temp = temp[i]
+                else:
+                    temp = temp[expression]
+                if temp == expected:
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+                else:
+                    return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1])
+
+
+
 
         except Exception as e:
             logger.error(traceback.format_exc())
