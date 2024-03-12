@@ -30,6 +30,7 @@ class CreateUserView(MethodView):
             username = data.get('username')
             password = data.get('password')
             job_number = data.get("job_number")
+            pdline = data.get("product")
 
             job_num = User.query.filter_by(job_number=job_number).first()
             if job_num:
@@ -41,7 +42,7 @@ class CreateUserView(MethodView):
                 flash(MessageEnum.user_exict.value[1])
                 return reponse(code=MessageEnum.user_exict.value[0],
                                message=MessageEnum.user_exict.value[1])
-            new_user = User(username=username, job_number=job_number, role_id=1, real_name=username)
+            new_user = User(username=username, job_number=job_number, role_id=1, real_name=username, pdline=pdline)
             new_user.set_password(password)
             db.session.add(new_user)
             try:

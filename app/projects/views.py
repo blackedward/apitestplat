@@ -35,6 +35,7 @@ class CreateProject(MethodView):
                 project = Project()
                 project.project_name = project_name
                 project.status = 1
+                project.product = data.get('product')
                 project.project_user_id = current_user.user_id
                 db.session.add(project)
                 db.session.commit()
