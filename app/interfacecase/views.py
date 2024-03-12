@@ -1238,6 +1238,12 @@ def get_message_attributes(branch_name, proto_name, message_name, source):
             field_name = field.name
             field_number = field.number
             field_data_type = field.type  # 获取属性的数据类型
+            field_label = field.label  # 获取属性的标签
+
+            if field_label == 3:  # 如果字段是重复类型
+                is_repeated = True
+            else:
+                is_repeated = False
 
             if field_data_type == 14:
                 enum_values = []
@@ -1246,16 +1252,17 @@ def get_message_attributes(branch_name, proto_name, message_name, source):
                     enum_values.append({enum_value.name: enum_value.number})
                 attributes.append(
                     {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                     "enum_values": enum_values})
+                     "enum_values": enum_values, "is_repeated": is_repeated})
             elif field_data_type == 11:
                 sub_message_fields = []
                 for sub_field in field.message_type.fields:
                     sub_message_fields.append({"name": sub_field.name, "type": DataType(sub_field.type).name})
                 attributes.append(
                     {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                     "fields": sub_message_fields})
+                     "fields": sub_message_fields, "is_repeated": is_repeated})
             else:
-                attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name})
+                attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                                   "is_repeated": is_repeated})
         return {"message_name": message_name, "attributes": attributes}
 
     except Exception as e:
