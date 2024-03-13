@@ -1212,58 +1212,62 @@ class GetMessageInfo(MethodView):
 #             logger.error(traceback.format_exc())
 #             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
 
-def get_message_attributes(branch_name, proto_name, message_name, source):
+def get_message_attributes(branch_name, message_name, source):
     try:
         logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
         if source == 'kk' or source is None:
-            module_name = f"proto.{branch_name}.{proto_name}"
             path = PROJECT_ROOT + "/proto/" + branch_name
         else:
-            module_name = f"proto.pp.{branch_name}.{proto_name}"
             path = PROJECT_ROOT + "/proto/pp/" + branch_name
         os.chdir(path)
         sys.path.append(path)  # 将模块路径添加到 sys.path 中
 
-        # 导入模块
-        importlib.import_module(module_name)
+        for file_name in os.listdir(path):
+            if file_name.endswith(".py") and file_name != "__init__.py":
+                module_name = os.path.splitext(file_name)[0]
+                importlib.import_module(module_name)
 
-        # 获取 FileDescriptor 信息
-        file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
+        for module_name in sys.modules:
+            if module_name.endswith("_pb2"):
+                module = sys.modules[module_name]
+                if hasattr(module, message_name):
+                    message_type = getattr(module, message_name)
+                    attributes = []
 
-        # 获取 message 的属性信息
-        message_type = file_descriptor.message_types_by_name[message_name]
-        attributes = []
+                    for field in message_type.DESCRIPTOR.fields:
+                        field_name = field.name
+                        field_number = field.number
+                        field_data_type = field.type  # 获取属性的数据类型
+                        field_label = field.label  # 获取属性的标签
 
-        for field in message_type.fields:
-            field_name = field.name
-            field_number = field.number
-            field_data_type = field.type  # 获取属性的数据类型
-            field_label = field.label  # 获取属性的标签
+                        if field_label == 3:  # 如果字段是重复类型
+                            is_repeated = True
+                        else:
+                            is_repeated = False
 
-            if field_label == 3:  # 如果字段是重复类型
-                is_repeated = True
-            else:
-                is_repeated = False
-
-            if field_data_type == 14:
-                enum_values = []
-                enum_descriptor = field.enum_type
-                for enum_value in enum_descriptor.values_by_name.values():
-                    enum_values.append({enum_value.name: enum_value.number})
-                attributes.append(
-                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                     "enum_values": enum_values, "is_repeated": is_repeated})
-            elif field_data_type == 11:
-                sub_message_fields = []
-                for sub_field in field.message_type.fields:
-                    sub_message_fields.append({"name": sub_field.name, "type": DataType(sub_field.type).name})
-                attributes.append(
-                    {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                     "fields": sub_message_fields, "is_repeated": is_repeated})
-            else:
-                attributes.append({"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                                   "is_repeated": is_repeated})
-        return {"message_name": message_name, "attributes": attributes}
+                        if field_data_type == 14:
+                            enum_values = []
+                            enum_descriptor = field.enum_type
+                            for enum_value in enum_descriptor.values_by_name.values():
+                                enum_values.append({enum_value.name: enum_value.number})
+                            attributes.append(
+                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                                 "enum_values": enum_values, "is_repeated": is_repeated})
+                        elif field_data_type == 11:
+                            sub_message_fields = []
+                            for sub_field in field.message_type.fields:
+                                sub_message_fields.append(
+                                    {"name": sub_field.name, "type": DataType(sub_field.type).name})
+                            attributes.append(
+                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                                 "fields": sub_message_fields, "is_repeated": is_repeated})
+                        else:
+                            attributes.append(
+                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                                 "is_repeated": is_repeated})
+                    return {"message_name": message_name, "attributes": attributes}
+        # 如果未找到指定的消息名，返回空字典
+        return {}
 
     except Exception as e:
         logger.error(traceback.format_exc())
@@ -1292,7 +1296,7 @@ class Getattbymessage(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(branch_name, proto_name, message_name, source, result_queue)
+                args=(branch_name, message_name, source, result_queue)
             )
 
             process.start()
@@ -1300,6 +1304,7 @@ class Getattbymessage(MethodView):
 
             # Retrieve results from the Queue
             attributes_info = result_queue.get()
+            logger.info("获取到的属性信息: {}".format(attributes_info))
 
             if attributes_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
@@ -1313,13 +1318,13 @@ class Getattbymessage(MethodView):
             return reponse(code=MessageEnum.get_attributes_error.value[0],
                            message=MessageEnum.get_attributes_error.value[1])
 
-    def run_in_new_process(self, branch_name, proto_name, message_name, source, result_queue):
+    def run_in_new_process(self, branch_name, message_name, source, result_queue):
         try:
             logger.info("获取attributes info，在新进程中，当前进程 ID: {}".format(os.getpid()))
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
-            attributes_info = get_message_attributes(branch_name, proto_name, message_name, source)
+            attributes_info = get_message_attributes(branch_name, message_name, source)
 
             # Put results into the Queue
             result_queue.put(attributes_info)
@@ -1945,6 +1950,78 @@ def exemulproto(env_id, caseinfos):
         client.stop()
         logger.info('reslut is {}', reslut)
         return reslut
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
+
+
+class Getallbrmes(MethodView):
+    @login_required
+    def get(self):
+        try:
+            logger.info('主进程号：{}'.format(os.getpid()))
+            branch_name = request.args.get('branch_name')
+            source = request.args.get('source')
+            if not branch_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            if '/' in branch_name:
+                branch_name = branch_name.replace('/', '_')
+            if source == 'kk' or source is None:
+                proto_path = PROJECT_ROOT + "/proto/" + branch_name
+            else:
+                proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
+
+            result_queue = multiprocessing.Queue()
+            process = multiprocessing.Process(
+                target=self.run_in_new_process_getallbrmes,
+                args=(proto_path, result_queue)
+            )
+            process.start()
+            process.join()
+            res = result_queue.get()
+            if res:
+                ret = {"list": res, "total": len(res)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
+
+    def run_in_new_process_getallbrmes(self, proto_path, result_queue):
+        try:
+            logger.info('当前进程号，执行获取分之内所有message：{}'.format(os.getpid()))
+            sys.stdin = open(os.devnull, 'r')
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            res = getallbrmes(proto_path)
+            result_queue.put(res)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            result_queue.put(None)
+        finally:
+            sys.exit(0)
+
+
+def getallbrmes(proto_path):
+    try:
+        os.chdir(proto_path)
+        sys.path.append(proto_path)
+
+        for file_name in os.listdir(proto_path):
+            if file_name.endswith(".py") and file_name != "__init__.py":
+                module_name = os.path.splitext(file_name)[0]
+                importlib.import_module(module_name)
+
+        messages = []
+        for module_name in sys.modules:
+            if module_name.endswith("_pb2"):
+                module = sys.modules[module_name]
+                if hasattr(module, "DESCRIPTOR"):
+                    file_descriptor = getattr(module, "DESCRIPTOR")
+                    for message in file_descriptor.message_types_by_name:
+                        if message.endswith("REQ"):
+                            messages.append(message)
+        return messages
     except Exception as e:
         logger.error(traceback.format_exc())
         raise e
