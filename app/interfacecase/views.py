@@ -906,9 +906,11 @@ class Getcasedetail(MethodView):
             interfacecase = InterfaceCase.query.filter_by(case_id=case_id, status=1).first()
             if interfacecase:
                 creator = User.query.filter_by(user_id=interfacecase.creater).first().username
+                model_name = Model.query.filter_by(id=interfacecase.model_id).first().model_name
+                project_name = Project.query.filter_by(id=interfacecase.project_id).first().project_name
                 basicinfo = {'case_id': interfacecase.case_id, 'project_id': interfacecase.project_id,
                              'model_id': interfacecase.model_id, 'desc': interfacecase.desc,
-                             'creator': creator}
+                             'creator': creator, 'project_name': project_name, 'model_name': model_name}
                 headers = []
                 params = []
                 if interfacecase.headers:
