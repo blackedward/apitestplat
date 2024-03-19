@@ -236,3 +236,4 @@ class MessageEnum(Enum):
     update_suite_error = 100229, '更新套件异常'
     delete_suite_error = 100230, '删除套件异常'
     assert_error = 100231, '断言异常'
+    auto_gen_case_error = 100232, '自动生成用例异常'

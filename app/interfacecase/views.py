@@ -9,13 +9,13 @@ import traceback
 from enum import Enum
 from socket import socket
 
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask.views import MethodView
 from flask_login import login_required, current_user
-from sqlalchemy import distinct
 
 from app.models import *
 from common import GenerateProto
+from common.AutoGenerateCase import generate_test_cases
 from common.Client import Client
 from common.jsontools import reponse
 from common.player import Player
@@ -1194,84 +1194,66 @@ class GetMessageInfo(MethodView):
             sys.exit(0)
 
 
-# class Getprotomessages(MethodView):
-#     @login_required
-#     def get(self):
-#         try:
-#             proto_name = request.args.get('proto_name')
-#             branch_name = request.args.get('branch_name')
-#             if not proto_name:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
+# def get_message_attributes(branch_name, message_name, source):
+#     try:
+#         logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
+#         if source == 'kk' or source is None:
+#             path = PROJECT_ROOT + "/proto/" + branch_name
+#         else:
+#             path = PROJECT_ROOT + "/proto/pp/" + branch_name
+#         os.chdir(path)
+#         sys.path.append(path)  # 将模块路径添加到 sys.path 中
 #
-#             protohandler = ProtoHandler(proto_name)
-#             messages = protohandler.get_all_message(branch_name=branch_name, proto_name=proto_name)
-#             ret = {"list": messages, "total": len(messages)}
-#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
-#         except Exception as e:
-#             logger.error(traceback.format_exc())
-#             return reponse(code=MessageEnum.get_proto_error.value[0], message=MessageEnum.get_proto_error.value[1])
-
-def get_message_attributes(branch_name, message_name, source):
-    try:
-        logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
-        if source == 'kk' or source is None:
-            path = PROJECT_ROOT + "/proto/" + branch_name
-        else:
-            path = PROJECT_ROOT + "/proto/pp/" + branch_name
-        os.chdir(path)
-        sys.path.append(path)  # 将模块路径添加到 sys.path 中
-
-        for file_name in os.listdir(path):
-            if file_name.endswith(".py") and file_name != "__init__.py":
-                module_name = os.path.splitext(file_name)[0]
-                importlib.import_module(module_name)
-
-        for module_name in sys.modules:
-            if module_name.endswith("_pb2"):
-                module = sys.modules[module_name]
-                if hasattr(module, message_name):
-                    message_type = getattr(module, message_name)
-                    attributes = []
-
-                    for field in message_type.DESCRIPTOR.fields:
-                        field_name = field.name
-                        field_number = field.number
-                        field_data_type = field.type  # 获取属性的数据类型
-                        field_label = field.label  # 获取属性的标签
-
-                        if field_label == 3:  # 如果字段是重复类型
-                            is_repeated = True
-                        else:
-                            is_repeated = False
-
-                        if field_data_type == 14:
-                            enum_values = []
-                            enum_descriptor = field.enum_type
-                            for enum_value in enum_descriptor.values_by_name.values():
-                                enum_values.append({enum_value.name: enum_value.number})
-                            attributes.append(
-                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                                 "enum_values": enum_values, "is_repeated": is_repeated})
-                        elif field_data_type == 11:
-                            sub_message_fields = []
-                            for sub_field in field.message_type.fields:
-                                sub_message_fields.append(
-                                    {"name": sub_field.name, "type": DataType(sub_field.type).name})
-                            attributes.append(
-                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                                 "fields": sub_message_fields, "is_repeated": is_repeated})
-                        else:
-                            attributes.append(
-                                {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-                                 "is_repeated": is_repeated})
-                    return {"message_name": message_name, "attributes": attributes}
-        # 如果未找到指定的消息名，返回空字典
-        return {}
-
-    except Exception as e:
-        logger.error(traceback.format_exc())
-        raise e
+#         for file_name in os.listdir(path):
+#             if file_name.endswith(".py") and file_name != "__init__.py":
+#                 module_name = os.path.splitext(file_name)[0]
+#                 importlib.import_module(module_name)
+#
+#         for module_name in sys.modules:
+#             if module_name.endswith("_pb2"):
+#                 module = sys.modules[module_name]
+#                 if hasattr(module, message_name):
+#                     message_type = getattr(module, message_name)
+#                     attributes = []
+#
+#                     for field in message_type.DESCRIPTOR.fields:
+#                         field_name = field.name
+#                         field_number = field.number
+#                         field_data_type = field.type  # 获取属性的数据类型
+#                         field_label = field.label  # 获取属性的标签
+#
+#                         if field_label == 3:  # 如果字段是重复类型
+#                             is_repeated = True
+#                         else:
+#                             is_repeated = False
+#
+#                         if field_data_type == 14:
+#                             enum_values = []
+#                             enum_descriptor = field.enum_type
+#                             for enum_value in enum_descriptor.values_by_name.values():
+#                                 enum_values.append({enum_value.name: enum_value.number})
+#                             attributes.append(
+#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+#                                  "enum_values": enum_values, "is_repeated": is_repeated})
+#                         elif field_data_type == 11:
+#                             sub_message_fields = []
+#                             for sub_field in field.message_type.fields:
+#                                 sub_message_fields.append(
+#                                     {"name": sub_field.name, "type": DataType(sub_field.type).name})
+#                             attributes.append(
+#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+#                                  "fields": sub_message_fields, "is_repeated": is_repeated})
+#                         else:
+#                             attributes.append(
+#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+#                                  "is_repeated": is_repeated})
+#                     return {"message_name": message_name, "attributes": attributes}
+#         # 如果未找到指定的消息名，返回空字典
+#         return {}
+#
+#     except Exception as e:
+#         logger.error(traceback.format_exc())
+#         raise e
 
 
 class Getattbymessage(MethodView):
@@ -1304,7 +1286,7 @@ class Getattbymessage(MethodView):
 
             # Retrieve results from the Queue
             attributes_info = result_queue.get()
-            logger.info("获取到的属性信息: {}".format(attributes_info))
+            logger.info("获取message里的属性结果: {}".format(attributes_info))
 
             if attributes_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
@@ -1333,6 +1315,72 @@ class Getattbymessage(MethodView):
             result_queue.put(None)
         finally:
             sys.exit(0)
+
+
+def get_field_attributes(field):
+    field_data_type = field.type
+    field_name = field.name
+    field_number = field.number
+    field_label = field.label
+
+    if field_label == 3:  # 如果字段是重复类型
+        is_repeated = True
+    else:
+        is_repeated = False
+
+    if field_data_type == 14:  # 枚举类型
+        enum_values = []
+        enum_descriptor = field.enum_type
+        for enum_value in enum_descriptor.values_by_name.values():
+            enum_values.append({enum_value.name: enum_value.number})
+        return {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                "enum_values": enum_values, "is_repeated": is_repeated}
+
+    elif field_data_type == 11:  # 子消息类型
+        sub_message_fields = []
+        for sub_field in field.message_type.fields:
+            sub_message_fields.append(get_field_attributes(sub_field))
+        return {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                "fields": sub_message_fields, "is_repeated": is_repeated}
+
+    else:  # 其他类型
+        return {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
+                "is_repeated": is_repeated}
+
+
+def get_message_attributes(branch_name, message_name, source):
+    try:
+        logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
+        if source == 'kk' or source is None:
+            path = PROJECT_ROOT + "/proto/" + branch_name
+        else:
+            path = PROJECT_ROOT + "/proto/pp/" + branch_name
+        os.chdir(path)
+        sys.path.append(path)  # 将模块路径添加到 sys.path 中
+
+        for file_name in os.listdir(path):
+            if file_name.endswith(".py") and file_name != "__init__.py":
+                module_name = os.path.splitext(file_name)[0]
+                importlib.import_module(module_name)
+
+        for module_name in sys.modules:
+            if module_name.endswith("_pb2"):
+                module = sys.modules[module_name]
+                if hasattr(module, message_name):
+                    message_type = getattr(module, message_name)
+                    attributes = []
+
+                    for field in message_type.DESCRIPTOR.fields:
+                        attributes.append(get_field_attributes(field))
+
+                    return {"message_name": message_name, "attributes": attributes}
+
+        # 如果未找到指定的消息名，返回空字典
+        return {}
+
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        raise e
 
 
 def exeproto(uid, env_id, branch_name, reqmessage, params, source):
@@ -2025,3 +2073,89 @@ def getallbrmes(proto_path):
     except Exception as e:
         logger.error(traceback.format_exc())
         raise e
+
+
+class Autogencase(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('attributes'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            testcase_params = generate_test_cases(data.get('attributes'))
+            logger.info('测试用的用例列表是： {}', testcase_params)
+            ret = {'auto_cases': testcase_params}
+            if testcase_params:
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                               data=ret)
+            else:
+                return reponse(code=MessageEnum.auto_gen_case_error.value[0],
+                               message=MessageEnum.auto_gen_case_error.value[1])
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.auto_gen_case_error.value[0],
+                           message=MessageEnum.auto_gen_case_error.value[1])
+
+
+class Saveautocases(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('env_id') or not data.get('project_id') or not data.get('model_id') or not data.get(
+                    'case_desc') or not data.get('branch_name') or not data.get('req_message_name') or not data.get(
+                'source') or not data.get('uid') or not data.get('auto_cases'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            interfacecases = []
+
+            n = len(data.get('auto_cases'))
+
+            for i in range(n):
+                interfacecase = InterfaceCase()
+                interfacecase.project_id = data.get('project_id')
+                interfacecase.model_id = data.get('model_id')
+                interfacecase.desc = data.get('case_desc') + str(i) + ' ' + str(int(time.time()))
+                interfacecase.case_protocol = 2
+                interfacecase.is_relycase = 0
+                interfacecase.rely_dbf = 0
+                interfacecase.socketreq = data.get('req_message_name')
+                interfacecase.raw = json.dumps({"proto_content": data.get('auto_cases')[i], "uid": data.get('uid'),
+                                                "branch_name": data.get('branch_name'), "source": data.get('source'),
+                                                "env_id": data.get('env_id'), "project_id": data.get('project_id'),
+                                                "model_id": data.get('model_id')})
+                interfacecase.creater = current_user.user_id
+                interfacecase.source = 1
+                interfacecases.append(interfacecase)
+
+            try:
+                db.session.add_all(interfacecases)
+                db.session.commit()
+                caseids = []
+                for i in interfacecases:
+                    caseids.append(i.case_id)
+                ret = {'caseids': caseids, 'total': len(caseids)}
+                testsuite = TestSuite()
+                testsuite.name = data.get('case_desc') + 'test_suite' + ' ' + str(int(time.time()))
+                testsuite.caseids = json.dumps(caseids)
+                testsuite.creator = current_user.user_id
+                testsuite.project = data.get('project_id')
+                testsuite.status = 1
+                db.session.add(testsuite)
+                db.session.commit()
+
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.add_case_erro.value[0],
+                               message=MessageEnum.add_case_erro.value[1])
+
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.add_case_erro.value[0],
+                           message=MessageEnum.add_case_erro.value[1])

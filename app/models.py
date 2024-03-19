@@ -222,7 +222,7 @@ class InterfaceCase(db.Model):
     precase = db.relationship('Precase', backref='interfacecase', lazy='dynamic')
 
     def __repr__(self):
-        return self.id
+        return self.desc
 
     def to_json(self):
         dict = self.__dict__

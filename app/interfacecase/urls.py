@@ -33,6 +33,10 @@ interfacecase.add_url_rule("/updatesuite", view_func=Updatesuite.as_view('update
 interfacecase.add_url_rule("/deletesuite", view_func=Deletesuite.as_view('deletesuite'))
 interfacecase.add_url_rule("/exemulproto", view_func=Exemulproto.as_view('exemulproto'))
 interfacecase.add_url_rule("/getallbrmes", view_func=Getallbrmes.as_view('getallbrmes'))
+interfacecase.add_url_rule("/autogencase", view_func=Autogencase.as_view('autogencase'))
+interfacecase.add_url_rule("/saveautocases", view_func=Saveautocases.as_view('saveautocases'))
+
+
 
 
 
