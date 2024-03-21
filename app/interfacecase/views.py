@@ -12,6 +12,7 @@ from socket import socket
 from flask import Blueprint, request, jsonify
 from flask.views import MethodView
 from flask_login import login_required, current_user
+from sqlalchemy.orm import Session
 
 from app.models import *
 from common import GenerateProto
@@ -372,6 +373,7 @@ class ExecuteCase(MethodView):
                                message=MessageEnum.must_be_every_parame.value[1])
             case = InterfaceCase.query.filter_by(case_id=case_id).first()
             if case.case_protocol == 2:
+                start_time = time.time()
                 logger.info('开始执行proto协议用例')
                 case_raw = json.loads(case.raw)
                 # 使用 multiprocessing Queue 来通信结果
@@ -389,14 +391,20 @@ class ExecuteCase(MethodView):
 
                 # 从队列中获取结果
                 res = result_queue.get()
+                if isinstance(res, Exception):
+                    isPass = False
+                else:
+                    isPass = True
+                end_time = time.time()
+                spend_time = end_time - start_time
 
                 new_case = TestcaseResult(result=str(res),
                                           case_id=case_id,
-                                          ispass=1, testevent_id=env_id, spend=0, date=datetime.now())
+                                          ispass=isPass, testevent_id=env_id, spend=str(int(spend_time)),
+                                          date=datetime.now())
                 db.session.add(new_case)
                 try:
                     db.session.commit()
-
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
                 except Exception as e:
                     db.session.rollback()
@@ -445,7 +453,7 @@ class ExecuteCase(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             # 如果发生异常，则将 None 放入队列
-            result_queue.put(None)
+            result_queue.put(e)
         finally:
             sys.exit(0)
 
@@ -752,27 +760,35 @@ class Updatecasebase(MethodView):
     def post(self):
         try:
             data = request.get_json()
+
+            # 检查请求数据是否为空
             if not data:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
+
+            # 获取基本信息
             baseinfo = data.get('basicinfo')
+
+            # 查询接口实例
             interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+
+            # 检查接口实例是否存在
             if not interfacecase:
                 return reponse(code=MessageEnum.case_edit_error.value[0],
                                message=MessageEnum.case_edit_error.value[1])
+
+            # 更新接口实例的属性
             interfacecase.project_id = baseinfo['project_id']
             interfacecase.model_id = baseinfo['model_id']
             interfacecase.desc = baseinfo['casedesc']
             interfacecase.update_time = datetime.now()
             interfacecase.creater = current_user.user_id
-            try:
-                db.session.commit()
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                db.session.rollback()
-                return reponse(code=MessageEnum.case_edit_error.value[0],
-                               message=MessageEnum.case_edit_error.value[1])
+
+            # 提交事务
+            db.session.commit()
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             db.session.rollback()
@@ -784,48 +800,66 @@ class Updatecasereq(MethodView):
     @login_required
     def post(self):
         try:
+            # 获取请求数据
             data = request.get_json()
+
+            # 如果请求数据为空，返回错误响应
             if not data:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
+
+            # 获取请求信息和接口实例
             requestinfo = data.get('requestinfo')
             interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+
+            # 如果接口实例不存在，返回错误响应
             if not interfacecase:
                 return reponse(code=MessageEnum.case_edit_error.value[0],
                                message=MessageEnum.case_edit_error.value[1])
-            interfacecase.case_protocol = requestinfo['caseprotcol']
-            interfacecase.url = requestinfo['url']
-            interfacecase.method = requestinfo['method']
-            if requestinfo['headers']:
-                headers = {}
-                requestheaders = json.loads(requestinfo['headers'])
-                for i in requestheaders:
-                    headers[i['name']] = i['value']
-                interfacecase.headers = json.dumps(headers)
-            if requestinfo['params']:
-                params = {}
-                requestparams = json.loads(requestinfo['params'])
-                for i in requestparams:
-                    params[i['name']] = i['value']
-                interfacecase.params = json.dumps(params)
-            interfacecase.socketreq = requestinfo['socketreq']
-            interfacecase.socketrsp = requestinfo['socketrsp']
-            interfacecase.raw = requestinfo['raw']
+
+            # 更新接口实例的属性
+            interfacecase.case_protocol = requestinfo.get('caseprotcol')
+            interfacecase.url = requestinfo.get('url')
+            interfacecase.method = requestinfo.get('method')
+
+            # 更新请求头和参数
+            interfacecase.headers = self._parse_json(requestinfo.get('headers'))
+            interfacecase.params = self._parse_json(requestinfo.get('params'))
+
+            interfacecase.socketreq = requestinfo.get('socketreq')
+            interfacecase.socketrsp = requestinfo.get('socketrsp')
+            if interfacecase.case_protocol == 2:
+                raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
+                raw_data['proto_content'] = requestinfo.get('raw')
+                interfacecase.raw = json.dumps(raw_data)
+            else:
+                interfacecase.raw = requestinfo.get('raw')
+
             interfacecase.update_time = datetime.now()
             interfacecase.creater = current_user.user_id
-            try:
-                db.session.commit()
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                db.session.rollback()
-                return reponse(code=MessageEnum.case_edit_error.value[0],
-                               message=MessageEnum.case_edit_error.value[1])
+
+            # 提交事务
+            db.session.commit()
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             db.session.rollback()
             return reponse(code=MessageEnum.case_edit_error.value[0],
                            message=MessageEnum.case_edit_error.value[1])
+
+    def _parse_json(self, data):
+        """
+        解析 JSON 数据并返回字符串格式
+        """
+        if data:
+            parsed_data = {}
+            json_data = json.loads(data)
+            for item in json_data:
+                parsed_data[item['name']] = item['value']
+            return json.dumps(parsed_data)
+        return None
 
 
 class Updatecasesql(MethodView):
@@ -905,46 +939,56 @@ class Getcasedetail(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            interfacecase = InterfaceCase.query.filter_by(case_id=case_id, status=1).first()
-            if interfacecase:
-                creator = User.query.filter_by(user_id=interfacecase.creater).first().username
-                model_name = Model.query.filter_by(id=interfacecase.model_id).first().model_name
-                project_name = Project.query.filter_by(id=interfacecase.project_id).first().project_name
-                basicinfo = {'case_id': interfacecase.case_id, 'project_id': interfacecase.project_id,
-                             'model_id': interfacecase.model_id, 'desc': interfacecase.desc,
-                             'creator': creator, 'project_name': project_name, 'model_name': model_name}
-                headers = []
-                params = []
-                if interfacecase.headers:
-                    for k, v in json.loads(interfacecase.headers).items():
-                        headers.append({'name': k, 'value': v})
-                if interfacecase.params:
-                    for k, v in json.loads(interfacecase.params).items():
-                        params.append({'name': k, 'value': v})
+            interfacecase = InterfaceCase.query.get_or_404(case_id)
+            creator = User.query.get(interfacecase.creater).username
+            model_name = Model.query.get(interfacecase.model_id).model_name
+            project_name = Project.query.get(interfacecase.project_id).project_name
 
-                requestinfo = {'caseprotcol': interfacecase.case_protocol, 'url': interfacecase.url,
-                               'method': interfacecase.method, 'headers': headers,
-                               'params': params, 'socketreq': interfacecase.socketreq,
-                               'socketrsp': interfacecase.socketrsp, 'raw': interfacecase.raw}
-                relydbf = interfacecase.rely_dbf
-            else:
-                return reponse(code=MessageEnum.get_case_detail_error.value[0],
-                               message=MessageEnum.get_case_detail_error.value[1])
-            precases = Precase.query.filter_by(parent_case_id=case_id, status=1).all()
-            precasedata = []
-            if precases:
-                for i in precases:
-                    precasedata.append(i.to_json())
+            basicinfo = {
+                'case_id': interfacecase.case_id,
+                'project_id': interfacecase.project_id,
+                'model_id': interfacecase.model_id,
+                'desc': interfacecase.desc,
+                'creator': creator,
+                'project_name': project_name,
+                'model_name': model_name
+            }
 
-            asserts = InterfaceCaseAssert.query.filter_by(case_id=case_id, status=1).all()
-            assertdata = []
-            if asserts:
-                for i in asserts:
-                    assertdata.append(i.to_json())
+            headers = [{'name': k, 'value': v} for k, v in json.loads(interfacecase.headers).items()] \
+                if interfacecase.headers else []
 
-            ret = {'basicinfo': basicinfo, 'requestinfo': requestinfo, 'precases': precasedata, 'asserts': assertdata,
-                   'relydbf': relydbf}
+            params = [{'name': k, 'value': v} for k, v in json.loads(interfacecase.params).items()] \
+                if interfacecase.params else []
+
+            if interfacecase.case_protocol == 2:
+                raw = json.loads(interfacecase.raw)['proto_content']
+                interfacecase.raw = json.dumps(raw)
+
+            requestinfo = {
+                'caseprotcol': interfacecase.case_protocol,
+                'url': interfacecase.url,
+                'method': interfacecase.method,
+                'headers': headers,
+                'params': params,
+                'socketreq': interfacecase.socketreq,
+                'socketrsp': interfacecase.socketrsp,
+                'raw': interfacecase.raw
+            }
+
+            precasedata = [i.to_json() for i in Precase.query.filter_by(parent_case_id=case_id, status=1).all()]
+
+            assertdata = [i.to_json() for i in InterfaceCaseAssert.query.filter_by(case_id=case_id, status=1).all()]
+
+            ret = {
+                'basicinfo': basicinfo,
+                'requestinfo': requestinfo,
+                'precases': precasedata,
+                'asserts': assertdata,
+                'relydbf': interfacecase.rely_dbf
+            }
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_case_detail_error.value[0],
@@ -1009,7 +1053,8 @@ class Getcaseres(MethodView):
                 case_desc = InterfaceCase.query.filter_by(case_id=i.case_id).first().desc
                 env_name = Environment.query.filter_by(id=i.testevent_id).first().name
                 tdic = {'res_id': i.id, 'case_id': i.case_id, 'case_desc': case_desc,
-                        'env_name': env_name, 'response': i.result, 'result': i.ispass, 'testtime': i.date,
+                        'env_name': env_name, 'response': i.result, 'result': i.ispass,
+                        'testtime': str(i.date),
                         'duration': i.spend}
                 res.append(tdic)
             ret = {"list": res, "total": caseres.total}
