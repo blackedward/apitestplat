@@ -25,6 +25,8 @@ from common.executehandler import ExecuteHandler
 from common.AnalysisPB import ProtoHandler, ProtoDir
 from common.GenerateProto import *
 
+from lib.CustomException import TimeOutException
+
 interfacecase = Blueprint('interfacecase', __name__)
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -1124,7 +1126,8 @@ def import_module_and_get_descriptor_info(branch_name, module_name, source):
         # 获取 FileDescriptor 信息
         file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
         logger.info(file_descriptor)
-        messages = [message_name for message_name in file_descriptor.message_types_by_name]
+        messages = [message_name for message_name in file_descriptor.message_types_by_name if
+                    message_name.endswith("REQ")]
 
         return {"messages": messages}
 
@@ -1460,10 +1463,17 @@ class Executeproto(MethodView):
             process.join()
 
             # Retrieve results from the Queue
+
             res = result_queue.get()
-            if res is None:
+            if isinstance(res, Exception):
+                # If res is an exception, handle it accordingly
+                if isinstance(res, TimeOutException):
+                    rstr = '执行超时了，请确认目标服务器的处理情况'
+                    return reponse(code=MessageEnum.execute_timeout.value[0],
+                                   message=MessageEnum.execute_timeout.value[1], data=rstr)
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1])
+                               message=MessageEnum.execute_proto_error.value[1], data=format(res))
+
             assert_info = data.get('assert_info')
             temp = res
             if not assert_info:
@@ -1478,15 +1488,18 @@ class Executeproto(MethodView):
                 else:
                     temp = temp[expression]
                 if temp == expected:
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+                    assertres = {'excepted_result': expected, 'actual_result': temp}
+                    ret = {'assertres': assertres, 'response': res}
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
                 else:
-                    return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1])
-
+                    actual = {'excepted_result': expected, 'actual_result': temp}
+                    return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
+                                   data=actual)
 
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.execute_proto_error.value[0],
-                           message=MessageEnum.execute_proto_error.value[1])
+                           message=MessageEnum.execute_proto_error.value[1], data=format(e))
 
     def run_in_new_process(self, data, branch_name, params, source, result_queue):
         try:
@@ -1498,12 +1511,11 @@ class Executeproto(MethodView):
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), params=params, source=source)
 
-            # Put results into the Queue
             result_queue.put(res)
 
         except Exception as e:
             logger.error(traceback.format_exc())
-            result_queue.put(None)
+            result_queue.put(e)
         finally:
             sys.exit(0)
 
@@ -1774,7 +1786,8 @@ class Createsuite(MethodView):
             try:
                 db.session.add(suite)
                 db.session.commit()
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+                ret = {'suite_id': suite.id}
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
             except Exception as e:
                 logger.error(traceback.format_exc())
                 db.session.rollback()
@@ -1804,11 +1817,43 @@ class Getsuitebyid(MethodView):
             ret = {
                 'id': suite.id,
                 'name': suite.name,
-                'caseids': suite.caseids,
+                'caseids': json.loads(suite.caseids),
                 'project_name': projectname,
                 'creator_name': creatorname
             }
 
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_suite_error.value[0],
+                           message=MessageEnum.get_suite_error.value[1])
+
+
+class Getsuitebyproj(MethodView):
+    @login_required
+    def get(self):
+        try:
+            project_id = request.args.get('project_id')
+            if not project_id:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suites = TestSuite.query.filter_by(project=project_id, status=1).all()
+            if not suites:
+                return reponse(code=MessageEnum.get_suite_error.value[0],
+                               message=MessageEnum.get_suite_error.value[1])
+            project = Project.query.filter_by(id=project_id).first()
+            ret = []
+            for i in suites:
+                projectname = project.project_name
+
+                creatorname = User.query.filter_by(user_id=i.creator).first().username
+                ret.append({
+                    'suite_id': i.id,
+                    'name': i.name,
+                    'caseids': json.loads(i.caseids),
+                    'project_name': projectname,
+                    'creator_name': creatorname
+                })
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -1925,6 +1970,15 @@ class Exemulproto(MethodView):
             # Retrieve results from the Queue
             res = result_queue.get()
 
+            if isinstance(res, tuple):
+                ret = {'error_caseid': res[0], 'error_info': format(res[1])}
+                return reponse(code=MessageEnum.excute_proto_terminal.value[0],
+                               message=MessageEnum.excute_proto_terminal.value[1], data=ret)
+            elif isinstance(res, Exception):
+                ret = {'error_info': format(res)}
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=ret)
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=res)
 
@@ -1947,8 +2001,7 @@ class Exemulproto(MethodView):
 
         except Exception as e:
             logger.error(traceback.format_exc())
-            # Put None into the Queue if there's an exception
-            result_queue.put(None)
+            result_queue.put(e)
         finally:
             sys.exit(0)
 
@@ -1992,9 +2045,13 @@ def exemulproto(env_id, caseinfos):
             params = json.loads(i['case_raw'])['proto_content']
             reqmessage = json.loads(i['case_raw'])['req_message_name']
             rspmessage = reqmessage[:-3] + "RSP"
-            client.send(reqmessage, params)
-            msg = client.recv(rspmessage)
-            r = {i['case_id']: msg.body}
+            try:
+                client.send(reqmessage, params)
+                msg = client.recv(rspmessage)
+                r = {i['case_id']: msg.body}
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return i['case_id'], e
             reslut.append(r)
 
         client.stop()
@@ -2128,7 +2185,8 @@ class Saveautocases(MethodView):
                 interfacecase.raw = json.dumps({"proto_content": data.get('auto_cases')[i], "uid": data.get('uid'),
                                                 "branch_name": data.get('branch_name'), "source": data.get('source'),
                                                 "env_id": data.get('env_id'), "project_id": data.get('project_id'),
-                                                "model_id": data.get('model_id')})
+                                                "model_id": data.get('model_id'),
+                                                "req_message_name": data.get('req_message_name')})
                 interfacecase.creater = current_user.user_id
                 interfacecase.source = 1
                 interfacecases.append(interfacecase)

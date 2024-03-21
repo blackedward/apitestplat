@@ -62,7 +62,16 @@ def generate_test_cases(attributes):
         testcases_params.append(json_object)
     return testcases_params
 
+
 # if __name__ == "__main__":
+#     expression = "code.road1.road2"
+#     temp = json.loads(
+#         '{"code": {"SKFlipRoadInfoGoRoomRSPCode_ERROR": -1, "SKFlipRoadInfoGoRoomRSPCode_SUCCESS": 0, "road1": {"road2":3}}}')
+#
+#     if '.' in expression:
+#         for i in expression.split('.'):
+#             temp = temp[i]
+#     print(temp)
 #     attributes = [
 #         {
 #             "enum_values": [
