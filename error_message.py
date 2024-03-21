@@ -239,3 +239,4 @@ class MessageEnum(Enum):
     auto_gen_case_error = 100232, '自动生成用例异常'
     execute_timeout = 100233, '执行超时'
     excute_proto_terminal = 100234, '执行proto中断异常'
+    suite_deleted = 100235, '套件已经删除'

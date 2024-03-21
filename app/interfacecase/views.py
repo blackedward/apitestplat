@@ -1856,16 +1856,21 @@ class Getsuitebyid(MethodView):
             if not suite:
                 return reponse(code=MessageEnum.get_suite_error.value[0],
                                message=MessageEnum.get_suite_error.value[1])
+            if suite.status == 0:
+                return reponse(code=MessageEnum.suite_deleted.value[0],
+                               message=MessageEnum.suite_deleted.value[1])
             projectname = suite.projects.project_name
             creatorname = suite.users.username
 
-            ret = {
+            suiteinfo = {
                 'id': suite.id,
                 'name': suite.name,
                 'caseids': json.loads(suite.caseids),
                 'project_name': projectname,
                 'creator_name': creatorname
             }
+            ret = []
+            ret.append(suiteinfo)
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
