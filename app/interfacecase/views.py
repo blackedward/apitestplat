@@ -353,6 +353,127 @@ class GetCaseByMod(MethodView):
                            message=MessageEnum.not_find_your_case.value[1])
 
 
+# class ExecuteCase(MethodView):
+#
+#     @login_required
+#     def post(self):
+#         try:
+#             logger.info('当前进程号：{}'.format(os.getpid()))
+#             data = request.get_json()
+#             if not data:
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#             case_id = data.get('case_id')
+#             env_id = data.get('env_id')
+#             if not case_id or not env_id:
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#
+#             case = InterfaceCase.query.filter_by(case_id=case_id).first()
+#             if not case:
+#                 return reponse(code=MessageEnum.case_edit_error.value[0],
+#                                message=MessageEnum.case_edit_error.value[1])
+#
+#             if case.case_protocol == 2:
+#                 return self.execute_proto_case(data, case)
+#             else:
+#                 return self.execute_normal_case(data, case, env_id)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.test_error.value[0],
+#                            message=MessageEnum.test_error.value[1])
+#
+#     def execute_proto_case(self, data, case):
+#         try:
+#             start_time = time.time()
+#             logger.info('开始执行proto协议用例')
+#             case_raw = json.loads(case.raw)
+#             env_id = data.get('env_id', case_raw.get('env_id'))
+#             result_queue = multiprocessing.Queue()
+#
+#             process = multiprocessing.Process(
+#                 target=self.run_proto_case,
+#                 args=(data, case_raw, env_id, result_queue)
+#             )
+#
+#             process.start()
+#             process.join()
+#
+#             res = result_queue.get()
+#             isPass = isinstance(res, Exception)
+#
+#             end_time = time.time()
+#             spend_time = end_time - start_time
+#
+#             new_case = TestcaseResult(
+#                 result=str(res),
+#                 case_id=case.case_id,
+#                 ispass=isPass,
+#                 testevent_id=env_id,
+#                 spend=str("{:.2f}".format(spend_time)),
+#                 date=datetime.now()
+#             )
+#             db.session.add(new_case)
+#
+#             db.session.commit()
+#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             db.session.rollback()
+#             return reponse(code=MessageEnum.execute_proto_error.value[0],
+#                            message=MessageEnum.execute_proto_error.value[1])
+#
+#     def execute_normal_case(self, data, case, env_id):
+#         try:
+#             executehandler = ExecuteHandler(case.case_id, env_id)
+#             res = executehandler.exemulticase(case_id=case.case_id, env_id=env_id)[0]
+#             logger.info(res)
+#             result_data = json.loads(res)
+#             if result_data['result'] == '断言通过':
+#                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+#                                data=result_data)
+#             elif result_data['result'] == '断言失败':
+#                 return reponse(code=MessageEnum.assert_fail.value[0], message=MessageEnum.assert_fail.value[1],
+#                                data=result_data)
+#             else:
+#                 return reponse(code=MessageEnum.test_error.value[0], message=MessageEnum.test_error.value[1],
+#                                data=result_data)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.test_error.value[0],
+#                            message=MessageEnum.test_error.value[1])
+#
+#     def run_proto_case(self, data, case_raw, env_id, result_queue):
+#         try:
+#             logger.info('当前进程号：{}'.format(os.getpid()))
+#             if not env_id:
+#                 env_id = case_raw.get('env_id')
+#
+#             sys.stdin = open(os.devnull, 'r')
+#             sys.stdout = open(os.devnull, 'w')
+#             sys.stderr = open(os.devnull, 'w')
+#
+#             res = exeproto(
+#                 uid=case_raw['uid'],
+#                 env_id=env_id,
+#                 branch_name=case_raw['branch_name'],
+#                 reqmessage=case_raw['req_message_name'],
+#                 params=case_raw['proto_content'],
+#                 source=case_raw['source']
+#             )
+#
+#             result_queue.put(res)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             result_queue.put(e)
+#         finally:
+#             sys.exit(0)
+
+
 class ExecuteCase(MethodView):
 
     @login_required
@@ -1476,24 +1597,106 @@ def exeproto(uid, env_id, branch_name, reqmessage, params, source):
         raise e
 
 
+# class Executeproto(MethodView):
+#     @login_required
+#     def post(self):
+#         try:
+#             logger.info('主进程号：{}'.format(os.getpid()))
+#             data = request.get_json()
+#             if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
+#                     'uid') or not data.get('branch_name') or not data.get('source'):
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#             branch_name = data.get('branch_name')
+#             source = data.get('source')
+#             if '/' in branch_name:
+#                 branch_name = branch_name.replace('/', '_')
+#             if not data.get('proto_content') or data.get('proto_content') is None:
+#                 params = {}
+#             else:
+#                 params = data.get('proto_content')
+#
+#             # Use multiprocessing Queue to communicate results
+#             result_queue = multiprocessing.Queue()
+#
+#             # Use multiprocessing to run the function in a new process
+#             process = multiprocessing.Process(
+#                 target=self.run_in_new_process,
+#                 args=(data, branch_name, params, source, result_queue)
+#             )
+#
+#             process.start()
+#             process.join()
+#
+#             # Retrieve results from the Queue
+#
+#             res = result_queue.get()
+#             if isinstance(res, Exception):
+#                 # If res is an exception, handle it accordingly
+#                 if isinstance(res, TimeOutException):
+#                     rstr = '执行超时了，请确认目标服务器的处理情况'
+#                     return reponse(code=MessageEnum.execute_timeout.value[0],
+#                                    message=MessageEnum.execute_timeout.value[1], data=rstr)
+#                 return reponse(code=MessageEnum.execute_proto_error.value[0],
+#                                message=MessageEnum.execute_proto_error.value[1], data=format(res))
+#
+#             assert_info = data.get('assert_info')
+#             temp = res
+#             if not assert_info:
+#                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
+#             else:
+#                 expected = assert_info.get('excepted_result')
+#                 expression = assert_info.get('expression')
+#
+#                 if '.' in expression:
+#                     for i in expression.split('.'):
+#                         temp = temp[i]
+#                 else:
+#                     temp = temp[expression]
+#                 if temp == expected:
+#                     assertres = {'excepted_result': expected, 'actual_result': temp}
+#                     ret = {'assertres': assertres, 'response': res}
+#                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+#                 else:
+#                     actual = {'excepted_result': expected, 'actual_result': temp}
+#                     return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
+#                                    data=actual)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.execute_proto_error.value[0],
+#                            message=MessageEnum.execute_proto_error.value[1], data=format(e))
+#
+#     def run_in_new_process(self, data, branch_name, params, source, result_queue):
+#         try:
+#             logger.info('当前进程号：{}'.format(os.getpid()))
+#             # Redirect standard input/output/error to /dev/null
+#             sys.stdin = open(os.devnull, 'r')
+#             sys.stdout = open(os.devnull, 'w')
+#             sys.stderr = open(os.devnull, 'w')
+#             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
+#                            reqmessage=data.get('req_message_name'), params=params, source=source)
+#
+#             result_queue.put(res)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             result_queue.put(e)
+#         finally:
+#             sys.exit(0)
 class Executeproto(MethodView):
     @login_required
     def post(self):
         try:
             logger.info('主进程号：{}'.format(os.getpid()))
             data = request.get_json()
-            if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
-                    'uid') or not data.get('branch_name') or not data.get('source'):
+            required_params = ['proto_name', 'req_message_name', 'env_id', 'uid', 'branch_name', 'source']
+            if not all(data.get(param) for param in required_params):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            branch_name = data.get('branch_name')
-            source = data.get('source')
-            if '/' in branch_name:
-                branch_name = branch_name.replace('/', '_')
-            if not data.get('proto_content') or data.get('proto_content') is None:
-                params = {}
-            else:
-                params = data.get('proto_content')
+
+            branch_name = data.get('branch_name').replace('/', '_')
+            params = data.get('proto_content', {})
 
             # Use multiprocessing Queue to communicate results
             result_queue = multiprocessing.Queue()
@@ -1501,17 +1704,15 @@ class Executeproto(MethodView):
             # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(data, branch_name, params, source, result_queue)
+                args=(data, branch_name, params, result_queue)
             )
 
             process.start()
             process.join()
 
             # Retrieve results from the Queue
-
             res = result_queue.get()
             if isinstance(res, Exception):
-                # If res is an exception, handle it accordingly
                 if isinstance(res, TimeOutException):
                     rstr = '执行超时了，请确认目标服务器的处理情况'
                     return reponse(code=MessageEnum.execute_timeout.value[0],
@@ -1520,18 +1721,17 @@ class Executeproto(MethodView):
                                message=MessageEnum.execute_proto_error.value[1], data=format(res))
 
             assert_info = data.get('assert_info')
-            temp = res
-            if not assert_info:
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
-            else:
+            if assert_info:
                 expected = assert_info.get('excepted_result')
                 expression = assert_info.get('expression')
 
+                temp = res
                 if '.' in expression:
                     for i in expression.split('.'):
-                        temp = temp[i]
+                        temp = temp.get(i)
                 else:
-                    temp = temp[expression]
+                    temp = temp.get(expression)
+
                 if temp == expected:
                     assertres = {'excepted_result': expected, 'actual_result': temp}
                     ret = {'assertres': assertres, 'response': res}
@@ -1540,13 +1740,15 @@ class Executeproto(MethodView):
                     actual = {'excepted_result': expected, 'actual_result': temp}
                     return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
                                    data=actual)
+            else:
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
 
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.execute_proto_error.value[0],
                            message=MessageEnum.execute_proto_error.value[1], data=format(e))
 
-    def run_in_new_process(self, data, branch_name, params, source, result_queue):
+    def run_in_new_process(self, data, branch_name, params, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
             # Redirect standard input/output/error to /dev/null
@@ -1554,7 +1756,7 @@ class Executeproto(MethodView):
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
-                           reqmessage=data.get('req_message_name'), params=params, source=source)
+                           reqmessage=data.get('req_message_name'), params=params, source=data.get('source'))
 
             result_queue.put(res)
 
@@ -1863,7 +2065,7 @@ class Getsuitebyid(MethodView):
             creatorname = suite.users.username
 
             suiteinfo = {
-                'id': suite.id,
+                'suite_id': suite.id,
                 'name': suite.name,
                 'caseids': json.loads(suite.caseids),
                 'project_name': projectname,
