@@ -1291,7 +1291,6 @@ def import_module_and_get_descriptor_info(branch_name, module_name, source):
 
         # 获取 FileDescriptor 信息
         file_descriptor = getattr(sys.modules[module_name], "DESCRIPTOR")
-        logger.info(file_descriptor)
         messages = [message_name for message_name in file_descriptor.message_types_by_name if
                     message_name.endswith("REQ")]
 
@@ -1772,33 +1771,47 @@ class Onesaveproto(MethodView):
     def post(self):
         try:
             data = request.get_json()
-            if not data.get('proto_name') or not data.get(
-                    'req_message_name') or not data.get('env_id') or not data.get('uid') or not data.get(
-                'case_desc') or not data.get('project_id') or not data.get('model_id'):
+            if not all(data.get(field) for field in ['proto_name', 'req_message_name', 'env_id', 'uid', 'case_desc',
+                                                     'project_id', 'model_id']):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            if not data["proto_content"]:
-                data["proto_content"] = {}
 
-            interfacecase = InterfaceCase()
-            interfacecase.project_id = data.get('project_id')
-            interfacecase.model_id = data.get('model_id')
-            interfacecase.desc = data.get('case_desc')
-            interfacecase.case_protocol = 2
-            interfacecase.is_relycase = 0
-            interfacecase.rely_dbf = 0
-            interfacecase.socketreq = data.get('req_message_name')
-            interfacecase.raw = json.dumps(data)
-            interfacecase.creater = current_user.user_id
-            interfacecase.source = 1
+            interfacecase = InterfaceCase(
+                project_id=data['project_id'],
+                model_id=data['model_id'],
+                desc=data['case_desc'],
+                case_protocol=2,
+                is_relycase=0,
+                rely_dbf=0,
+                socketreq=data['req_message_name'],
+                raw=json.dumps(data),
+                creater=current_user.user_id,
+                source=1
+            )
 
             try:
                 db.session.add(interfacecase)
                 db.session.flush()
                 case_id = interfacecase.case_id
+
+                assert_info = data.get('assert_info', {})
+                if assert_info:
+                    common_assert_info = {
+                        'case_id': case_id,
+                        'status': 1,
+                        'created_time': datetime.now(),
+                        'update_time': datetime.now(),
+                        'operator': 0,
+                        'assert_name': data['case_desc'] + '断言',
+                        'order': 1
+                    }
+                    interfacecaseassert = InterfaceCaseAssert(**{**common_assert_info, **assert_info})
+                    db.session.add(interfacecaseassert)
+
                 db.session.commit()
+                ret = {"case_id": case_id}
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                               data=case_id)
+                               data=ret)
             except Exception as e:
                 logger.error(traceback.format_exc())
                 db.session.rollback()
@@ -2090,22 +2103,23 @@ class Getsuitebyproj(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             suites = TestSuite.query.filter_by(project=project_id, status=1).all()
-            if not suites:
-                return reponse(code=MessageEnum.get_suite_error.value[0],
-                               message=MessageEnum.get_suite_error.value[1])
             project = Project.query.filter_by(id=project_id).first()
             ret = []
             for i in suites:
-                projectname = project.project_name
-
-                creatorname = User.query.filter_by(user_id=i.creator).first().username
-                ret.append({
+                caseinfos = []
+                for j in json.loads(i.caseids):
+                    t = InterfaceCase.query.filter_by(case_id=j).first()
+                    caseinfo = {'case_id': t.case_id, 'desc': t.desc}
+                    caseinfos.append(caseinfo)
+                suiteinfo = {
                     'suite_id': i.id,
                     'name': i.name,
-                    'caseids': json.loads(i.caseids),
-                    'project_name': projectname,
-                    'creator_name': creatorname
-                })
+                    'caseinfos': caseinfos,
+                    'project_name': project.project_name,
+                    'creator_name': i.users.username
+                }
+                ret.append(suiteinfo)
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
