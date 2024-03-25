@@ -346,64 +346,75 @@ class ExecuteHandler(object):
             return result, apijson, spend
         else:
             return False, '{"result": "协议错误"}', None
+
     def judgecase(self, result, case_id=None):
-        if not case_id:
-            case_id = self.case_id
-        flag = False
-        caseasserts = InterfaceCaseAssert.query.filter_by(case_id=case_id).order_by(InterfaceCaseAssert.order).all()
-        if not caseasserts:
-            flag = True
-            return flag, {'断言为空,默认通过'}
-        else:
+        try:
+            if not case_id:
+                case_id = self.case_id
+            flag = False
+            caseasserts = InterfaceCaseAssert.query.filter_by(case_id=case_id).order_by(InterfaceCaseAssert.order).all()
+            if not caseasserts:
+                flag = True
+                return flag, {'断言为空,默认通过'}
+
+            assert_operators = {
+                0: 'is_equal_to',
+                1: 'is_less_than',
+                2: 'is_greater_than',
+                3: 'is_less_than_or_equal_to',
+                4: 'is_greater_than_or_equal_to',
+                5: 'is_equal_to',
+                6: 'is_not_equal_to',
+                7: 'matches',
+                8: 'is_none',
+                9: 'is_not_none',
+                10: 'contains',
+                11: 'is_empty',
+                12: 'is_not_empty',
+            }
+
             assertsinfs = []
             for i in caseasserts:
                 assertinf = {}
-                assertinf['expression'] = i.expression[3:]
+                assertinf['expression'] = i.expression
                 assertinf['operator'] = i.operator
                 assertinf['excepted_result'] = i.excepted_result
                 assertsinfs.append(assertinf)
-        if not assertsinfs:
-            return flag, {'组装断言信息出错'}
-        else:
+
+            if not assertsinfs:
+                return flag, {'组装断言信息出错'}
+
             logger.info(assertsinfs)
-            try:
-                for i in assertsinfs:
-                    if i['operator'] == 0:
-                        assert_that(Decimal(result[i['expression']])).is_equal_to(Decimal(i['excepted_result']))
-                    elif i['operator'] == 1:
-                        assert_that(Decimal(result[i['expression']])).is_less_than(Decimal(i['excepted_result']))
-                    elif i['operator'] == 2:
-                        assert_that(Decimal(result[i['expression']])).is_greater_than(Decimal(i['excepted_result']))
-                    elif i['operator'] == 3:
-                        assert_that(Decimal(result[i['expression']])).is_less_than_or_equal_to(
-                            Decimal(i['excepted_result']))
-                    elif i['operator'] == 4:
-                        assert_that(Decimal(result[i['expression']])).is_greater_than_or_equal_to(
-                            Decimal(i['excepted_result']))
-                    elif i['operator'] == 5:
-                        assert_that(str(result[i['expression']])).is_equal_to(str(i['excepted_result']))
-                    elif i['operator'] == 6:
-                        assert_that(Decimal(result[i['expression']])).is_not_equal_to(Decimal(i['excepted_result']))
-                    elif i['operator'] == 7:
-                        assert_that(str(result[i['expression']])).matches(i['excepted_result'])
-                    elif i['operator'] == 8:
-                        assert_that(str(result[i['expression']])).is_none()
-                    elif i['operator'] == 9:
-                        assert_that(str(result[i['expression']])).is_not_none()
-                    elif i['operator'] == 10:
-                        assert_that(str(result[i['expression']])).contains(i['excepted_result'])
-                    elif i['operator'] == 11:
-                        assert_that(str(result[i['expression']])).is_empty()
-                    elif i['operator'] == 12:
-                        assert_that(str(result[i['expression']])).is_not_empty()
+            for i in assertsinfs:
+                try:
+                    expression = i['expression']
+                    operator = assert_operators.get(i['operator'])
+                    expected_result = i['excepted_result']
+
+                    if '.' in expression:
+                        temp = result
+                        for j in expression.split('.'):
+                            temp = temp[j]
+                        result[expression] = temp
+
+                    if i['operator'] in [0, 1, 2, 3, 4, 6]:
+                        assert_that(Decimal(result[expression])).called(operator)(Decimal(expected_result))
+                    elif i['operator'] in [5, 7, 10]:
+                        assert_that(str(result[expression])).called(operator)(expected_result)
+                    elif i['operator'] in [8, 9, 11, 12]:
+                        assert_that(str(result[expression])).called(operator)()
                     else:
                         return flag, {'断言符号错误'}
-                flag = True
-                return flag, {'断言通过'}
-            except Exception as e:
-                logger.exception(e)
-                pass
-        return flag, {'断言失败'}
+                except Exception as e:
+                    logger.exception(e)
+                    return flag, {'断言失败'}
+
+            flag = True
+            return flag, {'断言通过'}
+
+        except Exception as e:
+            logger.exception(e)
+            return flag, {'执行过程中发生异常'}
 
     def assemble_parameters(self, case_id, env_id):  # 根据用例信息和环境信息组装参数
         res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
