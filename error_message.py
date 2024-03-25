@@ -235,7 +235,7 @@ class MessageEnum(Enum):
     suite_not_exict = 100228, '套件不存在'
     update_suite_error = 100229, '更新套件异常'
     delete_suite_error = 100230, '删除套件异常'
-    assert_error = 100231, '断言异常'
+    assert_error = 100231, '断言失败，请检查返回'
     auto_gen_case_error = 100232, '自动生成用例异常'
     execute_timeout = 100233, '执行超时'
     excute_proto_terminal = 100234, '执行proto中断异常'
