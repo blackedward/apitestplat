@@ -420,6 +420,10 @@ class ExecuteCase(MethodView):
                         current_value = current_value.get(level)
 
                     # 检查预期结果和实际值是否匹配
+                    if isinstance(current_value, bool):
+                        current_value = str(current_value).lower()
+                    else:
+                        current_value = str(current_value)
                     if i.excepted_result == current_value:
                         asres = '断言通过'
                     else:
@@ -1681,7 +1685,11 @@ class Executeproto(MethodView):
                 else:
                     temp = temp[expression]
                 assertres = {'excepted_result': expected, 'actual_result': temp}
-                ret = {'assert_info': assertres, 'response': res}
+                ret = {'assertres': assertres, 'response': res}
+                if isinstance(temp, bool):
+                    temp = str(temp).lower()
+                else:
+                    temp = str(temp)
                 if temp == expected:
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
                 else:
