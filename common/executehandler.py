@@ -86,178 +86,266 @@ class ExecuteHandler(object):
             return reponse(code=MessageEnum.test_sql_query_error.value[0],
                            message=MessageEnum.test_sql_query_error.value[1])
 
+    # def exesinglecase(self, case_id=None, env_id=None):  # 单个用例执行
+    #     if not case_id:
+    #         case_id = self.case_id
+    #     if not env_id:
+    #         env_id = self.env_id
+    #
+    #     # 检查用例是否存在数据依赖并执行
+    #     try:
+    #         rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
+    #         if not rely_dbf_id or rely_dbf_id == 0:
+    #             pass
+    #         else:
+    #             dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
+    #             logger.info(dbfresult)
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
+    #
+    #     try:  # 根据用例类型来组织请求参数
+    #         parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
+    #         if not parameterdic:
+    #             return '{"result": "组装参数失败"}', None
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return '{"result": "组装参数失败"}', None
+    #     logger.info('parameterdic is :{}', parameterdic)
+    #     if parameterdic['protocol'] == 0:
+    #         api = Api(url=parameterdic['case_url'],
+    #                   method=parameterdic['case_method'],
+    #                   params=parameterdic['case_params'],
+    #                   headers=parameterdic['case_headers'])
+    #         apijson = api.getJson()
+    #         spend = api.spend()
+    #         if apijson == '请求出错了':
+    #             self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
+    #             return '{"result": "请求出错了"}', None
+    #         res = self.judgecase(apijson, case_id)[0]
+    #         if res is True:
+    #             self.save_case_result(apijson, case_id, ispass=True, testevir=env_id, spend=spend)
+    #             return '{"result": "断言通过"}', apijson
+    #         else:
+    #             self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
+    #             return '{"result": "断言失败"}', apijson
+    #     elif parameterdic['protocol'] == 1:
+    #         pass
+    #
+    #     else:
+    #         return '{"result": "协议错误"}', None
     def exesinglecase(self, case_id=None, env_id=None):  # 单个用例执行
-        if not case_id:
-            case_id = self.case_id
-        if not env_id:
-            env_id = self.env_id
-
-        # 检查用例是否存在数据依赖并执行
         try:
+            if not case_id:
+                case_id = self.case_id
+            if not env_id:
+                env_id = self.env_id
+
+            # 检查用例是否存在数据依赖并执行
             rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-            if not rely_dbf_id or rely_dbf_id == 0:
-                pass
-            else:
+            if rely_dbf_id and rely_dbf_id != 0:
                 dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
                 logger.info(dbfresult)
-        except Exception as e:
-            logger.exception(e)
-            return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
 
-        try:  # 根据用例类型来组织请求参数
+            # 根据用例类型来组织请求参数
             parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
             if not parameterdic:
                 return '{"result": "组装参数失败"}', None
+            logger.info('parameterdic is :{}', parameterdic)
+
+            if parameterdic['protocol'] == 0:
+                api = Api(
+                    url=parameterdic['case_url'],
+                    method=parameterdic['case_method'],
+                    params=parameterdic['case_params'],
+                    headers=parameterdic['case_headers']
+                )
+                apijson = api.getJson()
+                spend = api.spend()
+                if apijson == '请求出错了':
+                    self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
+                    return '{"result": "请求出错了"}', None
+                res = self.judgecase(apijson, case_id)[0]
+                if res is True:
+                    self.save_case_result(apijson, case_id, ispass=True, testevir=env_id, spend=spend)
+                    return '{"result": "断言通过"}', apijson
+                else:
+                    self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
+                    return '{"result": "断言失败"}', apijson
+            elif parameterdic['protocol'] == 1:
+                # 处理其他协议的情况
+                pass
+            else:
+                return '{"result": "协议错误"}', None
+
         except Exception as e:
             logger.exception(e)
-            return '{"result": "组装参数失败"}', None
-        logger.info('parameterdic is :{}', parameterdic)
-        if parameterdic['protocol'] == 0:
-            api = Api(url=parameterdic['case_url'],
-                      method=parameterdic['case_method'],
-                      params=parameterdic['case_params'],
-                      headers=parameterdic['case_headers'])
-            apijson = api.getJson()
-            spend = api.spend()
-            if apijson == '请求出错了':
-                self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
-                return '{"result": "请求出错了"}', None
-            res = self.judgecase(apijson, case_id)[0]
-            if res is True:
-                self.save_case_result(apijson, case_id, ispass=True, testevir=env_id, spend=spend)
-                return '{"result": "断言通过"}', apijson
-            else:
-                self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
-                return '{"result": "断言失败"}', apijson
-        elif parameterdic['protocol'] == 1:
-            pass
-        elif parameterdic['protocol'] == 2:
-            player = \
-                Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
-                    parameterdic['uid'])[1]
-            client = player.client
-            starttime = datetime.now()
-            client.send(parameterdic['case_req'], parameterdic['case_params'])
-            msg = client.recv(parameterdic['case_rsp'])
-            logger.info(msg.body)
-            endtime = datetime.now()
-            spend = (endtime - starttime).total_seconds()
-            res = self.judgecase(msg.body, case_id)[0]
-            if res is True:
-                self.save_case_result(msg.body, case_id, ispass=True, testevir=env_id, spend=spend)
-                return '{"result": "断言通过"}', msg.body
-            else:
-                self.save_case_result(msg.body, case_id, ispass=False, testevir=env_id, spend=spend)
-                return '{"result": "断言失败"}', msg.body
-        else:
-            return '{"result": "协议错误"}', None
+            return '{"result": "执行过程中发生异常"}', None
+
+    # def exemulticase(self, case_id=None, env_id=None):
+    #     if not case_id:
+    #         case_id = self.case_id
+    #     if not env_id:
+    #         env_id = self.env_id
+    #     # 检查用例是否存在数据依赖并执行
+    #     try:
+    #         rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
+    #         if not rely_dbf_id:
+    #             pass
+    #         else:
+    #             dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
+    #             logger.info(dbfresult)
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
+    #
+    #     try:
+    #         precases = Precase.query.filter_by(parent_case_id=case_id, status=1).order_by(Precase.order).all()
+    #         if not precases:
+    #             return '{"result": "前置用例查询为空"}', None
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return '{"result": "前置用例查询失败"}', None
+    #     precasesinfos = []
+    #     for i in precases:  # 执行前置用例
+    #         precaseinfo = {}
+    #         caseid = i.pre_case_id
+    #         extract_expression = i.extract_expression
+    #         try:
+    #             exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
+    #             if not exerespon:
+    #                 return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
+    #             else:
+    #                 res = json.loads(exerespon[0])
+    #                 if res['result'] == '断言失败':
+    #                     return '{"result":"前置用例' + str(caseid) + '断言失败"}', None
+    #                 elif res['result'] == '请求出错了':
+    #                     return '{"result":"前置用例' + str(caseid) + '请求出错了"}', None
+    #                 else:
+    #                     precaseinfo['extract_result'] = exerespon[1][extract_expression[3:]]
+    #                     precaseinfo['extract_expression'] = extract_expression
+    #                     precaseinfo['pre_case_id'] = caseid
+    #                     precasesinfos.append(precaseinfo)
+    #         except Exception as e:
+    #             logger.exception(e)
+    #             return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
+    #
+    #     try:  # 根据用例类型来组织请求参数
+    #         parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
+    #         if not parameterdic:
+    #             return '{"result": "组装参数失败"}', None
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return '{"result": "组装参数失败"}', None
+    #
+    #     for i in precasesinfos:  # 替换参数
+    #         if i.get("extract_expression") in parameterdic['case_params']:
+    #             parameterdic['case_params'] = parameterdic['case_params'].replace(i.get("extract_expression"),
+    #                                                                               str(i.get("extract_result")))
+    #         else:
+    #             pass
+    #
+    #     logger.info('parameterdic is :{}', parameterdic)
+    #     if parameterdic['protocol'] == 0:
+    #         api = Api(url=parameterdic['case_url'],
+    #                   method=parameterdic['case_method'],
+    #                   params=parameterdic['case_params'],
+    #                   headers=parameterdic['case_headers'])
+    #         logger.info(api.to_json())
+    #         apijson = api.getJson()
+    #         spend = api.spend()
+    #         if apijson == '请求出错了':
+    #             self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
+    #             return '{"result": "请求出错了"}', None
+    #         res = self.judgecase(apijson, case_id=case_id)[0]
+    #         if res is True:
+    #             self.save_case_result(apijson, self.case_id, ispass=True, testevir=self.env_id, spend=spend)
+    #             return '{"result": "断言通过"}', apijson
+    #         else:
+    #             self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
+    #             return '{"result": "断言失败"}', apijson
+    #     else:
+    #         return '{"result": "协议错误"}', None
 
     def exemulticase(self, case_id=None, env_id=None):
-        if not case_id:
-            case_id = self.case_id
-        if not env_id:
-            env_id = self.env_id
-        # 检查用例是否存在数据依赖并执行
         try:
-            rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-            if not rely_dbf_id:
-                pass
-            else:
-                dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
-                logger.info(dbfresult)
-        except Exception as e:
-            logger.exception(e)
-            return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
+            if not case_id:
+                case_id = self.case_id
+            if not env_id:
+                env_id = self.env_id
 
-        try:
-            precases = Precase.query.filter_by(parent_case_id=case_id).filter_by(status=1).order_by(Precase.order).all()
-            if not precases:
-                return '{"result": "前置用例查询为空"}', None
-        except Exception as e:
-            logger.exception(e)
-            return '{"result": "前置用例查询失败"}', None
-        precasesinfos = []
-        for i in precases:  # 执行前置用例
-            precaseinfo = {}
-            caseid = i.pre_case_id
-            extract_expression = i.extract_expression
-            try:
-                exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
-                if not exerespon:
-                    return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
-                else:
-                    res = json.loads(exerespon[0])
-                    if res['result'] == '断言失败':
-                        return '{"result":"前置用例' + str(caseid) + '断言失败"}', None
-                    elif res['result'] == '请求出错了':
-                        return '{"result":"前置用例' + str(caseid) + '请求出错了"}', None
-                    else:
-                        precaseinfo['extract_result'] = exerespon[1][extract_expression[3:]]
-                        precaseinfo['extract_expression'] = extract_expression
-                        precaseinfo['pre_case_id'] = caseid
-                        precasesinfos.append(precaseinfo)
-            except Exception as e:
-                logger.exception(e)
-                return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
+            # 执行前置用例
+            precasesinfos = self.execute_precases(case_id, env_id)
+            if not precasesinfos:
+                return '{"result": "前置用例执行失败"}', None
 
-        try:  # 根据用例类型来组织请求参数
-            parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
+            # 组装请求参数
+            parameterdic = self.assemble_parameters(case_id, env_id)
             if not parameterdic:
                 return '{"result": "组装参数失败"}', None
+
+            # 替换参数
+            self.replace_parameters(precasesinfos, parameterdic)
+
+            # 发送请求并进行断言
+            result, apijson, spend = self.send_request_and_assert(parameterdic, case_id, env_id)
+            self.save_case_result(apijson, case_id, ispass=result, testevir=env_id, spend=spend)
+
+            if result:
+                return '{"result": "断言通过"}', apijson
+            else:
+                return '{"result": "断言失败"}', apijson
+
         except Exception as e:
             logger.exception(e)
-            return '{"result": "组装参数失败"}', None
+            return '{"result": "执行过程中发生异常"}', None
 
-        for i in precasesinfos:  # 替换参数
-            if i.get("extract_expression") in parameterdic['case_params']:
-                parameterdic['case_params'] = parameterdic['case_params'].replace(i.get("extract_expression"),
-                                                                                  str(i.get("extract_result")))
-            else:
-                pass
+    def execute_precases(self, case_id, env_id):
+        precasesinfos = []
+        precases = Precase.query.filter_by(parent_case_id=case_id, status=1).order_by(Precase.order).all()
+        for precase in precases:
+            caseid = precase.pre_case_id
+            extract_expression = precase.extract_expression
+            try:
+                exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
+                if not exerespon or exerespon[0]['result'] in ['断言失败', '请求出错了']:
+                    return None
+                precaseinfo = {
+                    'extract_result': exerespon[1][extract_expression[3:]],
+                    'extract_expression': extract_expression,
+                    'pre_case_id': caseid
+                }
+                precasesinfos.append(precaseinfo)
+            except Exception as e:
+                logger.exception(e)
+                return None
+        return precasesinfos
 
-        logger.info('parameterdic is :{}', parameterdic)
+    def replace_parameters(self, precasesinfos, parameterdic):
+        for precaseinfo in precasesinfos:
+            extract_expression = precaseinfo.get("extract_expression")
+            if extract_expression in parameterdic['case_params']:
+                parameterdic['case_params'] = parameterdic['case_params'].replace(
+                    extract_expression,
+                    str(precaseinfo.get("extract_result"))
+                )
+
+    def send_request_and_assert(self, parameterdic, case_id, env_id):
         if parameterdic['protocol'] == 0:
-            api = Api(url=parameterdic['case_url'],
-                      method=parameterdic['case_method'],
-                      params=parameterdic['case_params'],
-                      headers=parameterdic['case_headers'])
-            logger.info(api.to_json())
+            api = Api(
+                url=parameterdic['case_url'],
+                method=parameterdic['case_method'],
+                params=parameterdic['case_params'],
+                headers=parameterdic['case_headers']
+            )
             apijson = api.getJson()
             spend = api.spend()
             if apijson == '请求出错了':
-                self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
-                return '{"result": "请求出错了"}', None
-            res = self.judgecase(apijson, case_id=case_id)[0]
-            if res is True:
-                self.save_case_result(apijson, self.case_id, ispass=True, testevir=self.env_id, spend=spend)
-                return '{"result": "断言通过"}', apijson
-            else:
-                self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
-                return '{"result": "断言失败"}', apijson
-        elif parameterdic['protocol'] == 1:
-            pass  # todo grpc协议后续处理
-        elif parameterdic['protocol'] == 2:
-            player = \
-                Player(parameterdic['uid'], parameterdic['host'], parameterdic['port']).login_by_uid(
-                    parameterdic['uid'])[1]
-            client = player.client
-            logger.info('parameterdic is :{}', parameterdic)
-            starttime = datetime.datetime.now()
-            client.send(parameterdic['case_req'], parameterdic['case_params'])
-            msg = client.recv(parameterdic['case_rsp'])
-            logger.info(msg.body)
-            endtime = datetime.datetime.now()
-            spend = (endtime - starttime).total_seconds()
-            res = self.judgecase(msg.body, case_id)[0]
-            if res is True:
-                self.save_case_result(msg.body, case_id, ispass=True, testevir=env_id, spend=spend)
-                return '{"result": "断言通过"}', msg.body
-            else:
-                self.save_case_result(msg.body, case_id, ispass=False, testevir=env_id, spend=spend)
-                return '{"result": "断言失败"}', msg.body
+                return False, apijson, spend
+            result = self.judgecase(apijson, case_id=case_id)[0]
+            return result, apijson, spend
         else:
-            return '{"result": "协议错误"}', None
-
+            return False, '{"result": "协议错误"}', None
     def judgecase(self, result, case_id=None):
         if not case_id:
             case_id = self.case_id

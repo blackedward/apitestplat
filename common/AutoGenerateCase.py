@@ -30,13 +30,13 @@ def generate_test_cases(attributes):
                 y.append(sub_array)
                 parameters.append(y)
         else:
-            if attributes[i]["type"] == "TYPE_ENUM":
-                w = []
-                for j in range(len(attributes[i]["enum_values"])):
-                    w.append(next(iter(attributes[i]["enum_values"][j].values())))
-                parameters.append(w)
-            else:
-                parameters.append(attributes[i]["range"])
+            # if attributes[i]["type"] == "TYPE_ENUM":
+            #     w = []
+            #     for j in range(len(attributes[i]["enum_values"])):
+            #         w.append(next(iter(attributes[i]["enum_values"][j].values())))
+            #     parameters.append(w)
+            # else:
+            parameters.append(attributes[i]["range"])
     test_cases = AllPairs(parameters)
 
     for i, test_case in enumerate(test_cases):
@@ -61,7 +61,6 @@ def generate_test_cases(attributes):
                 json_object[attributes[x]['name']] = test_case[x]
         testcases_params.append(json_object)
     return testcases_params
-
 
 # if __name__ == "__main__":
 #     expression = "code.road1.road2"
