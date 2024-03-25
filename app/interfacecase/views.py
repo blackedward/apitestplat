@@ -2138,206 +2138,206 @@ class Deletesuite(MethodView):
 
 
 class Exemulproto(MethodView):
-    @login_required
-    def post(self):
-        try:
-            start_time = time.time()
-            data = request.get_json()
-            if not self.check_parameters(data):
-                return reponse(code=MessageEnum.must_be_every_parame.value[0],
-                               message=MessageEnum.must_be_every_parame.value[1])
-
-            caseinfos = self.get_caseinfos(data)
-            result_queue = multiprocessing.Queue()
-            process = multiprocessing.Process(
-                target=self.run_in_new_process_multproto,
-                args=(data, caseinfos, result_queue)
-            )
-            process.start()
-            process.join()
-
-            res = result_queue.get()
-            end_time = time.time()
-
-            if isinstance(res, tuple):
-                return self.handle_execution_error(res[0], res[1])
-            elif isinstance(res, Exception):
-                return self.handle_execution_error(None, format(res))
-            else:
-                return self.handle_execution_success(data, res, start_time, end_time)
-        except Exception as e:
-            logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.unexpected_error.value[0],
-                           message=MessageEnum.unexpected_error.value[1])
-
-    def check_parameters(self, data):
-        return any(data.get(key) for key in ['suite_id', 'model_id', 'project_id'])
-
-    def get_caseinfos(self, data):
-        caseinfos = []
-        if data.get('suite_id'):
-            suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
-            if suite:
-                caseids = json.loads(suite.caseids)
-                caseinfos.extend({'case_id': case_id, 'case_raw': case.raw}
-                                 for case_id in caseids
-                                 for case in InterfaceCase.query.filter_by(case_id=case_id).all())
-        elif data.get('model_id') or data.get('project_id'):
-            query_filter = {'model_id': data.get('model_id')} if data.get('model_id') else {
-                'project_id': data.get('project_id')}
-            caselist = InterfaceCase.query.filter_by(status=1).filter_by(**query_filter).all()
-            caseinfos.extend({'case_id': case.case_id, 'case_raw': case.raw} for case in caselist)
-        return caseinfos
-
-    def handle_execution_error(self, error_case_id, error_info):
-        ret = {'error_caseid': error_case_id, 'error_info': format(error_info)}
-        return reponse(code=MessageEnum.excute_proto_terminal.value[0],
-                       message=MessageEnum.excute_proto_terminal.value[1], data=ret)
-
-    def handle_execution_success(self, data, res, start_time, end_time):
-        is_pass = True
-        assert_infos = []
-        for i in res:
-            for k, v in i.items():
-                assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
-                temp = v
-                if '.' in assertdesc.expression:
-                    for j in assertdesc.expression.split('.'):
-                        temp = temp[j]
-                else:
-                    temp = temp[assertdesc.expression]
-                if isinstance(temp, bool):
-                    temp = str(temp).lower()
-                else:
-                    temp = str(temp)
-                is_pass = temp == assertdesc.excepted_result
-                assert_info = {'case_id': k, 'is_pass': is_pass, 'except': assertdesc.excepted_result,
-                               'actual': temp, 'assert_desc': assertdesc.assert_name}
-                assert_infos.append(assert_info)
-                testres = TestcaseResult(
-                    case_id=k,
-                    result=str(v),
-                    ispass=is_pass,
-                    date=datetime.now(),
-                    spend=str("{:.2f}".format(end_time - start_time)),
-                    testevent_id=data.get('env_id')
-                )
-                db.session.add(testres)
-        db.session.commit()
-        ret = {'assert_info': assert_infos}
-        if is_pass:
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
-        else:
-            return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1], data=ret)
-
     # @login_required
     # def post(self):
     #     try:
     #         start_time = time.time()
     #         data = request.get_json()
-    #         if not data.get('suite_id') and not data.get('env_id') and not data.get('model_id') and not data.get(
-    #                 'project_id'):
-    #             return reponse(code=MessageEnum.must_be_every_parame.value[0],
-    #                            message=MessageEnum.must_be_every_parame.value[1])
-    #         caseinfos = []
-    #         if data.get('suite_id'):  # 执行测试套件
-    #             suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
-    #             if not suite:
-    #                 return reponse(code=MessageEnum.suite_not_exict.value[0],
-    #                                message=MessageEnum.suite_not_exict.value[1])
-    #             caseids = json.loads(suite.caseids)
-    #
-    #             for i in caseids:
-    #                 i = InterfaceCase.query.filter_by(case_id=i).first()
-    #                 case_info = {'case_id': i.case_id, 'case_raw': i.raw}
-    #                 caseinfos.append(case_info)
-    #         elif data.get('model_id'):  # 按模块执行
-    #             caselist = InterfaceCase.query.filter_by(model_id=data.get('model_id')).filter_by(status=1).all()
-    #             for i in caselist:
-    #                 case_info = {'case_id': i.case_id, 'case_raw': i.raw}
-    #                 caseinfos.append(case_info)
-    #         elif data.get('project_id'):  # 按项目执行
-    #             caselist = InterfaceCase.query.filter_by(project_id=data.get('project_id')).filter_by(status=1).all()
-    #             for i in caselist:
-    #                 case_info = {'case_id': i.case_id, 'case_raw': i.raw}
-    #                 caseinfos.append(case_info)
-    #         else:
+    #         if not self.check_parameters(data):
     #             return reponse(code=MessageEnum.must_be_every_parame.value[0],
     #                            message=MessageEnum.must_be_every_parame.value[1])
     #
-    #         # Use multiprocessing Queue to communicate results
+    #         caseinfos = self.get_caseinfos(data)
     #         result_queue = multiprocessing.Queue()
-    #
-    #         # Use multiprocessing to run the function in a new process
     #         process = multiprocessing.Process(
     #             target=self.run_in_new_process_multproto,
     #             args=(data, caseinfos, result_queue)
     #         )
-    #
     #         process.start()
     #         process.join()
     #
-    #         # Retrieve results from the Queue
     #         res = result_queue.get()
     #         end_time = time.time()
-    #         if isinstance(res, tuple):
-    #             ret = {'error_caseid': res[0], 'error_info': format(res[1])}
-    #             return reponse(code=MessageEnum.excute_proto_terminal.value[0],
-    #                            message=MessageEnum.excute_proto_terminal.value[1], data=ret)
-    #         elif isinstance(res, Exception):
-    #             ret = {'error_info': format(res)}
-    #             return reponse(code=MessageEnum.execute_proto_error.value[0],
-    #                            message=MessageEnum.execute_proto_error.value[1], data=ret)
     #
-    #         isPass = True
-    #         assert_infos = []
-    #         try:
-    #             for i in res:
-    #                 for k, v in i.items():
-    #                     assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
-    #                     temp = v
-    #                     if '.' in assertdesc.expression:
-    #                         for j in assertdesc.expression.split('.'):
-    #                             temp = temp[j]
-    #                     else:
-    #                         temp = temp[assertdesc.expression]
-    #                     if isinstance(temp, bool):
-    #                         temp = str(temp).lower()
-    #                     else:
-    #                         temp = str(temp)
-    #                     if temp == assertdesc.excepted_result:
-    #                         isPass = True
-    #                     else:
-    #                         isPass = False
-    #                     assert_info = {'case_id': k, 'is_pass': isPass, 'except': assertdesc.excepted_result,
-    #                                    'actual': temp, 'assert_desc': assertdesc.assert_name}
-    #                     assert_infos.append(assert_info)
-    #                     testres = TestcaseResult(
-    #                         case_id=k,
-    #                         result=str(v),
-    #                         ispass=isPass,
-    #                         date=datetime.now(),
-    #                         spend=str("{:.2f}".format(end_time - start_time)),
-    #                         testevent_id=data.get('env_id')
-    #                     )
-    #                     db.session.add(testres)
-    #             db.session.commit()
-    #             ret = {'assert_info': assert_infos}
-    #             if isPass:
-    #                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-    #                                data=ret)
-    #             else:
-    #                 return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
-    #                                data=ret)
-    #         except Exception as e:
-    #             logger.error(traceback.format_exc())
-    #             db.session.rollback()
-    #             return reponse(code=MessageEnum.execute_proto_error.value[0],
-    #                            message=MessageEnum.execute_proto_error.value[1])
+    #         if isinstance(res, tuple):
+    #             return self.handle_execution_error(res[0], res[1])
+    #         elif isinstance(res, Exception):
+    #             return self.handle_execution_error(None, format(res))
+    #         else:
+    #             return self.handle_execution_success(data, res, start_time, end_time)
     #     except Exception as e:
     #         logger.error(traceback.format_exc())
     #         return reponse(code=MessageEnum.unexpected_error.value[0],
     #                        message=MessageEnum.unexpected_error.value[1])
+    #
+    # def check_parameters(self, data):
+    #     return any(data.get(key) for key in ['suite_id', 'env_id', 'model_id', 'project_id'])
+    #
+    # def get_caseinfos(self, data):
+    #     caseinfos = []
+    #     if data.get('suite_id'):
+    #         suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+    #         if suite:
+    #             caseids = json.loads(suite.caseids)
+    #             caseinfos.extend({'case_id': case_id, 'case_raw': case.raw}
+    #                              for case_id in caseids
+    #                              for case in InterfaceCase.query.filter_by(case_id=case_id).all())
+    #     elif data.get('model_id') or data.get('project_id'):
+    #         query_filter = {'model_id': data.get('model_id')} if data.get('model_id') else {
+    #             'project_id': data.get('project_id')}
+    #         caselist = InterfaceCase.query.filter_by(status=1).filter_by(**query_filter).all()
+    #         caseinfos.extend({'case_id': case.case_id, 'case_raw': case.raw} for case in caselist)
+    #     return caseinfos
+    #
+    # def handle_execution_error(self, error_case_id, error_info):
+    #     ret = {'error_caseid': error_case_id, 'error_info': format(error_info)}
+    #     return reponse(code=MessageEnum.excute_proto_terminal.value[0],
+    #                    message=MessageEnum.excute_proto_terminal.value[1], data=ret)
+    #
+    # def handle_execution_success(self, data, res, start_time, end_time):
+    #     is_pass = True
+    #     assert_infos = []
+    #     for i in res:
+    #         for k, v in i.items():
+    #             assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
+    #             temp = v
+    #             if '.' in assertdesc.expression:
+    #                 for j in assertdesc.expression.split('.'):
+    #                     temp = temp[j]
+    #             else:
+    #                 temp = temp[assertdesc.expression]
+    #             if isinstance(temp, bool):
+    #                 temp = str(temp).lower()
+    #             else:
+    #                 temp = str(temp)
+    #             is_pass = temp == assertdesc.excepted_result
+    #             assert_info = {'case_id': k, 'is_pass': is_pass, 'except': assertdesc.excepted_result,
+    #                            'actual': temp, 'assert_desc': assertdesc.assert_name}
+    #             assert_infos.append(assert_info)
+    #             testres = TestcaseResult(
+    #                 case_id=k,
+    #                 result=str(v),
+    #                 ispass=is_pass,
+    #                 date=datetime.now(),
+    #                 spend=str("{:.2f}".format(end_time - start_time)),
+    #                 testevent_id=data.get('env_id')
+    #             )
+    #             db.session.add(testres)
+    #     db.session.commit()
+    #     ret = {'assert_info': assert_infos}
+    #     if is_pass:
+    #         return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+    #     else:
+    #         return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1], data=ret)
+
+    @login_required
+    def post(self):
+        try:
+            start_time = time.time()
+            data = request.get_json()
+            if not data.get('suite_id') and not data.get('env_id') and not data.get('model_id') and not data.get(
+                    'project_id'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            caseinfos = []
+            if data.get('suite_id'):  # 执行测试套件
+                suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+                if not suite:
+                    return reponse(code=MessageEnum.suite_not_exict.value[0],
+                                   message=MessageEnum.suite_not_exict.value[1])
+                caseids = json.loads(suite.caseids)
+
+                for i in caseids:
+                    i = InterfaceCase.query.filter_by(case_id=i).first()
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            elif data.get('model_id'):  # 按模块执行
+                caselist = InterfaceCase.query.filter_by(model_id=data.get('model_id')).filter_by(status=1).all()
+                for i in caselist:
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            elif data.get('project_id'):  # 按项目执行
+                caselist = InterfaceCase.query.filter_by(project_id=data.get('project_id')).filter_by(status=1).all()
+                for i in caselist:
+                    case_info = {'case_id': i.case_id, 'case_raw': i.raw}
+                    caseinfos.append(case_info)
+            else:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            # Use multiprocessing Queue to communicate results
+            result_queue = multiprocessing.Queue()
+
+            # Use multiprocessing to run the function in a new process
+            process = multiprocessing.Process(
+                target=self.run_in_new_process_multproto,
+                args=(data, caseinfos, result_queue)
+            )
+
+            process.start()
+            process.join()
+
+            # Retrieve results from the Queue
+            res = result_queue.get()
+            end_time = time.time()
+            if isinstance(res, tuple):
+                ret = {'error_caseid': res[0], 'error_info': format(res[1])}
+                return reponse(code=MessageEnum.excute_proto_terminal.value[0],
+                               message=MessageEnum.excute_proto_terminal.value[1], data=ret)
+            elif isinstance(res, Exception):
+                ret = {'error_info': format(res)}
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=ret)
+
+            isPass = True
+            try:
+                for i in res:
+                    for k, v in i.items():
+                        assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
+                        assert_info = {}
+                        if assertdesc is not None:
+                            temp = v
+                            if '.' in assertdesc.expression:
+                                for j in assertdesc.expression.split('.'):
+                                    temp = temp[j]
+                            else:
+                                temp = temp[assertdesc.expression]
+                            if isinstance(temp, bool):
+                                temp = str(temp).lower()
+                            else:
+                                temp = str(temp)
+                            if temp == assertdesc.excepted_result:
+                                isPass = True
+                            else:
+                                isPass = False
+                            assert_info = {'case_id': k, 'is_pass': isPass, 'except': assertdesc.excepted_result,
+                                           'actual': temp, 'assert_desc': assertdesc.assert_name}
+                        i.get(k)['assert_info'] = assert_info
+                        testres = TestcaseResult(
+                            case_id=k,
+                            result=str(v),
+                            ispass=isPass,
+                            date=datetime.now(),
+                            spend=str("{:.2f}".format(end_time - start_time)),
+                            testevent_id=data.get('env_id')
+                        )
+                        db.session.add(testres)
+                db.session.commit()
+                if isPass:
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                                   data=res)
+                else:
+                    return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
+                                   data=res)
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.unexpected_error.value[0],
+                           message=MessageEnum.unexpected_error.value[1])
 
     def run_in_new_process_multproto(self, data, caseinfos, result_queue):
         try:
