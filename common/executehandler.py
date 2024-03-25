@@ -86,68 +86,18 @@ class ExecuteHandler(object):
             return reponse(code=MessageEnum.test_sql_query_error.value[0],
                            message=MessageEnum.test_sql_query_error.value[1])
 
-    # def exesinglecase(self, case_id=None, env_id=None):  # 单个用例执行
-    #     if not case_id:
-    #         case_id = self.case_id
-    #     if not env_id:
-    #         env_id = self.env_id
-    #
-    #     # 检查用例是否存在数据依赖并执行
-    #     try:
-    #         rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-    #         if not rely_dbf_id or rely_dbf_id == 0:
-    #             pass
-    #         else:
-    #             dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
-    #             logger.info(dbfresult)
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
-    #
-    #     try:  # 根据用例类型来组织请求参数
-    #         parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
-    #         if not parameterdic:
-    #             return '{"result": "组装参数失败"}', None
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return '{"result": "组装参数失败"}', None
-    #     logger.info('parameterdic is :{}', parameterdic)
-    #     if parameterdic['protocol'] == 0:
-    #         api = Api(url=parameterdic['case_url'],
-    #                   method=parameterdic['case_method'],
-    #                   params=parameterdic['case_params'],
-    #                   headers=parameterdic['case_headers'])
-    #         apijson = api.getJson()
-    #         spend = api.spend()
-    #         if apijson == '请求出错了':
-    #             self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
-    #             return '{"result": "请求出错了"}', None
-    #         res = self.judgecase(apijson, case_id)[0]
-    #         if res is True:
-    #             self.save_case_result(apijson, case_id, ispass=True, testevir=env_id, spend=spend)
-    #             return '{"result": "断言通过"}', apijson
-    #         else:
-    #             self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
-    #             return '{"result": "断言失败"}', apijson
-    #     elif parameterdic['protocol'] == 1:
-    #         pass
-    #
-    #     else:
-    #         return '{"result": "协议错误"}', None
-    def exesinglecase(self, case_id=None, env_id=None):  # 单个用例执行
+    def exesinglecase(self, case_id=None, env_id=None):
         try:
             if not case_id:
                 case_id = self.case_id
             if not env_id:
                 env_id = self.env_id
 
-            # 检查用例是否存在数据依赖并执行
             rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
             if rely_dbf_id and rely_dbf_id != 0:
                 dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
                 logger.info(dbfresult)
 
-            # 根据用例类型来组织请求参数
             parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
             if not parameterdic:
                 return '{"result": "组装参数失败"}', None
@@ -172,9 +122,11 @@ class ExecuteHandler(object):
                 else:
                     self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
                     return '{"result": "断言失败"}', apijson
+
             elif parameterdic['protocol'] == 1:
                 # 处理其他协议的情况
                 pass
+
             else:
                 return '{"result": "协议错误"}', None
 
@@ -398,11 +350,11 @@ class ExecuteHandler(object):
                         result[expression] = temp
 
                     if i['operator'] in [0, 1, 2, 3, 4, 6]:
-                        assert_that(Decimal(result[expression])).called(operator)(Decimal(expected_result))
+                        getattr(assert_that(Decimal(result[expression])), operator)(Decimal(expected_result))
                     elif i['operator'] in [5, 7, 10]:
-                        assert_that(str(result[expression])).called(operator)(expected_result)
+                        getattr(assert_that(str(result[expression])), operator)(expected_result)
                     elif i['operator'] in [8, 9, 11, 12]:
-                        assert_that(str(result[expression])).called(operator)()
+                        getattr(assert_that(str(result[expression])), operator)()
                     else:
                         return flag, {'断言符号错误'}
                 except Exception as e:
