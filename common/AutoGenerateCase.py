@@ -4,10 +4,14 @@ from common.log import logger
 
 from allpairspy import AllPairs
 
+import random
+
+
 
 def generate_test_cases(attributes):
     testcases_params = []
     parameters = []
+
     n = len(attributes)
 
     for i in range(n):
@@ -30,13 +34,11 @@ def generate_test_cases(attributes):
                 y.append(sub_array)
                 parameters.append(y)
         else:
-            # if attributes[i]["type"] == "TYPE_ENUM":
-            #     w = []
-            #     for j in range(len(attributes[i]["enum_values"])):
-            #         w.append(next(iter(attributes[i]["enum_values"][j].values())))
-            #     parameters.append(w)
-            # else:
-            parameters.append(attributes[i]["range"])
+            if attributes[i]["type"] == "TYPE_BOOL":
+                w = [True, False]
+                parameters.append(w)
+            else:
+                parameters.append(attributes[i]["range"])
     test_cases = AllPairs(parameters)
 
     for i, test_case in enumerate(test_cases):

@@ -805,6 +805,110 @@ class GetCaseByProj(MethodView):
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
 
 
+# class Updateprecase(MethodView):
+#     @login_required
+#     def post(self):
+#         try:
+#             data = request.get_json()
+#             if not data:
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#
+#             olddata = Precase.query.filter_by(parent_case_id=data.get('caseid')).all()
+#             oldprecaseid = []
+#             if olddata:
+#                 for i in olddata:
+#                     oldprecaseid.append(i.pre_case_id)
+#             newdata = data.get('precases')
+#             if not newdata or len(newdata) == 0:
+#                 interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+#                 interfacecase.is_relycase = 0
+#                 interfacecase.update_time = datetime.now()
+#                 try:
+#                     db.session.commit()
+#                 except Exception as e:
+#                     logger.error(traceback.format_exc())
+#                     db.session.rollback()
+#                     return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                    message=MessageEnum.update_pre_case_error.value[1])
+#
+#                 for j in oldprecaseid:
+#                     logger.info('old precaseid:{} not in newprecases', j)
+#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
+#                                                        pre_case_id=j).first()
+#                     pre_case.status = 0
+#                     pre_case.update_time = datetime.now()
+#                     try:
+#                         db.session.commit()
+#                     except Exception as e:
+#                         logger.error(traceback.format_exc())
+#                         db.session.rollback()
+#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                        message=MessageEnum.update_pre_case_error.value[1])
+#                 return reponse(code=MessageEnum.successs.value[0],
+#                                message=MessageEnum.successs.value[1])
+#             for i in newdata:
+#                 interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+#                 interfacecase.is_relycase = 1
+#                 interfacecase.update_time = datetime.now()
+#                 try:
+#                     db.session.commit()
+#                 except Exception as e:
+#                     logger.error(traceback.format_exc())
+#                     db.session.rollback()
+#                     return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                    message=MessageEnum.update_pre_case_error.value[1])
+#                 if i.get('pre_case_id') in oldprecaseid:
+#                     logger.info('precaseid:{} in oldprecases', i.get('pre_case_id'))
+#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
+#                                                        pre_case_id=i.get('pre_case_id')).first()
+#                     pre_case.extract_expression = i.get('exp')
+#                     pre_case.order = i.get('sort_id')
+#                     pre_case.status = 1
+#                     pre_case.update_time = datetime.now()
+#                     try:
+#                         db.session.commit()
+#                     except Exception as e:
+#                         logger.error(traceback.format_exc())
+#                         db.session.rollback()
+#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                        message=MessageEnum.update_pre_case_error.value[1])
+#                 else:
+#                     logger.info('precaseid:{} not in oldprecases', i.get('pre_case_id'))
+#                     pre_case = Precase()
+#                     pre_case.parent_case_id = data.get('caseid')
+#                     pre_case.extract_expression = i.get('exp')
+#                     pre_case.pre_case_id = i.get('pre_case_id')
+#                     pre_case.order = i.get('sort_id')
+#                     pre_case.status = 1
+#                     pre_case.update_time = datetime.now()
+#                     try:
+#                         db.session.add(pre_case)
+#                         db.session.commit()
+#                     except Exception as e:
+#                         logger.error(traceback.format_exc())
+#                         db.session.rollback()
+#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                        message=MessageEnum.update_pre_case_error.value[1])
+#             for j in oldprecaseid:
+#                 if not any(j == d.get('pre_case_id') for d in data.get('precases')):
+#                     logger.info('old precaseid:{} not in newprecases', j)
+#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
+#                                                        pre_case_id=j).first()
+#                     pre_case.status = 0
+#                     pre_case.update_time = datetime.now()
+#                     try:
+#                         db.session.commit()
+#                     except Exception as e:
+#                         logger.error(traceback.format_exc())
+#                         db.session.rollback()
+#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                                        message=MessageEnum.update_pre_case_error.value[1])
+#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.update_pre_case_error.value[0],
+#                            message=MessageEnum.update_pre_case_error.value[1])
 class Updateprecase(MethodView):
     @login_required
     def post(self):
@@ -814,101 +918,82 @@ class Updateprecase(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
 
-            olddata = Precase.query.filter_by(parent_case_id=data.get('caseid')).all()
-            oldprecaseid = []
-            if olddata:
-                for i in olddata:
-                    oldprecaseid.append(i.pre_case_id)
-            newdata = data.get('precases')
-            if not newdata or len(newdata) == 0:
-                interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-                interfacecase.is_relycase = 0
-                interfacecase.update_time = datetime.now()
-                try:
-                    db.session.commit()
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    db.session.rollback()
-                    return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                   message=MessageEnum.update_pre_case_error.value[1])
+            # 获取旧的 pre_case_id 列表
+            oldprecaseid = [i.pre_case_id for i in Precase.query.filter_by(parent_case_id=data.get('caseid')).all()]
 
-                for j in oldprecaseid:
-                    logger.info('old precaseid:{} not in newprecases', j)
-                    pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-                                                       pre_case_id=j).first()
-                    pre_case.status = 0
-                    pre_case.update_time = datetime.now()
-                    try:
-                        db.session.commit()
-                    except Exception as e:
-                        logger.error(traceback.format_exc())
-                        db.session.rollback()
-                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                       message=MessageEnum.update_pre_case_error.value[1])
-                return reponse(code=MessageEnum.successs.value[0],
-                               message=MessageEnum.successs.value[1])
-            for i in newdata:
-                interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+            # 获取新数据
+            newdata = data.get('precases', [])
+            interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+
+            # 根据新数据是否为空，更新 interfacecase 的 is_relycase 字段
+            if not newdata:
+                interfacecase.is_relycase = 0
+            else:
                 interfacecase.is_relycase = 1
-                interfacecase.update_time = datetime.now()
-                try:
-                    db.session.commit()
-                except Exception as e:
-                    logger.error(traceback.format_exc())
-                    db.session.rollback()
-                    return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                   message=MessageEnum.update_pre_case_error.value[1])
-                if i.get('pre_case_id') in oldprecaseid:
-                    logger.info('precaseid:{} in oldprecases', i.get('pre_case_id'))
+
+            # 更新接口用例的更新时间
+            interfacecase.update_time = datetime.now()
+
+            # 提交数据库修改
+            commit_or_rollback()
+
+            # 遍历新数据
+            for item in newdata:
+                pre_case_id = item.get('pre_case_id')
+
+                # 判断 pre_case_id 是否在旧数据中
+                if pre_case_id in oldprecaseid:
+                    logger.info(f'precaseid:{pre_case_id} in oldprecases')
+                    # 如果在，更新对应的记录
                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-                                                       pre_case_id=i.get('pre_case_id')).first()
-                    pre_case.extract_expression = i.get('exp')
-                    pre_case.order = i.get('sort_id')
+                                                       pre_case_id=pre_case_id).first()
+                    pre_case.extract_expression = item.get('exp')
+                    pre_case.order = item.get('sort_id')
                     pre_case.status = 1
-                    pre_case.update_time = datetime.now()
-                    try:
-                        db.session.commit()
-                    except Exception as e:
-                        logger.error(traceback.format_exc())
-                        db.session.rollback()
-                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                       message=MessageEnum.update_pre_case_error.value[1])
                 else:
-                    logger.info('precaseid:{} not in oldprecases', i.get('pre_case_id'))
+                    logger.info(f'precaseid:{pre_case_id} not in oldprecases')
+                    # 如果不在，创建新记录
                     pre_case = Precase()
                     pre_case.parent_case_id = data.get('caseid')
-                    pre_case.extract_expression = i.get('exp')
-                    pre_case.pre_case_id = i.get('pre_case_id')
-                    pre_case.order = i.get('sort_id')
+                    pre_case.extract_expression = item.get('exp')
+                    pre_case.pre_case_id = pre_case_id
+                    pre_case.order = item.get('sort_id')
                     pre_case.status = 1
-                    pre_case.update_time = datetime.now()
-                    try:
-                        db.session.add(pre_case)
-                        db.session.commit()
-                    except Exception as e:
-                        logger.error(traceback.format_exc())
-                        db.session.rollback()
-                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                       message=MessageEnum.update_pre_case_error.value[1])
-            for j in oldprecaseid:
-                if not any(j == d.get('pre_case_id') for d in data.get('precases')):
-                    logger.info('old precaseid:{} not in newprecases', j)
+                    oldprecaseid.append(pre_case_id)
+
+                pre_case.update_time = datetime.now()
+                db.session.add(pre_case)
+
+            # 遍历旧的 pre_case_id 列表，检查是否在新数据中，如果不在，则置为无效
+            for old_id in oldprecaseid:
+                if not any(old_id == item.get('pre_case_id') for item in newdata):
+                    logger.info(f'old precaseid:{old_id} not in newprecases')
                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-                                                       pre_case_id=j).first()
+                                                       pre_case_id=old_id).first()
                     pre_case.status = 0
                     pre_case.update_time = datetime.now()
-                    try:
-                        db.session.commit()
-                    except Exception as e:
-                        logger.error(traceback.format_exc())
-                        db.session.rollback()
-                        return reponse(code=MessageEnum.update_pre_case_error.value[0],
-                                       message=MessageEnum.update_pre_case_error.value[1])
+
+            # 提交数据库修改
+            commit_or_rollback()
+
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
+            db.session.rollback()
             return reponse(code=MessageEnum.update_pre_case_error.value[0],
                            message=MessageEnum.update_pre_case_error.value[1])
+
+
+def commit_or_rollback():
+    """封装数据库提交或回滚操作"""
+    try:
+        db.session.commit()
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        db.session.rollback()
+        return reponse(code=MessageEnum.update_pre_case_error.value[0],
+                       message=MessageEnum.update_pre_case_error.value[1])
 
 
 class Updatecasebase(MethodView):
@@ -2193,7 +2278,8 @@ class Exemulproto(MethodView):
             res = result_queue.get()
             end_time = time.time()
             if isinstance(res, tuple):
-                ret = {'error_caseid': res[0], 'error_info': format(res[1])}
+                case_name = InterfaceCase.query.filter_by(case_id=res[0]).first().desc
+                ret = {'error_caseid': res[0], 'error_casename': case_name, 'error_info': format(res[1])}
                 return reponse(code=MessageEnum.excute_proto_terminal.value[0],
                                message=MessageEnum.excute_proto_terminal.value[1], data=ret)
             elif isinstance(res, Exception):
@@ -2260,7 +2346,6 @@ class Exemulproto(MethodView):
             sys.stderr = open(os.devnull, 'w')
             res = exemulproto(env_id=data.get('env_id'), caseinfos=caseinfos)
 
-            # Put results into the Queue
             result_queue.put(res)
 
         except Exception as e:

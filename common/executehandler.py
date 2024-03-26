@@ -41,45 +41,32 @@ class ExecuteHandler(object):
 
         dbinf = dbfac.dbconf
         logger.info(dbinf.to_json())
-        if dbfac.sql_run_dev == 0:
-            sqlurl = dbinf.url
-            sqlusername = dbinf.username
-            sqlpassword = dbinf.password
-        elif dbfac.sql_run_dev == 1:
-            sqlurl = dbinf.test_url
-            sqlusername = dbinf.test_username
-            sqlpassword = dbinf.test_password
-        elif dbfac.sql_run_dev == 2:
-            sqlurl = dbinf.dev_url
-            sqlusername = dbinf.dev_username
-            sqlpassword = dbinf.dev_password
-        elif dbfac.sql_run_dev == 3:
-            sqlurl = dbinf.stg_url
-            sqlusername = dbinf.stg_username
-            sqlpassword = dbinf.stg_password
-        elif dbfac.sql_run_dev == 4:
-            sqlurl = dbinf.prod_url
-            sqlusername = dbinf.prod_username
-            sqlpassword = dbinf.prod_password
-        else:
+
+        env_mapping = {
+            0: ('url', 'username', 'password'),
+            1: ('test_url', 'test_username', 'test_password'),
+            2: ('dev_url', 'dev_username', 'dev_password'),
+            3: ('stg_url', 'stg_username', 'stg_password'),
+            4: ('prod_url', 'prod_username', 'prod_password')
+        }
+
+        env_key = env_mapping.get(dbfac.sql_run_dev)
+        if not env_key:
             return reponse(code=MessageEnum.test_sql_query_error.value[0],
                            message=MessageEnum.test_sql_query_error.value[1])
 
-        if dbfac.sql_str and dbfac.sql_str.__contains__(';'):
-            toexecsqls = dbfac.sql_str.split(';')
-        else:
-            toexecsqls = dbfac.sql_str
+        sqlurl, sqlusername, sqlpassword = map(dbinf.get, env_key)
 
-        linkurl = "mysql+pymysql://" + sqlusername + ":" + sqlpassword + "@" + sqlurl
+        toexecsqls = dbfac.sql_str.split(';') if ';' in dbfac.sql_str else [dbfac.sql_str]
+
+        linkurl = f"mysql+pymysql://{sqlusername}:{sqlpassword}@{sqlurl}"
         exesql = ExeSql(linkurl)
-        logger.info('待执行的SQL是{}', toexecsqls)
+        logger.info('待执行的SQL是: {}'.format(toexecsqls))
+
         try:
-            if isinstance(toexecsqls, list):
-                for i in toexecsqls:
-                    if i:
-                        exesql.exe_sql(i)
-            else:
-                exesql.exe_sql(toexecsqls)
+            for sql in toexecsqls:
+                if sql.strip():
+                    exesql.exe_sql(sql.strip())
             return '执行成功'
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -262,12 +249,13 @@ class ExecuteHandler(object):
                 exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
                 if not exerespon or exerespon[0]['result'] in ['断言失败', '请求出错了']:
                     return None
-                precaseinfo = {
-                    'extract_result': exerespon[1][extract_expression[3:]],
-                    'extract_expression': extract_expression,
-                    'pre_case_id': caseid
-                }
-                precasesinfos.append(precaseinfo)
+                if extract_expression:
+                    precaseinfo = {
+                        'extract_result': exerespon[1][extract_expression[2:]],
+                        'extract_expression': extract_expression,
+                        'pre_case_id': caseid
+                    }
+                    precasesinfos.append(precaseinfo)
             except Exception as e:
                 logger.exception(e)
                 return None
@@ -368,7 +356,55 @@ class ExecuteHandler(object):
             logger.exception(e)
             return flag, {'执行过程中发生异常'}
 
-    def assemble_parameters(self, case_id, env_id):  # 根据用例信息和环境信息组装参数
+    # def assemble_parameters(self, case_id, env_id):  # 根据用例信息和环境信息组装参数
+    #     res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
+    #
+    #     try:
+    #         case = InterfaceCase.query.filter_by(case_id=case_id).first()
+    #         env = Environment.query.filter_by(id=env_id).first()
+    #         if case is None or env is None:
+    #             return res
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         return res
+    #
+    #     if env.url is None:
+    #         return res
+    #     if env.port is None:
+    #         env_url = env.url
+    #     else:
+    #         env_url = env.url + ':' + env.port  # 拼接主url的域名
+    #     # 用例信息的组装，需要根据用例的协议来组装，先处理http协议的。get和post的组装方式也不同，get参数放在表里的params字段，post参数放在表里的raw字段
+    #     if case.case_protocol == 0:
+    #         if case.method == 0:
+    #             res['protocol'] = case.case_protocol
+    #             res['case_url'] = env_url + case.url
+    #             res['case_method'] = CaseMethods(case.method).name
+    #             res['case_params'] = case.params
+    #             res['case_headers'] = case.headers
+    #         elif case.method == 1:
+    #             res['protocol'] = case.case_protocol
+    #             res['case_url'] = env_url + case.url
+    #             res['case_method'] = CaseMethods(case.method).name
+    #             res['case_params'] = case.raw
+    #             res['case_headers'] = case.headers
+    #     elif case.case_protocol == 1:
+    #         pass  # todo 处理grpc协议的用例
+    #     elif case.case_protocol == 2:  # 处理socket协议的用例参数
+    #         res['protocol'] = case.case_protocol
+    #         res['case_req'] = case.socketreq
+    #         res['case_params'] = eval(case.raw)['req']
+    #         res['case_rsp'] = case.socketrsp
+    #         res['host'] = env.url
+    #         res['port'] = env.port
+    #         res['uid'] = eval(case.raw)['uid']
+    #     elif case.case_protocol == 3:
+    #         pass  # todo 处理ws协议的用例
+    #     else:
+    #         return res
+    #     return res
+    def assemble_parameters(self, case_id, env_id):
+        """根据用例信息和环境信息组装参数"""
         res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
 
         try:
@@ -382,38 +418,31 @@ class ExecuteHandler(object):
 
         if env.url is None:
             return res
+
         if env.port is None:
             env_url = env.url
         else:
-            env_url = env.url + ':' + env.port  # 拼接主url的域名
-        # 用例信息的组装，需要根据用例的协议来组装，先处理http协议的。get和post的组装方式也不同，get参数放在表里的params字段，post参数放在表里的raw字段
-        if case.case_protocol == 0:
-            if case.method == 0:
-                res['protocol'] = case.case_protocol
-                res['case_url'] = env_url + case.url
-                res['case_method'] = CaseMethods(case.method).name
+            env_url = env.url + ':' + env.port
+
+        res['protocol'] = case.case_protocol
+
+        if case.case_protocol == 0:  # HTTP 协议
+            res['case_url'] = env_url + case.url
+            res['case_method'] = CaseMethods(case.method).name
+            res['case_headers'] = case.headers
+
+            if case.method == 0:  # GET 方法
                 res['case_params'] = case.params
-                res['case_headers'] = case.headers
-            elif case.method == 1:
-                res['protocol'] = case.case_protocol
-                res['case_url'] = env_url + case.url
-                res['case_method'] = CaseMethods(case.method).name
+            elif case.method == 1:  # POST 方法
                 res['case_params'] = case.raw
-                res['case_headers'] = case.headers
-        elif case.case_protocol == 1:
-            pass  # todo 处理grpc协议的用例
-        elif case.case_protocol == 2:  # 处理socket协议的用例参数
-            res['protocol'] = case.case_protocol
-            res['case_req'] = case.socketreq
-            res['case_params'] = eval(case.raw)['req']
-            res['case_rsp'] = case.socketrsp
-            res['host'] = env.url
-            res['port'] = env.port
-            res['uid'] = eval(case.raw)['uid']
-        elif case.case_protocol == 3:
-            pass  # todo 处理ws协议的用例
-        else:
-            return res
+
+        # elif case.case_protocol == 2:  # Socket 协议
+        #     res['case_req'] = case.socketreq
+        #     res['case_params'] = eval(case.raw)['req']
+        #     res['case_rsp'] = case.socketrsp
+        #     res['host'] = env.url
+        #     res['port'] = env.port
+        #     res['uid'] = eval(case.raw)['uid']
         return res
 
     def save_case_result(self, result, caseid, ispass, testevir, spend=None):
@@ -426,17 +455,3 @@ class ExecuteHandler(object):
         except Exception as e:
             db.session.rollback()
             logger.info('用例：%s保存测试结果失败!原因：%s' % (caseid, e))
-#
-#
-# class DirectExecute(object):
-#
-#     def exeproto(self, uid, host, port, reqmessage, rspmessage, params=None):
-#         player = Player(uid, host, port).login_by_uid(uid)[1]
-#         client = player.client
-#         client.send(reqmessage, params)
-#         msg = client.recv(rspmessage)
-#         client.stop()
-#         return msg.body
-#
-#     def exehttp(self):
-#         pass
