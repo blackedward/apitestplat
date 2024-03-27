@@ -1,4 +1,6 @@
+import gzip
 import importlib
+import io
 import json
 import multiprocessing
 import os

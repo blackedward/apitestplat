@@ -7,42 +7,62 @@ from allpairspy import AllPairs
 import random
 
 
-
-def generate_test_cases(attributes):
-    testcases_params = []
+def process_attributes(attributes):
     parameters = []
-
-    n = len(attributes)
-
-    for i in range(n):
-        if attributes[i]["is_repeated"]:
-            if attributes[i]["type"] == "TYPE_MESSAGE":
+    for attribute in attributes:
+        if attribute["is_repeated"]:
+            if attribute["type"] == "TYPE_MESSAGE":
                 y = []
                 x = []
-                for j in range(len(attributes[i]["fields"])):
-                    x.append(attributes[i]["fields"][j]["range"])
+                for field in attribute["fields"]:
+                    if field["type"] == "TYPE_MESSAGE":
+                        x.extend(process_attributes([field]))
+                    else:
+                        x.append(field["range"])
                 for a in AllPairs(x):
                     y.append(a)
                 parameters.append(y)
             else:
                 y = []
-                for j in range(len(attributes[i]["range"])):
-                    temp = [attributes[i]["range"][j]]
+                for j in range(len(attribute["range"])):
+                    temp = [attribute["range"][j]]
                     y.append(temp)
-                sub_array = random.sample(attributes[i]["range"], random.randint(1, len(attributes[i]["range"])))
-
+                sub_array = random.sample(attribute["range"], random.randint(1, len(attribute["range"])))
                 y.append(sub_array)
                 parameters.append(y)
         else:
-            if attributes[i]["type"] == "TYPE_BOOL":
+            if attribute["type"] == "TYPE_BOOL":
                 w = [True, False]
                 parameters.append(w)
+            elif attribute["type"] == "TYPE_MESSAGE":
+                y = []
+                x = []
+                z = []
+                for field in attribute["fields"]:
+                    if field["type"] == "TYPE_MESSAGE":
+                        m = []
+                        z = process_attributes(field["fields"])
+                        for t in AllPairs(z):
+                            m.append(t)
+                        x.append(m)
+                    else:
+                        x.append(field["range"])
+                logger.info(f"X: {x}")
+                for a in AllPairs(x):
+                    y.append(a)
+                parameters.append(y)
             else:
-                parameters.append(attributes[i]["range"])
+                parameters.append(attribute["range"])
+    return parameters
+
+
+def generate_test_cases(attributes):
+    testcases_params = []
+    parameters = process_attributes(attributes)
+    logger.info(f"Parameters: {parameters}")
     test_cases = AllPairs(parameters)
 
     for i, test_case in enumerate(test_cases):
-
         json_object = {}
         for x in range(len(attributes)):
             if attributes[x]["is_repeated"]:
@@ -50,9 +70,12 @@ def generate_test_cases(attributes):
                 tmp_array = []
                 field_values = []
                 if attributes[x]["type"] == "TYPE_MESSAGE":
-                    for j in range(len(attributes[x]["fields"])):
-                        field_values.append(test_case[x][j])
-                        tmp_object[attributes[x]['fields'][j]['name']] = field_values[j]
+                    for field in attributes[x]["fields"]:
+                        if field["type"] == "TYPE_MESSAGE":
+                            field_values.append(process_message_field_assign(field, test_case[x]))
+                        else:
+                            field_values.append(test_case[x])
+                        tmp_object[field['name']] = field_values
                     tmp_array.append(tmp_object)
                     json_object[attributes[x]['name']] = tmp_array
                 else:
@@ -60,9 +83,86 @@ def generate_test_cases(attributes):
                         field_values.append(test_case[x][j])
                     json_object[attributes[x]['name']] = field_values
             else:
-                json_object[attributes[x]['name']] = test_case[x]
+                caseval = test_case[x]
+                if attributes[x]["type"] == "TYPE_MESSAGE":
+                    json_object[attributes[x]['name']] = process_message_field_assign(attributes[x], caseval)
+                else:
+                    json_object[attributes[x]['name']] = caseval
         testcases_params.append(json_object)
     return testcases_params
+
+
+def process_message_field_assign(field, caseval):
+    if field["type"] == "TYPE_MESSAGE" and field["is_repeated"]:
+        tmp_array = []
+        tmp_object = {}
+        for subfield, subcaseval in zip(field["fields"], caseval):
+            tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
+        tmp_array.append(tmp_object)
+        return tmp_array
+    elif field["type"] == "TYPE_MESSAGE":
+        tmp_object = {}
+        for subfield, subcaseval in zip(field["fields"], caseval):
+            tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
+        return tmp_object
+    else:
+        return caseval
+
+# def generate_test_cases(attributes):
+#     testcases_params = []
+#     parameters = []
+#
+#     n = len(attributes)
+#
+#     for i in range(n):
+#         if attributes[i]["is_repeated"]:
+#             if attributes[i]["type"] == "TYPE_MESSAGE":
+#                 y = []
+#                 x = []
+#                 for j in range(len(attributes[i]["fields"])):
+#                     x.append(attributes[i]["fields"][j]["range"])
+#                 for a in AllPairs(x):
+#                     y.append(a)
+#                 parameters.append(y)
+#             else:
+#                 y = []
+#                 for j in range(len(attributes[i]["range"])):
+#                     temp = [attributes[i]["range"][j]]
+#                     y.append(temp)
+#                 sub_array = random.sample(attributes[i]["range"], random.randint(1, len(attributes[i]["range"])))
+#
+#                 y.append(sub_array)
+#                 parameters.append(y)
+#         else:
+#             if attributes[i]["type"] == "TYPE_BOOL":
+#                 w = [True, False]
+#                 parameters.append(w)
+#             else:
+#                 parameters.append(attributes[i]["range"])
+#     test_cases = AllPairs(parameters)
+#
+#     for i, test_case in enumerate(test_cases):
+#
+#         json_object = {}
+#         for x in range(len(attributes)):
+#             if attributes[x]["is_repeated"]:
+#                 tmp_object = {}
+#                 tmp_array = []
+#                 field_values = []
+#                 if attributes[x]["type"] == "TYPE_MESSAGE":
+#                     for j in range(len(attributes[x]["fields"])):
+#                         field_values.append(test_case[x][j])
+#                         tmp_object[attributes[x]['fields'][j]['name']] = field_values[j]
+#                     tmp_array.append(tmp_object)
+#                     json_object[attributes[x]['name']] = tmp_array
+#                 else:
+#                     for j in range(len(test_case[x])):
+#                         field_values.append(test_case[x][j])
+#                     json_object[attributes[x]['name']] = field_values
+#             else:
+#                 json_object[attributes[x]['name']] = test_case[x]
+#         testcases_params.append(json_object)
+#     return testcases_params
 
 # if __name__ == "__main__":
 #     expression = "code.road1.road2"

@@ -250,6 +250,11 @@ class ExecuteHandler(object):
                 if not exerespon or exerespon[0]['result'] in ['断言失败', '请求出错了']:
                     return None
                 if extract_expression:
+                    if '.' in extract_expression:
+                        temp = exerespon[1]
+                        for i in extract_expression.split('.'):
+                            temp = temp[i]
+                        exerespon[1][extract_expression[2:]] = temp
                     precaseinfo = {
                         'extract_result': exerespon[1][extract_expression[2:]],
                         'extract_expression': extract_expression,
