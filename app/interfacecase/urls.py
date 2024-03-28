@@ -29,6 +29,7 @@ interfacecase.add_url_rule("/forceupdatebranch", view_func=Forceupdatebranch.as_
 interfacecase.add_url_rule("/executeprotomult", view_func=ExecuteprotoMult.as_view('executeprotomult'))
 interfacecase.add_url_rule("/createsuite", view_func=Createsuite.as_view('createsuite'))
 interfacecase.add_url_rule("/getsuitebyid", view_func=Getsuitebyid.as_view('getsuitebyid'))
+interfacecase.add_url_rule("/getsuitebyname", view_func=Getsuitebyname.as_view('getsuitebyname'))
 interfacecase.add_url_rule("/getsuitebyproj", view_func=Getsuitebyproj.as_view('getsuitebyproj'))
 interfacecase.add_url_rule("/updatesuite", view_func=Updatesuite.as_view('updatesuite'))
 interfacecase.add_url_rule("/deletesuite", view_func=Deletesuite.as_view('deletesuite'))

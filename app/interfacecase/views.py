@@ -4,6 +4,7 @@ import io
 import json
 import multiprocessing
 import os
+import pickle
 import sys
 import time
 from datetime import datetime
@@ -33,6 +34,7 @@ from lib.CustomException import TimeOutException
 interfacecase = Blueprint('interfacecase', __name__)
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+largeResCache = Cache(user_home + "/cachefile")
 
 
 class DataType(Enum):
@@ -1709,7 +1711,7 @@ def exeproto(uid, env_id, branch_name, reqmessage, params, source):
         logger.info('send message:{},send content:{}', reqmessage, params)
         rspmessage = reqmessage[:-3] + "RSP"
         msg = client.recv(rspmessage)
-        logger.info('recv message:{}', msg.body)
+        # logger.info('recv message:{}', msg.body)
         client.stop()
         client = None
         return msg.body
@@ -1749,9 +1751,17 @@ class Executeproto(MethodView):
             process.start()
             process.join()
 
-            # Retrieve results from the Queue
+            try:
+                cachekey = result_queue.get()
+                res = largeResCache.get(cachekey)
+                logger.info('从缓存中取出的结果是：{}'.format(res))
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=format(e))
+            finally:
+                largeResCache.delete(cachekey)
 
-            res = result_queue.get()
             if isinstance(res, Exception):
                 # If res is an exception, handle it accordingly
                 if isinstance(res, TimeOutException):
@@ -1794,14 +1804,12 @@ class Executeproto(MethodView):
     def run_in_new_process(self, data, branch_name, params, source, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
-            # Redirect standard input/output/error to /dev/null
-            sys.stdin = open(os.devnull, 'r')
-            sys.stdout = open(os.devnull, 'w')
-            sys.stderr = open(os.devnull, 'w')
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), params=params, source=source)
-            result_queue.put(res)
 
+            largecachekey = "exeprotoCase " + str(time.time())[:6] + str(os.getpid())
+            largeResCache.set(largecachekey, res, 60 * 60 * 24)
+            result_queue.put(largecachekey)
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(e)
@@ -2129,6 +2137,40 @@ class Getsuitebyid(MethodView):
             }
             ret = []
             ret.append(suiteinfo)
+
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_suite_error.value[0],
+                           message=MessageEnum.get_suite_error.value[1])
+
+
+class Getsuitebyname(MethodView):
+    @login_required
+    def get(self):
+        try:
+            suite_name = request.args.get('suite_name')
+            if not suite_name:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            suites = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).all()
+            if not suites:
+                return reponse(code=MessageEnum.get_suite_error.value[0],
+                               message=MessageEnum.get_suite_error.value[1])
+            ret = []
+            for i in suites:
+                if i.status == 0:
+                    continue
+                projectname = i.projects.project_name
+                creatorname = i.users.username
+                suiteinfo = {
+                    'suite_id': i.id,
+                    'name': i.name,
+                    'caseids': json.loads(i.caseids),
+                    'project_name': projectname,
+                    'creator_name': creatorname
+                }
+                ret.append(suiteinfo)
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
