@@ -1,5 +1,4 @@
-import json
-import random
+
 from common.log import logger
 
 from allpairspy import AllPairs

@@ -1750,17 +1750,18 @@ class Executeproto(MethodView):
 
             process.start()
             process.join()
+            res = result_queue.get()
 
-            try:
-                cachekey = result_queue.get()
-                res = largeResCache.get(cachekey)
-                logger.info('从缓存中取出的结果是：{}'.format(res))
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1], data=format(e))
-            finally:
-                largeResCache.delete(cachekey)
+            # try:
+            #     cachekey = result_queue.get()
+            #     res = largeResCache.get(cachekey)
+            #     logger.info('从缓存中取出的结果是：{}'.format(res))
+            # except Exception as e:
+            #     logger.error(traceback.format_exc())
+            #     return reponse(code=MessageEnum.execute_proto_error.value[0],
+            #                    message=MessageEnum.execute_proto_error.value[1], data=format(e))
+            # finally:
+            #     largeResCache.delete(cachekey)
 
             if isinstance(res, Exception):
                 # If res is an exception, handle it accordingly
@@ -1807,9 +1808,11 @@ class Executeproto(MethodView):
             res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), params=params, source=source)
 
-            largecachekey = "exeprotoCase " + str(time.time())[:6] + str(os.getpid())
-            largeResCache.set(largecachekey, res, 60 * 60 * 24)
-            result_queue.put(largecachekey)
+            # largecachekey = "exeprotoCase " + str(time.time())[:6] + str(os.getpid())
+            # logger.info('将结果存入缓存，缓存key是：{}'.format(largecachekey))
+            #
+            # largeResCache.set(largecachekey, res, 60 * 60 * 24)
+            result_queue.put(res)
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(e)
