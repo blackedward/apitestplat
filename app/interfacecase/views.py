@@ -2538,7 +2538,9 @@ class Autogencase(MethodView):
             if not data.get('attributes'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-
+            if len(data.get('attributes')) <= 1:
+                return reponse(code=MessageEnum.auto_less_parameter.value[0],
+                               message=MessageEnum.auto_less_parameter.value[1])
             testcase_params = generate_test_cases(data.get('attributes'))
             logger.info('测试用的用例列表是： {}', testcase_params)
             ret = {'auto_cases': testcase_params}

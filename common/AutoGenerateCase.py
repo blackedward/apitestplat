@@ -1,4 +1,3 @@
-
 from common.log import logger
 
 from allpairspy import AllPairs
@@ -6,7 +5,20 @@ from allpairspy import AllPairs
 import random
 
 
+def is_2d_array(data):
+    if not isinstance(data, list):
+        return False
+
+    for item in data:
+        if not isinstance(item, list):
+            return False
+
+    return True
+
+
 def process_attributes(attributes):
+    if is_2d_array(attributes):
+        attributes = attributes[0]
     parameters = []
     for attribute in attributes:
         if attribute["is_repeated"]:
@@ -39,14 +51,13 @@ def process_attributes(attributes):
                 z = []
                 for field in attribute["fields"]:
                     if field["type"] == "TYPE_MESSAGE":
+                        z.extend(process_attributes(field["fields"]))
                         m = []
-                        z = process_attributes(field["fields"])
-                        for t in AllPairs(z):
-                            m.append(t)
+                        for a in AllPairs(z):
+                            m.append(a)
                         x.append(m)
                     else:
                         x.append(field["range"])
-                logger.info(f"X: {x}")
                 for a in AllPairs(x):
                     y.append(a)
                 parameters.append(y)
@@ -95,6 +106,8 @@ def process_message_field_assign(field, caseval):
     if field["type"] == "TYPE_MESSAGE" and field["is_repeated"]:
         tmp_array = []
         tmp_object = {}
+        if is_2d_array(field["fields"]):
+            field["fields"] = field["fields"][0]
         for subfield, subcaseval in zip(field["fields"], caseval):
             tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
         tmp_array.append(tmp_object)
