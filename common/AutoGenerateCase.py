@@ -48,9 +48,9 @@ def process_attributes(attributes):
             elif attribute["type"] == "TYPE_MESSAGE":
                 y = []
                 x = []
-                z = []
                 for field in attribute["fields"]:
                     if field["type"] == "TYPE_MESSAGE":
+                        z = []
                         z.extend(process_attributes(field["fields"]))
                         m = []
                         for a in AllPairs(z):
