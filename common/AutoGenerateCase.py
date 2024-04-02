@@ -2,8 +2,6 @@ from common.log import logger
 
 from allpairspy import AllPairs
 
-import random
-
 
 def is_2d_array(data):
     if not isinstance(data, list):
