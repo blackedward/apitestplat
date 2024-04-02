@@ -56,6 +56,12 @@ def process_attributes(attributes):
                         for a in AllPairs(z):
                             m.append(a)
                         x.append(m)
+                    elif field["type"] != "TYPE_MESSAGE" and field["is_repeated"]:
+                        s = []
+                        for j in range(len(field["range"])):
+                            l= [field["range"][j]]
+                            s.append(l)
+                        x.append(s)
                     else:
                         x.append(field["range"])
                 for a in AllPairs(x):
