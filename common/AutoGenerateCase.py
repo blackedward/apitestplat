@@ -25,6 +25,8 @@ def process_attributes(attributes):
             if attribute["type"] == "TYPE_MESSAGE":
                 y = []
                 x = []
+                if is_2d_array(attribute["fields"]):
+                    attribute["fields"] = attribute["fields"][0]
                 for field in attribute["fields"]:
                     if field["type"] == "TYPE_MESSAGE":
                         x.extend(process_attributes([field]))
@@ -38,8 +40,6 @@ def process_attributes(attributes):
                 for j in range(len(attribute["range"])):
                     temp = [attribute["range"][j]]
                     y.append(temp)
-                sub_array = random.sample(attribute["range"], random.randint(1, len(attribute["range"])))
-                y.append(sub_array)
                 parameters.append(y)
         else:
             if attribute["type"] == "TYPE_BOOL":
@@ -59,7 +59,7 @@ def process_attributes(attributes):
                     elif field["type"] != "TYPE_MESSAGE" and field["is_repeated"]:
                         s = []
                         for j in range(len(field["range"])):
-                            l= [field["range"][j]]
+                            l = [field["range"][j]]
                             s.append(l)
                         x.append(s)
                     else:
@@ -82,22 +82,22 @@ def generate_test_cases(attributes):
         json_object = {}
         for x in range(len(attributes)):
             if attributes[x]["is_repeated"]:
-                tmp_object = {}
-                tmp_array = []
-                field_values = []
                 if attributes[x]["type"] == "TYPE_MESSAGE":
-                    for field in attributes[x]["fields"]:
-                        if field["type"] == "TYPE_MESSAGE":
-                            field_values.append(process_message_field_assign(field, test_case[x]))
-                        else:
-                            field_values.append(test_case[x])
-                        tmp_object[field['name']] = field_values
-                    tmp_array.append(tmp_object)
-                    json_object[attributes[x]['name']] = tmp_array
+                    field_values = []
+                    field_values.append(process_message_field_assign(attributes[x], test_case[x]))
+                    # for field in attributes[x]["fields"]:
+                    #     if field["type"] == "TYPE_MESSAGE":
+                    #         field_values.append(process_message_field_assign(field, test_case[x]))
+                    #     else:
+                    #         field_values.append(test_case[x])
+                elif attributes[x]["type"] != "TYPE_MESSAGE" and attributes[x]["is_repeated"]:
+                    field_values = []
+                    for j in range(len(test_case[x])):
+                        field_values.append(test_case[x][j])
                 else:
                     for j in range(len(test_case[x])):
                         field_values.append(test_case[x][j])
-                    json_object[attributes[x]['name']] = field_values
+                json_object[attributes[x]['name']] = field_values
             else:
                 caseval = test_case[x]
                 if attributes[x]["type"] == "TYPE_MESSAGE":
@@ -123,6 +123,8 @@ def process_message_field_assign(field, caseval):
         for subfield, subcaseval in zip(field["fields"], caseval):
             tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
         return tmp_object
+    elif field["type"] != "TYPE_MESSAGE" and field["is_repeated"]:
+        return [caseval]
     else:
         return caseval
 
