@@ -2186,12 +2186,13 @@ class Getsuitebyproj(MethodView):
     def get(self):
         try:
             project_id = request.args.get('project_id')
-            page_index = int(request.args.get('page_index' or 1))
-            page_num = int(request.args.get('page_num' or 10))
+            page_index = request.args.get('page_index') or 1
+            page_num = request.args.get('page_num') or 10
             if not project_id:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(page_index, page_num, False).items
+            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(int(page_index), int(page_num),
+                                                                                      False).items
             project = Project.query.filter_by(id=project_id).first()
             ret = []
             for i in suites:
