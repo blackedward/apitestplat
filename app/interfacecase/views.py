@@ -1751,27 +1751,26 @@ class Executeproto(MethodView):
             process.start()
             process.join()
 
-            for i in largeResCache.iterkeys():
-                logger.info('缓存中的key是：{}'.format(i))
+            cache = result_queue.get()
+
+            if isinstance(cache, Exception):
+                # If res is an exception, handle it accordingly
+                if isinstance(cache, TimeOutException):
+                    rstr = '执行超时了，请确认目标服务器的处理情况'
+                    return reponse(code=MessageEnum.execute_timeout.value[0],
+                                   message=MessageEnum.execute_timeout.value[1], data=rstr)
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=format(cache))
+
             try:
-                cachekey = result_queue.get()
-                res = largeResCache.get(cachekey)
+                res = largeResCache.get(cache)
                 logger.info('从缓存中取出的结果是：{}'.format(res))
             except Exception as e:
                 logger.error(traceback.format_exc())
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1], data=format(e))
             finally:
-                largeResCache.delete(cachekey)
-
-            if isinstance(res, Exception):
-                # If res is an exception, handle it accordingly
-                if isinstance(res, TimeOutException):
-                    rstr = '执行超时了，请确认目标服务器的处理情况'
-                    return reponse(code=MessageEnum.execute_timeout.value[0],
-                                   message=MessageEnum.execute_timeout.value[1], data=rstr)
-                return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1], data=format(res))
+                largeResCache.delete(cache)
 
             assert_info = data.get('assert_info')
             temp = res
@@ -1811,7 +1810,6 @@ class Executeproto(MethodView):
 
             largecachekey = data.get('req_message_name') + " " + str(time.time())[:6] + str(os.getpid())
             logger.info('将结果存入缓存，缓存key是：{}'.format(largecachekey))
-
             largeResCache.set(largecachekey, res, 60 * 60 * 24)
             result_queue.put(largecachekey)
         except Exception as e:
@@ -2188,10 +2186,12 @@ class Getsuitebyproj(MethodView):
     def get(self):
         try:
             project_id = request.args.get('project_id')
+            page_index = int(request.args.get('page_index' or 1))
+            page_num = int(request.args.get('page_num' or 10))
             if not project_id:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            suites = TestSuite.query.filter_by(project=project_id, status=1).all()
+            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(page_index, page_num, False).items
             project = Project.query.filter_by(id=project_id).first()
             ret = []
             for i in suites:
