@@ -2152,14 +2152,19 @@ class Getsuitebyname(MethodView):
     def get(self):
         try:
             suite_name = request.args.get('suite_name')
+            page_index = request.args.get('page_index') or 1
+            page_num = request.args.get('page_num') or 10
             if not suite_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            suites = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).all()
+            suites = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).paginate(
+                int(page_index), int(page_num),
+                False).items
+            total = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).count()
             if not suites:
                 return reponse(code=MessageEnum.get_suite_error.value[0],
                                message=MessageEnum.get_suite_error.value[1])
-            ret = []
+            list = []
             for i in suites:
                 if i.status == 0:
                     continue
@@ -2178,7 +2183,9 @@ class Getsuitebyname(MethodView):
                     'project_name': projectname,
                     'creator_name': creatorname
                 }
-                ret.append(suiteinfo)
+                list.append(suiteinfo)
+
+            ret = {"list": list, "total": total}
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
@@ -2199,8 +2206,9 @@ class Getsuitebyproj(MethodView):
                                message=MessageEnum.must_be_every_parame.value[1])
             suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(int(page_index), int(page_num),
                                                                                       False).items
+            total = TestSuite.query.filter_by(project=project_id, status=1).count()
             project = Project.query.filter_by(id=project_id).first()
-            ret = []
+            list = []
             for i in suites:
                 caseinfos = []
                 for j in json.loads(i.caseids):
@@ -2214,7 +2222,8 @@ class Getsuitebyproj(MethodView):
                     'project_name': project.project_name,
                     'creator_name': i.users.username
                 }
-                ret.append(suiteinfo)
+                list.append(suiteinfo)
+            ret = {"list": list, "total": total}
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
