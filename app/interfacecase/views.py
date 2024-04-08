@@ -2163,12 +2163,18 @@ class Getsuitebyname(MethodView):
             for i in suites:
                 if i.status == 0:
                     continue
+                caseinfos = []
+                for j in json.loads(i.caseids):
+                    t = InterfaceCase.query.filter_by(case_id=j).first()
+                    caseinfo = {'case_id': t.case_id, 'desc': t.desc}
+                    caseinfos.append(caseinfo)
                 projectname = i.projects.project_name
                 creatorname = i.users.username
+
                 suiteinfo = {
                     'suite_id': i.id,
                     'name': i.name,
-                    'caseids': json.loads(i.caseids),
+                    'caseinfos': caseinfos,
                     'project_name': projectname,
                     'creator_name': creatorname
                 }
@@ -2577,7 +2583,7 @@ class Saveautocases(MethodView):
                 interfacecase = InterfaceCase()
                 interfacecase.project_id = data.get('project_id')
                 interfacecase.model_id = data.get('model_id')
-                interfacecase.desc = data.get('case_desc') + str(i) + ' ' + str(int(time.time()))
+                interfacecase.desc = data.get('case_desc') + str(i)
                 interfacecase.case_protocol = 2
                 interfacecase.is_relycase = 0
                 interfacecase.rely_dbf = 0
@@ -2599,7 +2605,7 @@ class Saveautocases(MethodView):
                     caseids.append(i.case_id)
                 ret = {'caseids': caseids, 'total': len(caseids)}
                 testsuite = TestSuite()
-                testsuite.name = data.get('case_desc') + 'test_suite' + ' ' + str(int(time.time()))
+                testsuite.name = data.get('case_desc') + 'test_suite'
                 testsuite.caseids = json.dumps(caseids)
                 testsuite.creator = current_user.user_id
                 testsuite.project = data.get('project_id')
