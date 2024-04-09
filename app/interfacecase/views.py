@@ -1080,6 +1080,7 @@ class Updatecasereq(MethodView):
             if interfacecase.case_protocol == 2:
                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
                 raw_data['proto_content'] = json.loads(requestinfo.get('raw'))
+                raw_data['req_message_name'] = requestinfo.get('socketreq')
                 interfacecase.raw = json.dumps(raw_data)
             else:
                 interfacecase.raw = requestinfo.get('raw')
