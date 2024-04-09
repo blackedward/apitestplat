@@ -189,12 +189,8 @@ class UserList(MethodView):
     @login_required
     def get(self):
         try:
-            page_index = 1
-            page_number = 10
-            if request.args.get("page_number"):
-                page_number = request.args.get('page_number')
-            if request.args.get("page_index"):
-                page_index = request.args.get('page_index')
+            page_index = request.args.get('page_index') or 1
+            page_number = request.args.get('page_number') or 10
 
             users = User.query.paginate(int(page_index), int(page_number), False)
             if not users:
@@ -202,6 +198,8 @@ class UserList(MethodView):
                                message=MessageEnum.login_user_not_exict_message.value[1])
             data = []
             for user in users.items:
+                user.created_time = user.created_time.strftime("%Y-%m-%d %H:%M:%S")
+                user.update_time = user.update_time.strftime("%Y-%m-%d %H:%M:%S")
                 data.append(user.to_json())
 
             ret = {"total": users.total, "list": data}

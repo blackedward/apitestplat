@@ -68,6 +68,8 @@ class DeleteProject(MethodView):
             if current_user.role_id == 2:
                 db.session.query(Model).filter(Model.project == project_id).update({Model.status: 0})
                 db.session.query(Environment).filter(Environment.project == project_id).update({Environment.status: 0})
+                db.session.query(InterfaceCase).filter(InterfaceCase.project_id == project_id).update(
+                    {InterfaceCase.status: 0})
                 project.status = 0
                 db.session.commit()
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
@@ -686,12 +688,8 @@ class GetAllModel(MethodView):
     @login_required
     def get(self):
         try:
-            page_index = 1
-            page_number = 10
-            if request.args.get("page_index"):
-                page_index = request.args.get("page_index")
-            if request.args.get("page_number"):
-                page_number = request.args.get("page_number")
+            page_index = request.args.get('page_index') or 1
+            page_number = request.args.get('page_number') or 10
 
             model = Model.query.filter_by(status=1).paginate(int(page_index), int(page_number), False)
             if not model:
@@ -713,12 +711,8 @@ class GetModelByPrjId(MethodView):
     @login_required
     def get(self, id):
         try:
-            page_index = 1
-            page_number = 10
-            if request.args.get("page_index"):
-                page_index = request.args.get("page_index")
-            if request.args.get("page_number"):
-                page_number = request.args.get("page_number")
+            page_index = request.args.get('page_index') or 1
+            page_number = request.args.get('page_number') or 10
 
             model = Model.query.filter_by(project=id, status=1).paginate(int(page_index), int(page_number), False)
             project_name = Project.query.filter_by(id=id).first().project_name
@@ -756,6 +750,7 @@ class DeleteModel(MethodView):
             if not model or model.status == 0:
                 return reponse(code=MessageEnum.model_not_exict.value[0],
                                message=MessageEnum.model_not_exict.value[1])
+            db.session.query(InterfaceCase).filter(InterfaceCase.model_id == model_id).update({InterfaceCase.status: 0})
             model.status = 0
             db.session.commit()
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])

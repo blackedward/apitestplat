@@ -405,6 +405,10 @@ class ExecuteCase(MethodView):
             process.join()
 
             res = result_queue.get()
+            if isinstance(res, Exception):
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=format(res))
+
             assert_pass = True
             caseassert = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
             if caseassert:
@@ -1075,7 +1079,7 @@ class Updatecasereq(MethodView):
             interfacecase.socketrsp = requestinfo.get('socketrsp')
             if interfacecase.case_protocol == 2:
                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
-                raw_data['proto_content'] = requestinfo.get('raw')
+                raw_data['proto_content'] = json.loads(requestinfo.get('raw'))
                 interfacecase.raw = json.dumps(raw_data)
             else:
                 interfacecase.raw = requestinfo.get('raw')

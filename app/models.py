@@ -221,6 +221,7 @@ class InterfaceCase(db.Model):
     case_assert = db.relationship('InterfaceCaseAssert', backref='interfacecase', lazy='dynamic')
     precase = db.relationship('Precase', backref='interfacecase', lazy='dynamic')
 
+
     def __repr__(self):
         return self.desc
 
