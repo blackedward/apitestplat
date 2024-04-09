@@ -404,10 +404,23 @@ class ExecuteCase(MethodView):
             process.start()
             process.join()
 
-            res = result_queue.get()
-            if isinstance(res, Exception):
+            cacheKey = result_queue.get()
+            if isinstance(cacheKey, TimeOutException):
+                return reponse(code=MessageEnum.execute_timeout.value[0],
+                               message=MessageEnum.execute_timeout.value[1], data=format(cacheKey))
+            elif isinstance(cacheKey, Exception):
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1], data=format(res))
+                               message=MessageEnum.execute_proto_error.value[1], data=format(cacheKey))
+
+            try:
+                res = largeResCache.get(cacheKey)
+                logger.info('从缓存中取出的结果是：{}'.format(res))
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.execute_proto_error.value[0],
+                               message=MessageEnum.execute_proto_error.value[1], data=format(e))
+            finally:
+                largeResCache.delete(cacheKey)
 
             assert_pass = True
             caseassert = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
@@ -508,7 +521,10 @@ class ExecuteCase(MethodView):
                 source=case_raw['source']
             )
 
-            result_queue.put(res)
+            largecachekeyExecase = case_raw['req_message_name'] + " " + str(time.time())[:6] + str(os.getpid())
+            logger.info('用例管理处执行proto测试，将结果存入缓存，缓存key是：{}'.format(largecachekeyExecase))
+            largeResCache.set(largecachekeyExecase, res, 60 * 60 * 24)
+            result_queue.put(largecachekeyExecase)
 
         except Exception as e:
             logger.error(traceback.format_exc())
