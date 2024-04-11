@@ -405,10 +405,32 @@ class ExecuteCase(MethodView):
             process.join()
 
             cacheKey = result_queue.get()
+
             if isinstance(cacheKey, TimeOutException):
+                new_case = TestcaseResult(
+                    result=str(format(cacheKey)),
+                    case_id=case.case_id,
+                    ispass=False,
+                    testevent_id=env_id,
+                    spend=str("{:.2f}".format(time.time() - start_time)),
+                    date=datetime.now()
+                )
+                db.session.add(new_case)
+                db.session.commit()
+
                 return reponse(code=MessageEnum.execute_timeout.value[0],
                                message=MessageEnum.execute_timeout.value[1], data=format(cacheKey))
             elif isinstance(cacheKey, Exception):
+                new_case = TestcaseResult(
+                    result=str(format(cacheKey)),
+                    case_id=case.case_id,
+                    ispass=False,
+                    testevent_id=env_id,
+                    spend=str("{:.2f}".format(time.time() - start_time)),
+                    date=datetime.now()
+                )
+                db.session.add(new_case)
+                db.session.commit()
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1], data=format(cacheKey))
 
@@ -531,111 +553,6 @@ class ExecuteCase(MethodView):
             result_queue.put(e)
         finally:
             sys.exit(0)
-
-
-# class ExecuteCase(MethodView):
-#
-#     @login_required
-#     def post(self):
-#         try:
-#             logger.info('当前进程号：{}'.format(os.getpid()))
-#             data = request.get_json()
-#             if not data:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
-#             case_id = data.get('case_id')
-#             env_id = data.get('env_id')
-#             if not case_id:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
-#             if not env_id:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
-#             case = InterfaceCase.query.filter_by(case_id=case_id).first()
-#             if case.case_protocol == 2:
-#                 start_time = time.time()
-#                 logger.info('开始执行proto协议用例')
-#                 case_raw = json.loads(case.raw)
-#                 # 使用 multiprocessing Queue 来通信结果
-#                 result_queue = multiprocessing.Queue()
-#
-#                 # 使用 multiprocessing 在新进程中运行函数
-#                 process = multiprocessing.Process(
-#                     target=self.run_proto_case,
-#                     args=(data, case_raw, case_raw['branch_name'], case_raw['proto_content'], case_raw['source'],
-#                           result_queue)
-#                 )
-#
-#                 process.start()
-#                 process.join()
-#
-#                 # 从队列中获取结果
-#                 res = result_queue.get()
-#                 if isinstance(res, Exception):
-#                     isPass = False
-#                 else:
-#                     isPass = True
-#                 end_time = time.time()
-#                 spend_time = end_time - start_time
-#
-#                 new_case = TestcaseResult(result=str(res),
-#                                           case_id=case_id,
-#                                           ispass=isPass, testevent_id=env_id, spend=str(int(spend_time)),
-#                                           date=datetime.now())
-#                 db.session.add(new_case)
-#                 try:
-#                     db.session.commit()
-#                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
-#                 except Exception as e:
-#                     db.session.rollback()
-#                     logger.info('用例：%s保存测试结果失败!原因：%s' % (case_id, e))
-#                     return reponse(code=MessageEnum.execute_proto_error.value[0],
-#                                    message=MessageEnum.execute_proto_error.value[1])
-#
-#             executehandler = ExecuteHandler(case_id, env_id)
-#             if case.is_relycase == 1:
-#                 res = executehandler.exemulticase(case_id=case_id, env_id=env_id)[0]
-#             else:
-#                 res = executehandler.exesinglecase(case_id=case_id, env_id=env_id)[0]
-#             logger.info(res)
-#             if eval(res)['result'] == '断言通过':
-#                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-#                                data=json.loads(res))
-#             elif eval(res)['result'] == '断言失败':
-#                 return reponse(code=MessageEnum.assert_fail.value[0], message=MessageEnum.assert_fail.value[1],
-#                                data=json.loads(res))
-#             else:
-#                 return reponse(code=MessageEnum.test_error.value[0], message=MessageEnum.test_error.value[1],
-#                                data=json.loads(res))
-#
-#         except Exception as e:
-#             logger.error(traceback.format_exc())
-#             return reponse(code=MessageEnum.test_error.value[0],
-#                            message=MessageEnum.test_error.value[1])
-#
-#     def run_proto_case(self, data, case_raw, branch_name, params, source, result_queue):
-#         try:
-#             logger.info('当前进程号：{}'.format(os.getpid()))
-#             if not data.get('env_id'):
-#                 envid = case_raw['env_id']
-#             else:
-#                 envid = data.get('env_id')
-#             # 重定向标准输入/输出/错误到 /dev/null
-#             sys.stdin = open(os.devnull, 'r')
-#             sys.stdout = open(os.devnull, 'w')
-#             sys.stderr = open(os.devnull, 'w')
-#             res = exeproto(uid=case_raw['uid'], env_id=envid, branch_name=branch_name,
-#                            reqmessage=case_raw['req_message_name'], params=params, source=source)
-#
-#             # 将结果放入队列
-#             result_queue.put(res)
-#
-#         except Exception as e:
-#             logger.error(traceback.format_exc())
-#             # 如果发生异常，则将 None 放入队列
-#             result_queue.put(e)
-#         finally:
-#             sys.exit(0)
 
 
 class AddPreCase(MethodView):
@@ -2655,3 +2572,29 @@ class Saveautocases(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.add_case_erro.value[0],
                            message=MessageEnum.add_case_erro.value[1])
+
+
+class Batchdelcase(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('case_ids'):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            caseids = data.get('case_ids')
+            for i in caseids:
+                case = InterfaceCase.query.filter_by(case_id=i).first()
+                case.status = 0
+            try:
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                db.session.rollback()
+                return reponse(code=MessageEnum.delete_case_error.value[0],
+                               message=MessageEnum.delete_case_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.delete_case_error.value[0],
+                           message=MessageEnum.delete_case_error.value[1])

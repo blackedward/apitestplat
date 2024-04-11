@@ -37,6 +37,8 @@ interfacecase.add_url_rule("/exemulproto", view_func=Exemulproto.as_view('exemul
 interfacecase.add_url_rule("/getallbrmes", view_func=Getallbrmes.as_view('getallbrmes'))
 interfacecase.add_url_rule("/autogencase", view_func=Autogencase.as_view('autogencase'))
 interfacecase.add_url_rule("/saveautocases", view_func=Saveautocases.as_view('saveautocases'))
+interfacecase.add_url_rule("/batchdelcase", view_func=Batchdelcase.as_view('batchdelcase'))
+
 
 
 
