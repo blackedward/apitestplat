@@ -82,6 +82,8 @@ def generate_test_cases(attributes):
                 if attributes[x]["type"] == "TYPE_MESSAGE":
                     field_values = []
                     field_values.append(process_message_field_assign(attributes[x], test_case[x]))
+                    if is_2d_array(field_values):
+                        field_values = field_values[0]
                 elif attributes[x]["type"] != "TYPE_MESSAGE" and attributes[x]["is_repeated"]:
                     field_values = []
                     for j in range(len(test_case[x])):
