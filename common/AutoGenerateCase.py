@@ -101,24 +101,22 @@ def generate_test_cases(attributes):
 
 
 def process_message_field_assign(field, caseval):
-    # if field["type"] == "TYPE_MESSAGE" and field["is_repeated"]:
-    #     # tmp_array = []
-    #     tmp_object = {}
-    #     if is_2d_array(field["fields"]):
-    #         field["fields"] = field["fields"][0]
-    #     for subfield, subcaseval in zip(field["fields"], caseval):
-    #         tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
-    #     # tmp_array.append(tmp_object)
-    #     return tmp_object
-    if field["type"] == "TYPE_MESSAGE":
+    if field["type"] == "TYPE_MESSAGE" and field["is_repeated"]:
+        tmp_array = []
+        tmp_object = {}
+        if is_2d_array(field["fields"]):
+            field["fields"] = field["fields"][0]
+        for subfield, subcaseval in zip(field["fields"], caseval):
+            tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
+        tmp_array.append(tmp_object)
+        return tmp_array
+    elif field["type"] == "TYPE_MESSAGE":
         if is_2d_array(field["fields"]):
             field["fields"] = field["fields"][0]
         tmp_object = {}
         for subfield, subcaseval in zip(field["fields"], caseval):
             tmp_object[subfield["name"]] = process_message_field_assign(subfield, subcaseval)
         return tmp_object
-    elif field["type"] != "TYPE_MESSAGE" and field["is_repeated"]:
-        return [caseval]
     elif field["type"] == "TYPE_BOOL":
         return bool(caseval)
     else:
