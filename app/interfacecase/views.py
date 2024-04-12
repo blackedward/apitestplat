@@ -1012,7 +1012,8 @@ class Updatecasereq(MethodView):
             interfacecase.socketrsp = requestinfo.get('socketrsp')
             if interfacecase.case_protocol == 2:
                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
-                raw_data['proto_content'] = json.loads(requestinfo.get('raw'))
+                raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
+                raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
                 raw_data['req_message_name'] = requestinfo.get('socketreq')
                 interfacecase.raw = json.dumps(raw_data)
             else:
@@ -1144,7 +1145,11 @@ class Getcasedetail(MethodView):
                 if interfacecase.params else []
 
             if interfacecase.case_protocol == 2:
-                raw = json.loads(interfacecase.raw)['proto_content']
+                raw = {}
+                request_content = json.loads(interfacecase.raw)['proto_content']
+                request_uid = json.loads(interfacecase.raw)['uid']
+                raw['request_content'] = request_content
+                raw['request_uid'] = request_uid
                 interfacecase.raw = json.dumps(raw)
 
             requestinfo = {
@@ -1193,14 +1198,9 @@ class Deletecase(MethodView):
                                message=MessageEnum.case_not_exict.value[1])
             interfacecase.status = 0
             interfacecase.update_time = datetime.now()
-            try:
-                db.session.commit()
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                db.session.rollback()
-                return reponse(code=MessageEnum.delete_case_error.value[0],
-                               message=MessageEnum.delete_case_error.value[1])
+            db.session.commit()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             db.session.rollback()
