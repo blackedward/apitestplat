@@ -725,7 +725,7 @@ class GetModelByPrjId(MethodView):
                 tdic['project'] = project_name
                 tdic['status'] = i.status
                 rdata.append(tdic)
-            ret = {"list": rdata, "total": len(rdata)}
+            ret = {"list": rdata, "total": model.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                            data=ret)
         except Exception as e:
