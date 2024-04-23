@@ -1664,7 +1664,7 @@ class Executeproto(MethodView):
         try:
             logger.info('主进程号：{}'.format(os.getpid()))
             data = request.get_json()
-            if not data.get('proto_name') or not data.get('req_message_name') or not data.get('env_id') or not data.get(
+            if not data.get('req_message_name') or not data.get('env_id') or not data.get(
                     'uid') or not data.get('branch_name') or not data.get('source'):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
