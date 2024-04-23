@@ -1761,7 +1761,7 @@ class Onesaveproto(MethodView):
     def post(self):
         try:
             data = request.get_json()
-            if not all(data.get(field) for field in ['proto_name', 'req_message_name', 'env_id', 'uid', 'case_desc',
+            if not all(data.get(field) for field in ['req_message_name', 'env_id', 'uid', 'case_desc',
                                                      'project_id', 'model_id']):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
