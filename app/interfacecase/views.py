@@ -1494,11 +1494,10 @@ class Getattbymessage(MethodView):
         try:
             logger.info("获取message里的属性 当前主进程 ID: {}".format(os.getpid()))
             branch_name = request.args.get('branch_name')
-            proto_name = request.args.get('proto_name')
             message_name = request.args.get('message_name')
             source = request.args.get('source')
 
-            if not branch_name or not proto_name or not message_name:
+            if not branch_name or not message_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             if '/' in branch_name:
