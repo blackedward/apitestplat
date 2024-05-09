@@ -9,3 +9,5 @@ user.add_url_rule('/unfreezeuser', view_func=UnFreezeUserView.as_view('unfreezeu
 user.add_url_rule('/setadmin', view_func=SetAdminView.as_view('setadmin'))
 user.add_url_rule('/list', view_func=UserList.as_view('list'))
 user.add_url_rule('/currentuser', view_func=Currentuser.as_view('currentuser'))
+user.add_url_rule("/resetpsw", view_func=Resetpsw.as_view('resetpsw'))
+

@@ -231,3 +231,28 @@ class Currentuser(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.login_user_not_exict_message.value[0],
                            message=MessageEnum.login_user_not_exict_message.value[1])
+
+
+class Resetpsw(MethodView):
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data:
+                return reponse(code=MessageEnum.parames_not_null.value[0],
+                               message=MessageEnum.parames_not_null.value[1])
+            username = data.get('username')
+            password = data.get('password')
+            user = User.query.filter_by(username=username).first()
+            if user:
+                user.set_password(password)
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], data="重置密码成功",
+                               message=MessageEnum.successs.value[1])
+            else:
+                return reponse(code=MessageEnum.reset_password_error.value[0], data="重置密码失败",
+                               message=MessageEnum.reset_password_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.reset_password_error.value[0], data="重置密码失败",
+                           message=MessageEnum.reset_password_error.value[1])

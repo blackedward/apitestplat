@@ -241,3 +241,6 @@ class MessageEnum(Enum):
     excute_proto_terminal = 100234, '执行proto中断异常'
     suite_deleted = 100235, '套件已经删除'
     auto_less_parameter = 100236, '参数过少，无法生成'
+    reset_password_error = 100237, '重置密码失败'
+    get_report_error = 100238, '获取报告异常'
+    no_report_here= 100239, '没有报告'

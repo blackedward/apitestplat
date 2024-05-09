@@ -746,110 +746,6 @@ class GetCaseByProj(MethodView):
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
 
 
-# class Updateprecase(MethodView):
-#     @login_required
-#     def post(self):
-#         try:
-#             data = request.get_json()
-#             if not data:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
-#
-#             olddata = Precase.query.filter_by(parent_case_id=data.get('caseid')).all()
-#             oldprecaseid = []
-#             if olddata:
-#                 for i in olddata:
-#                     oldprecaseid.append(i.pre_case_id)
-#             newdata = data.get('precases')
-#             if not newdata or len(newdata) == 0:
-#                 interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-#                 interfacecase.is_relycase = 0
-#                 interfacecase.update_time = datetime.now()
-#                 try:
-#                     db.session.commit()
-#                 except Exception as e:
-#                     logger.error(traceback.format_exc())
-#                     db.session.rollback()
-#                     return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                    message=MessageEnum.update_pre_case_error.value[1])
-#
-#                 for j in oldprecaseid:
-#                     logger.info('old precaseid:{} not in newprecases', j)
-#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-#                                                        pre_case_id=j).first()
-#                     pre_case.status = 0
-#                     pre_case.update_time = datetime.now()
-#                     try:
-#                         db.session.commit()
-#                     except Exception as e:
-#                         logger.error(traceback.format_exc())
-#                         db.session.rollback()
-#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                        message=MessageEnum.update_pre_case_error.value[1])
-#                 return reponse(code=MessageEnum.successs.value[0],
-#                                message=MessageEnum.successs.value[1])
-#             for i in newdata:
-#                 interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-#                 interfacecase.is_relycase = 1
-#                 interfacecase.update_time = datetime.now()
-#                 try:
-#                     db.session.commit()
-#                 except Exception as e:
-#                     logger.error(traceback.format_exc())
-#                     db.session.rollback()
-#                     return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                    message=MessageEnum.update_pre_case_error.value[1])
-#                 if i.get('pre_case_id') in oldprecaseid:
-#                     logger.info('precaseid:{} in oldprecases', i.get('pre_case_id'))
-#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-#                                                        pre_case_id=i.get('pre_case_id')).first()
-#                     pre_case.extract_expression = i.get('exp')
-#                     pre_case.order = i.get('sort_id')
-#                     pre_case.status = 1
-#                     pre_case.update_time = datetime.now()
-#                     try:
-#                         db.session.commit()
-#                     except Exception as e:
-#                         logger.error(traceback.format_exc())
-#                         db.session.rollback()
-#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                        message=MessageEnum.update_pre_case_error.value[1])
-#                 else:
-#                     logger.info('precaseid:{} not in oldprecases', i.get('pre_case_id'))
-#                     pre_case = Precase()
-#                     pre_case.parent_case_id = data.get('caseid')
-#                     pre_case.extract_expression = i.get('exp')
-#                     pre_case.pre_case_id = i.get('pre_case_id')
-#                     pre_case.order = i.get('sort_id')
-#                     pre_case.status = 1
-#                     pre_case.update_time = datetime.now()
-#                     try:
-#                         db.session.add(pre_case)
-#                         db.session.commit()
-#                     except Exception as e:
-#                         logger.error(traceback.format_exc())
-#                         db.session.rollback()
-#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                        message=MessageEnum.update_pre_case_error.value[1])
-#             for j in oldprecaseid:
-#                 if not any(j == d.get('pre_case_id') for d in data.get('precases')):
-#                     logger.info('old precaseid:{} not in newprecases', j)
-#                     pre_case = Precase.query.filter_by(parent_case_id=data.get('caseid'),
-#                                                        pre_case_id=j).first()
-#                     pre_case.status = 0
-#                     pre_case.update_time = datetime.now()
-#                     try:
-#                         db.session.commit()
-#                     except Exception as e:
-#                         logger.error(traceback.format_exc())
-#                         db.session.rollback()
-#                         return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                                        message=MessageEnum.update_pre_case_error.value[1])
-#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-#         except Exception as e:
-#             logger.error(traceback.format_exc())
-#             return reponse(code=MessageEnum.update_pre_case_error.value[0],
-#                            message=MessageEnum.update_pre_case_error.value[1])
 class Updateprecase(MethodView):
     @login_required
     def post(self):
@@ -2288,39 +2184,73 @@ class Exemulproto(MethodView):
                 return reponse(code=MessageEnum.execute_proto_error.value[0],
                                message=MessageEnum.execute_proto_error.value[1], data=ret)
 
-            isPass = True
             try:
                 for i in res:
-                    for k, v in i.items():
-                        assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
-                        assert_info = {}
-                        if assertdesc is not None:
-                            temp = v
-                            if '.' in assertdesc.expression:
-                                for j in assertdesc.expression.split('.'):
-                                    temp = temp[j]
-                            else:
-                                temp = temp[assertdesc.expression]
-                            if isinstance(temp, bool):
-                                temp = str(temp).lower()
-                            else:
-                                temp = str(temp)
-                            if temp == assertdesc.excepted_result:
-                                isPass = True
-                            else:
-                                isPass = False
-                            assert_info = {'case_id': k, 'is_pass': isPass, 'except': assertdesc.excepted_result,
-                                           'actual': temp, 'assert_desc': assertdesc.assert_name}
-                        i.get(k)['assert_info'] = assert_info
-                        testres = TestcaseResult(
-                            case_id=k,
-                            result=str(v),
-                            ispass=isPass,
-                            date=datetime.now(),
-                            spend=str("{:.2f}".format(end_time - start_time)),
-                            testevent_id=data.get('env_id')
-                        )
-                        db.session.add(testres)
+                    caseid = i.get('case_id')
+                    rsp = i.get('exe_rsp')
+                    assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
+                    assert_info = {}
+                    if assertdesc is not None:
+                        temp = rsp
+                        if '.' in assertdesc.expression:
+                            for j in assertdesc.expression.split('.'):
+                                temp = temp[j]
+                        else:
+                            temp = temp[assertdesc.expression]
+                        if isinstance(temp, bool):
+                            temp = str(temp).lower()
+                        else:
+                            temp = str(temp)
+                        if temp == assertdesc.excepted_result:
+                            isPass = True
+                        else:
+                            isPass = False
+                        assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
+                                       'actual': temp, 'assert_desc': assertdesc.assert_name,
+                                       'expression': assertdesc.expression}
+
+                    i['assert_info'] = assert_info
+                    testres = TestcaseResult(
+                        case_id=caseid,
+                        result=str(rsp),
+                        ispass=isPass,
+                        date=datetime.now(),
+                        spend=str("{:.2f}".format(end_time - start_time)),
+                        testevent_id=data.get('env_id')
+                    )
+                    db.session.add(testres)
+
+                    # for k, v in i.items():
+                    #
+                    #     assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
+                    #     assert_info = {}
+                    #     if assertdesc is not None:
+                    #         temp = v
+                    #         if '.' in assertdesc.expression:
+                    #             for j in assertdesc.expression.split('.'):
+                    #                 temp = temp[j]
+                    #         else:
+                    #             temp = temp[assertdesc.expression]
+                    #         if isinstance(temp, bool):
+                    #             temp = str(temp).lower()
+                    #         else:
+                    #             temp = str(temp)
+                    #         if temp == assertdesc.excepted_result:
+                    #             isPass = True
+                    #         else:
+                    #             isPass = False
+                    #         assert_info = {'case_id': k, 'is_pass': isPass, 'except': assertdesc.excepted_result,
+                    #                        'actual': temp, 'assert_desc': assertdesc.assert_name}
+                    #     i.get(k)['assert_info'] = assert_info
+                    #     testres = TestcaseResult(
+                    #         case_id=k,
+                    #         result=str(v),
+                    #         ispass=isPass,
+                    #         date=datetime.now(),
+                    #         spend=str("{:.2f}".format(end_time - start_time)),
+                    #         testevent_id=data.get('env_id')
+                    #     )
+                    #     db.session.add(testres)
                 db.session.commit()
                 if isPass:
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
@@ -2345,7 +2275,7 @@ class Exemulproto(MethodView):
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
-            res = exemulproto(env_id=data.get('env_id'), caseinfos=caseinfos)
+            res = exemulproto(env_id=data.get('env_id'), caseinfos=caseinfos, is_skip=data.get('is_skip'))
 
             result_queue.put(res)
 
@@ -2356,60 +2286,82 @@ class Exemulproto(MethodView):
             sys.exit(0)
 
 
-def exemulproto(env_id, caseinfos):
+def exemulproto(env_id, caseinfos, is_skip):
     try:
         logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
         source = json.loads(caseinfos[0]['case_raw'])['source']
         branch_name = json.loads(caseinfos[0]['case_raw'])['branch_name']
-        if source == 'kk' or source is None:
-            proto_path = PROJECT_ROOT + "/proto/" + branch_name
-        else:
-            proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
+        proto_path = PROJECT_ROOT + ("/proto/" if source in ('kk', None) else "/proto/pp/") + branch_name
+        # if source == 'kk' or source is None:
+        #     proto_path = PROJECT_ROOT + "/proto/" + branch_name
+        # else:
+        #     proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
         env = Environment.query.filter_by(id=env_id).first()
-        host = env.url
-        port = env.port
+        host, port = env.url, env.port
 
         sys.path.append(proto_path)
         uid = json.loads(caseinfos[0]['case_raw'])['uid']
         player = Player(uid, host, port)
-        if not player.client:
-            player.client = Client(host=host, port=port)
+        player.client = client = Client(host=host, port=port) if not player.client else player.client
+
+        # if not player.client:
+        #     player.client = Client(host=host, port=port)
         for name in os.listdir(proto_path):
-            if name == '__init__.py' or name[-3:] != '.py':
+            if name == '__init__.py' or not name.endswith('.py'):
                 continue
-            if source == 'kk' or source is None:
-                module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
-            else:
-                module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
+            module = importlib.import_module(
+                f"proto.{branch_name}.{name[:-3]}" if source in ('kk', None) else f"proto.pp.{branch_name}.{name[:-3]}")
             for item in dir(module):
                 player.client.pb[item] = getattr(module, item)
-        if source == 'kk' or source is None:
+
+        if source in ('kk', None):
             player = player.login_by_uid(uid)[1]
         else:
             player = player.login_by_uid_pp(uid)[1]
 
-        client = player.client
+        # for name in os.listdir(proto_path):
+        #     if name == '__init__.py' or name[-3:] != '.py':
+        #         continue
+        #     if source == 'kk' or source is None:
+        #         module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
+        #     else:
+        #         module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
+        #     for item in dir(module):
+        #         player.client.pb[item] = getattr(module, item)
+        # if source == 'kk' or source is None:
+        #     player = player.login_by_uid(uid)[1]
+        # else:
+        #     player = player.login_by_uid_pp(uid)[1]
+        # client = player.client
 
         reslut = []
         for i in caseinfos:
+            r = {'case_id': i['case_id']}
             params = json.loads(i['case_raw'])['proto_content']
             reqmessage = json.loads(i['case_raw'])['req_message_name']
             rspmessage = reqmessage[:-3] + "RSP"
             try:
                 client.send(reqmessage, params)
                 msg = client.recv(rspmessage)
-                r = {i['case_id']: msg.body}
+                r['exe_res'] = True
+                r['exe_rsp'] = msg.body
             except Exception as e:
+                logger.error(f"Error processing case {i['case_id']}: {e}")
                 logger.error(traceback.format_exc())
-                return i['case_id'], format(e)
+                r['exe_res'] = False
+                r['exe_rep'] = f"Error: {e}"
+                if str(is_skip) == False:
+                    raise e
             reslut.append(r)
 
-        client.stop()
+        # client.stop()
         logger.info('reslut is {}', reslut)
         return reslut
     except Exception as e:
         logger.error(traceback.format_exc())
         raise e
+    finally:
+        client.stop() if 'client' in locals() else None
 
 
 class Getallbrmes(MethodView):
@@ -2446,7 +2398,7 @@ class Getallbrmes(MethodView):
 
     def run_in_new_process_getallbrmes(self, proto_path, result_queue):
         try:
-            logger.info('当前进程号，执行获取分之内所有message：{}'.format(os.getpid()))
+            logger.info('当前进程号，执行获取分支内所有message：{}'.format(os.getpid()))
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
@@ -2597,3 +2549,128 @@ class Batchdelcase(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.delete_case_error.value[0],
                            message=MessageEnum.delete_case_error.value[1])
+
+
+class Testreport(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            if not any([request.args.get('model_id'), request.args.get('project_id')]):
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+
+            start_time = request.args.get('start_time')
+            end_time = request.args.get('end_time')
+            model_id = request.args.get('model_id')
+            project_id = request.args.get('project_id')
+
+            gross_caselist = TestcaseResult.query.filter(
+                TestcaseResult.date.between(start_time, end_time)).with_entities(
+                TestcaseResult.case_id).distinct().all()
+            case_list = [case.case_id for case in gross_caselist]
+
+            logger.info('gross_caselist is {}', case_list)
+            filtered_cases = []
+
+            if model_id:
+                filtered_case_ids = [
+                    i for i in case_list
+                    if InterfaceCase.query.filter_by(case_id=i, model_id=model_id).first()
+                ]
+                filtered_cases.extend(filtered_case_ids)
+            else:
+                filtered_case_ids = [
+                    i for i in case_list
+                    if InterfaceCase.query.filter_by(case_id=i, project_id=project_id).first()
+                ]
+                filtered_cases.extend(filtered_case_ids)
+
+            case_list = filtered_cases
+
+            logger.info('after deal case_list is {}', case_list)
+            if not case_list:
+                return reponse(code=MessageEnum.no_report_here.value[0],
+                               message=MessageEnum.no_report_here.value[1])
+
+            total = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
+                TestcaseResult.date.between(start_time, end_time)).count()
+            passnum = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
+                TestcaseResult.date.between(start_time, end_time), TestcaseResult.ispass == True).count()
+            failnum = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
+                TestcaseResult.date.between(start_time, end_time), TestcaseResult.ispass == False).count()
+            passrate = round(passnum / total, 4) if total != 0 else 0
+            failrate = round(failnum / total, 4) if total != 0 else 0
+            ret = {'total': total, 'passnum': passnum, 'failnum': failnum, 'passrate': passrate, 'failrate': failrate}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_report_error.value[0],
+                           message=MessageEnum.get_report_error.value[1])
+
+
+class Reportlist(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            start_time = request.args.get('start_time')
+            end_time = request.args.get('end_time')
+            model_id = request.args.get('model_id')
+            project_id = request.args.get('project_id')
+            case_id = request.args.get('case_id')
+            test_res = request.args.get('test_res')
+            page_size = request.args.get('page_size') or 10
+            page_num = request.args.get('page_num') or 1
+
+            gross_caselist = TestcaseResult.query.filter(
+                TestcaseResult.date.between(start_time, end_time)).with_entities(
+                TestcaseResult.case_id).distinct().all()
+            case_list = [case.case_id for case in gross_caselist]
+
+            filtered_cases = []
+            if model_id:
+                filtered_case_ids = [
+                    i for i in case_list
+                    if InterfaceCase.query.filter_by(case_id=i, model_id=model_id).first()
+                ]
+                filtered_cases.extend(filtered_case_ids)
+            else:
+                filtered_case_ids = [
+                    i for i in case_list
+                    if InterfaceCase.query.filter_by(case_id=i, project_id=project_id).first()
+                ]
+                filtered_cases.extend(filtered_case_ids)
+            case_list = filtered_cases
+
+            if not case_list:
+                return reponse(code=MessageEnum.no_report_here.value[0],
+                               message=MessageEnum.no_report_here.value[1])
+
+            total_res = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
+                TestcaseResult.date.between(start_time, end_time)).all()
+
+            ret = []
+            for i in total_res:
+                case = InterfaceCase.query.filter_by(case_id=i.case_id).first()
+                res = {'case_id': case.case_id, 'case_desc': case.desc, 'is_pass': i.ispass, 'spend': i.spend,
+                       'detail': i.result, 'exe_time': str(i.date)}
+                ret.append(res)
+            if case_id:
+                ret = list(filter(lambda x: x['case_id'] == int(case_id), ret))
+            if test_res:
+                ret = list(filter(lambda x: str(x['is_pass']) == test_res, ret))
+
+            start_idx = (int(page_num) - 1) * int(page_size)
+            end_idx = int(start_idx) + int(page_size)
+            paginated_ret = ret[start_idx:end_idx]
+
+            # 构建返回结果
+            response = {'total': len(ret), 'page_size': page_size, 'page_num': page_num, 'reslist': paginated_ret}
+
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=response)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_report_error.value[0],
+                           message=MessageEnum.get_report_error.value[1])

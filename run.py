@@ -6,11 +6,13 @@ from app import app
 from app.users import user
 from app.projects import project
 from app.interfacecase import interfacecase
+from app.tools import tools
 from gevent.pywsgi import WSGIServer
 
 app.register_blueprint(user, url_prefix='/user')
 app.register_blueprint(project, url_prefix='/project')
 app.register_blueprint(interfacecase, url_prefix='/interfacecase')
+app.register_blueprint(tools, url_prefix='/tools')
 
 
 @app.route('/')
