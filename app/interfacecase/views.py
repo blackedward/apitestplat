@@ -2185,6 +2185,7 @@ class Exemulproto(MethodView):
                                message=MessageEnum.execute_proto_error.value[1], data=ret)
 
             try:
+                flag = True
                 for i in res:
                     caseid = i.get('case_id')
                     rsp = i.get('exe_rsp')
@@ -2205,6 +2206,7 @@ class Exemulproto(MethodView):
                             isPass = True
                         else:
                             isPass = False
+                            flag = False
                         assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
                                        'actual': temp, 'assert_desc': assertdesc.assert_name,
                                        'expression': assertdesc.expression}
@@ -2219,40 +2221,8 @@ class Exemulproto(MethodView):
                         testevent_id=data.get('env_id')
                     )
                     db.session.add(testres)
-
-                    # for k, v in i.items():
-                    #
-                    #     assertdesc = InterfaceCaseAssert.query.filter_by(case_id=k).first()
-                    #     assert_info = {}
-                    #     if assertdesc is not None:
-                    #         temp = v
-                    #         if '.' in assertdesc.expression:
-                    #             for j in assertdesc.expression.split('.'):
-                    #                 temp = temp[j]
-                    #         else:
-                    #             temp = temp[assertdesc.expression]
-                    #         if isinstance(temp, bool):
-                    #             temp = str(temp).lower()
-                    #         else:
-                    #             temp = str(temp)
-                    #         if temp == assertdesc.excepted_result:
-                    #             isPass = True
-                    #         else:
-                    #             isPass = False
-                    #         assert_info = {'case_id': k, 'is_pass': isPass, 'except': assertdesc.excepted_result,
-                    #                        'actual': temp, 'assert_desc': assertdesc.assert_name}
-                    #     i.get(k)['assert_info'] = assert_info
-                    #     testres = TestcaseResult(
-                    #         case_id=k,
-                    #         result=str(v),
-                    #         ispass=isPass,
-                    #         date=datetime.now(),
-                    #         spend=str("{:.2f}".format(end_time - start_time)),
-                    #         testevent_id=data.get('env_id')
-                    #     )
-                    #     db.session.add(testres)
                 db.session.commit()
-                if isPass:
+                if flag:
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                                    data=res)
                 else:
@@ -2354,7 +2324,7 @@ def exemulproto(env_id, caseinfos, is_skip):
                     raise e
             reslut.append(r)
 
-        # client.stop()
+        client.stop()
         logger.info('reslut is {}', reslut)
         return reslut
     except Exception as e:

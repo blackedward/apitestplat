@@ -121,91 +121,6 @@ class ExecuteHandler(object):
             logger.exception(e)
             return '{"result": "执行过程中发生异常"}', None
 
-    # def exemulticase(self, case_id=None, env_id=None):
-    #     if not case_id:
-    #         case_id = self.case_id
-    #     if not env_id:
-    #         env_id = self.env_id
-    #     # 检查用例是否存在数据依赖并执行
-    #     try:
-    #         rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
-    #         if not rely_dbf_id:
-    #             pass
-    #         else:
-    #             dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
-    #             logger.info(dbfresult)
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return '{"result": "case存在数据依赖，但是执行dbf失败"}', None
-    #
-    #     try:
-    #         precases = Precase.query.filter_by(parent_case_id=case_id, status=1).order_by(Precase.order).all()
-    #         if not precases:
-    #             return '{"result": "前置用例查询为空"}', None
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return '{"result": "前置用例查询失败"}', None
-    #     precasesinfos = []
-    #     for i in precases:  # 执行前置用例
-    #         precaseinfo = {}
-    #         caseid = i.pre_case_id
-    #         extract_expression = i.extract_expression
-    #         try:
-    #             exerespon = self.exesinglecase(case_id=caseid, env_id=env_id)
-    #             if not exerespon:
-    #                 return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
-    #             else:
-    #                 res = json.loads(exerespon[0])
-    #                 if res['result'] == '断言失败':
-    #                     return '{"result":"前置用例' + str(caseid) + '断言失败"}', None
-    #                 elif res['result'] == '请求出错了':
-    #                     return '{"result":"前置用例' + str(caseid) + '请求出错了"}', None
-    #                 else:
-    #                     precaseinfo['extract_result'] = exerespon[1][extract_expression[3:]]
-    #                     precaseinfo['extract_expression'] = extract_expression
-    #                     precaseinfo['pre_case_id'] = caseid
-    #                     precasesinfos.append(precaseinfo)
-    #         except Exception as e:
-    #             logger.exception(e)
-    #             return '{"result":"前置用例' + str(caseid) + '执行失败"}', None
-    #
-    #     try:  # 根据用例类型来组织请求参数
-    #         parameterdic = self.assemble_parameters(case_id=case_id, env_id=env_id)
-    #         if not parameterdic:
-    #             return '{"result": "组装参数失败"}', None
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return '{"result": "组装参数失败"}', None
-    #
-    #     for i in precasesinfos:  # 替换参数
-    #         if i.get("extract_expression") in parameterdic['case_params']:
-    #             parameterdic['case_params'] = parameterdic['case_params'].replace(i.get("extract_expression"),
-    #                                                                               str(i.get("extract_result")))
-    #         else:
-    #             pass
-    #
-    #     logger.info('parameterdic is :{}', parameterdic)
-    #     if parameterdic['protocol'] == 0:
-    #         api = Api(url=parameterdic['case_url'],
-    #                   method=parameterdic['case_method'],
-    #                   params=parameterdic['case_params'],
-    #                   headers=parameterdic['case_headers'])
-    #         logger.info(api.to_json())
-    #         apijson = api.getJson()
-    #         spend = api.spend()
-    #         if apijson == '请求出错了':
-    #             self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
-    #             return '{"result": "请求出错了"}', None
-    #         res = self.judgecase(apijson, case_id=case_id)[0]
-    #         if res is True:
-    #             self.save_case_result(apijson, self.case_id, ispass=True, testevir=self.env_id, spend=spend)
-    #             return '{"result": "断言通过"}', apijson
-    #         else:
-    #             self.save_case_result(apijson, self.case_id, ispass=False, testevir=self.env_id, spend=spend)
-    #             return '{"result": "断言失败"}', apijson
-    #     else:
-    #         return '{"result": "协议错误"}', None
-
     def exemulticase(self, case_id=None, env_id=None):
         try:
             if not case_id:
@@ -361,53 +276,6 @@ class ExecuteHandler(object):
             logger.exception(e)
             return flag, {'执行过程中发生异常'}
 
-    # def assemble_parameters(self, case_id, env_id):  # 根据用例信息和环境信息组装参数
-    #     res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
-    #
-    #     try:
-    #         case = InterfaceCase.query.filter_by(case_id=case_id).first()
-    #         env = Environment.query.filter_by(id=env_id).first()
-    #         if case is None or env is None:
-    #             return res
-    #     except Exception as e:
-    #         logger.exception(e)
-    #         return res
-    #
-    #     if env.url is None:
-    #         return res
-    #     if env.port is None:
-    #         env_url = env.url
-    #     else:
-    #         env_url = env.url + ':' + env.port  # 拼接主url的域名
-    #     # 用例信息的组装，需要根据用例的协议来组装，先处理http协议的。get和post的组装方式也不同，get参数放在表里的params字段，post参数放在表里的raw字段
-    #     if case.case_protocol == 0:
-    #         if case.method == 0:
-    #             res['protocol'] = case.case_protocol
-    #             res['case_url'] = env_url + case.url
-    #             res['case_method'] = CaseMethods(case.method).name
-    #             res['case_params'] = case.params
-    #             res['case_headers'] = case.headers
-    #         elif case.method == 1:
-    #             res['protocol'] = case.case_protocol
-    #             res['case_url'] = env_url + case.url
-    #             res['case_method'] = CaseMethods(case.method).name
-    #             res['case_params'] = case.raw
-    #             res['case_headers'] = case.headers
-    #     elif case.case_protocol == 1:
-    #         pass  # todo 处理grpc协议的用例
-    #     elif case.case_protocol == 2:  # 处理socket协议的用例参数
-    #         res['protocol'] = case.case_protocol
-    #         res['case_req'] = case.socketreq
-    #         res['case_params'] = eval(case.raw)['req']
-    #         res['case_rsp'] = case.socketrsp
-    #         res['host'] = env.url
-    #         res['port'] = env.port
-    #         res['uid'] = eval(case.raw)['uid']
-    #     elif case.case_protocol == 3:
-    #         pass  # todo 处理ws协议的用例
-    #     else:
-    #         return res
-    #     return res
     def assemble_parameters(self, case_id, env_id):
         """根据用例信息和环境信息组装参数"""
         res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
@@ -440,20 +308,12 @@ class ExecuteHandler(object):
                 res['case_params'] = case.params
             elif case.method == 1:  # POST 方法
                 res['case_params'] = case.raw
-
-        # elif case.case_protocol == 2:  # Socket 协议
-        #     res['case_req'] = case.socketreq
-        #     res['case_params'] = eval(case.raw)['req']
-        #     res['case_rsp'] = case.socketrsp
-        #     res['host'] = env.url
-        #     res['port'] = env.port
-        #     res['uid'] = eval(case.raw)['uid']
         return res
 
     def save_case_result(self, result, caseid, ispass, testevir, spend=None):
         new_case = TestcaseResult(result=str(result),
                                   case_id=caseid,
-                                  ispass=ispass, testevent_id=testevir, spend=spend)
+                                  ispass=ispass, testevent_id=testevir, spend=spend, date=datetime.now())
         db.session.add(new_case)
         try:
             db.session.commit()
