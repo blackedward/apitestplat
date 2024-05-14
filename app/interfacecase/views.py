@@ -638,20 +638,12 @@ class AddCase(MethodView):
                     for i in requestparams:
                         params[i['name']] = i['value']
                 interfacecase.params = json.dumps(params)
-                # interfacecase.form_data_encoded = data.get('requestinfo')['form_data_encoded']
-                # interfacecase.form_data = data.get('requestinfo')['form_data']
+
                 interfacecase.socketreq = data.get('requestinfo')['socketreq']
                 interfacecase.socketrsp = data.get('requestinfo')['socketrsp']
                 interfacecase.raw = data.get('requestinfo')['raw']
-                # interfacecase.raw_type = data.get('requestinfo')['raw_type']
-                # interfacecase.body_type = data.get('requestinfo')['body_type']
                 interfacecase.creater = current_user.user_id
-                # interfacecase.created_time = data.get('basicinfo')['created_time'] if data.get('basicinfo')[
-                #     'created_time'] else datetime.datetime.now()
-                # interfacecase.update_time = data.get('basicinfo')['update_time'] if data.get('basicinfo')[
-                #     'update_time'] else datetime.datetime.now()
                 interfacecase.source = 0
-                # interfacecase.import_no = data.get('basicinfo')['import_no']
 
                 try:
                     db.session.add(interfacecase)

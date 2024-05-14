@@ -212,7 +212,8 @@ class ExecuteHandler(object):
             if not case_id:
                 case_id = self.case_id
             flag = False
-            caseasserts = InterfaceCaseAssert.query.filter_by(case_id=case_id).order_by(InterfaceCaseAssert.order).all()
+            caseasserts = InterfaceCaseAssert.query.filter_by(case_id=case_id, status=1).order_by(
+                InterfaceCaseAssert.order).all()
             if not caseasserts:
                 flag = True
                 return flag, {'断言为空,默认通过'}
