@@ -26,10 +26,10 @@ class requesttool():
             return {'get请求出错': "错误原因:%s" % e}
 
     def post(self, url, params, headers):  # post消息
-        data = json.dumps(params)
+        # data = json.dumps(params)
         try:
             reponse = requests.post(url,
-                                    data=data,
+                                    data=params,
                                     timeout=Interface_Time_Out,
                                     headers=headers)
             # if reponse.status_code != 200:
