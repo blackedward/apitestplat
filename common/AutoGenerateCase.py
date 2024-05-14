@@ -87,6 +87,9 @@ def generate_test_cases(attributes):
                 elif attributes[x]["type"] != "TYPE_MESSAGE" and attributes[x]["is_repeated"]:
                     for j in range(len(test_case[x])):
                         field_values.append(test_case[x][j])
+                elif attributes[x]["type"] == "TYPE_BOOL":
+                    for j in range(len(test_case[x])):
+                        field_values.append(bool(test_case[x][j]))
                 else:
                     for j in range(len(test_case[x])):
                         field_values.append(test_case[x][j])
@@ -95,6 +98,8 @@ def generate_test_cases(attributes):
                 caseval = test_case[x]
                 if attributes[x]["type"] == "TYPE_MESSAGE":
                     json_object[attributes[x]['name']] = process_message_field_assign(attributes[x], caseval)
+                elif attributes[x]["type"] == "TYPE_BOOL":
+                    json_object[attributes[x]['name']] = bool(caseval)
                 else:
                     json_object[attributes[x]['name']] = caseval
         testcases_params.append(json_object)
