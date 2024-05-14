@@ -75,6 +75,7 @@ class ExecuteHandler(object):
 
     def exesinglecase(self, case_id=None, env_id=None):
         try:
+            start_time = time.time()
             if not case_id:
                 case_id = self.case_id
             if not env_id:
@@ -98,7 +99,8 @@ class ExecuteHandler(object):
                     headers=parameterdic['case_headers']
                 )
                 apijson = api.getJson()
-                spend = api.spend()
+                end_time = time.time()
+                spend = str("{:.2f}".format(end_time - start_time))
                 if apijson == '请求出错了':
                     self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
                     return '{"result": "请求出错了"}', None
