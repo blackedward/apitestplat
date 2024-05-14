@@ -2207,7 +2207,7 @@ class Exemulproto(MethodView):
                     testres = TestcaseResult(
                         case_id=caseid,
                         result=str(rsp),
-                        ispass=isPass,
+                        ispass=flag,
                         date=datetime.now(),
                         spend=str("{:.2f}".format(end_time - start_time)),
                         testevent_id=data.get('env_id')
