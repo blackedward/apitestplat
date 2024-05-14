@@ -41,7 +41,10 @@ def process_attributes(attributes):
                 parameters.append(y)
         else:
             if attribute["type"] == "TYPE_BOOL":
-                parameters.append(attribute["range"])
+                y = []
+                for j in range(len(attribute["range"])):
+                    y.append(str_to_bool(attribute["range"][j]))
+                parameters.append(y)
             elif attribute["type"] == "TYPE_MESSAGE":
                 y = []
                 x = []
@@ -127,3 +130,13 @@ def process_message_field_assign(field, caseval):
         return bool(caseval)
     else:
         return caseval
+
+
+def str_to_bool(s):
+    s = s.lower()
+    if s == "true":
+        return True
+    elif s == "false":
+        return False
+    else:
+        raise ValueError(f"Cannot convert {s} to bool")
