@@ -2111,7 +2111,7 @@ class Deletesuite(MethodView):
                            message=MessageEnum.delete_suite_error.value[1])
 
 
-class Exemulproto(MethodView):
+class Exemult(MethodView):
 
     @login_required
     def post(self):
@@ -2148,10 +2148,33 @@ class Exemulproto(MethodView):
             else:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            # Use multiprocessing Queue to communicate results
-            result_queue = multiprocessing.Queue()
 
-            # Use multiprocessing to run the function in a new process
+            env = Environment.query.filter_by(id=data.get('env_id')).first()
+            if env.protocol == 'http':
+                flag = True
+                exe_res = []
+                for case in caseinfos:
+                    isPass = False
+                    assertinfo = {}
+                    executehandler = ExecuteHandler(case['case_id'], env.id)
+                    res = executehandler.exesinglecase(case_id=case['case_id'], env_id=env.id)
+                    if '断言通过' not in res[0]:
+                        isPass = False
+                        flag = False
+                    assertinfo['case_id'] = case['case_id']
+                    assertinfo['is_pass'] = isPass
+                    assertinfo['rsp'] = res[1]
+                    assertinfo['assert_desc'] = res[0]
+                    exe_res.append(assertinfo)
+                ret = {'suite_id': data.get('suite_id'), 'is_pass': flag, 'result': exe_res}
+                if flag:
+                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
+                                   data=ret)
+                else:
+                    return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
+                                   data=ret)
+
+            result_queue = multiprocessing.Queue()
             process = multiprocessing.Process(
                 target=self.run_in_new_process_multproto,
                 args=(data, caseinfos, result_queue)
