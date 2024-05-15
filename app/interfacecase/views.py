@@ -627,10 +627,8 @@ class AddCase(MethodView):
                 interfacecase.method = data.get('requestinfo')['method']
                 interfacecase.desc = data.get('basicinfo')['casedesc']
                 headers = {}
-                if data.get('requestinfo')['headers']:
-                    requestheaders = json.loads(data.get('requestinfo')['headers'])
-                    for i in requestheaders:
-                        headers[i['name']] = i['value']
+                if data.get('requestinfo')['headers'] and data.get('requestinfo')['headers'] != '':
+                    headers = json.loads(data.get('requestinfo')['headers'])
                 interfacecase.headers = json.dumps(headers)
                 params = {}
                 if data.get('requestinfo')['params']:
@@ -893,7 +891,7 @@ class Updatecasereq(MethodView):
             interfacecase.method = requestinfo.get('method')
 
             # 更新请求头和参数
-            interfacecase.headers = self._parse_json(requestinfo.get('headers'))
+            interfacecase.headers = requestinfo.get('headers')
             interfacecase.params = self._parse_json(requestinfo.get('params'))
 
             interfacecase.socketreq = requestinfo.get('socketreq')
@@ -1026,8 +1024,7 @@ class Getcasedetail(MethodView):
                 'model_name': model_name
             }
 
-            headers = [{'name': k, 'value': v} for k, v in json.loads(interfacecase.headers).items()] \
-                if interfacecase.headers else []
+            headers = interfacecase.headers if interfacecase.headers else '{}'
 
             params = [{'name': k, 'value': v} for k, v in json.loads(interfacecase.params).items()] \
                 if interfacecase.params else []
@@ -2163,7 +2160,6 @@ class Exemulproto(MethodView):
             process.start()
             process.join()
 
-            # Retrieve results from the Queue
             res = result_queue.get()
             end_time = time.time()
             if isinstance(res, tuple):
@@ -2254,10 +2250,7 @@ def exemulproto(env_id, caseinfos, is_skip):
         source = json.loads(caseinfos[0]['case_raw'])['source']
         branch_name = json.loads(caseinfos[0]['case_raw'])['branch_name']
         proto_path = PROJECT_ROOT + ("/proto/" if source in ('kk', None) else "/proto/pp/") + branch_name
-        # if source == 'kk' or source is None:
-        #     proto_path = PROJECT_ROOT + "/proto/" + branch_name
-        # else:
-        #     proto_path = PROJECT_ROOT + "/proto/pp/" + branch_name
+
         env = Environment.query.filter_by(id=env_id).first()
         host, port = env.url, env.port
 
@@ -2266,8 +2259,6 @@ def exemulproto(env_id, caseinfos, is_skip):
         player = Player(uid, host, port)
         player.client = client = Client(host=host, port=port) if not player.client else player.client
 
-        # if not player.client:
-        #     player.client = Client(host=host, port=port)
         for name in os.listdir(proto_path):
             if name == '__init__.py' or not name.endswith('.py'):
                 continue
@@ -2280,21 +2271,6 @@ def exemulproto(env_id, caseinfos, is_skip):
             player = player.login_by_uid(uid)[1]
         else:
             player = player.login_by_uid_pp(uid)[1]
-
-        # for name in os.listdir(proto_path):
-        #     if name == '__init__.py' or name[-3:] != '.py':
-        #         continue
-        #     if source == 'kk' or source is None:
-        #         module = importlib.import_module(f"proto.{branch_name}.{name[:-3]}")
-        #     else:
-        #         module = importlib.import_module(f"proto.pp.{branch_name}.{name[:-3]}")
-        #     for item in dir(module):
-        #         player.client.pb[item] = getattr(module, item)
-        # if source == 'kk' or source is None:
-        #     player = player.login_by_uid(uid)[1]
-        # else:
-        #     player = player.login_by_uid_pp(uid)[1]
-        # client = player.client
 
         reslut = []
         for i in caseinfos:
