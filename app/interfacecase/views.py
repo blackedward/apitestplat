@@ -2123,8 +2123,10 @@ class Exemult(MethodView):
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             caseinfos = []
+            collections_name = ''
             if data.get('suite_id'):  # 执行测试套件
                 suite = TestSuite.query.filter_by(id=data.get('suite_id')).first()
+                collections_name = suite.name
                 if not suite:
                     return reponse(code=MessageEnum.suite_not_exict.value[0],
                                    message=MessageEnum.suite_not_exict.value[1])
@@ -2137,6 +2139,7 @@ class Exemult(MethodView):
                         caseinfos.append(case_info)
             elif data.get('model_id'):  # 按模块执行
                 caselist = InterfaceCase.query.filter_by(model_id=data.get('model_id')).filter_by(status=1).all()
+                collections_name = Model.query.filter_by(id=data.get('model_id')).first().model_name
                 for i in caselist:
                     case_info = {'case_id': i.case_id, 'case_raw': i.raw}
                     caseinfos.append(case_info)
@@ -2154,6 +2157,7 @@ class Exemult(MethodView):
                 flag = True
                 exe_res = []
                 for case in caseinfos:
+                    caseinfo = InterfaceCase.query.filter_by(case_id=case['case_id']).first()
                     isPass = False
                     assertinfo = {}
                     executehandler = ExecuteHandler(case['case_id'], env.id)
@@ -2161,12 +2165,12 @@ class Exemult(MethodView):
                     if '断言通过' not in res[0]:
                         isPass = False
                         flag = False
-                    assertinfo['case_id'] = case['case_id']
+                    assertinfo['case_name'] = caseinfo.desc
                     assertinfo['is_pass'] = isPass
                     assertinfo['rsp'] = res[1]
-                    assertinfo['assert_desc'] = res[0]
+                    assertinfo['exe_desc'] = res[0]
                     exe_res.append(assertinfo)
-                ret = {'suite_id': data.get('suite_id'), 'is_pass': flag, 'result': exe_res}
+                ret = {'collections_name': collections_name, 'is_pass': flag, 'result': exe_res}
                 if flag:
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
                                    data=ret)
