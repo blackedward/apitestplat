@@ -1975,12 +1975,12 @@ class Getsuitebyname(MethodView):
         try:
             suite_name = request.args.get('suite_name')
             page_index = request.args.get('page_index') or 1
-            page_num = request.args.get('page_num') or 10
+            page_number = request.args.get('page_number') or 10
             if not suite_name:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
             suites = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).paginate(
-                int(page_index), int(page_num),
+                int(page_index), int(page_number),
                 False).items
             total = TestSuite.query.filter(TestSuite.name.like(f'%{suite_name}%')).filter_by(status=1).count()
             if not suites:
@@ -2022,11 +2022,11 @@ class Getsuitebyproj(MethodView):
         try:
             project_id = request.args.get('project_id')
             page_index = request.args.get('page_index') or 1
-            page_num = request.args.get('page_num') or 10
+            page_number = request.args.get('page_number') or 10
             if not project_id:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(int(page_index), int(page_num),
+            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(int(page_index), int(page_number),
                                                                                       False).items
             total = TestSuite.query.filter_by(project=project_id, status=1).count()
             project = Project.query.filter_by(id=project_id).first()
@@ -2586,8 +2586,8 @@ class Reportlist(MethodView):
             project_id = request.args.get('project_id')
             case_id = request.args.get('case_id')
             test_res = request.args.get('test_res')
-            page_size = request.args.get('page_size') or 10
-            page_num = request.args.get('page_num') or 1
+            page_number = request.args.get('page_number') or 10
+            page_index = request.args.get('page_index') or 1
 
             gross_caselist = TestcaseResult.query.filter(
                 TestcaseResult.date.between(start_time, end_time)).with_entities(
@@ -2627,12 +2627,12 @@ class Reportlist(MethodView):
             if test_res:
                 ret = list(filter(lambda x: str(x['is_pass']) == test_res, ret))
 
-            start_idx = (int(page_num) - 1) * int(page_size)
-            end_idx = int(start_idx) + int(page_size)
+            start_idx = (int(page_index) - 1) * int(page_number)
+            end_idx = int(start_idx) + int(page_number)
             paginated_ret = ret[start_idx:end_idx]
 
             # 构建返回结果
-            response = {'total': len(ret), 'page_size': page_size, 'page_num': page_num, 'reslist': paginated_ret}
+            response = {'total': len(ret), 'page_number': page_number, 'page_index': page_index, 'reslist': paginated_ret}
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=response)
         except Exception as e:
