@@ -2158,7 +2158,7 @@ class Exemult(MethodView):
                 exe_res = []
                 for case in caseinfos:
                     caseinfo = InterfaceCase.query.filter_by(case_id=case['case_id']).first()
-                    isPass = False
+                    isPass = True
                     assertinfo = {}
                     executehandler = ExecuteHandler(case['case_id'], env.id)
                     res = executehandler.exesinglecase(case_id=case['case_id'], env_id=env.id)
