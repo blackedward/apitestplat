@@ -2162,7 +2162,7 @@ class Exemult(MethodView):
                     assertinfo = {}
                     executehandler = ExecuteHandler(case['case_id'], env.id)
                     res = executehandler.exesinglecase(case_id=case['case_id'], env_id=env.id)
-                    if '断言通过' not in res[0]:
+                    if json.loads(res[0])['result'] != '断言通过':
                         isPass = False
                         flag = False
                     assertinfo['case_name'] = caseinfo.desc
