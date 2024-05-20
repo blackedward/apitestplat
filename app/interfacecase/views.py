@@ -2021,33 +2021,48 @@ class Getsuitebyproj(MethodView):
     def get(self):
         try:
             project_id = request.args.get('project_id')
-            page_index = request.args.get('page_index') or 1
-            page_number = request.args.get('page_number') or 10
+            page_index = int(request.args.get('page_index') or 1)
+            page_number = int(request.args.get('page_number') or 10)
+
             if not project_id:
                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
                                message=MessageEnum.must_be_every_parame.value[1])
-            suites = TestSuite.query.filter_by(project=project_id, status=1).paginate(int(page_index), int(page_number),
-                                                                                      False).items
-            total = TestSuite.query.filter_by(project=project_id, status=1).count()
+
+            suites_pagination = TestSuite.query.filter_by(project=project_id, status=1).paginate(page_index,
+                                                                                                 page_number, False)
+            suites_total = TestSuite.query.filter_by(project=project_id, status=1).count()
+            suites = suites_pagination.items
+            total = suites_total
+
+            all_case_ids = []
+            for suite in suites:
+                all_case_ids.extend(json.loads(suite.caseids))
+
+            interface_cases = InterfaceCase.query.filter(InterfaceCase.case_id.in_(all_case_ids)).all()
+            interface_cases_dict = {case.case_id: case for case in interface_cases}
+
             project = Project.query.filter_by(id=project_id).first()
+
             list = []
-            for i in suites:
+            for suite in suites:
                 caseinfos = []
-                for j in json.loads(i.caseids):
-                    t = InterfaceCase.query.filter_by(case_id=j).first()
-                    caseinfo = {'case_id': t.case_id, 'desc': t.desc}
-                    caseinfos.append(caseinfo)
+                for case_id in json.loads(suite.caseids):
+                    case = interface_cases_dict.get(case_id)
+                    if case:
+                        caseinfos.append({'case_id': case.case_id, 'desc': case.desc})
+
                 suiteinfo = {
-                    'suite_id': i.id,
-                    'name': i.name,
+                    'suite_id': suite.id,
+                    'name': suite.name,
                     'caseinfos': caseinfos,
                     'project_name': project.project_name,
-                    'creator_name': i.users.username
+                    'creator_name': suite.users.username
                 }
                 list.append(suiteinfo)
-            ret = {"list": list, "total": total}
 
+            ret = {"list": list, "total": total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_suite_error.value[0],
@@ -2632,7 +2647,8 @@ class Reportlist(MethodView):
             paginated_ret = ret[start_idx:end_idx]
 
             # 构建返回结果
-            response = {'total': len(ret), 'page_number': page_number, 'page_index': page_index, 'reslist': paginated_ret}
+            response = {'total': len(ret), 'page_number': page_number, 'page_index': page_index,
+                        'reslist': paginated_ret}
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=response)
         except Exception as e:
