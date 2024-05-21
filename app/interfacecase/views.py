@@ -2580,8 +2580,11 @@ class Testreport(MethodView):
             failnum = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
                 TestcaseResult.date.between(start_time, end_time), TestcaseResult.ispass == False).count()
             passrate = round(passnum / total, 4) if total != 0 else 0
+            passrate_percentage = "{:.2%}".format(passrate)
             failrate = round(failnum / total, 4) if total != 0 else 0
-            ret = {'total': total, 'passnum': passnum, 'failnum': failnum, 'passrate': passrate, 'failrate': failrate}
+            failrate_percentage = "{:.2%}".format(failrate)
+            ret = {'total': total, 'passnum': passnum, 'failnum': failnum, 'passrate': passrate_percentage,
+                   'failrate': failrate_percentage}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
         except Exception as e:
@@ -2601,54 +2604,86 @@ class Reportlist(MethodView):
             project_id = request.args.get('project_id')
             case_id = request.args.get('case_id')
             test_res = request.args.get('test_res')
-            page_number = request.args.get('page_number') or 10
-            page_index = request.args.get('page_index') or 1
+            page_number = int(request.args.get('page_number', 10))
+            page_index = int(request.args.get('page_index', 1))
 
+            # 获取所有满足时间范围的 case_id
             gross_caselist = TestcaseResult.query.filter(
-                TestcaseResult.date.between(start_time, end_time)).with_entities(
-                TestcaseResult.case_id).distinct().all()
+                TestcaseResult.date.between(start_time, end_time)
+            ).with_entities(TestcaseResult.case_id).distinct().all()
             case_list = [case.case_id for case in gross_caselist]
 
-            filtered_cases = []
             if model_id:
-                filtered_case_ids = [
-                    i for i in case_list
-                    if InterfaceCase.query.filter_by(case_id=i, model_id=model_id).first()
-                ]
-                filtered_cases.extend(filtered_case_ids)
+                filtered_case_ids = InterfaceCase.query.filter(
+                    InterfaceCase.case_id.in_(case_list),
+                    InterfaceCase.model_id == model_id
+                ).with_entities(InterfaceCase.case_id).all()
             else:
-                filtered_case_ids = [
-                    i for i in case_list
-                    if InterfaceCase.query.filter_by(case_id=i, project_id=project_id).first()
-                ]
-                filtered_cases.extend(filtered_case_ids)
-            case_list = filtered_cases
+                filtered_case_ids = InterfaceCase.query.filter(
+                    InterfaceCase.case_id.in_(case_list),
+                    InterfaceCase.project_id == project_id
+                ).with_entities(InterfaceCase.case_id).all()
+
+            case_list = [case.case_id for case in filtered_case_ids]
 
             if not case_list:
                 return reponse(code=MessageEnum.no_report_here.value[0],
                                message=MessageEnum.no_report_here.value[1])
 
-            total_res = TestcaseResult.query.filter(TestcaseResult.case_id.in_(case_list)).filter(
-                TestcaseResult.date.between(start_time, end_time)).all()
+            # 根据 case_list 和时间范围过滤 TestcaseResult
+            query = TestcaseResult.query.filter(
+                TestcaseResult.case_id.in_(case_list),
+                TestcaseResult.date.between(start_time, end_time)
+            )
 
-            ret = []
-            for i in total_res:
-                case = InterfaceCase.query.filter_by(case_id=i.case_id).first()
-                res = {'case_id': case.case_id, 'case_desc': case.desc, 'is_pass': i.ispass, 'spend': i.spend,
-                       'detail': i.result, 'exe_time': str(i.date)}
-                ret.append(res)
-            if case_id:
-                ret = list(filter(lambda x: x['case_id'] == int(case_id), ret))
-            if test_res:
-                ret = list(filter(lambda x: str(x['is_pass']) == test_res, ret))
+            stats = {}
+            if case_id and test_res:
+                query = query.filter(TestcaseResult.case_id == case_id)
+                query = query.filter(TestcaseResult.ispass == (test_res.lower() == 'true'))
+            elif case_id:
+                query = query.filter(TestcaseResult.case_id == case_id)
+                total_count = query.count()
+                pass_count = query.filter(TestcaseResult.ispass == True).count()
+                fail_count = query.filter(TestcaseResult.ispass == False).count()
+                stats = {
+                    'total_count': total_count,
+                    'pass_count': pass_count,
+                    'fail_count': fail_count
+                }
+            else:
+                query = query.filter(TestcaseResult.ispass == (test_res.lower() == 'true'))
 
-            start_idx = (int(page_index) - 1) * int(page_number)
-            end_idx = int(start_idx) + int(page_number)
-            paginated_ret = ret[start_idx:end_idx]
+            # 分页查询
+            total = query.count()
+            total_res = query.offset((page_index - 1) * page_number).limit(page_number).all()
+
+            # 获取所有必要的 InterfaceCase 数据
+            case_ids = [res.case_id for res in total_res]
+            cases = InterfaceCase.query.filter(InterfaceCase.case_id.in_(case_ids)).all()
+            case_map = {case.case_id: case for case in cases}
 
             # 构建返回结果
-            response = {'total': len(ret), 'page_number': page_number, 'page_index': page_index,
-                        'reslist': paginated_ret}
+            ret = [
+                {
+                    'case_id': res.case_id,
+                    'case_desc': case_map[res.case_id].desc,
+                    'is_pass': res.ispass,
+                    'spend': res.spend,
+                    'detail': res.result,
+                    'exe_time': str(res.date)
+                }
+                for res in total_res
+            ]
+
+            response = {
+                'total': total,
+                'page_number': page_number,
+                'page_index': page_index,
+                'reslist': ret
+            }
+
+            if stats:
+                response.update({'stats': stats})
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=response)
         except Exception as e:

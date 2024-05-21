@@ -135,6 +135,11 @@ class ExecuteHandler(object):
             if not precasesinfos:
                 return '{"result": "前置用例执行失败"}', None
 
+            rely_dbf_id = InterfaceCase.query.filter_by(case_id=case_id).first().rely_dbf
+            if rely_dbf_id and rely_dbf_id != 0:
+                dbfresult = self.exepredbf(dbf_id=rely_dbf_id)
+                logger.info(dbfresult)
+
             # 组装请求参数
             parameterdic = self.assemble_parameters(case_id, env_id)
             if not parameterdic:
