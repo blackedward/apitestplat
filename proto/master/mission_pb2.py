@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\rmission.proto\x12\x02pb\x1a\tvip.proto\x1a\nshop.proto\x1a\x12mission_base.proto\"\xf9\x02\n\x0fWheelRewardItem\x12\n\n\x02id\x18\x01 \x01(\x03\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.pb.MissionRewardType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x1f\n\tvip_level\x18\x05 \x01(\x0e\x32\x0c.pb.VIPLevel\x12%\n\x0cvip_duration\x18\x06 \x01(\x0e\x32\x0f.pb.VIPDuration\x12&\n\rgift_bag_type\x18\x07 \x01(\x0e\x32\x0f.pb.GiftBagType\x12\x1b\n\x13\x62lind_coin_class_id\x18\x08 \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\t \x01(\t\x12\x17\n\x0f\x61vatar_frame_id\x18\n \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x0b \x01(\t\x12\x0e\n\x06weight\x18\x0c \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\r \x01(\x03\"\xff\x03\n\x11MissionRewardItem\x12\n\n\x02id\x18\x01 \x01(\x03\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.pb.MissionRewardType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\x15\n\ritem_class_id\x18\x04 \x01(\x03\x12\x1f\n\tvip_level\x18\x05 \x01(\x0e\x32\x0c.pb.VIPLevel\x12%\n\x0cvip_duration\x18\x06 \x01(\x0e\x32\x0f.pb.VIPDuration\x12&\n\rgift_bag_type\x18\x07 \x01(\x0e\x32\x0f.pb.GiftBagType\x12)\n\x0cwheel_reward\x18\x08 \x03(\x0b\x32\x13.pb.WheelRewardItem\x12\x17\n\x0fitem_class_name\x18\t \x01(\t\x12\x1b\n\x13\x62lind_coin_class_id\x18\n \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\x0b \x01(\t\x12\x17\n\x0fwheel_skin_name\x18\x0c \x01(\t\x12\x17\n\x0f\x61vatar_frame_id\x18\r \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x0e \x01(\t\x12\x11\n\tskin_icon\x18\x0f \x01(\t\x12\x12\n\nshow_value\x18\x10 \x01(\t\x12\x10\n\x08wheel_id\x18\x11 \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x12 \x01(\x03\"J\n\x19MissionRaceRewardRankUser\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x61vatar\x18\x02 \x01(\t\x12\x10\n\x08nickname\x18\x03 \x01(\t\"\x98\x01\n\x19MissionRaceRewardRankInfo\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12&\n\x07rewards\x18\x02 \x03(\x0b\x32\x15.pb.MissionRewardItem\x12\x30\n\tuser_info\x18\x03 \x01(\x0b\x32\x1d.pb.MissionRaceRewardRankUser\x12\x13\n\x0breward_time\x18\x04 \x01(\x03\"\xc1\x04\n\x0bMissionInfo\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x14\n\x08identity\x18\x02 \x01(\tB\x02\x18\x01\x12!\n\x04type\x18\x03 \x01(\x0e\x32\x0f.pb.MissionTypeB\x02\x18\x01\x12,\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\x16.pb.MissionContentType\x12\x16\n\x0e\x63ontent_exdata\x18\x05 \x01(\t\x12\x13\n\x0b\x63ontent_num\x18\x06 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x07 \x01(\x03\x12#\n\x04item\x18\x08 \x01(\x0b\x32\x15.pb.MissionRewardItem\x12\x17\n\x0fis_fetch_reward\x18\t \x01(\x08\x12.\n\x11mission_game_type\x18\n \x01(\x0e\x32\x13.pb.MissionGameType\x12 \n\x14pre_mission_identity\x18\x0b \x01(\tB\x02\x18\x01\x12\x16\n\x0epre_mission_id\x18\x0c \x01(\x03\x12\x16\n\x0e\x63\x61n_fetch_time\x18\r \x01(\x03\x12\r\n\x05order\x18\x0e \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x0f \x01(\x03\x12+\n\x0cmulti_reward\x18\x10 \x03(\x0b\x32\x15.pb.MissionRewardItem\x12\x0c\n\x04lock\x18\x11 \x01(\x08\x12<\n\x15race_reward_rank_info\x18\x12 \x03(\x0b\x32\x1d.pb.MissionRaceRewardRankInfo\x12#\n\x1bis_claimed_all_race_rewards\x18\x13 \x01(\x08\"I\n\x0f\x46\x65tchMissionREQ\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\x12\x0c\n\x04rank\x18\x03 \x01(\x05\"x\n\x0f\x46\x65tchMissionRSP\x12\"\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x14.pb.FetchMissionCode\x12\x14\n\x08identity\x18\x02 \x01(\tB\x02\x18\x01\x12\x17\n\x0fwheel_reward_id\x18\x03 \x01(\x03\x12\x12\n\nmission_id\x18\x04 \x01(\x03\">\n\x12MissionCompleteBRC\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\"?\n\x13MissionClickLinkREQ\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\"\x15\n\x13MissionClickLinkRSP\"\x13\n\x11MissionUpgradeREQ\"\x13\n\x11MissionUpgradeRSP\"!\n\x11MissionUpgradeBRC\x12\x0c\n\x04time\x18\x01 \x01(\x03\"\xcc\x05\n\x10MissionGroupInfo\x12\x10\n\x08group_id\x18\x01 \x01(\x03\x12\x10\n\x08identity\x18\x02 \x01(\t\x12\x14\n\x0cspecial_icon\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.pb.MissionGroupType\x12:\n\x11\x66\x65tch_reward_type\x18\x05 \x01(\x0e\x32\x1f.pb.MissionGroupFetchRewardType\x12\x1e\n\x05infos\x18\x06 \x03(\x0b\x32\x0f.pb.MissionInfo\x12\x19\n\x11\x63lient_show_value\x18\x07 \x01(\t\x12\x35\n\x0c\x65xpired_type\x18\x08 \x01(\x0e\x32\x1b.pb.MissionGroupExpiredTypeB\x02\x18\x01\x12\x1e\n\x12\x65xpired_mission_id\x18\t \x01(\x03\x42\x02\x18\x01\x12%\n\x1d\x65xpired_mission_reward_number\x18\n \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x0b \x01(\x05\x12\x14\n\x0crefresh_time\x18\x0c \x01(\x05\x12\'\n\x1f\x61\x63\x63umulate_mission_refresh_time\x18\r \x01(\x05\x12\x18\n\x10\x63lient_show_name\x18\x0e \x01(\t\x12,\n$expired_mission_reward_remain_number\x18\x0f \x01(\x03\x12%\n\x1dis_limit_fetch_reward_kyc_lv2\x18\x10 \x01(\x08\x12\x19\n\x11reward_kyc_region\x18\x11 \x01(\t\x12\x12\n\nstart_time\x18\x12 \x01(\x03\x12\x1b\n\x13is_only_one_mission\x18\x13 \x01(\x08\x12\x1b\n\x13next_hot_time_start\x18\x14 \x01(\x03\x12\x19\n\x11next_hot_time_end\x18\x15 \x01(\x03\x12\x1d\n\x15total_race_reward_num\x18\x16 \x01(\x05\"0\n\rMissionSetREQ\x12\x1f\n\x17new_comers_gift_version\x18\x01 \x01(\x05\"\xba\x01\n\rMissionSetRSP\x12\x16\n\x0emission_set_id\x18\x01 \x01(\x03\x12#\n\x05infos\x18\x02 \x03(\x0b\x32\x14.pb.MissionGroupInfo\x12\x1c\n\x14\x61ll_online_group_ids\x18\x03 \x03(\x03\x12-\n\x0fnew_comers_gift\x18\x04 \x01(\x0b\x32\x14.pb.MissionGroupInfo\x12\x1f\n\x17new_comers_gift_version\x18\x05 \x01(\x05\"P\n\x1b\x46lowMissionGroupRewardValue\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x12\n\nclaim_time\x18\x03 \x01(\x03\":\n\x1eMissionGroupRewardValueListREQ\x12\x18\n\x10mission_group_id\x18\x01 \x01(\x03\"w\n\x1eMissionGroupRewardValueListRSP\x12\x18\n\x10mission_group_id\x18\x01 \x01(\x03\x12;\n\x12\x66low_reward_values\x18\x02 \x03(\x0b\x32\x1f.pb.FlowMissionGroupRewardValue\"3\n\x1fGetMissionWheelRewardWeightsREQ\x12\x10\n\x08wheel_id\x18\x01 \x01(\x03\"D\n\x1fGetMissionWheelRewardWeightsRSP\x12!\n\x04item\x18\x01 \x03(\x0b\x32\x13.pb.WheelRewardItem*f\n\x10LoginLotteryCode\x12\x19\n\x15LOGIN_LOTTERY_SUCCESS\x10\x00\x12\x1f\n\x1bLOGIN_LOTTERY_ALREADY_FETCH\x10\x01\x12\x16\n\x12LOGIN_LOTTERY_FAIL\x10\x02*s\n\x0bMissionType\x12\x18\n\x14MISSION_TYPE_DEFAULT\x10\x00\x12\x15\n\x11MISSION_TYPE_ONCE\x10\x01\x12\x16\n\x12MISSION_TYPE_DAILY\x10\x02\x12\x1b\n\x17MISSION_TYPE_ACCUMULATE\x10\x03*\x8c\x03\n\x10\x46\x65tchMissionCode\x12\x19\n\x15\x46\x45TCH_MISSION_SUCCESS\x10\x00\x12\x1f\n\x1b\x46\x45TCH_MISSION_ALREADY_FETCH\x10\x01\x12$\n FETCH_MISSION_IDENTITY_NOT_FOUND\x10\x02\x12\x16\n\x12\x46\x45TCH_MISSION_FAIL\x10\x03\x12\x15\n\x11\x46\x45TCH_MISSION_KYC\x10\x04\x12%\n!FETCH_MISSION_SUCCESS_REACH_LIMIT\x10\x05\x12$\n FETCH_MISSION_SUCCESS_NO_MISSION\x10\x06\x12\"\n\x1e\x46\x45TCH_MISSION_ERROR_KYC_REGION\x10\x07\x12%\n!FETCH_MISSION_ERROR_NOT_START_YET\x10\x08\x12(\n$FETCH_MISSION_ERROR_NO_REMAIN_REWARD\x10\t\x12%\n!FETCH_MISSION_OTHER_ALREADY_FETCH\x10\nB\x07Z\x05../pb')
+  serialized_pb=_b('\n\rmission.proto\x12\x02pb\x1a\tvip.proto\x1a\nshop.proto\x1a\x12mission_base.proto\"\xbd\x02\n\x0fWheelRewardItem\x12\n\n\x02id\x18\x01 \x01(\x03\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.pb.MissionRewardType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x1f\n\tvip_level\x18\x05 \x01(\x0e\x32\x0c.pb.VIPLevel\x12%\n\x0cvip_duration\x18\x06 \x01(\x0e\x32\x0f.pb.VIPDuration\x12&\n\rgift_bag_type\x18\x07 \x01(\x0e\x32\x0f.pb.GiftBagType\x12\x17\n\x0f\x61vatar_frame_id\x18\n \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x0b \x01(\t\x12\x0e\n\x06weight\x18\x0c \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\r \x01(\x03\"\xc3\x03\n\x11MissionRewardItem\x12\n\n\x02id\x18\x01 \x01(\x03\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.pb.MissionRewardType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\x15\n\ritem_class_id\x18\x04 \x01(\x03\x12\x1f\n\tvip_level\x18\x05 \x01(\x0e\x32\x0c.pb.VIPLevel\x12%\n\x0cvip_duration\x18\x06 \x01(\x0e\x32\x0f.pb.VIPDuration\x12&\n\rgift_bag_type\x18\x07 \x01(\x0e\x32\x0f.pb.GiftBagType\x12)\n\x0cwheel_reward\x18\x08 \x03(\x0b\x32\x13.pb.WheelRewardItem\x12\x17\n\x0fitem_class_name\x18\t \x01(\t\x12\x17\n\x0fwheel_skin_name\x18\x0c \x01(\t\x12\x17\n\x0f\x61vatar_frame_id\x18\r \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x0e \x01(\t\x12\x11\n\tskin_icon\x18\x0f \x01(\t\x12\x12\n\nshow_value\x18\x10 \x01(\t\x12\x10\n\x08wheel_id\x18\x11 \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x12 \x01(\x03\"J\n\x19MissionRaceRewardRankUser\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x61vatar\x18\x02 \x01(\t\x12\x10\n\x08nickname\x18\x03 \x01(\t\"\x98\x01\n\x19MissionRaceRewardRankInfo\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12&\n\x07rewards\x18\x02 \x03(\x0b\x32\x15.pb.MissionRewardItem\x12\x30\n\tuser_info\x18\x03 \x01(\x0b\x32\x1d.pb.MissionRaceRewardRankUser\x12\x13\n\x0breward_time\x18\x04 \x01(\x03\"\xc1\x04\n\x0bMissionInfo\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x14\n\x08identity\x18\x02 \x01(\tB\x02\x18\x01\x12!\n\x04type\x18\x03 \x01(\x0e\x32\x0f.pb.MissionTypeB\x02\x18\x01\x12,\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\x16.pb.MissionContentType\x12\x16\n\x0e\x63ontent_exdata\x18\x05 \x01(\t\x12\x13\n\x0b\x63ontent_num\x18\x06 \x01(\x03\x12\x13\n\x0b\x63urrent_num\x18\x07 \x01(\x03\x12#\n\x04item\x18\x08 \x01(\x0b\x32\x15.pb.MissionRewardItem\x12\x17\n\x0fis_fetch_reward\x18\t \x01(\x08\x12.\n\x11mission_game_type\x18\n \x01(\x0e\x32\x13.pb.MissionGameType\x12 \n\x14pre_mission_identity\x18\x0b \x01(\tB\x02\x18\x01\x12\x16\n\x0epre_mission_id\x18\x0c \x01(\x03\x12\x16\n\x0e\x63\x61n_fetch_time\x18\r \x01(\x03\x12\r\n\x05order\x18\x0e \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x0f \x01(\x03\x12+\n\x0cmulti_reward\x18\x10 \x03(\x0b\x32\x15.pb.MissionRewardItem\x12\x0c\n\x04lock\x18\x11 \x01(\x08\x12<\n\x15race_reward_rank_info\x18\x12 \x03(\x0b\x32\x1d.pb.MissionRaceRewardRankInfo\x12#\n\x1bis_claimed_all_race_rewards\x18\x13 \x01(\x08\"I\n\x0f\x46\x65tchMissionREQ\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\x12\x0c\n\x04rank\x18\x03 \x01(\x05\"x\n\x0f\x46\x65tchMissionRSP\x12\"\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x14.pb.FetchMissionCode\x12\x14\n\x08identity\x18\x02 \x01(\tB\x02\x18\x01\x12\x17\n\x0fwheel_reward_id\x18\x03 \x01(\x03\x12\x12\n\nmission_id\x18\x04 \x01(\x03\">\n\x12MissionCompleteBRC\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\"?\n\x13MissionClickLinkREQ\x12\x14\n\x08identity\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\nmission_id\x18\x02 \x01(\x03\"\x15\n\x13MissionClickLinkRSP\"\x13\n\x11MissionUpgradeREQ\"\x13\n\x11MissionUpgradeRSP\"!\n\x11MissionUpgradeBRC\x12\x0c\n\x04time\x18\x01 \x01(\x03\"\xcc\x05\n\x10MissionGroupInfo\x12\x10\n\x08group_id\x18\x01 \x01(\x03\x12\x10\n\x08identity\x18\x02 \x01(\t\x12\x14\n\x0cspecial_icon\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.pb.MissionGroupType\x12:\n\x11\x66\x65tch_reward_type\x18\x05 \x01(\x0e\x32\x1f.pb.MissionGroupFetchRewardType\x12\x1e\n\x05infos\x18\x06 \x03(\x0b\x32\x0f.pb.MissionInfo\x12\x19\n\x11\x63lient_show_value\x18\x07 \x01(\t\x12\x35\n\x0c\x65xpired_type\x18\x08 \x01(\x0e\x32\x1b.pb.MissionGroupExpiredTypeB\x02\x18\x01\x12\x1e\n\x12\x65xpired_mission_id\x18\t \x01(\x03\x42\x02\x18\x01\x12%\n\x1d\x65xpired_mission_reward_number\x18\n \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x0b \x01(\x05\x12\x14\n\x0crefresh_time\x18\x0c \x01(\x05\x12\'\n\x1f\x61\x63\x63umulate_mission_refresh_time\x18\r \x01(\x05\x12\x18\n\x10\x63lient_show_name\x18\x0e \x01(\t\x12,\n$expired_mission_reward_remain_number\x18\x0f \x01(\x03\x12%\n\x1dis_limit_fetch_reward_kyc_lv2\x18\x10 \x01(\x08\x12\x19\n\x11reward_kyc_region\x18\x11 \x01(\t\x12\x12\n\nstart_time\x18\x12 \x01(\x03\x12\x1b\n\x13is_only_one_mission\x18\x13 \x01(\x08\x12\x1b\n\x13next_hot_time_start\x18\x14 \x01(\x03\x12\x19\n\x11next_hot_time_end\x18\x15 \x01(\x03\x12\x1d\n\x15total_race_reward_num\x18\x16 \x01(\x05\"0\n\rMissionSetREQ\x12\x1f\n\x17new_comers_gift_version\x18\x01 \x01(\x05\"\xba\x01\n\rMissionSetRSP\x12\x16\n\x0emission_set_id\x18\x01 \x01(\x03\x12#\n\x05infos\x18\x02 \x03(\x0b\x32\x14.pb.MissionGroupInfo\x12\x1c\n\x14\x61ll_online_group_ids\x18\x03 \x03(\x03\x12-\n\x0fnew_comers_gift\x18\x04 \x01(\x0b\x32\x14.pb.MissionGroupInfo\x12\x1f\n\x17new_comers_gift_version\x18\x05 \x01(\x05\"P\n\x1b\x46lowMissionGroupRewardValue\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x12\n\nclaim_time\x18\x03 \x01(\x03\":\n\x1eMissionGroupRewardValueListREQ\x12\x18\n\x10mission_group_id\x18\x01 \x01(\x03\"w\n\x1eMissionGroupRewardValueListRSP\x12\x18\n\x10mission_group_id\x18\x01 \x01(\x03\x12;\n\x12\x66low_reward_values\x18\x02 \x03(\x0b\x32\x1f.pb.FlowMissionGroupRewardValue\"3\n\x1fGetMissionWheelRewardWeightsREQ\x12\x10\n\x08wheel_id\x18\x01 \x01(\x03\"D\n\x1fGetMissionWheelRewardWeightsRSP\x12!\n\x04item\x18\x01 \x03(\x0b\x32\x13.pb.WheelRewardItem*f\n\x10LoginLotteryCode\x12\x19\n\x15LOGIN_LOTTERY_SUCCESS\x10\x00\x12\x1f\n\x1bLOGIN_LOTTERY_ALREADY_FETCH\x10\x01\x12\x16\n\x12LOGIN_LOTTERY_FAIL\x10\x02*s\n\x0bMissionType\x12\x18\n\x14MISSION_TYPE_DEFAULT\x10\x00\x12\x15\n\x11MISSION_TYPE_ONCE\x10\x01\x12\x16\n\x12MISSION_TYPE_DAILY\x10\x02\x12\x1b\n\x17MISSION_TYPE_ACCUMULATE\x10\x03*\x8c\x03\n\x10\x46\x65tchMissionCode\x12\x19\n\x15\x46\x45TCH_MISSION_SUCCESS\x10\x00\x12\x1f\n\x1b\x46\x45TCH_MISSION_ALREADY_FETCH\x10\x01\x12$\n FETCH_MISSION_IDENTITY_NOT_FOUND\x10\x02\x12\x16\n\x12\x46\x45TCH_MISSION_FAIL\x10\x03\x12\x15\n\x11\x46\x45TCH_MISSION_KYC\x10\x04\x12%\n!FETCH_MISSION_SUCCESS_REACH_LIMIT\x10\x05\x12$\n FETCH_MISSION_SUCCESS_NO_MISSION\x10\x06\x12\"\n\x1e\x46\x45TCH_MISSION_ERROR_KYC_REGION\x10\x07\x12%\n!FETCH_MISSION_ERROR_NOT_START_YET\x10\x08\x12(\n$FETCH_MISSION_ERROR_NO_REMAIN_REWARD\x10\t\x12%\n!FETCH_MISSION_OTHER_ALREADY_FETCH\x10\nB\x07Z\x05../pb')
   ,
   dependencies=[vip__pb2.DESCRIPTOR,shop__pb2.DESCRIPTOR,mission__base__pb2.DESCRIPTOR,])
 
@@ -48,8 +48,8 @@ _LOGINLOTTERYCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3539,
-  serialized_end=3641,
+  serialized_start=3419,
+  serialized_end=3521,
 )
 _sym_db.RegisterEnumDescriptor(_LOGINLOTTERYCODE)
 
@@ -79,8 +79,8 @@ _MISSIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3643,
-  serialized_end=3758,
+  serialized_start=3523,
+  serialized_end=3638,
 )
 _sym_db.RegisterEnumDescriptor(_MISSIONTYPE)
 
@@ -138,8 +138,8 @@ _FETCHMISSIONCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3761,
-  serialized_end=4157,
+  serialized_start=3641,
+  serialized_end=4037,
 )
 _sym_db.RegisterEnumDescriptor(_FETCHMISSIONCODE)
 
@@ -222,42 +222,28 @@ _WHEELREWARDITEM = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.WheelRewardItem.blind_coin_class_id', index=7,
-      number=8, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.WheelRewardItem.blind_coin_class_name', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='avatar_frame_id', full_name='pb.WheelRewardItem.avatar_frame_id', index=9,
+      name='avatar_frame_id', full_name='pb.WheelRewardItem.avatar_frame_id', index=7,
       number=10, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='avatar_frame_client_label', full_name='pb.WheelRewardItem.avatar_frame_client_label', index=10,
+      name='avatar_frame_client_label', full_name='pb.WheelRewardItem.avatar_frame_client_label', index=8,
       number=11, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='weight', full_name='pb.WheelRewardItem.weight', index=11,
+      name='weight', full_name='pb.WheelRewardItem.weight', index=9,
       number=12, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash_back_quota', full_name='pb.WheelRewardItem.cash_back_quota', index=12,
+      name='cash_back_quota', full_name='pb.WheelRewardItem.cash_back_quota', index=10,
       number=13, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -276,7 +262,7 @@ _WHEELREWARDITEM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=65,
-  serialized_end=442,
+  serialized_end=382,
 )
 
 
@@ -351,63 +337,49 @@ _MISSIONREWARDITEM = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.MissionRewardItem.blind_coin_class_id', index=9,
-      number=10, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.MissionRewardItem.blind_coin_class_name', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='wheel_skin_name', full_name='pb.MissionRewardItem.wheel_skin_name', index=11,
+      name='wheel_skin_name', full_name='pb.MissionRewardItem.wheel_skin_name', index=9,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='avatar_frame_id', full_name='pb.MissionRewardItem.avatar_frame_id', index=12,
+      name='avatar_frame_id', full_name='pb.MissionRewardItem.avatar_frame_id', index=10,
       number=13, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='avatar_frame_client_label', full_name='pb.MissionRewardItem.avatar_frame_client_label', index=13,
+      name='avatar_frame_client_label', full_name='pb.MissionRewardItem.avatar_frame_client_label', index=11,
       number=14, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='skin_icon', full_name='pb.MissionRewardItem.skin_icon', index=14,
+      name='skin_icon', full_name='pb.MissionRewardItem.skin_icon', index=12,
       number=15, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='show_value', full_name='pb.MissionRewardItem.show_value', index=15,
+      name='show_value', full_name='pb.MissionRewardItem.show_value', index=13,
       number=16, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='wheel_id', full_name='pb.MissionRewardItem.wheel_id', index=16,
+      name='wheel_id', full_name='pb.MissionRewardItem.wheel_id', index=14,
       number=17, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash_back_quota', full_name='pb.MissionRewardItem.cash_back_quota', index=17,
+      name='cash_back_quota', full_name='pb.MissionRewardItem.cash_back_quota', index=15,
       number=18, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -425,8 +397,8 @@ _MISSIONREWARDITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=445,
-  serialized_end=956,
+  serialized_start=385,
+  serialized_end=836,
 )
 
 
@@ -470,8 +442,8 @@ _MISSIONRACEREWARDRANKUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=958,
-  serialized_end=1032,
+  serialized_start=838,
+  serialized_end=912,
 )
 
 
@@ -522,8 +494,8 @@ _MISSIONRACEREWARDRANKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1035,
-  serialized_end=1187,
+  serialized_start=915,
+  serialized_end=1067,
 )
 
 
@@ -679,8 +651,8 @@ _MISSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1190,
-  serialized_end=1767,
+  serialized_start=1070,
+  serialized_end=1647,
 )
 
 
@@ -724,8 +696,8 @@ _FETCHMISSIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1769,
-  serialized_end=1842,
+  serialized_start=1649,
+  serialized_end=1722,
 )
 
 
@@ -776,8 +748,8 @@ _FETCHMISSIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1844,
-  serialized_end=1964,
+  serialized_start=1724,
+  serialized_end=1844,
 )
 
 
@@ -814,8 +786,8 @@ _MISSIONCOMPLETEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1966,
-  serialized_end=2028,
+  serialized_start=1846,
+  serialized_end=1908,
 )
 
 
@@ -852,8 +824,8 @@ _MISSIONCLICKLINKREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2030,
-  serialized_end=2093,
+  serialized_start=1910,
+  serialized_end=1973,
 )
 
 
@@ -876,8 +848,8 @@ _MISSIONCLICKLINKRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2095,
-  serialized_end=2116,
+  serialized_start=1975,
+  serialized_end=1996,
 )
 
 
@@ -900,8 +872,8 @@ _MISSIONUPGRADEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2118,
-  serialized_end=2137,
+  serialized_start=1998,
+  serialized_end=2017,
 )
 
 
@@ -924,8 +896,8 @@ _MISSIONUPGRADERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2139,
-  serialized_end=2158,
+  serialized_start=2019,
+  serialized_end=2038,
 )
 
 
@@ -955,8 +927,8 @@ _MISSIONUPGRADEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2160,
-  serialized_end=2193,
+  serialized_start=2040,
+  serialized_end=2073,
 )
 
 
@@ -1133,8 +1105,8 @@ _MISSIONGROUPINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2196,
-  serialized_end=2912,
+  serialized_start=2076,
+  serialized_end=2792,
 )
 
 
@@ -1164,8 +1136,8 @@ _MISSIONSETREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2914,
-  serialized_end=2962,
+  serialized_start=2794,
+  serialized_end=2842,
 )
 
 
@@ -1223,8 +1195,8 @@ _MISSIONSETRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2965,
-  serialized_end=3151,
+  serialized_start=2845,
+  serialized_end=3031,
 )
 
 
@@ -1268,8 +1240,8 @@ _FLOWMISSIONGROUPREWARDVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3153,
-  serialized_end=3233,
+  serialized_start=3033,
+  serialized_end=3113,
 )
 
 
@@ -1299,8 +1271,8 @@ _MISSIONGROUPREWARDVALUELISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3235,
-  serialized_end=3293,
+  serialized_start=3115,
+  serialized_end=3173,
 )
 
 
@@ -1337,8 +1309,8 @@ _MISSIONGROUPREWARDVALUELISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3295,
-  serialized_end=3414,
+  serialized_start=3175,
+  serialized_end=3294,
 )
 
 
@@ -1368,8 +1340,8 @@ _GETMISSIONWHEELREWARDWEIGHTSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3416,
-  serialized_end=3467,
+  serialized_start=3296,
+  serialized_end=3347,
 )
 
 
@@ -1399,8 +1371,8 @@ _GETMISSIONWHEELREWARDWEIGHTSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3469,
-  serialized_end=3537,
+  serialized_start=3349,
+  serialized_end=3417,
 )
 
 _WHEELREWARDITEM.fields_by_name['type'].enum_type = mission__base__pb2._MISSIONREWARDTYPE

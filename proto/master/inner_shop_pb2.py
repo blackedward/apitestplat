@@ -23,178 +23,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10inner_shop.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\nshop.proto\x1a\x10inner_base.proto\x1a\tvip.proto\"H\n\x18iGetEnterRoomUserInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04tuid\x18\x02 \x03(\x03\x12\x11\n\tneed_mark\x18\x03 \x01(\x08\"\xdf\x03\n\x18iGetEnterRoomUserInfoRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x17\n\x0cvip_end_time\x18\x02 \x01(\r:\x01\x30\x12\x1c\n\x11vip_free_calltime\x18\x03 \x01(\r:\x01\x30\x12\x1f\n\tvip_level\x18\x04 \x01(\x0e\x32\x0c.pb.VIPLevel\x12%\n\x0cvip_duration\x18\x05 \x01(\x0e\x32\x0f.pb.VIPDuration\x12\x16\n\x0evip_free_emoji\x18\x0e \x01(\r\x12\x19\n\x0evip_begin_time\x18\x06 \x01(\r:\x01\x30\x12\x1d\n\x12giftbag_free_emoji\x18\x07 \x01(\r:\x01\x30\x12 \n\x15giftbag_free_calltime\x18\x08 \x01(\r:\x01\x30\x12$\n\x19giftbag_rabbit_begin_time\x18\t \x01(\r:\x01\x30\x12\"\n\x17giftbag_rabbit_end_time\x18\n \x01(\r:\x01\x30\x12\x1e\n\x10insurance_enable\x18\x0b \x01(\x08:\x04true\x12\x1f\n\x11runitmulti_enable\x18\x0c \x01(\x08:\x04true\x12\x1e\n\x04mark\x18\r \x03(\x0b\x32\x10.pb.UserRelation\"r\n\x0eiAddGiftBagREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1d\n\x04type\x18\x02 \x01(\x0e\x32\x0f.pb.GiftBagType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\'\n\x19is_need_purchase_response\x18\x04 \x01(\x08:\x04true\".\n\x0eiAddGiftBagRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"!\n\x12iEmojiMigrationREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"g\n\x12iEmojiMigrationRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x18\n\x10\x65xpression_emoji\x18\x02 \x01(\x05\x12\x19\n\x11interaction_emoji\x18\x03 \x01(\x05\"6\n\x15iTestUpdateVIPInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x05\"(\n\x15iTestUpdateVIPInfoRSP\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x31\"Z\n\x11iAddActiontimeREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12(\n\x0b\x63hange_gold\x18\x02 \x01(\x0b\x32\x13.pb.iChangeUserGold\x12\x0e\n\x06gameid\x18\x03 \x01(\t\"\x8d\x01\n\x11iAddActiontimeRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11vip_free_calltime\x18\x02 \x01(\x03:\x01\x30\x12 \n\x15giftbag_free_calltime\x18\x03 \x01(\x03:\x01\x30\x12\x1a\n\x0bis_use_free\x18\x04 \x01(\x08:\x05\x66\x61lse\"i\n\riSendEmojiREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12(\n\x0b\x63hange_gold\x18\x02 \x01(\x0b\x32\x13.pb.iChangeUserGold\x12\x11\n\x05times\x18\x03 \x01(\x05\x42\x02\x18\x01\x12\x0e\n\x06gameid\x18\x04 \x01(\t\"\x82\x01\n\riSendEmojiRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1a\n\x0evip_free_emoji\x18\x02 \x01(\x03\x42\x02\x18\x01\x12\x1e\n\x12giftbag_free_emoji\x18\x03 \x01(\x03\x42\x02\x18\x01\x12\x17\n\x0bis_use_free\x18\x04 \x01(\x08\x42\x02\x18\x01\"!\n\x12iGetUserVipInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"\x8a\x01\n\x12iGetUserVipInfoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1d\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0f.pb.UserVipInfo\x12 \n\x05\x65moji\x18\x03 \x03(\x0b\x32\x11.pb.UserEmojiInfo\x12\x15\n\rgiftbag_emoji\x18\x04 \x01(\x05\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10inner_shop.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\nshop.proto\x1a\x10inner_base.proto\x1a\tvip.proto\"r\n\x0eiAddGiftBagREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1d\n\x04type\x18\x02 \x01(\x0e\x32\x0f.pb.GiftBagType\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\'\n\x19is_need_purchase_response\x18\x04 \x01(\x08:\x04true\".\n\x0eiAddGiftBagRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"!\n\x12iEmojiMigrationREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"g\n\x12iEmojiMigrationRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x18\n\x10\x65xpression_emoji\x18\x02 \x01(\x05\x12\x19\n\x11interaction_emoji\x18\x03 \x01(\x05\"6\n\x15iTestUpdateVIPInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x05\"(\n\x15iTestUpdateVIPInfoRSP\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x31\"Z\n\x11iAddActiontimeREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12(\n\x0b\x63hange_gold\x18\x02 \x01(\x0b\x32\x13.pb.iChangeUserGold\x12\x0e\n\x06gameid\x18\x03 \x01(\t\"\x8d\x01\n\x11iAddActiontimeRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11vip_free_calltime\x18\x02 \x01(\x03:\x01\x30\x12 \n\x15giftbag_free_calltime\x18\x03 \x01(\x03:\x01\x30\x12\x1a\n\x0bis_use_free\x18\x04 \x01(\x08:\x05\x66\x61lse\"i\n\riSendEmojiREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12(\n\x0b\x63hange_gold\x18\x02 \x01(\x0b\x32\x13.pb.iChangeUserGold\x12\x11\n\x05times\x18\x03 \x01(\x05\x42\x02\x18\x01\x12\x0e\n\x06gameid\x18\x04 \x01(\t\"\x82\x01\n\riSendEmojiRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1a\n\x0evip_free_emoji\x18\x02 \x01(\x03\x42\x02\x18\x01\x12\x1e\n\x12giftbag_free_emoji\x18\x03 \x01(\x03\x42\x02\x18\x01\x12\x17\n\x0bis_use_free\x18\x04 \x01(\x08\x42\x02\x18\x01\"!\n\x12iGetUserVipInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"\x8a\x01\n\x12iGetUserVipInfoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1d\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0f.pb.UserVipInfo\x12 \n\x05\x65moji\x18\x03 \x03(\x0b\x32\x11.pb.UserEmojiInfo\x12\x15\n\rgiftbag_emoji\x18\x04 \x01(\x05\x42\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,shop__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,vip__pb2.DESCRIPTOR,])
 
 
-
-
-_IGETENTERROOMUSERINFOREQ = _descriptor.Descriptor(
-  name='iGetEnterRoomUserInfoREQ',
-  full_name='pb.iGetEnterRoomUserInfoREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='uid', full_name='pb.iGetEnterRoomUserInfoREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='tuid', full_name='pb.iGetEnterRoomUserInfoREQ.tuid', index=1,
-      number=2, type=3, cpp_type=2, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='need_mark', full_name='pb.iGetEnterRoomUserInfoREQ.need_mark', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=78,
-  serialized_end=150,
-)
-
-
-_IGETENTERROOMUSERINFORSP = _descriptor.Descriptor(
-  name='iGetEnterRoomUserInfoRSP',
-  full_name='pb.iGetEnterRoomUserInfoRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.iGetEnterRoomUserInfoRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_end_time', full_name='pb.iGetEnterRoomUserInfoRSP.vip_end_time', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_free_calltime', full_name='pb.iGetEnterRoomUserInfoRSP.vip_free_calltime', index=2,
-      number=3, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_level', full_name='pb.iGetEnterRoomUserInfoRSP.vip_level', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_duration', full_name='pb.iGetEnterRoomUserInfoRSP.vip_duration', index=4,
-      number=5, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_free_emoji', full_name='pb.iGetEnterRoomUserInfoRSP.vip_free_emoji', index=5,
-      number=14, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vip_begin_time', full_name='pb.iGetEnterRoomUserInfoRSP.vip_begin_time', index=6,
-      number=6, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='giftbag_free_emoji', full_name='pb.iGetEnterRoomUserInfoRSP.giftbag_free_emoji', index=7,
-      number=7, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='giftbag_free_calltime', full_name='pb.iGetEnterRoomUserInfoRSP.giftbag_free_calltime', index=8,
-      number=8, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='giftbag_rabbit_begin_time', full_name='pb.iGetEnterRoomUserInfoRSP.giftbag_rabbit_begin_time', index=9,
-      number=9, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='giftbag_rabbit_end_time', full_name='pb.iGetEnterRoomUserInfoRSP.giftbag_rabbit_end_time', index=10,
-      number=10, type=13, cpp_type=3, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='insurance_enable', full_name='pb.iGetEnterRoomUserInfoRSP.insurance_enable', index=11,
-      number=11, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=True,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='runitmulti_enable', full_name='pb.iGetEnterRoomUserInfoRSP.runitmulti_enable', index=12,
-      number=12, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=True,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mark', full_name='pb.iGetEnterRoomUserInfoRSP.mark', index=13,
-      number=13, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=153,
-  serialized_end=632,
-)
 
 
 _IADDGIFTBAGREQ = _descriptor.Descriptor(
@@ -244,8 +77,8 @@ _IADDGIFTBAGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=634,
-  serialized_end=748,
+  serialized_start=78,
+  serialized_end=192,
 )
 
 
@@ -275,8 +108,8 @@ _IADDGIFTBAGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=750,
-  serialized_end=796,
+  serialized_start=194,
+  serialized_end=240,
 )
 
 
@@ -306,8 +139,8 @@ _IEMOJIMIGRATIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=798,
-  serialized_end=831,
+  serialized_start=242,
+  serialized_end=275,
 )
 
 
@@ -351,8 +184,8 @@ _IEMOJIMIGRATIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=833,
-  serialized_end=936,
+  serialized_start=277,
+  serialized_end=380,
 )
 
 
@@ -389,8 +222,8 @@ _ITESTUPDATEVIPINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=992,
+  serialized_start=382,
+  serialized_end=436,
 )
 
 
@@ -420,8 +253,8 @@ _ITESTUPDATEVIPINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=994,
-  serialized_end=1034,
+  serialized_start=438,
+  serialized_end=478,
 )
 
 
@@ -465,8 +298,8 @@ _IADDACTIONTIMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1036,
-  serialized_end=1126,
+  serialized_start=480,
+  serialized_end=570,
 )
 
 
@@ -517,8 +350,8 @@ _IADDACTIONTIMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1129,
-  serialized_end=1270,
+  serialized_start=573,
+  serialized_end=714,
 )
 
 
@@ -569,8 +402,8 @@ _ISENDEMOJIREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1272,
-  serialized_end=1377,
+  serialized_start=716,
+  serialized_end=821,
 )
 
 
@@ -621,8 +454,8 @@ _ISENDEMOJIRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1380,
-  serialized_end=1510,
+  serialized_start=824,
+  serialized_end=954,
 )
 
 
@@ -652,8 +485,8 @@ _IGETUSERVIPINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1512,
-  serialized_end=1545,
+  serialized_start=956,
+  serialized_end=989,
 )
 
 
@@ -704,14 +537,10 @@ _IGETUSERVIPINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1548,
-  serialized_end=1686,
+  serialized_start=992,
+  serialized_end=1130,
 )
 
-_IGETENTERROOMUSERINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
-_IGETENTERROOMUSERINFORSP.fields_by_name['vip_level'].enum_type = vip__pb2._VIPLEVEL
-_IGETENTERROOMUSERINFORSP.fields_by_name['vip_duration'].enum_type = vip__pb2._VIPDURATION
-_IGETENTERROOMUSERINFORSP.fields_by_name['mark'].message_type = inner__base__pb2._USERRELATION
 _IADDGIFTBAGREQ.fields_by_name['type'].enum_type = shop__pb2._GIFTBAGTYPE
 _IADDGIFTBAGRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IEMOJIMIGRATIONRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
@@ -722,8 +551,6 @@ _ISENDEMOJIRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETUSERVIPINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETUSERVIPINFORSP.fields_by_name['data'].message_type = vip__pb2._USERVIPINFO
 _IGETUSERVIPINFORSP.fields_by_name['emoji'].message_type = shop__pb2._USEREMOJIINFO
-DESCRIPTOR.message_types_by_name['iGetEnterRoomUserInfoREQ'] = _IGETENTERROOMUSERINFOREQ
-DESCRIPTOR.message_types_by_name['iGetEnterRoomUserInfoRSP'] = _IGETENTERROOMUSERINFORSP
 DESCRIPTOR.message_types_by_name['iAddGiftBagREQ'] = _IADDGIFTBAGREQ
 DESCRIPTOR.message_types_by_name['iAddGiftBagRSP'] = _IADDGIFTBAGRSP
 DESCRIPTOR.message_types_by_name['iEmojiMigrationREQ'] = _IEMOJIMIGRATIONREQ
@@ -737,20 +564,6 @@ DESCRIPTOR.message_types_by_name['iSendEmojiRSP'] = _ISENDEMOJIRSP
 DESCRIPTOR.message_types_by_name['iGetUserVipInfoREQ'] = _IGETUSERVIPINFOREQ
 DESCRIPTOR.message_types_by_name['iGetUserVipInfoRSP'] = _IGETUSERVIPINFORSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-iGetEnterRoomUserInfoREQ = _reflection.GeneratedProtocolMessageType('iGetEnterRoomUserInfoREQ', (_message.Message,), dict(
-  DESCRIPTOR = _IGETENTERROOMUSERINFOREQ,
-  __module__ = 'inner_shop_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iGetEnterRoomUserInfoREQ)
-  ))
-_sym_db.RegisterMessage(iGetEnterRoomUserInfoREQ)
-
-iGetEnterRoomUserInfoRSP = _reflection.GeneratedProtocolMessageType('iGetEnterRoomUserInfoRSP', (_message.Message,), dict(
-  DESCRIPTOR = _IGETENTERROOMUSERINFORSP,
-  __module__ = 'inner_shop_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iGetEnterRoomUserInfoRSP)
-  ))
-_sym_db.RegisterMessage(iGetEnterRoomUserInfoRSP)
 
 iAddGiftBagREQ = _reflection.GeneratedProtocolMessageType('iAddGiftBagREQ', (_message.Message,), dict(
   DESCRIPTOR = _IADDGIFTBAGREQ,

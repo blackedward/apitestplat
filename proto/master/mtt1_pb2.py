@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 
 import base_pb2 as base__pb2
 import mtt2_pb2 as mtt2__pb2
+import mtt_room_info_pb2 as mtt__room__info__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\nmtt1.proto\x12\x02pb\x1a\nbase.proto\x1a\nmtt2.proto\"0\n\x10\x43reateMttRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"G\n\nMttInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04lang\x18\x04 \x01(\t\"x\n\nMttInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\x08sng_info\x18\x02 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12!\n\x08mtt_info\x18\x03 \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x16\n\x0eroom_authority\x18\x04 \x01(\x08\"W\n\x0cMttPlayerREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"|\n\x0cMttPlayerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x07players\x18\x02 \x03(\x0b\x32\x11.pb.MttPlayerInfo\x12\x12\n\nplayer_num\x18\x03 \x01(\x05\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\x12\x11\n\ttotal_num\x18\x05 \x01(\x05\"V\n\x0bMttTableREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"\x97\x01\n\x0cMttTableInfo\x12\x0b\n\x03tid\x18\x01 \x01(\x05\x12\x11\n\ttop_chips\x18\x02 \x01(\x03\x12\x11\n\tlow_chips\x18\x03 \x01(\x03\x12\x11\n\tavg_chips\x18\x04 \x01(\x03\x12\x12\n\nplayer_num\x18\x05 \x01(\x05\x12\x0b\n\x03uid\x18\x06 \x03(\x03\x12 \n\x18is_special_hunter_bounty\x18\x07 \x01(\x08\"d\n\x0bMttTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x05table\x18\x02 \x03(\x0b\x32\x10.pb.MttTableInfo\x12\x11\n\ttable_num\x18\x03 \x01(\x05\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\"W\n\x10MttTimeChangeREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x16\n\x0emtt_start_time\x18\x02 \x01(\x03\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\" \n\x10MttTimeChangeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"+\n\x0cMttCancelREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"\x1c\n\x0cMttCancelRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x0fMttPauseGameREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x14\n\x05\x63heck\x18\x03 \x01(\x08:\x05\x66\x61lse\";\n\x0fMttPauseGameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x63heck\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"-\n\x0eMttBackGameREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"9\n\x0eMttBackGameBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04left\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"\x1f\n\x0fMttPauseTimeBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\"_\n\nMttJoinREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04join\x18\x02 \x01(\x08\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04lang\x18\x04 \x01(\t\x12\x15\n\ris_early_bird\x18\x05 \x01(\x08\"d\n\nMttJoinRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04join\x18\x02 \x01(\x08\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x17\n\x08\x65vent_id\x18\x04 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\tevents_id\x18\x05 \x03(\x03\"\x0e\n\x0cMttstatusREQ\"\xf1\x01\n\x0cMttStatusRSP\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x13\n\x0b\x62lind_level\x18\x02 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_reward\x18\x04 \x01(\x03\x12\x18\n\x10total_player_num\x18\x05 \x01(\x05\x12\x1a\n\x12\x63urrent_player_num\x18\x06 \x01(\x05\x12\x11\n\tavg_chips\x18\x07 \x01(\x03\x12\x11\n\ttop_chips\x18\x08 \x01(\x03\x12\x11\n\tlow_chips\x18\t \x01(\x03\x12\x11\n\taddon_num\x18\n \x01(\x05\x12\x11\n\trebuy_num\x18\x0b \x01(\x05\"N\n\x10MttRewardListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x16\n\x0bstart_index\x18\x02 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x03 \x01(\x05:\x02-1\"\x97\x01\n\x10MttRewardListRSP\x12\x14\n\x0c\x66ixed_reward\x18\x02 \x01(\x08\x12&\n\x0breward_info\x18\x03 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x12\n\nreward_num\x18\x04 \x01(\x05\x12\x13\n\x0bstart_index\x18\x05 \x01(\x05\x12\x1c\n\x14satellite_item_value\x18\x06 \x01(\x03\"Y\n\x0eMttRankListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"\xd9\x01\n\x0bMttRankInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x11\n\trebuy_num\x18\x05 \x01(\x05\x12\x11\n\taddon_num\x18\x06 \x01(\x05\x12\x12\n\nhunter_num\x18\x07 \x01(\x05\x12\x14\n\x0chunter_bonus\x18\x08 \x01(\x03\x12 \n\x18is_special_hunter_bounty\x18\t \x01(\x08\x12 \n\x18room_avatar_client_label\x18\n \x01(\t\"W\n\x0eMttRankListRSP\x12\x1d\n\x04info\x18\x01 \x03(\x0b\x32\x0f.pb.MttRankInfo\x12\x11\n\ttotal_num\x18\x02 \x01(\x05\x12\x13\n\x0bstart_index\x18\x03 \x01(\x05\"\x1f\n\x0fMttBlindStopBRC\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\x1f\n\x0fMttBreakTimeBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\"?\n\x0e\x41\x64\x64onNotifyBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\x12\x0b\n\x03num\x18\x02 \x01(\x05\x12\x12\n\naddon_item\x18\x03 \x01(\t\"-\n\x0e\x43hangeTableREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03tid\x18\x02 \x01(\x05\"\n\n\x08\x41\x64\x64onREQ\"7\n\x08\x41\x64\x64onBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\"/\n\x0fMttStartLeftBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04left\x18\x02 \x01(\x05\"U\n\x13MttWaitGameStartBRC\x12>\n\x12mtt_wait_game_type\x18\x01 \x01(\x0e\x32\x13.pb.MttWaitGameType:\rCURRENT_TABLE\"D\n\tLookerREQ\x12\x0b\n\x03tid\x18\x01 \x01(\x05\x12\x16\n\x0bstart_index\x18\x02 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x03 \x01(\x05:\x02-1\"Q\n\tLookerRSP\x12\x1b\n\x04user\x18\x01 \x03(\x0b\x32\r.pb.UserBrief\x12\x12\n\nlooker_num\x18\x02 \x01(\x05\x12\x13\n\x0bstart_index\x18\x03 \x01(\x05\"\x15\n\x13MttTableShowInfoREQ\"\x9b\x01\n\x13MttTableShowInfoRSP\x12\x15\n\rreward_number\x18\x01 \x01(\x05\x12)\n\x0e\x63urrent_reward\x18\x02 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x18\n\x10total_player_num\x18\x03 \x01(\x05\x12\x0c\n\x04rank\x18\x04 \x01(\x05\x12\x1a\n\x12\x63urrent_player_num\x18\x05 \x01(\x05\"r\n\x16SpecialHunterBountyBRC\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nhunted_uid\x18\x02 \x01(\x03\x12\x13\n\x0bhunted_name\x18\x03 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x04 \x01(\x03\x12\x11\n\tleft_time\x18\x05 \x01(\x05*3\n\x0fMttWaitGameType\x12\x11\n\rCURRENT_TABLE\x10\x00\x12\r\n\tALL_TABLE\x10\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\nmtt1.proto\x12\x02pb\x1a\nbase.proto\x1a\nmtt2.proto\x1a\x13mtt_room_info.proto\"0\n\x10\x43reateMttRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"G\n\nMttInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04lang\x18\x04 \x01(\t\"x\n\nMttInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\x08sng_info\x18\x02 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12!\n\x08mtt_info\x18\x03 \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x16\n\x0eroom_authority\x18\x04 \x01(\x08\"W\n\x0cMttPlayerREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"|\n\x0cMttPlayerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x07players\x18\x02 \x03(\x0b\x32\x11.pb.MttPlayerInfo\x12\x12\n\nplayer_num\x18\x03 \x01(\x05\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\x12\x11\n\ttotal_num\x18\x05 \x01(\x05\"V\n\x0bMttTableREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"\x97\x01\n\x0cMttTableInfo\x12\x0b\n\x03tid\x18\x01 \x01(\x05\x12\x11\n\ttop_chips\x18\x02 \x01(\x03\x12\x11\n\tlow_chips\x18\x03 \x01(\x03\x12\x11\n\tavg_chips\x18\x04 \x01(\x03\x12\x12\n\nplayer_num\x18\x05 \x01(\x05\x12\x0b\n\x03uid\x18\x06 \x03(\x03\x12 \n\x18is_special_hunter_bounty\x18\x07 \x01(\x08\"d\n\x0bMttTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x05table\x18\x02 \x03(\x0b\x32\x10.pb.MttTableInfo\x12\x11\n\ttable_num\x18\x03 \x01(\x05\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\"W\n\x10MttTimeChangeREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x16\n\x0emtt_start_time\x18\x02 \x01(\x03\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\" \n\x10MttTimeChangeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"+\n\x0cMttCancelREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"\x1c\n\x0cMttCancelRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x0fMttPauseGameREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x14\n\x05\x63heck\x18\x03 \x01(\x08:\x05\x66\x61lse\";\n\x0fMttPauseGameRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x63heck\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"-\n\x0eMttBackGameREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\"9\n\x0eMttBackGameBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04left\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"\x1f\n\x0fMttPauseTimeBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\"_\n\nMttJoinREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04join\x18\x02 \x01(\x08\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04lang\x18\x04 \x01(\t\x12\x15\n\ris_early_bird\x18\x05 \x01(\x08\"d\n\nMttJoinRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04join\x18\x02 \x01(\x08\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x17\n\x08\x65vent_id\x18\x04 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\tevents_id\x18\x05 \x03(\x03\"\x0e\n\x0cMttstatusREQ\"\xf1\x01\n\x0cMttStatusRSP\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x13\n\x0b\x62lind_level\x18\x02 \x01(\x05\x12\x13\n\x0bjoin_status\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_reward\x18\x04 \x01(\x03\x12\x18\n\x10total_player_num\x18\x05 \x01(\x05\x12\x1a\n\x12\x63urrent_player_num\x18\x06 \x01(\x05\x12\x11\n\tavg_chips\x18\x07 \x01(\x03\x12\x11\n\ttop_chips\x18\x08 \x01(\x03\x12\x11\n\tlow_chips\x18\t \x01(\x03\x12\x11\n\taddon_num\x18\n \x01(\x05\x12\x11\n\trebuy_num\x18\x0b \x01(\x05\"N\n\x10MttRewardListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x16\n\x0bstart_index\x18\x02 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x03 \x01(\x05:\x02-1\"\x97\x01\n\x10MttRewardListRSP\x12\x14\n\x0c\x66ixed_reward\x18\x02 \x01(\x08\x12&\n\x0breward_info\x18\x03 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x12\n\nreward_num\x18\x04 \x01(\x05\x12\x13\n\x0bstart_index\x18\x05 \x01(\x05\x12\x1c\n\x14satellite_item_value\x18\x06 \x01(\x03\"Y\n\x0eMttRankListREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x16\n\x0bstart_index\x18\x03 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x04 \x01(\x05:\x02-1\"\xd9\x01\n\x0bMttRankInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x11\n\trebuy_num\x18\x05 \x01(\x05\x12\x11\n\taddon_num\x18\x06 \x01(\x05\x12\x12\n\nhunter_num\x18\x07 \x01(\x05\x12\x14\n\x0chunter_bonus\x18\x08 \x01(\x03\x12 \n\x18is_special_hunter_bounty\x18\t \x01(\x08\x12 \n\x18room_avatar_client_label\x18\n \x01(\t\"W\n\x0eMttRankListRSP\x12\x1d\n\x04info\x18\x01 \x03(\x0b\x32\x0f.pb.MttRankInfo\x12\x11\n\ttotal_num\x18\x02 \x01(\x05\x12\x13\n\x0bstart_index\x18\x03 \x01(\x05\"\x1f\n\x0fMttBlindStopBRC\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\x1f\n\x0fMttBreakTimeBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\"?\n\x0e\x41\x64\x64onNotifyBRC\x12\x0c\n\x04left\x18\x01 \x01(\x05\x12\x0b\n\x03num\x18\x02 \x01(\x05\x12\x12\n\naddon_item\x18\x03 \x01(\t\"-\n\x0e\x43hangeTableREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0b\n\x03tid\x18\x02 \x01(\x05\"\n\n\x08\x41\x64\x64onREQ\"7\n\x08\x41\x64\x64onBRC\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06seatid\x18\x02 \x01(\x05\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\"/\n\x0fMttStartLeftBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04left\x18\x02 \x01(\x05\"U\n\x13MttWaitGameStartBRC\x12>\n\x12mtt_wait_game_type\x18\x01 \x01(\x0e\x32\x13.pb.MttWaitGameType:\rCURRENT_TABLE\"D\n\tLookerREQ\x12\x0b\n\x03tid\x18\x01 \x01(\x05\x12\x16\n\x0bstart_index\x18\x02 \x01(\x05:\x01\x31\x12\x12\n\x06\x61mount\x18\x03 \x01(\x05:\x02-1\"Q\n\tLookerRSP\x12\x1b\n\x04user\x18\x01 \x03(\x0b\x32\r.pb.UserBrief\x12\x12\n\nlooker_num\x18\x02 \x01(\x05\x12\x13\n\x0bstart_index\x18\x03 \x01(\x05\"\x15\n\x13MttTableShowInfoREQ\"\x9b\x01\n\x13MttTableShowInfoRSP\x12\x15\n\rreward_number\x18\x01 \x01(\x05\x12)\n\x0e\x63urrent_reward\x18\x02 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x18\n\x10total_player_num\x18\x03 \x01(\x05\x12\x0c\n\x04rank\x18\x04 \x01(\x05\x12\x1a\n\x12\x63urrent_player_num\x18\x05 \x01(\x05\"r\n\x16SpecialHunterBountyBRC\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nhunted_uid\x18\x02 \x01(\x03\x12\x13\n\x0bhunted_name\x18\x03 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x04 \x01(\x03\x12\x11\n\tleft_time\x18\x05 \x01(\x05*3\n\x0fMttWaitGameType\x12\x11\n\rCURRENT_TABLE\x10\x00\x12\r\n\tALL_TABLE\x10\x01\x42\x07Z\x05../pb')
   ,
-  dependencies=[base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,])
+  dependencies=[base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,mtt__room__info__pb2.DESCRIPTOR,])
 
 _MTTWAITGAMETYPE = _descriptor.EnumDescriptor(
   name='MttWaitGameType',
@@ -43,8 +44,8 @@ _MTTWAITGAMETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3240,
-  serialized_end=3291,
+  serialized_start=3261,
+  serialized_end=3312,
 )
 _sym_db.RegisterEnumDescriptor(_MTTWAITGAMETYPE)
 
@@ -87,8 +88,8 @@ _CREATEMTTROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=42,
-  serialized_end=90,
+  serialized_start=63,
+  serialized_end=111,
 )
 
 
@@ -139,8 +140,8 @@ _MTTINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=163,
+  serialized_start=113,
+  serialized_end=184,
 )
 
 
@@ -191,8 +192,8 @@ _MTTINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=165,
-  serialized_end=285,
+  serialized_start=186,
+  serialized_end=306,
 )
 
 
@@ -243,8 +244,8 @@ _MTTPLAYERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=287,
-  serialized_end=374,
+  serialized_start=308,
+  serialized_end=395,
 )
 
 
@@ -302,8 +303,8 @@ _MTTPLAYERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=500,
+  serialized_start=397,
+  serialized_end=521,
 )
 
 
@@ -354,8 +355,8 @@ _MTTTABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=502,
-  serialized_end=588,
+  serialized_start=523,
+  serialized_end=609,
 )
 
 
@@ -427,8 +428,8 @@ _MTTTABLEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=591,
-  serialized_end=742,
+  serialized_start=612,
+  serialized_end=763,
 )
 
 
@@ -479,8 +480,8 @@ _MTTTABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=744,
-  serialized_end=844,
+  serialized_start=765,
+  serialized_end=865,
 )
 
 
@@ -531,8 +532,8 @@ _MTTTIMECHANGEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=846,
-  serialized_end=933,
+  serialized_start=867,
+  serialized_end=954,
 )
 
 
@@ -562,8 +563,8 @@ _MTTTIMECHANGERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=935,
-  serialized_end=967,
+  serialized_start=956,
+  serialized_end=988,
 )
 
 
@@ -600,8 +601,8 @@ _MTTCANCELREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=969,
-  serialized_end=1012,
+  serialized_start=990,
+  serialized_end=1033,
 )
 
 
@@ -631,8 +632,8 @@ _MTTCANCELRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1014,
-  serialized_end=1042,
+  serialized_start=1035,
+  serialized_end=1063,
 )
 
 
@@ -676,8 +677,8 @@ _MTTPAUSEGAMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1044,
-  serialized_end=1112,
+  serialized_start=1065,
+  serialized_end=1133,
 )
 
 
@@ -721,8 +722,8 @@ _MTTPAUSEGAMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1114,
-  serialized_end=1173,
+  serialized_start=1135,
+  serialized_end=1194,
 )
 
 
@@ -759,8 +760,8 @@ _MTTBACKGAMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1175,
-  serialized_end=1220,
+  serialized_start=1196,
+  serialized_end=1241,
 )
 
 
@@ -804,8 +805,8 @@ _MTTBACKGAMEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1222,
-  serialized_end=1279,
+  serialized_start=1243,
+  serialized_end=1300,
 )
 
 
@@ -835,8 +836,8 @@ _MTTPAUSETIMEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1281,
-  serialized_end=1312,
+  serialized_start=1302,
+  serialized_end=1333,
 )
 
 
@@ -894,8 +895,8 @@ _MTTJOINREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1314,
-  serialized_end=1409,
+  serialized_start=1335,
+  serialized_end=1430,
 )
 
 
@@ -953,8 +954,8 @@ _MTTJOINRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1411,
-  serialized_end=1511,
+  serialized_start=1432,
+  serialized_end=1532,
 )
 
 
@@ -977,8 +978,8 @@ _MTTSTATUSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1513,
-  serialized_end=1527,
+  serialized_start=1534,
+  serialized_end=1548,
 )
 
 
@@ -1078,8 +1079,8 @@ _MTTSTATUSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1530,
-  serialized_end=1771,
+  serialized_start=1551,
+  serialized_end=1792,
 )
 
 
@@ -1123,8 +1124,8 @@ _MTTREWARDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1773,
-  serialized_end=1851,
+  serialized_start=1794,
+  serialized_end=1872,
 )
 
 
@@ -1182,8 +1183,8 @@ _MTTREWARDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1854,
-  serialized_end=2005,
+  serialized_start=1875,
+  serialized_end=2026,
 )
 
 
@@ -1234,8 +1235,8 @@ _MTTRANKLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2007,
-  serialized_end=2096,
+  serialized_start=2028,
+  serialized_end=2117,
 )
 
 
@@ -1328,8 +1329,8 @@ _MTTRANKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2099,
-  serialized_end=2316,
+  serialized_start=2120,
+  serialized_end=2337,
 )
 
 
@@ -1373,8 +1374,8 @@ _MTTRANKLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2318,
-  serialized_end=2405,
+  serialized_start=2339,
+  serialized_end=2426,
 )
 
 
@@ -1404,8 +1405,8 @@ _MTTBLINDSTOPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2407,
-  serialized_end=2438,
+  serialized_start=2428,
+  serialized_end=2459,
 )
 
 
@@ -1435,8 +1436,8 @@ _MTTBREAKTIMEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2440,
-  serialized_end=2471,
+  serialized_start=2461,
+  serialized_end=2492,
 )
 
 
@@ -1480,8 +1481,8 @@ _ADDONNOTIFYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2473,
-  serialized_end=2536,
+  serialized_start=2494,
+  serialized_end=2557,
 )
 
 
@@ -1518,8 +1519,8 @@ _CHANGETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2538,
-  serialized_end=2583,
+  serialized_start=2559,
+  serialized_end=2604,
 )
 
 
@@ -1542,8 +1543,8 @@ _ADDONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2585,
-  serialized_end=2595,
+  serialized_start=2606,
+  serialized_end=2616,
 )
 
 
@@ -1587,8 +1588,8 @@ _ADDONBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2597,
-  serialized_end=2652,
+  serialized_start=2618,
+  serialized_end=2673,
 )
 
 
@@ -1625,8 +1626,8 @@ _MTTSTARTLEFTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2654,
-  serialized_end=2701,
+  serialized_start=2675,
+  serialized_end=2722,
 )
 
 
@@ -1656,8 +1657,8 @@ _MTTWAITGAMESTARTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2703,
-  serialized_end=2788,
+  serialized_start=2724,
+  serialized_end=2809,
 )
 
 
@@ -1701,8 +1702,8 @@ _LOOKERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2790,
-  serialized_end=2858,
+  serialized_start=2811,
+  serialized_end=2879,
 )
 
 
@@ -1746,8 +1747,8 @@ _LOOKERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2860,
-  serialized_end=2941,
+  serialized_start=2881,
+  serialized_end=2962,
 )
 
 
@@ -1770,8 +1771,8 @@ _MTTTABLESHOWINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2943,
-  serialized_end=2964,
+  serialized_start=2964,
+  serialized_end=2985,
 )
 
 
@@ -1829,8 +1830,8 @@ _MTTTABLESHOWINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2967,
-  serialized_end=3122,
+  serialized_start=2988,
+  serialized_end=3143,
 )
 
 
@@ -1888,12 +1889,12 @@ _SPECIALHUNTERBOUNTYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3124,
-  serialized_end=3238,
+  serialized_start=3145,
+  serialized_end=3259,
 )
 
 _MTTINFORSP.fields_by_name['sng_info'].message_type = base__pb2._SNGROOMINFO
-_MTTINFORSP.fields_by_name['mtt_info'].message_type = base__pb2._MTTROOMINFO
+_MTTINFORSP.fields_by_name['mtt_info'].message_type = mtt__room__info__pb2._MTTROOMINFO
 _MTTPLAYERRSP.fields_by_name['players'].message_type = mtt2__pb2._MTTPLAYERINFO
 _MTTTABLERSP.fields_by_name['table'].message_type = _MTTTABLEINFO
 _MTTREWARDLISTRSP.fields_by_name['reward_info'].message_type = base__pb2._MTTREWARDINFO

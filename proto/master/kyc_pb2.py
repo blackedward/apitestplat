@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tkyc.proto\x12\x02pb\"\x10\n\x0eGetKycStateREQ\"\xe2\x02\n\x0eGetKycStateRSP\x12$\n\x0f\x62\x61se_info_state\x18\x01 \x01(\x0e\x32\x0b.pb.KycType\x12 \n\x0b\x65mail_state\x18\x02 \x01(\x0e\x32\x0b.pb.KycType\x12#\n\x0eid_photo_state\x18\x03 \x01(\x0e\x32\x0b.pb.KycType\x12\"\n\raddress_state\x18\x04 \x01(\x0e\x32\x0b.pb.KycType\x12\x12\n\nkyc_offset\x18\x05 \x01(\t\x12\x17\n\x0fis_need_address\x18\x06 \x01(\x08\x12\"\n\x1aidentification_expire_time\x18\x07 \x01(\x03\x12\x18\n\x10need_verify_kyc2\x18\x08 \x01(\x08\x12\x19\n\x11need_verify_kyc3b\x18\t \x01(\x08\x12\x19\n\x11need_verify_kyc3c\x18\n \x01(\x08\x12\x1e\n\x16\x66orbid_play_start_time\x18\x0b \x01(\x03\"2\n\x15SetOnlineLimitHourREQ\x12\x19\n\x11online_limit_hour\x18\x01 \x01(\x03\"%\n\x15SetOnlineLimitHourRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x17\n\x15GetOnlineLimitHourREQ\"_\n\x15GetOnlineLimitHourRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x19\n\x11online_limit_hour\x18\x02 \x01(\x03\x12\x1d\n\x15online_limit_set_time\x18\x03 \x01(\x03\"\x18\n\x16GetRemainOnlineTimeREQ\">\n\x16GetRemainOnlineTimeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x16\n\x0bremain_time\x18\x02 \x01(\x03:\x01\x30\"*\n\x11SetWeekDepositREQ\x12\x15\n\rdeposit_limit\x18\x01 \x01(\x03\"!\n\x11SetWeekDepositRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x13\n\x11GetWeekDepositREQ\"J\n\x11GetWeekDepositRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x15\n\rdeposit_limit\x18\x02 \x01(\x03\x12\x10\n\x08is_valid\x18\x03 \x01(\x08\"\x14\n\x12GetDepositStateREQ\"n\n\x12GetDepositStateRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0fkyc_can_deposit\x18\x02 \x01(\x08\x12\x18\n\x10week_can_deposit\x18\x03 \x01(\x08\x12\x17\n\x0f\x62\x61n_can_deposit\x18\x04 \x01(\x08\"\x88\x01\n\x0bKycBaseData\x12\x12\n\nfirst_name\x18\x01 \x01(\t\x12\x11\n\tlast_name\x18\x02 \x01(\t\x12\x16\n\x0eidentification\x18\x03 \x01(\t\x12\x0b\n\x03\x64ob\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x0e\n\x06street\x18\x07 \x01(\t\"\x13\n\x11GetKycBaseDataREQ\"|\n\x11GetKycBaseDataRSP\x12(\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1a.pb.GetKycBaseDataRSP.Code\x12\x1d\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0f.pb.KycBaseData\"\x1e\n\x04\x43ode\x12\x0b\n\x07SUCCESS\x10\x00\x12\t\n\x05\x45RROR\x10\x01\"2\n\x11SetKycBaseDataREQ\x12\x1d\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\x0f.pb.KycBaseData\"\xaa\x01\n\x11SetKycBaseDataRSP\x12(\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1a.pb.SetKycBaseDataRSP.Code\"k\n\x04\x43ode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x12\n\x05\x45RROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12\x44\x41TA_PENDING_ERROR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x44\x41TA_FORBIDDEN_ERROR\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x17\n\x15GetKycRejectReasonREQ\"D\n\x0fKycRejectReason\x12\x11\n\tkyc_level\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"<\n\x15GetKycRejectReasonRSP\x12#\n\x06reason\x18\x01 \x03(\x0b\x32\x13.pb.KycRejectReason*\xa4\x01\n\x07KycType\x12\x0f\n\x0bKYC_NOT_SET\x10\x01\x12\x0e\n\nKYC_UPLOAD\x10\x02\x12\x0f\n\x0bKYC_HOLDING\x10\x03\x12\x10\n\x0cKYC_REJECTED\x10\x04\x12\x0e\n\nKYC_FAILED\x10\x05\x12\x10\n\x0cKYC_VERIFIED\x10\x06\x12\x0f\n\x0bKYC_EXPIRED\x10\x07\x12\x10\n\x0cKYC_EXPIRING\x10\x08\x12\x10\n\x0cKYC_RENEWING\x10\tB\x07Z\x05../pb')
+  serialized_pb=_b('\n\tkyc.proto\x12\x02pb\"\x10\n\x0eGetKycStateREQ\"\xe2\x02\n\x0eGetKycStateRSP\x12$\n\x0f\x62\x61se_info_state\x18\x01 \x01(\x0e\x32\x0b.pb.KycType\x12 \n\x0b\x65mail_state\x18\x02 \x01(\x0e\x32\x0b.pb.KycType\x12#\n\x0eid_photo_state\x18\x03 \x01(\x0e\x32\x0b.pb.KycType\x12\"\n\raddress_state\x18\x04 \x01(\x0e\x32\x0b.pb.KycType\x12\x12\n\nkyc_offset\x18\x05 \x01(\t\x12\x17\n\x0fis_need_address\x18\x06 \x01(\x08\x12\"\n\x1aidentification_expire_time\x18\x07 \x01(\x03\x12\x18\n\x10need_verify_kyc2\x18\x08 \x01(\x08\x12\x19\n\x11need_verify_kyc3b\x18\t \x01(\x08\x12\x19\n\x11need_verify_kyc3c\x18\n \x01(\x08\x12\x1e\n\x16\x66orbid_play_start_time\x18\x0b \x01(\x03\"2\n\x15SetOnlineLimitHourREQ\x12\x19\n\x11online_limit_hour\x18\x01 \x01(\x03\"%\n\x15SetOnlineLimitHourRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x17\n\x15GetOnlineLimitHourREQ\"_\n\x15GetOnlineLimitHourRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x19\n\x11online_limit_hour\x18\x02 \x01(\x03\x12\x1d\n\x15online_limit_set_time\x18\x03 \x01(\x03\"\x18\n\x16GetRemainOnlineTimeREQ\">\n\x16GetRemainOnlineTimeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x16\n\x0bremain_time\x18\x02 \x01(\x03:\x01\x30\"*\n\x11SetWeekDepositREQ\x12\x15\n\rdeposit_limit\x18\x01 \x01(\x03\"!\n\x11SetWeekDepositRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x13\n\x11GetWeekDepositREQ\"J\n\x11GetWeekDepositRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x15\n\rdeposit_limit\x18\x02 \x01(\x03\x12\x10\n\x08is_valid\x18\x03 \x01(\x08\"\x14\n\x12GetDepositStateREQ\"n\n\x12GetDepositStateRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0fkyc_can_deposit\x18\x02 \x01(\x08\x12\x18\n\x10week_can_deposit\x18\x03 \x01(\x08\x12\x17\n\x0f\x62\x61n_can_deposit\x18\x04 \x01(\x08\"\x88\x01\n\x0bKycBaseData\x12\x12\n\nfirst_name\x18\x01 \x01(\t\x12\x11\n\tlast_name\x18\x02 \x01(\t\x12\x16\n\x0eidentification\x18\x03 \x01(\t\x12\x0b\n\x03\x64ob\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x0e\n\x06street\x18\x07 \x01(\t\"\x13\n\x11GetKycBaseDataREQ\"[\n\x11GetKycBaseDataRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.GetKycBaseDataRSPCode\x12\x1d\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0f.pb.KycBaseData\"2\n\x11SetKycBaseDataREQ\x12\x1d\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\x0f.pb.KycBaseData\"<\n\x11SetKycBaseDataRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.SetKycBaseDataRSPCode\"\x17\n\x15GetKycRejectReasonREQ\"D\n\x0fKycRejectReason\x12\x11\n\tkyc_level\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"<\n\x15GetKycRejectReasonRSP\x12#\n\x06reason\x18\x01 \x03(\x0b\x32\x13.pb.KycRejectReason\"\x85\x01\n\x0bSelfBanData\x12*\n\x0b\x62\x61nned_type\x18\x01 \x01(\x0e\x32\x15.pb.KycSelfBannedType\x12\x33\n\x10\x62\x61nned_time_type\x18\x02 \x01(\x0e\x32\x19.pb.KycSelfBannedTimeType\x12\x15\n\rremain_second\x18\x03 \x01(\x03\"t\n\x11SetSelfBanDataREQ\x12*\n\x0b\x62\x61nned_type\x18\x01 \x03(\x0e\x32\x15.pb.KycSelfBannedType\x12\x33\n\x10\x62\x61nned_time_type\x18\x02 \x03(\x0e\x32\x19.pb.KycSelfBannedTimeType\"<\n\x11SetSelfBanDataRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.SetSelfBanDataRSPCode\"\x13\n\x11GetSelfBanDataREQ\"d\n\x11GetSelfBanDataRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.GetSelfBanDataRSPCode\x12&\n\rself_ban_data\x18\x02 \x03(\x0b\x32\x0f.pb.SelfBanData*\xa4\x01\n\x07KycType\x12\x0f\n\x0bKYC_NOT_SET\x10\x01\x12\x0e\n\nKYC_UPLOAD\x10\x02\x12\x0f\n\x0bKYC_HOLDING\x10\x03\x12\x10\n\x0cKYC_REJECTED\x10\x04\x12\x0e\n\nKYC_FAILED\x10\x05\x12\x10\n\x0cKYC_VERIFIED\x10\x06\x12\x0f\n\x0bKYC_EXPIRED\x10\x07\x12\x10\n\x0cKYC_EXPIRING\x10\x08\x12\x10\n\x0cKYC_RENEWING\x10\t*c\n\x15GetKycBaseDataRSPCode\x12%\n!GET_KYC_BASE_DATA_RSPCODE_SUCCESS\x10\x00\x12#\n\x1fGET_KYC_BASE_DATA_RSPCODE_ERROR\x10\x01*\xe4\x01\n\x15SetKycBaseDataRSPCode\x12%\n!SET_KYC_BASE_DATA_RSPCODE_SUCCESS\x10\x00\x12,\n\x1fSET_KYC_BASE_DATA_RSPCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x39\n,SET_KYC_BASE_DATA_RSPCODE_DATA_PENDING_ERROR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12;\n.SET_KYC_BASE_DATA_RSPCODE_DATA_FORBIDDEN_ERROR\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x8a\x01\n\x11KycSelfBannedType\x12&\n\"KYC_SELF_BANNED_TYPE_RING_GAME_AOF\x10\x01\x12\"\n\x1eKYC_SELF_BANNED_TYPE_CASINO_SK\x10\x02\x12)\n%KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK\x10\x03*\x82\x03\n\x15KycSelfBannedTimeType\x12-\n KYC_SELF_BANNED_TIME_TYPE_CANCEL\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12.\n!KYC_SELF_BANNED_TIME_TYPE_FOREVER\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x1fKYC_SELF_BANNED_TIME_TYPE_1_DAY\x10\x01\x12#\n\x1fKYC_SELF_BANNED_TIME_TYPE_7_DAY\x10\x02\x12$\n KYC_SELF_BANNED_TIME_TYPE_30_DAY\x10\x03\x12&\n\"KYC_SELF_BANNED_TIME_TYPE_6_MONTHS\x10\x04\x12$\n KYC_SELF_BANNED_TIME_TYPE_1_YEAR\x10\x05\x12%\n!KYC_SELF_BANNED_TIME_TYPE_3_YEARS\x10\x06\x12%\n!KYC_SELF_BANNED_TIME_TYPE_5_YEARS\x10\x07*\xa1\x01\n\x15SetSelfBanDataRSPCode\x12\x33\n&SET_SELF_BAN_DATA_RSPCODE_PLAYING_ROOM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12,\n\x1fSET_SELF_BAN_DATA_RSPCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12%\n!SET_SELF_BAN_DATA_RSPCODE_SUCCESS\x10\x00*c\n\x15GetSelfBanDataRSPCode\x12%\n!GET_SELF_BAN_DATA_RSPCODE_SUCCESS\x10\x00\x12#\n\x1fGET_SELF_BAN_DATA_RSPCODE_ERROR\x10\x01\x42\x07Z\x05../pb')
 )
 
 _KYCTYPE = _descriptor.EnumDescriptor(
@@ -68,12 +68,194 @@ _KYCTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1674,
-  serialized_end=1838,
+  serialized_start=1969,
+  serialized_end=2133,
 )
 _sym_db.RegisterEnumDescriptor(_KYCTYPE)
 
 KycType = enum_type_wrapper.EnumTypeWrapper(_KYCTYPE)
+_GETKYCBASEDATARSPCODE = _descriptor.EnumDescriptor(
+  name='GetKycBaseDataRSPCode',
+  full_name='pb.GetKycBaseDataRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_KYC_BASE_DATA_RSPCODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_KYC_BASE_DATA_RSPCODE_ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2135,
+  serialized_end=2234,
+)
+_sym_db.RegisterEnumDescriptor(_GETKYCBASEDATARSPCODE)
+
+GetKycBaseDataRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETKYCBASEDATARSPCODE)
+_SETKYCBASEDATARSPCODE = _descriptor.EnumDescriptor(
+  name='SetKycBaseDataRSPCode',
+  full_name='pb.SetKycBaseDataRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SET_KYC_BASE_DATA_RSPCODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_KYC_BASE_DATA_RSPCODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_KYC_BASE_DATA_RSPCODE_DATA_PENDING_ERROR', index=2, number=-3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_KYC_BASE_DATA_RSPCODE_DATA_FORBIDDEN_ERROR', index=3, number=-8,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2237,
+  serialized_end=2465,
+)
+_sym_db.RegisterEnumDescriptor(_SETKYCBASEDATARSPCODE)
+
+SetKycBaseDataRSPCode = enum_type_wrapper.EnumTypeWrapper(_SETKYCBASEDATARSPCODE)
+_KYCSELFBANNEDTYPE = _descriptor.EnumDescriptor(
+  name='KycSelfBannedType',
+  full_name='pb.KycSelfBannedType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TYPE_RING_GAME_AOF', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TYPE_CASINO_SK', index=1, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK', index=2, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2468,
+  serialized_end=2606,
+)
+_sym_db.RegisterEnumDescriptor(_KYCSELFBANNEDTYPE)
+
+KycSelfBannedType = enum_type_wrapper.EnumTypeWrapper(_KYCSELFBANNEDTYPE)
+_KYCSELFBANNEDTIMETYPE = _descriptor.EnumDescriptor(
+  name='KycSelfBannedTimeType',
+  full_name='pb.KycSelfBannedTimeType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_CANCEL', index=0, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_FOREVER', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_1_DAY', index=2, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_7_DAY', index=3, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_30_DAY', index=4, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_6_MONTHS', index=5, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_1_YEAR', index=6, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_3_YEARS', index=7, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KYC_SELF_BANNED_TIME_TYPE_5_YEARS', index=8, number=7,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2609,
+  serialized_end=2995,
+)
+_sym_db.RegisterEnumDescriptor(_KYCSELFBANNEDTIMETYPE)
+
+KycSelfBannedTimeType = enum_type_wrapper.EnumTypeWrapper(_KYCSELFBANNEDTIMETYPE)
+_SETSELFBANDATARSPCODE = _descriptor.EnumDescriptor(
+  name='SetSelfBanDataRSPCode',
+  full_name='pb.SetSelfBanDataRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SET_SELF_BAN_DATA_RSPCODE_PLAYING_ROOM', index=0, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_SELF_BAN_DATA_RSPCODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_SELF_BAN_DATA_RSPCODE_SUCCESS', index=2, number=0,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2998,
+  serialized_end=3159,
+)
+_sym_db.RegisterEnumDescriptor(_SETSELFBANDATARSPCODE)
+
+SetSelfBanDataRSPCode = enum_type_wrapper.EnumTypeWrapper(_SETSELFBANDATARSPCODE)
+_GETSELFBANDATARSPCODE = _descriptor.EnumDescriptor(
+  name='GetSelfBanDataRSPCode',
+  full_name='pb.GetSelfBanDataRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_SELF_BAN_DATA_RSPCODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_SELF_BAN_DATA_RSPCODE_ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3161,
+  serialized_end=3260,
+)
+_sym_db.RegisterEnumDescriptor(_GETSELFBANDATARSPCODE)
+
+GetSelfBanDataRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETSELFBANDATARSPCODE)
 KYC_NOT_SET = 1
 KYC_UPLOAD = 2
 KYC_HOLDING = 3
@@ -83,59 +265,30 @@ KYC_VERIFIED = 6
 KYC_EXPIRED = 7
 KYC_EXPIRING = 8
 KYC_RENEWING = 9
+GET_KYC_BASE_DATA_RSPCODE_SUCCESS = 0
+GET_KYC_BASE_DATA_RSPCODE_ERROR = 1
+SET_KYC_BASE_DATA_RSPCODE_SUCCESS = 0
+SET_KYC_BASE_DATA_RSPCODE_ERROR = -1
+SET_KYC_BASE_DATA_RSPCODE_DATA_PENDING_ERROR = -3
+SET_KYC_BASE_DATA_RSPCODE_DATA_FORBIDDEN_ERROR = -8
+KYC_SELF_BANNED_TYPE_RING_GAME_AOF = 1
+KYC_SELF_BANNED_TYPE_CASINO_SK = 2
+KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK = 3
+KYC_SELF_BANNED_TIME_TYPE_CANCEL = -2
+KYC_SELF_BANNED_TIME_TYPE_FOREVER = -1
+KYC_SELF_BANNED_TIME_TYPE_1_DAY = 1
+KYC_SELF_BANNED_TIME_TYPE_7_DAY = 2
+KYC_SELF_BANNED_TIME_TYPE_30_DAY = 3
+KYC_SELF_BANNED_TIME_TYPE_6_MONTHS = 4
+KYC_SELF_BANNED_TIME_TYPE_1_YEAR = 5
+KYC_SELF_BANNED_TIME_TYPE_3_YEARS = 6
+KYC_SELF_BANNED_TIME_TYPE_5_YEARS = 7
+SET_SELF_BAN_DATA_RSPCODE_PLAYING_ROOM = -2
+SET_SELF_BAN_DATA_RSPCODE_ERROR = -1
+SET_SELF_BAN_DATA_RSPCODE_SUCCESS = 0
+GET_SELF_BAN_DATA_RSPCODE_SUCCESS = 0
+GET_SELF_BAN_DATA_RSPCODE_ERROR = 1
 
-
-_GETKYCBASEDATARSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetKycBaseDataRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ERROR', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1259,
-  serialized_end=1289,
-)
-_sym_db.RegisterEnumDescriptor(_GETKYCBASEDATARSP_CODE)
-
-_SETKYCBASEDATARSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.SetKycBaseDataRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='DATA_PENDING_ERROR', index=2, number=-3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='DATA_FORBIDDEN_ERROR', index=3, number=-8,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1407,
-  serialized_end=1514,
-)
-_sym_db.RegisterEnumDescriptor(_SETKYCBASEDATARSP_CODE)
 
 
 _GETKYCSTATEREQ = _descriptor.Descriptor(
@@ -786,7 +939,6 @@ _GETKYCBASEDATARSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETKYCBASEDATARSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -795,7 +947,7 @@ _GETKYCBASEDATARSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1165,
-  serialized_end=1289,
+  serialized_end=1256,
 )
 
 
@@ -825,8 +977,8 @@ _SETKYCBASEDATAREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1291,
-  serialized_end=1341,
+  serialized_start=1258,
+  serialized_end=1308,
 )
 
 
@@ -849,7 +1001,6 @@ _SETKYCBASEDATARSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SETKYCBASEDATARSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -857,8 +1008,8 @@ _SETKYCBASEDATARSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1344,
-  serialized_end=1514,
+  serialized_start=1310,
+  serialized_end=1370,
 )
 
 
@@ -881,8 +1032,8 @@ _GETKYCREJECTREASONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1516,
-  serialized_end=1539,
+  serialized_start=1372,
+  serialized_end=1395,
 )
 
 
@@ -926,8 +1077,8 @@ _KYCREJECTREASON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1541,
-  serialized_end=1609,
+  serialized_start=1397,
+  serialized_end=1465,
 )
 
 
@@ -957,21 +1108,202 @@ _GETKYCREJECTREASONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1611,
-  serialized_end=1671,
+  serialized_start=1467,
+  serialized_end=1527,
+)
+
+
+_SELFBANDATA = _descriptor.Descriptor(
+  name='SelfBanData',
+  full_name='pb.SelfBanData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='banned_type', full_name='pb.SelfBanData.banned_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='banned_time_type', full_name='pb.SelfBanData.banned_time_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=-2,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='remain_second', full_name='pb.SelfBanData.remain_second', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1530,
+  serialized_end=1663,
+)
+
+
+_SETSELFBANDATAREQ = _descriptor.Descriptor(
+  name='SetSelfBanDataREQ',
+  full_name='pb.SetSelfBanDataREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='banned_type', full_name='pb.SetSelfBanDataREQ.banned_type', index=0,
+      number=1, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='banned_time_type', full_name='pb.SetSelfBanDataREQ.banned_time_type', index=1,
+      number=2, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1665,
+  serialized_end=1781,
+)
+
+
+_SETSELFBANDATARSP = _descriptor.Descriptor(
+  name='SetSelfBanDataRSP',
+  full_name='pb.SetSelfBanDataRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.SetSelfBanDataRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=-2,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1783,
+  serialized_end=1843,
+)
+
+
+_GETSELFBANDATAREQ = _descriptor.Descriptor(
+  name='GetSelfBanDataREQ',
+  full_name='pb.GetSelfBanDataREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1845,
+  serialized_end=1864,
+)
+
+
+_GETSELFBANDATARSP = _descriptor.Descriptor(
+  name='GetSelfBanDataRSP',
+  full_name='pb.GetSelfBanDataRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetSelfBanDataRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='self_ban_data', full_name='pb.GetSelfBanDataRSP.self_ban_data', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1866,
+  serialized_end=1966,
 )
 
 _GETKYCSTATERSP.fields_by_name['base_info_state'].enum_type = _KYCTYPE
 _GETKYCSTATERSP.fields_by_name['email_state'].enum_type = _KYCTYPE
 _GETKYCSTATERSP.fields_by_name['id_photo_state'].enum_type = _KYCTYPE
 _GETKYCSTATERSP.fields_by_name['address_state'].enum_type = _KYCTYPE
-_GETKYCBASEDATARSP.fields_by_name['code'].enum_type = _GETKYCBASEDATARSP_CODE
+_GETKYCBASEDATARSP.fields_by_name['code'].enum_type = _GETKYCBASEDATARSPCODE
 _GETKYCBASEDATARSP.fields_by_name['data'].message_type = _KYCBASEDATA
-_GETKYCBASEDATARSP_CODE.containing_type = _GETKYCBASEDATARSP
 _SETKYCBASEDATAREQ.fields_by_name['data'].message_type = _KYCBASEDATA
-_SETKYCBASEDATARSP.fields_by_name['code'].enum_type = _SETKYCBASEDATARSP_CODE
-_SETKYCBASEDATARSP_CODE.containing_type = _SETKYCBASEDATARSP
+_SETKYCBASEDATARSP.fields_by_name['code'].enum_type = _SETKYCBASEDATARSPCODE
 _GETKYCREJECTREASONRSP.fields_by_name['reason'].message_type = _KYCREJECTREASON
+_SELFBANDATA.fields_by_name['banned_type'].enum_type = _KYCSELFBANNEDTYPE
+_SELFBANDATA.fields_by_name['banned_time_type'].enum_type = _KYCSELFBANNEDTIMETYPE
+_SETSELFBANDATAREQ.fields_by_name['banned_type'].enum_type = _KYCSELFBANNEDTYPE
+_SETSELFBANDATAREQ.fields_by_name['banned_time_type'].enum_type = _KYCSELFBANNEDTIMETYPE
+_SETSELFBANDATARSP.fields_by_name['code'].enum_type = _SETSELFBANDATARSPCODE
+_GETSELFBANDATARSP.fields_by_name['code'].enum_type = _GETSELFBANDATARSPCODE
+_GETSELFBANDATARSP.fields_by_name['self_ban_data'].message_type = _SELFBANDATA
 DESCRIPTOR.message_types_by_name['GetKycStateREQ'] = _GETKYCSTATEREQ
 DESCRIPTOR.message_types_by_name['GetKycStateRSP'] = _GETKYCSTATERSP
 DESCRIPTOR.message_types_by_name['SetOnlineLimitHourREQ'] = _SETONLINELIMITHOURREQ
@@ -994,7 +1326,18 @@ DESCRIPTOR.message_types_by_name['SetKycBaseDataRSP'] = _SETKYCBASEDATARSP
 DESCRIPTOR.message_types_by_name['GetKycRejectReasonREQ'] = _GETKYCREJECTREASONREQ
 DESCRIPTOR.message_types_by_name['KycRejectReason'] = _KYCREJECTREASON
 DESCRIPTOR.message_types_by_name['GetKycRejectReasonRSP'] = _GETKYCREJECTREASONRSP
+DESCRIPTOR.message_types_by_name['SelfBanData'] = _SELFBANDATA
+DESCRIPTOR.message_types_by_name['SetSelfBanDataREQ'] = _SETSELFBANDATAREQ
+DESCRIPTOR.message_types_by_name['SetSelfBanDataRSP'] = _SETSELFBANDATARSP
+DESCRIPTOR.message_types_by_name['GetSelfBanDataREQ'] = _GETSELFBANDATAREQ
+DESCRIPTOR.message_types_by_name['GetSelfBanDataRSP'] = _GETSELFBANDATARSP
 DESCRIPTOR.enum_types_by_name['KycType'] = _KYCTYPE
+DESCRIPTOR.enum_types_by_name['GetKycBaseDataRSPCode'] = _GETKYCBASEDATARSPCODE
+DESCRIPTOR.enum_types_by_name['SetKycBaseDataRSPCode'] = _SETKYCBASEDATARSPCODE
+DESCRIPTOR.enum_types_by_name['KycSelfBannedType'] = _KYCSELFBANNEDTYPE
+DESCRIPTOR.enum_types_by_name['KycSelfBannedTimeType'] = _KYCSELFBANNEDTIMETYPE
+DESCRIPTOR.enum_types_by_name['SetSelfBanDataRSPCode'] = _SETSELFBANDATARSPCODE
+DESCRIPTOR.enum_types_by_name['GetSelfBanDataRSPCode'] = _GETSELFBANDATARSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetKycStateREQ = _reflection.GeneratedProtocolMessageType('GetKycStateREQ', (_message.Message,), dict(
@@ -1150,6 +1493,41 @@ GetKycRejectReasonRSP = _reflection.GeneratedProtocolMessageType('GetKycRejectRe
   # @@protoc_insertion_point(class_scope:pb.GetKycRejectReasonRSP)
   ))
 _sym_db.RegisterMessage(GetKycRejectReasonRSP)
+
+SelfBanData = _reflection.GeneratedProtocolMessageType('SelfBanData', (_message.Message,), dict(
+  DESCRIPTOR = _SELFBANDATA,
+  __module__ = 'kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.SelfBanData)
+  ))
+_sym_db.RegisterMessage(SelfBanData)
+
+SetSelfBanDataREQ = _reflection.GeneratedProtocolMessageType('SetSelfBanDataREQ', (_message.Message,), dict(
+  DESCRIPTOR = _SETSELFBANDATAREQ,
+  __module__ = 'kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.SetSelfBanDataREQ)
+  ))
+_sym_db.RegisterMessage(SetSelfBanDataREQ)
+
+SetSelfBanDataRSP = _reflection.GeneratedProtocolMessageType('SetSelfBanDataRSP', (_message.Message,), dict(
+  DESCRIPTOR = _SETSELFBANDATARSP,
+  __module__ = 'kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.SetSelfBanDataRSP)
+  ))
+_sym_db.RegisterMessage(SetSelfBanDataRSP)
+
+GetSelfBanDataREQ = _reflection.GeneratedProtocolMessageType('GetSelfBanDataREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETSELFBANDATAREQ,
+  __module__ = 'kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetSelfBanDataREQ)
+  ))
+_sym_db.RegisterMessage(GetSelfBanDataREQ)
+
+GetSelfBanDataRSP = _reflection.GeneratedProtocolMessageType('GetSelfBanDataRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETSELFBANDATARSP,
+  __module__ = 'kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetSelfBanDataRSP)
+  ))
+_sym_db.RegisterMessage(GetSelfBanDataRSP)
 
 
 DESCRIPTOR._options = None

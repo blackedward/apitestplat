@@ -24,10 +24,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x1aleaderboard_activity.proto\x12\x02pb\x1a\nbase.proto\x1a\x0c\x63ommon.proto\x1a\x0b\x63lub3.proto\x1a\x1fleaderboard_activity_base.proto\"\xf0\x03\n\x1dLeaderboardActivityTeamStatus\x12\x1f\n\x17leaderboard_activity_id\x18\x01 \x01(\x03\x12 \n\x18leaderboard_activity_key\x18\x02 \x01(\t\x12?\n\x1aleaderboard_activity_teams\x18\x03 \x03(\x0b\x32\x1b.pb.LeaderboardActivityTeam\x12\x15\n\rjoin_team_key\x18\x04 \x01(\t\x12&\n\x1eleaderboard_activity_group_key\x18\x05 \x01(\t\x12\'\n\x1fleaderboard_activity_group_date\x18\x06 \x01(\t\x12*\n\"leaderboard_activity_join_end_time\x18\x07 \x01(\x03\x12/\n\'leaderboard_activity_calculate_end_time\x18\x08 \x01(\x03\x12*\n\"leaderboard_activity_show_end_time\x18\t \x01(\x03\x12\'\n\x1fleaderboard_activity_start_time\x18\n \x01(\x03\x12\x31\n)leaderboard_activity_send_self_prize_time\x18\x0b \x01(\x03\"\'\n%GetLeaderboardActivitiesTeamStatusREQ\"\xe5\x01\n%GetLeaderboardActivitiesTeamStatusRSP\x12<\n\x04\x63ode\x18\x01 \x01(\x0e\x32..pb.GetLeaderboardActivitiesTeamStatusRSP.Code\x12K\n leaderboard_activity_team_status\x18\x02 \x03(\x0b\x32!.pb.LeaderboardActivityTeamStatus\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"2\n\x1eJoinLeaderboardActivityTeamREQ\x12\x10\n\x08team_key\x18\x01 \x01(\t\"\x8b\x02\n\x1eJoinLeaderboardActivityTeamRSP\x12\x35\n\x04\x63ode\x18\x01 \x01(\x0e\x32\'.pb.JoinLeaderboardActivityTeamRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\"V\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x16\x43ODE_JOIN_TIME_INVALID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\"J\n&FetchLeaderboardActivityTeamRewardsREQ\x12 \n\x18leaderboard_activity_key\x18\x01 \x01(\t\"\xf7\x02\n&FetchLeaderboardActivityTeamRewardsRSP\x12=\n\x04\x63ode\x18\x01 \x01(\x0e\x32/.pb.FetchLeaderboardActivityTeamRewardsRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x46\n!winner_leaderboard_activity_teams\x18\x05 \x03(\x0b\x32\x1b.pb.LeaderboardActivityTeam\"j\n\x04\x43ode\x12\"\n\x15\x43ODE_WINNER_NOT_FOUND\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x11\n\rCODE_REWARDED\x10\x01\x12\x12\n\x0e\x43ODE_REWARDING\x10\x02\"\xb0\x07\n\x1fLeaderboardActivityPointHistory\"\x8c\x07\n\x0c\x41\x64\x64PointType\x12\n\n\x06UNKNOW\x10\x00\x12\x0c\n\x08RANK_ALL\x10\x01\x12\r\n\tRANK_TEAM\x10\x02\x12\r\n\tRANK_SELF\x10\x03\x12\x13\n\x0fPARTICIPANT_ALL\x10\x04\x12\x14\n\x10PARTICIPANT_TEAM\x10\x05\x12\x14\n\x10PARTICIPANT_SELF\x10\x06\x12\x1c\n\x18KO_NOT_LIMIT_KO_TEAM_ALL\x10\x07\x12\x1d\n\x19KO_NOT_LIMIT_KO_TEAM_TEAM\x10\x08\x12\x1d\n\x19KO_NOT_LIMIT_KO_TEAM_SELF\x10\t\x12\x14\n\x10KO_SAME_TEAM_ALL\x10\n\x12\x15\n\x11KO_SAME_TEAM_TEAM\x10\x0b\x12\x15\n\x11KO_SAME_TEAM_SELF\x10\x0c\x12\x19\n\x15KO_DIFFERENT_TEAM_ALL\x10\r\x12\x1a\n\x16KO_DIFFERENT_TEAM_TEAM\x10\x0e\x12\x1a\n\x16KO_DIFFERENT_TEAM_SELF\x10\x0f\x12\x0f\n\x0bMANUAL_TEAM\x10\x10\x12\x0f\n\x0bMANUAL_SELF\x10\x11\x12\x1c\n\x18RING_GAME_PLAY_HANDS_ALL\x10\x12\x12\x1d\n\x19RING_GAME_PLAY_HANDS_TEAM\x10\x13\x12\x1d\n\x19RING_GAME_PLAY_HANDS_SELF\x10\x14\x12\x1b\n\x17RING_GAME_WIN_HANDS_ALL\x10\x15\x12\x1c\n\x18RING_GAME_WIN_HANDS_TEAM\x10\x16\x12\x1c\n\x18RING_GAME_WIN_HANDS_SELF\x10\x17\x12\x1d\n\x19RING_GAME_RAKED_HANDS_ALL\x10\x18\x12\x1e\n\x1aRING_GAME_RAKED_HANDS_TEAM\x10\x19\x12\x1e\n\x1aRING_GAME_RAKED_HANDS_SELF\x10\x1a\x12!\n\x1dRAKE_AND_PROFIT_WIN_HANDS_ALL\x10\x1b\x12\"\n\x1eRAKE_AND_PROFIT_WIN_HANDS_TEAM\x10\x1c\x12\"\n\x1eRAKE_AND_PROFIT_WIN_HANDS_SELF\x10\x1d\x12#\n\x1fRAKE_AND_PROFIT_RAKED_HANDS_ALL\x10\x1e\x12$\n RAKE_AND_PROFIT_RAKED_HANDS_TEAM\x10\x1f\x12$\n RAKE_AND_PROFIT_RAKED_HANDS_SELF\x10 \"4\n GetLeaderboardActivityRankingREQ\x12\x10\n\x08team_key\x18\x01 \x01(\t\"\xb2\x01\n\x1eLeaderboardActivityRankingInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05point\x18\x02 \x01(\x03\x12\x0c\n\x04rank\x18\x03 \x01(\x03\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x14\n\x0chead_img_url\x18\x05 \x01(\t\x12!\n\x06reward\x18\x06 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13is_reward_available\x18\x07 \x01(\x08\"\x85\x02\n!LeaderboardActivityNavigationInfo\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.pb.LeaderboardActivityNavigationInfo.Type\x12\x1e\n\x16ticket_item_class_name\x18\x02 \x01(\t\x12\x34\n\x10room_filter_type\x18\x03 \x01(\x0e\x32\x1a.pb.ClubRoomFilterRoomType\x12\x0f\n\x07room_id\x18\x04 \x01(\x03\"?\n\x04Type\x12\x0f\n\x0bTYPE_TICKET\x10\x01\x12\x14\n\x10TYPE_ROOM_FILTER\x10\x02\x12\x10\n\x0cTYPE_ROOM_ID\x10\x03\"\xa4\x03\n\x1aLeaderboardActivityRanking\x12\x10\n\x08team_key\x18\x01 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x02 \x01(\t\x12N\n\"leaderboard_activity_ranking_infos\x18\x03 \x03(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12R\n&leaderboard_activity_ranking_self_info\x18\x04 \x01(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12S\n$leaderboard_activity_navigation_info\x18\x05 \x01(\x0b\x32%.pb.LeaderboardActivityNavigationInfo\x12%\n\x1dleaderboard_activity_rank_num\x18\x06 \x01(\x03\x12\x32\n*leaderboard_activity_self_reward_last_rank\x18\x07 \x01(\x03\"\x91\x04\n GetLeaderboardActivityRankingRSP\x12\x37\n\x04\x63ode\x18\x01 \x01(\x0e\x32).pb.GetLeaderboardActivityRankingRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12N\n\"leaderboard_activity_ranking_infos\x18\x04 \x03(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12R\n&leaderboard_activity_ranking_self_info\x18\x05 \x01(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12S\n$leaderboard_activity_navigation_info\x18\x06 \x01(\x0b\x32%.pb.LeaderboardActivityNavigationInfo\x12/\n\x07ranking\x18\x07 \x01(\x0b\x32\x1e.pb.LeaderboardActivityRanking\"V\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x16\x43ODE_ACTIVITY_OVERTIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\":\n%GetLeaderboardActivityRankingBatchREQ\x12\x11\n\tteam_keys\x18\x01 \x03(\t\"\xca\x01\n%GetLeaderboardActivityRankingBatchRSP\x12<\n\x04\x63ode\x18\x01 \x01(\x0e\x32..pb.GetLeaderboardActivityRankingBatchRSP.Code\x12\x30\n\x08rankings\x18\x02 \x03(\x0b\x32\x1e.pb.LeaderboardActivityRanking\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\xd6\x02\n\x17LeaderboardActivityRule\x12\x41\n\x13mtt_add_point_rules\x18\x02 \x01(\x0b\x32$.pb.LeaderboardActivityAddPointRules\x12O\n\x19ring_game_add_point_rules\x18\x03 \x01(\x0b\x32,.pb.LeaderboardActivityRingGameAddPointRules\x12K\n\x17spin_up_add_point_rules\x18\x04 \x01(\x0b\x32*.pb.LeaderboardActivitySpinUpAddPointRules\x12Z\n\x1frake_and_profit_add_point_rules\x18\x05 \x01(\x0b\x32\x31.pb.LeaderboardActivityRakeAndProfitAddPointRules\"\xd3\x01\n LeaderboardActivityCacheSettings\x12 \n\x18leaderboard_activity_key\x18\x01 \x01(\t\x12>\n\x19leaderboard_activity_type\x18\x02 \x01(\x0e\x32\x1b.pb.LeaderboardActivityType\x12*\n\x05rules\x18\x03 \x01(\x0b\x32\x1b.pb.LeaderboardActivityRule\x12\r\n\x05title\x18\x04 \x01(\t\x12\x12\n\nimage_type\x18\x05 \x01(\t\"K\n&GetLeaderboardActivityCacheSettingsREQ\x12!\n\x19leaderboard_activity_keys\x18\x01 \x03(\t\"\xd7\x01\n&GetLeaderboardActivityCacheSettingsRSP\x12=\n\x04\x63ode\x18\x01 \x01(\x0e\x32/.pb.GetLeaderboardActivityCacheSettingsRSP.Code\x12;\n\rsettings_list\x18\x02 \x03(\x0b\x32$.pb.LeaderboardActivityCacheSettings\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x18\n\x16\x46\x65tchEastWestTicketREQ\"C\n\x16\x46\x65tchEastWestTicketRSP\x12)\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1b.pb.FetchEastWestTicketCode\"\x1c\n\x1aGetEastWestTicketStatusREQ\"K\n\x1aGetEastWestTicketStatusRSP\x12-\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1f.pb.GetEastWestTicketStatusCode*\xdd\x01\n\x17\x46\x65tchEastWestTicketCode\x12*\n\x1d\x46\x65tchEastWestTicketCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x1f\x46\x65tchEastWestTicketCode_SUCCESS\x10\x00\x12#\n\x1f\x46\x65tchEastWestTicketCode_CLAIMED\x10\x01\x12\'\n#FetchEastWestTicketCode_KYC_INVALID\x10\x02\x12#\n\x1f\x46\x65tchEastWestTicketCode_EXPIRED\x10\x03*\xc7\x01\n\x1bGetEastWestTicketStatusCode\x12.\n!GetEastWestTicketStatusCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n GetEastWestTicketStatusCode_NONE\x10\x00\x12\'\n#GetEastWestTicketStatusCode_CLAIMED\x10\x01\x12)\n%GetEastWestTicketStatusCode_UNCLAIMED\x10\x02\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x1aleaderboard_activity.proto\x12\x02pb\x1a\nbase.proto\x1a\x0c\x63ommon.proto\x1a\x0b\x63lub3.proto\x1a\x1fleaderboard_activity_base.proto\"\xf0\x03\n\x1dLeaderboardActivityTeamStatus\x12\x1f\n\x17leaderboard_activity_id\x18\x01 \x01(\x03\x12 \n\x18leaderboard_activity_key\x18\x02 \x01(\t\x12?\n\x1aleaderboard_activity_teams\x18\x03 \x03(\x0b\x32\x1b.pb.LeaderboardActivityTeam\x12\x15\n\rjoin_team_key\x18\x04 \x01(\t\x12&\n\x1eleaderboard_activity_group_key\x18\x05 \x01(\t\x12\'\n\x1fleaderboard_activity_group_date\x18\x06 \x01(\t\x12*\n\"leaderboard_activity_join_end_time\x18\x07 \x01(\x03\x12/\n\'leaderboard_activity_calculate_end_time\x18\x08 \x01(\x03\x12*\n\"leaderboard_activity_show_end_time\x18\t \x01(\x03\x12\'\n\x1fleaderboard_activity_start_time\x18\n \x01(\x03\x12\x31\n)leaderboard_activity_send_self_prize_time\x18\x0b \x01(\x03\"\'\n%GetLeaderboardActivitiesTeamStatusREQ\"\xe5\x01\n%GetLeaderboardActivitiesTeamStatusRSP\x12<\n\x04\x63ode\x18\x01 \x01(\x0e\x32..pb.GetLeaderboardActivitiesTeamStatusRSP.Code\x12K\n leaderboard_activity_team_status\x18\x02 \x03(\x0b\x32!.pb.LeaderboardActivityTeamStatus\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"2\n\x1eJoinLeaderboardActivityTeamREQ\x12\x10\n\x08team_key\x18\x01 \x01(\t\"\x8b\x02\n\x1eJoinLeaderboardActivityTeamRSP\x12\x35\n\x04\x63ode\x18\x01 \x01(\x0e\x32\'.pb.JoinLeaderboardActivityTeamRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\"V\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x16\x43ODE_JOIN_TIME_INVALID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\"J\n&FetchLeaderboardActivityTeamRewardsREQ\x12 \n\x18leaderboard_activity_key\x18\x01 \x01(\t\"\xf7\x02\n&FetchLeaderboardActivityTeamRewardsRSP\x12=\n\x04\x63ode\x18\x01 \x01(\x0e\x32/.pb.FetchLeaderboardActivityTeamRewardsRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x46\n!winner_leaderboard_activity_teams\x18\x05 \x03(\x0b\x32\x1b.pb.LeaderboardActivityTeam\"j\n\x04\x43ode\x12\"\n\x15\x43ODE_WINNER_NOT_FOUND\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x11\n\rCODE_REWARDED\x10\x01\x12\x12\n\x0e\x43ODE_REWARDING\x10\x02\"\xb7\t\n\x1fLeaderboardActivityPointHistory\"\x93\t\n\x0c\x41\x64\x64PointType\x12\n\n\x06UNKNOW\x10\x00\x12\x0c\n\x08RANK_ALL\x10\x01\x12\r\n\tRANK_TEAM\x10\x02\x12\r\n\tRANK_SELF\x10\x03\x12\x13\n\x0fPARTICIPANT_ALL\x10\x04\x12\x14\n\x10PARTICIPANT_TEAM\x10\x05\x12\x14\n\x10PARTICIPANT_SELF\x10\x06\x12\x1c\n\x18KO_NOT_LIMIT_KO_TEAM_ALL\x10\x07\x12\x1d\n\x19KO_NOT_LIMIT_KO_TEAM_TEAM\x10\x08\x12\x1d\n\x19KO_NOT_LIMIT_KO_TEAM_SELF\x10\t\x12\x14\n\x10KO_SAME_TEAM_ALL\x10\n\x12\x15\n\x11KO_SAME_TEAM_TEAM\x10\x0b\x12\x15\n\x11KO_SAME_TEAM_SELF\x10\x0c\x12\x19\n\x15KO_DIFFERENT_TEAM_ALL\x10\r\x12\x1a\n\x16KO_DIFFERENT_TEAM_TEAM\x10\x0e\x12\x1a\n\x16KO_DIFFERENT_TEAM_SELF\x10\x0f\x12\x0f\n\x0bMANUAL_TEAM\x10\x10\x12\x0f\n\x0bMANUAL_SELF\x10\x11\x12\x1c\n\x18RING_GAME_PLAY_HANDS_ALL\x10\x12\x12\x1d\n\x19RING_GAME_PLAY_HANDS_TEAM\x10\x13\x12\x1d\n\x19RING_GAME_PLAY_HANDS_SELF\x10\x14\x12\x1b\n\x17RING_GAME_WIN_HANDS_ALL\x10\x15\x12\x1c\n\x18RING_GAME_WIN_HANDS_TEAM\x10\x16\x12\x1c\n\x18RING_GAME_WIN_HANDS_SELF\x10\x17\x12\x1d\n\x19RING_GAME_RAKED_HANDS_ALL\x10\x18\x12\x1e\n\x1aRING_GAME_RAKED_HANDS_TEAM\x10\x19\x12\x1e\n\x1aRING_GAME_RAKED_HANDS_SELF\x10\x1a\x12!\n\x1dRAKE_AND_PROFIT_WIN_HANDS_ALL\x10\x1b\x12\"\n\x1eRAKE_AND_PROFIT_WIN_HANDS_TEAM\x10\x1c\x12\"\n\x1eRAKE_AND_PROFIT_WIN_HANDS_SELF\x10\x1d\x12#\n\x1fRAKE_AND_PROFIT_RAKED_HANDS_ALL\x10\x1e\x12$\n RAKE_AND_PROFIT_RAKED_HANDS_TEAM\x10\x1f\x12$\n RAKE_AND_PROFIT_RAKED_HANDS_SELF\x10 \x12\x12\n\x0ePRIZE_POOL_ALL\x10!\x12\x13\n\x0fPRIZE_POOL_TEAM\x10\"\x12\x13\n\x0fPRIZE_POOL_SELF\x10#\x12\x0b\n\x07ITM_ALL\x10$\x12\x0c\n\x08ITM_TEAM\x10%\x12\x0c\n\x08ITM_SELF\x10&\x12\x18\n\x14\x43\x41SINO_TOTAL_BET_ALL\x10\'\x12\x19\n\x15\x43\x41SINO_TOTAL_BET_TEAM\x10(\x12\x19\n\x15\x43\x41SINO_TOTAL_BET_SELF\x10)\x12\x18\n\x14\x43\x41SINO_TOTAL_WIN_ALL\x10*\x12\x19\n\x15\x43\x41SINO_TOTAL_WIN_TEAM\x10+\x12\x19\n\x15\x43\x41SINO_TOTAL_WIN_SELF\x10,\"4\n GetLeaderboardActivityRankingREQ\x12\x10\n\x08team_key\x18\x01 \x01(\t\"\xb2\x01\n\x1eLeaderboardActivityRankingInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05point\x18\x02 \x01(\x03\x12\x0c\n\x04rank\x18\x03 \x01(\x03\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x14\n\x0chead_img_url\x18\x05 \x01(\t\x12!\n\x06reward\x18\x06 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13is_reward_available\x18\x07 \x01(\x08\"\xc3\x01\n!LeaderboardActivityNavigationInfo\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32).pb.LeaderboardActivityNavigationInfoType\x12\x1e\n\x16ticket_item_class_name\x18\x02 \x01(\t\x12\x34\n\x10room_filter_type\x18\x03 \x01(\x0e\x32\x1a.pb.ClubRoomFilterRoomType\x12\x0f\n\x07room_id\x18\x04 \x01(\x03\"\xa4\x03\n\x1aLeaderboardActivityRanking\x12\x10\n\x08team_key\x18\x01 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x02 \x01(\t\x12N\n\"leaderboard_activity_ranking_infos\x18\x03 \x03(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12R\n&leaderboard_activity_ranking_self_info\x18\x04 \x01(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12S\n$leaderboard_activity_navigation_info\x18\x05 \x01(\x0b\x32%.pb.LeaderboardActivityNavigationInfo\x12%\n\x1dleaderboard_activity_rank_num\x18\x06 \x01(\x03\x12\x32\n*leaderboard_activity_self_reward_last_rank\x18\x07 \x01(\x03\"\x91\x04\n GetLeaderboardActivityRankingRSP\x12\x37\n\x04\x63ode\x18\x01 \x01(\x0e\x32).pb.GetLeaderboardActivityRankingRSP.Code\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x03 \x01(\t\x12N\n\"leaderboard_activity_ranking_infos\x18\x04 \x03(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12R\n&leaderboard_activity_ranking_self_info\x18\x05 \x01(\x0b\x32\".pb.LeaderboardActivityRankingInfo\x12S\n$leaderboard_activity_navigation_info\x18\x06 \x01(\x0b\x32%.pb.LeaderboardActivityNavigationInfo\x12/\n\x07ranking\x18\x07 \x01(\x0b\x32\x1e.pb.LeaderboardActivityRanking\"V\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x16\x43ODE_ACTIVITY_OVERTIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\":\n%GetLeaderboardActivityRankingBatchREQ\x12\x11\n\tteam_keys\x18\x01 \x03(\t\"\xca\x01\n%GetLeaderboardActivityRankingBatchRSP\x12<\n\x04\x63ode\x18\x01 \x01(\x0e\x32..pb.GetLeaderboardActivityRankingBatchRSP.Code\x12\x30\n\x08rankings\x18\x02 \x03(\x0b\x32\x1e.pb.LeaderboardActivityRanking\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\xa2\x03\n\x17LeaderboardActivityRule\x12\x41\n\x13mtt_add_point_rules\x18\x02 \x01(\x0b\x32$.pb.LeaderboardActivityAddPointRules\x12O\n\x19ring_game_add_point_rules\x18\x03 \x01(\x0b\x32,.pb.LeaderboardActivityRingGameAddPointRules\x12K\n\x17spin_up_add_point_rules\x18\x04 \x01(\x0b\x32*.pb.LeaderboardActivitySpinUpAddPointRules\x12Z\n\x1frake_and_profit_add_point_rules\x18\x05 \x01(\x0b\x32\x31.pb.LeaderboardActivityRakeAndProfitAddPointRules\x12J\n\x16\x63\x61sino_add_point_rules\x18\x06 \x01(\x0b\x32*.pb.LeaderboardActivityCasinoAddPointRules\"\xd3\x01\n LeaderboardActivityCacheSettings\x12 \n\x18leaderboard_activity_key\x18\x01 \x01(\t\x12>\n\x19leaderboard_activity_type\x18\x02 \x01(\x0e\x32\x1b.pb.LeaderboardActivityType\x12*\n\x05rules\x18\x03 \x01(\x0b\x32\x1b.pb.LeaderboardActivityRule\x12\r\n\x05title\x18\x04 \x01(\t\x12\x12\n\nimage_type\x18\x05 \x01(\t\"K\n&GetLeaderboardActivityCacheSettingsREQ\x12!\n\x19leaderboard_activity_keys\x18\x01 \x03(\t\"\xd7\x01\n&GetLeaderboardActivityCacheSettingsRSP\x12=\n\x04\x63ode\x18\x01 \x01(\x0e\x32/.pb.GetLeaderboardActivityCacheSettingsRSP.Code\x12;\n\rsettings_list\x18\x02 \x03(\x0b\x32$.pb.LeaderboardActivityCacheSettings\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x18\n\x16\x46\x65tchEastWestTicketREQ\"C\n\x16\x46\x65tchEastWestTicketRSP\x12)\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1b.pb.FetchEastWestTicketCode\"\x1c\n\x1aGetEastWestTicketStatusREQ\"K\n\x1aGetEastWestTicketStatusRSP\x12-\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1f.pb.GetEastWestTicketStatusCode*\x86\x02\n%LeaderboardActivityNavigationInfoType\x12\x34\n0LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_TICKET\x10\x01\x12\x39\n5LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_FILTER\x10\x02\x12\x35\n1LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_ID\x10\x03\x12\x35\n1LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_BY_RULE\x10\x04*\xdd\x01\n\x17\x46\x65tchEastWestTicketCode\x12*\n\x1d\x46\x65tchEastWestTicketCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x1f\x46\x65tchEastWestTicketCode_SUCCESS\x10\x00\x12#\n\x1f\x46\x65tchEastWestTicketCode_CLAIMED\x10\x01\x12\'\n#FetchEastWestTicketCode_KYC_INVALID\x10\x02\x12#\n\x1f\x46\x65tchEastWestTicketCode_EXPIRED\x10\x03*\xc7\x01\n\x1bGetEastWestTicketStatusCode\x12.\n!GetEastWestTicketStatusCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n GetEastWestTicketStatusCode_NONE\x10\x00\x12\'\n#GetEastWestTicketStatusCode_CLAIMED\x10\x01\x12)\n%GetEastWestTicketStatusCode_UNCLAIMED\x10\x02\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,common__pb2.DESCRIPTOR,club3__pb2.DESCRIPTOR,leaderboard__activity__base__pb2.DESCRIPTOR,])
 
+_LEADERBOARDACTIVITYNAVIGATIONINFOTYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityNavigationInfoType',
+  full_name='pb.LeaderboardActivityNavigationInfoType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_TICKET', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_FILTER', index=1, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_ID', index=2, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_BY_RULE', index=3, number=4,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5650,
+  serialized_end=5912,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYNAVIGATIONINFOTYPE)
+
+LeaderboardActivityNavigationInfoType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYNAVIGATIONINFOTYPE)
 _FETCHEASTWESTTICKETCODE = _descriptor.EnumDescriptor(
   name='FetchEastWestTicketCode',
   full_name='pb.FetchEastWestTicketCode',
@@ -57,8 +88,8 @@ _FETCHEASTWESTTICKETCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5377,
-  serialized_end=5598,
+  serialized_start=5915,
+  serialized_end=6136,
 )
 _sym_db.RegisterEnumDescriptor(_FETCHEASTWESTTICKETCODE)
 
@@ -88,12 +119,16 @@ _GETEASTWESTTICKETSTATUSCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5601,
-  serialized_end=5800,
+  serialized_start=6139,
+  serialized_end=6338,
 )
 _sym_db.RegisterEnumDescriptor(_GETEASTWESTTICKETSTATUSCODE)
 
 GetEastWestTicketStatusCode = enum_type_wrapper.EnumTypeWrapper(_GETEASTWESTTICKETSTATUSCODE)
+LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_TICKET = 1
+LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_FILTER = 2
+LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_ROOM_ID = 3
+LEADERBOARD_ACTIVITY_NAVIGATION_INFO_TYPE_BY_RULE = 4
 FetchEastWestTicketCode_ERROR = -1
 FetchEastWestTicketCode_SUCCESS = 0
 FetchEastWestTicketCode_CLAIMED = 1
@@ -321,39 +356,61 @@ _LEADERBOARDACTIVITYPOINTHISTORY_ADDPOINTTYPE = _descriptor.EnumDescriptor(
       name='RAKE_AND_PROFIT_RAKED_HANDS_SELF', index=32, number=32,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRIZE_POOL_ALL', index=33, number=33,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRIZE_POOL_TEAM', index=34, number=34,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRIZE_POOL_SELF', index=35, number=35,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ITM_ALL', index=36, number=36,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ITM_TEAM', index=37, number=37,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ITM_SELF', index=38, number=38,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_BET_ALL', index=39, number=39,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_BET_TEAM', index=40, number=40,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_BET_SELF', index=41, number=41,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_WIN_ALL', index=42, number=42,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_WIN_TEAM', index=43, number=43,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_TOTAL_WIN_SELF', index=44, number=44,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=1691,
-  serialized_end=2599,
+  serialized_end=2862,
 )
 _sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYPOINTHISTORY_ADDPOINTTYPE)
-
-_LEADERBOARDACTIVITYNAVIGATIONINFO_TYPE = _descriptor.EnumDescriptor(
-  name='Type',
-  full_name='pb.LeaderboardActivityNavigationInfo.Type',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='TYPE_TICKET', index=0, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='TYPE_ROOM_FILTER', index=1, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='TYPE_ROOM_ID', index=2, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=3035,
-  serialized_end=3098,
-)
-_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYNAVIGATIONINFO_TYPE)
 
 _GETLEADERBOARDACTIVITYRANKINGRSP_CODE = _descriptor.EnumDescriptor(
   name='Code',
@@ -376,8 +433,8 @@ _GETLEADERBOARDACTIVITYRANKINGRSP_CODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3967,
-  serialized_end=4053,
+  serialized_start=4164,
+  serialized_end=4250,
 )
 _sym_db.RegisterEnumDescriptor(_GETLEADERBOARDACTIVITYRANKINGRSP_CODE)
 
@@ -786,7 +843,7 @@ _LEADERBOARDACTIVITYPOINTHISTORY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1655,
-  serialized_end=2599,
+  serialized_end=2862,
 )
 
 
@@ -816,8 +873,8 @@ _GETLEADERBOARDACTIVITYRANKINGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2601,
-  serialized_end=2653,
+  serialized_start=2864,
+  serialized_end=2916,
 )
 
 
@@ -889,8 +946,8 @@ _LEADERBOARDACTIVITYRANKINGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2656,
-  serialized_end=2834,
+  serialized_start=2919,
+  serialized_end=3097,
 )
 
 
@@ -934,7 +991,6 @@ _LEADERBOARDACTIVITYNAVIGATIONINFO = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _LEADERBOARDACTIVITYNAVIGATIONINFO_TYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -942,8 +998,8 @@ _LEADERBOARDACTIVITYNAVIGATIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2837,
-  serialized_end=3098,
+  serialized_start=3100,
+  serialized_end=3295,
 )
 
 
@@ -1015,8 +1071,8 @@ _LEADERBOARDACTIVITYRANKING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3101,
-  serialized_end=3521,
+  serialized_start=3298,
+  serialized_end=3718,
 )
 
 
@@ -1089,8 +1145,8 @@ _GETLEADERBOARDACTIVITYRANKINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3524,
-  serialized_end=4053,
+  serialized_start=3721,
+  serialized_end=4250,
 )
 
 
@@ -1120,8 +1176,8 @@ _GETLEADERBOARDACTIVITYRANKINGBATCHREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4055,
-  serialized_end=4113,
+  serialized_start=4252,
+  serialized_end=4310,
 )
 
 
@@ -1159,8 +1215,8 @@ _GETLEADERBOARDACTIVITYRANKINGBATCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4116,
-  serialized_end=4318,
+  serialized_start=4313,
+  serialized_end=4515,
 )
 
 
@@ -1199,6 +1255,13 @@ _LEADERBOARDACTIVITYRULE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='casino_add_point_rules', full_name='pb.LeaderboardActivityRule.casino_add_point_rules', index=4,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1211,8 +1274,8 @@ _LEADERBOARDACTIVITYRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4321,
-  serialized_end=4663,
+  serialized_start=4518,
+  serialized_end=4936,
 )
 
 
@@ -1270,8 +1333,8 @@ _LEADERBOARDACTIVITYCACHESETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4666,
-  serialized_end=4877,
+  serialized_start=4939,
+  serialized_end=5150,
 )
 
 
@@ -1301,8 +1364,8 @@ _GETLEADERBOARDACTIVITYCACHESETTINGSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4879,
-  serialized_end=4954,
+  serialized_start=5152,
+  serialized_end=5227,
 )
 
 
@@ -1340,8 +1403,8 @@ _GETLEADERBOARDACTIVITYCACHESETTINGSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4957,
-  serialized_end=5172,
+  serialized_start=5230,
+  serialized_end=5445,
 )
 
 
@@ -1364,8 +1427,8 @@ _FETCHEASTWESTTICKETREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5174,
-  serialized_end=5198,
+  serialized_start=5447,
+  serialized_end=5471,
 )
 
 
@@ -1395,8 +1458,8 @@ _FETCHEASTWESTTICKETRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5200,
-  serialized_end=5267,
+  serialized_start=5473,
+  serialized_end=5540,
 )
 
 
@@ -1419,8 +1482,8 @@ _GETEASTWESTTICKETSTATUSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5269,
-  serialized_end=5297,
+  serialized_start=5542,
+  serialized_end=5570,
 )
 
 
@@ -1450,8 +1513,8 @@ _GETEASTWESTTICKETSTATUSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5299,
-  serialized_end=5374,
+  serialized_start=5572,
+  serialized_end=5647,
 )
 
 _LEADERBOARDACTIVITYTEAMSTATUS.fields_by_name['leaderboard_activity_teams'].message_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYTEAM
@@ -1467,9 +1530,8 @@ _FETCHLEADERBOARDACTIVITYTEAMREWARDSRSP.fields_by_name['winner_leaderboard_activ
 _FETCHLEADERBOARDACTIVITYTEAMREWARDSRSP_CODE.containing_type = _FETCHLEADERBOARDACTIVITYTEAMREWARDSRSP
 _LEADERBOARDACTIVITYPOINTHISTORY_ADDPOINTTYPE.containing_type = _LEADERBOARDACTIVITYPOINTHISTORY
 _LEADERBOARDACTIVITYRANKINGINFO.fields_by_name['reward'].message_type = base__pb2._MTTREWARDINFO
-_LEADERBOARDACTIVITYNAVIGATIONINFO.fields_by_name['type'].enum_type = _LEADERBOARDACTIVITYNAVIGATIONINFO_TYPE
+_LEADERBOARDACTIVITYNAVIGATIONINFO.fields_by_name['type'].enum_type = _LEADERBOARDACTIVITYNAVIGATIONINFOTYPE
 _LEADERBOARDACTIVITYNAVIGATIONINFO.fields_by_name['room_filter_type'].enum_type = club3__pb2._CLUBROOMFILTERROOMTYPE
-_LEADERBOARDACTIVITYNAVIGATIONINFO_TYPE.containing_type = _LEADERBOARDACTIVITYNAVIGATIONINFO
 _LEADERBOARDACTIVITYRANKING.fields_by_name['leaderboard_activity_ranking_infos'].message_type = _LEADERBOARDACTIVITYRANKINGINFO
 _LEADERBOARDACTIVITYRANKING.fields_by_name['leaderboard_activity_ranking_self_info'].message_type = _LEADERBOARDACTIVITYRANKINGINFO
 _LEADERBOARDACTIVITYRANKING.fields_by_name['leaderboard_activity_navigation_info'].message_type = _LEADERBOARDACTIVITYNAVIGATIONINFO
@@ -1486,6 +1548,7 @@ _LEADERBOARDACTIVITYRULE.fields_by_name['mtt_add_point_rules'].message_type = le
 _LEADERBOARDACTIVITYRULE.fields_by_name['ring_game_add_point_rules'].message_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES
 _LEADERBOARDACTIVITYRULE.fields_by_name['spin_up_add_point_rules'].message_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYSPINUPADDPOINTRULES
 _LEADERBOARDACTIVITYRULE.fields_by_name['rake_and_profit_add_point_rules'].message_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULES
+_LEADERBOARDACTIVITYRULE.fields_by_name['casino_add_point_rules'].message_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYCASINOADDPOINTRULES
 _LEADERBOARDACTIVITYCACHESETTINGS.fields_by_name['leaderboard_activity_type'].enum_type = leaderboard__activity__base__pb2._LEADERBOARDACTIVITYTYPE
 _LEADERBOARDACTIVITYCACHESETTINGS.fields_by_name['rules'].message_type = _LEADERBOARDACTIVITYRULE
 _GETLEADERBOARDACTIVITYCACHESETTINGSRSP.fields_by_name['code'].enum_type = _GETLEADERBOARDACTIVITYCACHESETTINGSRSP_CODE
@@ -1516,6 +1579,7 @@ DESCRIPTOR.message_types_by_name['FetchEastWestTicketREQ'] = _FETCHEASTWESTTICKE
 DESCRIPTOR.message_types_by_name['FetchEastWestTicketRSP'] = _FETCHEASTWESTTICKETRSP
 DESCRIPTOR.message_types_by_name['GetEastWestTicketStatusREQ'] = _GETEASTWESTTICKETSTATUSREQ
 DESCRIPTOR.message_types_by_name['GetEastWestTicketStatusRSP'] = _GETEASTWESTTICKETSTATUSRSP
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityNavigationInfoType'] = _LEADERBOARDACTIVITYNAVIGATIONINFOTYPE
 DESCRIPTOR.enum_types_by_name['FetchEastWestTicketCode'] = _FETCHEASTWESTTICKETCODE
 DESCRIPTOR.enum_types_by_name['GetEastWestTicketStatusCode'] = _GETEASTWESTTICKETSTATUSCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

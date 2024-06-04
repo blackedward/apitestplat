@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0f\x61\x63tivity3.proto\x12\x02pb\"J\n\x1fKKAvengersActivityTicketSentBRC\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"P\n\x1eKKAvengersActivityWinPosterBRC\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0c\n\x04rank\x18\x02 \x01(\x05\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\"\x1d\n\x1bKKAvengersActivityWinnerREQ\"~\n\x1bKKAvengersActivityWinnerRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\x16\n\x0ehas_win_ticket\x18\x04 \x01(\x08\x12\x1a\n\x12\x66irst_request_time\x18\x05 \x01(\x03*x\n\x19InvitationActivityDateKey\x12\x1b\n\x17INVITATION_ACTIVITY_NOT\x10\x00\x12\x1e\n\x1aINVITATION_ACTIVITY_202204\x10\x01\x12\x1e\n\x1aINVITATION_ACTIVITY_202205\x10\x02\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0f\x61\x63tivity3.proto\x12\x02pb\"J\n\x1fKKAvengersActivityTicketSentBRC\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"P\n\x1eKKAvengersActivityWinPosterBRC\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0c\n\x04rank\x18\x02 \x01(\x05\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\"\x1d\n\x1bKKAvengersActivityWinnerREQ\"~\n\x1bKKAvengersActivityWinnerRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\x16\n\x0ehas_win_ticket\x18\x04 \x01(\x08\x12\x1a\n\x12\x66irst_request_time\x18\x05 \x01(\x03\"\x13\n\x11GetInvite4InfoREQ\"\xb0\x01\n\x11GetInvite4InfoRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.GetInvite4InfoRSPCode\x12+\n\x06status\x18\x02 \x01(\x0e\x32\x1b.pb.GetInvite4InfoRSPStatus\x12\x13\n\x0b\x66riend_code\x18\x03 \x01(\x03\x12\x14\n\x0c\x65\x61rned_money\x18\x04 \x01(\x03\x12\x1a\n\x12\x65\x61rned_total_money\x18\x05 \x01(\x03\"B\n\x0eInvite4Invitee\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x11\n\tjoin_time\x18\x03 \x01(\x03\"\x1a\n\x18GetInvite4InviteeListREQ\"p\n\x18GetInvite4InviteeListRSP\x12.\n\x04\x63ode\x18\x01 \x01(\x0e\x32 .pb.GetInvite4InviteeListRSPCode\x12$\n\x08invitees\x18\x02 \x03(\x0b\x32\x12.pb.Invite4Invitee\"\x1c\n\x1a\x46\x65tchInvite4EarnedMoneyREQ\"]\n\x1a\x46\x65tchInvite4EarnedMoneyRSP\x12\x30\n\x04\x63ode\x18\x01 \x01(\x0e\x32\".pb.FetchInvite4EarnedMoneyRSPCode\x12\r\n\x05money\x18\x02 \x01(\x03\"\x1a\n\x18GetInvite4InviteeInfoREQ\"\x9e\x01\n\x18GetInvite4InviteeInfoRSP\x12.\n\x04\x63ode\x18\x01 \x01(\x0e\x32 .pb.GetInvite4InviteeInfoRSPCode\x12\x32\n\x06status\x18\x02 \x01(\x0e\x32\".pb.GetInvite4InviteeInfoRSPStatus\x12\x1e\n\x16\x61\x63tivity_remain_second\x18\x03 \x01(\x03\"0\n\x19\x45nterInvite4FriendCodeREQ\x12\x13\n\x0b\x66riend_code\x18\x01 \x01(\x03\"L\n\x19\x45nterInvite4FriendCodeRSP\x12/\n\x04\x63ode\x18\x01 \x01(\x0e\x32!.pb.EnterInvite4FriendCodeRSPCode\"\x19\n\x17GetPackageWinnerListREQ\"\xa7\x01\n\x17GetPackageWinnerListRSP\x12-\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1f.pb.GetPackageWinnerListRSPCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\x12\x14\n\x0cwinner_types\x18\x03 \x03(\x03\x12\x11\n\tnicknames\x18\x04 \x03(\t\x12\x15\n\rhead_img_urls\x18\x05 \x03(\t\x12\x0f\n\x07regions\x18\x06 \x03(\t*x\n\x19InvitationActivityDateKey\x12\x1b\n\x17INVITATION_ACTIVITY_NOT\x10\x00\x12\x1e\n\x1aINVITATION_ACTIVITY_202204\x10\x01\x12\x1e\n\x1aINVITATION_ACTIVITY_202205\x10\x02*t\n\x15GetInvite4InfoRSPCode\x12)\n%GET_INVITE4_INFO_RSPCODE_CODE_SUCCESS\x10\x00\x12\x30\n#GET_INVITE4_INFO_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*i\n\x17GetInvite4InfoRSPStatus\x12\'\n#GET_INVITE4_INFO_RSPSTATUS_INACTIVE\x10\x00\x12%\n!GET_INVITE4_INFO_RSPSTATUS_ACTIVE\x10\x01*\x8b\x01\n\x1cGetInvite4InviteeListRSPCode\x12\x31\n-GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_SUCCESS\x10\x00\x12\x38\n+GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xd3\x01\n\x1e\x46\x65tchInvite4EarnedMoneyRSPCode\x12\x33\n/FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_SUCCESS\x10\x00\x12:\n-FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12@\n3FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_KYC_INVALID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x8b\x01\n\x1cGetInvite4InviteeInfoRSPCode\x12\x31\n-GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_SUCCESS\x10\x00\x12\x38\n+GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xaf\x01\n\x1eGetInvite4InviteeInfoRSPStatus\x12/\n+GET_INVITE4_INVITEE_INFO_RSPSTATUS_INACTIVE\x10\x00\x12-\n)GET_INVITE4_INVITEE_INFO_RSPSTATUS_ACTIVE\x10\x01\x12-\n)GET_INVITE4_INVITEE_INFO_RSPSTATUS_FINISH\x10\x02*\xdd\x02\n\x1d\x45nterInvite4FriendCodeRSPCode\x12\x32\n.ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_SUCCESS\x10\x00\x12\x39\n,ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x44\n7ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITER_NOT_EXIST\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x44\n7ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITEE_NOT_EXIST\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x41\n4ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_OVER_ACTIVITY\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01*x\n\x1bGetPackageWinnerListRSPCode\x12(\n$GetPackageWinnerListRSP_CODE_SUCCESS\x10\x00\x12/\n\"GetPackageWinnerListRSP_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
 )
 
 _INVITATIONACTIVITYDATEKEY = _descriptor.EnumDescriptor(
@@ -44,15 +44,240 @@ _INVITATIONACTIVITYDATEKEY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=340,
-  serialized_end=460,
+  serialized_start=1389,
+  serialized_end=1509,
 )
 _sym_db.RegisterEnumDescriptor(_INVITATIONACTIVITYDATEKEY)
 
 InvitationActivityDateKey = enum_type_wrapper.EnumTypeWrapper(_INVITATIONACTIVITYDATEKEY)
+_GETINVITE4INFORSPCODE = _descriptor.EnumDescriptor(
+  name='GetInvite4InfoRSPCode',
+  full_name='pb.GetInvite4InfoRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INFO_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INFO_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1511,
+  serialized_end=1627,
+)
+_sym_db.RegisterEnumDescriptor(_GETINVITE4INFORSPCODE)
+
+GetInvite4InfoRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETINVITE4INFORSPCODE)
+_GETINVITE4INFORSPSTATUS = _descriptor.EnumDescriptor(
+  name='GetInvite4InfoRSPStatus',
+  full_name='pb.GetInvite4InfoRSPStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INFO_RSPSTATUS_INACTIVE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INFO_RSPSTATUS_ACTIVE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1629,
+  serialized_end=1734,
+)
+_sym_db.RegisterEnumDescriptor(_GETINVITE4INFORSPSTATUS)
+
+GetInvite4InfoRSPStatus = enum_type_wrapper.EnumTypeWrapper(_GETINVITE4INFORSPSTATUS)
+_GETINVITE4INVITEELISTRSPCODE = _descriptor.EnumDescriptor(
+  name='GetInvite4InviteeListRSPCode',
+  full_name='pb.GetInvite4InviteeListRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1737,
+  serialized_end=1876,
+)
+_sym_db.RegisterEnumDescriptor(_GETINVITE4INVITEELISTRSPCODE)
+
+GetInvite4InviteeListRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETINVITE4INVITEELISTRSPCODE)
+_FETCHINVITE4EARNEDMONEYRSPCODE = _descriptor.EnumDescriptor(
+  name='FetchInvite4EarnedMoneyRSPCode',
+  full_name='pb.FetchInvite4EarnedMoneyRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_KYC_INVALID', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1879,
+  serialized_end=2090,
+)
+_sym_db.RegisterEnumDescriptor(_FETCHINVITE4EARNEDMONEYRSPCODE)
+
+FetchInvite4EarnedMoneyRSPCode = enum_type_wrapper.EnumTypeWrapper(_FETCHINVITE4EARNEDMONEYRSPCODE)
+_GETINVITE4INVITEEINFORSPCODE = _descriptor.EnumDescriptor(
+  name='GetInvite4InviteeInfoRSPCode',
+  full_name='pb.GetInvite4InviteeInfoRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2093,
+  serialized_end=2232,
+)
+_sym_db.RegisterEnumDescriptor(_GETINVITE4INVITEEINFORSPCODE)
+
+GetInvite4InviteeInfoRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETINVITE4INVITEEINFORSPCODE)
+_GETINVITE4INVITEEINFORSPSTATUS = _descriptor.EnumDescriptor(
+  name='GetInvite4InviteeInfoRSPStatus',
+  full_name='pb.GetInvite4InviteeInfoRSPStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_INFO_RSPSTATUS_INACTIVE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_INFO_RSPSTATUS_ACTIVE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_INVITE4_INVITEE_INFO_RSPSTATUS_FINISH', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2235,
+  serialized_end=2410,
+)
+_sym_db.RegisterEnumDescriptor(_GETINVITE4INVITEEINFORSPSTATUS)
+
+GetInvite4InviteeInfoRSPStatus = enum_type_wrapper.EnumTypeWrapper(_GETINVITE4INVITEEINFORSPSTATUS)
+_ENTERINVITE4FRIENDCODERSPCODE = _descriptor.EnumDescriptor(
+  name='EnterInvite4FriendCodeRSPCode',
+  full_name='pb.EnterInvite4FriendCodeRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITER_NOT_EXIST', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITEE_NOT_EXIST', index=3, number=-3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_OVER_ACTIVITY', index=4, number=-4,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2413,
+  serialized_end=2762,
+)
+_sym_db.RegisterEnumDescriptor(_ENTERINVITE4FRIENDCODERSPCODE)
+
+EnterInvite4FriendCodeRSPCode = enum_type_wrapper.EnumTypeWrapper(_ENTERINVITE4FRIENDCODERSPCODE)
+_GETPACKAGEWINNERLISTRSPCODE = _descriptor.EnumDescriptor(
+  name='GetPackageWinnerListRSPCode',
+  full_name='pb.GetPackageWinnerListRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GetPackageWinnerListRSP_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GetPackageWinnerListRSP_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2764,
+  serialized_end=2884,
+)
+_sym_db.RegisterEnumDescriptor(_GETPACKAGEWINNERLISTRSPCODE)
+
+GetPackageWinnerListRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETPACKAGEWINNERLISTRSPCODE)
 INVITATION_ACTIVITY_NOT = 0
 INVITATION_ACTIVITY_202204 = 1
 INVITATION_ACTIVITY_202205 = 2
+GET_INVITE4_INFO_RSPCODE_CODE_SUCCESS = 0
+GET_INVITE4_INFO_RSPCODE_CODE_ERROR = -1
+GET_INVITE4_INFO_RSPSTATUS_INACTIVE = 0
+GET_INVITE4_INFO_RSPSTATUS_ACTIVE = 1
+GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_SUCCESS = 0
+GET_INVITE4_INVITEE_LIST_RSPCODE_CODE_ERROR = -1
+FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_SUCCESS = 0
+FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_ERROR = -1
+FETCH_INVITE4_EARNED_MONEY_RSPCODE_CODE_KYC_INVALID = -2
+GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_SUCCESS = 0
+GET_INVITE4_INVITEE_INFO_RSPCODE_INFO_ERROR = -1
+GET_INVITE4_INVITEE_INFO_RSPSTATUS_INACTIVE = 0
+GET_INVITE4_INVITEE_INFO_RSPSTATUS_ACTIVE = 1
+GET_INVITE4_INVITEE_INFO_RSPSTATUS_FINISH = 2
+ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_SUCCESS = 0
+ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_ERROR = -1
+ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITER_NOT_EXIST = -2
+ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_IVITEE_NOT_EXIST = -3
+ENTER_INVITE4_FRIEND_CODE_RSPCODE_CODE_OVER_ACTIVITY = -4
+GetPackageWinnerListRSP_CODE_SUCCESS = 0
+GetPackageWinnerListRSP_CODE_ERROR = -1
 
 
 
@@ -221,11 +446,514 @@ _KKAVENGERSACTIVITYWINNERRSP = _descriptor.Descriptor(
   serialized_end=338,
 )
 
+
+_GETINVITE4INFOREQ = _descriptor.Descriptor(
+  name='GetInvite4InfoREQ',
+  full_name='pb.GetInvite4InfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=340,
+  serialized_end=359,
+)
+
+
+_GETINVITE4INFORSP = _descriptor.Descriptor(
+  name='GetInvite4InfoRSP',
+  full_name='pb.GetInvite4InfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetInvite4InfoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='pb.GetInvite4InfoRSP.status', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='friend_code', full_name='pb.GetInvite4InfoRSP.friend_code', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='earned_money', full_name='pb.GetInvite4InfoRSP.earned_money', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='earned_total_money', full_name='pb.GetInvite4InfoRSP.earned_total_money', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=362,
+  serialized_end=538,
+)
+
+
+_INVITE4INVITEE = _descriptor.Descriptor(
+  name='Invite4Invitee',
+  full_name='pb.Invite4Invitee',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.Invite4Invitee.uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nickname', full_name='pb.Invite4Invitee.nickname', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='join_time', full_name='pb.Invite4Invitee.join_time', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=540,
+  serialized_end=606,
+)
+
+
+_GETINVITE4INVITEELISTREQ = _descriptor.Descriptor(
+  name='GetInvite4InviteeListREQ',
+  full_name='pb.GetInvite4InviteeListREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=608,
+  serialized_end=634,
+)
+
+
+_GETINVITE4INVITEELISTRSP = _descriptor.Descriptor(
+  name='GetInvite4InviteeListRSP',
+  full_name='pb.GetInvite4InviteeListRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetInvite4InviteeListRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='invitees', full_name='pb.GetInvite4InviteeListRSP.invitees', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=636,
+  serialized_end=748,
+)
+
+
+_FETCHINVITE4EARNEDMONEYREQ = _descriptor.Descriptor(
+  name='FetchInvite4EarnedMoneyREQ',
+  full_name='pb.FetchInvite4EarnedMoneyREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=750,
+  serialized_end=778,
+)
+
+
+_FETCHINVITE4EARNEDMONEYRSP = _descriptor.Descriptor(
+  name='FetchInvite4EarnedMoneyRSP',
+  full_name='pb.FetchInvite4EarnedMoneyRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.FetchInvite4EarnedMoneyRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='money', full_name='pb.FetchInvite4EarnedMoneyRSP.money', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=780,
+  serialized_end=873,
+)
+
+
+_GETINVITE4INVITEEINFOREQ = _descriptor.Descriptor(
+  name='GetInvite4InviteeInfoREQ',
+  full_name='pb.GetInvite4InviteeInfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=875,
+  serialized_end=901,
+)
+
+
+_GETINVITE4INVITEEINFORSP = _descriptor.Descriptor(
+  name='GetInvite4InviteeInfoRSP',
+  full_name='pb.GetInvite4InviteeInfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetInvite4InviteeInfoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='pb.GetInvite4InviteeInfoRSP.status', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='activity_remain_second', full_name='pb.GetInvite4InviteeInfoRSP.activity_remain_second', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=904,
+  serialized_end=1062,
+)
+
+
+_ENTERINVITE4FRIENDCODEREQ = _descriptor.Descriptor(
+  name='EnterInvite4FriendCodeREQ',
+  full_name='pb.EnterInvite4FriendCodeREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='friend_code', full_name='pb.EnterInvite4FriendCodeREQ.friend_code', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1064,
+  serialized_end=1112,
+)
+
+
+_ENTERINVITE4FRIENDCODERSP = _descriptor.Descriptor(
+  name='EnterInvite4FriendCodeRSP',
+  full_name='pb.EnterInvite4FriendCodeRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.EnterInvite4FriendCodeRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1114,
+  serialized_end=1190,
+)
+
+
+_GETPACKAGEWINNERLISTREQ = _descriptor.Descriptor(
+  name='GetPackageWinnerListREQ',
+  full_name='pb.GetPackageWinnerListREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1192,
+  serialized_end=1217,
+)
+
+
+_GETPACKAGEWINNERLISTRSP = _descriptor.Descriptor(
+  name='GetPackageWinnerListRSP',
+  full_name='pb.GetPackageWinnerListRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetPackageWinnerListRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uids', full_name='pb.GetPackageWinnerListRSP.uids', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='winner_types', full_name='pb.GetPackageWinnerListRSP.winner_types', index=2,
+      number=3, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nicknames', full_name='pb.GetPackageWinnerListRSP.nicknames', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='head_img_urls', full_name='pb.GetPackageWinnerListRSP.head_img_urls', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='regions', full_name='pb.GetPackageWinnerListRSP.regions', index=5,
+      number=6, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1220,
+  serialized_end=1387,
+)
+
+_GETINVITE4INFORSP.fields_by_name['code'].enum_type = _GETINVITE4INFORSPCODE
+_GETINVITE4INFORSP.fields_by_name['status'].enum_type = _GETINVITE4INFORSPSTATUS
+_GETINVITE4INVITEELISTRSP.fields_by_name['code'].enum_type = _GETINVITE4INVITEELISTRSPCODE
+_GETINVITE4INVITEELISTRSP.fields_by_name['invitees'].message_type = _INVITE4INVITEE
+_FETCHINVITE4EARNEDMONEYRSP.fields_by_name['code'].enum_type = _FETCHINVITE4EARNEDMONEYRSPCODE
+_GETINVITE4INVITEEINFORSP.fields_by_name['code'].enum_type = _GETINVITE4INVITEEINFORSPCODE
+_GETINVITE4INVITEEINFORSP.fields_by_name['status'].enum_type = _GETINVITE4INVITEEINFORSPSTATUS
+_ENTERINVITE4FRIENDCODERSP.fields_by_name['code'].enum_type = _ENTERINVITE4FRIENDCODERSPCODE
+_GETPACKAGEWINNERLISTRSP.fields_by_name['code'].enum_type = _GETPACKAGEWINNERLISTRSPCODE
 DESCRIPTOR.message_types_by_name['KKAvengersActivityTicketSentBRC'] = _KKAVENGERSACTIVITYTICKETSENTBRC
 DESCRIPTOR.message_types_by_name['KKAvengersActivityWinPosterBRC'] = _KKAVENGERSACTIVITYWINPOSTERBRC
 DESCRIPTOR.message_types_by_name['KKAvengersActivityWinnerREQ'] = _KKAVENGERSACTIVITYWINNERREQ
 DESCRIPTOR.message_types_by_name['KKAvengersActivityWinnerRSP'] = _KKAVENGERSACTIVITYWINNERRSP
+DESCRIPTOR.message_types_by_name['GetInvite4InfoREQ'] = _GETINVITE4INFOREQ
+DESCRIPTOR.message_types_by_name['GetInvite4InfoRSP'] = _GETINVITE4INFORSP
+DESCRIPTOR.message_types_by_name['Invite4Invitee'] = _INVITE4INVITEE
+DESCRIPTOR.message_types_by_name['GetInvite4InviteeListREQ'] = _GETINVITE4INVITEELISTREQ
+DESCRIPTOR.message_types_by_name['GetInvite4InviteeListRSP'] = _GETINVITE4INVITEELISTRSP
+DESCRIPTOR.message_types_by_name['FetchInvite4EarnedMoneyREQ'] = _FETCHINVITE4EARNEDMONEYREQ
+DESCRIPTOR.message_types_by_name['FetchInvite4EarnedMoneyRSP'] = _FETCHINVITE4EARNEDMONEYRSP
+DESCRIPTOR.message_types_by_name['GetInvite4InviteeInfoREQ'] = _GETINVITE4INVITEEINFOREQ
+DESCRIPTOR.message_types_by_name['GetInvite4InviteeInfoRSP'] = _GETINVITE4INVITEEINFORSP
+DESCRIPTOR.message_types_by_name['EnterInvite4FriendCodeREQ'] = _ENTERINVITE4FRIENDCODEREQ
+DESCRIPTOR.message_types_by_name['EnterInvite4FriendCodeRSP'] = _ENTERINVITE4FRIENDCODERSP
+DESCRIPTOR.message_types_by_name['GetPackageWinnerListREQ'] = _GETPACKAGEWINNERLISTREQ
+DESCRIPTOR.message_types_by_name['GetPackageWinnerListRSP'] = _GETPACKAGEWINNERLISTRSP
 DESCRIPTOR.enum_types_by_name['InvitationActivityDateKey'] = _INVITATIONACTIVITYDATEKEY
+DESCRIPTOR.enum_types_by_name['GetInvite4InfoRSPCode'] = _GETINVITE4INFORSPCODE
+DESCRIPTOR.enum_types_by_name['GetInvite4InfoRSPStatus'] = _GETINVITE4INFORSPSTATUS
+DESCRIPTOR.enum_types_by_name['GetInvite4InviteeListRSPCode'] = _GETINVITE4INVITEELISTRSPCODE
+DESCRIPTOR.enum_types_by_name['FetchInvite4EarnedMoneyRSPCode'] = _FETCHINVITE4EARNEDMONEYRSPCODE
+DESCRIPTOR.enum_types_by_name['GetInvite4InviteeInfoRSPCode'] = _GETINVITE4INVITEEINFORSPCODE
+DESCRIPTOR.enum_types_by_name['GetInvite4InviteeInfoRSPStatus'] = _GETINVITE4INVITEEINFORSPSTATUS
+DESCRIPTOR.enum_types_by_name['EnterInvite4FriendCodeRSPCode'] = _ENTERINVITE4FRIENDCODERSPCODE
+DESCRIPTOR.enum_types_by_name['GetPackageWinnerListRSPCode'] = _GETPACKAGEWINNERLISTRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 KKAvengersActivityTicketSentBRC = _reflection.GeneratedProtocolMessageType('KKAvengersActivityTicketSentBRC', (_message.Message,), dict(
@@ -255,6 +983,97 @@ KKAvengersActivityWinnerRSP = _reflection.GeneratedProtocolMessageType('KKAvenge
   # @@protoc_insertion_point(class_scope:pb.KKAvengersActivityWinnerRSP)
   ))
 _sym_db.RegisterMessage(KKAvengersActivityWinnerRSP)
+
+GetInvite4InfoREQ = _reflection.GeneratedProtocolMessageType('GetInvite4InfoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INFOREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InfoREQ)
+  ))
+_sym_db.RegisterMessage(GetInvite4InfoREQ)
+
+GetInvite4InfoRSP = _reflection.GeneratedProtocolMessageType('GetInvite4InfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INFORSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InfoRSP)
+  ))
+_sym_db.RegisterMessage(GetInvite4InfoRSP)
+
+Invite4Invitee = _reflection.GeneratedProtocolMessageType('Invite4Invitee', (_message.Message,), dict(
+  DESCRIPTOR = _INVITE4INVITEE,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.Invite4Invitee)
+  ))
+_sym_db.RegisterMessage(Invite4Invitee)
+
+GetInvite4InviteeListREQ = _reflection.GeneratedProtocolMessageType('GetInvite4InviteeListREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INVITEELISTREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InviteeListREQ)
+  ))
+_sym_db.RegisterMessage(GetInvite4InviteeListREQ)
+
+GetInvite4InviteeListRSP = _reflection.GeneratedProtocolMessageType('GetInvite4InviteeListRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INVITEELISTRSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InviteeListRSP)
+  ))
+_sym_db.RegisterMessage(GetInvite4InviteeListRSP)
+
+FetchInvite4EarnedMoneyREQ = _reflection.GeneratedProtocolMessageType('FetchInvite4EarnedMoneyREQ', (_message.Message,), dict(
+  DESCRIPTOR = _FETCHINVITE4EARNEDMONEYREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.FetchInvite4EarnedMoneyREQ)
+  ))
+_sym_db.RegisterMessage(FetchInvite4EarnedMoneyREQ)
+
+FetchInvite4EarnedMoneyRSP = _reflection.GeneratedProtocolMessageType('FetchInvite4EarnedMoneyRSP', (_message.Message,), dict(
+  DESCRIPTOR = _FETCHINVITE4EARNEDMONEYRSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.FetchInvite4EarnedMoneyRSP)
+  ))
+_sym_db.RegisterMessage(FetchInvite4EarnedMoneyRSP)
+
+GetInvite4InviteeInfoREQ = _reflection.GeneratedProtocolMessageType('GetInvite4InviteeInfoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INVITEEINFOREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InviteeInfoREQ)
+  ))
+_sym_db.RegisterMessage(GetInvite4InviteeInfoREQ)
+
+GetInvite4InviteeInfoRSP = _reflection.GeneratedProtocolMessageType('GetInvite4InviteeInfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETINVITE4INVITEEINFORSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetInvite4InviteeInfoRSP)
+  ))
+_sym_db.RegisterMessage(GetInvite4InviteeInfoRSP)
+
+EnterInvite4FriendCodeREQ = _reflection.GeneratedProtocolMessageType('EnterInvite4FriendCodeREQ', (_message.Message,), dict(
+  DESCRIPTOR = _ENTERINVITE4FRIENDCODEREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.EnterInvite4FriendCodeREQ)
+  ))
+_sym_db.RegisterMessage(EnterInvite4FriendCodeREQ)
+
+EnterInvite4FriendCodeRSP = _reflection.GeneratedProtocolMessageType('EnterInvite4FriendCodeRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ENTERINVITE4FRIENDCODERSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.EnterInvite4FriendCodeRSP)
+  ))
+_sym_db.RegisterMessage(EnterInvite4FriendCodeRSP)
+
+GetPackageWinnerListREQ = _reflection.GeneratedProtocolMessageType('GetPackageWinnerListREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETPACKAGEWINNERLISTREQ,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetPackageWinnerListREQ)
+  ))
+_sym_db.RegisterMessage(GetPackageWinnerListREQ)
+
+GetPackageWinnerListRSP = _reflection.GeneratedProtocolMessageType('GetPackageWinnerListRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETPACKAGEWINNERLISTRSP,
+  __module__ = 'activity3_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetPackageWinnerListRSP)
+  ))
+_sym_db.RegisterMessage(GetPackageWinnerListRSP)
 
 
 DESCRIPTOR._options = None

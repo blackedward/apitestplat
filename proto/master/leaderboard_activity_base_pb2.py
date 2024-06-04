@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x1fleaderboard_activity_base.proto\x12\x02pb\x1a\x0c\x63ommon.proto\"j\n#LeaderboardActivityAddPointRankRule\x12\x13\n\x0btarget_rank\x18\x01 \x01(\x03\x12\x16\n\x0e\x61\x64\x64_team_point\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x64\x64_self_point\x18\x03 \x01(\x03\"y\n*LeaderboardActivityAddPointParticipantRule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x02 \x01(\x03\"\xac\x02\n!LeaderboardActivityAddPointKORule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x02 \x01(\x03\x12Y\n\x0cko_team_type\x18\x03 \x01(\x0e\x32\x43.pb.LeaderboardActivityAddPointKORule.LeaderboardActivityKOTeamType\"_\n\x1dLeaderboardActivityKOTeamType\x12\x15\n\x11NOT_LIMIT_KO_TEAM\x10\x00\x12\x10\n\x0cKO_SAME_TEAM\x10\x01\x12\x15\n\x11KO_DIFFERENT_TEAM\x10\x02\"\xe3\x01\n LeaderboardActivityAddPointRules\x12;\n\nrank_rules\x18\x01 \x03(\x0b\x32\'.pb.LeaderboardActivityAddPointRankRule\x12I\n\x11participant_rules\x18\x02 \x03(\x0b\x32..pb.LeaderboardActivityAddPointParticipantRule\x12\x37\n\x08ko_rules\x18\x03 \x03(\x0b\x32%.pb.LeaderboardActivityAddPointKORule\"\xc1\x06\n\'LeaderboardActivityRingGameAddPointRule\x12S\n\x0f\x63omparison_type\x18\x01 \x01(\x0e\x32:.pb.LeaderboardActivityRingGameAddPointRule.ComparisonType\x12\x12\n\nbb_or_ante\x18\x02 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x03 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x12\n\nadd_points\x18\x04 \x01(\x03\x12G\n\tgame_type\x18\x05 \x01(\x0e\x32\x34.pb.LeaderboardActivityRingGameAddPointRule.GameType\x12\x1c\n\x14min_bb_or_ante_range\x18\x06 \x01(\x03\x12\x1c\n\x14max_bb_or_ante_range\x18\x07 \x01(\x03\"\x97\x01\n\x0e\x43omparisonType\x12)\n\x1c\x43OMPARISON_TYPE_USE_BB_RANGE\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1d\n\x19\x43OMPARISON_TYPE_LESS_THAN\x10\x01\x12 \n\x1c\x43OMPARISON_TYPE_GREATER_THAN\x10\x02\x12\x19\n\x15\x43OMPARISON_TYPE_EQUAL\x10\x03\"\xbc\x02\n\x08GameType\x12\x10\n\x0cGAMETYPE_ALL\x10\x01\x12\x10\n\x0cGAMETYPE_NLH\x10\x02\x12\x16\n\x12GAMETYPE_FLASH_NLH\x10\x03\x12\x11\n\rGAMETYPE_PLO5\x10\x04\x12\x17\n\x13GAMETYPE_FLASH_PLO5\x10\x05\x12\x10\n\x0cGAMETYPE_AOF\x10\x06\x12\x15\n\x11GAMETYPE_SIX_PLUS\x10\x07\x12\x1b\n\x17GAMETYPE_FLASH_SIX_PLUS\x10\x08\x12\x15\n\x11GAMETYPE_AOF_PLO4\x10\t\x12\x15\n\x11GAMETYPE_AOF_PLO5\x10\n\x12\x19\n\x15GAMETYPE_NLH_BOMB_POT\x10\x0b\x12\x19\n\x15GAMETYPE_PLO_BOMB_POT\x10\x0c\x12\x1e\n\x1aGAMETYPE_SIX_PLUS_BOMB_POT\x10\r\"\xed\x01\n(LeaderboardActivityRingGameAddPointRules\x12?\n\nplay_hands\x18\x01 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\x12>\n\twin_hands\x18\x02 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\x12@\n\x0braked_hands\x18\x03 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\"\xbf\x01\n)LeaderboardActivitySpinUpAddPointRankRule\x12\x13\n\x0btarget_rank\x18\x01 \x01(\x03\x12\x17\n\x0fmin_buyin_range\x18\x02 \x01(\x03\x12\x17\n\x0fmax_buyin_range\x18\x03 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x04 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x05 \x01(\x03\"\xb1\x01\n0LeaderboardActivitySpinUpAddPointParticipantRule\x12\x17\n\x0fmin_buyin_range\x18\x01 \x01(\x03\x12\x17\n\x0fmax_buyin_range\x18\x02 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x03 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x04 \x01(\x03\"\xbc\x01\n&LeaderboardActivitySpinUpAddPointRules\x12\x41\n\nrank_rules\x18\x01 \x03(\x0b\x32-.pb.LeaderboardActivitySpinUpAddPointRankRule\x12O\n\x11participant_rules\x18\x02 \x03(\x0b\x32\x34.pb.LeaderboardActivitySpinUpAddPointParticipantRule\"\xc3\x04\n,LeaderboardActivityRakeAndProfitAddPointRule\x12L\n\tgame_type\x18\x01 \x01(\x0e\x32\x39.pb.LeaderboardActivityRakeAndProfitAddPointRule.GameType\x12;\n\x0e\x61\x64\x64_point_type\x18\x02 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x03 \x01(\x03\"\xf7\x02\n\x08GameType\x12\x11\n\rGAMETYPE_NONE\x10\x00\x12\x10\n\x0cGAMETYPE_ALL\x10\x01\x12\x10\n\x0cGAMETYPE_NLH\x10\x02\x12\x16\n\x12GAMETYPE_FLASH_NLH\x10\x03\x12\x11\n\rGAMETYPE_PLO5\x10\x04\x12\x17\n\x13GAMETYPE_FLASH_PLO5\x10\x05\x12\x11\n\rGAMETYPE_PLO4\x10\x06\x12\x17\n\x13GAMETYPE_FLASH_PLO4\x10\x07\x12\x10\n\x0cGAMETYPE_AOF\x10\x08\x12\x16\n\x12GAMETYPE_FLASH_AOF\x10\t\x12\x15\n\x11GAMETYPE_SIX_PLUS\x10\n\x12\x1b\n\x17GAMETYPE_FLASH_SIX_PLUS\x10\x0b\x12\x10\n\x0cGAMETYPE_OFC\x10\x0c\x12\x10\n\x0cGAMETYPE_MTT\x10\r\x12\x14\n\x10GAMETYPE_SPIN_UP\x10\x0e\x12\x15\n\x11GAMETYPE_AOF_PLO4\x10\x0f\x12\x15\n\x11GAMETYPE_AOF_PLO5\x10\x10\"\xb3\x01\n-LeaderboardActivityRakeAndProfitAddPointRules\x12>\n\x04rake\x18\x01 \x03(\x0b\x32\x30.pb.LeaderboardActivityRakeAndProfitAddPointRule\x12\x42\n\x08winnings\x18\x02 \x03(\x0b\x32\x30.pb.LeaderboardActivityRakeAndProfitAddPointRule\"\x7f\n\x17LeaderboardActivityTeam\x12\x0f\n\x07team_id\x18\x01 \x01(\x03\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12\x11\n\tteam_name\x18\x03 \x01(\t\x12\x0e\n\x06points\x18\x04 \x01(\x03\x12\x1e\n\tis_winner\x18\x05 \x01(\x0e\x32\x0b.pb.YesOrNo*}\n\x1fLeaderboardActivityAddPointType\x12,\n(LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_TEAM\x10\x01\x12,\n(LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_SELF\x10\x02*\x7f\n\x17LeaderboardActivityType\x12\x13\n\x0fMTT_LEADERBOARD\x10\x01\x12\x19\n\x15RING_GAME_LEADERBOARD\x10\x02\x12\x17\n\x13SPIN_UP_LEADERBOARD\x10\x03\x12\x1b\n\x17RAKE_PROFIT_LEADERBOARD\x10\x04\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x1fleaderboard_activity_base.proto\x12\x02pb\x1a\x0c\x63ommon.proto\"\x90\x01\n#LeaderboardActivityAddPointRankRule\x12\x13\n\x0btarget_rank\x18\x01 \x01(\x03\x12\x16\n\x0e\x61\x64\x64_team_point\x18\x02 \x01(\x03\x12\x16\n\x0e\x61\x64\x64_self_point\x18\x03 \x01(\x03\x12\x11\n\tmin_buyin\x18\x04 \x01(\x03\x12\x11\n\tmax_buyin\x18\x05 \x01(\x03\"\x9f\x01\n*LeaderboardActivityAddPointParticipantRule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\"\xb5\x02\n!LeaderboardActivityAddPointKORule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x02 \x01(\x03\x12X\n\x0cko_team_type\x18\x03 \x01(\x0e\x32\x42.pb.LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType\x12\x11\n\tmin_buyin\x18\x04 \x01(\x03\x12\x11\n\tmax_buyin\x18\x05 \x01(\x03\x12\x43\n\x0cko_game_mode\x18\x06 \x01(\x0e\x32-.pb.LeaderboardActivityAddPointKORuleGameMode\"\x8d\x01\n(LeaderboardActivityAddPointPrizePoolRule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x11\n\tmin_buyin\x18\x02 \x01(\x03\x12\x11\n\tmax_buyin\x18\x03 \x01(\x03\"\x97\x01\n\"LeaderboardActivityAddPointITMRule\x12;\n\x0e\x61\x64\x64_point_type\x18\x01 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x02 \x01(\x03\x12\x11\n\tmin_buyin\x18\x03 \x01(\x03\x12\x11\n\tmax_buyin\x18\x04 \x01(\x03\"\xe6\x02\n LeaderboardActivityAddPointRules\x12;\n\nrank_rules\x18\x01 \x03(\x0b\x32\'.pb.LeaderboardActivityAddPointRankRule\x12I\n\x11participant_rules\x18\x02 \x03(\x0b\x32..pb.LeaderboardActivityAddPointParticipantRule\x12\x37\n\x08ko_rules\x18\x03 \x03(\x0b\x32%.pb.LeaderboardActivityAddPointKORule\x12\x46\n\x10prize_pool_rules\x18\x04 \x03(\x0b\x32,.pb.LeaderboardActivityAddPointPrizePoolRule\x12\x39\n\titm_rules\x18\x05 \x03(\x0b\x32&.pb.LeaderboardActivityAddPointITMRule\"\xe6\x02\n\'LeaderboardActivityRingGameAddPointRule\x12R\n\x0f\x63omparison_type\x18\x01 \x01(\x0e\x32\x39.pb.LeaderboardActivityRingGameAddPointRuleComparisonType\x12\x12\n\nbb_or_ante\x18\x02 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x03 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x12\n\nadd_points\x18\x04 \x01(\x03\x12\x46\n\tgame_type\x18\x05 \x01(\x0e\x32\x33.pb.LeaderboardActivityRingGameAddPointRuleGameType\x12\x1c\n\x14min_bb_or_ante_range\x18\x06 \x01(\x03\x12\x1c\n\x14max_bb_or_ante_range\x18\x07 \x01(\x03\"\xed\x01\n(LeaderboardActivityRingGameAddPointRules\x12?\n\nplay_hands\x18\x01 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\x12>\n\twin_hands\x18\x02 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\x12@\n\x0braked_hands\x18\x03 \x03(\x0b\x32+.pb.LeaderboardActivityRingGameAddPointRule\"\xbf\x01\n)LeaderboardActivitySpinUpAddPointRankRule\x12\x13\n\x0btarget_rank\x18\x01 \x01(\x03\x12\x17\n\x0fmin_buyin_range\x18\x02 \x01(\x03\x12\x17\n\x0fmax_buyin_range\x18\x03 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x04 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x05 \x01(\x03\"\xb1\x01\n0LeaderboardActivitySpinUpAddPointParticipantRule\x12\x17\n\x0fmin_buyin_range\x18\x01 \x01(\x03\x12\x17\n\x0fmax_buyin_range\x18\x02 \x01(\x03\x12;\n\x0e\x61\x64\x64_point_type\x18\x03 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x04 \x01(\x03\"\xbc\x01\n&LeaderboardActivitySpinUpAddPointRules\x12\x41\n\nrank_rules\x18\x01 \x03(\x0b\x32-.pb.LeaderboardActivitySpinUpAddPointRankRule\x12O\n\x11participant_rules\x18\x02 \x03(\x0b\x32\x34.pb.LeaderboardActivitySpinUpAddPointParticipantRule\"\xc8\x01\n,LeaderboardActivityRakeAndProfitAddPointRule\x12K\n\tgame_type\x18\x01 \x01(\x0e\x32\x38.pb.LeaderboardActivityRakeAndProfitAddPointRuleGameType\x12;\n\x0e\x61\x64\x64_point_type\x18\x02 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x03 \x01(\x03\"\xb3\x01\n-LeaderboardActivityRakeAndProfitAddPointRules\x12>\n\x04rake\x18\x01 \x03(\x0b\x32\x30.pb.LeaderboardActivityRakeAndProfitAddPointRule\x12\x42\n\x08winnings\x18\x02 \x03(\x0b\x32\x30.pb.LeaderboardActivityRakeAndProfitAddPointRule\"\xba\x01\n%LeaderboardActivityCasinoAddPointRule\x12\x44\n\tgame_type\x18\x01 \x01(\x0e\x32\x31.pb.LeaderboardActivityCasinoAddPointRuleGameType\x12;\n\x0e\x61\x64\x64_point_type\x18\x02 \x01(\x0e\x32#.pb.LeaderboardActivityAddPointType\x12\x0e\n\x06points\x18\x03 \x01(\x03\"\xa4\x01\n&LeaderboardActivityCasinoAddPointRules\x12<\n\ttotal_bet\x18\x01 \x03(\x0b\x32).pb.LeaderboardActivityCasinoAddPointRule\x12<\n\ttotal_win\x18\x02 \x03(\x0b\x32).pb.LeaderboardActivityCasinoAddPointRule\"\x7f\n\x17LeaderboardActivityTeam\x12\x0f\n\x07team_id\x18\x01 \x01(\x03\x12\x10\n\x08team_key\x18\x02 \x01(\t\x12\x11\n\tteam_name\x18\x03 \x01(\t\x12\x0e\n\x06points\x18\x04 \x01(\x03\x12\x1e\n\tis_winner\x18\x05 \x01(\x0e\x32\x0b.pb.YesOrNo\"H\n LeaderboardActivityBuyinInterval\x12\x11\n\tmin_buyin\x18\x01 \x01(\x03\x12\x11\n\tmax_buyin\x18\x02 \x01(\x03*}\n\x1fLeaderboardActivityAddPointType\x12,\n(LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_TEAM\x10\x01\x12,\n(LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_SELF\x10\x02*\xd5\x02\n>LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType\x12\\\nXLEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_NOT_LIMIT_KO_TEAM\x10\x00\x12W\nSLEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_SAME_TEAM\x10\x01\x12\\\nXLEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_DIFFERENT_TEAM\x10\x02*\x9f\x01\n)LeaderboardActivityAddPointKORuleGameMode\x12\x36\n2LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_ALL\x10\x00\x12:\n6LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_KO_ONLY\x10\x01*\xa0\x08\n/LeaderboardActivityRingGameAddPointRuleGameType\x12H\nDLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL\x10\x01\x12H\nDLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH\x10\x02\x12N\nJLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH\x10\x03\x12I\nELEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5\x10\x04\x12O\nKLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5\x10\x05\x12H\nDLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF\x10\x06\x12M\nILEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS\x10\x07\x12S\nOLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS\x10\x08\x12M\nILEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4\x10\t\x12M\nILEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5\x10\n\x12H\nDLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_NLH_BOMB_POT\x10\x0b\x12H\nDLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_PLO_BOMB_POT\x10\x0c\x12M\nILEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_SIX_PLUS_BOMB_POT\x10\r*\xb6\x03\n5LeaderboardActivityRingGameAddPointRuleComparisonType\x12g\nZLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_USE_BB_RANGE\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12[\nWLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_LESS_THAN\x10\x01\x12^\nZLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_GREATER_THAN\x10\x02\x12W\nSLEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_EQUAL\x10\x03*\xeb\x0c\n4LeaderboardActivityRakeAndProfitAddPointRuleGameType\x12O\nKLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NONE\x10\x00\x12N\nJLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL\x10\x01\x12N\nJLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH\x10\x02\x12T\nPLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH\x10\x03\x12O\nKLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5\x10\x04\x12U\nQLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5\x10\x05\x12O\nKLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO4\x10\x06\x12U\nQLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO4\x10\x07\x12N\nJLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF\x10\x08\x12T\nPLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_AOF\x10\t\x12S\nOLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS\x10\n\x12Y\nULEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS\x10\x0b\x12N\nJLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_OFC\x10\x0c\x12N\nJLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_MTT\x10\r\x12R\nNLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SPIN_UP\x10\x0e\x12S\nOLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4\x10\x0f\x12S\nOLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5\x10\x10\x12R\nNLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SK_FLIP\x10\x11\x12T\nPLEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_BLACKJACK\x10\x12*\xf3\x01\n-LeaderboardActivityCasinoAddPointRuleGameType\x12<\n8LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_ALL\x10\x01\x12@\n<LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_SK_FLIP\x10\x02\x12\x42\n>LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_BLACKJACK\x10\x03*\x97\x01\n\x17LeaderboardActivityType\x12\x13\n\x0fMTT_LEADERBOARD\x10\x01\x12\x19\n\x15RING_GAME_LEADERBOARD\x10\x02\x12\x17\n\x13SPIN_UP_LEADERBOARD\x10\x03\x12\x1b\n\x17RAKE_PROFIT_LEADERBOARD\x10\x04\x12\x16\n\x12\x43\x41SINO_LEADERBOARD\x10\x05\x42\x07Z\x05../pb')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -42,12 +42,278 @@ _LEADERBOARDACTIVITYADDPOINTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3351,
-  serialized_end=3476,
+  serialized_start=3443,
+  serialized_end=3568,
 )
 _sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYADDPOINTTYPE)
 
 LeaderboardActivityAddPointType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYADDPOINTTYPE)
+_LEADERBOARDACTIVITYADDPOINTKORULELEADERBOARDACTIVITYKOTEAMTYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType',
+  full_name='pb.LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_NOT_LIMIT_KO_TEAM', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_SAME_TEAM', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_DIFFERENT_TEAM', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3571,
+  serialized_end=3912,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYADDPOINTKORULELEADERBOARDACTIVITYKOTEAMTYPE)
+
+LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYADDPOINTKORULELEADERBOARDACTIVITYKOTEAMTYPE)
+_LEADERBOARDACTIVITYADDPOINTKORULEGAMEMODE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityAddPointKORuleGameMode',
+  full_name='pb.LeaderboardActivityAddPointKORuleGameMode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_ALL', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_KO_ONLY', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3915,
+  serialized_end=4074,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYADDPOINTKORULEGAMEMODE)
+
+LeaderboardActivityAddPointKORuleGameMode = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYADDPOINTKORULEGAMEMODE)
+_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULEGAMETYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityRingGameAddPointRuleGameType',
+  full_name='pb.LeaderboardActivityRingGameAddPointRuleGameType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH', index=1, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH', index=2, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5', index=3, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5', index=4, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF', index=5, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS', index=6, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS', index=7, number=8,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4', index=8, number=9,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5', index=9, number=10,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_NLH_BOMB_POT', index=10, number=11,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_PLO_BOMB_POT', index=11, number=12,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_SIX_PLUS_BOMB_POT', index=12, number=13,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4077,
+  serialized_end=5133,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULEGAMETYPE)
+
+LeaderboardActivityRingGameAddPointRuleGameType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULEGAMETYPE)
+_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULECOMPARISONTYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityRingGameAddPointRuleComparisonType',
+  full_name='pb.LeaderboardActivityRingGameAddPointRuleComparisonType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_USE_BB_RANGE', index=0, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_LESS_THAN', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_GREATER_THAN', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_EQUAL', index=3, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5136,
+  serialized_end=5574,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULECOMPARISONTYPE)
+
+LeaderboardActivityRingGameAddPointRuleComparisonType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULECOMPARISONTYPE)
+_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULEGAMETYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityRakeAndProfitAddPointRuleGameType',
+  full_name='pb.LeaderboardActivityRakeAndProfitAddPointRuleGameType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NONE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO4', index=6, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO4', index=7, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF', index=8, number=8,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_AOF', index=9, number=9,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS', index=10, number=10,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS', index=11, number=11,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_OFC', index=12, number=12,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_MTT', index=13, number=13,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SPIN_UP', index=14, number=14,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4', index=15, number=15,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5', index=16, number=16,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SK_FLIP', index=17, number=17,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_BLACKJACK', index=18, number=18,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5577,
+  serialized_end=7220,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULEGAMETYPE)
+
+LeaderboardActivityRakeAndProfitAddPointRuleGameType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULEGAMETYPE)
+_LEADERBOARDACTIVITYCASINOADDPOINTRULEGAMETYPE = _descriptor.EnumDescriptor(
+  name='LeaderboardActivityCasinoAddPointRuleGameType',
+  full_name='pb.LeaderboardActivityCasinoAddPointRuleGameType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_ALL', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_SK_FLIP', index=1, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_BLACKJACK', index=2, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=7223,
+  serialized_end=7466,
+)
+_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYCASINOADDPOINTRULEGAMETYPE)
+
+LeaderboardActivityCasinoAddPointRuleGameType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYCASINOADDPOINTRULEGAMETYPE)
 _LEADERBOARDACTIVITYTYPE = _descriptor.EnumDescriptor(
   name='LeaderboardActivityType',
   full_name='pb.LeaderboardActivityType',
@@ -70,226 +336,71 @@ _LEADERBOARDACTIVITYTYPE = _descriptor.EnumDescriptor(
       name='RAKE_PROFIT_LEADERBOARD', index=3, number=4,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CASINO_LEADERBOARD', index=4, number=5,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3478,
-  serialized_end=3605,
+  serialized_start=7469,
+  serialized_end=7620,
 )
 _sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYTYPE)
 
 LeaderboardActivityType = enum_type_wrapper.EnumTypeWrapper(_LEADERBOARDACTIVITYTYPE)
 LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_TEAM = 1
 LEADERBOARD_ACTIVITY_ADD_POINT_TYPE_SELF = 2
+LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_NOT_LIMIT_KO_TEAM = 0
+LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_SAME_TEAM = 1
+LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_LEADERBOARD_ACTIVITY_KOTEAM_TYPE_KO_DIFFERENT_TEAM = 2
+LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_ALL = 0
+LEADERBOARD_ACTIVITY_ADD_POINT_KORULE_GAMEMODE_KO_ONLY = 1
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL = 1
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH = 2
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH = 3
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5 = 4
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5 = 5
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF = 6
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS = 7
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS = 8
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4 = 9
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5 = 10
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_NLH_BOMB_POT = 11
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_PLO_BOMB_POT = 12
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_GAME_TYPE_SIX_PLUS_BOMB_POT = 13
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_USE_BB_RANGE = -1
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_LESS_THAN = 1
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_GREATER_THAN = 2
+LEADERBOARD_ACTIVITY_RING_GAME_ADD_POINT_RULE_COMPARISON_TYPE_COMPARISON_TYPE_EQUAL = 3
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NONE = 0
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_ALL = 1
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_NLH = 2
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_NLH = 3
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO5 = 4
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO5 = 5
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_PLO4 = 6
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_PLO4 = 7
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF = 8
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_AOF = 9
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SIX_PLUS = 10
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_FLASH_SIX_PLUS = 11
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_OFC = 12
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_MTT = 13
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SPIN_UP = 14
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO4 = 15
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_AOF_PLO5 = 16
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_SK_FLIP = 17
+LEADERBOARD_ACTIVITY_RAKE_AND_PROFIT_ADD_POINT_RULE_GAME_TYPE_GAMETYPE_BLACKJACK = 18
+LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_ALL = 1
+LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_SK_FLIP = 2
+LEADERBOARD_ACTIVITY_CASINO_ADD_POINT_RULE_GAME_TYPE_BLACKJACK = 3
 MTT_LEADERBOARD = 1
 RING_GAME_LEADERBOARD = 2
 SPIN_UP_LEADERBOARD = 3
 RAKE_PROFIT_LEADERBOARD = 4
+CASINO_LEADERBOARD = 5
 
-
-_LEADERBOARDACTIVITYADDPOINTKORULE_LEADERBOARDACTIVITYKOTEAMTYPE = _descriptor.EnumDescriptor(
-  name='LeaderboardActivityKOTeamType',
-  full_name='pb.LeaderboardActivityAddPointKORule.LeaderboardActivityKOTeamType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='NOT_LIMIT_KO_TEAM', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='KO_SAME_TEAM', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='KO_DIFFERENT_TEAM', index=2, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=490,
-  serialized_end=585,
-)
-_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYADDPOINTKORULE_LEADERBOARDACTIVITYKOTEAMTYPE)
-
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_COMPARISONTYPE = _descriptor.EnumDescriptor(
-  name='ComparisonType',
-  full_name='pb.LeaderboardActivityRingGameAddPointRule.ComparisonType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='COMPARISON_TYPE_USE_BB_RANGE', index=0, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='COMPARISON_TYPE_LESS_THAN', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='COMPARISON_TYPE_GREATER_THAN', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='COMPARISON_TYPE_EQUAL', index=3, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1181,
-  serialized_end=1332,
-)
-_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_COMPARISONTYPE)
-
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_GAMETYPE = _descriptor.EnumDescriptor(
-  name='GameType',
-  full_name='pb.LeaderboardActivityRingGameAddPointRule.GameType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_ALL', index=0, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_NLH', index=1, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_NLH', index=2, number=3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_PLO5', index=3, number=4,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_PLO5', index=4, number=5,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF', index=5, number=6,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_SIX_PLUS', index=6, number=7,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_SIX_PLUS', index=7, number=8,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF_PLO4', index=8, number=9,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF_PLO5', index=9, number=10,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_NLH_BOMB_POT', index=10, number=11,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_PLO_BOMB_POT', index=11, number=12,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_SIX_PLUS_BOMB_POT', index=12, number=13,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1335,
-  serialized_end=1651,
-)
-_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_GAMETYPE)
-
-_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE_GAMETYPE = _descriptor.EnumDescriptor(
-  name='GameType',
-  full_name='pb.LeaderboardActivityRakeAndProfitAddPointRule.GameType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_NONE', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_ALL', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_NLH', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_NLH', index=3, number=3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_PLO5', index=4, number=4,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_PLO5', index=5, number=5,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_PLO4', index=6, number=6,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_PLO4', index=7, number=7,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF', index=8, number=8,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_AOF', index=9, number=9,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_SIX_PLUS', index=10, number=10,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_FLASH_SIX_PLUS', index=11, number=11,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_OFC', index=12, number=12,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_MTT', index=13, number=13,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_SPIN_UP', index=14, number=14,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF_PLO4', index=15, number=15,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='GAMETYPE_AOF_PLO5', index=16, number=16,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2663,
-  serialized_end=3038,
-)
-_sym_db.RegisterEnumDescriptor(_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE_GAMETYPE)
 
 
 _LEADERBOARDACTIVITYADDPOINTRANKRULE = _descriptor.Descriptor(
@@ -320,6 +431,20 @@ _LEADERBOARDACTIVITYADDPOINTRANKRULE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityAddPointRankRule.min_buyin', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityAddPointRankRule.max_buyin', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -332,8 +457,8 @@ _LEADERBOARDACTIVITYADDPOINTRANKRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=53,
-  serialized_end=159,
+  serialized_start=54,
+  serialized_end=198,
 )
 
 
@@ -358,6 +483,20 @@ _LEADERBOARDACTIVITYADDPOINTPARTICIPANTRULE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityAddPointParticipantRule.min_buyin', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityAddPointParticipantRule.max_buyin', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -370,8 +509,8 @@ _LEADERBOARDACTIVITYADDPOINTPARTICIPANTRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=161,
-  serialized_end=282,
+  serialized_start=201,
+  serialized_end=360,
 )
 
 
@@ -403,12 +542,32 @@ _LEADERBOARDACTIVITYADDPOINTKORULE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityAddPointKORule.min_buyin', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityAddPointKORule.max_buyin', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ko_game_mode', full_name='pb.LeaderboardActivityAddPointKORule.ko_game_mode', index=5,
+      number=6, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
-    _LEADERBOARDACTIVITYADDPOINTKORULE_LEADERBOARDACTIVITYKOTEAMTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -416,8 +575,105 @@ _LEADERBOARDACTIVITYADDPOINTKORULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=285,
-  serialized_end=585,
+  serialized_start=363,
+  serialized_end=672,
+)
+
+
+_LEADERBOARDACTIVITYADDPOINTPRIZEPOOLRULE = _descriptor.Descriptor(
+  name='LeaderboardActivityAddPointPrizePoolRule',
+  full_name='pb.LeaderboardActivityAddPointPrizePoolRule',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='add_point_type', full_name='pb.LeaderboardActivityAddPointPrizePoolRule.add_point_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityAddPointPrizePoolRule.min_buyin', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityAddPointPrizePoolRule.max_buyin', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=675,
+  serialized_end=816,
+)
+
+
+_LEADERBOARDACTIVITYADDPOINTITMRULE = _descriptor.Descriptor(
+  name='LeaderboardActivityAddPointITMRule',
+  full_name='pb.LeaderboardActivityAddPointITMRule',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='add_point_type', full_name='pb.LeaderboardActivityAddPointITMRule.add_point_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='points', full_name='pb.LeaderboardActivityAddPointITMRule.points', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityAddPointITMRule.min_buyin', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityAddPointITMRule.max_buyin', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=819,
+  serialized_end=970,
 )
 
 
@@ -449,6 +705,20 @@ _LEADERBOARDACTIVITYADDPOINTRULES = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='prize_pool_rules', full_name='pb.LeaderboardActivityAddPointRules.prize_pool_rules', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='itm_rules', full_name='pb.LeaderboardActivityAddPointRules.itm_rules', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -461,8 +731,8 @@ _LEADERBOARDACTIVITYADDPOINTRULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=588,
-  serialized_end=815,
+  serialized_start=973,
+  serialized_end=1331,
 )
 
 
@@ -527,8 +797,6 @@ _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_COMPARISONTYPE,
-    _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_GAMETYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -536,8 +804,8 @@ _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=818,
-  serialized_end=1651,
+  serialized_start=1334,
+  serialized_end=1692,
 )
 
 
@@ -581,8 +849,8 @@ _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1654,
-  serialized_end=1891,
+  serialized_start=1695,
+  serialized_end=1932,
 )
 
 
@@ -640,8 +908,8 @@ _LEADERBOARDACTIVITYSPINUPADDPOINTRANKRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1894,
-  serialized_end=2085,
+  serialized_start=1935,
+  serialized_end=2126,
 )
 
 
@@ -692,8 +960,8 @@ _LEADERBOARDACTIVITYSPINUPADDPOINTPARTICIPANTRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2088,
-  serialized_end=2265,
+  serialized_start=2129,
+  serialized_end=2306,
 )
 
 
@@ -730,8 +998,8 @@ _LEADERBOARDACTIVITYSPINUPADDPOINTRULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2268,
-  serialized_end=2456,
+  serialized_start=2309,
+  serialized_end=2497,
 )
 
 
@@ -768,7 +1036,6 @@ _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE_GAMETYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -776,8 +1043,8 @@ _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2459,
-  serialized_end=3038,
+  serialized_start=2500,
+  serialized_end=2700,
 )
 
 
@@ -814,8 +1081,91 @@ _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3041,
-  serialized_end=3220,
+  serialized_start=2703,
+  serialized_end=2882,
+)
+
+
+_LEADERBOARDACTIVITYCASINOADDPOINTRULE = _descriptor.Descriptor(
+  name='LeaderboardActivityCasinoAddPointRule',
+  full_name='pb.LeaderboardActivityCasinoAddPointRule',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='game_type', full_name='pb.LeaderboardActivityCasinoAddPointRule.game_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='add_point_type', full_name='pb.LeaderboardActivityCasinoAddPointRule.add_point_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='points', full_name='pb.LeaderboardActivityCasinoAddPointRule.points', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2885,
+  serialized_end=3071,
+)
+
+
+_LEADERBOARDACTIVITYCASINOADDPOINTRULES = _descriptor.Descriptor(
+  name='LeaderboardActivityCasinoAddPointRules',
+  full_name='pb.LeaderboardActivityCasinoAddPointRules',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='total_bet', full_name='pb.LeaderboardActivityCasinoAddPointRules.total_bet', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='total_win', full_name='pb.LeaderboardActivityCasinoAddPointRules.total_win', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3074,
+  serialized_end=3238,
 )
 
 
@@ -873,22 +1223,62 @@ _LEADERBOARDACTIVITYTEAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3222,
-  serialized_end=3349,
+  serialized_start=3240,
+  serialized_end=3367,
+)
+
+
+_LEADERBOARDACTIVITYBUYININTERVAL = _descriptor.Descriptor(
+  name='LeaderboardActivityBuyinInterval',
+  full_name='pb.LeaderboardActivityBuyinInterval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='min_buyin', full_name='pb.LeaderboardActivityBuyinInterval.min_buyin', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_buyin', full_name='pb.LeaderboardActivityBuyinInterval.max_buyin', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3369,
+  serialized_end=3441,
 )
 
 _LEADERBOARDACTIVITYADDPOINTPARTICIPANTRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
 _LEADERBOARDACTIVITYADDPOINTKORULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
-_LEADERBOARDACTIVITYADDPOINTKORULE.fields_by_name['ko_team_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTKORULE_LEADERBOARDACTIVITYKOTEAMTYPE
-_LEADERBOARDACTIVITYADDPOINTKORULE_LEADERBOARDACTIVITYKOTEAMTYPE.containing_type = _LEADERBOARDACTIVITYADDPOINTKORULE
+_LEADERBOARDACTIVITYADDPOINTKORULE.fields_by_name['ko_team_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTKORULELEADERBOARDACTIVITYKOTEAMTYPE
+_LEADERBOARDACTIVITYADDPOINTKORULE.fields_by_name['ko_game_mode'].enum_type = _LEADERBOARDACTIVITYADDPOINTKORULEGAMEMODE
+_LEADERBOARDACTIVITYADDPOINTPRIZEPOOLRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
+_LEADERBOARDACTIVITYADDPOINTITMRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
 _LEADERBOARDACTIVITYADDPOINTRULES.fields_by_name['rank_rules'].message_type = _LEADERBOARDACTIVITYADDPOINTRANKRULE
 _LEADERBOARDACTIVITYADDPOINTRULES.fields_by_name['participant_rules'].message_type = _LEADERBOARDACTIVITYADDPOINTPARTICIPANTRULE
 _LEADERBOARDACTIVITYADDPOINTRULES.fields_by_name['ko_rules'].message_type = _LEADERBOARDACTIVITYADDPOINTKORULE
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE.fields_by_name['comparison_type'].enum_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_COMPARISONTYPE
+_LEADERBOARDACTIVITYADDPOINTRULES.fields_by_name['prize_pool_rules'].message_type = _LEADERBOARDACTIVITYADDPOINTPRIZEPOOLRULE
+_LEADERBOARDACTIVITYADDPOINTRULES.fields_by_name['itm_rules'].message_type = _LEADERBOARDACTIVITYADDPOINTITMRULE
+_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE.fields_by_name['comparison_type'].enum_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULECOMPARISONTYPE
 _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE.fields_by_name['game_type'].enum_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_GAMETYPE
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_COMPARISONTYPE.containing_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
-_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE_GAMETYPE.containing_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
+_LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE.fields_by_name['game_type'].enum_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULEGAMETYPE
 _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES.fields_by_name['play_hands'].message_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
 _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES.fields_by_name['win_hands'].message_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
 _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES.fields_by_name['raked_hands'].message_type = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
@@ -896,15 +1286,20 @@ _LEADERBOARDACTIVITYSPINUPADDPOINTRANKRULE.fields_by_name['add_point_type'].enum
 _LEADERBOARDACTIVITYSPINUPADDPOINTPARTICIPANTRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
 _LEADERBOARDACTIVITYSPINUPADDPOINTRULES.fields_by_name['rank_rules'].message_type = _LEADERBOARDACTIVITYSPINUPADDPOINTRANKRULE
 _LEADERBOARDACTIVITYSPINUPADDPOINTRULES.fields_by_name['participant_rules'].message_type = _LEADERBOARDACTIVITYSPINUPADDPOINTPARTICIPANTRULE
-_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE.fields_by_name['game_type'].enum_type = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE_GAMETYPE
+_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE.fields_by_name['game_type'].enum_type = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULEGAMETYPE
 _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
-_LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE_GAMETYPE.containing_type = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE
 _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULES.fields_by_name['rake'].message_type = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE
 _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULES.fields_by_name['winnings'].message_type = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE
+_LEADERBOARDACTIVITYCASINOADDPOINTRULE.fields_by_name['game_type'].enum_type = _LEADERBOARDACTIVITYCASINOADDPOINTRULEGAMETYPE
+_LEADERBOARDACTIVITYCASINOADDPOINTRULE.fields_by_name['add_point_type'].enum_type = _LEADERBOARDACTIVITYADDPOINTTYPE
+_LEADERBOARDACTIVITYCASINOADDPOINTRULES.fields_by_name['total_bet'].message_type = _LEADERBOARDACTIVITYCASINOADDPOINTRULE
+_LEADERBOARDACTIVITYCASINOADDPOINTRULES.fields_by_name['total_win'].message_type = _LEADERBOARDACTIVITYCASINOADDPOINTRULE
 _LEADERBOARDACTIVITYTEAM.fields_by_name['is_winner'].enum_type = common__pb2._YESORNO
 DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointRankRule'] = _LEADERBOARDACTIVITYADDPOINTRANKRULE
 DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointParticipantRule'] = _LEADERBOARDACTIVITYADDPOINTPARTICIPANTRULE
 DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointKORule'] = _LEADERBOARDACTIVITYADDPOINTKORULE
+DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointPrizePoolRule'] = _LEADERBOARDACTIVITYADDPOINTPRIZEPOOLRULE
+DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointITMRule'] = _LEADERBOARDACTIVITYADDPOINTITMRULE
 DESCRIPTOR.message_types_by_name['LeaderboardActivityAddPointRules'] = _LEADERBOARDACTIVITYADDPOINTRULES
 DESCRIPTOR.message_types_by_name['LeaderboardActivityRingGameAddPointRule'] = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULE
 DESCRIPTOR.message_types_by_name['LeaderboardActivityRingGameAddPointRules'] = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULES
@@ -913,8 +1308,17 @@ DESCRIPTOR.message_types_by_name['LeaderboardActivitySpinUpAddPointParticipantRu
 DESCRIPTOR.message_types_by_name['LeaderboardActivitySpinUpAddPointRules'] = _LEADERBOARDACTIVITYSPINUPADDPOINTRULES
 DESCRIPTOR.message_types_by_name['LeaderboardActivityRakeAndProfitAddPointRule'] = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULE
 DESCRIPTOR.message_types_by_name['LeaderboardActivityRakeAndProfitAddPointRules'] = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULES
+DESCRIPTOR.message_types_by_name['LeaderboardActivityCasinoAddPointRule'] = _LEADERBOARDACTIVITYCASINOADDPOINTRULE
+DESCRIPTOR.message_types_by_name['LeaderboardActivityCasinoAddPointRules'] = _LEADERBOARDACTIVITYCASINOADDPOINTRULES
 DESCRIPTOR.message_types_by_name['LeaderboardActivityTeam'] = _LEADERBOARDACTIVITYTEAM
+DESCRIPTOR.message_types_by_name['LeaderboardActivityBuyinInterval'] = _LEADERBOARDACTIVITYBUYININTERVAL
 DESCRIPTOR.enum_types_by_name['LeaderboardActivityAddPointType'] = _LEADERBOARDACTIVITYADDPOINTTYPE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityAddPointKORuleLeaderboardActivityKOTeamType'] = _LEADERBOARDACTIVITYADDPOINTKORULELEADERBOARDACTIVITYKOTEAMTYPE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityAddPointKORuleGameMode'] = _LEADERBOARDACTIVITYADDPOINTKORULEGAMEMODE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityRingGameAddPointRuleGameType'] = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULEGAMETYPE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityRingGameAddPointRuleComparisonType'] = _LEADERBOARDACTIVITYRINGGAMEADDPOINTRULECOMPARISONTYPE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityRakeAndProfitAddPointRuleGameType'] = _LEADERBOARDACTIVITYRAKEANDPROFITADDPOINTRULEGAMETYPE
+DESCRIPTOR.enum_types_by_name['LeaderboardActivityCasinoAddPointRuleGameType'] = _LEADERBOARDACTIVITYCASINOADDPOINTRULEGAMETYPE
 DESCRIPTOR.enum_types_by_name['LeaderboardActivityType'] = _LEADERBOARDACTIVITYTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -938,6 +1342,20 @@ LeaderboardActivityAddPointKORule = _reflection.GeneratedProtocolMessageType('Le
   # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityAddPointKORule)
   ))
 _sym_db.RegisterMessage(LeaderboardActivityAddPointKORule)
+
+LeaderboardActivityAddPointPrizePoolRule = _reflection.GeneratedProtocolMessageType('LeaderboardActivityAddPointPrizePoolRule', (_message.Message,), dict(
+  DESCRIPTOR = _LEADERBOARDACTIVITYADDPOINTPRIZEPOOLRULE,
+  __module__ = 'leaderboard_activity_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityAddPointPrizePoolRule)
+  ))
+_sym_db.RegisterMessage(LeaderboardActivityAddPointPrizePoolRule)
+
+LeaderboardActivityAddPointITMRule = _reflection.GeneratedProtocolMessageType('LeaderboardActivityAddPointITMRule', (_message.Message,), dict(
+  DESCRIPTOR = _LEADERBOARDACTIVITYADDPOINTITMRULE,
+  __module__ = 'leaderboard_activity_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityAddPointITMRule)
+  ))
+_sym_db.RegisterMessage(LeaderboardActivityAddPointITMRule)
 
 LeaderboardActivityAddPointRules = _reflection.GeneratedProtocolMessageType('LeaderboardActivityAddPointRules', (_message.Message,), dict(
   DESCRIPTOR = _LEADERBOARDACTIVITYADDPOINTRULES,
@@ -995,12 +1413,33 @@ LeaderboardActivityRakeAndProfitAddPointRules = _reflection.GeneratedProtocolMes
   ))
 _sym_db.RegisterMessage(LeaderboardActivityRakeAndProfitAddPointRules)
 
+LeaderboardActivityCasinoAddPointRule = _reflection.GeneratedProtocolMessageType('LeaderboardActivityCasinoAddPointRule', (_message.Message,), dict(
+  DESCRIPTOR = _LEADERBOARDACTIVITYCASINOADDPOINTRULE,
+  __module__ = 'leaderboard_activity_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityCasinoAddPointRule)
+  ))
+_sym_db.RegisterMessage(LeaderboardActivityCasinoAddPointRule)
+
+LeaderboardActivityCasinoAddPointRules = _reflection.GeneratedProtocolMessageType('LeaderboardActivityCasinoAddPointRules', (_message.Message,), dict(
+  DESCRIPTOR = _LEADERBOARDACTIVITYCASINOADDPOINTRULES,
+  __module__ = 'leaderboard_activity_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityCasinoAddPointRules)
+  ))
+_sym_db.RegisterMessage(LeaderboardActivityCasinoAddPointRules)
+
 LeaderboardActivityTeam = _reflection.GeneratedProtocolMessageType('LeaderboardActivityTeam', (_message.Message,), dict(
   DESCRIPTOR = _LEADERBOARDACTIVITYTEAM,
   __module__ = 'leaderboard_activity_base_pb2'
   # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityTeam)
   ))
 _sym_db.RegisterMessage(LeaderboardActivityTeam)
+
+LeaderboardActivityBuyinInterval = _reflection.GeneratedProtocolMessageType('LeaderboardActivityBuyinInterval', (_message.Message,), dict(
+  DESCRIPTOR = _LEADERBOARDACTIVITYBUYININTERVAL,
+  __module__ = 'leaderboard_activity_base_pb2'
+  # @@protoc_insertion_point(class_scope:pb.LeaderboardActivityBuyinInterval)
+  ))
+_sym_db.RegisterMessage(LeaderboardActivityBuyinInterval)
 
 
 DESCRIPTOR._options = None

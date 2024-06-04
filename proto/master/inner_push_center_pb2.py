@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x17inner_push_center.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"8\n\x1aPushNotificationCovertData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x8f\x01\n\x0ciSendPushREQ\x12(\n\x0epush_task_type\x18\x01 \x01(\x0e\x32\x10.pb.PushTaskType\x12\x0c\n\x04uids\x18\x02 \x03(\x03\x12\x34\n\x0c\x63onvert_data\x18\x03 \x03(\x0b\x32\x1e.pb.PushNotificationCovertData\x12\x11\n\texpire_at\x18\x04 \x01(\x03\",\n\x0ciSendPushRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"1\n\rMatchNameLang\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x12\n\nmatch_name\x18\x02 \x01(\t\"\x8b\x01\n\x0biMttPushREQ\x12\x0c\n\x04uids\x18\x01 \x03(\x03\x12\x0f\n\x07room_id\x18\x02 \x01(\x03\x12\x1c\n\x14mtt_last_buy_in_time\x18\x03 \x01(\x03\x12\x12\n\nmatch_name\x18\x04 \x01(\t\x12+\n\x10match_name_langs\x18\x05 \x03(\x0b\x32\x11.pb.MatchNameLang\"+\n\x0biMttPushRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"\xb1\x04\n\"iCreateOrUpdateCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x17\n\x0fpush_start_time\x18\x03 \x01(\x03\x12\x12\n\npush_times\x18\x04 \x01(\x03\x12\x15\n\rpush_end_time\x18\x05 \x01(\x03\x12\x19\n\x11push_expire_limit\x18\x06 \x01(\x03\x12\x15\n\rpush_interval\x18\x07 \x01(\x03\x12\x18\n\x10target_user_type\x18\x08 \x01(\x03\x12$\n\x1cuser_registration_start_time\x18\t \x01(\x03\x12\"\n\x1auser_registration_end_time\x18\n \x01(\x03\x12!\n\x19user_lastLogin_start_time\x18\x0b \x01(\x03\x12\x1f\n\x17user_lastLogin_end_time\x18\x0c \x01(\x03\x12\x14\n\x0cuser_regions\x18\r \x01(\t\x12\x14\n\x0cuser_os_type\x18\x0e \x01(\x03\x12\x10\n\x08user_ids\x18\x0f \x01(\t\x12\x15\n\rtest_user_ids\x18\x10 \x01(\t\x12\x13\n\x0btemplate_id\x18\x11 \x01(\x03\x12\x18\n\x10\x64\x65stination_type\x18\x12 \x01(\x03\x12\x11\n\tlobby_tab\x18\x13 \x01(\t\x12\x15\n\ractivity_name\x18\x14 \x01(\t\x12\x10\n\x08operator\x18\x15 \x01(\t\x12\x13\n\x0boperator_id\x18\x16 \x01(\x03\"B\n\"iCreateOrUpdateCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"V\n\x1aiEnableCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x18\n\x10\x65nabled_operator\x18\x02 \x01(\t\x12\x12\n\nenabled_at\x18\x03 \x01(\x03\":\n\x1aiEnableCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"(\n\x1aiDeleteCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\":\n\x1aiDeleteCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\"\xe1\x01\n\x1aiCreateOrUpdateTemplateREQ\x12\x13\n\x0btemplate_id\x18\x01 \x01(\x03\x12\x0c\n\x04type\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x10\n\x08\x65n_title\x18\x05 \x01(\t\x12\x12\n\nen_content\x18\x06 \x01(\t\x12\x1b\n\x13lang_templates_json\x18\x07 \x01(\t\x12\x10\n\x08operator\x18\x08 \x01(\t\x12\x13\n\x0boperator_id\x18\t \x01(\x03\x12\x15\n\ris_customized\x18\n \x01(\x03\"O\n\x1aiCreateOrUpdateTemplateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode\x12\x13\n\x0btemplate_id\x18\x02 \x01(\x03\")\n\x12iDeleteTemplateREQ\x12\x13\n\x0btemplate_id\x18\x01 \x01(\x03\"2\n\x12iDeleteTemplateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode*\x8b\x02\n\x0cPushTaskType\x12\x17\n\x13PUSH_TASK_TYPE_TEST\x10\x00\x12\x16\n\x12PUSH_TASK_TYPE_MTT\x10\x01\x12\x1c\n\x18PUSH_TASK_TYPE_CUSTOMIZE\x10\x02\x12\x1f\n\x1bPUSH_TASK_TYPE_SPINUP_START\x10\x03\x12\x1d\n\x19PUSH_TASK_TYPE_CASH_START\x10\x04\x12#\n\x1fPUSH_TASK_TYPE_CALLBACK_NEWUSER\x10\x05\x12#\n\x1fPUSH_TASK_TYPE_CALLBACK_OLDUSER\x10\x06\x12\"\n\x1ePUSH_TASK_TYPE_AOF_EXPIRED_BOX\x10\x07\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x17inner_push_center.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"8\n\x1aPushNotificationCovertData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x8f\x01\n\x0ciSendPushREQ\x12(\n\x0epush_task_type\x18\x01 \x01(\x0e\x32\x10.pb.PushTaskType\x12\x0c\n\x04uids\x18\x02 \x03(\x03\x12\x34\n\x0c\x63onvert_data\x18\x03 \x03(\x0b\x32\x1e.pb.PushNotificationCovertData\x12\x11\n\texpire_at\x18\x04 \x01(\x03\",\n\x0ciSendPushRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"1\n\rMatchNameLang\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x12\n\nmatch_name\x18\x02 \x01(\t\"\x8b\x01\n\x0biMttPushREQ\x12\x0c\n\x04uids\x18\x01 \x03(\x03\x12\x0f\n\x07room_id\x18\x02 \x01(\x03\x12\x1c\n\x14mtt_last_buy_in_time\x18\x03 \x01(\x03\x12\x12\n\nmatch_name\x18\x04 \x01(\t\x12+\n\x10match_name_langs\x18\x05 \x03(\x0b\x32\x11.pb.MatchNameLang\"+\n\x0biMttPushRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\xb1\x04\n\"iCreateOrUpdateCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x17\n\x0fpush_start_time\x18\x03 \x01(\x03\x12\x12\n\npush_times\x18\x04 \x01(\x03\x12\x15\n\rpush_end_time\x18\x05 \x01(\x03\x12\x19\n\x11push_expire_limit\x18\x06 \x01(\x03\x12\x15\n\rpush_interval\x18\x07 \x01(\x03\x12\x18\n\x10target_user_type\x18\x08 \x01(\x03\x12$\n\x1cuser_registration_start_time\x18\t \x01(\x03\x12\"\n\x1auser_registration_end_time\x18\n \x01(\x03\x12!\n\x19user_lastLogin_start_time\x18\x0b \x01(\x03\x12\x1f\n\x17user_lastLogin_end_time\x18\x0c \x01(\x03\x12\x14\n\x0cuser_regions\x18\r \x01(\t\x12\x14\n\x0cuser_os_type\x18\x0e \x01(\x03\x12\x10\n\x08user_ids\x18\x0f \x01(\t\x12\x15\n\rtest_user_ids\x18\x10 \x01(\t\x12\x13\n\x0btemplate_id\x18\x11 \x01(\x03\x12\x18\n\x10\x64\x65stination_type\x18\x12 \x01(\x03\x12\x11\n\tlobby_tab\x18\x13 \x01(\t\x12\x15\n\ractivity_name\x18\x14 \x01(\t\x12\x10\n\x08operator\x18\x15 \x01(\t\x12\x13\n\x0boperator_id\x18\x16 \x01(\x03\"B\n\"iCreateOrUpdateCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"V\n\x1aiEnableCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x18\n\x10\x65nabled_operator\x18\x02 \x01(\t\x12\x12\n\nenabled_at\x18\x03 \x01(\x03\":\n\x1aiEnableCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"(\n\x1aiDeleteCustomizeSettingREQ\x12\n\n\x02id\x18\x01 \x01(\x03\":\n\x1aiDeleteCustomizeSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\xe1\x01\n\x1aiCreateOrUpdateTemplateREQ\x12\x13\n\x0btemplate_id\x18\x01 \x01(\x03\x12\x0c\n\x04type\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x10\n\x08\x65n_title\x18\x05 \x01(\t\x12\x12\n\nen_content\x18\x06 \x01(\t\x12\x1b\n\x13lang_templates_json\x18\x07 \x01(\t\x12\x10\n\x08operator\x18\x08 \x01(\t\x12\x13\n\x0boperator_id\x18\t \x01(\x03\x12\x15\n\ris_customized\x18\n \x01(\x03\"O\n\x1aiCreateOrUpdateTemplateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x13\n\x0btemplate_id\x18\x02 \x01(\x03\")\n\x12iDeleteTemplateREQ\x12\x13\n\x0btemplate_id\x18\x01 \x01(\x03\"2\n\x12iDeleteTemplateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode*\x8b\x02\n\x0cPushTaskType\x12\x17\n\x13PUSH_TASK_TYPE_TEST\x10\x00\x12\x16\n\x12PUSH_TASK_TYPE_MTT\x10\x01\x12\x1c\n\x18PUSH_TASK_TYPE_CUSTOMIZE\x10\x02\x12\x1f\n\x1bPUSH_TASK_TYPE_SPINUP_START\x10\x03\x12\x1d\n\x19PUSH_TASK_TYPE_CASH_START\x10\x04\x12#\n\x1fPUSH_TASK_TYPE_CALLBACK_NEWUSER\x10\x05\x12#\n\x1fPUSH_TASK_TYPE_CALLBACK_OLDUSER\x10\x06\x12\"\n\x1ePUSH_TASK_TYPE_AOF_EXPIRED_BOX\x10\x07\x42\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,])
 
@@ -182,7 +182,7 @@ _ISENDPUSHRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iSendPushRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -310,7 +310,7 @@ _IMTTPUSHRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iMttPushRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -519,7 +519,7 @@ _ICREATEORUPDATECUSTOMIZESETTINGRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iCreateOrUpdateCustomizeSettingRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -595,7 +595,7 @@ _IENABLECUSTOMIZESETTINGRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iEnableCustomizeSettingRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -657,7 +657,7 @@ _IDELETECUSTOMIZESETTINGRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iDeleteCustomizeSettingRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -782,7 +782,7 @@ _ICREATEORUPDATETEMPLATERSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iCreateOrUpdateTemplateRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -851,7 +851,7 @@ _IDELETETEMPLATERSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.iDeleteTemplateRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

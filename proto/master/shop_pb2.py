@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\nshop.proto\x12\x02pb\x1a\nbase.proto\x1a\tpb7.proto\x1a\x0ctrophy.proto\x1a\x0f\x63\x61sh_back.proto\"B\n\x12PurchaseGiftBagREQ\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x0f.pb.GiftBagType:\rGIFT_BAG_NONE\"\x99\x01\n\x0fUserGiftBagInfo\x12\x1c\n\x11rabbit_begin_time\x18\x01 \x01(\r:\x01\x30\x12\x1a\n\x0frabbit_end_time\x18\x02 \x01(\r:\x01\x30\x12\x1b\n\x10rabbit_left_time\x18\x03 \x01(\r:\x01\x30\x12\x15\n\nfree_emoji\x18\x04 \x01(\r:\x01\x30\x12\x18\n\rfree_calltime\x18\x05 \x01(\r:\x01\x30\"U\n\x12PurchaseGiftBagRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12$\n\x07giftbag\x18\x03 \x01(\x0b\x32\x13.pb.UserGiftBagInfo\"R\n\rUserEmojiInfo\x12,\n\x04type\x18\x01 \x01(\x0e\x32\r.pb.EmojiType:\x0f\x46\x41\x43\x45_KING_EMOJI\x12\x13\n\x08left_num\x18\x02 \x01(\x05:\x01\x30\"P\n\x0cUserSkinInfo\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x03 \x01(\x03\"\"\n\x0eGetItemListREQ\x12\x10\n\x08req_type\x18\x01 \x01(\x05\"\xb2\x01\n\x08ItemInfo\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x15\n\ritem_class_id\x18\x02 \x01(\x03\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x03\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x0e\n\x06is_new\x18\x06 \x01(\x08\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\x03\x12\x0f\n\x07useable\x18\x08 \x01(\x08\x12\x13\n\x0bt_and_c_key\x18\t \x01(\t\">\n\x0eGetItemListRSP\x12\x1a\n\x04item\x18\x01 \x03(\x0b\x32\x0c.pb.ItemInfo\x12\x10\n\x08rsp_type\x18\x02 \x01(\x05\"\x15\n\x13GetNewItemStatusREQ\"G\n\x13GetNewItemStatusRSP\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12 \n\ntips_items\x18\x02 \x03(\x0b\x32\x0c.pb.ItemInfo\"\xfd\x01\n\x13NotifyGetNewItemRSP\x12\x1b\n\x05items\x18\x01 \x03(\x0b\x32\x0c.pb.ItemInfo\x12&\n\x0b\x62lind_coins\x18\x02 \x03(\x0b\x32\x11.pb.BlindCoinInfo\x12\x1f\n\x06points\x18\x03 \x03(\x0b\x32\x0f.pb.PointInfoV2\x12!\n\x07\x61vatars\x18\x04 \x03(\x0b\x32\x10.pb.RewardAvatar\x12(\n\x0ctrophy_infos\x18\x05 \x03(\x0b\x32\x12.pb.UserTrophyInfo\x12\x33\n\x14\x63\x61sh_back_animations\x18\x06 \x03(\x0b\x32\x15.pb.CashBackAnimation\"V\n\x19PurchaseGiftBagByPointREQ\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x0f.pb.GiftBagType:\rGIFT_BAG_NONE\x12\x0b\n\x03num\x18\x02 \x01(\x03\"O\n\x19PurchaseGiftBagByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12$\n\x07giftbag\x18\x02 \x01(\x0b\x32\x13.pb.UserGiftBagInfo\"1\n\x11\x42uyItemByPointREQ\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x0b\n\x03num\x18\x02 \x01(\x03\"!\n\x11\x42uyItemByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"H\n\nUseItemREQ\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x0e\n\x03num\x18\x02 \x01(\x05:\x01\x31\x12\x19\n\x11verification_code\x18\x03 \x01(\t\"8\n\nUseItemRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07item_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\"/\n\x14\x42uyItemSetByPointREQ\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\"$\n\x14\x42uyItemSetByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x12\x42uyEmojiByPointREQ\x12!\n\nemoji_type\x18\x01 \x01(\x0e\x32\r.pb.EmojiType\x12\x0b\n\x03num\x18\x02 \x01(\x03\"W\n\x12\x42uyEmojiByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\nemoji_type\x18\x02 \x01(\x0e\x32\r.pb.EmojiType\x12\x10\n\x08left_num\x18\x03 \x01(\x05\"w\n\x0c\x46reeEmojiRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x19\n\x0evip_free_emoji\x18\x02 \x01(\r:\x01\x30\x12\x1d\n\x12giftbag_free_emoji\x18\x03 \x01(\r:\x01\x30\x12 \n\x05\x65moji\x18\x04 \x03(\x0b\x32\x11.pb.UserEmojiInfo\"D\n\rIapReceiptREQ\x12\x0e\n\x06req_id\x18\x01 \x02(\t\x12\x0f\n\x07receipt\x18\x02 \x02(\t\x12\x12\n\x07to_user\x18\x03 \x02(\x03:\x01\x30\"-\n\rIapReceiptRSP\x12\x0e\n\x06req_id\x18\x01 \x02(\t\x12\x0c\n\x04\x63ode\x18\x02 \x02(\x03\"*\n\x12\x42uyEmojiByMoneyREQ\x12\x14\n\x0c\x63ommodity_id\x18\x01 \x01(\x03\"\x8c\x01\n\x12\x42uyEmojiByMoneyRSP\x12)\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1b.pb.BuyEmojiByMoneyRSP.Code\x12\x14\n\x0c\x63ommodity_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\"(\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x0e\n\nCODE_ERROR\x10\x01\"9\n\nBuySkinREQ\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\"\xaf\x01\n\nBuySkinRSP\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.BuySkinRSP.Code\x12\x1e\n\x04info\x18\x02 \x01(\x0b\x32\x10.pb.UserSkinInfo\"^\n\x04\x43ode\x12\x11\n\x04\x46\x41IL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07SUCCESS\x10\x00\x12\x11\n\rALREADY_OWNED\x10\x01\x12\x0e\n\nNOT_ENOUGH\x10\x02\x12\x13\n\x0fSUCCESS_NOT_BUY\x10\x03\"$\n\rBuySkinSetREQ\x12\x13\n\x0bskin_set_id\x18\x01 \x01(\x03\"\x95\x01\n\rBuySkinSetRSP\x12$\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x16.pb.BuySkinSetRSP.Code\x12\x13\n\x0bskin_set_id\x18\x02 \x01(\x03\"I\n\x04\x43ode\x12\x11\n\x04\x46\x41IL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07SUCCESS\x10\x00\x12\x11\n\rALREADY_OWNED\x10\x01\x12\x0e\n\nNOT_ENOUGH\x10\x02\"@\n\x11\x42uySkinByPointREQ\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\"\xbe\x01\n\x11\x42uySkinByPointRSP\x12(\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1a.pb.BuySkinByPointRSP.Code\x12\x1e\n\x04info\x18\x02 \x01(\x0b\x32\x10.pb.UserSkinInfo\"_\n\x04\x43ode\x12\x14\n\x07NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x11\n\x04\x46\x41IL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07SUCCESS\x10\x00\x12\x11\n\rALREADY_OWNED\x10\x01\x12\x0e\n\nNOT_ENOUGH\x10\x02\"+\n\x14\x42uySkinSetByPointREQ\x12\x13\n\x0bskin_set_id\x18\x01 \x01(\x03\"\xb9\x01\n\x14\x42uySkinSetByPointRSP\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.pb.BuySkinSetByPointRSP.Code\x12\x13\n\x0bskin_set_id\x18\x02 \x01(\x03\"_\n\x04\x43ode\x12\x14\n\x07NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x11\n\x04\x46\x41IL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07SUCCESS\x10\x00\x12\x11\n\rALREADY_OWNED\x10\x01\x12\x0e\n\nNOT_ENOUGH\x10\x02\"\xb0\x01\n\rItemClassInfo\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x1f\n\x17item_class_reward_value\x18\x03 \x01(\x03\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x03\x12\x16\n\x0evalid_duration\x18\x05 \x01(\x03\x12\x0c\n\x04type\x18\x06 \x01(\x05\x12\x13\n\x0bt_and_c_key\x18\x07 \x01(\t\"E\n\x13GetItemClassInfoREQ\x12\x15\n\ritem_class_id\x18\x01 \x03(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x03(\t\"D\n\x13GetItemClassInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x11.pb.ItemClassInfo\"o\n\x11SelectUserSkinREQ\x12\x1f\n\tskin_type\x18\x01 \x03(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x03(\x05\x12(\n\x0eskin_game_type\x18\x03 \x03(\x0e\x32\x10.pb.SkinGameType\"\x9e\x01\n\x11SelectUserSkinRSP\x12(\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1a.pb.SelectUserSkinRSP.Code\"_\n\x04\x43ode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x1d\n\x10SKIN_UNAVAILABLE\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x17\n\nPARAM_FAIL\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x12\n\x05OTHER\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x9f\x01\n\x0bGiftBagType\x12\x11\n\rGIFT_BAG_NONE\x10\x00\x12\x13\n\x0fGIFT_BAG_RABBIT\x10\x01\x12\x12\n\x0eGIFT_BAG_DELAY\x10\x02\x12\x12\n\x0eGIFT_BAG_EMOJI\x10\x03\x12\x11\n\rGIFT_BAG_CARD\x10\x04\x12\x18\n\x14GIFT_BAG_LUCKY_TOKEN\x10\x05\x12\x13\n\x0fGIFT_BAG_COUPON\x10\x06*\xf7\x01\n\tEmojiType\x12\r\n\tVIP_EMOJI\x10\x00\x12\x13\n\x0f\x46\x41\x43\x45_KING_EMOJI\x10\x01\x12\x14\n\x10\x46\x41\x43\x45_SHARK_EMOJI\x10\x02\x12\x17\n\x13\x46\x41\x43\x45_FOOTBALL_EMOJI\x10\x03\x12\x13\n\x0f\x46\x41\x43\x45_EXPRESSION\x10\x04\x12\x14\n\x10\x46\x41\x43\x45_INTERACTION\x10\x05\x12\x17\n\x13\x46\x41\x43\x45_VIP_EXPRESSION\x10\x06\x12\x18\n\x14\x46\x41\x43\x45_VIP_INTERACTION\x10\x07\x12\x1b\n\x17\x46\x41\x43\x45_GIFTBAG_EXPRESSION\x10\x08\x12\x1c\n\x18\x46\x41\x43\x45_GIFTBAG_INTERACTION\x10\t*\xb8\x01\n\x16PurchaseGiftBagRetCode\x12\x19\n\x15GIFTBAG_RET_CODE_SUCC\x10\x00\x12\x30\n#GIFTBAG_RET_CODE_DIAMOND_NOT_ENOUGH\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12+\n\x1eGIFTBAG_RET_CODE_PARAM_INVALID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17GIFTBAG_RET_CODE_FAILED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01*;\n\x08SkinType\x12\x10\n\x0cSKIN_DEFAULT\x10\x00\x12\x0e\n\nSKIN_TABLE\x10\x01\x12\r\n\tSKIN_CARD\x10\x02*\xc3\x02\n\x0c\x43\x61rdSkinType\x12.\n!CARD_SKIN_DEFAULT_FOUR_BASE_COLOR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12*\n\x1d\x43\x41RD_SKIN_DEFAULT_LARGE_PRINT\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n\x1c\x43\x41RD_SKIN_DEFAULT_FOURCOLOUR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x11\x43\x41RD_SKIN_DEFAULT\x10\x00\x12\x15\n\x11\x43\x41RD_SKIN_SAMURAI\x10\x01\x12\x17\n\x13\x43\x41RD_SKIN_ASTRONAUT\x10\x02\x12\x13\n\x0f\x43\x41RD_SKIN_PIXEL\x10\x03\x12\x14\n\x10\x43\x41RD_SKIN_COWBOY\x10\x04\x12\x1c\n\x18\x43\x41RD_SKIN_IMPERIAL_HOUSE\x10\x05\x12\x1c\n\x18\x43\x41RD_SKIN_JAPANESENOBLES\x10\x06*\xf9\x01\n\rTableSkinType\x12\x16\n\x12TABLE_SKIN_DEFAULT\x10\x00\x12\x16\n\x12TABLE_SKIN_BUSHIDO\x10\x01\x12\x14\n\x10TABLE_SKIN_SPACE\x10\x02\x12\x15\n\x11TABLE_SKIN_ARCADE\x10\x03\x12\x15\n\x11TABLE_SKIN_CIRCUS\x10\x04\x12\x15\n\x11TABLE_SKIN_PIRATE\x10\x05\x12\x1f\n\x1bTABLE_SKIN_ABANDONED_SUBWAY\x10\x06\x12\x1d\n\x19TABLE_SKIN_JAPANESE_LODGE\x10\x07\x12\x1d\n\x19TABLE_SKIN_JAPANESENOBLES\x10\x08*\xaa\x01\n\x0bSkinSetType\x12\x14\n\x10SKIN_SET_DEFAULT\x10\x00\x12\x18\n\x14SKIN_SET_SAMURAI_ERA\x10\x01\x12\x1a\n\x16SKIN_SET_GALAXY_PLAYER\x10\x02\x12\x18\n\x14SKIN_SET_RETRO_GAMER\x10\x03\x12\x19\n\x15SKIN_SET_JAPANESE_ZEN\x10\x04\x12\x1a\n\x16SKIN_SET_GARDENOFPEACE\x10\x05*\xa2\x01\n\x0bUseItemCode\x12\x19\n\x15USE_ITEM_CODE_SUCCESS\x10\x00\x12 \n\x13USE_ITEM_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\"\n\x15USE_ITEM_CODE_NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x32\n%USE_ITEM_CODE_VERIFICATION_CODE_ERROR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01*B\n\x0cSkinGameType\x12\x1a\n\x16SKIN_GAME_TYPE_DEFAULT\x10\x00\x12\x16\n\x12SKIN_GAME_TYPE_MTT\x10\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\nshop.proto\x12\x02pb\x1a\nbase.proto\x1a\tpb7.proto\x1a\x0ctrophy.proto\x1a\x0f\x63\x61sh_back.proto\"B\n\x12PurchaseGiftBagREQ\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x0f.pb.GiftBagType:\rGIFT_BAG_NONE\"\x99\x01\n\x0fUserGiftBagInfo\x12\x1c\n\x11rabbit_begin_time\x18\x01 \x01(\r:\x01\x30\x12\x1a\n\x0frabbit_end_time\x18\x02 \x01(\r:\x01\x30\x12\x1b\n\x10rabbit_left_time\x18\x03 \x01(\r:\x01\x30\x12\x15\n\nfree_emoji\x18\x04 \x01(\r:\x01\x30\x12\x18\n\rfree_calltime\x18\x05 \x01(\r:\x01\x30\"U\n\x12PurchaseGiftBagRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12$\n\x07giftbag\x18\x03 \x01(\x0b\x32\x13.pb.UserGiftBagInfo\"R\n\rUserEmojiInfo\x12,\n\x04type\x18\x01 \x01(\x0e\x32\r.pb.EmojiType:\x0f\x46\x41\x43\x45_KING_EMOJI\x12\x13\n\x08left_num\x18\x02 \x01(\x05:\x01\x30\"P\n\x0cUserSkinInfo\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\x12\x13\n\x0b\x65xpire_time\x18\x03 \x01(\x03\"\"\n\x0eGetItemListREQ\x12\x10\n\x08req_type\x18\x01 \x01(\x05\"\xb2\x01\n\x08ItemInfo\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x15\n\ritem_class_id\x18\x02 \x01(\x03\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x03\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x0e\n\x06is_new\x18\x06 \x01(\x08\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\x03\x12\x0f\n\x07useable\x18\x08 \x01(\x08\x12\x13\n\x0bt_and_c_key\x18\t \x01(\t\">\n\x0eGetItemListRSP\x12\x1a\n\x04item\x18\x01 \x03(\x0b\x32\x0c.pb.ItemInfo\x12\x10\n\x08rsp_type\x18\x02 \x01(\x05\"\x15\n\x13GetNewItemStatusREQ\"G\n\x13GetNewItemStatusRSP\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12 \n\ntips_items\x18\x02 \x03(\x0b\x32\x0c.pb.ItemInfo\"\xd5\x01\n\x13NotifyGetNewItemRSP\x12\x1b\n\x05items\x18\x01 \x03(\x0b\x32\x0c.pb.ItemInfo\x12\x1f\n\x06points\x18\x03 \x03(\x0b\x32\x0f.pb.PointInfoV2\x12!\n\x07\x61vatars\x18\x04 \x03(\x0b\x32\x10.pb.RewardAvatar\x12(\n\x0ctrophy_infos\x18\x05 \x03(\x0b\x32\x12.pb.UserTrophyInfo\x12\x33\n\x14\x63\x61sh_back_animations\x18\x06 \x03(\x0b\x32\x15.pb.CashBackAnimation\"V\n\x19PurchaseGiftBagByPointREQ\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x0f.pb.GiftBagType:\rGIFT_BAG_NONE\x12\x0b\n\x03num\x18\x02 \x01(\x03\"O\n\x19PurchaseGiftBagByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12$\n\x07giftbag\x18\x02 \x01(\x0b\x32\x13.pb.UserGiftBagInfo\"1\n\x11\x42uyItemByPointREQ\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x0b\n\x03num\x18\x02 \x01(\x03\"!\n\x11\x42uyItemByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"H\n\nUseItemREQ\x12\x0f\n\x07item_id\x18\x01 \x01(\x03\x12\x0e\n\x03num\x18\x02 \x01(\x05:\x01\x31\x12\x19\n\x11verification_code\x18\x03 \x01(\t\"8\n\nUseItemRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07item_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\"/\n\x14\x42uyItemSetByPointREQ\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\"$\n\x14\x42uyItemSetByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"D\n\x12\x42uyEmojiByPointREQ\x12!\n\nemoji_type\x18\x01 \x01(\x0e\x32\r.pb.EmojiType\x12\x0b\n\x03num\x18\x02 \x01(\x03\"W\n\x12\x42uyEmojiByPointRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12!\n\nemoji_type\x18\x02 \x01(\x0e\x32\r.pb.EmojiType\x12\x10\n\x08left_num\x18\x03 \x01(\x05\"w\n\x0c\x46reeEmojiRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x19\n\x0evip_free_emoji\x18\x02 \x01(\r:\x01\x30\x12\x1d\n\x12giftbag_free_emoji\x18\x03 \x01(\r:\x01\x30\x12 \n\x05\x65moji\x18\x04 \x03(\x0b\x32\x11.pb.UserEmojiInfo\"D\n\rIapReceiptREQ\x12\x0e\n\x06req_id\x18\x01 \x01(\t\x12\x0f\n\x07receipt\x18\x02 \x01(\t\x12\x12\n\x07to_user\x18\x03 \x01(\x03:\x01\x30\"-\n\rIapReceiptRSP\x12\x0e\n\x06req_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x03\"*\n\x12\x42uyEmojiByMoneyREQ\x12\x14\n\x0c\x63ommodity_id\x18\x01 \x01(\x03\"a\n\x12\x42uyEmojiByMoneyRSP\x12(\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1a.pb.BuyEmojiByMoneyRSPCode\x12\x14\n\x0c\x63ommodity_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x05\"9\n\nBuySkinREQ\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\"N\n\nBuySkinRSP\x12 \n\x04\x63ode\x18\x01 \x01(\x0e\x32\x12.pb.BuySkinRSPCode\x12\x1e\n\x04info\x18\x02 \x01(\x0b\x32\x10.pb.UserSkinInfo\"$\n\rBuySkinSetREQ\x12\x13\n\x0bskin_set_id\x18\x01 \x01(\x03\"I\n\rBuySkinSetRSP\x12#\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x15.pb.BuySkinSetRSPCode\x12\x13\n\x0bskin_set_id\x18\x02 \x01(\x03\"@\n\x11\x42uySkinByPointREQ\x12\x1a\n\x04type\x18\x01 \x01(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x01(\x05\"\\\n\x11\x42uySkinByPointRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.BuySkinByPointRSPCode\x12\x1e\n\x04info\x18\x02 \x01(\x0b\x32\x10.pb.UserSkinInfo\"+\n\x14\x42uySkinSetByPointREQ\x12\x13\n\x0bskin_set_id\x18\x01 \x01(\x03\"W\n\x14\x42uySkinSetByPointRSP\x12*\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.BuySkinSetByPointRSPCode\x12\x13\n\x0bskin_set_id\x18\x02 \x01(\x03\"\xb0\x01\n\rItemClassInfo\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x1f\n\x17item_class_reward_value\x18\x03 \x01(\x03\x12\x13\n\x0b\x65xpire_time\x18\x04 \x01(\x03\x12\x16\n\x0evalid_duration\x18\x05 \x01(\x03\x12\x0c\n\x04type\x18\x06 \x01(\x05\x12\x13\n\x0bt_and_c_key\x18\x07 \x01(\t\"E\n\x13GetItemClassInfoREQ\x12\x15\n\ritem_class_id\x18\x01 \x03(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x03(\t\"D\n\x13GetItemClassInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x11.pb.ItemClassInfo\"o\n\x11SelectUserSkinREQ\x12\x1f\n\tskin_type\x18\x01 \x03(\x0e\x32\x0c.pb.SkinType\x12\x0f\n\x07skin_id\x18\x02 \x03(\x05\x12(\n\x0eskin_game_type\x18\x03 \x03(\x0e\x32\x10.pb.SkinGameType\"<\n\x11SelectUserSkinRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.SelectUserSkinRSPCode*\x9f\x01\n\x0bGiftBagType\x12\x11\n\rGIFT_BAG_NONE\x10\x00\x12\x13\n\x0fGIFT_BAG_RABBIT\x10\x01\x12\x12\n\x0eGIFT_BAG_DELAY\x10\x02\x12\x12\n\x0eGIFT_BAG_EMOJI\x10\x03\x12\x11\n\rGIFT_BAG_CARD\x10\x04\x12\x18\n\x14GIFT_BAG_LUCKY_TOKEN\x10\x05\x12\x13\n\x0fGIFT_BAG_COUPON\x10\x06*\xf7\x01\n\tEmojiType\x12\r\n\tVIP_EMOJI\x10\x00\x12\x13\n\x0f\x46\x41\x43\x45_KING_EMOJI\x10\x01\x12\x14\n\x10\x46\x41\x43\x45_SHARK_EMOJI\x10\x02\x12\x17\n\x13\x46\x41\x43\x45_FOOTBALL_EMOJI\x10\x03\x12\x13\n\x0f\x46\x41\x43\x45_EXPRESSION\x10\x04\x12\x14\n\x10\x46\x41\x43\x45_INTERACTION\x10\x05\x12\x17\n\x13\x46\x41\x43\x45_VIP_EXPRESSION\x10\x06\x12\x18\n\x14\x46\x41\x43\x45_VIP_INTERACTION\x10\x07\x12\x1b\n\x17\x46\x41\x43\x45_GIFTBAG_EXPRESSION\x10\x08\x12\x1c\n\x18\x46\x41\x43\x45_GIFTBAG_INTERACTION\x10\t*\xb8\x01\n\x16PurchaseGiftBagRetCode\x12\x19\n\x15GIFTBAG_RET_CODE_SUCC\x10\x00\x12\x30\n#GIFTBAG_RET_CODE_DIAMOND_NOT_ENOUGH\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12+\n\x1eGIFTBAG_RET_CODE_PARAM_INVALID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17GIFTBAG_RET_CODE_FAILED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01*;\n\x08SkinType\x12\x10\n\x0cSKIN_DEFAULT\x10\x00\x12\x0e\n\nSKIN_TABLE\x10\x01\x12\r\n\tSKIN_CARD\x10\x02*\xc3\x02\n\x0c\x43\x61rdSkinType\x12.\n!CARD_SKIN_DEFAULT_FOUR_BASE_COLOR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12*\n\x1d\x43\x41RD_SKIN_DEFAULT_LARGE_PRINT\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n\x1c\x43\x41RD_SKIN_DEFAULT_FOURCOLOUR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x11\x43\x41RD_SKIN_DEFAULT\x10\x00\x12\x15\n\x11\x43\x41RD_SKIN_SAMURAI\x10\x01\x12\x17\n\x13\x43\x41RD_SKIN_ASTRONAUT\x10\x02\x12\x13\n\x0f\x43\x41RD_SKIN_PIXEL\x10\x03\x12\x14\n\x10\x43\x41RD_SKIN_COWBOY\x10\x04\x12\x1c\n\x18\x43\x41RD_SKIN_IMPERIAL_HOUSE\x10\x05\x12\x1c\n\x18\x43\x41RD_SKIN_JAPANESENOBLES\x10\x06*\xcd\x02\n\rTableSkinType\x12\'\n\x1aTABLE_SKIN_BLACKJACK_BEACH\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n\x1cTABLE_SKIN_BLACKJACK_CLASSIC\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x16\n\x12TABLE_SKIN_DEFAULT\x10\x00\x12\x16\n\x12TABLE_SKIN_BUSHIDO\x10\x01\x12\x14\n\x10TABLE_SKIN_SPACE\x10\x02\x12\x15\n\x11TABLE_SKIN_ARCADE\x10\x03\x12\x15\n\x11TABLE_SKIN_CIRCUS\x10\x04\x12\x15\n\x11TABLE_SKIN_PIRATE\x10\x05\x12\x1f\n\x1bTABLE_SKIN_ABANDONED_SUBWAY\x10\x06\x12\x1d\n\x19TABLE_SKIN_JAPANESE_LODGE\x10\x07\x12\x1d\n\x19TABLE_SKIN_JAPANESENOBLES\x10\x08*\xaa\x01\n\x0bSkinSetType\x12\x14\n\x10SKIN_SET_DEFAULT\x10\x00\x12\x18\n\x14SKIN_SET_SAMURAI_ERA\x10\x01\x12\x1a\n\x16SKIN_SET_GALAXY_PLAYER\x10\x02\x12\x18\n\x14SKIN_SET_RETRO_GAMER\x10\x03\x12\x19\n\x15SKIN_SET_JAPANESE_ZEN\x10\x04\x12\x1a\n\x16SKIN_SET_GARDENOFPEACE\x10\x05*\xa2\x01\n\x0bUseItemCode\x12\x19\n\x15USE_ITEM_CODE_SUCCESS\x10\x00\x12 \n\x13USE_ITEM_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\"\n\x15USE_ITEM_CODE_NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x32\n%USE_ITEM_CODE_VERIFICATION_CODE_ERROR\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01*p\n\x16\x42uyEmojiByMoneyRSPCode\x12+\n\'BUY_EMOJI_BY_MONEY_RSPCODE_CODE_SUCCESS\x10\x00\x12)\n%BUY_EMOJI_BY_MONEY_RSPCODE_CODE_ERROR\x10\x01*\xbd\x01\n\x0e\x42uySkinRSPCode\x12\"\n\x15\x42UY_SKIN_RSPCODE_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1c\n\x18\x42UY_SKIN_RSPCODE_SUCCESS\x10\x00\x12\"\n\x1e\x42UY_SKIN_RSPCODE_ALREADY_OWNED\x10\x01\x12\x1f\n\x1b\x42UY_SKIN_RSPCODE_NOT_ENOUGH\x10\x02\x12$\n BUY_SKIN_RSPCODE_SUCCESS_NOT_BUY\x10\x03*\xaa\x01\n\x11\x42uySkinSetRSPCode\x12&\n\x19\x42UY_SKIN_SET_RSPCODE_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x1c\x42UY_SKIN_SET_RSPCODE_SUCCESS\x10\x00\x12&\n\"BUY_SKIN_SET_RSPCODE_ALREADY_OWNED\x10\x01\x12#\n\x1f\x42UY_SKIN_SET_RSPCODE_NOT_ENOUGH\x10\x02*\xf2\x01\n\x15\x42uySkinByPointRSPCode\x12.\n!BUY_SKIN_BY_POINT_RSPCODE_NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12+\n\x1e\x42UY_SKIN_BY_POINT_RSPCODE_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12%\n!BUY_SKIN_BY_POINT_RSPCODE_SUCCESS\x10\x00\x12+\n\'BUY_SKIN_BY_POINT_RSPCODE_ALREADY_OWNED\x10\x01\x12(\n$BUY_SKIN_BY_POINT_RSPCODE_NOT_ENOUGH\x10\x02*\x89\x02\n\x18\x42uySkinSetByPointRSPCode\x12\x32\n%BUY_SKIN_SET_BY_POINT_RSPCODE_NO_ITEM\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12/\n\"BUY_SKIN_SET_BY_POINT_RSPCODE_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n%BUY_SKIN_SET_BY_POINT_RSPCODE_SUCCESS\x10\x00\x12/\n+BUY_SKIN_SET_BY_POINT_RSPCODE_ALREADY_OWNED\x10\x01\x12,\n(BUY_SKIN_SET_BY_POINT_RSPCODE_NOT_ENOUGH\x10\x02*`\n\x0cSkinGameType\x12\x1a\n\x16SKIN_GAME_TYPE_DEFAULT\x10\x00\x12\x16\n\x12SKIN_GAME_TYPE_MTT\x10\x01\x12\x1c\n\x18SKIN_GAME_TYPE_BLACKJACK\x10\x02*\xc8\x01\n\x15SelectUserSkinRSPCode\x12!\n\x1dSelectUserSkinRSPCode_SUCCESS\x10\x00\x12\x33\n&SelectUserSkinRSPCode_SKIN_UNAVAILABLE\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12-\n SelectUserSkinRSPCode_PARAM_FAIL\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12(\n\x1bSelectUserSkinRSPCode_OTHER\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,pb7__pb2.DESCRIPTOR,trophy__pb2.DESCRIPTOR,cash__back__pb2.DESCRIPTOR,])
 
@@ -65,8 +65,8 @@ _GIFTBAGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3754,
-  serialized_end=3913,
+  serialized_start=3198,
+  serialized_end=3357,
 )
 _sym_db.RegisterEnumDescriptor(_GIFTBAGTYPE)
 
@@ -120,8 +120,8 @@ _EMOJITYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3916,
-  serialized_end=4163,
+  serialized_start=3360,
+  serialized_end=3607,
 )
 _sym_db.RegisterEnumDescriptor(_EMOJITYPE)
 
@@ -151,8 +151,8 @@ _PURCHASEGIFTBAGRETCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4166,
-  serialized_end=4350,
+  serialized_start=3610,
+  serialized_end=3794,
 )
 _sym_db.RegisterEnumDescriptor(_PURCHASEGIFTBAGRETCODE)
 
@@ -178,8 +178,8 @@ _SKINTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4352,
-  serialized_end=4411,
+  serialized_start=3796,
+  serialized_end=3855,
 )
 _sym_db.RegisterEnumDescriptor(_SKINTYPE)
 
@@ -233,8 +233,8 @@ _CARDSKINTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4414,
-  serialized_end=4737,
+  serialized_start=3858,
+  serialized_end=4181,
 )
 _sym_db.RegisterEnumDescriptor(_CARDSKINTYPE)
 
@@ -246,46 +246,54 @@ _TABLESKINTYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_DEFAULT', index=0, number=0,
+      name='TABLE_SKIN_BLACKJACK_BEACH', index=0, number=-2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_BUSHIDO', index=1, number=1,
+      name='TABLE_SKIN_BLACKJACK_CLASSIC', index=1, number=-1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_SPACE', index=2, number=2,
+      name='TABLE_SKIN_DEFAULT', index=2, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_ARCADE', index=3, number=3,
+      name='TABLE_SKIN_BUSHIDO', index=3, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_CIRCUS', index=4, number=4,
+      name='TABLE_SKIN_SPACE', index=4, number=2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_PIRATE', index=5, number=5,
+      name='TABLE_SKIN_ARCADE', index=5, number=3,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_ABANDONED_SUBWAY', index=6, number=6,
+      name='TABLE_SKIN_CIRCUS', index=6, number=4,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_JAPANESE_LODGE', index=7, number=7,
+      name='TABLE_SKIN_PIRATE', index=7, number=5,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TABLE_SKIN_JAPANESENOBLES', index=8, number=8,
+      name='TABLE_SKIN_ABANDONED_SUBWAY', index=8, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TABLE_SKIN_JAPANESE_LODGE', index=9, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TABLE_SKIN_JAPANESENOBLES', index=10, number=8,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4740,
-  serialized_end=4989,
+  serialized_start=4184,
+  serialized_end=4517,
 )
 _sym_db.RegisterEnumDescriptor(_TABLESKINTYPE)
 
@@ -323,8 +331,8 @@ _SKINSETTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4992,
-  serialized_end=5162,
+  serialized_start=4520,
+  serialized_end=4690,
 )
 _sym_db.RegisterEnumDescriptor(_SKINSETTYPE)
 
@@ -354,12 +362,171 @@ _USEITEMCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5165,
-  serialized_end=5327,
+  serialized_start=4693,
+  serialized_end=4855,
 )
 _sym_db.RegisterEnumDescriptor(_USEITEMCODE)
 
 UseItemCode = enum_type_wrapper.EnumTypeWrapper(_USEITEMCODE)
+_BUYEMOJIBYMONEYRSPCODE = _descriptor.EnumDescriptor(
+  name='BuyEmojiByMoneyRSPCode',
+  full_name='pb.BuyEmojiByMoneyRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUY_EMOJI_BY_MONEY_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_EMOJI_BY_MONEY_RSPCODE_CODE_ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4857,
+  serialized_end=4969,
+)
+_sym_db.RegisterEnumDescriptor(_BUYEMOJIBYMONEYRSPCODE)
+
+BuyEmojiByMoneyRSPCode = enum_type_wrapper.EnumTypeWrapper(_BUYEMOJIBYMONEYRSPCODE)
+_BUYSKINRSPCODE = _descriptor.EnumDescriptor(
+  name='BuySkinRSPCode',
+  full_name='pb.BuySkinRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_RSPCODE_FAIL', index=0, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_RSPCODE_SUCCESS', index=1, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_RSPCODE_ALREADY_OWNED', index=2, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_RSPCODE_NOT_ENOUGH', index=3, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_RSPCODE_SUCCESS_NOT_BUY', index=4, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4972,
+  serialized_end=5161,
+)
+_sym_db.RegisterEnumDescriptor(_BUYSKINRSPCODE)
+
+BuySkinRSPCode = enum_type_wrapper.EnumTypeWrapper(_BUYSKINRSPCODE)
+_BUYSKINSETRSPCODE = _descriptor.EnumDescriptor(
+  name='BuySkinSetRSPCode',
+  full_name='pb.BuySkinSetRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_RSPCODE_FAIL', index=0, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_RSPCODE_SUCCESS', index=1, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_RSPCODE_ALREADY_OWNED', index=2, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_RSPCODE_NOT_ENOUGH', index=3, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5164,
+  serialized_end=5334,
+)
+_sym_db.RegisterEnumDescriptor(_BUYSKINSETRSPCODE)
+
+BuySkinSetRSPCode = enum_type_wrapper.EnumTypeWrapper(_BUYSKINSETRSPCODE)
+_BUYSKINBYPOINTRSPCODE = _descriptor.EnumDescriptor(
+  name='BuySkinByPointRSPCode',
+  full_name='pb.BuySkinByPointRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_BY_POINT_RSPCODE_NO_ITEM', index=0, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_BY_POINT_RSPCODE_FAIL', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_BY_POINT_RSPCODE_SUCCESS', index=2, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_BY_POINT_RSPCODE_ALREADY_OWNED', index=3, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_BY_POINT_RSPCODE_NOT_ENOUGH', index=4, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5337,
+  serialized_end=5579,
+)
+_sym_db.RegisterEnumDescriptor(_BUYSKINBYPOINTRSPCODE)
+
+BuySkinByPointRSPCode = enum_type_wrapper.EnumTypeWrapper(_BUYSKINBYPOINTRSPCODE)
+_BUYSKINSETBYPOINTRSPCODE = _descriptor.EnumDescriptor(
+  name='BuySkinSetByPointRSPCode',
+  full_name='pb.BuySkinSetByPointRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_BY_POINT_RSPCODE_NO_ITEM', index=0, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_BY_POINT_RSPCODE_FAIL', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_BY_POINT_RSPCODE_SUCCESS', index=2, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_BY_POINT_RSPCODE_ALREADY_OWNED', index=3, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUY_SKIN_SET_BY_POINT_RSPCODE_NOT_ENOUGH', index=4, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5582,
+  serialized_end=5847,
+)
+_sym_db.RegisterEnumDescriptor(_BUYSKINSETBYPOINTRSPCODE)
+
+BuySkinSetByPointRSPCode = enum_type_wrapper.EnumTypeWrapper(_BUYSKINSETBYPOINTRSPCODE)
 _SKINGAMETYPE = _descriptor.EnumDescriptor(
   name='SkinGameType',
   full_name='pb.SkinGameType',
@@ -374,15 +541,50 @@ _SKINGAMETYPE = _descriptor.EnumDescriptor(
       name='SKIN_GAME_TYPE_MTT', index=1, number=1,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SKIN_GAME_TYPE_BLACKJACK', index=2, number=2,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5329,
-  serialized_end=5395,
+  serialized_start=5849,
+  serialized_end=5945,
 )
 _sym_db.RegisterEnumDescriptor(_SKINGAMETYPE)
 
 SkinGameType = enum_type_wrapper.EnumTypeWrapper(_SKINGAMETYPE)
+_SELECTUSERSKINRSPCODE = _descriptor.EnumDescriptor(
+  name='SelectUserSkinRSPCode',
+  full_name='pb.SelectUserSkinRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SelectUserSkinRSPCode_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SelectUserSkinRSPCode_SKIN_UNAVAILABLE', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SelectUserSkinRSPCode_PARAM_FAIL', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SelectUserSkinRSPCode_OTHER', index=3, number=-3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5948,
+  serialized_end=6148,
+)
+_sym_db.RegisterEnumDescriptor(_SELECTUSERSKINRSPCODE)
+
+SelectUserSkinRSPCode = enum_type_wrapper.EnumTypeWrapper(_SELECTUSERSKINRSPCODE)
 GIFT_BAG_NONE = 0
 GIFT_BAG_RABBIT = 1
 GIFT_BAG_DELAY = 2
@@ -417,6 +619,8 @@ CARD_SKIN_PIXEL = 3
 CARD_SKIN_COWBOY = 4
 CARD_SKIN_IMPERIAL_HOUSE = 5
 CARD_SKIN_JAPANESENOBLES = 6
+TABLE_SKIN_BLACKJACK_BEACH = -2
+TABLE_SKIN_BLACKJACK_CLASSIC = -1
 TABLE_SKIN_DEFAULT = 0
 TABLE_SKIN_BUSHIDO = 1
 TABLE_SKIN_SPACE = 2
@@ -436,193 +640,35 @@ USE_ITEM_CODE_SUCCESS = 0
 USE_ITEM_CODE_ERROR = -1
 USE_ITEM_CODE_NO_ITEM = -2
 USE_ITEM_CODE_VERIFICATION_CODE_ERROR = -3
+BUY_EMOJI_BY_MONEY_RSPCODE_CODE_SUCCESS = 0
+BUY_EMOJI_BY_MONEY_RSPCODE_CODE_ERROR = 1
+BUY_SKIN_RSPCODE_FAIL = -1
+BUY_SKIN_RSPCODE_SUCCESS = 0
+BUY_SKIN_RSPCODE_ALREADY_OWNED = 1
+BUY_SKIN_RSPCODE_NOT_ENOUGH = 2
+BUY_SKIN_RSPCODE_SUCCESS_NOT_BUY = 3
+BUY_SKIN_SET_RSPCODE_FAIL = -1
+BUY_SKIN_SET_RSPCODE_SUCCESS = 0
+BUY_SKIN_SET_RSPCODE_ALREADY_OWNED = 1
+BUY_SKIN_SET_RSPCODE_NOT_ENOUGH = 2
+BUY_SKIN_BY_POINT_RSPCODE_NO_ITEM = -2
+BUY_SKIN_BY_POINT_RSPCODE_FAIL = -1
+BUY_SKIN_BY_POINT_RSPCODE_SUCCESS = 0
+BUY_SKIN_BY_POINT_RSPCODE_ALREADY_OWNED = 1
+BUY_SKIN_BY_POINT_RSPCODE_NOT_ENOUGH = 2
+BUY_SKIN_SET_BY_POINT_RSPCODE_NO_ITEM = -2
+BUY_SKIN_SET_BY_POINT_RSPCODE_FAIL = -1
+BUY_SKIN_SET_BY_POINT_RSPCODE_SUCCESS = 0
+BUY_SKIN_SET_BY_POINT_RSPCODE_ALREADY_OWNED = 1
+BUY_SKIN_SET_BY_POINT_RSPCODE_NOT_ENOUGH = 2
 SKIN_GAME_TYPE_DEFAULT = 0
 SKIN_GAME_TYPE_MTT = 1
+SKIN_GAME_TYPE_BLACKJACK = 2
+SelectUserSkinRSPCode_SUCCESS = 0
+SelectUserSkinRSPCode_SKIN_UNAVAILABLE = -1
+SelectUserSkinRSPCode_PARAM_FAIL = -2
+SelectUserSkinRSPCode_OTHER = -3
 
-
-_BUYEMOJIBYMONEYRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.BuyEmojiByMoneyRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2198,
-  serialized_end=2238,
-)
-_sym_db.RegisterEnumDescriptor(_BUYEMOJIBYMONEYRSP_CODE)
-
-_BUYSKINRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.BuySkinRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='FAIL', index=0, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=1, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ALREADY_OWNED', index=2, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_ENOUGH', index=3, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS_NOT_BUY', index=4, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2381,
-  serialized_end=2475,
-)
-_sym_db.RegisterEnumDescriptor(_BUYSKINRSP_CODE)
-
-_BUYSKINSETRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.BuySkinSetRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='FAIL', index=0, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=1, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ALREADY_OWNED', index=2, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_ENOUGH', index=3, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2381,
-  serialized_end=2454,
-)
-_sym_db.RegisterEnumDescriptor(_BUYSKINSETRSP_CODE)
-
-_BUYSKINBYPOINTRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.BuySkinByPointRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='NO_ITEM', index=0, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='FAIL', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=2, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ALREADY_OWNED', index=3, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_ENOUGH', index=4, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2829,
-  serialized_end=2924,
-)
-_sym_db.RegisterEnumDescriptor(_BUYSKINBYPOINTRSP_CODE)
-
-_BUYSKINSETBYPOINTRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.BuySkinSetByPointRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='NO_ITEM', index=0, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='FAIL', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=2, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ALREADY_OWNED', index=3, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_ENOUGH', index=4, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2829,
-  serialized_end=2924,
-)
-_sym_db.RegisterEnumDescriptor(_BUYSKINSETBYPOINTRSP_CODE)
-
-_SELECTUSERSKINRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.SelectUserSkinRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='SKIN_UNAVAILABLE', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PARAM_FAIL', index=2, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='OTHER', index=3, number=-3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=3656,
-  serialized_end=3751,
-)
-_sym_db.RegisterEnumDescriptor(_SELECTUSERSKINRSP_CODE)
 
 
 _PURCHASEGIFTBAGREQ = _descriptor.Descriptor(
@@ -1076,35 +1122,28 @@ _NOTIFYGETNEWITEMRSP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coins', full_name='pb.NotifyGetNewItemRSP.blind_coins', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='points', full_name='pb.NotifyGetNewItemRSP.points', index=2,
+      name='points', full_name='pb.NotifyGetNewItemRSP.points', index=1,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='avatars', full_name='pb.NotifyGetNewItemRSP.avatars', index=3,
+      name='avatars', full_name='pb.NotifyGetNewItemRSP.avatars', index=2,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='trophy_infos', full_name='pb.NotifyGetNewItemRSP.trophy_infos', index=4,
+      name='trophy_infos', full_name='pb.NotifyGetNewItemRSP.trophy_infos', index=3,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash_back_animations', full_name='pb.NotifyGetNewItemRSP.cash_back_animations', index=5,
+      name='cash_back_animations', full_name='pb.NotifyGetNewItemRSP.cash_back_animations', index=4,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1123,7 +1162,7 @@ _NOTIFYGETNEWITEMRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=927,
-  serialized_end=1180,
+  serialized_end=1140,
 )
 
 
@@ -1160,8 +1199,8 @@ _PURCHASEGIFTBAGBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1182,
-  serialized_end=1268,
+  serialized_start=1142,
+  serialized_end=1228,
 )
 
 
@@ -1198,8 +1237,8 @@ _PURCHASEGIFTBAGBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1270,
-  serialized_end=1349,
+  serialized_start=1230,
+  serialized_end=1309,
 )
 
 
@@ -1236,8 +1275,8 @@ _BUYITEMBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1351,
-  serialized_end=1400,
+  serialized_start=1311,
+  serialized_end=1360,
 )
 
 
@@ -1267,8 +1306,8 @@ _BUYITEMBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1402,
-  serialized_end=1435,
+  serialized_start=1362,
+  serialized_end=1395,
 )
 
 
@@ -1312,8 +1351,8 @@ _USEITEMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1437,
-  serialized_end=1509,
+  serialized_start=1397,
+  serialized_end=1469,
 )
 
 
@@ -1357,8 +1396,8 @@ _USEITEMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1511,
-  serialized_end=1567,
+  serialized_start=1471,
+  serialized_end=1527,
 )
 
 
@@ -1388,8 +1427,8 @@ _BUYITEMSETBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1569,
-  serialized_end=1616,
+  serialized_start=1529,
+  serialized_end=1576,
 )
 
 
@@ -1419,8 +1458,8 @@ _BUYITEMSETBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1618,
-  serialized_end=1654,
+  serialized_start=1578,
+  serialized_end=1614,
 )
 
 
@@ -1457,8 +1496,8 @@ _BUYEMOJIBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1656,
-  serialized_end=1724,
+  serialized_start=1616,
+  serialized_end=1684,
 )
 
 
@@ -1502,8 +1541,8 @@ _BUYEMOJIBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1726,
-  serialized_end=1813,
+  serialized_start=1686,
+  serialized_end=1773,
 )
 
 
@@ -1554,8 +1593,8 @@ _FREEEMOJIRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1815,
-  serialized_end=1934,
+  serialized_start=1775,
+  serialized_end=1894,
 )
 
 
@@ -1568,21 +1607,21 @@ _IAPRECEIPTREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='req_id', full_name='pb.IapReceiptREQ.req_id', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='receipt', full_name='pb.IapReceiptREQ.receipt', index=1,
-      number=2, type=9, cpp_type=9, label=2,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='to_user', full_name='pb.IapReceiptREQ.to_user', index=2,
-      number=3, type=3, cpp_type=2, label=2,
+      number=3, type=3, cpp_type=2, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1599,8 +1638,8 @@ _IAPRECEIPTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1936,
-  serialized_end=2004,
+  serialized_start=1896,
+  serialized_end=1964,
 )
 
 
@@ -1613,14 +1652,14 @@ _IAPRECEIPTRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='req_id', full_name='pb.IapReceiptRSP.req_id', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.IapReceiptRSP.code', index=1,
-      number=2, type=3, cpp_type=2, label=2,
+      number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1637,8 +1676,8 @@ _IAPRECEIPTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2006,
-  serialized_end=2051,
+  serialized_start=1966,
+  serialized_end=2011,
 )
 
 
@@ -1668,8 +1707,8 @@ _BUYEMOJIBYMONEYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2053,
-  serialized_end=2095,
+  serialized_start=2013,
+  serialized_end=2055,
 )
 
 
@@ -1706,7 +1745,6 @@ _BUYEMOJIBYMONEYRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _BUYEMOJIBYMONEYRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1714,8 +1752,8 @@ _BUYEMOJIBYMONEYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2098,
-  serialized_end=2238,
+  serialized_start=2057,
+  serialized_end=2154,
 )
 
 
@@ -1752,8 +1790,8 @@ _BUYSKINREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2240,
-  serialized_end=2297,
+  serialized_start=2156,
+  serialized_end=2213,
 )
 
 
@@ -1783,7 +1821,6 @@ _BUYSKINRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _BUYSKINRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1791,8 +1828,8 @@ _BUYSKINRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2300,
-  serialized_end=2475,
+  serialized_start=2215,
+  serialized_end=2293,
 )
 
 
@@ -1822,8 +1859,8 @@ _BUYSKINSETREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2477,
-  serialized_end=2513,
+  serialized_start=2295,
+  serialized_end=2331,
 )
 
 
@@ -1853,7 +1890,6 @@ _BUYSKINSETRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _BUYSKINSETRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1861,8 +1897,8 @@ _BUYSKINSETRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2516,
-  serialized_end=2665,
+  serialized_start=2333,
+  serialized_end=2406,
 )
 
 
@@ -1899,8 +1935,8 @@ _BUYSKINBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2667,
-  serialized_end=2731,
+  serialized_start=2408,
+  serialized_end=2472,
 )
 
 
@@ -1930,7 +1966,6 @@ _BUYSKINBYPOINTRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _BUYSKINBYPOINTRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1938,8 +1973,8 @@ _BUYSKINBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2734,
-  serialized_end=2924,
+  serialized_start=2474,
+  serialized_end=2566,
 )
 
 
@@ -1969,8 +2004,8 @@ _BUYSKINSETBYPOINTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2926,
-  serialized_end=2969,
+  serialized_start=2568,
+  serialized_end=2611,
 )
 
 
@@ -2000,7 +2035,6 @@ _BUYSKINSETBYPOINTRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _BUYSKINSETBYPOINTRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -2008,8 +2042,8 @@ _BUYSKINSETBYPOINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2972,
-  serialized_end=3157,
+  serialized_start=2613,
+  serialized_end=2700,
 )
 
 
@@ -2081,8 +2115,8 @@ _ITEMCLASSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3160,
-  serialized_end=3336,
+  serialized_start=2703,
+  serialized_end=2879,
 )
 
 
@@ -2119,8 +2153,8 @@ _GETITEMCLASSINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3338,
-  serialized_end=3407,
+  serialized_start=2881,
+  serialized_end=2950,
 )
 
 
@@ -2157,8 +2191,8 @@ _GETITEMCLASSINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3409,
-  serialized_end=3477,
+  serialized_start=2952,
+  serialized_end=3020,
 )
 
 
@@ -2202,8 +2236,8 @@ _SELECTUSERSKINREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3479,
-  serialized_end=3590,
+  serialized_start=3022,
+  serialized_end=3133,
 )
 
 
@@ -2216,7 +2250,7 @@ _SELECTUSERSKINRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.SelectUserSkinRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2226,7 +2260,6 @@ _SELECTUSERSKINRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SELECTUSERSKINRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -2234,8 +2267,8 @@ _SELECTUSERSKINRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3593,
-  serialized_end=3751,
+  serialized_start=3135,
+  serialized_end=3195,
 )
 
 _PURCHASEGIFTBAGREQ.fields_by_name['type'].enum_type = _GIFTBAGTYPE
@@ -2245,7 +2278,6 @@ _USERSKININFO.fields_by_name['type'].enum_type = _SKINTYPE
 _GETITEMLISTRSP.fields_by_name['item'].message_type = _ITEMINFO
 _GETNEWITEMSTATUSRSP.fields_by_name['tips_items'].message_type = _ITEMINFO
 _NOTIFYGETNEWITEMRSP.fields_by_name['items'].message_type = _ITEMINFO
-_NOTIFYGETNEWITEMRSP.fields_by_name['blind_coins'].message_type = pb7__pb2._BLINDCOININFO
 _NOTIFYGETNEWITEMRSP.fields_by_name['points'].message_type = pb7__pb2._POINTINFOV2
 _NOTIFYGETNEWITEMRSP.fields_by_name['avatars'].message_type = base__pb2._REWARDAVATAR
 _NOTIFYGETNEWITEMRSP.fields_by_name['trophy_infos'].message_type = trophy__pb2._USERTROPHYINFO
@@ -2255,25 +2287,19 @@ _PURCHASEGIFTBAGBYPOINTRSP.fields_by_name['giftbag'].message_type = _USERGIFTBAG
 _BUYEMOJIBYPOINTREQ.fields_by_name['emoji_type'].enum_type = _EMOJITYPE
 _BUYEMOJIBYPOINTRSP.fields_by_name['emoji_type'].enum_type = _EMOJITYPE
 _FREEEMOJIRSP.fields_by_name['emoji'].message_type = _USEREMOJIINFO
-_BUYEMOJIBYMONEYRSP.fields_by_name['code'].enum_type = _BUYEMOJIBYMONEYRSP_CODE
-_BUYEMOJIBYMONEYRSP_CODE.containing_type = _BUYEMOJIBYMONEYRSP
+_BUYEMOJIBYMONEYRSP.fields_by_name['code'].enum_type = _BUYEMOJIBYMONEYRSPCODE
 _BUYSKINREQ.fields_by_name['type'].enum_type = _SKINTYPE
-_BUYSKINRSP.fields_by_name['code'].enum_type = _BUYSKINRSP_CODE
+_BUYSKINRSP.fields_by_name['code'].enum_type = _BUYSKINRSPCODE
 _BUYSKINRSP.fields_by_name['info'].message_type = _USERSKININFO
-_BUYSKINRSP_CODE.containing_type = _BUYSKINRSP
-_BUYSKINSETRSP.fields_by_name['code'].enum_type = _BUYSKINSETRSP_CODE
-_BUYSKINSETRSP_CODE.containing_type = _BUYSKINSETRSP
+_BUYSKINSETRSP.fields_by_name['code'].enum_type = _BUYSKINSETRSPCODE
 _BUYSKINBYPOINTREQ.fields_by_name['type'].enum_type = _SKINTYPE
-_BUYSKINBYPOINTRSP.fields_by_name['code'].enum_type = _BUYSKINBYPOINTRSP_CODE
+_BUYSKINBYPOINTRSP.fields_by_name['code'].enum_type = _BUYSKINBYPOINTRSPCODE
 _BUYSKINBYPOINTRSP.fields_by_name['info'].message_type = _USERSKININFO
-_BUYSKINBYPOINTRSP_CODE.containing_type = _BUYSKINBYPOINTRSP
-_BUYSKINSETBYPOINTRSP.fields_by_name['code'].enum_type = _BUYSKINSETBYPOINTRSP_CODE
-_BUYSKINSETBYPOINTRSP_CODE.containing_type = _BUYSKINSETBYPOINTRSP
+_BUYSKINSETBYPOINTRSP.fields_by_name['code'].enum_type = _BUYSKINSETBYPOINTRSPCODE
 _GETITEMCLASSINFORSP.fields_by_name['data'].message_type = _ITEMCLASSINFO
 _SELECTUSERSKINREQ.fields_by_name['skin_type'].enum_type = _SKINTYPE
 _SELECTUSERSKINREQ.fields_by_name['skin_game_type'].enum_type = _SKINGAMETYPE
-_SELECTUSERSKINRSP.fields_by_name['code'].enum_type = _SELECTUSERSKINRSP_CODE
-_SELECTUSERSKINRSP_CODE.containing_type = _SELECTUSERSKINRSP
+_SELECTUSERSKINRSP.fields_by_name['code'].enum_type = _SELECTUSERSKINRSPCODE
 DESCRIPTOR.message_types_by_name['PurchaseGiftBagREQ'] = _PURCHASEGIFTBAGREQ
 DESCRIPTOR.message_types_by_name['UserGiftBagInfo'] = _USERGIFTBAGINFO
 DESCRIPTOR.message_types_by_name['PurchaseGiftBagRSP'] = _PURCHASEGIFTBAGRSP
@@ -2321,7 +2347,13 @@ DESCRIPTOR.enum_types_by_name['CardSkinType'] = _CARDSKINTYPE
 DESCRIPTOR.enum_types_by_name['TableSkinType'] = _TABLESKINTYPE
 DESCRIPTOR.enum_types_by_name['SkinSetType'] = _SKINSETTYPE
 DESCRIPTOR.enum_types_by_name['UseItemCode'] = _USEITEMCODE
+DESCRIPTOR.enum_types_by_name['BuyEmojiByMoneyRSPCode'] = _BUYEMOJIBYMONEYRSPCODE
+DESCRIPTOR.enum_types_by_name['BuySkinRSPCode'] = _BUYSKINRSPCODE
+DESCRIPTOR.enum_types_by_name['BuySkinSetRSPCode'] = _BUYSKINSETRSPCODE
+DESCRIPTOR.enum_types_by_name['BuySkinByPointRSPCode'] = _BUYSKINBYPOINTRSPCODE
+DESCRIPTOR.enum_types_by_name['BuySkinSetByPointRSPCode'] = _BUYSKINSETBYPOINTRSPCODE
 DESCRIPTOR.enum_types_by_name['SkinGameType'] = _SKINGAMETYPE
+DESCRIPTOR.enum_types_by_name['SelectUserSkinRSPCode'] = _SELECTUSERSKINRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 PurchaseGiftBagREQ = _reflection.GeneratedProtocolMessageType('PurchaseGiftBagREQ', (_message.Message,), dict(

@@ -25,33 +25,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb7.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\tpb1.proto\x1a\tpb3.proto\x1a\tpb4.proto\"2\n\x0bPointInfoV2\x12\r\n\x05point\x18\x01 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x02 \x01(\x03\"\x86\x01\n\x0bGameDataREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\r\n\x05\x62time\x18\x02 \x01(\r\x12\r\n\x05\x65time\x18\x03 \x01(\r\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x11\n\tagent_uid\x18\x05 \x01(\x03\x12\x12\n\nbegin_date\x18\x06 \x01(\r\x12\x10\n\x08\x65nd_date\x18\x07 \x01(\r\"o\n\x0bGameDataRSP\x12\x1a\n\x03set\x18\x01 \x03(\x0b\x32\r.pb.ProfitSet\x12\x14\n\ttotal_fee\x18\x02 \x01(\x03:\x01\x30\x12\x16\n\x0btotal_hands\x18\x03 \x01(\x05:\x01\x30\x12\x16\n\x0btotal_games\x18\x04 \x01(\x05:\x01\x30\";\n\x0fUserVpipInfoRSP\x12(\n\x0euser_vpip_info\x18\x01 \x01(\x0b\x32\x10.pb.UserVpipInfo\"\xad\x01\n\rBlindCoinInfo\x12\x1b\n\x13\x62lind_coin_class_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\x02 \x01(\t\x12\x15\n\rblind_balance\x18\x03 \x01(\x03\x12\x12\n\nblind_coin\x18\x04 \x01(\x03\x12\x1e\n\x16\x65xpiring_blind_balance\x18\x05 \x01(\x03\x12\x15\n\rexpiring_time\x18\x06 \x01(\x03\"\x0e\n\x0c\x42lindCoinREQ\"0\n\x0c\x42lindCoinRSP\x12 \n\x05infos\x18\x01 \x03(\x0b\x32\x11.pb.BlindCoinInfo\"\x81\x02\n\x13\x42lindCoinChangeInfo\x12\x1b\n\x13\x62lind_coin_class_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\x02 \x01(\t\x12\x15\n\rblind_balance\x18\x03 \x01(\x03\x12\x12\n\nblind_coin\x18\x04 \x01(\x03\x12\x1c\n\x14\x62lind_balance_change\x18\x05 \x01(\x03\x12\x19\n\x11\x62lind_coin_change\x18\x06 \x01(\x03\x12\x1e\n\x16\x65xpiring_blind_balance\x18\x07 \x01(\x03\x12\x15\n\rexpiring_time\x18\x08 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\t \x01(\x03\"_\n\x0c\x42lindCoinBRC\x12&\n\x05infos\x18\x01 \x03(\x0b\x32\x17.pb.BlindCoinChangeInfo\x12\x14\n\x0cis_admin_add\x18\x02 \x01(\x08\x12\x11\n\tis_reward\x18\x03 \x01(\x08\"6\n\x17\x46\x65tchBlindCoinRewardREQ\x12\x1b\n\x13\x62lind_coin_class_id\x18\x01 \x01(\x03\"^\n\x17\x46\x65tchBlindCoinRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1f\n\x04info\x18\x02 \x01(\x0b\x32\x11.pb.BlindCoinInfo\x12\x14\n\x0creward_value\x18\x03 \x01(\x03\"\x18\n\x16NotifyNewRewardListREQ\"o\n\x13NotifyNewRewardInfo\x12%\n\x04type\x18\x01 \x01(\x0e\x32\x17.pb.NotifyNewRewardType\x12\x0f\n\x07item_id\x18\x02 \x01(\x03\x12\x0b\n\x03num\x18\x03 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\x04 \x01(\x03\"@\n\x16NotifyNewRewardListRSP\x12&\n\x05infos\x18\x01 \x03(\x0b\x32\x17.pb.NotifyNewRewardInfo\"A\n\x18NotifyNewRewardCancelREQ\x12%\n\x04type\x18\x01 \x01(\x0e\x32\x17.pb.NotifyNewRewardType\"(\n\x18NotifyNewRewardCancelRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x1b\n\x19GetIsUserBanCreateRoomREQ\"+\n\x19GetIsUserBanCreateRoomRSP\x12\x0e\n\x06is_ban\x18\x01 \x01(\x08\"\"\n\x12GetMultiLangUrlREQ\x12\x0c\n\x04lang\x18\x01 \x02(\t\"_\n\x12GetMultiLangUrlRSP\x12+\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x0e.pb.iErrorCode:\rNO_DATA_ERROR\x12\x1c\n\x14multi_lang_file_name\x18\x02 \x03(\t\"\x12\n\x10GetNewItemNumREQ\"\x1f\n\x10GetNewItemNumRSP\x12\x0b\n\x03num\x18\x01 \x01(\x05\"\x13\n\x11GetItemRecordsREQ\"b\n\nItemRecord\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.pb.ItemRecordType\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x03 \x01(\t\x12\x0b\n\x03num\x18\x04 \x01(\x05\"8\n\x11GetItemRecordsRSP\x12#\n\x0bitem_record\x18\x01 \x03(\x0b\x32\x0e.pb.ItemRecord\"=\n\x0f\x41ppNoticeClient\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"\x1f\n\x0fGetAppNoticeREQ\x12\x0c\n\x04lang\x18\x01 \x02(\t\"\x96\x01\n\x0fGetAppNoticeRSP\x12\x32\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1d.pb.GetAppNoticeRSP.ErrorCode:\x05\x45RROR\x12!\n\x04info\x18\x02 \x03(\x0b\x32\x13.pb.AppNoticeClient\",\n\tErrorCode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x12\n\x05\x45RROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"2\n\x14NotifySwitchEntryRSP\x12\x0c\n\x04host\x18\x01 \x02(\t\x12\x0c\n\x04port\x18\x02 \x02(\x05\"D\n\x16NotifyClientRefreshBRC\x12*\n\x05\x65vent\x18\x01 \x02(\x0e\x32\x15.pb.NotifyClientEvent:\x04NONE\"\xea\x01\n\x0f\x42ombPotStartBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12$\n\tstart_brc\x18\x02 \x01(\x0b\x32\x11.pb.RoundStartBRC\x12\"\n\thand_card\x18\x03 \x01(\x0b\x32\x0f.pb.HandCardRSP\x12\x1e\n\x07\x61\x63tions\x18\x04 \x03(\x0b\x32\r.pb.ActionBRC\x12$\n\nround_over\x18\x05 \x01(\x0b\x32\x10.pb.RoundOverBRC\x12\x16\n\x0e\x62omb_pot_times\x18\x06 \x01(\x05\x12\x1f\n\x05\x62\x61\x63ks\x18\x07 \x03(\x0b\x32\x10.pb.ChipsBackBRC\"\x95\x01\n\x0e\x43hangeTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12%\n\x0ctable_status\x18\x02 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x03 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x04 \x01(\x0b\x32\x11.pb.PlayingStatus\"0\n\x11OtherEnterRoomBRC\x12\x1b\n\x04user\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\" \n\x11OtherLeaveRoomBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"i\n\nSitDownBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x1c\n\x05\x62rief\x18\x03 \x01(\x0b\x32\r.pb.UserBrief\x12\x1e\n\x06status\x18\x04 \x01(\x0b\x32\x0e.pb.SeatStatus\"%\n\x15MttEndingSceneFaceREQ\x12\x0c\n\x04type\x18\x01 \x01(\t\"H\n\x15MttEndingSceneFaceBRC\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.EndingSceneCode\x12\x0c\n\x04type\x18\x02 \x01(\t\";\n\x19MttEndingSceneInteractREQ\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x10\n\x05times\x18\x02 \x01(\x05:\x01\x31\"[\n\x19MttEndingSceneInteractRSP\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.EndingSceneCode\x12\x0c\n\x04type\x18\x02 \x03(\t\x12\r\n\x05times\x18\x03 \x03(\x05\"8\n\x19MttEndingSceneInteractBRC\x12\x0c\n\x04type\x18\x01 \x03(\t\x12\r\n\x05times\x18\x02 \x03(\x05*^\n\x13NotifyNewRewardType\x12!\n\x1d\x41\x44\x44_NOTIFY_NEW_REWARD_INVALID\x10\x00\x12$\n ADD_NOTIFY_NEW_REWARD_BLIND_COIN\x10\x01*\x84\x01\n\x0eItemRecordType\x12\x19\n\x15ITEM_RECORD_TYPE_USED\x10\x00\x12\x1c\n\x18ITEM_RECORD_TYPE_CLAIMED\x10\x01\x12\x1c\n\x18ITEM_RECORD_TYPE_EXPIRED\x10\x02\x12\x1b\n\x17ITEM_RECORD_TYPE_REVERT\x10\x03*\xb8\x01\n\x0f\x45ndingSceneCode\x12\x1d\n\x19\x45NDING_SCECE_CODE_SUCCESS\x10\x00\x12\'\n\x1a\x45NDING_SCECE_CODE_NO_MONEY\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n\x1c\x45NDING_SCECE_CODE_WRONG_USER\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x32\n%ENDING_SCECE_CODE_NOT_IN_ENDING_SCENE\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb7.proto\x12\x02pb\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\tpb1.proto\x1a\tpb3.proto\x1a\tpb4.proto\"2\n\x0bPointInfoV2\x12\r\n\x05point\x18\x01 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x02 \x01(\x03\"\x86\x01\n\x0bGameDataREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\r\n\x05\x62time\x18\x02 \x01(\r\x12\r\n\x05\x65time\x18\x03 \x01(\r\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x11\n\tagent_uid\x18\x05 \x01(\x03\x12\x12\n\nbegin_date\x18\x06 \x01(\r\x12\x10\n\x08\x65nd_date\x18\x07 \x01(\r\"o\n\x0bGameDataRSP\x12\x1a\n\x03set\x18\x01 \x03(\x0b\x32\r.pb.ProfitSet\x12\x14\n\ttotal_fee\x18\x02 \x01(\x03:\x01\x30\x12\x16\n\x0btotal_hands\x18\x03 \x01(\x05:\x01\x30\x12\x16\n\x0btotal_games\x18\x04 \x01(\x05:\x01\x30\";\n\x0fUserVpipInfoRSP\x12(\n\x0euser_vpip_info\x18\x01 \x01(\x0b\x32\x10.pb.UserVpipInfo\"\x1b\n\x19GetIsUserBanCreateRoomREQ\"+\n\x19GetIsUserBanCreateRoomRSP\x12\x0e\n\x06is_ban\x18\x01 \x01(\x08\"\"\n\x12GetMultiLangUrlREQ\x12\x0c\n\x04lang\x18\x01 \x01(\t\"_\n\x12GetMultiLangUrlRSP\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\rNO_DATA_ERROR\x12\x1c\n\x14multi_lang_file_name\x18\x02 \x03(\t\"\x12\n\x10GetNewItemNumREQ\"\x1f\n\x10GetNewItemNumRSP\x12\x0b\n\x03num\x18\x01 \x01(\x05\"\x13\n\x11GetItemRecordsREQ\"b\n\nItemRecord\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.pb.ItemRecordType\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x03 \x01(\t\x12\x0b\n\x03num\x18\x04 \x01(\x05\"8\n\x11GetItemRecordsRSP\x12#\n\x0bitem_record\x18\x01 \x03(\x0b\x32\x0e.pb.ItemRecord\"=\n\x0f\x41ppNoticeClient\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"\x1f\n\x0fGetAppNoticeREQ\x12\x0c\n\x04lang\x18\x01 \x01(\t\"\x84\x01\n\x0fGetAppNoticeRSP\x12N\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.GetAppNoticeRSPErrorCode:\"GET_APP_NOTICE_RSPERROR_CODE_ERROR\x12!\n\x04info\x18\x02 \x03(\x0b\x32\x13.pb.AppNoticeClient\"2\n\x14NotifySwitchEntryRSP\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\"D\n\x16NotifyClientRefreshBRC\x12*\n\x05\x65vent\x18\x01 \x01(\x0e\x32\x15.pb.NotifyClientEvent:\x04NONE\"\xea\x01\n\x0f\x42ombPotStartBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12$\n\tstart_brc\x18\x02 \x01(\x0b\x32\x11.pb.RoundStartBRC\x12\"\n\thand_card\x18\x03 \x01(\x0b\x32\x0f.pb.HandCardRSP\x12\x1e\n\x07\x61\x63tions\x18\x04 \x03(\x0b\x32\r.pb.ActionBRC\x12$\n\nround_over\x18\x05 \x01(\x0b\x32\x10.pb.RoundOverBRC\x12\x16\n\x0e\x62omb_pot_times\x18\x06 \x01(\x05\x12\x1f\n\x05\x62\x61\x63ks\x18\x07 \x03(\x0b\x32\x10.pb.ChipsBackBRC\"\x95\x01\n\x0e\x43hangeTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12%\n\x0ctable_status\x18\x02 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x03 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x04 \x01(\x0b\x32\x11.pb.PlayingStatus\"0\n\x11OtherEnterRoomBRC\x12\x1b\n\x04user\x18\x01 \x01(\x0b\x32\r.pb.UserBrief\" \n\x11OtherLeaveRoomBRC\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"i\n\nSitDownBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\x1c\n\x05\x62rief\x18\x03 \x01(\x0b\x32\r.pb.UserBrief\x12\x1e\n\x06status\x18\x04 \x01(\x0b\x32\x0e.pb.SeatStatus\"%\n\x15MttEndingSceneFaceREQ\x12\x0c\n\x04type\x18\x01 \x01(\t\"H\n\x15MttEndingSceneFaceBRC\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.EndingSceneCode\x12\x0c\n\x04type\x18\x02 \x01(\t\";\n\x19MttEndingSceneInteractREQ\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x10\n\x05times\x18\x02 \x01(\x05:\x01\x31\"[\n\x19MttEndingSceneInteractRSP\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.EndingSceneCode\x12\x0c\n\x04type\x18\x02 \x03(\t\x12\r\n\x05times\x18\x03 \x03(\x05\"8\n\x19MttEndingSceneInteractBRC\x12\x0c\n\x04type\x18\x01 \x03(\t\x12\r\n\x05times\x18\x02 \x03(\x05*\x84\x01\n\x0eItemRecordType\x12\x19\n\x15ITEM_RECORD_TYPE_USED\x10\x00\x12\x1c\n\x18ITEM_RECORD_TYPE_CLAIMED\x10\x01\x12\x1c\n\x18ITEM_RECORD_TYPE_EXPIRED\x10\x02\x12\x1b\n\x17ITEM_RECORD_TYPE_REVERT\x10\x03*u\n\x18GetAppNoticeRSPErrorCode\x12(\n$GET_APP_NOTICE_RSPERROR_CODE_SUCCESS\x10\x00\x12/\n\"GET_APP_NOTICE_RSPERROR_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xb8\x01\n\x0f\x45ndingSceneCode\x12\x1d\n\x19\x45NDING_SCECE_CODE_SUCCESS\x10\x00\x12\'\n\x1a\x45NDING_SCECE_CODE_NO_MONEY\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12)\n\x1c\x45NDING_SCECE_CODE_WRONG_USER\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x32\n%ENDING_SCECE_CODE_NOT_IN_ENDING_SCENE\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pb3__pb2.DESCRIPTOR,pb4__pb2.DESCRIPTOR,])
 
-_NOTIFYNEWREWARDTYPE = _descriptor.EnumDescriptor(
-  name='NotifyNewRewardType',
-  full_name='pb.NotifyNewRewardType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='ADD_NOTIFY_NEW_REWARD_INVALID', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ADD_NOTIFY_NEW_REWARD_BLIND_COIN', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=3218,
-  serialized_end=3312,
-)
-_sym_db.RegisterEnumDescriptor(_NOTIFYNEWREWARDTYPE)
-
-NotifyNewRewardType = enum_type_wrapper.EnumTypeWrapper(_NOTIFYNEWREWARDTYPE)
 _ITEMRECORDTYPE = _descriptor.EnumDescriptor(
   name='ItemRecordType',
   full_name='pb.ItemRecordType',
@@ -77,12 +54,35 @@ _ITEMRECORDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3315,
-  serialized_end=3447,
+  serialized_start=2136,
+  serialized_end=2268,
 )
 _sym_db.RegisterEnumDescriptor(_ITEMRECORDTYPE)
 
 ItemRecordType = enum_type_wrapper.EnumTypeWrapper(_ITEMRECORDTYPE)
+_GETAPPNOTICERSPERRORCODE = _descriptor.EnumDescriptor(
+  name='GetAppNoticeRSPErrorCode',
+  full_name='pb.GetAppNoticeRSPErrorCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_APP_NOTICE_RSPERROR_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_APP_NOTICE_RSPERROR_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2270,
+  serialized_end=2387,
+)
+_sym_db.RegisterEnumDescriptor(_GETAPPNOTICERSPERRORCODE)
+
+GetAppNoticeRSPErrorCode = enum_type_wrapper.EnumTypeWrapper(_GETAPPNOTICERSPERRORCODE)
 _ENDINGSCENECODE = _descriptor.EnumDescriptor(
   name='EndingSceneCode',
   full_name='pb.EndingSceneCode',
@@ -108,45 +108,23 @@ _ENDINGSCENECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3450,
-  serialized_end=3634,
+  serialized_start=2390,
+  serialized_end=2574,
 )
 _sym_db.RegisterEnumDescriptor(_ENDINGSCENECODE)
 
 EndingSceneCode = enum_type_wrapper.EnumTypeWrapper(_ENDINGSCENECODE)
-ADD_NOTIFY_NEW_REWARD_INVALID = 0
-ADD_NOTIFY_NEW_REWARD_BLIND_COIN = 1
 ITEM_RECORD_TYPE_USED = 0
 ITEM_RECORD_TYPE_CLAIMED = 1
 ITEM_RECORD_TYPE_EXPIRED = 2
 ITEM_RECORD_TYPE_REVERT = 3
+GET_APP_NOTICE_RSPERROR_CODE_SUCCESS = 0
+GET_APP_NOTICE_RSPERROR_CODE_ERROR = -1
 ENDING_SCECE_CODE_SUCCESS = 0
 ENDING_SCECE_CODE_NO_MONEY = -1
 ENDING_SCECE_CODE_WRONG_USER = -2
 ENDING_SCECE_CODE_NOT_IN_ENDING_SCENE = -3
 
-
-_GETAPPNOTICERSP_ERRORCODE = _descriptor.EnumDescriptor(
-  name='ErrorCode',
-  full_name='pb.GetAppNoticeRSP.ErrorCode',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2145,
-  serialized_end=2189,
-)
-_sym_db.RegisterEnumDescriptor(_GETAPPNOTICERSP_ERRORCODE)
 
 
 _POINTINFOV2 = _descriptor.Descriptor(
@@ -343,504 +321,6 @@ _USERVPIPINFORSP = _descriptor.Descriptor(
 )
 
 
-_BLINDCOININFO = _descriptor.Descriptor(
-  name='BlindCoinInfo',
-  full_name='pb.BlindCoinInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.BlindCoinInfo.blind_coin_class_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.BlindCoinInfo.blind_coin_class_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_balance', full_name='pb.BlindCoinInfo.blind_balance', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin', full_name='pb.BlindCoinInfo.blind_coin', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiring_blind_balance', full_name='pb.BlindCoinInfo.expiring_blind_balance', index=4,
-      number=5, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiring_time', full_name='pb.BlindCoinInfo.expiring_time', index=5,
-      number=6, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=439,
-  serialized_end=612,
-)
-
-
-_BLINDCOINREQ = _descriptor.Descriptor(
-  name='BlindCoinREQ',
-  full_name='pb.BlindCoinREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=614,
-  serialized_end=628,
-)
-
-
-_BLINDCOINRSP = _descriptor.Descriptor(
-  name='BlindCoinRSP',
-  full_name='pb.BlindCoinRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='infos', full_name='pb.BlindCoinRSP.infos', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=630,
-  serialized_end=678,
-)
-
-
-_BLINDCOINCHANGEINFO = _descriptor.Descriptor(
-  name='BlindCoinChangeInfo',
-  full_name='pb.BlindCoinChangeInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.BlindCoinChangeInfo.blind_coin_class_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.BlindCoinChangeInfo.blind_coin_class_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_balance', full_name='pb.BlindCoinChangeInfo.blind_balance', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin', full_name='pb.BlindCoinChangeInfo.blind_coin', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_balance_change', full_name='pb.BlindCoinChangeInfo.blind_balance_change', index=4,
-      number=5, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_change', full_name='pb.BlindCoinChangeInfo.blind_coin_change', index=5,
-      number=6, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiring_blind_balance', full_name='pb.BlindCoinChangeInfo.expiring_blind_balance', index=6,
-      number=7, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiring_time', full_name='pb.BlindCoinChangeInfo.expiring_time', index=7,
-      number=8, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiry_time', full_name='pb.BlindCoinChangeInfo.expiry_time', index=8,
-      number=9, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=681,
-  serialized_end=938,
-)
-
-
-_BLINDCOINBRC = _descriptor.Descriptor(
-  name='BlindCoinBRC',
-  full_name='pb.BlindCoinBRC',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='infos', full_name='pb.BlindCoinBRC.infos', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_admin_add', full_name='pb.BlindCoinBRC.is_admin_add', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_reward', full_name='pb.BlindCoinBRC.is_reward', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=940,
-  serialized_end=1035,
-)
-
-
-_FETCHBLINDCOINREWARDREQ = _descriptor.Descriptor(
-  name='FetchBlindCoinRewardREQ',
-  full_name='pb.FetchBlindCoinRewardREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.FetchBlindCoinRewardREQ.blind_coin_class_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1037,
-  serialized_end=1091,
-)
-
-
-_FETCHBLINDCOINREWARDRSP = _descriptor.Descriptor(
-  name='FetchBlindCoinRewardRSP',
-  full_name='pb.FetchBlindCoinRewardRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.FetchBlindCoinRewardRSP.code', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='info', full_name='pb.FetchBlindCoinRewardRSP.info', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='reward_value', full_name='pb.FetchBlindCoinRewardRSP.reward_value', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1093,
-  serialized_end=1187,
-)
-
-
-_NOTIFYNEWREWARDLISTREQ = _descriptor.Descriptor(
-  name='NotifyNewRewardListREQ',
-  full_name='pb.NotifyNewRewardListREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1189,
-  serialized_end=1213,
-)
-
-
-_NOTIFYNEWREWARDINFO = _descriptor.Descriptor(
-  name='NotifyNewRewardInfo',
-  full_name='pb.NotifyNewRewardInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='type', full_name='pb.NotifyNewRewardInfo.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_id', full_name='pb.NotifyNewRewardInfo.item_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='num', full_name='pb.NotifyNewRewardInfo.num', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='expiry_time', full_name='pb.NotifyNewRewardInfo.expiry_time', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1215,
-  serialized_end=1326,
-)
-
-
-_NOTIFYNEWREWARDLISTRSP = _descriptor.Descriptor(
-  name='NotifyNewRewardListRSP',
-  full_name='pb.NotifyNewRewardListRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='infos', full_name='pb.NotifyNewRewardListRSP.infos', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1328,
-  serialized_end=1392,
-)
-
-
-_NOTIFYNEWREWARDCANCELREQ = _descriptor.Descriptor(
-  name='NotifyNewRewardCancelREQ',
-  full_name='pb.NotifyNewRewardCancelREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='type', full_name='pb.NotifyNewRewardCancelREQ.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1394,
-  serialized_end=1459,
-)
-
-
-_NOTIFYNEWREWARDCANCELRSP = _descriptor.Descriptor(
-  name='NotifyNewRewardCancelRSP',
-  full_name='pb.NotifyNewRewardCancelRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='code', full_name='pb.NotifyNewRewardCancelRSP.code', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1461,
-  serialized_end=1501,
-)
-
-
 _GETISUSERBANCREATEROOMREQ = _descriptor.Descriptor(
   name='GetIsUserBanCreateRoomREQ',
   full_name='pb.GetIsUserBanCreateRoomREQ',
@@ -860,8 +340,8 @@ _GETISUSERBANCREATEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1503,
-  serialized_end=1530,
+  serialized_start=438,
+  serialized_end=465,
 )
 
 
@@ -891,8 +371,8 @@ _GETISUSERBANCREATEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1532,
-  serialized_end=1575,
+  serialized_start=467,
+  serialized_end=510,
 )
 
 
@@ -905,7 +385,7 @@ _GETMULTILANGURLREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='lang', full_name='pb.GetMultiLangUrlREQ.lang', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -922,8 +402,8 @@ _GETMULTILANGURLREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1577,
-  serialized_end=1611,
+  serialized_start=512,
+  serialized_end=546,
 )
 
 
@@ -936,7 +416,7 @@ _GETMULTILANGURLRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.GetMultiLangUrlRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=True, default_value=2,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -960,8 +440,8 @@ _GETMULTILANGURLRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1613,
-  serialized_end=1708,
+  serialized_start=548,
+  serialized_end=643,
 )
 
 
@@ -984,8 +464,8 @@ _GETNEWITEMNUMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1710,
-  serialized_end=1728,
+  serialized_start=645,
+  serialized_end=663,
 )
 
 
@@ -1015,8 +495,8 @@ _GETNEWITEMNUMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1730,
-  serialized_end=1761,
+  serialized_start=665,
+  serialized_end=696,
 )
 
 
@@ -1039,8 +519,8 @@ _GETITEMRECORDSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1763,
-  serialized_end=1782,
+  serialized_start=698,
+  serialized_end=717,
 )
 
 
@@ -1091,8 +571,8 @@ _ITEMRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1784,
-  serialized_end=1882,
+  serialized_start=719,
+  serialized_end=817,
 )
 
 
@@ -1122,8 +602,8 @@ _GETITEMRECORDSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1884,
-  serialized_end=1940,
+  serialized_start=819,
+  serialized_end=875,
 )
 
 
@@ -1136,7 +616,7 @@ _APPNOTICECLIENT = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='pb.AppNoticeClient.id', index=0,
-      number=1, type=5, cpp_type=1, label=2,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1167,8 +647,8 @@ _APPNOTICECLIENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1942,
-  serialized_end=2003,
+  serialized_start=877,
+  serialized_end=938,
 )
 
 
@@ -1181,7 +661,7 @@ _GETAPPNOTICEREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='lang', full_name='pb.GetAppNoticeREQ.lang', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1198,8 +678,8 @@ _GETAPPNOTICEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2005,
-  serialized_end=2036,
+  serialized_start=940,
+  serialized_end=971,
 )
 
 
@@ -1212,7 +692,7 @@ _GETAPPNOTICERSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='code', full_name='pb.GetAppNoticeRSP.code', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=True, default_value=-1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1229,7 +709,6 @@ _GETAPPNOTICERSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETAPPNOTICERSP_ERRORCODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1237,8 +716,8 @@ _GETAPPNOTICERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2039,
-  serialized_end=2189,
+  serialized_start=974,
+  serialized_end=1106,
 )
 
 
@@ -1251,14 +730,14 @@ _NOTIFYSWITCHENTRYRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='host', full_name='pb.NotifySwitchEntryRSP.host', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='port', full_name='pb.NotifySwitchEntryRSP.port', index=1,
-      number=2, type=5, cpp_type=1, label=2,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1275,8 +754,8 @@ _NOTIFYSWITCHENTRYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2191,
-  serialized_end=2241,
+  serialized_start=1108,
+  serialized_end=1158,
 )
 
 
@@ -1289,7 +768,7 @@ _NOTIFYCLIENTREFRESHBRC = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='event', full_name='pb.NotifyClientRefreshBRC.event', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1306,8 +785,8 @@ _NOTIFYCLIENTREFRESHBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2243,
-  serialized_end=2311,
+  serialized_start=1160,
+  serialized_end=1228,
 )
 
 
@@ -1379,8 +858,8 @@ _BOMBPOTSTARTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2314,
-  serialized_end=2548,
+  serialized_start=1231,
+  serialized_end=1465,
 )
 
 
@@ -1431,8 +910,8 @@ _CHANGETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2551,
-  serialized_end=2700,
+  serialized_start=1468,
+  serialized_end=1617,
 )
 
 
@@ -1462,8 +941,8 @@ _OTHERENTERROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2702,
-  serialized_end=2750,
+  serialized_start=1619,
+  serialized_end=1667,
 )
 
 
@@ -1493,8 +972,8 @@ _OTHERLEAVEROOMBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2752,
-  serialized_end=2784,
+  serialized_start=1669,
+  serialized_end=1701,
 )
 
 
@@ -1545,8 +1024,8 @@ _SITDOWNBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2786,
-  serialized_end=2891,
+  serialized_start=1703,
+  serialized_end=1808,
 )
 
 
@@ -1576,8 +1055,8 @@ _MTTENDINGSCENEFACEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2893,
-  serialized_end=2930,
+  serialized_start=1810,
+  serialized_end=1847,
 )
 
 
@@ -1614,8 +1093,8 @@ _MTTENDINGSCENEFACEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2932,
-  serialized_end=3004,
+  serialized_start=1849,
+  serialized_end=1921,
 )
 
 
@@ -1652,8 +1131,8 @@ _MTTENDINGSCENEINTERACTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3006,
-  serialized_end=3065,
+  serialized_start=1923,
+  serialized_end=1982,
 )
 
 
@@ -1697,8 +1176,8 @@ _MTTENDINGSCENEINTERACTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3067,
-  serialized_end=3158,
+  serialized_start=1984,
+  serialized_end=2075,
 )
 
 
@@ -1735,24 +1214,17 @@ _MTTENDINGSCENEINTERACTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3160,
-  serialized_end=3216,
+  serialized_start=2077,
+  serialized_end=2133,
 )
 
 _GAMEDATARSP.fields_by_name['set'].message_type = pb1__pb2._PROFITSET
 _USERVPIPINFORSP.fields_by_name['user_vpip_info'].message_type = base2__pb2._USERVPIPINFO
-_BLINDCOINRSP.fields_by_name['infos'].message_type = _BLINDCOININFO
-_BLINDCOINBRC.fields_by_name['infos'].message_type = _BLINDCOINCHANGEINFO
-_FETCHBLINDCOINREWARDRSP.fields_by_name['info'].message_type = _BLINDCOININFO
-_NOTIFYNEWREWARDINFO.fields_by_name['type'].enum_type = _NOTIFYNEWREWARDTYPE
-_NOTIFYNEWREWARDLISTRSP.fields_by_name['infos'].message_type = _NOTIFYNEWREWARDINFO
-_NOTIFYNEWREWARDCANCELREQ.fields_by_name['type'].enum_type = _NOTIFYNEWREWARDTYPE
 _GETMULTILANGURLRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _ITEMRECORD.fields_by_name['type'].enum_type = _ITEMRECORDTYPE
 _GETITEMRECORDSRSP.fields_by_name['item_record'].message_type = _ITEMRECORD
-_GETAPPNOTICERSP.fields_by_name['code'].enum_type = _GETAPPNOTICERSP_ERRORCODE
+_GETAPPNOTICERSP.fields_by_name['code'].enum_type = _GETAPPNOTICERSPERRORCODE
 _GETAPPNOTICERSP.fields_by_name['info'].message_type = _APPNOTICECLIENT
-_GETAPPNOTICERSP_ERRORCODE.containing_type = _GETAPPNOTICERSP
 _NOTIFYCLIENTREFRESHBRC.fields_by_name['event'].enum_type = base2__pb2._NOTIFYCLIENTEVENT
 _BOMBPOTSTARTBRC.fields_by_name['start_brc'].message_type = pb4__pb2._ROUNDSTARTBRC
 _BOMBPOTSTARTBRC.fields_by_name['hand_card'].message_type = pb4__pb2._HANDCARDRSP
@@ -1771,18 +1243,6 @@ DESCRIPTOR.message_types_by_name['PointInfoV2'] = _POINTINFOV2
 DESCRIPTOR.message_types_by_name['GameDataREQ'] = _GAMEDATAREQ
 DESCRIPTOR.message_types_by_name['GameDataRSP'] = _GAMEDATARSP
 DESCRIPTOR.message_types_by_name['UserVpipInfoRSP'] = _USERVPIPINFORSP
-DESCRIPTOR.message_types_by_name['BlindCoinInfo'] = _BLINDCOININFO
-DESCRIPTOR.message_types_by_name['BlindCoinREQ'] = _BLINDCOINREQ
-DESCRIPTOR.message_types_by_name['BlindCoinRSP'] = _BLINDCOINRSP
-DESCRIPTOR.message_types_by_name['BlindCoinChangeInfo'] = _BLINDCOINCHANGEINFO
-DESCRIPTOR.message_types_by_name['BlindCoinBRC'] = _BLINDCOINBRC
-DESCRIPTOR.message_types_by_name['FetchBlindCoinRewardREQ'] = _FETCHBLINDCOINREWARDREQ
-DESCRIPTOR.message_types_by_name['FetchBlindCoinRewardRSP'] = _FETCHBLINDCOINREWARDRSP
-DESCRIPTOR.message_types_by_name['NotifyNewRewardListREQ'] = _NOTIFYNEWREWARDLISTREQ
-DESCRIPTOR.message_types_by_name['NotifyNewRewardInfo'] = _NOTIFYNEWREWARDINFO
-DESCRIPTOR.message_types_by_name['NotifyNewRewardListRSP'] = _NOTIFYNEWREWARDLISTRSP
-DESCRIPTOR.message_types_by_name['NotifyNewRewardCancelREQ'] = _NOTIFYNEWREWARDCANCELREQ
-DESCRIPTOR.message_types_by_name['NotifyNewRewardCancelRSP'] = _NOTIFYNEWREWARDCANCELRSP
 DESCRIPTOR.message_types_by_name['GetIsUserBanCreateRoomREQ'] = _GETISUSERBANCREATEROOMREQ
 DESCRIPTOR.message_types_by_name['GetIsUserBanCreateRoomRSP'] = _GETISUSERBANCREATEROOMRSP
 DESCRIPTOR.message_types_by_name['GetMultiLangUrlREQ'] = _GETMULTILANGURLREQ
@@ -1807,8 +1267,8 @@ DESCRIPTOR.message_types_by_name['MttEndingSceneFaceBRC'] = _MTTENDINGSCENEFACEB
 DESCRIPTOR.message_types_by_name['MttEndingSceneInteractREQ'] = _MTTENDINGSCENEINTERACTREQ
 DESCRIPTOR.message_types_by_name['MttEndingSceneInteractRSP'] = _MTTENDINGSCENEINTERACTRSP
 DESCRIPTOR.message_types_by_name['MttEndingSceneInteractBRC'] = _MTTENDINGSCENEINTERACTBRC
-DESCRIPTOR.enum_types_by_name['NotifyNewRewardType'] = _NOTIFYNEWREWARDTYPE
 DESCRIPTOR.enum_types_by_name['ItemRecordType'] = _ITEMRECORDTYPE
+DESCRIPTOR.enum_types_by_name['GetAppNoticeRSPErrorCode'] = _GETAPPNOTICERSPERRORCODE
 DESCRIPTOR.enum_types_by_name['EndingSceneCode'] = _ENDINGSCENECODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1839,90 +1299,6 @@ UserVpipInfoRSP = _reflection.GeneratedProtocolMessageType('UserVpipInfoRSP', (_
   # @@protoc_insertion_point(class_scope:pb.UserVpipInfoRSP)
   ))
 _sym_db.RegisterMessage(UserVpipInfoRSP)
-
-BlindCoinInfo = _reflection.GeneratedProtocolMessageType('BlindCoinInfo', (_message.Message,), dict(
-  DESCRIPTOR = _BLINDCOININFO,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.BlindCoinInfo)
-  ))
-_sym_db.RegisterMessage(BlindCoinInfo)
-
-BlindCoinREQ = _reflection.GeneratedProtocolMessageType('BlindCoinREQ', (_message.Message,), dict(
-  DESCRIPTOR = _BLINDCOINREQ,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.BlindCoinREQ)
-  ))
-_sym_db.RegisterMessage(BlindCoinREQ)
-
-BlindCoinRSP = _reflection.GeneratedProtocolMessageType('BlindCoinRSP', (_message.Message,), dict(
-  DESCRIPTOR = _BLINDCOINRSP,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.BlindCoinRSP)
-  ))
-_sym_db.RegisterMessage(BlindCoinRSP)
-
-BlindCoinChangeInfo = _reflection.GeneratedProtocolMessageType('BlindCoinChangeInfo', (_message.Message,), dict(
-  DESCRIPTOR = _BLINDCOINCHANGEINFO,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.BlindCoinChangeInfo)
-  ))
-_sym_db.RegisterMessage(BlindCoinChangeInfo)
-
-BlindCoinBRC = _reflection.GeneratedProtocolMessageType('BlindCoinBRC', (_message.Message,), dict(
-  DESCRIPTOR = _BLINDCOINBRC,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.BlindCoinBRC)
-  ))
-_sym_db.RegisterMessage(BlindCoinBRC)
-
-FetchBlindCoinRewardREQ = _reflection.GeneratedProtocolMessageType('FetchBlindCoinRewardREQ', (_message.Message,), dict(
-  DESCRIPTOR = _FETCHBLINDCOINREWARDREQ,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.FetchBlindCoinRewardREQ)
-  ))
-_sym_db.RegisterMessage(FetchBlindCoinRewardREQ)
-
-FetchBlindCoinRewardRSP = _reflection.GeneratedProtocolMessageType('FetchBlindCoinRewardRSP', (_message.Message,), dict(
-  DESCRIPTOR = _FETCHBLINDCOINREWARDRSP,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.FetchBlindCoinRewardRSP)
-  ))
-_sym_db.RegisterMessage(FetchBlindCoinRewardRSP)
-
-NotifyNewRewardListREQ = _reflection.GeneratedProtocolMessageType('NotifyNewRewardListREQ', (_message.Message,), dict(
-  DESCRIPTOR = _NOTIFYNEWREWARDLISTREQ,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.NotifyNewRewardListREQ)
-  ))
-_sym_db.RegisterMessage(NotifyNewRewardListREQ)
-
-NotifyNewRewardInfo = _reflection.GeneratedProtocolMessageType('NotifyNewRewardInfo', (_message.Message,), dict(
-  DESCRIPTOR = _NOTIFYNEWREWARDINFO,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.NotifyNewRewardInfo)
-  ))
-_sym_db.RegisterMessage(NotifyNewRewardInfo)
-
-NotifyNewRewardListRSP = _reflection.GeneratedProtocolMessageType('NotifyNewRewardListRSP', (_message.Message,), dict(
-  DESCRIPTOR = _NOTIFYNEWREWARDLISTRSP,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.NotifyNewRewardListRSP)
-  ))
-_sym_db.RegisterMessage(NotifyNewRewardListRSP)
-
-NotifyNewRewardCancelREQ = _reflection.GeneratedProtocolMessageType('NotifyNewRewardCancelREQ', (_message.Message,), dict(
-  DESCRIPTOR = _NOTIFYNEWREWARDCANCELREQ,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.NotifyNewRewardCancelREQ)
-  ))
-_sym_db.RegisterMessage(NotifyNewRewardCancelREQ)
-
-NotifyNewRewardCancelRSP = _reflection.GeneratedProtocolMessageType('NotifyNewRewardCancelRSP', (_message.Message,), dict(
-  DESCRIPTOR = _NOTIFYNEWREWARDCANCELRSP,
-  __module__ = 'pb7_pb2'
-  # @@protoc_insertion_point(class_scope:pb.NotifyNewRewardCancelRSP)
-  ))
-_sym_db.RegisterMessage(NotifyNewRewardCancelRSP)
 
 GetIsUserBanCreateRoomREQ = _reflection.GeneratedProtocolMessageType('GetIsUserBanCreateRoomREQ', (_message.Message,), dict(
   DESCRIPTOR = _GETISUSERBANCREATEROOMREQ,

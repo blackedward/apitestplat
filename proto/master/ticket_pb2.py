@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0cticket.proto\x12\x02pb\x1a\x0c\x63ommon.proto\"\x1b\n\x0bTicketError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\xd1\x01\n\x06Ticket\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04type\x18\x02 \x01(\x03\x12\r\n\x05price\x18\x03 \x01(\x03\x12\x12\n\nvalid_days\x18\x04 \x01(\x03\x12\x15\n\ritem_class_id\x18\x05 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x06 \x01(\t\x12\x18\n\x10item_class_price\x18\x07 \x01(\x03\x12\x1f\n\x17item_class_expired_time\x18\x08 \x01(\x03\x12\x1f\n\nis_enabled\x18\t \x01(\x0e\x32\x0b.pb.YesOrNo\"\xbb\x01\n\nUserTicket\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x11\n\tticket_id\x18\x03 \x01(\x03\x12\x12\n\nvalid_days\x18\x04 \x01(\x03\x12\x11\n\tused_days\x18\x05 \x01(\x03\x12\x15\n\ritem_class_id\x18\x06 \x01(\x03\x12\x14\n\x0clast_used_at\x18\x07 \x01(\x03\x12\x14\n\x0c\x65xpired_date\x18\x08 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\t \x01(\t\"\x0f\n\rGetTicketsREQ\"J\n\rGetTicketsRSP\x12\x1b\n\x07tickets\x18\x01 \x03(\x0b\x32\n.pb.Ticket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"\x13\n\x11GetUserTicketsREQ\"W\n\x11GetUserTicketsRSP\x12$\n\x0cuser_tickets\x18\x01 \x03(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"!\n\x0c\x42uyTicketREQ\x12\x11\n\tticket_id\x18\x01 \x02(\x03\"Q\n\x0c\x42uyTicketRSP\x12#\n\x0buser_ticket\x18\x01 \x01(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"!\n\x0cUseTicketREQ\x12\x11\n\tticket_id\x18\x01 \x02(\x03\"Q\n\x0cUseTicketRSP\x12#\n\x0buser_ticket\x18\x01 \x01(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError*\xad\x01\n\x10TicketErrorCodes\x12\x0f\n\x0bSystemError\x10\x01\x12\x10\n\x0cReqDataError\x10\x02\x12\r\n\tUsedError\x10\x03\x12\x16\n\x12TicketExpiredError\x10\x04\x12\x1b\n\x17UserTicketNotExistError\x10\x05\x12\x19\n\x15UserTicketBoughtError\x10\x06\x12\x17\n\x13TicketNotExistError\x10\x07\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0cticket.proto\x12\x02pb\x1a\x0c\x63ommon.proto\"\x1b\n\x0bTicketError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\xd1\x01\n\x06Ticket\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04type\x18\x02 \x01(\x03\x12\r\n\x05price\x18\x03 \x01(\x03\x12\x12\n\nvalid_days\x18\x04 \x01(\x03\x12\x15\n\ritem_class_id\x18\x05 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x06 \x01(\t\x12\x18\n\x10item_class_price\x18\x07 \x01(\x03\x12\x1f\n\x17item_class_expired_time\x18\x08 \x01(\x03\x12\x1f\n\nis_enabled\x18\t \x01(\x0e\x32\x0b.pb.YesOrNo\"\xbb\x01\n\nUserTicket\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x11\n\tticket_id\x18\x03 \x01(\x03\x12\x12\n\nvalid_days\x18\x04 \x01(\x03\x12\x11\n\tused_days\x18\x05 \x01(\x03\x12\x15\n\ritem_class_id\x18\x06 \x01(\x03\x12\x14\n\x0clast_used_at\x18\x07 \x01(\x03\x12\x14\n\x0c\x65xpired_date\x18\x08 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\t \x01(\t\"\x0f\n\rGetTicketsREQ\"J\n\rGetTicketsRSP\x12\x1b\n\x07tickets\x18\x01 \x03(\x0b\x32\n.pb.Ticket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"\x13\n\x11GetUserTicketsREQ\"W\n\x11GetUserTicketsRSP\x12$\n\x0cuser_tickets\x18\x01 \x03(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"!\n\x0c\x42uyTicketREQ\x12\x11\n\tticket_id\x18\x01 \x01(\x03\"Q\n\x0c\x42uyTicketRSP\x12#\n\x0buser_ticket\x18\x01 \x01(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError\"!\n\x0cUseTicketREQ\x12\x11\n\tticket_id\x18\x01 \x01(\x03\"Q\n\x0cUseTicketRSP\x12#\n\x0buser_ticket\x18\x01 \x01(\x0b\x32\x0e.pb.UserTicket\x12\x1c\n\x03\x65rr\x18\x02 \x01(\x0b\x32\x0f.pb.TicketError*\xb2\x02\n\x10TicketErrorCodes\x12\"\n\x1eTICKET_ERROR_CODES_SYSTEMERROR\x10\x01\x12#\n\x1fTICKET_ERROR_CODES_REQDATAERROR\x10\x02\x12 \n\x1cTICKET_ERROR_CODES_USEDERROR\x10\x03\x12)\n%TICKET_ERROR_CODES_TICKETEXPIREDERROR\x10\x04\x12.\n*TICKET_ERROR_CODES_USERTICKETNOTEXISTERROR\x10\x05\x12,\n(TICKET_ERROR_CODES_USERTICKETBOUGHTERROR\x10\x06\x12*\n&TICKET_ERROR_CODES_TICKETNOTEXISTERROR\x10\x07\x42\x07Z\x05../pb')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -32,49 +32,49 @@ _TICKETERRORCODES = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SystemError', index=0, number=1,
+      name='TICKET_ERROR_CODES_SYSTEMERROR', index=0, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='ReqDataError', index=1, number=2,
+      name='TICKET_ERROR_CODES_REQDATAERROR', index=1, number=2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UsedError', index=2, number=3,
+      name='TICKET_ERROR_CODES_USEDERROR', index=2, number=3,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TicketExpiredError', index=3, number=4,
+      name='TICKET_ERROR_CODES_TICKETEXPIREDERROR', index=3, number=4,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UserTicketNotExistError', index=4, number=5,
+      name='TICKET_ERROR_CODES_USERTICKETNOTEXISTERROR', index=4, number=5,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UserTicketBoughtError', index=5, number=6,
+      name='TICKET_ERROR_CODES_USERTICKETBOUGHTERROR', index=5, number=6,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TicketNotExistError', index=6, number=7,
+      name='TICKET_ERROR_CODES_TICKETNOTEXISTERROR', index=6, number=7,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=905,
-  serialized_end=1078,
+  serialized_end=1211,
 )
 _sym_db.RegisterEnumDescriptor(_TICKETERRORCODES)
 
 TicketErrorCodes = enum_type_wrapper.EnumTypeWrapper(_TICKETERRORCODES)
-SystemError = 1
-ReqDataError = 2
-UsedError = 3
-TicketExpiredError = 4
-UserTicketNotExistError = 5
-UserTicketBoughtError = 6
-TicketNotExistError = 7
+TICKET_ERROR_CODES_SYSTEMERROR = 1
+TICKET_ERROR_CODES_REQDATAERROR = 2
+TICKET_ERROR_CODES_USEDERROR = 3
+TICKET_ERROR_CODES_TICKETEXPIREDERROR = 4
+TICKET_ERROR_CODES_USERTICKETNOTEXISTERROR = 5
+TICKET_ERROR_CODES_USERTICKETBOUGHTERROR = 6
+TICKET_ERROR_CODES_TICKETNOTEXISTERROR = 7
 
 
 
@@ -416,7 +416,7 @@ _BUYTICKETREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='ticket_id', full_name='pb.BuyTicketREQ.ticket_id', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -485,7 +485,7 @@ _USETICKETREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='ticket_id', full_name='pb.UseTicketREQ.ticket_id', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

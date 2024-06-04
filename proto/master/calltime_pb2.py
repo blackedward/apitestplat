@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0e\x63\x61lltime.proto\x12\x02pb\x1a\nbase.proto\"\r\n\x0b\x43\x61llTimeREQ\"\xb5\x01\n\x0c\x43\x61llTimeInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\x12!\n\x19\x63onfirm_remaining_seconds\x18\x02 \x01(\x05\x12\x19\n\x11remaining_seconds\x18\x03 \x01(\x05\x12\'\n\rcalltime_code\x18\x04 \x01(\x0e\x32\x10.pb.CallTimeCode\x12-\n\x0c\x63onfirm_code\x18\x05 \x01(\x0e\x32\x17.pb.CallTimeConfirmCode\"6\n\x0b\x43\x61llTimeBRC\x12\'\n\rcalltime_info\x18\x01 \x01(\x0b\x32\x10.pb.CallTimeInfo\"Y\n\x1b\x43\x61llTimeEnterRoomConfirmREQ\x12:\n\x0e\x63onfirm_status\x18\x01 \x01(\x0e\x32\".pb.CallTimeEnterRoomConfirmStatus\"x\n\x1b\x43\x61llTimeEnterRoomConfirmBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12:\n\x0e\x63onfirm_status\x18\x03 \x01(\x0e\x32\".pb.CallTimeEnterRoomConfirmStatus\"\x9b\x01\n\x0b\x42ookSeatREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x11\n\tis_booked\x18\x02 \x01(\x08\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x1b\n\x07gps_lon\x18\x05 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x06 \x01(\x05:\n-360000000\x12\x14\n\x05is_pc\x18\x07 \x01(\x08:\x05\x66\x61lse\"=\n\x0b\x42ookSeatRSP\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x1e\n\x04\x63ode\x18\x02 \x01(\x0e\x32\x10.pb.BookSeatCode\"\x98\x01\n\x0b\x42ookSeatBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x1c\n\x05\x62rief\x18\x02 \x01(\x0b\x32\r.pb.UserBrief\x12\x11\n\tis_booked\x18\x03 \x01(\x08\x12!\n\x19\x63onfirm_remaining_seconds\x18\x04 \x01(\x05\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x14\n\tvip_level\x18\x06 \x01(\r:\x01\x30*U\n\x0c\x43\x61llTimeCode\x12\x1b\n\x17NOT_ENTER_CALLTIME_ROOM\x10\x00\x12\x13\n\x0f\x44URING_CALLTIME\x10\x01\x12\x13\n\x0f\x46INISH_CALLTIME\x10\x02*J\n\x13\x43\x61llTimeConfirmCode\x12\x1b\n\x17WAIT_CONFIRM_ENTER_ROOM\x10\x00\x12\x16\n\x12\x43ONFIRM_ENTER_ROOM\x10\x01*I\n\x1e\x43\x61llTimeEnterRoomConfirmStatus\x12\x0e\n\nNO_OPERATE\x10\x00\x12\x0b\n\x07\x43ONFIRM\x10\x01\x12\n\n\x06\x43\x41NCEL\x10\x02*\x9f\x04\n\x0c\x42ookSeatCode\x12\x0b\n\x07\x42OOK_OK\x10\x00\x12\x12\n\x0e\x42OOK_CANCEL_OK\x10\x01\x12\x1f\n\x12\x42OOK_ERR_WAIT_AUTH\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1c\n\x0f\x42OOK_ERR_SEATID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17\x42OOK_ERR_ALREADY_BOOKED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_ALREADY_SIT\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13\x42OOK_ERR_BEEN_SITED\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_BEEN_BOOKED\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1a\n\rBOOK_ERR_CLUB\x10\xf9\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0c\x42OOK_ERR_GPS\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0b\x42OOK_ERR_IP\x10\xf7\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_GPS_INVALID\x10\xf6\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12\x42OOK_ERR_ROOM_OVER\x10\xf5\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12\x42OOK_ERR_ROOM_FULL\x10\xf4\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0c\x42OOK_ERR_BAN\x10\xf0\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_KYC_INVALID\x10\xee\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12-\n BOOK_ERR_NOT_PC_OPERATION_REGION\x10\xea\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0e\x63\x61lltime.proto\x12\x02pb\x1a\nbase.proto\"\r\n\x0b\x43\x61llTimeREQ\"\xb5\x01\n\x0c\x43\x61llTimeInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\x12!\n\x19\x63onfirm_remaining_seconds\x18\x02 \x01(\x05\x12\x19\n\x11remaining_seconds\x18\x03 \x01(\x05\x12\'\n\rcalltime_code\x18\x04 \x01(\x0e\x32\x10.pb.CallTimeCode\x12-\n\x0c\x63onfirm_code\x18\x05 \x01(\x0e\x32\x17.pb.CallTimeConfirmCode\"6\n\x0b\x43\x61llTimeBRC\x12\'\n\rcalltime_info\x18\x01 \x01(\x0b\x32\x10.pb.CallTimeInfo\"\x9b\x01\n\x0b\x42ookSeatREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x11\n\tis_booked\x18\x02 \x01(\x08\x12\r\n\x05\x63hips\x18\x03 \x01(\x03\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x1b\n\x07gps_lon\x18\x05 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x06 \x01(\x05:\n-360000000\x12\x14\n\x05is_pc\x18\x07 \x01(\x08:\x05\x66\x61lse\"=\n\x0b\x42ookSeatRSP\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x1e\n\x04\x63ode\x18\x02 \x01(\x0e\x32\x10.pb.BookSeatCode\"\x98\x01\n\x0b\x42ookSeatBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x1c\n\x05\x62rief\x18\x02 \x01(\x0b\x32\r.pb.UserBrief\x12\x11\n\tis_booked\x18\x03 \x01(\x08\x12!\n\x19\x63onfirm_remaining_seconds\x18\x04 \x01(\x05\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x14\n\tvip_level\x18\x06 \x01(\r:\x01\x30*U\n\x0c\x43\x61llTimeCode\x12\x1b\n\x17NOT_ENTER_CALLTIME_ROOM\x10\x00\x12\x13\n\x0f\x44URING_CALLTIME\x10\x01\x12\x13\n\x0f\x46INISH_CALLTIME\x10\x02*J\n\x13\x43\x61llTimeConfirmCode\x12\x1b\n\x17WAIT_CONFIRM_ENTER_ROOM\x10\x00\x12\x16\n\x12\x43ONFIRM_ENTER_ROOM\x10\x01*\x9f\x04\n\x0c\x42ookSeatCode\x12\x0b\n\x07\x42OOK_OK\x10\x00\x12\x12\n\x0e\x42OOK_CANCEL_OK\x10\x01\x12\x1f\n\x12\x42OOK_ERR_WAIT_AUTH\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1c\n\x0f\x42OOK_ERR_SEATID\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n\x17\x42OOK_ERR_ALREADY_BOOKED\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_ALREADY_SIT\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12 \n\x13\x42OOK_ERR_BEEN_SITED\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_BEEN_BOOKED\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1a\n\rBOOK_ERR_CLUB\x10\xf9\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0c\x42OOK_ERR_GPS\x10\xf8\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n\x0b\x42OOK_ERR_IP\x10\xf7\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_GPS_INVALID\x10\xf6\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12\x42OOK_ERR_ROOM_OVER\x10\xf5\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1f\n\x12\x42OOK_ERR_ROOM_FULL\x10\xf4\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0c\x42OOK_ERR_BAN\x10\xf0\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14\x42OOK_ERR_KYC_INVALID\x10\xee\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12-\n BOOK_ERR_NOT_PC_OPERATION_REGION\x10\xea\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _CALLTIMECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=878,
-  serialized_end=963,
+  serialized_start=665,
+  serialized_end=750,
 )
 _sym_db.RegisterEnumDescriptor(_CALLTIMECODE)
 
@@ -69,39 +69,12 @@ _CALLTIMECONFIRMCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=965,
-  serialized_end=1039,
+  serialized_start=752,
+  serialized_end=826,
 )
 _sym_db.RegisterEnumDescriptor(_CALLTIMECONFIRMCODE)
 
 CallTimeConfirmCode = enum_type_wrapper.EnumTypeWrapper(_CALLTIMECONFIRMCODE)
-_CALLTIMEENTERROOMCONFIRMSTATUS = _descriptor.EnumDescriptor(
-  name='CallTimeEnterRoomConfirmStatus',
-  full_name='pb.CallTimeEnterRoomConfirmStatus',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='NO_OPERATE', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CONFIRM', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CANCEL', index=2, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1041,
-  serialized_end=1114,
-)
-_sym_db.RegisterEnumDescriptor(_CALLTIMEENTERROOMCONFIRMSTATUS)
-
-CallTimeEnterRoomConfirmStatus = enum_type_wrapper.EnumTypeWrapper(_CALLTIMEENTERROOMCONFIRMSTATUS)
 _BOOKSEATCODE = _descriptor.EnumDescriptor(
   name='BookSeatCode',
   full_name='pb.BookSeatCode',
@@ -179,8 +152,8 @@ _BOOKSEATCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1117,
-  serialized_end=1660,
+  serialized_start=829,
+  serialized_end=1372,
 )
 _sym_db.RegisterEnumDescriptor(_BOOKSEATCODE)
 
@@ -190,9 +163,6 @@ DURING_CALLTIME = 1
 FINISH_CALLTIME = 2
 WAIT_CONFIRM_ENTER_ROOM = 0
 CONFIRM_ENTER_ROOM = 1
-NO_OPERATE = 0
-CONFIRM = 1
-CANCEL = 2
 BOOK_OK = 0
 BOOK_CANCEL_OK = 1
 BOOK_ERR_WAIT_AUTH = -1
@@ -327,82 +297,6 @@ _CALLTIMEBRC = _descriptor.Descriptor(
 )
 
 
-_CALLTIMEENTERROOMCONFIRMREQ = _descriptor.Descriptor(
-  name='CallTimeEnterRoomConfirmREQ',
-  full_name='pb.CallTimeEnterRoomConfirmREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='confirm_status', full_name='pb.CallTimeEnterRoomConfirmREQ.confirm_status', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=289,
-  serialized_end=378,
-)
-
-
-_CALLTIMEENTERROOMCONFIRMBRC = _descriptor.Descriptor(
-  name='CallTimeEnterRoomConfirmBRC',
-  full_name='pb.CallTimeEnterRoomConfirmBRC',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='seatid', full_name='pb.CallTimeEnterRoomConfirmBRC.seatid', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='chips', full_name='pb.CallTimeEnterRoomConfirmBRC.chips', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='confirm_status', full_name='pb.CallTimeEnterRoomConfirmBRC.confirm_status', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=380,
-  serialized_end=500,
-)
-
-
 _BOOKSEATREQ = _descriptor.Descriptor(
   name='BookSeatREQ',
   full_name='pb.BookSeatREQ',
@@ -471,8 +365,8 @@ _BOOKSEATREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=503,
-  serialized_end=658,
+  serialized_start=290,
+  serialized_end=445,
 )
 
 
@@ -509,8 +403,8 @@ _BOOKSEATRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=660,
-  serialized_end=721,
+  serialized_start=447,
+  serialized_end=508,
 )
 
 
@@ -575,28 +469,23 @@ _BOOKSEATBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=724,
-  serialized_end=876,
+  serialized_start=511,
+  serialized_end=663,
 )
 
 _CALLTIMEINFO.fields_by_name['calltime_code'].enum_type = _CALLTIMECODE
 _CALLTIMEINFO.fields_by_name['confirm_code'].enum_type = _CALLTIMECONFIRMCODE
 _CALLTIMEBRC.fields_by_name['calltime_info'].message_type = _CALLTIMEINFO
-_CALLTIMEENTERROOMCONFIRMREQ.fields_by_name['confirm_status'].enum_type = _CALLTIMEENTERROOMCONFIRMSTATUS
-_CALLTIMEENTERROOMCONFIRMBRC.fields_by_name['confirm_status'].enum_type = _CALLTIMEENTERROOMCONFIRMSTATUS
 _BOOKSEATRSP.fields_by_name['code'].enum_type = _BOOKSEATCODE
 _BOOKSEATBRC.fields_by_name['brief'].message_type = base__pb2._USERBRIEF
 DESCRIPTOR.message_types_by_name['CallTimeREQ'] = _CALLTIMEREQ
 DESCRIPTOR.message_types_by_name['CallTimeInfo'] = _CALLTIMEINFO
 DESCRIPTOR.message_types_by_name['CallTimeBRC'] = _CALLTIMEBRC
-DESCRIPTOR.message_types_by_name['CallTimeEnterRoomConfirmREQ'] = _CALLTIMEENTERROOMCONFIRMREQ
-DESCRIPTOR.message_types_by_name['CallTimeEnterRoomConfirmBRC'] = _CALLTIMEENTERROOMCONFIRMBRC
 DESCRIPTOR.message_types_by_name['BookSeatREQ'] = _BOOKSEATREQ
 DESCRIPTOR.message_types_by_name['BookSeatRSP'] = _BOOKSEATRSP
 DESCRIPTOR.message_types_by_name['BookSeatBRC'] = _BOOKSEATBRC
 DESCRIPTOR.enum_types_by_name['CallTimeCode'] = _CALLTIMECODE
 DESCRIPTOR.enum_types_by_name['CallTimeConfirmCode'] = _CALLTIMECONFIRMCODE
-DESCRIPTOR.enum_types_by_name['CallTimeEnterRoomConfirmStatus'] = _CALLTIMEENTERROOMCONFIRMSTATUS
 DESCRIPTOR.enum_types_by_name['BookSeatCode'] = _BOOKSEATCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -620,20 +509,6 @@ CallTimeBRC = _reflection.GeneratedProtocolMessageType('CallTimeBRC', (_message.
   # @@protoc_insertion_point(class_scope:pb.CallTimeBRC)
   ))
 _sym_db.RegisterMessage(CallTimeBRC)
-
-CallTimeEnterRoomConfirmREQ = _reflection.GeneratedProtocolMessageType('CallTimeEnterRoomConfirmREQ', (_message.Message,), dict(
-  DESCRIPTOR = _CALLTIMEENTERROOMCONFIRMREQ,
-  __module__ = 'calltime_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CallTimeEnterRoomConfirmREQ)
-  ))
-_sym_db.RegisterMessage(CallTimeEnterRoomConfirmREQ)
-
-CallTimeEnterRoomConfirmBRC = _reflection.GeneratedProtocolMessageType('CallTimeEnterRoomConfirmBRC', (_message.Message,), dict(
-  DESCRIPTOR = _CALLTIMEENTERROOMCONFIRMBRC,
-  __module__ = 'calltime_pb2'
-  # @@protoc_insertion_point(class_scope:pb.CallTimeEnterRoomConfirmBRC)
-  ))
-_sym_db.RegisterMessage(CallTimeEnterRoomConfirmBRC)
 
 BookSeatREQ = _reflection.GeneratedProtocolMessageType('BookSeatREQ', (_message.Message,), dict(
   DESCRIPTOR = _BOOKSEATREQ,

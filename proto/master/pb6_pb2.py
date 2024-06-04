@@ -16,6 +16,7 @@ _sym_db = _symbol_database.Default()
 import pre_base_pb2 as pre__base__pb2
 import base_pb2 as base__pb2
 import base2_pb2 as base2__pb2
+import mtt_room_info_pb2 as mtt__room__info__pb2
 import pine_pb2 as pine__pb2
 import sng_pb2 as sng__pb2
 import pb1_pb2 as pb1__pb2
@@ -28,9 +29,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb6.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\npine.proto\x1a\tsng.proto\x1a\tpb1.proto\x1a\x15shark_king_flip.proto\x1a\x0f\x62lackjack.proto\"\xa2\x01\n\nSitDownREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\n\n\x02ip\x18\x03 \x01(\t\x12\x1b\n\x07gps_lon\x18\x04 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x05 \x01(\x05:\n-360000000\x12\x11\n\x02pc\x18\x06 \x01(\x08:\x05\x66\x61lse\x12\x1c\n\rmanual_buy_in\x18\x07 \x01(\x08:\x05\x66\x61lse\"\xd4\x01\n\x0c\x45nterRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x03tid\x18\x02 \x01(\x05:\x02-1\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\x06\x63lubid\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\n\n\x02ip\x18\x06 \x01(\t\x12\x0c\n\x04lang\x18\x07 \x01(\t\x12\x10\n\x06tempid\x18\x08 \x01(\t:\x00\x12\x1f\n\x10is_auto_sit_down\x18\t \x01(\x08:\x05\x66\x61lse\x12$\n\x0csit_down_req\x18\n \x01(\x0b\x32\x0e.pb.SitDownREQ\"\xf2\x06\n\x0c\x45nterRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\troom_list\x18\x0e \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12,\n\x10spinup_room_info\x18\x0f \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\x12\x14\n\x0cis_first_sit\x18\x10 \x01(\x08\x12(\n\x0euser_vpip_info\x18\x11 \x01(\x0b\x32\x10.pb.UserVpipInfo\x12\x17\n\x08\x65vent_id\x18\x12 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\tevents_id\x18\x13 \x03(\x03\x12-\n\x11sk_flip_room_info\x18\x14 \x01(\x0b\x32\x12.pb.SKFlipRoomInfo\x12\x31\n\x13sk_flip_room_status\x18\x15 \x01(\x0b\x32\x14.pb.SKFlipRoomStatus\x12\x16\n\x0bupgrade_seq\x18\x16 \x01(\x05:\x01\x30\x12\x32\n\x13\x62lackjack_room_info\x18\x17 \x01(\x0b\x32\x15.pb.BlackjackRoomInfo\x12/\n\x14multi_playing_status\x18\x18 \x03(\x0b\x32\x11.pb.PlayingStatus\"\x0f\n\rGetCashierREQ\"`\n\rGetCashierRSP\x12\n\n\x02\x64\x63\x18\x01 \x01(\x08\x12\x0e\n\x06praxis\x18\x02 \x01(\x08\x12\x1a\n\x12praxis_cashier_url\x18\x03 \x01(\t\x12\x17\n\x0fshow_in_browser\x18\x04 \x01(\x08\"\x15\n\x13GetCashStormInfoREQ\"3\n\x0f\x43\x61shStormReward\x12\r\n\x05token\x18\x01 \x01(\t\x12\x11\n\tis_ensure\x18\x02 \x01(\x08\"\x98\x05\n\x13GetCashStormInfoRSP\x12.\n\x06status\x18\x01 \x01(\x0e\x32\x1e.pb.GetCashStormInfoRSP.Status\x12\x12\n\nstart_time\x18\x02 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\x12\x0c\n\x04pool\x18\x04 \x01(\x03\x12\x12\n\nmax_reward\x18\x05 \x01(\x03\x12\x11\n\tgame_time\x18\x06 \x01(\x03\x12#\n\x06reward\x18\x07 \x03(\x0b\x32\x13.pb.CashStormReward\x12H\n\x14\x65nsure_reward_status\x18\x08 \x01(\x0e\x32*.pb.GetCashStormInfoRSP.EnsureRewardStatus\x12\x1f\n\x17\x65nsure_reward_game_time\x18\t \x01(\x03\x12\x19\n\x11has_ensure_reward\x18\n \x01(\x08\x12(\n\tgame_mode\x18\x0b \x03(\x0e\x32\x15.pb.CashStormGameMode\x12\x13\n\x0bsmall_blind\x18\x0c \x01(\x03\x12\x33\n\x0f\x65xtra_game_mode\x18\r \x03(\x0e\x32\x1a.pb.CashStormExtraGameMode\"W\n\x06Status\x12\x0f\n\x0bSTATUS_NONE\x10\x00\x12\x14\n\x10STATUS_NOT_START\x10\x01\x12\x13\n\x0fSTATUS_ON_GOING\x10\x02\x12\x11\n\rSTATUS_ENDING\x10\x03\"~\n\x12\x45nsureRewardStatus\x12#\n\x1f\x45NSURE_REWARD_STATUS_UNFINISHED\x10\x00\x12!\n\x1d\x45NSURE_REWARD_STATUS_FINISHED\x10\x01\x12 \n\x1c\x45NSURE_REWARD_STATUS_CLAIMED\x10\x02\"<\n\x18NotifyCashStormRewardRSP\x12\r\n\x05token\x18\x01 \x01(\t\x12\x11\n\tis_ensure\x18\x02 \x01(\x08\"(\n\x17\x43laimCashStormRewardREQ\x12\r\n\x05token\x18\x01 \x01(\t\"\xe4\x01\n\x17\x43laimCashStormRewardRSP\x12.\n\x04\x63ode\x18\x01 \x01(\x0e\x32 .pb.ClaimCashStormRewardRSP.Code\x12\r\n\x05token\x18\x02 \x01(\t\x12\x0e\n\x06reward\x18\x03 \x01(\x03\x12\x11\n\tis_ensure\x18\x04 \x01(\x08\"g\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x10\n\x0c\x43ODE_CLAIMED\x10\x01\x12\x10\n\x0c\x43ODE_EXPIRED\x10\x02\x12\x12\n\x0e\x43ODE_NOT_EXIST\x10\x03\x12\x15\n\x11\x43ODE_SYSTEM_ERROR\x10\x04\"`\n\x16\x43\x61shStormRewardForList\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0e\n\x06reward\x18\x02 \x01(\x03\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x16\n\x0ehead_image_url\x18\x04 \x01(\t\"\x1b\n\x19GetCashStormRewardListREQ\"~\n\x19GetCashStormRewardListRSP\x12.\n\nmax_reward\x18\x01 \x03(\x0b\x32\x1a.pb.CashStormRewardForList\x12\x31\n\rrecent_reward\x18\x02 \x03(\x0b\x32\x1a.pb.CashStormRewardForList\"9\n\x15\x43\x61shStormBigRewardBRC\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0e\n\x06reward\x18\x02 \x01(\x03\"/\n\x11\x43heckSimulatorREQ\x12\x0c\n\x04imei\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\"g\n\x11\x43heckSimulatorRSP\x12(\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1a.pb.CheckSimulatorRSP.Code\"(\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x0e\n\nCODE_ERROR\x10\x01\"8\n\x11\x42litzRewardConfig\x12\x14\n\x0creward_times\x18\x01 \x01(\x05\x12\r\n\x05ratio\x18\x02 \x01(\x05\"\x12\n\x10GetUserAvatarREQ\"\x8c\x03\n\x0b\x41vatarFrame\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\x12&\n\x06status\x18\x02 \x01(\x0e\x32\x16.pb.AvatarFrame.Status\x12\x13\n\x0b\x63reate_time\x18\x03 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x04 \x01(\x03\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x06 \x01(\t\x12\x14\n\x0c\x63lient_label\x18\x07 \x01(\t\x12\x0e\n\x06is_new\x18\x08 \x01(\x08\x12\x1c\n\x14lottery_expired_time\x18\t \x01(\x03\x12\x17\n\x0fraw_description\x18\n \x01(\t\x12\x17\n\x0fraw_avatar_name\x18\x0b \x01(\t\x12\x1b\n\x13\x61vatar_expired_time\x18\x0c \x01(\x03\x12\x1d\n\x15\x61vatar_valid_duration\x18\r \x01(\x03\";\n\x06Status\x12\x0f\n\x0bSTATUS_LOCK\x10\x00\x12\x11\n\rSTATUS_UNLOCK\x10\x01\x12\r\n\tSTATUS_ON\x10\x02\"s\n\nUserAvatar\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x03 \x01(\t\x12\x14\n\x0c\x63lient_label\x18\x04 \x01(\t\x12\x18\n\x10has_honor_effect\x18\x05 \x01(\x08\":\n\x10GetUserAvatarRSP\x12&\n\ravatar_frames\x18\x01 \x03(\x0b\x32\x0f.pb.AvatarFrame\">\n\x0cGetAvatarREQ\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\x12\x1b\n\x13\x61vatar_client_label\x18\x02 \x01(\t\"5\n\x0cGetAvatarRSP\x12%\n\x0c\x61vatar_frame\x18\x01 \x01(\x0b\x32\x0f.pb.AvatarFrame\"%\n\x10SetUserAvatarREQ\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\"e\n\x10SetUserAvatarRSP\x12\'\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x19.pb.SetUserAvatarRSP.Code\"(\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x0e\n\nCODE_ERROR\x10\x01\"7\n\x10SetUserAvatarBRC\x12#\n\x0buser_avatar\x18\x01 \x01(\x0b\x32\x0e.pb.UserAvatar\"\"\n\x12GetEquipAvatarsREQ\x12\x0c\n\x04uids\x18\x01 \x03(\x03\"\x8e\x01\n\x12GetEquipAvatarsRSP\x12#\n\x0buser_avatar\x18\x01 \x03(\x0b\x32\x0e.pb.UserAvatar\x12)\n\x04\x63ode\x18\x02 \x01(\x0e\x32\x1b.pb.GetEquipAvatarsRSP.Code\"(\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x0e\n\nCODE_ERROR\x10\x01\"\x1e\n\x1cGetHonorAvatarLotteryInfoREQ\"[\n\x1cHonorAvatarLotteryRewardItem\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\"N\n\x1cHonorAvatarLotteryRewardElem\x12.\n\x04item\x18\x01 \x03(\x0b\x32 .pb.HonorAvatarLotteryRewardItem\"\xdb\x01\n\x1cGetHonorAvatarLotteryInfoRSP\x12\x37\n\x06status\x18\x01 \x01(\x0e\x32\'.pb.GetHonorAvatarLotteryInfoRSP.Status\x12\x17\n\x0fnext_reset_time\x18\x02 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x04 \x01(\x03\"S\n\x06Status\x12\x0f\n\x0bSTATUS_NONE\x10\x00\x12\x13\n\x0fSTATUS_UNFINISH\x10\x01\x12\x11\n\rSTATUS_FINISH\x10\x02\x12\x10\n\x0cSTATUS_FETCH\x10\x03\"\"\n FetchHonorAvatarLotteryRewardREQ\"\xcb\x01\n FetchHonorAvatarLotteryRewardRSP\x12\x37\n\x04\x63ode\x18\x01 \x01(\x0e\x32).pb.FetchHonorAvatarLotteryRewardRSP.Code\x12\r\n\x05index\x18\x02 \x01(\x05\x12\x35\n\x0breward_item\x18\x03 \x03(\x0b\x32 .pb.HonorAvatarLotteryRewardItem\"(\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x0e\n\nCODE_ERROR\x10\x01\"\x11\n\x0fGetNewAvatarREQ\"9\n\x0fGetNewAvatarRSP\x12&\n\ravatar_frames\x18\x01 \x03(\x0b\x32\x0f.pb.AvatarFrame\"\x12\n\x10ReadNewAvatarREQ\"\x12\n\x10ReadNewAvatarRSP\"\x19\n\x17\x43learNewAvatarRedDotREQ\"\x19\n\x17\x43learNewAvatarRedDotRSP\"L\n\x12NotifyNewAvatarRSP\x12\x1f\n\x06\x61vatar\x18\x01 \x01(\x0b\x32\x0f.pb.AvatarFrame\x12\x15\n\rauto_equipped\x18\x02 \x01(\x08\")\n\tErrorCode\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"H\n\x14GetRoomidByTempidREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"X\n\x14GetRoomidByTempidRSP\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05*\xa8\x03\n\x11\x43\x61shStormGameMode\x12\x1d\n\x19\x43\x41SH_STORM_GAME_MODE_NONE\x10\x00\x12$\n CASH_STORM_GAME_MODE_NLH_REGULAR\x10\x01\x12 \n\x1c\x43\x41SH_STORM_GAME_MODE_NLH_AOF\x10\x02\x12#\n\x1f\x43\x41SH_STORM_GAME_MODE_NLH_6_PLUS\x10\x03\x12\"\n\x1e\x43\x41SH_STORM_GAME_MODE_NLH_FLASH\x10\x04\x12)\n%CASH_STORM_GAME_MODE_NLH_FLASH_6_PLUS\x10\x08\x12&\n\"CASH_STORM_GAME_MODE_NLH_FLASH_AOF\x10\t\x12$\n CASH_STORM_GAME_MODE_PLO_REGULAR\x10\x05\x12\"\n\x1e\x43\x41SH_STORM_GAME_MODE_PLO_FLASH\x10\x06\x12$\n CASH_STORM_GAME_MODE_OFC_REGULAR\x10\x07\x12 \n\x1c\x43\x41SH_STORM_GAME_MODE_PLO_AOF\x10\n*\xc7\x01\n\x16\x43\x61shStormExtraGameMode\x12#\n\x1f\x43\x41SH_STORM_EXTRA_GAME_MODE_NONE\x10\x00\x12\'\n#CASH_STORM_EXTRA_GAME_MODE_BOMB_POT\x10\x01\x12+\n\'CASH_STORM_EXTRA_GAME_MODE_DOUBLE_BOARD\x10\x02\x12\x32\n.CASH_STORM_EXTRA_GAME_MODE_BP_TRIGGERS_WITH_DB\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb6.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x13mtt_room_info.proto\x1a\npine.proto\x1a\tsng.proto\x1a\tpb1.proto\x1a\x15shark_king_flip.proto\x1a\x0f\x62lackjack.proto\"\xa2\x01\n\nSitDownREQ\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\r\n\x05\x63hips\x18\x02 \x01(\x03\x12\n\n\x02ip\x18\x03 \x01(\t\x12\x1b\n\x07gps_lon\x18\x04 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x05 \x01(\x05:\n-360000000\x12\x11\n\x02pc\x18\x06 \x01(\x08:\x05\x66\x61lse\x12\x1c\n\rmanual_buy_in\x18\x07 \x01(\x08:\x05\x66\x61lse\"\xd4\x01\n\x0c\x45nterRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0f\n\x03tid\x18\x02 \x01(\x05:\x02-1\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x11\n\x06\x63lubid\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\n\n\x02ip\x18\x06 \x01(\t\x12\x0c\n\x04lang\x18\x07 \x01(\t\x12\x10\n\x06tempid\x18\x08 \x01(\t:\x00\x12\x1f\n\x10is_auto_sit_down\x18\t \x01(\x08:\x05\x66\x61lse\x12$\n\x0csit_down_req\x18\n \x01(\x0b\x32\x0e.pb.SitDownREQ\"\xf2\x06\n\x0c\x45nterRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\troom_list\x18\x0e \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\x12,\n\x10spinup_room_info\x18\x0f \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\x12\x14\n\x0cis_first_sit\x18\x10 \x01(\x08\x12(\n\x0euser_vpip_info\x18\x11 \x01(\x0b\x32\x10.pb.UserVpipInfo\x12\x17\n\x08\x65vent_id\x18\x12 \x01(\x03:\x01\x30\x42\x02\x18\x01\x12\x11\n\tevents_id\x18\x13 \x03(\x03\x12-\n\x11sk_flip_room_info\x18\x14 \x01(\x0b\x32\x12.pb.SKFlipRoomInfo\x12\x31\n\x13sk_flip_room_status\x18\x15 \x01(\x0b\x32\x14.pb.SKFlipRoomStatus\x12\x16\n\x0bupgrade_seq\x18\x16 \x01(\x05:\x01\x30\x12\x32\n\x13\x62lackjack_room_info\x18\x17 \x01(\x0b\x32\x15.pb.BlackjackRoomInfo\x12/\n\x14multi_playing_status\x18\x18 \x03(\x0b\x32\x11.pb.PlayingStatus\"\x0f\n\rGetCashierREQ\"`\n\rGetCashierRSP\x12\n\n\x02\x64\x63\x18\x01 \x01(\x08\x12\x0e\n\x06praxis\x18\x02 \x01(\x08\x12\x1a\n\x12praxis_cashier_url\x18\x03 \x01(\t\x12\x17\n\x0fshow_in_browser\x18\x04 \x01(\x08\"\x15\n\x13GetCashStormInfoREQ\"3\n\x0f\x43\x61shStormReward\x12\r\n\x05token\x18\x01 \x01(\t\x12\x11\n\tis_ensure\x18\x02 \x01(\x08\"\xa9\x03\n\x13GetCashStormInfoRSP\x12#\n\x06status\x18\x01 \x01(\x0e\x32\x13.pb.CashStormStatus\x12\x12\n\nstart_time\x18\x02 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\x12\x0c\n\x04pool\x18\x04 \x01(\x03\x12\x12\n\nmax_reward\x18\x05 \x01(\x03\x12\x11\n\tgame_time\x18\x06 \x01(\x03\x12#\n\x06reward\x18\x07 \x03(\x0b\x32\x13.pb.CashStormReward\x12=\n\x14\x65nsure_reward_status\x18\x08 \x01(\x0e\x32\x1f.pb.CashStormEnsureRewardStatus\x12\x1f\n\x17\x65nsure_reward_game_time\x18\t \x01(\x03\x12\x19\n\x11has_ensure_reward\x18\n \x01(\x08\x12(\n\tgame_mode\x18\x0b \x03(\x0e\x32\x15.pb.CashStormGameMode\x12\x13\n\x0bsmall_blind\x18\x0c \x01(\x03\x12\x33\n\x0f\x65xtra_game_mode\x18\r \x03(\x0e\x32\x1a.pb.CashStormExtraGameMode\"<\n\x18NotifyCashStormRewardRSP\x12\r\n\x05token\x18\x01 \x01(\t\x12\x11\n\tis_ensure\x18\x02 \x01(\x08\"(\n\x17\x43laimCashStormRewardREQ\x12\r\n\x05token\x18\x01 \x01(\t\"w\n\x17\x43laimCashStormRewardRSP\x12*\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.ClaimCashStormRewardCode\x12\r\n\x05token\x18\x02 \x01(\t\x12\x0e\n\x06reward\x18\x03 \x01(\x03\x12\x11\n\tis_ensure\x18\x04 \x01(\x08\"`\n\x16\x43\x61shStormRewardForList\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0e\n\x06reward\x18\x02 \x01(\x03\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x16\n\x0ehead_image_url\x18\x04 \x01(\t\"\x1b\n\x19GetCashStormRewardListREQ\"~\n\x19GetCashStormRewardListRSP\x12.\n\nmax_reward\x18\x01 \x03(\x0b\x32\x1a.pb.CashStormRewardForList\x12\x31\n\rrecent_reward\x18\x02 \x03(\x0b\x32\x1a.pb.CashStormRewardForList\"9\n\x15\x43\x61shStormBigRewardBRC\x12\x10\n\x08nickname\x18\x01 \x01(\t\x12\x0e\n\x06reward\x18\x02 \x01(\x03\"/\n\x11\x43heckSimulatorREQ\x12\x0c\n\x04imei\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\"9\n\x11\x43heckSimulatorRSP\x12$\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x16.pb.CheckSimulatorCode\"8\n\x11\x42litzRewardConfig\x12\x14\n\x0creward_times\x18\x01 \x01(\x05\x12\r\n\x05ratio\x18\x02 \x01(\x05\"\x12\n\x10GetUserAvatarREQ\"\xce\x02\n\x0b\x41vatarFrame\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\x12%\n\x06status\x18\x02 \x01(\x0e\x32\x15.pb.AvatarFrameStatus\x12\x13\n\x0b\x63reate_time\x18\x03 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x04 \x01(\x03\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x06 \x01(\t\x12\x14\n\x0c\x63lient_label\x18\x07 \x01(\t\x12\x0e\n\x06is_new\x18\x08 \x01(\x08\x12\x1c\n\x14lottery_expired_time\x18\t \x01(\x03\x12\x17\n\x0fraw_description\x18\n \x01(\t\x12\x17\n\x0fraw_avatar_name\x18\x0b \x01(\t\x12\x1b\n\x13\x61vatar_expired_time\x18\x0c \x01(\x03\x12\x1d\n\x15\x61vatar_valid_duration\x18\r \x01(\x03\"s\n\nUserAvatar\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x03 \x01(\t\x12\x14\n\x0c\x63lient_label\x18\x04 \x01(\t\x12\x18\n\x10has_honor_effect\x18\x05 \x01(\x08\":\n\x10GetUserAvatarRSP\x12&\n\ravatar_frames\x18\x01 \x03(\x0b\x32\x0f.pb.AvatarFrame\">\n\x0cGetAvatarREQ\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\x12\x1b\n\x13\x61vatar_client_label\x18\x02 \x01(\t\"5\n\x0cGetAvatarRSP\x12%\n\x0c\x61vatar_frame\x18\x01 \x01(\x0b\x32\x0f.pb.AvatarFrame\"%\n\x10SetUserAvatarREQ\x12\x11\n\tavatar_id\x18\x01 \x01(\x03\"7\n\x10SetUserAvatarRSP\x12#\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x15.pb.SetUserAvatarCode\"7\n\x10SetUserAvatarBRC\x12#\n\x0buser_avatar\x18\x01 \x01(\x0b\x32\x0e.pb.UserAvatar\"\"\n\x12GetEquipAvatarsREQ\x12\x0c\n\x04uids\x18\x01 \x03(\x03\"`\n\x12GetEquipAvatarsRSP\x12#\n\x0buser_avatar\x18\x01 \x03(\x0b\x32\x0e.pb.UserAvatar\x12%\n\x04\x63ode\x18\x02 \x01(\x0e\x32\x17.pb.GetEquipAvatarsCode\"\x1e\n\x1cGetHonorAvatarLotteryInfoREQ\"[\n\x1cHonorAvatarLotteryRewardItem\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\"N\n\x1cHonorAvatarLotteryRewardElem\x12.\n\x04item\x18\x01 \x03(\x0b\x32 .pb.HonorAvatarLotteryRewardItem\"{\n\x1cGetHonorAvatarLotteryInfoRSP\x12,\n\x06status\x18\x01 \x01(\x0e\x32\x1c.pb.HonorAvatarLotteryStatus\x12\x17\n\x0fnext_reset_time\x18\x02 \x01(\x03\x12\x14\n\x0c\x65xpired_time\x18\x04 \x01(\x03\"\"\n FetchHonorAvatarLotteryRewardREQ\"\x9d\x01\n FetchHonorAvatarLotteryRewardRSP\x12\x33\n\x04\x63ode\x18\x01 \x01(\x0e\x32%.pb.FetchHonorAvatarLotteryRewardCode\x12\r\n\x05index\x18\x02 \x01(\x05\x12\x35\n\x0breward_item\x18\x03 \x03(\x0b\x32 .pb.HonorAvatarLotteryRewardItem\"\x11\n\x0fGetNewAvatarREQ\"9\n\x0fGetNewAvatarRSP\x12&\n\ravatar_frames\x18\x01 \x03(\x0b\x32\x0f.pb.AvatarFrame\"\x12\n\x10ReadNewAvatarREQ\"\x12\n\x10ReadNewAvatarRSP\"\x19\n\x17\x43learNewAvatarRedDotREQ\"\x19\n\x17\x43learNewAvatarRedDotRSP\"L\n\x12NotifyNewAvatarRSP\x12\x1f\n\x06\x61vatar\x18\x01 \x01(\x0b\x32\x0f.pb.AvatarFrame\x12\x15\n\rauto_equipped\x18\x02 \x01(\x08\")\n\tErrorCode\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\"H\n\x14GetRoomidByTempidREQ\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"X\n\x14GetRoomidByTempidRSP\x12\x0e\n\x06tempid\x18\x01 \x01(\t\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05*\xa8\x03\n\x11\x43\x61shStormGameMode\x12\x1d\n\x19\x43\x41SH_STORM_GAME_MODE_NONE\x10\x00\x12$\n CASH_STORM_GAME_MODE_NLH_REGULAR\x10\x01\x12 \n\x1c\x43\x41SH_STORM_GAME_MODE_NLH_AOF\x10\x02\x12#\n\x1f\x43\x41SH_STORM_GAME_MODE_NLH_6_PLUS\x10\x03\x12\"\n\x1e\x43\x41SH_STORM_GAME_MODE_NLH_FLASH\x10\x04\x12)\n%CASH_STORM_GAME_MODE_NLH_FLASH_6_PLUS\x10\x08\x12&\n\"CASH_STORM_GAME_MODE_NLH_FLASH_AOF\x10\t\x12$\n CASH_STORM_GAME_MODE_PLO_REGULAR\x10\x05\x12\"\n\x1e\x43\x41SH_STORM_GAME_MODE_PLO_FLASH\x10\x06\x12$\n CASH_STORM_GAME_MODE_OFC_REGULAR\x10\x07\x12 \n\x1c\x43\x41SH_STORM_GAME_MODE_PLO_AOF\x10\n*\xc7\x01\n\x16\x43\x61shStormExtraGameMode\x12#\n\x1f\x43\x41SH_STORM_EXTRA_GAME_MODE_NONE\x10\x00\x12\'\n#CASH_STORM_EXTRA_GAME_MODE_BOMB_POT\x10\x01\x12+\n\'CASH_STORM_EXTRA_GAME_MODE_DOUBLE_BOARD\x10\x02\x12\x32\n.CASH_STORM_EXTRA_GAME_MODE_BP_TRIGGERS_WITH_DB\x10\x03*`\n\x0f\x43\x61shStormStatus\x12\x0f\n\x0bSTATUS_NONE\x10\x00\x12\x14\n\x10STATUS_NOT_START\x10\x01\x12\x13\n\x0fSTATUS_ON_GOING\x10\x02\x12\x11\n\rSTATUS_ENDING\x10\x03*\x87\x01\n\x1b\x43\x61shStormEnsureRewardStatus\x12#\n\x1f\x45NSURE_REWARD_STATUS_UNFINISHED\x10\x00\x12!\n\x1d\x45NSURE_REWARD_STATUS_FINISHED\x10\x01\x12 \n\x1c\x45NSURE_REWARD_STATUS_CLAIMED\x10\x02*\xf3\x01\n\x18\x43laimCashStormRewardCode\x12(\n$CLAIM_CASH_STORM_REWARD_CODE_SUCCESS\x10\x00\x12(\n$CLAIM_CASH_STORM_REWARD_CODE_CLAIMED\x10\x01\x12(\n$CLAIM_CASH_STORM_REWARD_CODE_EXPIRED\x10\x02\x12*\n&CLAIM_CASH_STORM_REWARD_CODE_NOT_EXIST\x10\x03\x12-\n)CLAIM_CASH_STORM_REWARD_CODE_SYSTEM_ERROR\x10\x04*V\n\x12\x43heckSimulatorCode\x12 \n\x1c\x43HECK_SIMULATOR_CODE_SUCCESS\x10\x00\x12\x1e\n\x1a\x43HECK_SIMULATOR_CODE_ERROR\x10\x01*F\n\x11\x41vatarFrameStatus\x12\x0f\n\x0bSTATUS_LOCK\x10\x00\x12\x11\n\rSTATUS_UNLOCK\x10\x01\x12\r\n\tSTATUS_ON\x10\x02*U\n\x11SetUserAvatarCode\x12 \n\x1cSET_USER_AVATAR_CODE_SUCCESS\x10\x00\x12\x1e\n\x1aSET_USER_AVATAR_CODE_ERROR\x10\x01*[\n\x13GetEquipAvatarsCode\x12\"\n\x1eGET_EQUIP_AVATARS_CODE_SUCCESS\x10\x00\x12 \n\x1cGET_EQUIP_AVATARS_CODE_ERROR\x10\x01*\xb9\x01\n\x18HonorAvatarLotteryStatus\x12$\n HONOR_AVATAR_LOTTERY_STATUS_NONE\x10\x00\x12(\n$HONOR_AVATAR_LOTTERY_STATUS_UNFINISH\x10\x01\x12&\n\"HONOR_AVATAR_LOTTERY_STATUS_FINISH\x10\x02\x12%\n!HONOR_AVATAR_LOTTERY_STATUS_FETCH\x10\x03*\x89\x01\n!FetchHonorAvatarLotteryRewardCode\x12\x32\n.FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_SUCCESS\x10\x00\x12\x30\n,FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_ERROR\x10\x01\x42\x07Z\x05../pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,mtt__room__info__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
 
 _CASHSTORMGAMEMODE = _descriptor.EnumDescriptor(
   name='CashStormGameMode',
@@ -85,8 +86,8 @@ _CASHSTORMGAMEMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5338,
-  serialized_end=5762,
+  serialized_start=4666,
+  serialized_end=5090,
 )
 _sym_db.RegisterEnumDescriptor(_CASHSTORMGAMEMODE)
 
@@ -116,32 +117,15 @@ _CASHSTORMEXTRAGAMEMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5765,
-  serialized_end=5964,
+  serialized_start=5093,
+  serialized_end=5292,
 )
 _sym_db.RegisterEnumDescriptor(_CASHSTORMEXTRAGAMEMODE)
 
 CashStormExtraGameMode = enum_type_wrapper.EnumTypeWrapper(_CASHSTORMEXTRAGAMEMODE)
-CASH_STORM_GAME_MODE_NONE = 0
-CASH_STORM_GAME_MODE_NLH_REGULAR = 1
-CASH_STORM_GAME_MODE_NLH_AOF = 2
-CASH_STORM_GAME_MODE_NLH_6_PLUS = 3
-CASH_STORM_GAME_MODE_NLH_FLASH = 4
-CASH_STORM_GAME_MODE_NLH_FLASH_6_PLUS = 8
-CASH_STORM_GAME_MODE_NLH_FLASH_AOF = 9
-CASH_STORM_GAME_MODE_PLO_REGULAR = 5
-CASH_STORM_GAME_MODE_PLO_FLASH = 6
-CASH_STORM_GAME_MODE_OFC_REGULAR = 7
-CASH_STORM_GAME_MODE_PLO_AOF = 10
-CASH_STORM_EXTRA_GAME_MODE_NONE = 0
-CASH_STORM_EXTRA_GAME_MODE_BOMB_POT = 1
-CASH_STORM_EXTRA_GAME_MODE_DOUBLE_BOARD = 2
-CASH_STORM_EXTRA_GAME_MODE_BP_TRIGGERS_WITH_DB = 3
-
-
-_GETCASHSTORMINFORSP_STATUS = _descriptor.EnumDescriptor(
-  name='Status',
-  full_name='pb.GetCashStormInfoRSP.Status',
+_CASHSTORMSTATUS = _descriptor.EnumDescriptor(
+  name='CashStormStatus',
+  full_name='pb.CashStormStatus',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -164,14 +148,15 @@ _GETCASHSTORMINFORSP_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2038,
-  serialized_end=2125,
+  serialized_start=5294,
+  serialized_end=5390,
 )
-_sym_db.RegisterEnumDescriptor(_GETCASHSTORMINFORSP_STATUS)
+_sym_db.RegisterEnumDescriptor(_CASHSTORMSTATUS)
 
-_GETCASHSTORMINFORSP_ENSUREREWARDSTATUS = _descriptor.EnumDescriptor(
-  name='EnsureRewardStatus',
-  full_name='pb.GetCashStormInfoRSP.EnsureRewardStatus',
+CashStormStatus = enum_type_wrapper.EnumTypeWrapper(_CASHSTORMSTATUS)
+_CASHSTORMENSUREREWARDSTATUS = _descriptor.EnumDescriptor(
+  name='CashStormEnsureRewardStatus',
+  full_name='pb.CashStormEnsureRewardStatus',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -190,70 +175,73 @@ _GETCASHSTORMINFORSP_ENSUREREWARDSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2127,
-  serialized_end=2253,
+  serialized_start=5393,
+  serialized_end=5528,
 )
-_sym_db.RegisterEnumDescriptor(_GETCASHSTORMINFORSP_ENSUREREWARDSTATUS)
+_sym_db.RegisterEnumDescriptor(_CASHSTORMENSUREREWARDSTATUS)
 
-_CLAIMCASHSTORMREWARDRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.ClaimCashStormRewardRSP.Code',
+CashStormEnsureRewardStatus = enum_type_wrapper.EnumTypeWrapper(_CASHSTORMENSUREREWARDSTATUS)
+_CLAIMCASHSTORMREWARDCODE = _descriptor.EnumDescriptor(
+  name='ClaimCashStormRewardCode',
+  full_name='pb.ClaimCashStormRewardCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='CLAIM_CASH_STORM_REWARD_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_CLAIMED', index=1, number=1,
+      name='CLAIM_CASH_STORM_REWARD_CODE_CLAIMED', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_EXPIRED', index=2, number=2,
+      name='CLAIM_CASH_STORM_REWARD_CODE_EXPIRED', index=2, number=2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_NOT_EXIST', index=3, number=3,
+      name='CLAIM_CASH_STORM_REWARD_CODE_NOT_EXIST', index=3, number=3,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_SYSTEM_ERROR', index=4, number=4,
+      name='CLAIM_CASH_STORM_REWARD_CODE_SYSTEM_ERROR', index=4, number=4,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2485,
-  serialized_end=2588,
+  serialized_start=5531,
+  serialized_end=5774,
 )
-_sym_db.RegisterEnumDescriptor(_CLAIMCASHSTORMREWARDRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_CLAIMCASHSTORMREWARDCODE)
 
-_CHECKSIMULATORRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.CheckSimulatorRSP.Code',
+ClaimCashStormRewardCode = enum_type_wrapper.EnumTypeWrapper(_CLAIMCASHSTORMREWARDCODE)
+_CHECKSIMULATORCODE = _descriptor.EnumDescriptor(
+  name='CheckSimulatorCode',
+  full_name='pb.CheckSimulatorCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='CHECK_SIMULATOR_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=1,
+      name='CHECK_SIMULATOR_CODE_ERROR', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3016,
-  serialized_end=3056,
+  serialized_start=5776,
+  serialized_end=5862,
 )
-_sym_db.RegisterEnumDescriptor(_CHECKSIMULATORRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_CHECKSIMULATORCODE)
 
-_AVATARFRAME_STATUS = _descriptor.EnumDescriptor(
-  name='Status',
-  full_name='pb.AvatarFrame.Status',
+CheckSimulatorCode = enum_type_wrapper.EnumTypeWrapper(_CHECKSIMULATORCODE)
+_AVATARFRAMESTATUS = _descriptor.EnumDescriptor(
+  name='AvatarFrameStatus',
+  full_name='pb.AvatarFrameStatus',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -272,106 +260,155 @@ _AVATARFRAME_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3474,
-  serialized_end=3533,
+  serialized_start=5864,
+  serialized_end=5934,
 )
-_sym_db.RegisterEnumDescriptor(_AVATARFRAME_STATUS)
+_sym_db.RegisterEnumDescriptor(_AVATARFRAMESTATUS)
 
-_SETUSERAVATARRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.SetUserAvatarRSP.Code',
+AvatarFrameStatus = enum_type_wrapper.EnumTypeWrapper(_AVATARFRAMESTATUS)
+_SETUSERAVATARCODE = _descriptor.EnumDescriptor(
+  name='SetUserAvatarCode',
+  full_name='pb.SetUserAvatarCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='SET_USER_AVATAR_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=1,
+      name='SET_USER_AVATAR_CODE_ERROR', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3016,
-  serialized_end=3056,
+  serialized_start=5936,
+  serialized_end=6021,
 )
-_sym_db.RegisterEnumDescriptor(_SETUSERAVATARRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_SETUSERAVATARCODE)
 
-_GETEQUIPAVATARSRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetEquipAvatarsRSP.Code',
+SetUserAvatarCode = enum_type_wrapper.EnumTypeWrapper(_SETUSERAVATARCODE)
+_GETEQUIPAVATARSCODE = _descriptor.EnumDescriptor(
+  name='GetEquipAvatarsCode',
+  full_name='pb.GetEquipAvatarsCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='GET_EQUIP_AVATARS_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=1,
+      name='GET_EQUIP_AVATARS_CODE_ERROR', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3016,
-  serialized_end=3056,
+  serialized_start=6023,
+  serialized_end=6114,
 )
-_sym_db.RegisterEnumDescriptor(_GETEQUIPAVATARSRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_GETEQUIPAVATARSCODE)
 
-_GETHONORAVATARLOTTERYINFORSP_STATUS = _descriptor.EnumDescriptor(
-  name='Status',
-  full_name='pb.GetHonorAvatarLotteryInfoRSP.Status',
+GetEquipAvatarsCode = enum_type_wrapper.EnumTypeWrapper(_GETEQUIPAVATARSCODE)
+_HONORAVATARLOTTERYSTATUS = _descriptor.EnumDescriptor(
+  name='HonorAvatarLotteryStatus',
+  full_name='pb.HonorAvatarLotteryStatus',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='STATUS_NONE', index=0, number=0,
+      name='HONOR_AVATAR_LOTTERY_STATUS_NONE', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='STATUS_UNFINISH', index=1, number=1,
+      name='HONOR_AVATAR_LOTTERY_STATUS_UNFINISH', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='STATUS_FINISH', index=2, number=2,
+      name='HONOR_AVATAR_LOTTERY_STATUS_FINISH', index=2, number=2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='STATUS_FETCH', index=3, number=3,
+      name='HONOR_AVATAR_LOTTERY_STATUS_FETCH', index=3, number=3,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4553,
-  serialized_end=4636,
+  serialized_start=6117,
+  serialized_end=6302,
 )
-_sym_db.RegisterEnumDescriptor(_GETHONORAVATARLOTTERYINFORSP_STATUS)
+_sym_db.RegisterEnumDescriptor(_HONORAVATARLOTTERYSTATUS)
 
-_FETCHHONORAVATARLOTTERYREWARDRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.FetchHonorAvatarLotteryRewardRSP.Code',
+HonorAvatarLotteryStatus = enum_type_wrapper.EnumTypeWrapper(_HONORAVATARLOTTERYSTATUS)
+_FETCHHONORAVATARLOTTERYREWARDCODE = _descriptor.EnumDescriptor(
+  name='FetchHonorAvatarLotteryRewardCode',
+  full_name='pb.FetchHonorAvatarLotteryRewardCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=1,
+      name='FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_ERROR', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3016,
-  serialized_end=3056,
+  serialized_start=6305,
+  serialized_end=6442,
 )
-_sym_db.RegisterEnumDescriptor(_FETCHHONORAVATARLOTTERYREWARDRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_FETCHHONORAVATARLOTTERYREWARDCODE)
+
+FetchHonorAvatarLotteryRewardCode = enum_type_wrapper.EnumTypeWrapper(_FETCHHONORAVATARLOTTERYREWARDCODE)
+CASH_STORM_GAME_MODE_NONE = 0
+CASH_STORM_GAME_MODE_NLH_REGULAR = 1
+CASH_STORM_GAME_MODE_NLH_AOF = 2
+CASH_STORM_GAME_MODE_NLH_6_PLUS = 3
+CASH_STORM_GAME_MODE_NLH_FLASH = 4
+CASH_STORM_GAME_MODE_NLH_FLASH_6_PLUS = 8
+CASH_STORM_GAME_MODE_NLH_FLASH_AOF = 9
+CASH_STORM_GAME_MODE_PLO_REGULAR = 5
+CASH_STORM_GAME_MODE_PLO_FLASH = 6
+CASH_STORM_GAME_MODE_OFC_REGULAR = 7
+CASH_STORM_GAME_MODE_PLO_AOF = 10
+CASH_STORM_EXTRA_GAME_MODE_NONE = 0
+CASH_STORM_EXTRA_GAME_MODE_BOMB_POT = 1
+CASH_STORM_EXTRA_GAME_MODE_DOUBLE_BOARD = 2
+CASH_STORM_EXTRA_GAME_MODE_BP_TRIGGERS_WITH_DB = 3
+STATUS_NONE = 0
+STATUS_NOT_START = 1
+STATUS_ON_GOING = 2
+STATUS_ENDING = 3
+ENSURE_REWARD_STATUS_UNFINISHED = 0
+ENSURE_REWARD_STATUS_FINISHED = 1
+ENSURE_REWARD_STATUS_CLAIMED = 2
+CLAIM_CASH_STORM_REWARD_CODE_SUCCESS = 0
+CLAIM_CASH_STORM_REWARD_CODE_CLAIMED = 1
+CLAIM_CASH_STORM_REWARD_CODE_EXPIRED = 2
+CLAIM_CASH_STORM_REWARD_CODE_NOT_EXIST = 3
+CLAIM_CASH_STORM_REWARD_CODE_SYSTEM_ERROR = 4
+CHECK_SIMULATOR_CODE_SUCCESS = 0
+CHECK_SIMULATOR_CODE_ERROR = 1
+STATUS_LOCK = 0
+STATUS_UNLOCK = 1
+STATUS_ON = 2
+SET_USER_AVATAR_CODE_SUCCESS = 0
+SET_USER_AVATAR_CODE_ERROR = 1
+GET_EQUIP_AVATARS_CODE_SUCCESS = 0
+GET_EQUIP_AVATARS_CODE_ERROR = 1
+HONOR_AVATAR_LOTTERY_STATUS_NONE = 0
+HONOR_AVATAR_LOTTERY_STATUS_UNFINISH = 1
+HONOR_AVATAR_LOTTERY_STATUS_FINISH = 2
+HONOR_AVATAR_LOTTERY_STATUS_FETCH = 3
+FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_SUCCESS = 0
+FETCH_HONOR_AVATAR_LOTTERY_REWARD_CODE_ERROR = 1
+
 
 
 _SITDOWNREQ = _descriptor.Descriptor(
@@ -442,8 +479,8 @@ _SITDOWNREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=133,
-  serialized_end=295,
+  serialized_start=154,
+  serialized_end=316,
 )
 
 
@@ -536,8 +573,8 @@ _ENTERROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=298,
-  serialized_end=510,
+  serialized_start=319,
+  serialized_end=531,
 )
 
 
@@ -728,8 +765,8 @@ _ENTERROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=513,
-  serialized_end=1395,
+  serialized_start=534,
+  serialized_end=1416,
 )
 
 
@@ -752,8 +789,8 @@ _GETCASHIERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1397,
-  serialized_end=1412,
+  serialized_start=1418,
+  serialized_end=1433,
 )
 
 
@@ -804,8 +841,8 @@ _GETCASHIERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1414,
-  serialized_end=1510,
+  serialized_start=1435,
+  serialized_end=1531,
 )
 
 
@@ -828,8 +865,8 @@ _GETCASHSTORMINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1512,
-  serialized_end=1533,
+  serialized_start=1533,
+  serialized_end=1554,
 )
 
 
@@ -866,8 +903,8 @@ _CASHSTORMREWARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1535,
-  serialized_end=1586,
+  serialized_start=1556,
+  serialized_end=1607,
 )
 
 
@@ -974,8 +1011,6 @@ _GETCASHSTORMINFORSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETCASHSTORMINFORSP_STATUS,
-    _GETCASHSTORMINFORSP_ENSUREREWARDSTATUS,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -983,8 +1018,8 @@ _GETCASHSTORMINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1589,
-  serialized_end=2253,
+  serialized_start=1610,
+  serialized_end=2035,
 )
 
 
@@ -1021,8 +1056,8 @@ _NOTIFYCASHSTORMREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2255,
-  serialized_end=2315,
+  serialized_start=2037,
+  serialized_end=2097,
 )
 
 
@@ -1052,8 +1087,8 @@ _CLAIMCASHSTORMREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2317,
-  serialized_end=2357,
+  serialized_start=2099,
+  serialized_end=2139,
 )
 
 
@@ -1097,7 +1132,6 @@ _CLAIMCASHSTORMREWARDRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CLAIMCASHSTORMREWARDRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1105,8 +1139,8 @@ _CLAIMCASHSTORMREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2360,
-  serialized_end=2588,
+  serialized_start=2141,
+  serialized_end=2260,
 )
 
 
@@ -1157,8 +1191,8 @@ _CASHSTORMREWARDFORLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2590,
-  serialized_end=2686,
+  serialized_start=2262,
+  serialized_end=2358,
 )
 
 
@@ -1181,8 +1215,8 @@ _GETCASHSTORMREWARDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2688,
-  serialized_end=2715,
+  serialized_start=2360,
+  serialized_end=2387,
 )
 
 
@@ -1219,8 +1253,8 @@ _GETCASHSTORMREWARDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2717,
-  serialized_end=2843,
+  serialized_start=2389,
+  serialized_end=2515,
 )
 
 
@@ -1257,8 +1291,8 @@ _CASHSTORMBIGREWARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2845,
-  serialized_end=2902,
+  serialized_start=2517,
+  serialized_end=2574,
 )
 
 
@@ -1295,8 +1329,8 @@ _CHECKSIMULATORREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2904,
-  serialized_end=2951,
+  serialized_start=2576,
+  serialized_end=2623,
 )
 
 
@@ -1319,7 +1353,6 @@ _CHECKSIMULATORRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CHECKSIMULATORRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1327,8 +1360,8 @@ _CHECKSIMULATORRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2953,
-  serialized_end=3056,
+  serialized_start=2625,
+  serialized_end=2682,
 )
 
 
@@ -1365,8 +1398,8 @@ _BLITZREWARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3058,
-  serialized_end=3114,
+  serialized_start=2684,
+  serialized_end=2740,
 )
 
 
@@ -1389,8 +1422,8 @@ _GETUSERAVATARREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3116,
-  serialized_end=3134,
+  serialized_start=2742,
+  serialized_end=2760,
 )
 
 
@@ -1497,7 +1530,6 @@ _AVATARFRAME = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _AVATARFRAME_STATUS,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1505,8 +1537,8 @@ _AVATARFRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3137,
-  serialized_end=3533,
+  serialized_start=2763,
+  serialized_end=3097,
 )
 
 
@@ -1564,8 +1596,8 @@ _USERAVATAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3535,
-  serialized_end=3650,
+  serialized_start=3099,
+  serialized_end=3214,
 )
 
 
@@ -1595,8 +1627,8 @@ _GETUSERAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3652,
-  serialized_end=3710,
+  serialized_start=3216,
+  serialized_end=3274,
 )
 
 
@@ -1633,8 +1665,8 @@ _GETAVATARREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3712,
-  serialized_end=3774,
+  serialized_start=3276,
+  serialized_end=3338,
 )
 
 
@@ -1664,8 +1696,8 @@ _GETAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3776,
-  serialized_end=3829,
+  serialized_start=3340,
+  serialized_end=3393,
 )
 
 
@@ -1695,8 +1727,8 @@ _SETUSERAVATARREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3831,
-  serialized_end=3868,
+  serialized_start=3395,
+  serialized_end=3432,
 )
 
 
@@ -1719,7 +1751,6 @@ _SETUSERAVATARRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SETUSERAVATARRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1727,8 +1758,8 @@ _SETUSERAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3870,
-  serialized_end=3971,
+  serialized_start=3434,
+  serialized_end=3489,
 )
 
 
@@ -1758,8 +1789,8 @@ _SETUSERAVATARBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3973,
-  serialized_end=4028,
+  serialized_start=3491,
+  serialized_end=3546,
 )
 
 
@@ -1789,8 +1820,8 @@ _GETEQUIPAVATARSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4030,
-  serialized_end=4064,
+  serialized_start=3548,
+  serialized_end=3582,
 )
 
 
@@ -1820,7 +1851,6 @@ _GETEQUIPAVATARSRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETEQUIPAVATARSRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1828,8 +1858,8 @@ _GETEQUIPAVATARSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4067,
-  serialized_end=4209,
+  serialized_start=3584,
+  serialized_end=3680,
 )
 
 
@@ -1852,8 +1882,8 @@ _GETHONORAVATARLOTTERYINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4211,
-  serialized_end=4241,
+  serialized_start=3682,
+  serialized_end=3712,
 )
 
 
@@ -1897,8 +1927,8 @@ _HONORAVATARLOTTERYREWARDITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4243,
-  serialized_end=4334,
+  serialized_start=3714,
+  serialized_end=3805,
 )
 
 
@@ -1928,8 +1958,8 @@ _HONORAVATARLOTTERYREWARDELEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4336,
-  serialized_end=4414,
+  serialized_start=3807,
+  serialized_end=3885,
 )
 
 
@@ -1966,7 +1996,6 @@ _GETHONORAVATARLOTTERYINFORSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETHONORAVATARLOTTERYINFORSP_STATUS,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1974,8 +2003,8 @@ _GETHONORAVATARLOTTERYINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4417,
-  serialized_end=4636,
+  serialized_start=3887,
+  serialized_end=4010,
 )
 
 
@@ -1998,8 +2027,8 @@ _FETCHHONORAVATARLOTTERYREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4638,
-  serialized_end=4672,
+  serialized_start=4012,
+  serialized_end=4046,
 )
 
 
@@ -2036,7 +2065,6 @@ _FETCHHONORAVATARLOTTERYREWARDRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _FETCHHONORAVATARLOTTERYREWARDRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -2044,8 +2072,8 @@ _FETCHHONORAVATARLOTTERYREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4675,
-  serialized_end=4878,
+  serialized_start=4049,
+  serialized_end=4206,
 )
 
 
@@ -2068,8 +2096,8 @@ _GETNEWAVATARREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4880,
-  serialized_end=4897,
+  serialized_start=4208,
+  serialized_end=4225,
 )
 
 
@@ -2099,8 +2127,8 @@ _GETNEWAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4899,
-  serialized_end=4956,
+  serialized_start=4227,
+  serialized_end=4284,
 )
 
 
@@ -2123,8 +2151,8 @@ _READNEWAVATARREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4958,
-  serialized_end=4976,
+  serialized_start=4286,
+  serialized_end=4304,
 )
 
 
@@ -2147,8 +2175,8 @@ _READNEWAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4978,
-  serialized_end=4996,
+  serialized_start=4306,
+  serialized_end=4324,
 )
 
 
@@ -2171,8 +2199,8 @@ _CLEARNEWAVATARREDDOTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4998,
-  serialized_end=5023,
+  serialized_start=4326,
+  serialized_end=4351,
 )
 
 
@@ -2195,8 +2223,8 @@ _CLEARNEWAVATARREDDOTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5025,
-  serialized_end=5050,
+  serialized_start=4353,
+  serialized_end=4378,
 )
 
 
@@ -2233,8 +2261,8 @@ _NOTIFYNEWAVATARRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5052,
-  serialized_end=5128,
+  serialized_start=4380,
+  serialized_end=4456,
 )
 
 
@@ -2271,8 +2299,8 @@ _ERRORCODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5130,
-  serialized_end=5171,
+  serialized_start=4458,
+  serialized_end=4499,
 )
 
 
@@ -2316,8 +2344,8 @@ _GETROOMIDBYTEMPIDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5173,
-  serialized_end=5245,
+  serialized_start=4501,
+  serialized_end=4573,
 )
 
 
@@ -2368,8 +2396,8 @@ _GETROOMIDBYTEMPIDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5247,
-  serialized_end=5335,
+  serialized_start=4575,
+  serialized_end=4663,
 )
 
 _ENTERROOMREQ.fields_by_name['sit_down_req'].message_type = _SITDOWNREQ
@@ -2379,7 +2407,7 @@ _ENTERROOMRSP.fields_by_name['playing_status'].message_type = pb1__pb2._PLAYINGS
 _ENTERROOMRSP.fields_by_name['room_info'].message_type = base2__pb2._ROOMINFO
 _ENTERROOMRSP.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _ENTERROOMRSP.fields_by_name['sngroom_info'].message_type = base__pb2._SNGROOMINFO
-_ENTERROOMRSP.fields_by_name['mttroom_info'].message_type = base__pb2._MTTROOMINFO
+_ENTERROOMRSP.fields_by_name['mttroom_info'].message_type = mtt__room__info__pb2._MTTROOMINFO
 _ENTERROOMRSP.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
 _ENTERROOMRSP.fields_by_name['pineroom_info'].message_type = pine__pb2._PINEROOMINFO
 _ENTERROOMRSP.fields_by_name['pine_room_status'].message_type = pine__pb2._PINEROOMSTATUS
@@ -2390,35 +2418,26 @@ _ENTERROOMRSP.fields_by_name['sk_flip_room_info'].message_type = shark__king__fl
 _ENTERROOMRSP.fields_by_name['sk_flip_room_status'].message_type = shark__king__flip__pb2._SKFLIPROOMSTATUS
 _ENTERROOMRSP.fields_by_name['blackjack_room_info'].message_type = blackjack__pb2._BLACKJACKROOMINFO
 _ENTERROOMRSP.fields_by_name['multi_playing_status'].message_type = pb1__pb2._PLAYINGSTATUS
-_GETCASHSTORMINFORSP.fields_by_name['status'].enum_type = _GETCASHSTORMINFORSP_STATUS
+_GETCASHSTORMINFORSP.fields_by_name['status'].enum_type = _CASHSTORMSTATUS
 _GETCASHSTORMINFORSP.fields_by_name['reward'].message_type = _CASHSTORMREWARD
-_GETCASHSTORMINFORSP.fields_by_name['ensure_reward_status'].enum_type = _GETCASHSTORMINFORSP_ENSUREREWARDSTATUS
+_GETCASHSTORMINFORSP.fields_by_name['ensure_reward_status'].enum_type = _CASHSTORMENSUREREWARDSTATUS
 _GETCASHSTORMINFORSP.fields_by_name['game_mode'].enum_type = _CASHSTORMGAMEMODE
 _GETCASHSTORMINFORSP.fields_by_name['extra_game_mode'].enum_type = _CASHSTORMEXTRAGAMEMODE
-_GETCASHSTORMINFORSP_STATUS.containing_type = _GETCASHSTORMINFORSP
-_GETCASHSTORMINFORSP_ENSUREREWARDSTATUS.containing_type = _GETCASHSTORMINFORSP
-_CLAIMCASHSTORMREWARDRSP.fields_by_name['code'].enum_type = _CLAIMCASHSTORMREWARDRSP_CODE
-_CLAIMCASHSTORMREWARDRSP_CODE.containing_type = _CLAIMCASHSTORMREWARDRSP
+_CLAIMCASHSTORMREWARDRSP.fields_by_name['code'].enum_type = _CLAIMCASHSTORMREWARDCODE
 _GETCASHSTORMREWARDLISTRSP.fields_by_name['max_reward'].message_type = _CASHSTORMREWARDFORLIST
 _GETCASHSTORMREWARDLISTRSP.fields_by_name['recent_reward'].message_type = _CASHSTORMREWARDFORLIST
-_CHECKSIMULATORRSP.fields_by_name['code'].enum_type = _CHECKSIMULATORRSP_CODE
-_CHECKSIMULATORRSP_CODE.containing_type = _CHECKSIMULATORRSP
-_AVATARFRAME.fields_by_name['status'].enum_type = _AVATARFRAME_STATUS
-_AVATARFRAME_STATUS.containing_type = _AVATARFRAME
+_CHECKSIMULATORRSP.fields_by_name['code'].enum_type = _CHECKSIMULATORCODE
+_AVATARFRAME.fields_by_name['status'].enum_type = _AVATARFRAMESTATUS
 _GETUSERAVATARRSP.fields_by_name['avatar_frames'].message_type = _AVATARFRAME
 _GETAVATARRSP.fields_by_name['avatar_frame'].message_type = _AVATARFRAME
-_SETUSERAVATARRSP.fields_by_name['code'].enum_type = _SETUSERAVATARRSP_CODE
-_SETUSERAVATARRSP_CODE.containing_type = _SETUSERAVATARRSP
+_SETUSERAVATARRSP.fields_by_name['code'].enum_type = _SETUSERAVATARCODE
 _SETUSERAVATARBRC.fields_by_name['user_avatar'].message_type = _USERAVATAR
 _GETEQUIPAVATARSRSP.fields_by_name['user_avatar'].message_type = _USERAVATAR
-_GETEQUIPAVATARSRSP.fields_by_name['code'].enum_type = _GETEQUIPAVATARSRSP_CODE
-_GETEQUIPAVATARSRSP_CODE.containing_type = _GETEQUIPAVATARSRSP
+_GETEQUIPAVATARSRSP.fields_by_name['code'].enum_type = _GETEQUIPAVATARSCODE
 _HONORAVATARLOTTERYREWARDELEM.fields_by_name['item'].message_type = _HONORAVATARLOTTERYREWARDITEM
-_GETHONORAVATARLOTTERYINFORSP.fields_by_name['status'].enum_type = _GETHONORAVATARLOTTERYINFORSP_STATUS
-_GETHONORAVATARLOTTERYINFORSP_STATUS.containing_type = _GETHONORAVATARLOTTERYINFORSP
-_FETCHHONORAVATARLOTTERYREWARDRSP.fields_by_name['code'].enum_type = _FETCHHONORAVATARLOTTERYREWARDRSP_CODE
+_GETHONORAVATARLOTTERYINFORSP.fields_by_name['status'].enum_type = _HONORAVATARLOTTERYSTATUS
+_FETCHHONORAVATARLOTTERYREWARDRSP.fields_by_name['code'].enum_type = _FETCHHONORAVATARLOTTERYREWARDCODE
 _FETCHHONORAVATARLOTTERYREWARDRSP.fields_by_name['reward_item'].message_type = _HONORAVATARLOTTERYREWARDITEM
-_FETCHHONORAVATARLOTTERYREWARDRSP_CODE.containing_type = _FETCHHONORAVATARLOTTERYREWARDRSP
 _GETNEWAVATARRSP.fields_by_name['avatar_frames'].message_type = _AVATARFRAME
 _NOTIFYNEWAVATARRSP.fields_by_name['avatar'].message_type = _AVATARFRAME
 DESCRIPTOR.message_types_by_name['SitDownREQ'] = _SITDOWNREQ
@@ -2468,6 +2487,15 @@ DESCRIPTOR.message_types_by_name['GetRoomidByTempidREQ'] = _GETROOMIDBYTEMPIDREQ
 DESCRIPTOR.message_types_by_name['GetRoomidByTempidRSP'] = _GETROOMIDBYTEMPIDRSP
 DESCRIPTOR.enum_types_by_name['CashStormGameMode'] = _CASHSTORMGAMEMODE
 DESCRIPTOR.enum_types_by_name['CashStormExtraGameMode'] = _CASHSTORMEXTRAGAMEMODE
+DESCRIPTOR.enum_types_by_name['CashStormStatus'] = _CASHSTORMSTATUS
+DESCRIPTOR.enum_types_by_name['CashStormEnsureRewardStatus'] = _CASHSTORMENSUREREWARDSTATUS
+DESCRIPTOR.enum_types_by_name['ClaimCashStormRewardCode'] = _CLAIMCASHSTORMREWARDCODE
+DESCRIPTOR.enum_types_by_name['CheckSimulatorCode'] = _CHECKSIMULATORCODE
+DESCRIPTOR.enum_types_by_name['AvatarFrameStatus'] = _AVATARFRAMESTATUS
+DESCRIPTOR.enum_types_by_name['SetUserAvatarCode'] = _SETUSERAVATARCODE
+DESCRIPTOR.enum_types_by_name['GetEquipAvatarsCode'] = _GETEQUIPAVATARSCODE
+DESCRIPTOR.enum_types_by_name['HonorAvatarLotteryStatus'] = _HONORAVATARLOTTERYSTATUS
+DESCRIPTOR.enum_types_by_name['FetchHonorAvatarLotteryRewardCode'] = _FETCHHONORAVATARLOTTERYREWARDCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SitDownREQ = _reflection.GeneratedProtocolMessageType('SitDownREQ', (_message.Message,), dict(

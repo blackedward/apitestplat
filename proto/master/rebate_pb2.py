@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0crebate.proto\x12\x02pb\x1a\x11rebate_base.proto\"3\n\x12GetUserRBStatusREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12\x10\n\x08timezone\x18\x02 \x02(\x05\"\xce\x02\n\x12GetUserRBStatusRSP\x12 \n\x06status\x18\x01 \x02(\x0e\x32\x10.pb.RebateStatus\x12\x11\n\tmin_level\x18\x02 \x01(\x05\x12\x11\n\tmax_level\x18\x03 \x01(\x05\x12\x15\n\rcurrent_level\x18\x04 \x01(\x05\x12\x13\n\x0b\x63urrent_ggr\x18\x05 \x01(\x03\x12\x10\n\x08next_ggr\x18\x06 \x01(\x03\x12\x16\n\x0ekeep_level_ggr\x18\x07 \x01(\x03\x12\x17\n\x0freset_timestamp\x18\x08 \x01(\x03\x12\x16\n\x0erebate_percent\x18\t \x01(\x05\x12\x1a\n\x12\x63urrent_rebate_sum\x18\n \x01(\x03\x12 \n\x18rebate_percent_from_club\x18\x0b \x01(\x05\x12\x12\n\nclaim_pool\x18\x0c \x01(\x03\x12\x17\n\x0f\x61uto_claim_time\x18\r \x01(\x03\"R\n\x10UserRebateRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\"q\n\x12GetUserRBRecordREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12\x12\n\nstart_date\x18\x02 \x02(\x05\x12\x10\n\x08\x65nd_date\x18\x03 \x02(\x05\x12\x16\n\x0bstart_index\x18\x04 \x01(\x05:\x01\x31\x12\x10\n\x08timezone\x18\x05 \x02(\x05\"x\n\x12GetUserRBRecordRSP\x12$\n\x06record\x18\x01 \x03(\x0b\x32\x14.pb.UserRebateRecord\x12\x13\n\x0bstart_index\x18\x02 \x01(\x05\x12\x11\n\ttotal_num\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x04 \x01(\x03\"H\n\x0c\x43laimPoolREQ\x12\x0f\n\x07\x63lub_id\x18\x01 \x01(\x03\x12\'\n\x0f\x63laim_pool_type\x18\x02 \x01(\x0e\x32\x0e.pb.RebateType\"0\n\x0c\x43laimPoolRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x12\n\nclaim_pool\x18\x02 \x01(\x03*2\n\x0cRebateStatus\x12\x16\n\tUNDEFINED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\n\n\x06NORMAL\x10\x00\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0crebate.proto\x12\x02pb\x1a\x11rebate_base.proto\"3\n\x12GetUserRBStatusREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08timezone\x18\x02 \x01(\x05\"\xce\x02\n\x12GetUserRBStatusRSP\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.pb.RebateStatus\x12\x11\n\tmin_level\x18\x02 \x01(\x05\x12\x11\n\tmax_level\x18\x03 \x01(\x05\x12\x15\n\rcurrent_level\x18\x04 \x01(\x05\x12\x13\n\x0b\x63urrent_ggr\x18\x05 \x01(\x03\x12\x10\n\x08next_ggr\x18\x06 \x01(\x03\x12\x16\n\x0ekeep_level_ggr\x18\x07 \x01(\x03\x12\x17\n\x0freset_timestamp\x18\x08 \x01(\x03\x12\x16\n\x0erebate_percent\x18\t \x01(\x05\x12\x1a\n\x12\x63urrent_rebate_sum\x18\n \x01(\x03\x12 \n\x18rebate_percent_from_club\x18\x0b \x01(\x05\x12\x12\n\nclaim_pool\x18\x0c \x01(\x03\x12\x17\n\x0f\x61uto_claim_time\x18\r \x01(\x03\"R\n\x10UserRebateRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\"q\n\x12GetUserRBRecordREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x12\n\nstart_date\x18\x02 \x01(\x05\x12\x10\n\x08\x65nd_date\x18\x03 \x01(\x05\x12\x16\n\x0bstart_index\x18\x04 \x01(\x05:\x01\x31\x12\x10\n\x08timezone\x18\x05 \x01(\x05\"x\n\x12GetUserRBRecordRSP\x12$\n\x06record\x18\x01 \x03(\x0b\x32\x14.pb.UserRebateRecord\x12\x13\n\x0bstart_index\x18\x02 \x01(\x05\x12\x11\n\ttotal_num\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x04 \x01(\x03\"H\n\x0c\x43laimPoolREQ\x12\x0f\n\x07\x63lub_id\x18\x01 \x01(\x03\x12\'\n\x0f\x63laim_pool_type\x18\x02 \x01(\x0e\x32\x0e.pb.RebateType\"0\n\x0c\x43laimPoolRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x12\n\nclaim_pool\x18\x02 \x01(\x03*2\n\x0cRebateStatus\x12\x16\n\tUNDEFINED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\n\n\x06NORMAL\x10\x00\x42\x07Z\x05../pb')
   ,
   dependencies=[rebate__base__pb2.DESCRIPTOR,])
 
@@ -62,14 +62,14 @@ _GETUSERRBSTATUSREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='uid', full_name='pb.GetUserRBStatusREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='timezone', full_name='pb.GetUserRBStatusREQ.timezone', index=1,
-      number=2, type=5, cpp_type=1, label=2,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -100,7 +100,7 @@ _GETUSERRBSTATUSRSP = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='status', full_name='pb.GetUserRBStatusRSP.status', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=-1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -267,21 +267,21 @@ _GETUSERRBRECORDREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='uid', full_name='pb.GetUserRBRecordREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='start_date', full_name='pb.GetUserRBRecordREQ.start_date', index=1,
-      number=2, type=5, cpp_type=1, label=2,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='end_date', full_name='pb.GetUserRBRecordREQ.end_date', index=2,
-      number=3, type=5, cpp_type=1, label=2,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -295,7 +295,7 @@ _GETUSERRBRECORDREQ = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='timezone', full_name='pb.GetUserRBRecordREQ.timezone', index=4,
-      number=5, type=5, cpp_type=1, label=2,
+      number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

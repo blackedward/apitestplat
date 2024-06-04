@@ -19,55 +19,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0cleague.proto\x12\x02pb\"F\n\x10LeagueMemberInfo\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08\x63lubname\x18\x02 \x01(\t\x12\x10\n\x08\x63lubicon\x18\x03 \x01(\t\"\x11\n\x0fJoinWaitListREQ\"A\n\x0fJoinWaitListRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0e\n\x06result\x18\x03 \x01(\x05\"\x12\n\x10LeaveWaitListREQ\"2\n\x10LeaveWaitListRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06result\x18\x02 \x01(\x05\"\x1e\n\x0cWaitListUser\x12\x0e\n\x06userid\x18\x01 \x01(\x03\"B\n\x0fWaitListInfoBRC\x12\x1f\n\x05users\x18\x01 \x03(\x0b\x32\x10.pb.WaitListUser\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"\xe3\x01\n\x10WaitListSeatInfo\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x0e\n\x06seatid\x18\x06 \x01(\x05\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x14\n\x0cmain_bet_min\x18\x0b \x01(\x03\x12\x14\n\x0cmain_bet_max\x18\x0c \x01(\x03\"\x15\n\x13WaitListSeatInfoREQ\">\n\x13WaitListSeatInfoRSP\x12\'\n\tinfo_list\x18\x01 \x03(\x0b\x32\x14.pb.WaitListSeatInfo\"\"\n\x10RefuseSitDownREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\x12\n\x10RefuseSitDownRSP\"7\n\x10RoomAuthorityBRC\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x11\n\tauthority\x18\x02 \x01(\x05\"A\n\x0fLeagueUpdateBRC\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0cleague.proto\x12\x02pb\"\x11\n\x0fJoinWaitListREQ\"A\n\x0fJoinWaitListRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0e\n\x06result\x18\x03 \x01(\x05\"\x12\n\x10LeaveWaitListREQ\"2\n\x10LeaveWaitListRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0e\n\x06result\x18\x02 \x01(\x05\"\x1e\n\x0cWaitListUser\x12\x0e\n\x06userid\x18\x01 \x01(\x03\"B\n\x0fWaitListInfoBRC\x12\x1f\n\x05users\x18\x01 \x03(\x0b\x32\x10.pb.WaitListUser\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"\xe3\x01\n\x10WaitListSeatInfo\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x0e\n\x06seatid\x18\x06 \x01(\x05\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x14\n\x0cmain_bet_min\x18\x0b \x01(\x03\x12\x14\n\x0cmain_bet_max\x18\x0c \x01(\x03\"\x15\n\x13WaitListSeatInfoREQ\">\n\x13WaitListSeatInfoRSP\x12\'\n\tinfo_list\x18\x01 \x03(\x0b\x32\x14.pb.WaitListSeatInfo\"\"\n\x10RefuseSitDownREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\x12\n\x10RefuseSitDownRSP\"7\n\x10RoomAuthorityBRC\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x11\n\tauthority\x18\x02 \x01(\x05\"A\n\x0fLeagueUpdateBRC\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x42\x07Z\x05../pb')
 )
 
 
-
-
-_LEAGUEMEMBERINFO = _descriptor.Descriptor(
-  name='LeagueMemberInfo',
-  full_name='pb.LeagueMemberInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='clubid', full_name='pb.LeagueMemberInfo.clubid', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='clubname', full_name='pb.LeagueMemberInfo.clubname', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='clubicon', full_name='pb.LeagueMemberInfo.clubicon', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=20,
-  serialized_end=90,
-)
 
 
 _JOINWAITLISTREQ = _descriptor.Descriptor(
@@ -89,8 +44,8 @@ _JOINWAITLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=109,
+  serialized_start=20,
+  serialized_end=37,
 )
 
 
@@ -134,8 +89,8 @@ _JOINWAITLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=111,
-  serialized_end=176,
+  serialized_start=39,
+  serialized_end=104,
 )
 
 
@@ -158,8 +113,8 @@ _LEAVEWAITLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=178,
-  serialized_end=196,
+  serialized_start=106,
+  serialized_end=124,
 )
 
 
@@ -196,8 +151,8 @@ _LEAVEWAITLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=198,
-  serialized_end=248,
+  serialized_start=126,
+  serialized_end=176,
 )
 
 
@@ -227,8 +182,8 @@ _WAITLISTUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=250,
-  serialized_end=280,
+  serialized_start=178,
+  serialized_end=208,
 )
 
 
@@ -265,8 +220,8 @@ _WAITLISTINFOBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=282,
-  serialized_end=348,
+  serialized_start=210,
+  serialized_end=276,
 )
 
 
@@ -373,8 +328,8 @@ _WAITLISTSEATINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=351,
-  serialized_end=578,
+  serialized_start=279,
+  serialized_end=506,
 )
 
 
@@ -397,8 +352,8 @@ _WAITLISTSEATINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=580,
-  serialized_end=601,
+  serialized_start=508,
+  serialized_end=529,
 )
 
 
@@ -428,8 +383,8 @@ _WAITLISTSEATINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=603,
-  serialized_end=665,
+  serialized_start=531,
+  serialized_end=593,
 )
 
 
@@ -459,8 +414,8 @@ _REFUSESITDOWNREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=667,
-  serialized_end=701,
+  serialized_start=595,
+  serialized_end=629,
 )
 
 
@@ -483,8 +438,8 @@ _REFUSESITDOWNRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=703,
-  serialized_end=721,
+  serialized_start=631,
+  serialized_end=649,
 )
 
 
@@ -521,8 +476,8 @@ _ROOMAUTHORITYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=723,
-  serialized_end=778,
+  serialized_start=651,
+  serialized_end=706,
 )
 
 
@@ -566,13 +521,12 @@ _LEAGUEUPDATEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=780,
-  serialized_end=845,
+  serialized_start=708,
+  serialized_end=773,
 )
 
 _WAITLISTINFOBRC.fields_by_name['users'].message_type = _WAITLISTUSER
 _WAITLISTSEATINFORSP.fields_by_name['info_list'].message_type = _WAITLISTSEATINFO
-DESCRIPTOR.message_types_by_name['LeagueMemberInfo'] = _LEAGUEMEMBERINFO
 DESCRIPTOR.message_types_by_name['JoinWaitListREQ'] = _JOINWAITLISTREQ
 DESCRIPTOR.message_types_by_name['JoinWaitListRSP'] = _JOINWAITLISTRSP
 DESCRIPTOR.message_types_by_name['LeaveWaitListREQ'] = _LEAVEWAITLISTREQ
@@ -587,13 +541,6 @@ DESCRIPTOR.message_types_by_name['RefuseSitDownRSP'] = _REFUSESITDOWNRSP
 DESCRIPTOR.message_types_by_name['RoomAuthorityBRC'] = _ROOMAUTHORITYBRC
 DESCRIPTOR.message_types_by_name['LeagueUpdateBRC'] = _LEAGUEUPDATEBRC
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-LeagueMemberInfo = _reflection.GeneratedProtocolMessageType('LeagueMemberInfo', (_message.Message,), dict(
-  DESCRIPTOR = _LEAGUEMEMBERINFO,
-  __module__ = 'league_pb2'
-  # @@protoc_insertion_point(class_scope:pb.LeagueMemberInfo)
-  ))
-_sym_db.RegisterMessage(LeagueMemberInfo)
 
 JoinWaitListREQ = _reflection.GeneratedProtocolMessageType('JoinWaitListREQ', (_message.Message,), dict(
   DESCRIPTOR = _JOINWAITLISTREQ,

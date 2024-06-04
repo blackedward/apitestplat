@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0b\x63lub3.proto\x12\x02pb\x1a\x0b\x63lub1.proto\"4\n\x10NewPPCoinFlowREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\"B\n\x10NewPPCoinFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\"\xd2\x01\n\x0e\x43lubRoomFilter\x12-\n\troom_type\x18\x01 \x01(\x0e\x32\x1a.pb.ClubRoomFilterRoomType\x12\x17\n\x0fis_exclude_full\x18\x02 \x01(\x08\x12\x12\n\nis_playing\x18\x03 \x01(\x08\x12\x19\n\x11include_trophy_id\x18\x04 \x01(\x03\x12\'\n\x1finclude_annual_achievement_type\x18\x05 \x01(\x05\x12 \n\x18leaderboard_activity_key\x18\x06 \x01(\t\"d\n\x0b\x43lubRoomREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x08leagueid\x18\x02 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\"\n\x06\x66ilter\x18\x04 \x01(\x0b\x32\x12.pb.ClubRoomFilter\"\xc6\x01\n\x0b\x43lubRoomRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12\x19\n\x11include_trophy_id\x18\x05 \x01(\x03\x12\'\n\x1finclude_annual_achievement_type\x18\x06 \x01(\x05\x12 \n\x18leaderboard_activity_key\x18\x07 \x01(\t\"G\n\x12RegistedMttRoomREQ\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"g\n\x12RegistedMttRoomRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\"e\n\x19GetItemJoinableMttListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x08leagueid\x18\x02 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x15\n\ritem_class_id\x18\x04 \x01(\x03\"\x85\x01\n\x19GetItemJoinableMttListRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12\x15\n\ritem_class_id\x18\x05 \x01(\x03\"f\n\x1bGetItemSignupableMttListREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\"\x86\x01\n\x1bGetItemSignupableMttListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x17\n\x0fitem_class_name\x18\x05 \x01(\t\"n\n\x1aSetClubMemberRebateRateREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x0btarget_uids\x18\x02 \x03(\x03\x12\x13\n\x0brebate_rate\x18\x03 \x01(\x05\x12\x16\n\nagent_rate\x18\x04 \x01(\x05:\x02-1\"\xa2\x02\n\x1dSetClubMemberRebateRateResult\x12\x46\n\x04\x63ode\x18\x01 \x01(\x0e\x32,.pb.SetClubMemberRebateRateResult.ResultCode:\nparam_fail\x12\x12\n\ntarget_uid\x18\x02 \x01(\x03\x12\x13\n\x0brebate_rate\x18\x03 \x01(\x05\x12\x12\n\nagent_rate\x18\x04 \x01(\x05\"|\n\nResultCode\x12\x0b\n\x07success\x10\x00\x12\x17\n\nparam_fail\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x08sys_fail\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1a\n\rno_permission\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x08kyc_fail\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\xda\x02\n\x1aSetClubMemberRebateRateRSP\x12G\n\x04\x63ode\x18\x01 \x01(\x0e\x32).pb.SetClubMemberRebateRateRSP.ResultCode:\nparam_failB\x02\x18\x01\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x14\n\x0ckyc_fail_uid\x18\x03 \x01(\x03\x12\x1b\n\x13kyc_failed_nickname\x18\x04 \x01(\t\x12\x32\n\x07results\x18\x05 \x03(\x0b\x32!.pb.SetClubMemberRebateRateResult\"|\n\nResultCode\x12\x0b\n\x07success\x10\x00\x12\x17\n\nparam_fail\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x08sys_fail\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1a\n\rno_permission\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x15\n\x08kyc_fail\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x9e\x01\n\x16GetClubRebateRecordREQ\x12\x12\n\nstart_time\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0bstart_index\x18\x05 \x01(\x05:\x01\x31\x12\x12\n\nstart_date\x18\x06 \x01(\x05\x12\x10\n\x08\x65nd_date\x18\x07 \x01(\x05\"I\n\x0cRebateRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\"\x9a\x01\n\x16GetClubRebateRecordRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12 \n\x06record\x18\x03 \x03(\x0b\x32\x10.pb.RebateRecord\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\x12\x11\n\ttotal_num\x18\x05 \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x06 \x01(\x03\"\x18\n\x16GetUserRebateStatusREQ\"(\n\x16GetUserRebateStatusRSP\x12\x0e\n\x06status\x18\x01 \x01(\x08\",\n\x1aInvitationCodeGeneratorREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"i\n\x1aInvitationCodeGeneratorRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0finvitation_code\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x14\n\x0cis_need_cost\x18\x04 \x01(\x08\"1\n\x16\x43heckInvitationCodeREQ\x12\x17\n\x0finvitation_code\x18\x01 \x01(\t\"&\n\x16\x43heckInvitationCodeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"T\n\x17\x43hangeInvitationCodeREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x17\n\x0finvitation_code\x18\x03 \x01(\t\"\'\n\x17\x43hangeInvitationCodeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x9f\x01\n\x14\x43lubAgentUserListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tagent_uid\x18\x02 \x01(\x03\x12\x16\n\x0bmember_type\x18\x03 \x01(\x03:\x01\x30\x12\x10\n\x05start\x18\x04 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x05 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x07 \x01(\t:\x00\"\xca\x01\n\x14\x43lubAgentUserListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\x12\x15\n\ragent_members\x18\x04 \x03(\x03\x12\x15\n\rother_members\x18\x05 \x03(\x03\x12\"\n\x06member\x18\x06 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x1d\n\x12total_member_count\x18\x07 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x08 \x01(\x05:\x01\x31\"^\n\x1cNotifyClubRebateRateLevelRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x0brebate_rate\x18\x02 \x01(\x05\x12\x19\n\x11\x61gent_rebate_rate\x18\x03 \x01(\x05\"%\n\x13SearchClubMemberREQ\x12\x0e\n\x06search\x18\x01 \x01(\t\"9\n\x13SearchClubMemberRSP\x12\"\n\x06member\x18\x01 \x03(\x0b\x32\x12.pb.ClubMemberInfo\"d\n\x0fSendUserItemREQ\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x1d\n\x15item_name_description\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x0c\n\x04uids\x18\x04 \x03(\x03\"8\n\x0fSendUserItemRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\"\x11\n\x0fUserItemFlowREQ\"\x86\x01\n\x10UserItemFlowInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x10\n\x08\x66rom_uid\x18\x06 \x01(\x03\x12\x11\n\tfrom_name\x18\x07 \x01(\t\"C\n\x0fUserItemFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x04info\x18\x02 \x03(\x0b\x32\x14.pb.UserItemFlowInfo\"\x9e\x02\n\x18\x41\x64minCounterTransferInfo\x12\x0e\n\x06to_uid\x18\x01 \x01(\x03\x12\x0f\n\x07to_name\x18\x02 \x01(\t\x12\r\n\x05money\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x16\n\x0eitem_class_num\x18\x05 \x01(\x05\x12\x0c\n\x04time\x18\x06 \x01(\x03\x12\x1b\n\x13\x62lind_coin_class_id\x18\x07 \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\x08 \x01(\t\x12\x1b\n\x13\x62lind_balance_value\x18\t \x01(\x03\x12\r\n\x05point\x18\n \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x0b \x01(\x03\x12\x12\n\nfree_chips\x18\x0c \x01(\x03\"\x1d\n\x1b\x41\x64minCounterTransferFlowREQ\"W\n\x1b\x41\x64minCounterTransferFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12*\n\x04info\x18\x02 \x03(\x0b\x32\x1c.pb.AdminCounterTransferInfo*\xf7\x03\n\x16\x43lubRoomFilterRoomType\x12#\n\x1f\x43LUB_ROOM_FILTER_ROOM_TYPE_NONE\x10\x00\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_NLH\x10\x01\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_PLO\x10\x02\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_OFC\x10\x03\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_SNG\x10\x04\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_MTT\x10\x05\x12%\n!CLUB_ROOM_FILTER_ROOM_TYPE_SPINUP\x10\x06\x12)\n%CLUB_ROOM_FILTER_ROOM_TYPE_NLH_6_PLUS\x10\x07\x12)\n%CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD\x10\x08\x12-\n)CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD_PLO\x10\t\x12.\n*CLUB_ROOM_FILTER_ROOM_TYPE_SHARK_KING_FLIP\x10\n\x12(\n$CLUB_ROOM_FILTER_ROOM_TYPE_BLACKJACK\x10\x0b\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0b\x63lub3.proto\x12\x02pb\x1a\x0b\x63lub1.proto\"4\n\x10NewPPCoinFlowREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\"B\n\x10NewPPCoinFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\"\xd2\x01\n\x0e\x43lubRoomFilter\x12-\n\troom_type\x18\x01 \x01(\x0e\x32\x1a.pb.ClubRoomFilterRoomType\x12\x17\n\x0fis_exclude_full\x18\x02 \x01(\x08\x12\x12\n\nis_playing\x18\x03 \x01(\x08\x12\x19\n\x11include_trophy_id\x18\x04 \x01(\x03\x12\'\n\x1finclude_annual_achievement_type\x18\x05 \x01(\x05\x12 \n\x18leaderboard_activity_key\x18\x06 \x01(\t\"d\n\x0b\x43lubRoomREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x08leagueid\x18\x02 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\"\n\x06\x66ilter\x18\x04 \x01(\x0b\x32\x12.pb.ClubRoomFilter\"\xc6\x01\n\x0b\x43lubRoomRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12\x19\n\x11include_trophy_id\x18\x05 \x01(\x03\x12\'\n\x1finclude_annual_achievement_type\x18\x06 \x01(\x05\x12 \n\x18leaderboard_activity_key\x18\x07 \x01(\t\"G\n\x12RegistedMttRoomREQ\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"g\n\x12RegistedMttRoomRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\"e\n\x19GetItemJoinableMttListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x08leagueid\x18\x02 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x15\n\ritem_class_id\x18\x04 \x01(\x03\"\x85\x01\n\x19GetItemJoinableMttListRSP\x12\x13\n\x08leagueid\x18\x01 \x01(\x05:\x01\x30\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12\x15\n\ritem_class_id\x18\x05 \x01(\x03\"f\n\x1bGetItemSignupableMttListREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\"\x86\x01\n\x1bGetItemSignupableMttListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x17\n\x0fitem_class_name\x18\x05 \x01(\t\"n\n\x1aSetClubMemberRebateRateREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x0btarget_uids\x18\x02 \x03(\x03\x12\x13\n\x0brebate_rate\x18\x03 \x01(\x05\x12\x16\n\nagent_rate\x18\x04 \x01(\x05:\x02-1\"\xd2\x01\n\x1dSetClubMemberRebateRateResult\x12t\n\x04\x63ode\x18\x01 \x01(\x0e\x32+.pb.SetClubMemberRebateRateResultResultCode:9SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_PARAM_FAIL\x12\x12\n\ntarget_uid\x18\x02 \x01(\x03\x12\x13\n\x0brebate_rate\x18\x03 \x01(\x05\x12\x12\n\nagent_rate\x18\x04 \x01(\x05\"\x86\x02\n\x1aSetClubMemberRebateRateRSP\x12q\n\x04\x63ode\x18\x01 \x01(\x0e\x32(.pb.SetClubMemberRebateRateRSPResultCode:5SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_PARAM_FAILB\x02\x18\x01\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x14\n\x0ckyc_fail_uid\x18\x03 \x01(\x03\x12\x1b\n\x13kyc_failed_nickname\x18\x04 \x01(\t\x12\x32\n\x07results\x18\x05 \x03(\x0b\x32!.pb.SetClubMemberRebateRateResult\"\x9e\x01\n\x16GetClubRebateRecordREQ\x12\x12\n\nstart_time\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\x12\x16\n\x0bstart_index\x18\x05 \x01(\x05:\x01\x31\x12\x12\n\nstart_date\x18\x06 \x01(\x05\x12\x10\n\x08\x65nd_date\x18\x07 \x01(\x05\"I\n\x0cRebateRecord\x12\r\n\x05setid\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0e\n\x06rebate\x18\x04 \x01(\x03\"\x9a\x01\n\x16GetClubRebateRecordRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12 \n\x06record\x18\x03 \x03(\x0b\x32\x10.pb.RebateRecord\x12\x13\n\x0bstart_index\x18\x04 \x01(\x05\x12\x11\n\ttotal_num\x18\x05 \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x06 \x01(\x03\"\x18\n\x16GetUserRebateStatusREQ\"(\n\x16GetUserRebateStatusRSP\x12\x0e\n\x06status\x18\x01 \x01(\x08\",\n\x1aInvitationCodeGeneratorREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\"i\n\x1aInvitationCodeGeneratorRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0finvitation_code\x18\x02 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x14\n\x0cis_need_cost\x18\x04 \x01(\x08\"1\n\x16\x43heckInvitationCodeREQ\x12\x17\n\x0finvitation_code\x18\x01 \x01(\t\"&\n\x16\x43heckInvitationCodeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"T\n\x17\x43hangeInvitationCodeREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x17\n\x0finvitation_code\x18\x03 \x01(\t\"\'\n\x17\x43hangeInvitationCodeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x9f\x01\n\x14\x43lubAgentUserListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tagent_uid\x18\x02 \x01(\x03\x12\x16\n\x0bmember_type\x18\x03 \x01(\x03:\x01\x30\x12\x10\n\x05start\x18\x04 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x05 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x07 \x01(\t:\x00\"\xca\x01\n\x14\x43lubAgentUserListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x11\n\tagent_uid\x18\x03 \x01(\x03\x12\x15\n\ragent_members\x18\x04 \x03(\x03\x12\x15\n\rother_members\x18\x05 \x03(\x03\x12\"\n\x06member\x18\x06 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x1d\n\x12total_member_count\x18\x07 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x08 \x01(\x05:\x01\x31\"^\n\x1cNotifyClubRebateRateLevelRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x0brebate_rate\x18\x02 \x01(\x05\x12\x19\n\x11\x61gent_rebate_rate\x18\x03 \x01(\x05\"d\n\x0fSendUserItemREQ\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x1d\n\x15item_name_description\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x0c\n\x04uids\x18\x04 \x03(\x03\"8\n\x0fSendUserItemRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\"\x11\n\x0fUserItemFlowREQ\"\x86\x01\n\x10UserItemFlowInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x10\n\x08\x66rom_uid\x18\x06 \x01(\x03\x12\x11\n\tfrom_name\x18\x07 \x01(\t\"C\n\x0fUserItemFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x04info\x18\x02 \x03(\x0b\x32\x14.pb.UserItemFlowInfo\"\xc5\x01\n\x18\x41\x64minCounterTransferInfo\x12\x0e\n\x06to_uid\x18\x01 \x01(\x03\x12\x0f\n\x07to_name\x18\x02 \x01(\t\x12\r\n\x05money\x18\x03 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x16\n\x0eitem_class_num\x18\x05 \x01(\x05\x12\x0c\n\x04time\x18\x06 \x01(\x03\x12\r\n\x05point\x18\n \x01(\x03\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x0b \x01(\x03\x12\x12\n\nfree_chips\x18\x0c \x01(\x03\"\x1d\n\x1b\x41\x64minCounterTransferFlowREQ\"W\n\x1b\x41\x64minCounterTransferFlowRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12*\n\x04info\x18\x02 \x03(\x0b\x32\x1c.pb.AdminCounterTransferInfo*\xf7\x03\n\x16\x43lubRoomFilterRoomType\x12#\n\x1f\x43LUB_ROOM_FILTER_ROOM_TYPE_NONE\x10\x00\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_NLH\x10\x01\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_PLO\x10\x02\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_OFC\x10\x03\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_SNG\x10\x04\x12\"\n\x1e\x43LUB_ROOM_FILTER_ROOM_TYPE_MTT\x10\x05\x12%\n!CLUB_ROOM_FILTER_ROOM_TYPE_SPINUP\x10\x06\x12)\n%CLUB_ROOM_FILTER_ROOM_TYPE_NLH_6_PLUS\x10\x07\x12)\n%CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD\x10\x08\x12-\n)CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD_PLO\x10\t\x12.\n*CLUB_ROOM_FILTER_ROOM_TYPE_SHARK_KING_FLIP\x10\n\x12(\n$CLUB_ROOM_FILTER_ROOM_TYPE_BLACKJACK\x10\x0b*\x84\x03\n\'SetClubMemberRebateRateResultResultCode\x12:\n6SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SUCCESS\x10\x00\x12\x46\n9SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_PARAM_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x44\n7SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SYS_FAIL\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12I\n<SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_NO_PERMISSION\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x44\n7SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_KYC_FAIL\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xed\x02\n$SetClubMemberRebateRateRSPResultCode\x12\x36\n2SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SUCCESS\x10\x00\x12\x42\n5SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_PARAM_FAIL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12@\n3SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SYS_FAIL\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x45\n8SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_NO_PERMISSION\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12@\n3SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_KYC_FAIL\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[club1__pb2.DESCRIPTOR,])
 
@@ -82,12 +82,82 @@ _CLUBROOMFILTERROOMTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4270,
-  serialized_end=4773,
+  serialized_start=3919,
+  serialized_end=4422,
 )
 _sym_db.RegisterEnumDescriptor(_CLUBROOMFILTERROOMTYPE)
 
 ClubRoomFilterRoomType = enum_type_wrapper.EnumTypeWrapper(_CLUBROOMFILTERROOMTYPE)
+_SETCLUBMEMBERREBATERATERESULTRESULTCODE = _descriptor.EnumDescriptor(
+  name='SetClubMemberRebateRateResultResultCode',
+  full_name='pb.SetClubMemberRebateRateResultResultCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_PARAM_FAIL', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SYS_FAIL', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_NO_PERMISSION', index=3, number=-3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_KYC_FAIL', index=4, number=-4,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4425,
+  serialized_end=4813,
+)
+_sym_db.RegisterEnumDescriptor(_SETCLUBMEMBERREBATERATERESULTRESULTCODE)
+
+SetClubMemberRebateRateResultResultCode = enum_type_wrapper.EnumTypeWrapper(_SETCLUBMEMBERREBATERATERESULTRESULTCODE)
+_SETCLUBMEMBERREBATERATERSPRESULTCODE = _descriptor.EnumDescriptor(
+  name='SetClubMemberRebateRateRSPResultCode',
+  full_name='pb.SetClubMemberRebateRateRSPResultCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_PARAM_FAIL', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SYS_FAIL', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_NO_PERMISSION', index=3, number=-3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_KYC_FAIL', index=4, number=-4,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4816,
+  serialized_end=5181,
+)
+_sym_db.RegisterEnumDescriptor(_SETCLUBMEMBERREBATERATERSPRESULTCODE)
+
+SetClubMemberRebateRateRSPResultCode = enum_type_wrapper.EnumTypeWrapper(_SETCLUBMEMBERREBATERATERSPRESULTCODE)
 CLUB_ROOM_FILTER_ROOM_TYPE_NONE = 0
 CLUB_ROOM_FILTER_ROOM_TYPE_NLH = 1
 CLUB_ROOM_FILTER_ROOM_TYPE_PLO = 2
@@ -100,75 +170,17 @@ CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD = 8
 CLUB_ROOM_FILTER_ROOM_TYPE_ALLIN_FOLD_PLO = 9
 CLUB_ROOM_FILTER_ROOM_TYPE_SHARK_KING_FLIP = 10
 CLUB_ROOM_FILTER_ROOM_TYPE_BLACKJACK = 11
+SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SUCCESS = 0
+SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_PARAM_FAIL = -1
+SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_SYS_FAIL = -2
+SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_NO_PERMISSION = -3
+SET_CLUB_MEMBER_REBATE_RATE_RESULT_RESULT_CODE_KYC_FAIL = -4
+SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SUCCESS = 0
+SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_PARAM_FAIL = -1
+SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_SYS_FAIL = -2
+SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_NO_PERMISSION = -3
+SET_CLUB_MEMBER_REBATE_RATE_RSPRESULT_CODE_KYC_FAIL = -4
 
-
-_SETCLUBMEMBERREBATERATERESULT_RESULTCODE = _descriptor.EnumDescriptor(
-  name='ResultCode',
-  full_name='pb.SetClubMemberRebateRateResult.ResultCode',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='success', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='param_fail', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='sys_fail', index=2, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='no_permission', index=3, number=-3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='kyc_fail', index=4, number=-4,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1607,
-  serialized_end=1731,
-)
-_sym_db.RegisterEnumDescriptor(_SETCLUBMEMBERREBATERATERESULT_RESULTCODE)
-
-_SETCLUBMEMBERREBATERATERSP_RESULTCODE = _descriptor.EnumDescriptor(
-  name='ResultCode',
-  full_name='pb.SetClubMemberRebateRateRSP.ResultCode',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='success', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='param_fail', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='sys_fail', index=2, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='no_permission', index=3, number=-3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='kyc_fail', index=4, number=-4,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1607,
-  serialized_end=1731,
-)
-_sym_db.RegisterEnumDescriptor(_SETCLUBMEMBERREBATERATERSP_RESULTCODE)
 
 
 _NEWPPCOINFLOWREQ = _descriptor.Descriptor(
@@ -856,7 +868,6 @@ _SETCLUBMEMBERREBATERATERESULT = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SETCLUBMEMBERREBATERATERESULT_RESULTCODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -865,7 +876,7 @@ _SETCLUBMEMBERREBATERATERESULT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1441,
-  serialized_end=1731,
+  serialized_end=1651,
 )
 
 
@@ -916,7 +927,6 @@ _SETCLUBMEMBERREBATERATERSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SETCLUBMEMBERREBATERATERSP_RESULTCODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -924,8 +934,8 @@ _SETCLUBMEMBERREBATERATERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1734,
-  serialized_end=2080,
+  serialized_start=1654,
+  serialized_end=1916,
 )
 
 
@@ -997,8 +1007,8 @@ _GETCLUBREBATERECORDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2083,
-  serialized_end=2241,
+  serialized_start=1919,
+  serialized_end=2077,
 )
 
 
@@ -1049,8 +1059,8 @@ _REBATERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2243,
-  serialized_end=2316,
+  serialized_start=2079,
+  serialized_end=2152,
 )
 
 
@@ -1115,8 +1125,8 @@ _GETCLUBREBATERECORDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2319,
-  serialized_end=2473,
+  serialized_start=2155,
+  serialized_end=2309,
 )
 
 
@@ -1139,8 +1149,8 @@ _GETUSERREBATESTATUSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2475,
-  serialized_end=2499,
+  serialized_start=2311,
+  serialized_end=2335,
 )
 
 
@@ -1170,8 +1180,8 @@ _GETUSERREBATESTATUSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2501,
-  serialized_end=2541,
+  serialized_start=2337,
+  serialized_end=2377,
 )
 
 
@@ -1201,8 +1211,8 @@ _INVITATIONCODEGENERATORREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2543,
-  serialized_end=2587,
+  serialized_start=2379,
+  serialized_end=2423,
 )
 
 
@@ -1253,8 +1263,8 @@ _INVITATIONCODEGENERATORRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2589,
-  serialized_end=2694,
+  serialized_start=2425,
+  serialized_end=2530,
 )
 
 
@@ -1284,8 +1294,8 @@ _CHECKINVITATIONCODEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2696,
-  serialized_end=2745,
+  serialized_start=2532,
+  serialized_end=2581,
 )
 
 
@@ -1315,8 +1325,8 @@ _CHECKINVITATIONCODERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2747,
-  serialized_end=2785,
+  serialized_start=2583,
+  serialized_end=2621,
 )
 
 
@@ -1360,8 +1370,8 @@ _CHANGEINVITATIONCODEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2787,
-  serialized_end=2871,
+  serialized_start=2623,
+  serialized_end=2707,
 )
 
 
@@ -1391,8 +1401,8 @@ _CHANGEINVITATIONCODERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2873,
-  serialized_end=2912,
+  serialized_start=2709,
+  serialized_end=2748,
 )
 
 
@@ -1464,8 +1474,8 @@ _CLUBAGENTUSERLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2915,
-  serialized_end=3074,
+  serialized_start=2751,
+  serialized_end=2910,
 )
 
 
@@ -1544,8 +1554,8 @@ _CLUBAGENTUSERLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3077,
-  serialized_end=3279,
+  serialized_start=2913,
+  serialized_end=3115,
 )
 
 
@@ -1589,70 +1599,8 @@ _NOTIFYCLUBREBATERATELEVELRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3281,
-  serialized_end=3375,
-)
-
-
-_SEARCHCLUBMEMBERREQ = _descriptor.Descriptor(
-  name='SearchClubMemberREQ',
-  full_name='pb.SearchClubMemberREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='search', full_name='pb.SearchClubMemberREQ.search', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3377,
-  serialized_end=3414,
-)
-
-
-_SEARCHCLUBMEMBERRSP = _descriptor.Descriptor(
-  name='SearchClubMemberRSP',
-  full_name='pb.SearchClubMemberRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='member', full_name='pb.SearchClubMemberRSP.member', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3416,
-  serialized_end=3473,
+  serialized_start=3117,
+  serialized_end=3211,
 )
 
 
@@ -1703,8 +1651,8 @@ _SENDUSERITEMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3475,
-  serialized_end=3575,
+  serialized_start=3213,
+  serialized_end=3313,
 )
 
 
@@ -1741,8 +1689,8 @@ _SENDUSERITEMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3577,
-  serialized_end=3633,
+  serialized_start=3315,
+  serialized_end=3371,
 )
 
 
@@ -1765,8 +1713,8 @@ _USERITEMFLOWREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3635,
-  serialized_end=3652,
+  serialized_start=3373,
+  serialized_end=3390,
 )
 
 
@@ -1838,8 +1786,8 @@ _USERITEMFLOWINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3655,
-  serialized_end=3789,
+  serialized_start=3393,
+  serialized_end=3527,
 )
 
 
@@ -1876,8 +1824,8 @@ _USERITEMFLOWRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3791,
-  serialized_end=3858,
+  serialized_start=3529,
+  serialized_end=3596,
 )
 
 
@@ -1931,42 +1879,21 @@ _ADMINCOUNTERTRANSFERINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.AdminCounterTransferInfo.blind_coin_class_id', index=6,
-      number=7, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.AdminCounterTransferInfo.blind_coin_class_name', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_balance_value', full_name='pb.AdminCounterTransferInfo.blind_balance_value', index=8,
-      number=9, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='point', full_name='pb.AdminCounterTransferInfo.point', index=9,
+      name='point', full_name='pb.AdminCounterTransferInfo.point', index=6,
       number=10, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash_back_quota', full_name='pb.AdminCounterTransferInfo.cash_back_quota', index=10,
+      name='cash_back_quota', full_name='pb.AdminCounterTransferInfo.cash_back_quota', index=7,
       number=11, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='free_chips', full_name='pb.AdminCounterTransferInfo.free_chips', index=11,
+      name='free_chips', full_name='pb.AdminCounterTransferInfo.free_chips', index=8,
       number=12, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1984,8 +1911,8 @@ _ADMINCOUNTERTRANSFERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3861,
-  serialized_end=4147,
+  serialized_start=3599,
+  serialized_end=3796,
 )
 
 
@@ -2008,8 +1935,8 @@ _ADMINCOUNTERTRANSFERFLOWREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4149,
-  serialized_end=4178,
+  serialized_start=3798,
+  serialized_end=3827,
 )
 
 
@@ -2046,8 +1973,8 @@ _ADMINCOUNTERTRANSFERFLOWRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4180,
-  serialized_end=4267,
+  serialized_start=3829,
+  serialized_end=3916,
 )
 
 _CLUBROOMFILTER.fields_by_name['room_type'].enum_type = _CLUBROOMFILTERROOMTYPE
@@ -2056,14 +1983,11 @@ _CLUBROOMRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
 _REGISTEDMTTROOMRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
 _GETITEMJOINABLEMTTLISTRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
 _GETITEMSIGNUPABLEMTTLISTRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
-_SETCLUBMEMBERREBATERATERESULT.fields_by_name['code'].enum_type = _SETCLUBMEMBERREBATERATERESULT_RESULTCODE
-_SETCLUBMEMBERREBATERATERESULT_RESULTCODE.containing_type = _SETCLUBMEMBERREBATERATERESULT
-_SETCLUBMEMBERREBATERATERSP.fields_by_name['code'].enum_type = _SETCLUBMEMBERREBATERATERSP_RESULTCODE
+_SETCLUBMEMBERREBATERATERESULT.fields_by_name['code'].enum_type = _SETCLUBMEMBERREBATERATERESULTRESULTCODE
+_SETCLUBMEMBERREBATERATERSP.fields_by_name['code'].enum_type = _SETCLUBMEMBERREBATERATERSPRESULTCODE
 _SETCLUBMEMBERREBATERATERSP.fields_by_name['results'].message_type = _SETCLUBMEMBERREBATERATERESULT
-_SETCLUBMEMBERREBATERATERSP_RESULTCODE.containing_type = _SETCLUBMEMBERREBATERATERSP
 _GETCLUBREBATERECORDRSP.fields_by_name['record'].message_type = _REBATERECORD
 _CLUBAGENTUSERLISTRSP.fields_by_name['member'].message_type = club1__pb2._CLUBMEMBERINFO
-_SEARCHCLUBMEMBERRSP.fields_by_name['member'].message_type = club1__pb2._CLUBMEMBERINFO
 _USERITEMFLOWRSP.fields_by_name['info'].message_type = _USERITEMFLOWINFO
 _ADMINCOUNTERTRANSFERFLOWRSP.fields_by_name['info'].message_type = _ADMINCOUNTERTRANSFERINFO
 DESCRIPTOR.message_types_by_name['NewPPCoinFlowREQ'] = _NEWPPCOINFLOWREQ
@@ -2094,8 +2018,6 @@ DESCRIPTOR.message_types_by_name['ChangeInvitationCodeRSP'] = _CHANGEINVITATIONC
 DESCRIPTOR.message_types_by_name['ClubAgentUserListREQ'] = _CLUBAGENTUSERLISTREQ
 DESCRIPTOR.message_types_by_name['ClubAgentUserListRSP'] = _CLUBAGENTUSERLISTRSP
 DESCRIPTOR.message_types_by_name['NotifyClubRebateRateLevelRSP'] = _NOTIFYCLUBREBATERATELEVELRSP
-DESCRIPTOR.message_types_by_name['SearchClubMemberREQ'] = _SEARCHCLUBMEMBERREQ
-DESCRIPTOR.message_types_by_name['SearchClubMemberRSP'] = _SEARCHCLUBMEMBERRSP
 DESCRIPTOR.message_types_by_name['SendUserItemREQ'] = _SENDUSERITEMREQ
 DESCRIPTOR.message_types_by_name['SendUserItemRSP'] = _SENDUSERITEMRSP
 DESCRIPTOR.message_types_by_name['UserItemFlowREQ'] = _USERITEMFLOWREQ
@@ -2105,6 +2027,8 @@ DESCRIPTOR.message_types_by_name['AdminCounterTransferInfo'] = _ADMINCOUNTERTRAN
 DESCRIPTOR.message_types_by_name['AdminCounterTransferFlowREQ'] = _ADMINCOUNTERTRANSFERFLOWREQ
 DESCRIPTOR.message_types_by_name['AdminCounterTransferFlowRSP'] = _ADMINCOUNTERTRANSFERFLOWRSP
 DESCRIPTOR.enum_types_by_name['ClubRoomFilterRoomType'] = _CLUBROOMFILTERROOMTYPE
+DESCRIPTOR.enum_types_by_name['SetClubMemberRebateRateResultResultCode'] = _SETCLUBMEMBERREBATERATERESULTRESULTCODE
+DESCRIPTOR.enum_types_by_name['SetClubMemberRebateRateRSPResultCode'] = _SETCLUBMEMBERREBATERATERSPRESULTCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 NewPPCoinFlowREQ = _reflection.GeneratedProtocolMessageType('NewPPCoinFlowREQ', (_message.Message,), dict(
@@ -2302,20 +2226,6 @@ NotifyClubRebateRateLevelRSP = _reflection.GeneratedProtocolMessageType('NotifyC
   # @@protoc_insertion_point(class_scope:pb.NotifyClubRebateRateLevelRSP)
   ))
 _sym_db.RegisterMessage(NotifyClubRebateRateLevelRSP)
-
-SearchClubMemberREQ = _reflection.GeneratedProtocolMessageType('SearchClubMemberREQ', (_message.Message,), dict(
-  DESCRIPTOR = _SEARCHCLUBMEMBERREQ,
-  __module__ = 'club3_pb2'
-  # @@protoc_insertion_point(class_scope:pb.SearchClubMemberREQ)
-  ))
-_sym_db.RegisterMessage(SearchClubMemberREQ)
-
-SearchClubMemberRSP = _reflection.GeneratedProtocolMessageType('SearchClubMemberRSP', (_message.Message,), dict(
-  DESCRIPTOR = _SEARCHCLUBMEMBERRSP,
-  __module__ = 'club3_pb2'
-  # @@protoc_insertion_point(class_scope:pb.SearchClubMemberRSP)
-  ))
-_sym_db.RegisterMessage(SearchClubMemberRSP)
 
 SendUserItemREQ = _reflection.GeneratedProtocolMessageType('SendUserItemREQ', (_message.Message,), dict(
   DESCRIPTOR = _SENDUSERITEMREQ,

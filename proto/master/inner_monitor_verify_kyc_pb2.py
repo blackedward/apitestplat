@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 
 import pre_base_pb2 as pre__base__pb2
 import base2_pb2 as base2__pb2
+import kyc_pb2 as kyc__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x1einner_monitor_verify_kyc.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\x0b\x62\x61se2.proto\"h\n\riVerifyKycREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12,\n\x10kyc_operate_type\x18\x02 \x01(\x0e\x32\x12.pb.KycOperateType\x12\x1c\n\x11kyc_operate_value\x18\x03 \x01(\x03:\x01\x30\"\xdf\x02\n\riVerifyKycRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x10\n\x08is_valid\x18\x02 \x01(\x08\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x33\n\x0cinvalid_type\x18\x04 \x01(\x0e\x32\x1d.pb.iVerifyKycRSP.InvalidType\"\xd8\x01\n\x0bInvalidType\x12\x18\n\x14INVALID_TYPE_DEFAULT\x10\x00\x12\x14\n\x10INVALID_TYPE_BAN\x10\x01\x12\x1e\n\x1aINVALID_TYPE_DEPOSIT_LIMIT\x10\x02\x12\x15\n\x11INVALID_TYPE_KYC2\x10\x03\x12\x15\n\x11INVALID_TYPE_KYC3\x10\x04\x12\x19\n\x15INVALID_TYPE_PLATFORM\x10\x05\x12\x30\n,INVALID_TYPE_CURACAO_KYC1_TRANSFER_OUT_LIMIT\x10\x06\"4\n\x12iVerifyKycBatchREQ\x12\x1e\n\x03req\x18\x01 \x03(\x0b\x32\x11.pb.iVerifyKycREQ\"w\n\x12iVerifyKycBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12)\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x1b.pb.iVerifyKycBatchRSP.Data\x1a\x18\n\x04\x44\x61ta\x12\x10\n\x08is_valid\x18\x01 \x01(\x08\"M\n\x12iKycSelfBanUserREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12*\n\x0b\x62\x61nned_type\x18\x02 \x02(\x0e\x32\x15.pb.KycSelfBannedType\"B\n\x12iKycSelfBanUserRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"O\n\x14iKycSelfUnbanUserREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\x12*\n\x0b\x62\x61nned_type\x18\x02 \x02(\x0e\x32\x15.pb.KycSelfBannedType\"D\n\x14iKycSelfUnbanUserRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t*\xa0\x04\n\x0eKycOperateType\x12\x12\n\x0eKYC_START_GAME\x10\x01\x12\x10\n\x0cKYC_WITHDRAW\x10\x02\x12\x0f\n\x0bKYC_DEPOSIT\x10\x03\x12\x14\n\x10KYC_BE_RB_OBJECT\x10\x04\x12\x14\n\x10KYC_TRANSFER_OUT\x10\x05\x12\x13\n\x0fKYC_TRANSFER_IN\x10\x06\x12\"\n\x1eKYC_FINISH_MISSION_UPLOAD_KYC1\x10\x07\x12\"\n\x1eKYC_FINISH_MISSION_VERIFY_KYC1\x10\x08\x12\"\n\x1eKYC_FINISH_MISSION_UPLOAD_KYC2\x10\t\x12\"\n\x1eKYC_FINISH_MISSION_VERIFY_KYC2\x10\n\x12\x16\n\x12KYC_EXCHANGE_POINT\x10\x0b\x12\x0e\n\nKYC_USE_PC\x10\x0c\x12\x1a\n\x16KYC_EXCHANGE_GIFT_CODE\x10\r\x12\x17\n\x13KYC_RETURN_ACTIVITY\x10\x0e\x12\x0f\n\x0bKYC_INVITE4\x10\x0f\x12\x18\n\x14KYC_TAKE_KYC2_ACTION\x10\x10\x12\x16\n\x12KYC_EAST_WEST_2023\x10\x11\x12!\n\x1dKYC_RING_GANE_AOF_SELF_BANNED\x10\x12\x12\x1d\n\x19KYC_CASINO_SK_SELF_BANNED\x10\x13\x12$\n KYC_CASINO_BLACKJACK_SELF_BANNED\x10\x14*\x8a\x01\n\x11KycSelfBannedType\x12&\n\"KYC_SELF_BANNED_TYPE_RING_GAME_AOF\x10\x01\x12\"\n\x1eKYC_SELF_BANNED_TYPE_CASINO_SK\x10\x02\x12)\n%KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x1einner_monitor_verify_kyc.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\x0b\x62\x61se2.proto\x1a\tkyc.proto\"h\n\riVerifyKycREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12,\n\x10kyc_operate_type\x18\x02 \x01(\x0e\x32\x12.pb.KycOperateType\x12\x1c\n\x11kyc_operate_value\x18\x03 \x01(\x03:\x01\x30\"\xdf\x02\n\riVerifyKycRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x10\n\x08is_valid\x18\x02 \x01(\x08\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x33\n\x0cinvalid_type\x18\x04 \x01(\x0e\x32\x1d.pb.iVerifyKycRSP.InvalidType\"\xd8\x01\n\x0bInvalidType\x12\x18\n\x14INVALID_TYPE_DEFAULT\x10\x00\x12\x14\n\x10INVALID_TYPE_BAN\x10\x01\x12\x1e\n\x1aINVALID_TYPE_DEPOSIT_LIMIT\x10\x02\x12\x15\n\x11INVALID_TYPE_KYC2\x10\x03\x12\x15\n\x11INVALID_TYPE_KYC3\x10\x04\x12\x19\n\x15INVALID_TYPE_PLATFORM\x10\x05\x12\x30\n,INVALID_TYPE_CURACAO_KYC1_TRANSFER_OUT_LIMIT\x10\x06\"4\n\x12iVerifyKycBatchREQ\x12\x1e\n\x03req\x18\x01 \x03(\x0b\x32\x11.pb.iVerifyKycREQ\"w\n\x12iVerifyKycBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12)\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x1b.pb.iVerifyKycBatchRSP.Data\x1a\x18\n\x04\x44\x61ta\x12\x10\n\x08is_valid\x18\x01 \x01(\x08\"\x1b\n\x19iKycMigrateSelfOldDataREQ\"I\n\x19iKycMigrateSelfOldDataRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"9\n\x16iGetKycLevelInBatchREQ\x12\x11\n\tkyc_level\x18\x01 \x01(\x05\x12\x0c\n\x04uids\x18\x02 \x03(\x03\"D\n\x16iGetKycLevelInBatchRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\" \n\x1eiClearMonitorVerifyKycCacheREQ\">\n\x1eiClearMonitorVerifyKycCacheRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode*\xa0\x04\n\x0eKycOperateType\x12\x12\n\x0eKYC_START_GAME\x10\x01\x12\x10\n\x0cKYC_WITHDRAW\x10\x02\x12\x0f\n\x0bKYC_DEPOSIT\x10\x03\x12\x14\n\x10KYC_BE_RB_OBJECT\x10\x04\x12\x14\n\x10KYC_TRANSFER_OUT\x10\x05\x12\x13\n\x0fKYC_TRANSFER_IN\x10\x06\x12\"\n\x1eKYC_FINISH_MISSION_UPLOAD_KYC1\x10\x07\x12\"\n\x1eKYC_FINISH_MISSION_VERIFY_KYC1\x10\x08\x12\"\n\x1eKYC_FINISH_MISSION_UPLOAD_KYC2\x10\t\x12\"\n\x1eKYC_FINISH_MISSION_VERIFY_KYC2\x10\n\x12\x16\n\x12KYC_EXCHANGE_POINT\x10\x0b\x12\x0e\n\nKYC_USE_PC\x10\x0c\x12\x1a\n\x16KYC_EXCHANGE_GIFT_CODE\x10\r\x12\x17\n\x13KYC_RETURN_ACTIVITY\x10\x0e\x12\x0f\n\x0bKYC_INVITE4\x10\x0f\x12\x18\n\x14KYC_TAKE_KYC2_ACTION\x10\x10\x12\x16\n\x12KYC_EAST_WEST_2023\x10\x11\x12!\n\x1dKYC_RING_GANE_AOF_SELF_BANNED\x10\x12\x12\x1d\n\x19KYC_CASINO_SK_SELF_BANNED\x10\x13\x12$\n KYC_CASINO_BLACKJACK_SELF_BANNED\x10\x14\x42\x07Z\x05../pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,kyc__pb2.DESCRIPTOR,])
 
 _KYCOPERATETYPE = _descriptor.EnumDescriptor(
   name='KycOperateType',
@@ -115,39 +116,12 @@ _KYCOPERATETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1001,
-  serialized_end=1545,
+  serialized_start=1045,
+  serialized_end=1589,
 )
 _sym_db.RegisterEnumDescriptor(_KYCOPERATETYPE)
 
 KycOperateType = enum_type_wrapper.EnumTypeWrapper(_KYCOPERATETYPE)
-_KYCSELFBANNEDTYPE = _descriptor.EnumDescriptor(
-  name='KycSelfBannedType',
-  full_name='pb.KycSelfBannedType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='KYC_SELF_BANNED_TYPE_RING_GAME_AOF', index=0, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='KYC_SELF_BANNED_TYPE_CASINO_SK', index=1, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK', index=2, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1548,
-  serialized_end=1686,
-)
-_sym_db.RegisterEnumDescriptor(_KYCSELFBANNEDTYPE)
-
-KycSelfBannedType = enum_type_wrapper.EnumTypeWrapper(_KYCSELFBANNEDTYPE)
 KYC_START_GAME = 1
 KYC_WITHDRAW = 2
 KYC_DEPOSIT = 3
@@ -168,9 +142,6 @@ KYC_EAST_WEST_2023 = 17
 KYC_RING_GANE_AOF_SELF_BANNED = 18
 KYC_CASINO_SK_SELF_BANNED = 19
 KYC_CASINO_BLACKJACK_SELF_BANNED = 20
-KYC_SELF_BANNED_TYPE_RING_GAME_AOF = 1
-KYC_SELF_BANNED_TYPE_CASINO_SK = 2
-KYC_SELF_BANNED_TYPE_CASINO_BLACKJACK = 3
 
 
 _IVERIFYKYCRSP_INVALIDTYPE = _descriptor.EnumDescriptor(
@@ -210,8 +181,8 @@ _IVERIFYKYCRSP_INVALIDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=309,
-  serialized_end=525,
+  serialized_start=320,
+  serialized_end=536,
 )
 _sym_db.RegisterEnumDescriptor(_IVERIFYKYCRSP_INVALIDTYPE)
 
@@ -256,8 +227,8 @@ _IVERIFYKYCREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=171,
+  serialized_start=78,
+  serialized_end=182,
 )
 
 
@@ -309,8 +280,8 @@ _IVERIFYKYCRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=525,
+  serialized_start=185,
+  serialized_end=536,
 )
 
 
@@ -340,8 +311,8 @@ _IVERIFYKYCBATCHREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=527,
-  serialized_end=579,
+  serialized_start=538,
+  serialized_end=590,
 )
 
 
@@ -371,8 +342,8 @@ _IVERIFYKYCBATCHRSP_DATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=676,
-  serialized_end=700,
+  serialized_start=687,
+  serialized_end=711,
 )
 
 _IVERIFYKYCBATCHRSP = _descriptor.Descriptor(
@@ -408,32 +379,18 @@ _IVERIFYKYCBATCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=581,
-  serialized_end=700,
+  serialized_start=592,
+  serialized_end=711,
 )
 
 
-_IKYCSELFBANUSERREQ = _descriptor.Descriptor(
-  name='iKycSelfBanUserREQ',
-  full_name='pb.iKycSelfBanUserREQ',
+_IKYCMIGRATESELFOLDDATAREQ = _descriptor.Descriptor(
+  name='iKycMigrateSelfOldDataREQ',
+  full_name='pb.iKycMigrateSelfOldDataREQ',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='uid', full_name='pb.iKycSelfBanUserREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='banned_type', full_name='pb.iKycSelfBanUserREQ.banned_type', index=1,
-      number=2, type=14, cpp_type=8, label=2,
-      has_default_value=False, default_value=1,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -446,27 +403,27 @@ _IKYCSELFBANUSERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=702,
-  serialized_end=779,
+  serialized_start=713,
+  serialized_end=740,
 )
 
 
-_IKYCSELFBANUSERRSP = _descriptor.Descriptor(
-  name='iKycSelfBanUserRSP',
-  full_name='pb.iKycSelfBanUserRSP',
+_IKYCMIGRATESELFOLDDATARSP = _descriptor.Descriptor(
+  name='iKycMigrateSelfOldDataRSP',
+  full_name='pb.iKycMigrateSelfOldDataRSP',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='code', full_name='pb.iKycSelfBanUserRSP.code', index=0,
+      name='code', full_name='pb.iKycMigrateSelfOldDataRSP.code', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='reason', full_name='pb.iKycSelfBanUserRSP.reason', index=1,
+      name='reason', full_name='pb.iKycMigrateSelfOldDataRSP.reason', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -484,29 +441,29 @@ _IKYCSELFBANUSERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=781,
-  serialized_end=847,
+  serialized_start=742,
+  serialized_end=815,
 )
 
 
-_IKYCSELFUNBANUSERREQ = _descriptor.Descriptor(
-  name='iKycSelfUnbanUserREQ',
-  full_name='pb.iKycSelfUnbanUserREQ',
+_IGETKYCLEVELINBATCHREQ = _descriptor.Descriptor(
+  name='iGetKycLevelInBatchREQ',
+  full_name='pb.iGetKycLevelInBatchREQ',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uid', full_name='pb.iKycSelfUnbanUserREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      name='kyc_level', full_name='pb.iGetKycLevelInBatchREQ.kyc_level', index=0,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='banned_type', full_name='pb.iKycSelfUnbanUserREQ.banned_type', index=1,
-      number=2, type=14, cpp_type=8, label=2,
-      has_default_value=False, default_value=1,
+      name='uids', full_name='pb.iGetKycLevelInBatchREQ.uids', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -522,29 +479,29 @@ _IKYCSELFUNBANUSERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=849,
-  serialized_end=928,
+  serialized_start=817,
+  serialized_end=874,
 )
 
 
-_IKYCSELFUNBANUSERRSP = _descriptor.Descriptor(
-  name='iKycSelfUnbanUserRSP',
-  full_name='pb.iKycSelfUnbanUserRSP',
+_IGETKYCLEVELINBATCHRSP = _descriptor.Descriptor(
+  name='iGetKycLevelInBatchRSP',
+  full_name='pb.iGetKycLevelInBatchRSP',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='code', full_name='pb.iKycSelfUnbanUserRSP.code', index=0,
+      name='code', full_name='pb.iGetKycLevelInBatchRSP.code', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='reason', full_name='pb.iKycSelfUnbanUserRSP.reason', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='uids', full_name='pb.iGetKycLevelInBatchRSP.uids', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -560,8 +517,63 @@ _IKYCSELFUNBANUSERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=930,
-  serialized_end=998,
+  serialized_start=876,
+  serialized_end=944,
+)
+
+
+_ICLEARMONITORVERIFYKYCCACHEREQ = _descriptor.Descriptor(
+  name='iClearMonitorVerifyKycCacheREQ',
+  full_name='pb.iClearMonitorVerifyKycCacheREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=946,
+  serialized_end=978,
+)
+
+
+_ICLEARMONITORVERIFYKYCCACHERSP = _descriptor.Descriptor(
+  name='iClearMonitorVerifyKycCacheRSP',
+  full_name='pb.iClearMonitorVerifyKycCacheRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iClearMonitorVerifyKycCacheRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=980,
+  serialized_end=1042,
 )
 
 _IVERIFYKYCREQ.fields_by_name['kyc_operate_type'].enum_type = _KYCOPERATETYPE
@@ -572,20 +584,20 @@ _IVERIFYKYCBATCHREQ.fields_by_name['req'].message_type = _IVERIFYKYCREQ
 _IVERIFYKYCBATCHRSP_DATA.containing_type = _IVERIFYKYCBATCHRSP
 _IVERIFYKYCBATCHRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IVERIFYKYCBATCHRSP.fields_by_name['data'].message_type = _IVERIFYKYCBATCHRSP_DATA
-_IKYCSELFBANUSERREQ.fields_by_name['banned_type'].enum_type = _KYCSELFBANNEDTYPE
-_IKYCSELFBANUSERRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
-_IKYCSELFUNBANUSERREQ.fields_by_name['banned_type'].enum_type = _KYCSELFBANNEDTYPE
-_IKYCSELFUNBANUSERRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IKYCMIGRATESELFOLDDATARSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETKYCLEVELINBATCHRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_ICLEARMONITORVERIFYKYCCACHERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iVerifyKycREQ'] = _IVERIFYKYCREQ
 DESCRIPTOR.message_types_by_name['iVerifyKycRSP'] = _IVERIFYKYCRSP
 DESCRIPTOR.message_types_by_name['iVerifyKycBatchREQ'] = _IVERIFYKYCBATCHREQ
 DESCRIPTOR.message_types_by_name['iVerifyKycBatchRSP'] = _IVERIFYKYCBATCHRSP
-DESCRIPTOR.message_types_by_name['iKycSelfBanUserREQ'] = _IKYCSELFBANUSERREQ
-DESCRIPTOR.message_types_by_name['iKycSelfBanUserRSP'] = _IKYCSELFBANUSERRSP
-DESCRIPTOR.message_types_by_name['iKycSelfUnbanUserREQ'] = _IKYCSELFUNBANUSERREQ
-DESCRIPTOR.message_types_by_name['iKycSelfUnbanUserRSP'] = _IKYCSELFUNBANUSERRSP
+DESCRIPTOR.message_types_by_name['iKycMigrateSelfOldDataREQ'] = _IKYCMIGRATESELFOLDDATAREQ
+DESCRIPTOR.message_types_by_name['iKycMigrateSelfOldDataRSP'] = _IKYCMIGRATESELFOLDDATARSP
+DESCRIPTOR.message_types_by_name['iGetKycLevelInBatchREQ'] = _IGETKYCLEVELINBATCHREQ
+DESCRIPTOR.message_types_by_name['iGetKycLevelInBatchRSP'] = _IGETKYCLEVELINBATCHRSP
+DESCRIPTOR.message_types_by_name['iClearMonitorVerifyKycCacheREQ'] = _ICLEARMONITORVERIFYKYCCACHEREQ
+DESCRIPTOR.message_types_by_name['iClearMonitorVerifyKycCacheRSP'] = _ICLEARMONITORVERIFYKYCCACHERSP
 DESCRIPTOR.enum_types_by_name['KycOperateType'] = _KYCOPERATETYPE
-DESCRIPTOR.enum_types_by_name['KycSelfBannedType'] = _KYCSELFBANNEDTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iVerifyKycREQ = _reflection.GeneratedProtocolMessageType('iVerifyKycREQ', (_message.Message,), dict(
@@ -624,33 +636,47 @@ iVerifyKycBatchRSP = _reflection.GeneratedProtocolMessageType('iVerifyKycBatchRS
 _sym_db.RegisterMessage(iVerifyKycBatchRSP)
 _sym_db.RegisterMessage(iVerifyKycBatchRSP.Data)
 
-iKycSelfBanUserREQ = _reflection.GeneratedProtocolMessageType('iKycSelfBanUserREQ', (_message.Message,), dict(
-  DESCRIPTOR = _IKYCSELFBANUSERREQ,
+iKycMigrateSelfOldDataREQ = _reflection.GeneratedProtocolMessageType('iKycMigrateSelfOldDataREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IKYCMIGRATESELFOLDDATAREQ,
   __module__ = 'inner_monitor_verify_kyc_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iKycSelfBanUserREQ)
+  # @@protoc_insertion_point(class_scope:pb.iKycMigrateSelfOldDataREQ)
   ))
-_sym_db.RegisterMessage(iKycSelfBanUserREQ)
+_sym_db.RegisterMessage(iKycMigrateSelfOldDataREQ)
 
-iKycSelfBanUserRSP = _reflection.GeneratedProtocolMessageType('iKycSelfBanUserRSP', (_message.Message,), dict(
-  DESCRIPTOR = _IKYCSELFBANUSERRSP,
+iKycMigrateSelfOldDataRSP = _reflection.GeneratedProtocolMessageType('iKycMigrateSelfOldDataRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IKYCMIGRATESELFOLDDATARSP,
   __module__ = 'inner_monitor_verify_kyc_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iKycSelfBanUserRSP)
+  # @@protoc_insertion_point(class_scope:pb.iKycMigrateSelfOldDataRSP)
   ))
-_sym_db.RegisterMessage(iKycSelfBanUserRSP)
+_sym_db.RegisterMessage(iKycMigrateSelfOldDataRSP)
 
-iKycSelfUnbanUserREQ = _reflection.GeneratedProtocolMessageType('iKycSelfUnbanUserREQ', (_message.Message,), dict(
-  DESCRIPTOR = _IKYCSELFUNBANUSERREQ,
+iGetKycLevelInBatchREQ = _reflection.GeneratedProtocolMessageType('iGetKycLevelInBatchREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETKYCLEVELINBATCHREQ,
   __module__ = 'inner_monitor_verify_kyc_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iKycSelfUnbanUserREQ)
+  # @@protoc_insertion_point(class_scope:pb.iGetKycLevelInBatchREQ)
   ))
-_sym_db.RegisterMessage(iKycSelfUnbanUserREQ)
+_sym_db.RegisterMessage(iGetKycLevelInBatchREQ)
 
-iKycSelfUnbanUserRSP = _reflection.GeneratedProtocolMessageType('iKycSelfUnbanUserRSP', (_message.Message,), dict(
-  DESCRIPTOR = _IKYCSELFUNBANUSERRSP,
+iGetKycLevelInBatchRSP = _reflection.GeneratedProtocolMessageType('iGetKycLevelInBatchRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETKYCLEVELINBATCHRSP,
   __module__ = 'inner_monitor_verify_kyc_pb2'
-  # @@protoc_insertion_point(class_scope:pb.iKycSelfUnbanUserRSP)
+  # @@protoc_insertion_point(class_scope:pb.iGetKycLevelInBatchRSP)
   ))
-_sym_db.RegisterMessage(iKycSelfUnbanUserRSP)
+_sym_db.RegisterMessage(iGetKycLevelInBatchRSP)
+
+iClearMonitorVerifyKycCacheREQ = _reflection.GeneratedProtocolMessageType('iClearMonitorVerifyKycCacheREQ', (_message.Message,), dict(
+  DESCRIPTOR = _ICLEARMONITORVERIFYKYCCACHEREQ,
+  __module__ = 'inner_monitor_verify_kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iClearMonitorVerifyKycCacheREQ)
+  ))
+_sym_db.RegisterMessage(iClearMonitorVerifyKycCacheREQ)
+
+iClearMonitorVerifyKycCacheRSP = _reflection.GeneratedProtocolMessageType('iClearMonitorVerifyKycCacheRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ICLEARMONITORVERIFYKYCCACHERSP,
+  __module__ = 'inner_monitor_verify_kyc_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iClearMonitorVerifyKycCacheRSP)
+  ))
+_sym_db.RegisterMessage(iClearMonitorVerifyKycCacheRSP)
 
 
 DESCRIPTOR._options = None

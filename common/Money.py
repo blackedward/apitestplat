@@ -34,12 +34,11 @@ def settle_debts(debtors, creditors):
     return settlements
 
 def main():
-    # Define the list of payments. Each element is a tuple (name, amount_paid)
     payments = [
-        ("jebe", 3059.8),
-        ("dan", 1745.95),
-        ("yue", 249.4),
-        ("chance", 1316)
+        ("jebe", 232),
+        ("dan", 0),
+        ("chenyue", 231),
+        ("chance", 156)
     ]
 
     total_amount, average_amount, balances, debtors, creditors = calculate_balances(payments)

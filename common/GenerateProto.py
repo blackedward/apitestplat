@@ -9,6 +9,7 @@ from git import Repo
 import git
 from common.log import logger
 from diskcache import Cache
+from git.exc import GitCommandError
 
 user_home = os.path.expanduser("~")
 rep_url = "http://git.kkpoker.co/server/doc.git"
@@ -23,13 +24,46 @@ merge_dir_pp = user_home + "/ppmerge"
 destination_directory_pp = user_home + '/ppcopile'
 
 
+# def download_and_compile_protos(branch=None):
+#     code_destination = os.path.dirname(os.path.dirname(__file__)) + "/proto/" + branch
+#
+#     if os.path.exists(merge_dir):
+#         shutil.rmtree(merge_dir)
+#     os.makedirs(merge_dir)
+#     if os.path.exists(destination_directory):
+#         shutil.rmtree(destination_directory)
+#     os.makedirs(destination_directory)
+#     if not os.path.exists(temp_repo):
+#         try:
+#             os.makedirs(temp_repo)
+#             repo = Repo.clone_from(rep_url, temp_repo)
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#         repo.git.checkout(branch)
+#         logger.info('代码不存在，执行克隆，checkout的分支名称是： ' + branch)
+#         move_files(temp_repo + "/proto/inner", merge_dir)
+#         move_files(temp_repo + "/proto/trunk", merge_dir)
+#     else:
+#         try:
+#             repo = Repo(temp_repo)
+#             repo.git.reset("--hard")
+#             repo.git.checkout(branch)
+#             repo.git.pull("origin", branch)
+#             logger.info('代码已经存在，执行更新，pull的分支名称是： ' + branch)
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#
+#         move_files(temp_repo + "/proto/inner", merge_dir)
+#         move_files(temp_repo + "/proto/trunk", merge_dir)
+#     compile_proto_files(merge_dir, destination_directory)
+#     move_compiled_files(destination_directory, code_destination)
 def download_and_compile_protos(branch=None):
     code_destination = os.path.dirname(os.path.dirname(__file__)) + "/proto/" + branch
 
     if os.path.exists(merge_dir):
         shutil.rmtree(merge_dir)
     os.makedirs(merge_dir)
-    if os.path.exists(destination_directory):
+    if (os.path.exists(destination_directory)):
         shutil.rmtree(destination_directory)
     os.makedirs(destination_directory)
     if not os.path.exists(temp_repo):
@@ -38,17 +72,26 @@ def download_and_compile_protos(branch=None):
             repo = Repo.clone_from(rep_url, temp_repo)
         except Exception as e:
             logger.error(traceback.format_exc())
-        repo.git.checkout(branch)
-        logger.info('代码不存在，执行克隆，checkout的分支名称是： ' + branch)
+        repo.git.fetch()  # Fetch the latest branches
+        try:
+            repo.git.checkout(branch)
+            logger.info('代码不存在，执行克隆，checkout的分支名称是： ' + branch)
+        except GitCommandError:
+            logger.error(f"Branch {branch} does not exist.")
+            return
         move_files(temp_repo + "/proto/inner", merge_dir)
         move_files(temp_repo + "/proto/trunk", merge_dir)
     else:
         try:
             repo = Repo(temp_repo)
             repo.git.reset("--hard")
+            repo.git.fetch()  # Fetch the latest branches
             repo.git.checkout(branch)
             repo.git.pull("origin", branch)
             logger.info('代码已经存在，执行更新，pull的分支名称是： ' + branch)
+        except GitCommandError:
+            logger.error(f"Branch {branch} does not exist.")
+            return
         except Exception as e:
             logger.error(traceback.format_exc())
 

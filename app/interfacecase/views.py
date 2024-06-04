@@ -341,7 +341,6 @@ class GetCaseByMod(MethodView):
             res = []
             for i in interfacecase.items:
                 cr = User.query.filter_by(user_id=i.creater).first().username
-                # logger.info(type(cr))
                 pn = Project.query.filter_by(id=i.project_id).first().project_name
                 mn = Model.query.filter_by(id=i.model_id).first().model_name
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
@@ -365,18 +364,16 @@ class ExecuteCase(MethodView):
             logger.info('当前进程号：{}'.format(os.getpid()))
             data = request.get_json()
             if not data:
-                return reponse(code=MessageEnum.must_be_every_parame.value[0],
-                               message=MessageEnum.must_be_every_parame.value[1])
+                return self.respond_with_error(MessageEnum.must_be_every_parame)
+
             case_id = data.get('case_id')
             env_id = data.get('env_id')
             if not case_id or not env_id:
-                return reponse(code=MessageEnum.must_be_every_parame.value[0],
-                               message=MessageEnum.must_be_every_parame.value[1])
+                return self.respond_with_error(MessageEnum.must_be_every_parame)
 
             case = InterfaceCase.query.filter_by(case_id=case_id).first()
             if not case:
-                return reponse(code=MessageEnum.case_edit_error.value[0],
-                               message=MessageEnum.case_edit_error.value[1])
+                return self.respond_with_error(MessageEnum.not_find_your_case)
 
             if case.case_protocol == 2:
                 return self.execute_proto_case(data, case)
@@ -385,120 +382,71 @@ class ExecuteCase(MethodView):
 
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.test_error.value[0],
-                           message=MessageEnum.test_error.value[1])
+            return self.respond_with_error(MessageEnum.test_error)
 
-    def execute_proto_case(self, data, case):
+    def run_proto_precases(self, data, caseinfos, result_queue):
+        self.suppress_output()
         try:
-            start_time = time.time()
-            logger.info('开始执行proto协议用例')
-            case_raw = json.loads(case.raw)
-            env_id = data.get('env_id', case_raw.get('env_id'))
-            result_queue = multiprocessing.Queue()
-
-            process = multiprocessing.Process(
-                target=self.run_proto_case,
-                args=(data, case_raw, env_id, result_queue)
-            )
-
-            process.start()
-            process.join()
-
-            cacheKey = result_queue.get()
-
-            if isinstance(cacheKey, TimeOutException):
-                new_case = TestcaseResult(
-                    result=str(format(cacheKey)),
-                    case_id=case.case_id,
-                    ispass=False,
-                    testevent_id=env_id,
-                    spend=str("{:.2f}".format(time.time() - start_time)),
-                    date=datetime.now()
-                )
-                db.session.add(new_case)
-                db.session.commit()
-
-                return reponse(code=MessageEnum.execute_timeout.value[0],
-                               message=MessageEnum.execute_timeout.value[1], data=format(cacheKey))
-            elif isinstance(cacheKey, Exception):
-                new_case = TestcaseResult(
-                    result=str(format(cacheKey)),
-                    case_id=case.case_id,
-                    ispass=False,
-                    testevent_id=env_id,
-                    spend=str("{:.2f}".format(time.time() - start_time)),
-                    date=datetime.now()
-                )
-                db.session.add(new_case)
-                db.session.commit()
-                return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1], data=format(cacheKey))
-
-            try:
-                res = largeResCache.get(cacheKey)
-                logger.info('从缓存中取出的结果是：{}'.format(res))
-            except Exception as e:
-                logger.error(traceback.format_exc())
-                return reponse(code=MessageEnum.execute_proto_error.value[0],
-                               message=MessageEnum.execute_proto_error.value[1], data=format(e))
-            finally:
-                largeResCache.delete(cacheKey)
-
-            assert_pass = True
-            caseassert = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
-            if caseassert:
-                assert_infos = []
-                for i in caseassert:
-                    # 分割属性名
-                    levels = i.expression.split('.')
-                    # 初始化当前层级的属性值为结果本身
-                    current_value = res
-
-                    # 逐级获取属性值
-                    for level in levels:
-                        # 如果当前层级的属性值不存在，跳出循环
-                        if not current_value:
-                            break
-                        # 获取当前层级的属性值
-                        current_value = current_value.get(level)
-
-                    # 检查预期结果和实际值是否匹配
-                    if isinstance(current_value, bool):
-                        current_value = str(current_value).lower()
-                    else:
-                        current_value = str(current_value)
-                    if i.excepted_result == current_value:
-                        asres = '断言通过'
-                    else:
-                        asres = '断言失败'
-                        assert_pass = False
-                    assert_info = {'assert_res': asres, 'expression': i.expression, 'actual_result': current_value,
-                                   'excepted_result': i.excepted_result, 'assert_name': i.assert_name}
-                    assert_infos.append(assert_info)
-                    res['assert_info'] = assert_infos
-
-            isPass = not isinstance(res, Exception) and assert_pass
-            end_time = time.time()
-            spend_time = end_time - start_time
-
-            new_case = TestcaseResult(
-                result=str(res),
-                case_id=case.case_id,
-                ispass=isPass,
-                testevent_id=env_id,
-                spend=str("{:.2f}".format(spend_time)),
-                date=datetime.now()
-            )
-            db.session.add(new_case)
-
-            db.session.commit()
-            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
-
+            logger.info('当前进程号：{}'.format(os.getpid()))
+            res = exemulproto(env_id=data.get('env_id'), caseinfos=caseinfos, is_skip=data.get('is_skip', True))
+            result_queue.put(res)
         except Exception as e:
             logger.error(traceback.format_exc())
-            db.session.rollback()
-            return reponse(code=MessageEnum.execute_proto_error.value[0],
-                           message=MessageEnum.execute_proto_error.value[1])
+            result_queue.put(e)
+        finally:
+            sys.exit(0)
+
+    def replace_protocase_params(self, case_raw, materials):
+        if not materials:
+            return case_raw
+        for material in materials:
+            case_raw = case_raw.replace('${' + material['name'] + '}', str(material['value']))
+        return case_raw
+
+    def execute_proto_case(self, data, case):
+        start_time = time.time()
+        logger.info('开始执行proto协议用例')
+        case_raw = case.raw
+        logger.info('用例原始数据是：{}'.format(case_raw))
+        env_id = data.get('env_id')
+        materials = []
+
+        if case.is_relycase == 1:
+            precases = Precase.query.filter_by(parent_case_id=case.case_id).order_by(Precase.order).all()
+            if not precases:
+                return self.respond_with_error(MessageEnum.not_find_your_case)
+            precaseinfos = self.get_precaseinfos(precases)
+            result_queue = multiprocessing.Queue()
+            process = multiprocessing.Process(target=self.run_proto_precases, args=(data, precaseinfos, result_queue))
+            process.start()
+            process.join()
+            res = result_queue.get()
+            for precase in precases:
+                if precase.extract_expression is not None:
+                    result = [item for item in res if item['case_id'] == precase.pre_case_id]
+                    expvalue = result[0]['exe_rsp'].get(precase.extract_expression)
+                    materials.append({'name': precase.extract_expression, 'value': expvalue})
+            if self.handle_process_result(res, start_time, data.get('env_id')):
+                return self.respond_with_error(MessageEnum.assert_error, res)
+
+        if case.rely_dbf and case.rely_dbf != 0:
+            try:
+                dbfresult = ExecuteHandler.exepredbf(self, dbf_id=case.rely_dbf)
+                if dbfresult != '执行成功':
+                    return self.respond_with_error(MessageEnum.test_sql_query_error, dbfresult)
+            except Exception as e:
+                logger.error(traceback.format_exc())
+                return self.respond_with_error(MessageEnum.test_sql_query_error, format(e))
+
+        logger.info('需要被替换的参数是：{}'.format(materials))
+        replaced_case_raw = self.replace_protocase_params(case_raw, materials)
+        result_queue = multiprocessing.Queue()
+        process = multiprocessing.Process(target=self.run_proto_case,
+                                          args=(data, json.loads(replaced_case_raw), env_id, result_queue))
+        process.start()
+        process.join()
+
+        return self.handle_proto_case_result(result_queue, start_time, case, env_id)
 
     def execute_normal_case(self, data, case, env_id):
         try:
@@ -509,30 +457,16 @@ class ExecuteCase(MethodView):
                 res = executehandler.exesinglecase(case_id=case.case_id, env_id=env_id)[0]
             logger.info(res)
             result_data = json.loads(res)
-            if result_data['result'] == '断言通过':
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1],
-                               data=result_data)
-            elif result_data['result'] == '断言失败':
-                return reponse(code=MessageEnum.assert_fail.value[0], message=MessageEnum.assert_fail.value[1],
-                               data=result_data)
-            else:
-                return reponse(code=MessageEnum.test_error.value[0], message=MessageEnum.test_error.value[1],
-                               data=result_data)
-
+            return self.evaluate_result(result_data)
         except Exception as e:
             logger.error(traceback.format_exc())
-            return reponse(code=MessageEnum.test_error.value[0],
-                           message=MessageEnum.test_error.value[1])
+            return self.respond_with_error(MessageEnum.test_error)
 
     def run_proto_case(self, data, case_raw, env_id, result_queue):
+        self.suppress_output()
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
-            if not env_id:
-                env_id = case_raw.get('env_id')
-
-            sys.stdin = open(os.devnull, 'r')
-            sys.stdout = open(os.devnull, 'w')
-            sys.stderr = open(os.devnull, 'w')
+            env_id = env_id or case_raw.get('env_id')
 
             res = exeproto(
                 uid=case_raw['uid'],
@@ -543,16 +477,159 @@ class ExecuteCase(MethodView):
                 source=case_raw['source']
             )
 
-            largecachekeyExecase = case_raw['req_message_name'] + " " + str(time.time())[:6] + str(os.getpid())
-            logger.info('用例管理处执行proto测试，将结果存入缓存，缓存key是：{}'.format(largecachekeyExecase))
-            largeResCache.set(largecachekeyExecase, res, 60 * 60 * 24)
-            result_queue.put(largecachekeyExecase)
-
+            cache_key = self.cache_result(case_raw, res)
+            result_queue.put(cache_key)
         except Exception as e:
             logger.error(traceback.format_exc())
             result_queue.put(e)
         finally:
             sys.exit(0)
+
+    def cache_result(self, case_raw, res):
+        cache_key = f"{case_raw['req_message_name']} {str(time.time())[:6]} {os.getpid()}"
+        logger.info('用例管理处执行proto测试，将结果存入缓存，缓存key是：{}'.format(cache_key))
+        largeResCache.set(cache_key, res, 60 * 60 * 24)
+        return cache_key
+
+    def get_precaseinfos(self, precases):
+        precaseinfos = InterfaceCase.query.filter(
+            InterfaceCase.case_id.in_([i.pre_case_id for i in precases])
+        ).all()
+        return [{'case_id': i.case_id, 'case_raw': i.raw} for i in precaseinfos if i.status == 1]
+
+    def handle_process_result(self, res, start_time, env_id):
+        if isinstance(res, tuple):
+            case_name = InterfaceCase.query.filter_by(case_id=res[0]).first().desc
+            ret = {'error_caseid': res[0], 'error_casename': case_name, 'error_info': format(res[1])}
+            return self.respond_with_error(MessageEnum.excute_proto_terminal, ret)
+        elif isinstance(res, Exception):
+            ret = {'error_info': format(res)}
+            return self.respond_with_error(MessageEnum.execute_proto_error, ret)
+
+        return self.process_assertions(res, start_time, env_id)
+
+    def handle_proto_case_result(self, result_queue, start_time, case, env_id):
+        cache_key = result_queue.get()
+
+        if isinstance(cache_key, TimeOutException):
+            return self.save_test_result(case.case_id, env_id, cache_key, False, start_time,
+                                         MessageEnum.execute_timeout)
+        elif isinstance(cache_key, Exception):
+            return self.save_test_result(case.case_id, env_id, cache_key, False, start_time,
+                                         MessageEnum.execute_proto_error)
+
+        try:
+            res = largeResCache.get(cache_key)
+            logger.info('从缓存中取出的结果是：{}'.format(res))
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return self.respond_with_error(MessageEnum.execute_proto_error, format(e))
+        finally:
+            largeResCache.delete(cache_key)
+
+        return self.finalize_test_result(res, case, env_id, start_time)
+
+    def process_assertions(self, res, start_time, env_id):
+        flag = True
+        for i in res:
+            caseid = i.get('case_id')
+            rsp = i.get('exe_rsp')
+            assert_info, is_pass = self.evaluate_assertion(caseid, rsp)
+            i['assert_info'] = assert_info
+            self.save_test_result(caseid, env_id, rsp, is_pass, start_time)
+            flag = flag and is_pass
+        if not flag:
+            return self.respond_with_error(MessageEnum.assert_error, res)
+        logger.info('执行前置proto用例完毕，结果是：{}'.format(res))
+
+    def evaluate_assertion(self, caseid, rsp):
+        assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
+        if assertdesc:
+            temp = self.extract_value(rsp, assertdesc.expression)
+            if temp is None:
+                return {'case_id': caseid, 'is_pass': False, 'error': '无法提取值'}, False
+            is_pass = str(temp).lower() == assertdesc.excepted_result if isinstance(temp, bool) else str(
+                temp) == assertdesc.excepted_result
+            return {
+                'case_id': caseid,
+                'is_pass': is_pass,
+                'except': assertdesc.excepted_result,
+                'actual': temp,
+                'assert_desc': assertdesc.assert_name,
+                'expression': assertdesc.expression
+            }, is_pass
+        return {}, True
+
+    def extract_value(self, data, expression):
+        temp = data
+        logger.info(f"初始数据: {temp}")
+        for j in expression.split('.'):
+            if isinstance(temp, dict):
+                temp = temp.get(j)
+            else:
+                logger.error(f"在处理表达式 {expression} 时，数据 {temp} 不是字典，无法使用 'get' 方法")
+                return None
+            logger.info(f"当前表达式: {j}, 当前值: {temp}")
+        return temp
+
+    def finalize_test_result(self, res, case, env_id, start_time):
+        assert_pass = True
+        caseassert = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
+        if caseassert:
+            assert_infos = []
+            for i in caseassert:
+                current_value = self.extract_value(res, i.expression)
+                current_value = str(current_value).lower() if isinstance(current_value, bool) else str(current_value)
+                asres = '断言通过' if i.excepted_result == current_value else '断言失败'
+                assert_pass = assert_pass and asres == '断言通过'
+                assert_infos.append({
+                    'assert_res': asres,
+                    'expression': i.expression,
+                    'actual_result': current_value,
+                    'excepted_result': i.excepted_result,
+                    'assert_name': i.assert_name
+                })
+            res['assert_info'] = assert_infos
+
+        is_pass = not isinstance(res, Exception) and assert_pass
+        spend_time = time.time() - start_time
+        self.save_test_result(case.case_id, env_id, res, is_pass, start_time)
+
+        return self.respond_with_success(res)
+
+    def save_test_result(self, case_id, env_id, result, is_pass, start_time, message_enum=None):
+        spend_time = time.time() - start_time
+        new_case = TestcaseResult(
+            result=str(result),
+            case_id=case_id,
+            ispass=is_pass,
+            testevent_id=env_id,
+            spend=str("{:.2f}".format(spend_time)),
+            date=datetime.now()
+        )
+        db.session.add(new_case)
+        db.session.commit()
+        if message_enum:
+            return self.respond_with_error(message_enum, format(result))
+
+    def suppress_output(self):
+        sys.stdin = open(os.devnull, 'r')
+        sys.stdout = open(os.devnull, 'w')
+        sys.stderr = open(os.devnull, 'w')
+
+    def evaluate_result(self, result_data):
+        if result_data['result'] == '断言通过':
+            return self.respond_with_success(result_data)
+        elif result_data['result'] == '断言失败':
+            return self.respond_with_error(MessageEnum.assert_fail, result_data)
+        else:
+            return self.respond_with_error(MessageEnum.test_error, result_data)
+
+    def respond_with_success(self, data):
+        return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=data)
+
+    def respond_with_error(self, message_enum, data=None):
+        return reponse(code=message_enum.value[0], message=message_enum.value[1], data=data)
 
 
 class AddPreCase(MethodView):
@@ -1311,68 +1388,6 @@ class GetMessageInfo(MethodView):
             sys.exit(0)
 
 
-# def get_message_attributes(branch_name, message_name, source):
-#     try:
-#         logger.info("get_message_attributes 函数 当前进程 ID: {}".format(os.getpid()))
-#         if source == 'kk' or source is None:
-#             path = PROJECT_ROOT + "/proto/" + branch_name
-#         else:
-#             path = PROJECT_ROOT + "/proto/pp/" + branch_name
-#         os.chdir(path)
-#         sys.path.append(path)  # 将模块路径添加到 sys.path 中
-#
-#         for file_name in os.listdir(path):
-#             if file_name.endswith(".py") and file_name != "__init__.py":
-#                 module_name = os.path.splitext(file_name)[0]
-#                 importlib.import_module(module_name)
-#
-#         for module_name in sys.modules:
-#             if module_name.endswith("_pb2"):
-#                 module = sys.modules[module_name]
-#                 if hasattr(module, message_name):
-#                     message_type = getattr(module, message_name)
-#                     attributes = []
-#
-#                     for field in message_type.DESCRIPTOR.fields:
-#                         field_name = field.name
-#                         field_number = field.number
-#                         field_data_type = field.type  # 获取属性的数据类型
-#                         field_label = field.label  # 获取属性的标签
-#
-#                         if field_label == 3:  # 如果字段是重复类型
-#                             is_repeated = True
-#                         else:
-#                             is_repeated = False
-#
-#                         if field_data_type == 14:
-#                             enum_values = []
-#                             enum_descriptor = field.enum_type
-#                             for enum_value in enum_descriptor.values_by_name.values():
-#                                 enum_values.append({enum_value.name: enum_value.number})
-#                             attributes.append(
-#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-#                                  "enum_values": enum_values, "is_repeated": is_repeated})
-#                         elif field_data_type == 11:
-#                             sub_message_fields = []
-#                             for sub_field in field.message_type.fields:
-#                                 sub_message_fields.append(
-#                                     {"name": sub_field.name, "type": DataType(sub_field.type).name})
-#                             attributes.append(
-#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-#                                  "fields": sub_message_fields, "is_repeated": is_repeated})
-#                         else:
-#                             attributes.append(
-#                                 {"name": field_name, "number": field_number, "type": DataType(field_data_type).name,
-#                                  "is_repeated": is_repeated})
-#                     return {"message_name": message_name, "attributes": attributes}
-#         # 如果未找到指定的消息名，返回空字典
-#         return {}
-#
-#     except Exception as e:
-#         logger.error(traceback.format_exc())
-#         raise e
-
-
 class Getattbymessage(MethodView):
     @login_required
     def get(self):
@@ -1533,13 +1548,13 @@ def exeproto(uid, env_id, branch_name, reqmessage, params, source):
         logger.info('send message:{},send content:{}', reqmessage, params)
         rspmessage = reqmessage[:-3] + "RSP"
         msg = client.recv(rspmessage)
-        # logger.info('recv message:{}', msg.body)
-        client.stop()
-        client = None
+
         return msg.body
     except Exception as e:
         logger.error(traceback.format_exc())
         raise e
+    finally:
+        client.stop() if 'client' in locals() else None
 
 
 class Executeproto(MethodView):
@@ -2271,7 +2286,6 @@ class Exemult(MethodView):
     def run_in_new_process_multproto(self, data, caseinfos, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
-            # Redirect standard input/output/error to /dev/null
             sys.stdin = open(os.devnull, 'r')
             sys.stdout = open(os.devnull, 'w')
             sys.stderr = open(os.devnull, 'w')
@@ -2314,12 +2328,26 @@ def exemulproto(env_id, caseinfos, is_skip):
         else:
             player = player.login_by_uid_pp(uid)[1]
 
+        case_ids = [case['case_id'] for case in caseinfos]
+        cases = InterfaceCase.query.filter(InterfaceCase.case_id.in_(case_ids)).all()
+        rely_dbfs = []
+        for case in cases:
+            if case.rely_dbf and case.rely_dbf != 0:
+                rely_dbf = {'case_id': case.case_id, 'rely_dbf': case.rely_dbf}
+                rely_dbfs.append(rely_dbf)
         reslut = []
         for i in caseinfos:
             r = {'case_id': i['case_id']}
             params = json.loads(i['case_raw'])['proto_content']
             reqmessage = json.loads(i['case_raw'])['req_message_name']
             rspmessage = reqmessage[:-3] + "RSP"
+
+            rely_dbf_value = next((item['rely_dbf'] for item in rely_dbfs if item['case_id'] == i['case_id']), None)
+            logger.info(str(i['case_id']) + '依赖的dbf是：{}'.format(rely_dbf_value))
+            if rely_dbf_value:
+                exe_dbf = ExecuteHandler(i['case_id'], env_id).exepredbf(rely_dbf_value)
+                logger.info(str(i['case_id']) + '执行依赖的dbf结果是：{}'.format(exe_dbf))
+
             try:
                 client.send(reqmessage, params)
                 msg = client.recv(rspmessage)
@@ -2333,8 +2361,6 @@ def exemulproto(env_id, caseinfos, is_skip):
                 if str(is_skip) == False:
                     raise e
             reslut.append(r)
-
-        client.stop()
         logger.info('reslut is {}', reslut)
         return reslut
     except Exception as e:

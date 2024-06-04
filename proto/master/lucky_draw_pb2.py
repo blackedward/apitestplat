@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10lucky_draw.proto\x12\x02pb\x1a\x0c\x63ommon.proto\x1a\tpb2.proto\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x15lucky_draw_base.proto\"\x8e\x03\n\x13LuckyDrawStatusInfo\x12\x1a\n\x0elucky_draw_key\x18\x01 \x01(\tB\x02\x18\x01\x12\x1e\n\x16register_remain_second\x18\x02 \x01(\x03\x12\x1d\n\x15register_ticket_times\x18\x03 \x01(\x03\x12\x1a\n\x12\x64raw_remain_second\x18\x04 \x01(\x03\x12\"\n\x1aself_register_ticket_times\x18\x05 \x01(\x03\x12*\n\x1eself_register_ticket_max_times\x18\x06 \x01(\x03\x42\x02\x18\x01\x12\x17\n\x0btotal_value\x18\x07 \x01(\x03\x42\x02\x18\x01\x12#\n\x17is_last_recurring_times\x18\x08 \x01(\x08\x42\x02\x18\x01\x12\x17\n\x0frecurring_times\x18\t \x01(\x03\x12\x16\n\nstart_time\x18\n \x01(\x03\x42\x02\x18\x01\x12\x14\n\x08\x65nd_time\x18\x0b \x01(\x03\x42\x02\x18\x01\x12+\n#winner_list_available_remain_second\x18\x0c \x01(\x03\"\x8b\x02\n\x14LuckyDrawStatusInfos\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12&\n\x1eself_register_ticket_max_times\x18\x02 \x01(\x03\x12\x13\n\x0btotal_value\x18\x03 \x01(\x03\x12?\n\x1e\x63urrent_lucky_draw_status_info\x18\x04 \x01(\x0b\x32\x17.pb.LuckyDrawStatusInfo\x12<\n\x1bnext_lucky_draw_status_info\x18\x05 \x01(\x0b\x32\x17.pb.LuckyDrawStatusInfo\x12\x1f\n\x17is_last_recurring_times\x18\x06 \x01(\x08\"\x1b\n\x19GetLuckyDrawStatusInfoREQ\"\xc0\x01\n\x19GetLuckyDrawStatusInfoRSP\x12\x30\n\x04\x63ode\x18\x01 \x01(\x0e\x32\".pb.GetLuckyDrawStatusInfoRSP.Code\x12>\n\x1clucky_draw_status_infos_list\x18\x02 \x03(\x0b\x32\x18.pb.LuckyDrawStatusInfos\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"`\n\x14RegisterLuckyDrawREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x17\n\x0frecurring_times\x18\x03 \x01(\x03\"\xa6\x02\n\x14RegisterLuckyDrawRSP\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.pb.RegisterLuckyDrawRSP.Code\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\x12\x17\n\x0frecurring_times\x18\x03 \x01(\x03\"\xaf\x01\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0e\x43ODE_OVER_TIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12#\n\x16\x43ODE_OVER_REGISTER_MAX\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1a\n\rCODE_LESS_NUM\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1e\n\x11\x43ODE_ITEM_INVALID\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x9e\x01\n\x18LuckyDrawRecurringWinner\x12\x0c\n\x04uids\x18\x01 \x03(\x03\x12\x31\n\x10\x64raw_reward_type\x18\x02 \x01(\x0e\x32\x17.pb.LuckyDrawRewardType\x12\x19\n\x11\x64raw_reward_index\x18\x03 \x01(\x03\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\"\x96\x01\n\x1cLuckyDrawRecurringWinnerList\x12-\n\x07winners\x18\x01 \x03(\x0b\x32\x1c.pb.LuckyDrawRecurringWinner\x12\x17\n\x0frecurring_times\x18\x02 \x01(\x03\x12\x1b\n\x13is_finish_animation\x18\x03 \x01(\x08\x12\x11\n\tdraw_time\x18\x04 \x01(\x03\"3\n\x19GetLuckyDrawWinnerListREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\"\xf7\x01\n\x19GetLuckyDrawWinnerListRSP\x12\x30\n\x04\x63ode\x18\x01 \x01(\x0e\x32\".pb.GetLuckyDrawWinnerListRSP.Code\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\x12@\n\x16recurring_winners_list\x18\x03 \x03(\x0b\x32 .pb.LuckyDrawRecurringWinnerList\"N\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1b\n\x0e\x43ODE_OVER_TIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\"3\n\x19PlayLuckyDrawAnimationREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\"\x98\x01\n\x19PlayLuckyDrawAnimationRSP\x12\x30\n\x04\x63ode\x18\x01 \x01(\x0e\x32\".pb.PlayLuckyDrawAnimationRSP.Code\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"\x9a\x02\n\x11LuckyDrawSettings\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12\'\n\rlucky_rewards\x18\x02 \x01(\x0b\x32\x10.pb.LuckyRewards\x12+\n\x10multi_lang_names\x18\x03 \x03(\x0b\x32\x11.pb.MultiLangName\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x1e\n\x16show_end_remain_second\x18\x06 \x01(\x03\x12\x31\n\x0eticket_obtains\x18\x07 \x03(\x0e\x32\x19.pb.LuckyDrawTicketObtain\x12\x1e\n\x16last_register_end_time\x18\x08 \x01(\x03\"7\n\x1cGetLuckyDrawCacheSettingsREQ\x12\x17\n\x0flucky_draw_keys\x18\x01 \x03(\t\"\xb4\x01\n\x1cGetLuckyDrawCacheSettingsRSP\x12\x33\n\x04\x63ode\x18\x01 \x01(\x0e\x32%.pb.GetLuckyDrawCacheSettingsRSP.Code\x12,\n\rsettings_list\x18\x02 \x03(\x0b\x32\x15.pb.LuckyDrawSettings\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x82\x01\n\x13LuckyDrawRewardType\x12 \n\x1cLUCUY_DRAW_REWARD_TYPE_GRAND\x10\x01\x12!\n\x1dLUCUY_DRAW_REWARD_TYPE_NORMAL\x10\x02\x12&\n\"LUCUY_DRAW_REWARD_TYPE_PARTICIPATE\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10lucky_draw.proto\x12\x02pb\x1a\x0c\x63ommon.proto\x1a\tpb2.proto\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x15lucky_draw_base.proto\"\x8e\x03\n\x13LuckyDrawStatusInfo\x12\x1a\n\x0elucky_draw_key\x18\x01 \x01(\tB\x02\x18\x01\x12\x1e\n\x16register_remain_second\x18\x02 \x01(\x03\x12\x1d\n\x15register_ticket_times\x18\x03 \x01(\x03\x12\x1a\n\x12\x64raw_remain_second\x18\x04 \x01(\x03\x12\"\n\x1aself_register_ticket_times\x18\x05 \x01(\x03\x12*\n\x1eself_register_ticket_max_times\x18\x06 \x01(\x03\x42\x02\x18\x01\x12\x17\n\x0btotal_value\x18\x07 \x01(\x03\x42\x02\x18\x01\x12#\n\x17is_last_recurring_times\x18\x08 \x01(\x08\x42\x02\x18\x01\x12\x17\n\x0frecurring_times\x18\t \x01(\x03\x12\x16\n\nstart_time\x18\n \x01(\x03\x42\x02\x18\x01\x12\x14\n\x08\x65nd_time\x18\x0b \x01(\x03\x42\x02\x18\x01\x12+\n#winner_list_available_remain_second\x18\x0c \x01(\x03\"\x8b\x02\n\x14LuckyDrawStatusInfos\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12&\n\x1eself_register_ticket_max_times\x18\x02 \x01(\x03\x12\x13\n\x0btotal_value\x18\x03 \x01(\x03\x12?\n\x1e\x63urrent_lucky_draw_status_info\x18\x04 \x01(\x0b\x32\x17.pb.LuckyDrawStatusInfo\x12<\n\x1bnext_lucky_draw_status_info\x18\x05 \x01(\x0b\x32\x17.pb.LuckyDrawStatusInfo\x12\x1f\n\x17is_last_recurring_times\x18\x06 \x01(\x08\"\x1b\n\x19GetLuckyDrawStatusInfoREQ\"\x8c\x01\n\x19GetLuckyDrawStatusInfoRSP\x12/\n\x04\x63ode\x18\x01 \x01(\x0e\x32!.pb.GetLuckyDrawStatusInfoRSPCode\x12>\n\x1clucky_draw_status_infos_list\x18\x02 \x03(\x0b\x32\x18.pb.LuckyDrawStatusInfos\"`\n\x14RegisterLuckyDrawREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x17\n\x0frecurring_times\x18\x03 \x01(\x03\"s\n\x14RegisterLuckyDrawRSP\x12*\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.RegisterLuckyDrawRSPCode\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\x12\x17\n\x0frecurring_times\x18\x03 \x01(\x03\"\x9e\x01\n\x18LuckyDrawRecurringWinner\x12\x0c\n\x04uids\x18\x01 \x03(\x03\x12\x31\n\x10\x64raw_reward_type\x18\x02 \x01(\x0e\x32\x17.pb.LuckyDrawRewardType\x12\x19\n\x11\x64raw_reward_index\x18\x03 \x01(\x03\x12&\n\x0bmtt_rewards\x18\x04 \x03(\x0b\x32\x11.pb.MttRewardInfo\"\x96\x01\n\x1cLuckyDrawRecurringWinnerList\x12-\n\x07winners\x18\x01 \x03(\x0b\x32\x1c.pb.LuckyDrawRecurringWinner\x12\x17\n\x0frecurring_times\x18\x02 \x01(\x03\x12\x1b\n\x13is_finish_animation\x18\x03 \x01(\x08\x12\x11\n\tdraw_time\x18\x04 \x01(\x03\"3\n\x19GetLuckyDrawWinnerListREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\"\xa6\x01\n\x19GetLuckyDrawWinnerListRSP\x12/\n\x04\x63ode\x18\x01 \x01(\x0e\x32!.pb.GetLuckyDrawWinnerListRSPCode\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\x12@\n\x16recurring_winners_list\x18\x03 \x03(\x0b\x32 .pb.LuckyDrawRecurringWinnerList\"3\n\x19PlayLuckyDrawAnimationREQ\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\"d\n\x19PlayLuckyDrawAnimationRSP\x12/\n\x04\x63ode\x18\x01 \x01(\x0e\x32!.pb.PlayLuckyDrawAnimationRSPCode\x12\x16\n\x0elucky_draw_key\x18\x02 \x01(\t\"\x9a\x02\n\x11LuckyDrawSettings\x12\x16\n\x0elucky_draw_key\x18\x01 \x01(\t\x12\'\n\rlucky_rewards\x18\x02 \x01(\x0b\x32\x10.pb.LuckyRewards\x12+\n\x10multi_lang_names\x18\x03 \x03(\x0b\x32\x11.pb.MultiLangName\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x1e\n\x16show_end_remain_second\x18\x06 \x01(\x03\x12\x31\n\x0eticket_obtains\x18\x07 \x03(\x0e\x32\x19.pb.LuckyDrawTicketObtain\x12\x1e\n\x16last_register_end_time\x18\x08 \x01(\x03\"7\n\x1cGetLuckyDrawCacheSettingsREQ\x12\x17\n\x0flucky_draw_keys\x18\x01 \x03(\t\"\x80\x01\n\x1cGetLuckyDrawCacheSettingsRSP\x12\x32\n\x04\x63ode\x18\x01 \x01(\x0e\x32$.pb.GetLuckyDrawCacheSettingsRSPCode\x12,\n\rsettings_list\x18\x02 \x03(\x0b\x32\x15.pb.LuckyDrawSettings*\x82\x01\n\x13LuckyDrawRewardType\x12 \n\x1cLUCUY_DRAW_REWARD_TYPE_GRAND\x10\x01\x12!\n\x1dLUCUY_DRAW_REWARD_TYPE_NORMAL\x10\x02\x12&\n\"LUCUY_DRAW_REWARD_TYPE_PARTICIPATE\x10\x03*\x90\x01\n\x1dGetLuckyDrawStatusInfoRSPCode\x12\x33\n/GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_SUCCESS\x10\x00\x12:\n-GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xeb\x02\n\x18RegisterLuckyDrawRSPCode\x12,\n(REGISTER_LUCKY_DRAW_RSPCODE_CODE_SUCCESS\x10\x00\x12\x33\n&REGISTER_LUCKY_DRAW_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x37\n*REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_TIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12?\n2REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_REGISTER_MAX\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x36\n)REGISTER_LUCKY_DRAW_RSPCODE_CODE_LESS_NUM\x10\xfc\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12:\n-REGISTER_LUCKY_DRAW_RSPCODE_CODE_ITEM_INVALID\x10\xfb\xff\xff\xff\xff\xff\xff\xff\xff\x01*\xd0\x01\n\x1dGetLuckyDrawWinnerListRSPCode\x12\x33\n/GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_SUCCESS\x10\x00\x12:\n-GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12>\n1GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_OVER_TIME\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x8e\x01\n\x1dPlayLuckyDrawAnimationRSPCode\x12\x32\n.PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_SUCCESS\x10\x00\x12\x39\n,PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*\x99\x01\n GetLuckyDrawCacheSettingsRSPCode\x12\x36\n2GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_SUCCESS\x10\x00\x12=\n0GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[common__pb2.DESCRIPTOR,pb2__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,lucky__draw__base__pb2.DESCRIPTOR,])
 
@@ -50,146 +50,166 @@ _LUCKYDRAWREWARDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2741,
-  serialized_end=2871,
+  serialized_start=2323,
+  serialized_end=2453,
 )
 _sym_db.RegisterEnumDescriptor(_LUCKYDRAWREWARDTYPE)
 
 LuckyDrawRewardType = enum_type_wrapper.EnumTypeWrapper(_LUCKYDRAWREWARDTYPE)
+_GETLUCKYDRAWSTATUSINFORSPCODE = _descriptor.EnumDescriptor(
+  name='GetLuckyDrawStatusInfoRSPCode',
+  full_name='pb.GetLuckyDrawStatusInfoRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2456,
+  serialized_end=2600,
+)
+_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWSTATUSINFORSPCODE)
+
+GetLuckyDrawStatusInfoRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETLUCKYDRAWSTATUSINFORSPCODE)
+_REGISTERLUCKYDRAWRSPCODE = _descriptor.EnumDescriptor(
+  name='RegisterLuckyDrawRSPCode',
+  full_name='pb.RegisterLuckyDrawRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_TIME', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_REGISTER_MAX', index=3, number=-3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_LESS_NUM', index=4, number=-4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTER_LUCKY_DRAW_RSPCODE_CODE_ITEM_INVALID', index=5, number=-5,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2603,
+  serialized_end=2966,
+)
+_sym_db.RegisterEnumDescriptor(_REGISTERLUCKYDRAWRSPCODE)
+
+RegisterLuckyDrawRSPCode = enum_type_wrapper.EnumTypeWrapper(_REGISTERLUCKYDRAWRSPCODE)
+_GETLUCKYDRAWWINNERLISTRSPCODE = _descriptor.EnumDescriptor(
+  name='GetLuckyDrawWinnerListRSPCode',
+  full_name='pb.GetLuckyDrawWinnerListRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_OVER_TIME', index=2, number=-2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2969,
+  serialized_end=3177,
+)
+_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWWINNERLISTRSPCODE)
+
+GetLuckyDrawWinnerListRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETLUCKYDRAWWINNERLISTRSPCODE)
+_PLAYLUCKYDRAWANIMATIONRSPCODE = _descriptor.EnumDescriptor(
+  name='PlayLuckyDrawAnimationRSPCode',
+  full_name='pb.PlayLuckyDrawAnimationRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3180,
+  serialized_end=3322,
+)
+_sym_db.RegisterEnumDescriptor(_PLAYLUCKYDRAWANIMATIONRSPCODE)
+
+PlayLuckyDrawAnimationRSPCode = enum_type_wrapper.EnumTypeWrapper(_PLAYLUCKYDRAWANIMATIONRSPCODE)
+_GETLUCKYDRAWCACHESETTINGSRSPCODE = _descriptor.EnumDescriptor(
+  name='GetLuckyDrawCacheSettingsRSPCode',
+  full_name='pb.GetLuckyDrawCacheSettingsRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_ERROR', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3325,
+  serialized_end=3478,
+)
+_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWCACHESETTINGSRSPCODE)
+
+GetLuckyDrawCacheSettingsRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETLUCKYDRAWCACHESETTINGSRSPCODE)
 LUCUY_DRAW_REWARD_TYPE_GRAND = 1
 LUCUY_DRAW_REWARD_TYPE_NORMAL = 2
 LUCUY_DRAW_REWARD_TYPE_PARTICIPATE = 3
+GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_SUCCESS = 0
+GET_LUCKY_DRAW_STATUS_INFO_RSPCODE_CODE_ERROR = -1
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_SUCCESS = 0
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_ERROR = -1
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_TIME = -2
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_OVER_REGISTER_MAX = -3
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_LESS_NUM = -4
+REGISTER_LUCKY_DRAW_RSPCODE_CODE_ITEM_INVALID = -5
+GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_SUCCESS = 0
+GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_ERROR = -1
+GET_LUCKY_DRAW_WINNER_LIST_RSPCODE_CODE_OVER_TIME = -2
+PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_SUCCESS = 0
+PLAY_LUCKY_DRAW_ANIMATION_RSPCODE_CODE_ERROR = -1
+GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_SUCCESS = 0
+GET_LUCKY_DRAW_CACHE_SETTINGS_RSPCODE_CODE_ERROR = -1
 
-
-_GETLUCKYDRAWSTATUSINFORSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetLuckyDrawStatusInfoRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=944,
-  serialized_end=993,
-)
-_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWSTATUSINFORSP_CODE)
-
-_REGISTERLUCKYDRAWRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.RegisterLuckyDrawRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_OVER_TIME', index=2, number=-2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_OVER_REGISTER_MAX', index=3, number=-3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_LESS_NUM', index=4, number=-4,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ITEM_INVALID', index=5, number=-5,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1213,
-  serialized_end=1388,
-)
-_sym_db.RegisterEnumDescriptor(_REGISTERLUCKYDRAWRSP_CODE)
-
-_GETLUCKYDRAWWINNERLISTRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetLuckyDrawWinnerListRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_OVER_TIME', index=2, number=-2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1213,
-  serialized_end=1291,
-)
-_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWWINNERLISTRSP_CODE)
-
-_PLAYLUCKYDRAWANIMATIONRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.PlayLuckyDrawAnimationRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=944,
-  serialized_end=993,
-)
-_sym_db.RegisterEnumDescriptor(_PLAYLUCKYDRAWANIMATIONRSP_CODE)
-
-_GETLUCKYDRAWCACHESETTINGSRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetLuckyDrawCacheSettingsRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=944,
-  serialized_end=993,
-)
-_sym_db.RegisterEnumDescriptor(_GETLUCKYDRAWCACHESETTINGSRSP_CODE)
 
 
 _LUCKYDRAWSTATUSINFO = _descriptor.Descriptor(
@@ -416,7 +436,6 @@ _GETLUCKYDRAWSTATUSINFORSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETLUCKYDRAWSTATUSINFORSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -425,7 +444,7 @@ _GETLUCKYDRAWSTATUSINFORSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=801,
-  serialized_end=993,
+  serialized_end=941,
 )
 
 
@@ -469,8 +488,8 @@ _REGISTERLUCKYDRAWREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=995,
-  serialized_end=1091,
+  serialized_start=943,
+  serialized_end=1039,
 )
 
 
@@ -507,7 +526,6 @@ _REGISTERLUCKYDRAWRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _REGISTERLUCKYDRAWRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -515,8 +533,8 @@ _REGISTERLUCKYDRAWRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1094,
-  serialized_end=1388,
+  serialized_start=1041,
+  serialized_end=1156,
 )
 
 
@@ -567,8 +585,8 @@ _LUCKYDRAWRECURRINGWINNER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1391,
-  serialized_end=1549,
+  serialized_start=1159,
+  serialized_end=1317,
 )
 
 
@@ -619,8 +637,8 @@ _LUCKYDRAWRECURRINGWINNERLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1552,
-  serialized_end=1702,
+  serialized_start=1320,
+  serialized_end=1470,
 )
 
 
@@ -650,8 +668,8 @@ _GETLUCKYDRAWWINNERLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1704,
-  serialized_end=1755,
+  serialized_start=1472,
+  serialized_end=1523,
 )
 
 
@@ -688,7 +706,6 @@ _GETLUCKYDRAWWINNERLISTRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETLUCKYDRAWWINNERLISTRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -696,8 +713,8 @@ _GETLUCKYDRAWWINNERLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1758,
-  serialized_end=2005,
+  serialized_start=1526,
+  serialized_end=1692,
 )
 
 
@@ -727,8 +744,8 @@ _PLAYLUCKYDRAWANIMATIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2007,
-  serialized_end=2058,
+  serialized_start=1694,
+  serialized_end=1745,
 )
 
 
@@ -758,7 +775,6 @@ _PLAYLUCKYDRAWANIMATIONRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _PLAYLUCKYDRAWANIMATIONRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -766,8 +782,8 @@ _PLAYLUCKYDRAWANIMATIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2061,
-  serialized_end=2213,
+  serialized_start=1747,
+  serialized_end=1847,
 )
 
 
@@ -846,8 +862,8 @@ _LUCKYDRAWSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2216,
-  serialized_end=2498,
+  serialized_start=1850,
+  serialized_end=2132,
 )
 
 
@@ -877,8 +893,8 @@ _GETLUCKYDRAWCACHESETTINGSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2500,
-  serialized_end=2555,
+  serialized_start=2134,
+  serialized_end=2189,
 )
 
 
@@ -908,7 +924,6 @@ _GETLUCKYDRAWCACHESETTINGSRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETLUCKYDRAWCACHESETTINGSRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -916,31 +931,26 @@ _GETLUCKYDRAWCACHESETTINGSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2558,
-  serialized_end=2738,
+  serialized_start=2192,
+  serialized_end=2320,
 )
 
 _LUCKYDRAWSTATUSINFOS.fields_by_name['current_lucky_draw_status_info'].message_type = _LUCKYDRAWSTATUSINFO
 _LUCKYDRAWSTATUSINFOS.fields_by_name['next_lucky_draw_status_info'].message_type = _LUCKYDRAWSTATUSINFO
-_GETLUCKYDRAWSTATUSINFORSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWSTATUSINFORSP_CODE
+_GETLUCKYDRAWSTATUSINFORSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWSTATUSINFORSPCODE
 _GETLUCKYDRAWSTATUSINFORSP.fields_by_name['lucky_draw_status_infos_list'].message_type = _LUCKYDRAWSTATUSINFOS
-_GETLUCKYDRAWSTATUSINFORSP_CODE.containing_type = _GETLUCKYDRAWSTATUSINFORSP
-_REGISTERLUCKYDRAWRSP.fields_by_name['code'].enum_type = _REGISTERLUCKYDRAWRSP_CODE
-_REGISTERLUCKYDRAWRSP_CODE.containing_type = _REGISTERLUCKYDRAWRSP
+_REGISTERLUCKYDRAWRSP.fields_by_name['code'].enum_type = _REGISTERLUCKYDRAWRSPCODE
 _LUCKYDRAWRECURRINGWINNER.fields_by_name['draw_reward_type'].enum_type = _LUCKYDRAWREWARDTYPE
 _LUCKYDRAWRECURRINGWINNER.fields_by_name['mtt_rewards'].message_type = base__pb2._MTTREWARDINFO
 _LUCKYDRAWRECURRINGWINNERLIST.fields_by_name['winners'].message_type = _LUCKYDRAWRECURRINGWINNER
-_GETLUCKYDRAWWINNERLISTRSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWWINNERLISTRSP_CODE
+_GETLUCKYDRAWWINNERLISTRSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWWINNERLISTRSPCODE
 _GETLUCKYDRAWWINNERLISTRSP.fields_by_name['recurring_winners_list'].message_type = _LUCKYDRAWRECURRINGWINNERLIST
-_GETLUCKYDRAWWINNERLISTRSP_CODE.containing_type = _GETLUCKYDRAWWINNERLISTRSP
-_PLAYLUCKYDRAWANIMATIONRSP.fields_by_name['code'].enum_type = _PLAYLUCKYDRAWANIMATIONRSP_CODE
-_PLAYLUCKYDRAWANIMATIONRSP_CODE.containing_type = _PLAYLUCKYDRAWANIMATIONRSP
+_PLAYLUCKYDRAWANIMATIONRSP.fields_by_name['code'].enum_type = _PLAYLUCKYDRAWANIMATIONRSPCODE
 _LUCKYDRAWSETTINGS.fields_by_name['lucky_rewards'].message_type = lucky__draw__base__pb2._LUCKYREWARDS
 _LUCKYDRAWSETTINGS.fields_by_name['multi_lang_names'].message_type = common__pb2._MULTILANGNAME
 _LUCKYDRAWSETTINGS.fields_by_name['ticket_obtains'].enum_type = lucky__draw__base__pb2._LUCKYDRAWTICKETOBTAIN
-_GETLUCKYDRAWCACHESETTINGSRSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWCACHESETTINGSRSP_CODE
+_GETLUCKYDRAWCACHESETTINGSRSP.fields_by_name['code'].enum_type = _GETLUCKYDRAWCACHESETTINGSRSPCODE
 _GETLUCKYDRAWCACHESETTINGSRSP.fields_by_name['settings_list'].message_type = _LUCKYDRAWSETTINGS
-_GETLUCKYDRAWCACHESETTINGSRSP_CODE.containing_type = _GETLUCKYDRAWCACHESETTINGSRSP
 DESCRIPTOR.message_types_by_name['LuckyDrawStatusInfo'] = _LUCKYDRAWSTATUSINFO
 DESCRIPTOR.message_types_by_name['LuckyDrawStatusInfos'] = _LUCKYDRAWSTATUSINFOS
 DESCRIPTOR.message_types_by_name['GetLuckyDrawStatusInfoREQ'] = _GETLUCKYDRAWSTATUSINFOREQ
@@ -957,6 +967,11 @@ DESCRIPTOR.message_types_by_name['LuckyDrawSettings'] = _LUCKYDRAWSETTINGS
 DESCRIPTOR.message_types_by_name['GetLuckyDrawCacheSettingsREQ'] = _GETLUCKYDRAWCACHESETTINGSREQ
 DESCRIPTOR.message_types_by_name['GetLuckyDrawCacheSettingsRSP'] = _GETLUCKYDRAWCACHESETTINGSRSP
 DESCRIPTOR.enum_types_by_name['LuckyDrawRewardType'] = _LUCKYDRAWREWARDTYPE
+DESCRIPTOR.enum_types_by_name['GetLuckyDrawStatusInfoRSPCode'] = _GETLUCKYDRAWSTATUSINFORSPCODE
+DESCRIPTOR.enum_types_by_name['RegisterLuckyDrawRSPCode'] = _REGISTERLUCKYDRAWRSPCODE
+DESCRIPTOR.enum_types_by_name['GetLuckyDrawWinnerListRSPCode'] = _GETLUCKYDRAWWINNERLISTRSPCODE
+DESCRIPTOR.enum_types_by_name['PlayLuckyDrawAnimationRSPCode'] = _PLAYLUCKYDRAWANIMATIONRSPCODE
+DESCRIPTOR.enum_types_by_name['GetLuckyDrawCacheSettingsRSPCode'] = _GETLUCKYDRAWCACHESETTINGSRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 LuckyDrawStatusInfo = _reflection.GeneratedProtocolMessageType('LuckyDrawStatusInfo', (_message.Message,), dict(

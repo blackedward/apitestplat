@@ -16,11 +16,17 @@ import achievement_base_pb2 as achievement__base__pb2
 import base_pb2 as base__pb2
 import base2_pb2 as base2__pb2
 import inner_base_pb2 as inner__base__pb2
+import inner_fee_rating_pb2 as inner__fee__rating__pb2
+import inner_go_club_pb2 as inner__go__club__pb2
+import inner_go_shop_pb2 as inner__go__shop__pb2
+import inner_go_user_pb2 as inner__go__user__pb2
+import inner_item_pb2 as inner__item__pb2
+import inner_mtt_multi_day_pb2 as inner__mtt__multi__day__pb2
 import mtt2_pb2 as mtt2__pb2
+import mystery_bounty_pb2 as mystery__bounty__pb2
 import pb1_pb2 as pb1__pb2
 import pre_base_pb2 as pre__base__pb2
 import sng_pb2 as sng__pb2
-import mystery_bounty_pb2 as mystery__bounty__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -28,9 +34,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x19inner_go_roomrouter.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\nmtt2.proto\x1a\tpb1.proto\x1a\x0epre_base.proto\x1a\tsng.proto\x1a\x14mystery_bounty.proto\"\xd4\x19\n\x13iPhpCreateRoomV2REQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12$\n\nmatch_type\x18\x05 \x01(\x0e\x32\x10.pb.PHPMatchType\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x06 \x01(\x05\x12\x13\n\x0bsignup_time\x18\x07 \x01(\x03\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x1c\n\x14is_auto_flipout_mode\x18\t \x01(\x08\x12\x16\n\x0emin_player_num\x18\n \x01(\x05\x12\x12\n\ntable_icon\x18\x0b \x01(\t\x12\x11\n\trebuy_num\x18\x0c \x01(\x05\x12\x12\n\nrebuy_rate\x18\r \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x0e \x01(\x05\x12\x14\n\x0cis_satellite\x18\x0f \x01(\x08\x12\x16\n\x0e\x65nd_game_level\x18\x10 \x01(\x05\x12/\n\x12mtt_multi_day_info\x18\x11 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x18\n\x10\x64\x65lay_join_level\x18\x12 \x01(\x05\x12\x13\n\x0bis_mtt_rest\x18\x13 \x01(\x08\x12\x15\n\rmtt_rest_type\x18\x14 \x01(\x05\x12\x16\n\x0eis_sitting_out\x18\x15 \x01(\x08\x12\x19\n\x11sitting_out_level\x18\x16 \x01(\x05\x12(\n\x0eroom_name_lang\x18\x17 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1f\n\x17mtt_reward_percent_type\x18\x18 \x01(\x05\x12\x11\n\tevent_key\x18\x19 \x01(\t\x12\x17\n\x0fis_fixed_reward\x18\x1a \x01(\x08\x12\x14\n\x0c\x65nsure_chips\x18\x1b \x01(\x03\x12\x15\n\ritem_class_id\x18\x1c \x01(\x03\x12\x11\n\troom_name\x18\x1d \x01(\t\x12=\n\x0ereward_setting\x18\x1e \x03(\x0b\x32%.pb.iPhpCreateRoomV2REQ.RewardSetting\x12\x19\n\x11is_sign_by_ppchip\x18\x1f \x01(\x08\x12\x19\n\x11is_sign_by_ticket\x18  \x01(\x08\x12\x15\n\rbuyin_tickets\x18! \x03(\x03\x12\x1a\n\x12is_rebuy_by_ppchip\x18\" \x01(\x08\x12\x1a\n\x12is_rebuy_by_ticket\x18# \x01(\x08\x12\x15\n\rrebuy_tickets\x18$ \x03(\x03\x12\x1a\n\x12is_addon_by_ppchip\x18% \x01(\x08\x12\x1a\n\x12is_addon_by_ticket\x18& \x01(\x08\x12\x15\n\raddon_tickets\x18\' \x03(\x03\x12\r\n\x05\x62uyin\x18( \x01(\x03\x12\x36\n\x15special_hunter_bounty\x18) \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12\x13\n\x0b\x62\x65gin_chips\x18* \x01(\x03\x12\x1b\n\x13is_mtt_hunter_match\x18+ \x01(\x08\x12\x1d\n\x15mtt_hunter_match_type\x18, \x01(\x05\x12\x18\n\x10mtt_hunter_ratio\x18- \x01(\x05\x12&\n\x0broom_avatar\x18. \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x12\n\naddon_rate\x18/ \x01(\x05\x12\x12\n\nblind_type\x18\x30 \x01(\x05\x12\x0f\n\x07rebuyin\x18\x31 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x32 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x33 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\x34 \x01(\x05\x12\x10\n\x08seat_num\x18\x35 \x01(\x05\x12\x14\n\x0cupblind_time\x18\x36 \x01(\x05\x12\x15\n\ris_auth_limit\x18\x37 \x01(\x08\x12\x16\n\x0emax_player_num\x18\x38 \x01(\x05\x12\x12\n\nbreak_time\x18\x39 \x01(\x05\x12\x1d\n\x15\x65vent_leader_board_id\x18: \x03(\x03\x12 \n\x18is_first_prize_broadcast\x18; \x01(\x08\x12\x17\n\x0fis_leader_board\x18< \x01(\x08\x12\x1e\n\x16is_notify_before_addon\x18= \x01(\x08\x12\x1e\n\x16is_notify_before_start\x18> \x01(\x08\x12\x13\n\x0bopen_clubid\x18? \x03(\x05\x12\x1a\n\x12open_user_platform\x18@ \x03(\t\x12\x1a\n\x12open_club_platform\x18\x41 \x03(\t\x12\x15\n\rsort_priority\x18\x42 \x01(\x05\x12;\n\x18mtt_special_scene_config\x18\x43 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1f\n\troom_type\x18\x44 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x45 \x01(\x0e\x32\x0c.pb.GameMode\x12\x15\n\ris_float_ante\x18\x46 \x01(\x08\x12\x13\n\x0bsmall_blind\x18G \x01(\x03\x12&\n\rbomb_pot_info\x18H \x01(\x0b\x32\x0f.pb.BombPotInfo\x12\x1a\n\x12is_start_from_flop\x18I \x01(\x08\x12\x0f\n\x07is_vpip\x18J \x01(\x08\x12\x16\n\x0evpip_limit_min\x18K \x01(\x05\x12\x1c\n\x14vpip_limit_threshold\x18L \x01(\x05\x12\x1b\n\x13is_auto_create_room\x18M \x01(\x08\x12\"\n\x1a\x61uto_delay_room_over_times\x18N \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18O \x01(\x08\x12\x18\n\x10\x63\x61lltime_minutes\x18P \x01(\x05\x12\x13\n\x0bis_withdraw\x18Q \x01(\x08\x12\x12\n\nauto_start\x18R \x01(\x05\x12\x1a\n\x12is_run_multi_times\x18S \x01(\x08\x12\x0f\n\x07\x66\x65\x65_cap\x18T \x01(\x05\x12\x15\n\rdefault_buyin\x18U \x01(\x03\x12\x11\n\tgame_time\x18V \x01(\x05\x12\x11\n\tmax_buyin\x18W \x01(\x03\x12\x11\n\tmin_buyin\x18X \x01(\x03\x12\x0c\n\x04\x61nte\x18Y \x01(\x03\x12\x13\n\x0bis_ip_limit\x18Z \x01(\x08\x12\x14\n\x0cis_gps_limit\x18[ \x01(\x08\x12\x12\n\nis_jackpot\x18\\ \x01(\x08\x12\x17\n\x0frebate_interval\x18] \x01(\x03\x12\x0e\n\x06tempid\x18^ \x01(\t\x12\x18\n\x10\x61\x64\x64itional_board\x18_ \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18` \x01(\x05\x12\x12\n\nis_dynamic\x18\x61 \x01(\x08\x12\x10\n\x08need_num\x18\x62 \x01(\x05\x12*\n\x0f\x61\x64min_room_type\x18\x63 \x01(\x0e\x32\x11.pb.AdminRoomType\x12\x12\n\ntable_skin\x18\x64 \x01(\t\x12\x0f\n\x07\x62\x65t_min\x18\x65 \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\x66 \x01(\x03\x12\x11\n\tbet_chips\x18g \x03(\x03\x12\x1b\n\x13settlement_duration\x18h \x01(\x03\x12\x14\n\x0croom_ownerid\x18i \x01(\x03\x12\x15\n\rcreate_clubid\x18j \x01(\x05\x12\x10\n\x08platform\x18k \x01(\t\x12\x11\n\tclub_name\x18l \x01(\t\x12\x0e\n\x06is_pin\x18m \x01(\x08\x12\x18\n\x10\x65nd_game_percent\x18n \x01(\x05\x12\x18\n\x10pin_before_hours\x18o \x01(\x05\x12:\n\x17\x61nnual_achievement_type\x18p \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x14\n\x0cpin_priority\x18q \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18r \x01(\x05\x12\x14\n\x0creward_count\x18s \x01(\x05\x12:\n\x17spinup_multiple_setting\x18t \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12\x19\n\x11is_mystery_bounty\x18u \x01(\x08\x12)\n\x0emystery_bounty\x18v \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x14\n\x0cmain_bet_min\x18w \x01(\x03\x12\x14\n\x0cmain_bet_max\x18x \x01(\x03\x12\x14\n\x0cside_bet_min\x18y \x01(\x03\x12\x14\n\x0cside_bet_max\x18z \x01(\x03\x12\x0c\n\x04tags\x18{ \x03(\t\x1aI\n\rRewardSetting\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0b\n\x03qty\x18\x03 \x01(\x03\x12\x0f\n\x07item_id\x18\x04 \x01(\x03\"h\n\x13iPhpCreateRoomV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x13\n\x0broom_handle\x18\x04 \x01(\r\"}\n\x18iUpdateUserMultiTableREQ\x12\x31\n\x10user_room_status\x18\x01 \x01(\x0b\x32\x17.pb.iSyncUserRoomStatus\x12\x13\n\x0broom_handle\x18\x02 \x01(\r\x12\x19\n\x11room_service_name\x18\x03 \x01(\t\"f\n\x18iUpdateUserMultiTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12,\n\troom_list\x18\x02 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\"$\n\x12iPhpDestroyRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"B\n\x12iPhpDestroyRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"!\n\x12iUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"2\n\x12iUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"$\n\x15iUserMissHeartBeatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"5\n\x15iUserMissHeartBeatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x0fiGetRoomUidsREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\"=\n\x0fiGetRoomUidsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\".\n\x0eiAddRoomUidREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\".\n\x0eiAddRoomUidRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iUserCurrentRoomREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"S\n\x13iUserCurrentRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"q\n!iGetMttMultiDayMatchInitDataV2REQ\x12/\n\x12mtt_multi_day_info\x18\x01 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x1b\n\x10match_start_time\x18\x02 \x01(\x03:\x01\x30\"\xb7\x01\n!iGetMttMultiDayMatchInitDataV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11\x62lind_start_level\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\tcan_start\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0enew_start_time\x18\x04 \x01(\x03:\x01\x30\x12!\n\x19have_first_level_can_join\x18\x05 \x01(\x08\"3\n\x1fiPhpDisableDynamicCreateRoomREQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\"?\n\x1fiPhpDisableDynamicCreateRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x19inner_go_roomrouter.proto\x12\x02pb\x1a\x16\x61\x63hievement_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\x1a\x16inner_fee_rating.proto\x1a\x13inner_go_club.proto\x1a\x13inner_go_shop.proto\x1a\x13inner_go_user.proto\x1a\x10inner_item.proto\x1a\x19inner_mtt_multi_day.proto\x1a\nmtt2.proto\x1a\x14mystery_bounty.proto\x1a\tpb1.proto\x1a\x0epre_base.proto\x1a\tsng.proto\"\x9f\x1a\n\x13iPhpCreateRoomV2REQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\x12\x0b\n\x03uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12$\n\nmatch_type\x18\x05 \x01(\x0e\x32\x10.pb.PHPMatchType\x12\x16\n\x0e\x65\x61rly_bird_num\x18\x06 \x01(\x05\x12\x13\n\x0bsignup_time\x18\x07 \x01(\x03\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x1c\n\x14is_auto_flipout_mode\x18\t \x01(\x08\x12\x16\n\x0emin_player_num\x18\n \x01(\x05\x12\x12\n\ntable_icon\x18\x0b \x01(\t\x12\x11\n\trebuy_num\x18\x0c \x01(\x05\x12\x12\n\nrebuy_rate\x18\r \x01(\x05\x12\x10\n\x08\x66\x65\x65point\x18\x0e \x01(\x05\x12\x14\n\x0cis_satellite\x18\x0f \x01(\x08\x12\x16\n\x0e\x65nd_game_level\x18\x10 \x01(\x05\x12/\n\x12mtt_multi_day_info\x18\x11 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x18\n\x10\x64\x65lay_join_level\x18\x12 \x01(\x05\x12\x13\n\x0bis_mtt_rest\x18\x13 \x01(\x08\x12\x15\n\rmtt_rest_type\x18\x14 \x01(\x05\x12\x16\n\x0eis_sitting_out\x18\x15 \x01(\x08\x12\x19\n\x11sitting_out_level\x18\x16 \x01(\x05\x12(\n\x0eroom_name_lang\x18\x17 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1f\n\x17mtt_reward_percent_type\x18\x18 \x01(\x05\x12\x11\n\tevent_key\x18\x19 \x01(\t\x12\x17\n\x0fis_fixed_reward\x18\x1a \x01(\x08\x12\x14\n\x0c\x65nsure_chips\x18\x1b \x01(\x03\x12\x15\n\ritem_class_id\x18\x1c \x01(\x03\x12\x11\n\troom_name\x18\x1d \x01(\t\x12=\n\x0ereward_setting\x18\x1e \x03(\x0b\x32%.pb.iPhpCreateRoomV2REQ.RewardSetting\x12\x19\n\x11is_sign_by_ppchip\x18\x1f \x01(\x08\x12\x19\n\x11is_sign_by_ticket\x18  \x01(\x08\x12\x15\n\rbuyin_tickets\x18! \x03(\x03\x12\x1a\n\x12is_rebuy_by_ppchip\x18\" \x01(\x08\x12\x1a\n\x12is_rebuy_by_ticket\x18# \x01(\x08\x12\x15\n\rrebuy_tickets\x18$ \x03(\x03\x12\x1a\n\x12is_addon_by_ppchip\x18% \x01(\x08\x12\x1a\n\x12is_addon_by_ticket\x18& \x01(\x08\x12\x15\n\raddon_tickets\x18\' \x03(\x03\x12\r\n\x05\x62uyin\x18( \x01(\x03\x12\x36\n\x15special_hunter_bounty\x18) \x03(\x0b\x32\x17.pb.SpecialHunterBounty\x12\x13\n\x0b\x62\x65gin_chips\x18* \x01(\x03\x12\x1b\n\x13is_mtt_hunter_match\x18+ \x01(\x08\x12\x1d\n\x15mtt_hunter_match_type\x18, \x01(\x05\x12\x18\n\x10mtt_hunter_ratio\x18- \x01(\x05\x12&\n\x0broom_avatar\x18. \x01(\x0b\x32\x11.pb.PhpRoomAvatar\x12\x12\n\naddon_rate\x18/ \x01(\x05\x12\x12\n\nblind_type\x18\x30 \x01(\x05\x12\x0f\n\x07rebuyin\x18\x31 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x32 \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x33 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\x34 \x01(\x05\x12\x10\n\x08seat_num\x18\x35 \x01(\x05\x12\x14\n\x0cupblind_time\x18\x36 \x01(\x05\x12\x15\n\ris_auth_limit\x18\x37 \x01(\x08\x12\x16\n\x0emax_player_num\x18\x38 \x01(\x05\x12\x12\n\nbreak_time\x18\x39 \x01(\x05\x12\x1d\n\x15\x65vent_leader_board_id\x18: \x03(\x03\x12 \n\x18is_first_prize_broadcast\x18; \x01(\x08\x12\x17\n\x0fis_leader_board\x18< \x01(\x08\x12\x1e\n\x16is_notify_before_addon\x18= \x01(\x08\x12\x1e\n\x16is_notify_before_start\x18> \x01(\x08\x12\x13\n\x0bopen_clubid\x18? \x03(\x05\x12\x1a\n\x12open_user_platform\x18@ \x03(\t\x12\x1a\n\x12open_club_platform\x18\x41 \x03(\t\x12\x15\n\rsort_priority\x18\x42 \x01(\x05\x12;\n\x18mtt_special_scene_config\x18\x43 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1f\n\troom_type\x18\x44 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x45 \x01(\x0e\x32\x0c.pb.GameMode\x12\x15\n\ris_float_ante\x18\x46 \x01(\x08\x12\x13\n\x0bsmall_blind\x18G \x01(\x03\x12&\n\rbomb_pot_info\x18H \x01(\x0b\x32\x0f.pb.BombPotInfo\x12\x1a\n\x12is_start_from_flop\x18I \x01(\x08\x12\x0f\n\x07is_vpip\x18J \x01(\x08\x12\x16\n\x0evpip_limit_min\x18K \x01(\x05\x12\x1c\n\x14vpip_limit_threshold\x18L \x01(\x05\x12\x1b\n\x13is_auto_create_room\x18M \x01(\x08\x12\"\n\x1a\x61uto_delay_room_over_times\x18N \x01(\x05\x12\'\n\x1fis_endless_auto_delay_room_over\x18O \x01(\x08\x12\x18\n\x10\x63\x61lltime_minutes\x18P \x01(\x05\x12\x13\n\x0bis_withdraw\x18Q \x01(\x08\x12\x12\n\nauto_start\x18R \x01(\x05\x12\x1a\n\x12is_run_multi_times\x18S \x01(\x08\x12\x0f\n\x07\x66\x65\x65_cap\x18T \x01(\x05\x12\x15\n\rdefault_buyin\x18U \x01(\x03\x12\x11\n\tgame_time\x18V \x01(\x05\x12\x11\n\tmax_buyin\x18W \x01(\x03\x12\x11\n\tmin_buyin\x18X \x01(\x03\x12\x0c\n\x04\x61nte\x18Y \x01(\x03\x12\x13\n\x0bis_ip_limit\x18Z \x01(\x08\x12\x14\n\x0cis_gps_limit\x18[ \x01(\x08\x12\x12\n\nis_jackpot\x18\\ \x01(\x08\x12\x17\n\x0frebate_interval\x18] \x01(\x03\x12\x0e\n\x06tempid\x18^ \x01(\t\x12\x18\n\x10\x61\x64\x64itional_board\x18_ \x01(\x05\x12 \n\x18\x62ombpot_additional_board\x18` \x01(\x05\x12\x12\n\nis_dynamic\x18\x61 \x01(\x08\x12\x10\n\x08need_num\x18\x62 \x01(\x05\x12*\n\x0f\x61\x64min_room_type\x18\x63 \x01(\x0e\x32\x11.pb.AdminRoomType\x12\x12\n\ntable_skin\x18\x64 \x01(\t\x12\x0f\n\x07\x62\x65t_min\x18\x65 \x01(\x03\x12\x0f\n\x07\x62\x65t_max\x18\x66 \x01(\x03\x12\x11\n\tbet_chips\x18g \x03(\x03\x12\x1b\n\x13settlement_duration\x18h \x01(\x03\x12\x14\n\x0croom_ownerid\x18i \x01(\x03\x12\x15\n\rcreate_clubid\x18j \x01(\x05\x12\x10\n\x08platform\x18k \x01(\t\x12\x11\n\tclub_name\x18l \x01(\t\x12\x0e\n\x06is_pin\x18m \x01(\x08\x12\x18\n\x10\x65nd_game_percent\x18n \x01(\x05\x12\x18\n\x10pin_before_hours\x18o \x01(\x05\x12:\n\x17\x61nnual_achievement_type\x18p \x01(\x0e\x32\x19.pb.AnnualAchievementType\x12\x14\n\x0cpin_priority\x18q \x01(\x05\x12\x1f\n\x17time_bank_limited_times\x18r \x01(\x05\x12\x14\n\x0creward_count\x18s \x01(\x05\x12:\n\x17spinup_multiple_setting\x18t \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\x12\x19\n\x11is_mystery_bounty\x18u \x01(\x08\x12)\n\x0emystery_bounty\x18v \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x14\n\x0cmain_bet_min\x18w \x01(\x03\x12\x14\n\x0cmain_bet_max\x18x \x01(\x03\x12\x14\n\x0cside_bet_min\x18y \x01(\x03\x12\x14\n\x0cside_bet_max\x18z \x01(\x03\x12\x0c\n\x04tags\x18{ \x03(\t\x12\x11\n\tmin_entry\x18| \x01(\x03\x12\x13\n\x0bstart_order\x18} \x01(\x05\x12!\n\x19\x63ustomize_upblind_time_id\x18~ \x01(\x05\x1aI\n\rRewardSetting\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0b\n\x03qty\x18\x03 \x01(\x03\x12\x0f\n\x07item_id\x18\x04 \x01(\x03\"h\n\x13iPhpCreateRoomV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\x05\x12\x13\n\x0broom_handle\x18\x04 \x01(\r\"}\n\x18iUpdateUserMultiTableREQ\x12\x31\n\x10user_room_status\x18\x01 \x01(\x0b\x32\x17.pb.iSyncUserRoomStatus\x12\x13\n\x0broom_handle\x18\x02 \x01(\r\x12\x19\n\x11room_service_name\x18\x03 \x01(\t\"f\n\x18iUpdateUserMultiTableRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12,\n\troom_list\x18\x02 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\"!\n\x12iGetAllUserRoomREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"`\n\x12iGetAllUserRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12,\n\troom_list\x18\x02 \x03(\x0b\x32\x19.pb.MultipleTableRoomInfo\"$\n\x12iPhpDestroyRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"B\n\x12iPhpDestroyRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"!\n\x12iUserDisconnectREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"2\n\x12iUserDisconnectRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"$\n\x15iUserMissHeartBeatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"5\n\x15iUserMissHeartBeatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x0fiGetRoomUidsREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\"=\n\x0fiGetRoomUidsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04uids\x18\x02 \x03(\x03\".\n\x0eiAddRoomUidREQ\x12\x0f\n\x07room_id\x18\x01 \x01(\x05\x12\x0b\n\x03uid\x18\x02 \x01(\x03\".\n\x0eiAddRoomUidRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iUserCurrentRoomREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"S\n\x13iUserCurrentRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"q\n!iGetMttMultiDayMatchInitDataV2REQ\x12/\n\x12mtt_multi_day_info\x18\x01 \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12\x1b\n\x10match_start_time\x18\x02 \x01(\x03:\x01\x30\"\xb7\x01\n!iGetMttMultiDayMatchInitDataV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1c\n\x11\x62lind_start_level\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\tcan_start\x18\x03 \x01(\x08:\x05\x66\x61lse\x12\x19\n\x0enew_start_time\x18\x04 \x01(\x03:\x01\x30\x12!\n\x19have_first_level_can_join\x18\x05 \x01(\x08\"3\n\x1fiPhpDisableDynamicCreateRoomREQ\x12\x10\n\x08match_id\x18\x01 \x01(\x03\"?\n\x1fiPhpDisableDynamicCreateRoomRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x9c\x03\n\x17iEnterRoomRpcWrapperREQ\x12(\n\tuser_info\x18\x01 \x01(\x0b\x32\x15.pb.iGetUserInfoV2REQ\x12/\n\tclub_info\x18\x02 \x01(\x0b\x32\x1c.pb.iGetEnterRoomClubInfoREQ\x12\x33\n\ruser_vip_info\x18\x03 \x01(\x0b\x32\x1c.pb.iGetEnterRoomUserInfoREQ\x12(\n\nuser_items\x18\x04 \x01(\x0b\x32\x14.pb.iGetUserItemsREQ\x12(\n\x0c\x61\x64\x64_room_uid\x18\x05 \x01(\x0b\x32\x12.pb.iAddRoomUidREQ\x12.\n\rtable_setting\x18\x06 \x01(\x0b\x32\x17.pb.iGetTableSettingREQ\x12\x31\n\x0fuser_fee_rating\x18\x07 \x01(\x0b\x32\x18.pb.iGetUserFeeRatingREQ\x12:\n\x14mtt_multi_day_player\x18\x08 \x01(\x0b\x32\x1c.pb.iGetMttMultiDayPlayerREQ\"\xba\x03\n\x17iEnterRoomRpcWrapperRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12(\n\tuser_info\x18\x02 \x01(\x0b\x32\x15.pb.iGetUserInfoV2RSP\x12/\n\tclub_info\x18\x03 \x01(\x0b\x32\x1c.pb.iGetEnterRoomClubInfoRSP\x12\x33\n\ruser_vip_info\x18\x04 \x01(\x0b\x32\x1c.pb.iGetEnterRoomUserInfoRSP\x12(\n\nuser_items\x18\x05 \x01(\x0b\x32\x14.pb.iGetUserItemsRSP\x12(\n\x0c\x61\x64\x64_room_uid\x18\x06 \x01(\x0b\x32\x12.pb.iAddRoomUidRSP\x12.\n\rtable_setting\x18\x07 \x01(\x0b\x32\x17.pb.iGetTableSettingRSP\x12\x31\n\x0fuser_fee_rating\x18\x08 \x01(\x0b\x32\x18.pb.iGetUserFeeRatingRSP\x12:\n\x14mtt_multi_day_player\x18\t \x01(\x0b\x32\x1c.pb.iGetMttMultiDayPlayerRSP\"d\n\x13iGetTableSettingREQ\x12\x1f\n\troom_type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x02 \x01(\x0e\x32\x0c.pb.GameMode\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"j\n\x13iGetTableSettingRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x19\n\x0e\x64\x65\x66\x61ult_buy_in\x18\x02 \x01(\x05:\x01\x30\x12\x1a\n\x0b\x61uto_top_up\x18\x03 \x01(\x08:\x05\x66\x61lse\"7\n\x19iMttMultiDayGetDay1NumREQ\x12\x1a\n\x12multi_day_match_id\x18\x01 \x01(\x05\"G\n\x19iMttMultiDayGetDay1NumRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x05\x42\x07Z\x05../pb')
   ,
-  dependencies=[achievement__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
+  dependencies=[achievement__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,inner__fee__rating__pb2.DESCRIPTOR,inner__go__club__pb2.DESCRIPTOR,inner__go__shop__pb2.DESCRIPTOR,inner__go__user__pb2.DESCRIPTOR,inner__item__pb2.DESCRIPTOR,inner__mtt__multi__day__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,])
 
 
 
@@ -82,8 +88,8 @@ _IPHPCREATEROOMV2REQ_REWARDSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3384,
-  serialized_end=3457,
+  serialized_start=3591,
+  serialized_end=3664,
 )
 
 _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
@@ -954,6 +960,27 @@ _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_entry', full_name='pb.iPhpCreateRoomV2REQ.min_entry', index=123,
+      number=124, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='start_order', full_name='pb.iPhpCreateRoomV2REQ.start_order', index=124,
+      number=125, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='customize_upblind_time_id', full_name='pb.iPhpCreateRoomV2REQ.customize_upblind_time_id', index=125,
+      number=126, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -966,8 +993,8 @@ _IPHPCREATEROOMV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=173,
-  serialized_end=3457,
+  serialized_start=305,
+  serialized_end=3664,
 )
 
 
@@ -1018,8 +1045,8 @@ _IPHPCREATEROOMV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3459,
-  serialized_end=3563,
+  serialized_start=3666,
+  serialized_end=3770,
 )
 
 
@@ -1063,8 +1090,8 @@ _IUPDATEUSERMULTITABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3565,
-  serialized_end=3690,
+  serialized_start=3772,
+  serialized_end=3897,
 )
 
 
@@ -1101,8 +1128,77 @@ _IUPDATEUSERMULTITABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3692,
-  serialized_end=3794,
+  serialized_start=3899,
+  serialized_end=4001,
+)
+
+
+_IGETALLUSERROOMREQ = _descriptor.Descriptor(
+  name='iGetAllUserRoomREQ',
+  full_name='pb.iGetAllUserRoomREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.iGetAllUserRoomREQ.uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4003,
+  serialized_end=4036,
+)
+
+
+_IGETALLUSERROOMRSP = _descriptor.Descriptor(
+  name='iGetAllUserRoomRSP',
+  full_name='pb.iGetAllUserRoomRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetAllUserRoomRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='room_list', full_name='pb.iGetAllUserRoomRSP.room_list', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4038,
+  serialized_end=4134,
 )
 
 
@@ -1132,8 +1228,8 @@ _IPHPDESTROYROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3796,
-  serialized_end=3832,
+  serialized_start=4136,
+  serialized_end=4172,
 )
 
 
@@ -1170,8 +1266,8 @@ _IPHPDESTROYROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3834,
-  serialized_end=3900,
+  serialized_start=4174,
+  serialized_end=4240,
 )
 
 
@@ -1201,8 +1297,8 @@ _IUSERDISCONNECTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3902,
-  serialized_end=3935,
+  serialized_start=4242,
+  serialized_end=4275,
 )
 
 
@@ -1232,8 +1328,8 @@ _IUSERDISCONNECTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3937,
-  serialized_end=3987,
+  serialized_start=4277,
+  serialized_end=4327,
 )
 
 
@@ -1263,8 +1359,8 @@ _IUSERMISSHEARTBEATREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3989,
-  serialized_end=4025,
+  serialized_start=4329,
+  serialized_end=4365,
 )
 
 
@@ -1294,8 +1390,8 @@ _IUSERMISSHEARTBEATRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4027,
-  serialized_end=4080,
+  serialized_start=4367,
+  serialized_end=4420,
 )
 
 
@@ -1325,8 +1421,8 @@ _IGETROOMUIDSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4082,
-  serialized_end=4116,
+  serialized_start=4422,
+  serialized_end=4456,
 )
 
 
@@ -1363,8 +1459,8 @@ _IGETROOMUIDSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4118,
-  serialized_end=4179,
+  serialized_start=4458,
+  serialized_end=4519,
 )
 
 
@@ -1401,8 +1497,8 @@ _IADDROOMUIDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4181,
-  serialized_end=4227,
+  serialized_start=4521,
+  serialized_end=4567,
 )
 
 
@@ -1432,8 +1528,8 @@ _IADDROOMUIDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4229,
-  serialized_end=4275,
+  serialized_start=4569,
+  serialized_end=4615,
 )
 
 
@@ -1463,8 +1559,8 @@ _IUSERCURRENTROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4277,
-  serialized_end=4311,
+  serialized_start=4617,
+  serialized_end=4651,
 )
 
 
@@ -1508,8 +1604,8 @@ _IUSERCURRENTROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4313,
-  serialized_end=4396,
+  serialized_start=4653,
+  serialized_end=4736,
 )
 
 
@@ -1546,8 +1642,8 @@ _IGETMTTMULTIDAYMATCHINITDATAV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4398,
-  serialized_end=4511,
+  serialized_start=4738,
+  serialized_end=4851,
 )
 
 
@@ -1605,8 +1701,8 @@ _IGETMTTMULTIDAYMATCHINITDATAV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4514,
-  serialized_end=4697,
+  serialized_start=4854,
+  serialized_end=5037,
 )
 
 
@@ -1636,8 +1732,8 @@ _IPHPDISABLEDYNAMICCREATEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4699,
-  serialized_end=4750,
+  serialized_start=5039,
+  serialized_end=5090,
 )
 
 
@@ -1667,8 +1763,334 @@ _IPHPDISABLEDYNAMICCREATEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4752,
-  serialized_end=4815,
+  serialized_start=5092,
+  serialized_end=5155,
+)
+
+
+_IENTERROOMRPCWRAPPERREQ = _descriptor.Descriptor(
+  name='iEnterRoomRpcWrapperREQ',
+  full_name='pb.iEnterRoomRpcWrapperREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user_info', full_name='pb.iEnterRoomRpcWrapperREQ.user_info', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='club_info', full_name='pb.iEnterRoomRpcWrapperREQ.club_info', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_vip_info', full_name='pb.iEnterRoomRpcWrapperREQ.user_vip_info', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_items', full_name='pb.iEnterRoomRpcWrapperREQ.user_items', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='add_room_uid', full_name='pb.iEnterRoomRpcWrapperREQ.add_room_uid', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='table_setting', full_name='pb.iEnterRoomRpcWrapperREQ.table_setting', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_fee_rating', full_name='pb.iEnterRoomRpcWrapperREQ.user_fee_rating', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mtt_multi_day_player', full_name='pb.iEnterRoomRpcWrapperREQ.mtt_multi_day_player', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5158,
+  serialized_end=5570,
+)
+
+
+_IENTERROOMRPCWRAPPERRSP = _descriptor.Descriptor(
+  name='iEnterRoomRpcWrapperRSP',
+  full_name='pb.iEnterRoomRpcWrapperRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iEnterRoomRpcWrapperRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_info', full_name='pb.iEnterRoomRpcWrapperRSP.user_info', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='club_info', full_name='pb.iEnterRoomRpcWrapperRSP.club_info', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_vip_info', full_name='pb.iEnterRoomRpcWrapperRSP.user_vip_info', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_items', full_name='pb.iEnterRoomRpcWrapperRSP.user_items', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='add_room_uid', full_name='pb.iEnterRoomRpcWrapperRSP.add_room_uid', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='table_setting', full_name='pb.iEnterRoomRpcWrapperRSP.table_setting', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user_fee_rating', full_name='pb.iEnterRoomRpcWrapperRSP.user_fee_rating', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mtt_multi_day_player', full_name='pb.iEnterRoomRpcWrapperRSP.mtt_multi_day_player', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5573,
+  serialized_end=6015,
+)
+
+
+_IGETTABLESETTINGREQ = _descriptor.Descriptor(
+  name='iGetTableSettingREQ',
+  full_name='pb.iGetTableSettingREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='room_type', full_name='pb.iGetTableSettingREQ.room_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='game_mode', full_name='pb.iGetTableSettingREQ.game_mode', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.iGetTableSettingREQ.uid', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6017,
+  serialized_end=6117,
+)
+
+
+_IGETTABLESETTINGRSP = _descriptor.Descriptor(
+  name='iGetTableSettingRSP',
+  full_name='pb.iGetTableSettingRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetTableSettingRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='default_buy_in', full_name='pb.iGetTableSettingRSP.default_buy_in', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='auto_top_up', full_name='pb.iGetTableSettingRSP.auto_top_up', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6119,
+  serialized_end=6225,
+)
+
+
+_IMTTMULTIDAYGETDAY1NUMREQ = _descriptor.Descriptor(
+  name='iMttMultiDayGetDay1NumREQ',
+  full_name='pb.iMttMultiDayGetDay1NumREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='multi_day_match_id', full_name='pb.iMttMultiDayGetDay1NumREQ.multi_day_match_id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6227,
+  serialized_end=6282,
+)
+
+
+_IMTTMULTIDAYGETDAY1NUMRSP = _descriptor.Descriptor(
+  name='iMttMultiDayGetDay1NumRSP',
+  full_name='pb.iMttMultiDayGetDay1NumRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iMttMultiDayGetDay1NumRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='pb.iMttMultiDayGetDay1NumRSP.data', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6284,
+  serialized_end=6355,
 )
 
 _IPHPCREATEROOMV2REQ_REWARDSETTING.containing_type = _IPHPCREATEROOMV2REQ
@@ -1690,6 +2112,8 @@ _IPHPCREATEROOMV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IUPDATEUSERMULTITABLEREQ.fields_by_name['user_room_status'].message_type = inner__base__pb2._ISYNCUSERROOMSTATUS
 _IUPDATEUSERMULTITABLERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IUPDATEUSERMULTITABLERSP.fields_by_name['room_list'].message_type = pb1__pb2._MULTIPLETABLEROOMINFO
+_IGETALLUSERROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETALLUSERROOMRSP.fields_by_name['room_list'].message_type = pb1__pb2._MULTIPLETABLEROOMINFO
 _IPHPDESTROYROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IUSERDISCONNECTRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IUSERMISSHEARTBEATRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
@@ -1699,10 +2123,33 @@ _IUSERCURRENTROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETMTTMULTIDAYMATCHINITDATAV2REQ.fields_by_name['mtt_multi_day_info'].message_type = mtt2__pb2._MTTMULTIDAYINFO
 _IGETMTTMULTIDAYMATCHINITDATAV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IPHPDISABLEDYNAMICCREATEROOMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['user_info'].message_type = inner__go__user__pb2._IGETUSERINFOV2REQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['club_info'].message_type = inner__go__club__pb2._IGETENTERROOMCLUBINFOREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['user_vip_info'].message_type = inner__go__shop__pb2._IGETENTERROOMUSERINFOREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['user_items'].message_type = inner__item__pb2._IGETUSERITEMSREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['add_room_uid'].message_type = _IADDROOMUIDREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['table_setting'].message_type = _IGETTABLESETTINGREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['user_fee_rating'].message_type = inner__fee__rating__pb2._IGETUSERFEERATINGREQ
+_IENTERROOMRPCWRAPPERREQ.fields_by_name['mtt_multi_day_player'].message_type = inner__mtt__multi__day__pb2._IGETMTTMULTIDAYPLAYERREQ
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['user_info'].message_type = inner__go__user__pb2._IGETUSERINFOV2RSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['club_info'].message_type = inner__go__club__pb2._IGETENTERROOMCLUBINFORSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['user_vip_info'].message_type = inner__go__shop__pb2._IGETENTERROOMUSERINFORSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['user_items'].message_type = inner__item__pb2._IGETUSERITEMSRSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['add_room_uid'].message_type = _IADDROOMUIDRSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['table_setting'].message_type = _IGETTABLESETTINGRSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['user_fee_rating'].message_type = inner__fee__rating__pb2._IGETUSERFEERATINGRSP
+_IENTERROOMRPCWRAPPERRSP.fields_by_name['mtt_multi_day_player'].message_type = inner__mtt__multi__day__pb2._IGETMTTMULTIDAYPLAYERRSP
+_IGETTABLESETTINGREQ.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
+_IGETTABLESETTINGREQ.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
+_IGETTABLESETTINGRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IMTTMULTIDAYGETDAY1NUMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomV2REQ'] = _IPHPCREATEROOMV2REQ
 DESCRIPTOR.message_types_by_name['iPhpCreateRoomV2RSP'] = _IPHPCREATEROOMV2RSP
 DESCRIPTOR.message_types_by_name['iUpdateUserMultiTableREQ'] = _IUPDATEUSERMULTITABLEREQ
 DESCRIPTOR.message_types_by_name['iUpdateUserMultiTableRSP'] = _IUPDATEUSERMULTITABLERSP
+DESCRIPTOR.message_types_by_name['iGetAllUserRoomREQ'] = _IGETALLUSERROOMREQ
+DESCRIPTOR.message_types_by_name['iGetAllUserRoomRSP'] = _IGETALLUSERROOMRSP
 DESCRIPTOR.message_types_by_name['iPhpDestroyRoomREQ'] = _IPHPDESTROYROOMREQ
 DESCRIPTOR.message_types_by_name['iPhpDestroyRoomRSP'] = _IPHPDESTROYROOMRSP
 DESCRIPTOR.message_types_by_name['iUserDisconnectREQ'] = _IUSERDISCONNECTREQ
@@ -1719,6 +2166,12 @@ DESCRIPTOR.message_types_by_name['iGetMttMultiDayMatchInitDataV2REQ'] = _IGETMTT
 DESCRIPTOR.message_types_by_name['iGetMttMultiDayMatchInitDataV2RSP'] = _IGETMTTMULTIDAYMATCHINITDATAV2RSP
 DESCRIPTOR.message_types_by_name['iPhpDisableDynamicCreateRoomREQ'] = _IPHPDISABLEDYNAMICCREATEROOMREQ
 DESCRIPTOR.message_types_by_name['iPhpDisableDynamicCreateRoomRSP'] = _IPHPDISABLEDYNAMICCREATEROOMRSP
+DESCRIPTOR.message_types_by_name['iEnterRoomRpcWrapperREQ'] = _IENTERROOMRPCWRAPPERREQ
+DESCRIPTOR.message_types_by_name['iEnterRoomRpcWrapperRSP'] = _IENTERROOMRPCWRAPPERRSP
+DESCRIPTOR.message_types_by_name['iGetTableSettingREQ'] = _IGETTABLESETTINGREQ
+DESCRIPTOR.message_types_by_name['iGetTableSettingRSP'] = _IGETTABLESETTINGRSP
+DESCRIPTOR.message_types_by_name['iMttMultiDayGetDay1NumREQ'] = _IMTTMULTIDAYGETDAY1NUMREQ
+DESCRIPTOR.message_types_by_name['iMttMultiDayGetDay1NumRSP'] = _IMTTMULTIDAYGETDAY1NUMRSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iPhpCreateRoomV2REQ = _reflection.GeneratedProtocolMessageType('iPhpCreateRoomV2REQ', (_message.Message,), dict(
@@ -1756,6 +2209,20 @@ iUpdateUserMultiTableRSP = _reflection.GeneratedProtocolMessageType('iUpdateUser
   # @@protoc_insertion_point(class_scope:pb.iUpdateUserMultiTableRSP)
   ))
 _sym_db.RegisterMessage(iUpdateUserMultiTableRSP)
+
+iGetAllUserRoomREQ = _reflection.GeneratedProtocolMessageType('iGetAllUserRoomREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETALLUSERROOMREQ,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetAllUserRoomREQ)
+  ))
+_sym_db.RegisterMessage(iGetAllUserRoomREQ)
+
+iGetAllUserRoomRSP = _reflection.GeneratedProtocolMessageType('iGetAllUserRoomRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETALLUSERROOMRSP,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetAllUserRoomRSP)
+  ))
+_sym_db.RegisterMessage(iGetAllUserRoomRSP)
 
 iPhpDestroyRoomREQ = _reflection.GeneratedProtocolMessageType('iPhpDestroyRoomREQ', (_message.Message,), dict(
   DESCRIPTOR = _IPHPDESTROYROOMREQ,
@@ -1868,6 +2335,48 @@ iPhpDisableDynamicCreateRoomRSP = _reflection.GeneratedProtocolMessageType('iPhp
   # @@protoc_insertion_point(class_scope:pb.iPhpDisableDynamicCreateRoomRSP)
   ))
 _sym_db.RegisterMessage(iPhpDisableDynamicCreateRoomRSP)
+
+iEnterRoomRpcWrapperREQ = _reflection.GeneratedProtocolMessageType('iEnterRoomRpcWrapperREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IENTERROOMRPCWRAPPERREQ,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iEnterRoomRpcWrapperREQ)
+  ))
+_sym_db.RegisterMessage(iEnterRoomRpcWrapperREQ)
+
+iEnterRoomRpcWrapperRSP = _reflection.GeneratedProtocolMessageType('iEnterRoomRpcWrapperRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IENTERROOMRPCWRAPPERRSP,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iEnterRoomRpcWrapperRSP)
+  ))
+_sym_db.RegisterMessage(iEnterRoomRpcWrapperRSP)
+
+iGetTableSettingREQ = _reflection.GeneratedProtocolMessageType('iGetTableSettingREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETTABLESETTINGREQ,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetTableSettingREQ)
+  ))
+_sym_db.RegisterMessage(iGetTableSettingREQ)
+
+iGetTableSettingRSP = _reflection.GeneratedProtocolMessageType('iGetTableSettingRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETTABLESETTINGRSP,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetTableSettingRSP)
+  ))
+_sym_db.RegisterMessage(iGetTableSettingRSP)
+
+iMttMultiDayGetDay1NumREQ = _reflection.GeneratedProtocolMessageType('iMttMultiDayGetDay1NumREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IMTTMULTIDAYGETDAY1NUMREQ,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iMttMultiDayGetDay1NumREQ)
+  ))
+_sym_db.RegisterMessage(iMttMultiDayGetDay1NumREQ)
+
+iMttMultiDayGetDay1NumRSP = _reflection.GeneratedProtocolMessageType('iMttMultiDayGetDay1NumRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IMTTMULTIDAYGETDAY1NUMRSP,
+  __module__ = 'inner_go_roomrouter_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iMttMultiDayGetDay1NumRSP)
+  ))
+_sym_db.RegisterMessage(iMttMultiDayGetDay1NumRSP)
 
 
 DESCRIPTOR._options = None

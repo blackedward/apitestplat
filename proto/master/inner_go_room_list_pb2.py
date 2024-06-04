@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 import base2_pb2 as base2__pb2
+import pre_base_pb2 as pre__base__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x18inner_go_room_list.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"K\n\x1aiGetFreeRollMttRoomListREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"K\n\x1aiGetFreeRollMttRoomListRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0f\n\x07roomids\x18\x02 \x03(\x05\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x18inner_go_room_list.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x0epre_base.proto\"K\n\x1aiGetFreeRollMttRoomListREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\"K\n\x1aiGetFreeRollMttRoomListRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0f\n\x07roomids\x18\x02 \x03(\x05\"T\n\x10RoomTypeGameMode\x12\x1f\n\troom_type\x18\x01 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x02 \x01(\x0e\x32\x0c.pb.GameMode\"G\n\x0eiGetRoomIdsREQ\x12#\n\x05rooms\x18\x01 \x03(\x0b\x32\x14.pb.RoomTypeGameMode\x12\x10\n\x08match_id\x18\x02 \x01(\x05\"?\n\x0eiGetRoomIdsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0f\n\x07roomids\x18\x02 \x03(\x05\x42\x07Z\x05../pb')
   ,
-  dependencies=[base2__pb2.DESCRIPTOR,])
+  dependencies=[base2__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,])
 
 
 
@@ -67,8 +68,8 @@ _IGETFREEROLLMTTROOMLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=120,
+  serialized_start=61,
+  serialized_end=136,
 )
 
 
@@ -105,13 +106,134 @@ _IGETFREEROLLMTTROOMLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=122,
-  serialized_end=197,
+  serialized_start=138,
+  serialized_end=213,
+)
+
+
+_ROOMTYPEGAMEMODE = _descriptor.Descriptor(
+  name='RoomTypeGameMode',
+  full_name='pb.RoomTypeGameMode',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='room_type', full_name='pb.RoomTypeGameMode.room_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='game_mode', full_name='pb.RoomTypeGameMode.game_mode', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=215,
+  serialized_end=299,
+)
+
+
+_IGETROOMIDSREQ = _descriptor.Descriptor(
+  name='iGetRoomIdsREQ',
+  full_name='pb.iGetRoomIdsREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rooms', full_name='pb.iGetRoomIdsREQ.rooms', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='match_id', full_name='pb.iGetRoomIdsREQ.match_id', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=301,
+  serialized_end=372,
+)
+
+
+_IGETROOMIDSRSP = _descriptor.Descriptor(
+  name='iGetRoomIdsRSP',
+  full_name='pb.iGetRoomIdsRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetRoomIdsRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='roomids', full_name='pb.iGetRoomIdsRSP.roomids', index=1,
+      number=2, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=374,
+  serialized_end=437,
 )
 
 _IGETFREEROLLMTTROOMLISTRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_ROOMTYPEGAMEMODE.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
+_ROOMTYPEGAMEMODE.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
+_IGETROOMIDSREQ.fields_by_name['rooms'].message_type = _ROOMTYPEGAMEMODE
+_IGETROOMIDSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iGetFreeRollMttRoomListREQ'] = _IGETFREEROLLMTTROOMLISTREQ
 DESCRIPTOR.message_types_by_name['iGetFreeRollMttRoomListRSP'] = _IGETFREEROLLMTTROOMLISTRSP
+DESCRIPTOR.message_types_by_name['RoomTypeGameMode'] = _ROOMTYPEGAMEMODE
+DESCRIPTOR.message_types_by_name['iGetRoomIdsREQ'] = _IGETROOMIDSREQ
+DESCRIPTOR.message_types_by_name['iGetRoomIdsRSP'] = _IGETROOMIDSRSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iGetFreeRollMttRoomListREQ = _reflection.GeneratedProtocolMessageType('iGetFreeRollMttRoomListREQ', (_message.Message,), dict(
@@ -127,6 +249,27 @@ iGetFreeRollMttRoomListRSP = _reflection.GeneratedProtocolMessageType('iGetFreeR
   # @@protoc_insertion_point(class_scope:pb.iGetFreeRollMttRoomListRSP)
   ))
 _sym_db.RegisterMessage(iGetFreeRollMttRoomListRSP)
+
+RoomTypeGameMode = _reflection.GeneratedProtocolMessageType('RoomTypeGameMode', (_message.Message,), dict(
+  DESCRIPTOR = _ROOMTYPEGAMEMODE,
+  __module__ = 'inner_go_room_list_pb2'
+  # @@protoc_insertion_point(class_scope:pb.RoomTypeGameMode)
+  ))
+_sym_db.RegisterMessage(RoomTypeGameMode)
+
+iGetRoomIdsREQ = _reflection.GeneratedProtocolMessageType('iGetRoomIdsREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETROOMIDSREQ,
+  __module__ = 'inner_go_room_list_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetRoomIdsREQ)
+  ))
+_sym_db.RegisterMessage(iGetRoomIdsREQ)
+
+iGetRoomIdsRSP = _reflection.GeneratedProtocolMessageType('iGetRoomIdsRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETROOMIDSRSP,
+  __module__ = 'inner_go_room_list_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetRoomIdsRSP)
+  ))
+_sym_db.RegisterMessage(iGetRoomIdsRSP)
 
 
 DESCRIPTOR._options = None

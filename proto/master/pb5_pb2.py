@@ -16,6 +16,7 @@ _sym_db = _symbol_database.Default()
 import pre_base_pb2 as pre__base__pb2
 import base_pb2 as base__pb2
 import base2_pb2 as base2__pb2
+import mtt_room_info_pb2 as mtt__room__info__pb2
 import pb1_pb2 as pb1__pb2
 import pine_pb2 as pine__pb2
 import sng_pb2 as sng__pb2
@@ -28,9 +29,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tpb5.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\tpb1.proto\x1a\npine.proto\x1a\tsng.proto\x1a\x15shark_king_flip.proto\x1a\x0f\x62lackjack.proto\"4\n\x14QuitMultipleTableREQ\x12\x0e\n\x06roomid\x18\x01 \x03(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"2\n\x14QuitMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"\x1b\n\x19RoundHintMultipleTableREQ\"\xf4\x01\n\x19RoundHintMultipleTableRSP\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x11\n\x06seatid\x18\x06 \x01(\x05:\x01\x30\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x11\n\troom_name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x14\n\x0cmain_bet_min\x18\x0b \x01(\x03\x12\x14\n\x0cmain_bet_max\x18\x0c \x01(\x03\"$\n\x12\x46inishRoundHintRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\",\n\x1aMultipleTableChangeRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\":\n\x1aMultipleTableChangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\" \n\x0eGetRoomInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\xbf\x05\n\x0eGetRoomInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\x10spinup_room_info\x18\x0e \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\x12\x14\n\x0cis_first_sit\x18\x0f \x01(\x08\x12-\n\x11sk_flip_room_info\x18\x10 \x01(\x0b\x32\x12.pb.SKFlipRoomInfo\x12\x31\n\x13sk_flip_room_status\x18\x11 \x01(\x0b\x32\x14.pb.SKFlipRoomStatus\x12\x16\n\x0bupgrade_seq\x18\x12 \x01(\x05:\x01\x30\x12\x32\n\x13\x62lackjack_room_info\x18\x13 \x01(\x0b\x32\x15.pb.BlackjackRoomInfo\"_\n\x0cLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0f\n\x04\x66lag\x18\x03 \x01(\x05:\x01\x30\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\"<\n\x0cLeaveRoomREQ\x12\x0f\n\x04\x66lag\x18\x01 \x01(\x05:\x01\x30\x12\x1b\n\x0cseat_reserve\x18\x02 \x01(\x08:\x05\x66\x61lse\"\xb7\x01\n\x0f\x41\x63tionNotifyBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x02 \x01(\x03\x12\x12\n\nmin_chipin\x18\x03 \x01(\x03\x12\x12\n\nmax_chipin\x18\x04 \x01(\x03\x12#\n\x0bround_stage\x18\x05 \x01(\x0e\x32\x0e.pb.RoundStage\x12\x17\n\x0f\x61\x63tion_duration\x18\x06 \x01(\x03\x12\x15\n\rcan_surrender\x18\x07 \x01(\x08\"\x17\n\x15GetCanWithdrawTimeREQ\"X\n\x15GetCanWithdrawTimeRSP\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x17\n\x0fis_ban_withdraw\x18\x02 \x01(\x08\x12\x18\n\x10kyc_can_withdraw\x18\x03 \x01(\x08\":\n\x18NotifyCanWithdrawTimeRSP\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x10\n\x08is_apply\x18\x02 \x01(\x08\"\x0c\n\nGetMailREQ\",\n\nGetMailRSP\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\x10\n\x08is_valid\x18\x02 \x01(\x08\"H\n\x10PopupMessageText\x12\x14\n\x0cmsg_table_id\x18\x01 \x01(\x03\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"?\n\x0fPopupMessageREQ\x12,\n\x0epopup_msg_type\x18\x01 \x01(\x0e\x32\x14.pb.PopupMessageType\"M\n\x0fPopupMessageRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12,\n\x0epopup_msg_text\x18\x02 \x03(\x0b\x32\x14.pb.PopupMessageText\"2\n\x1aSetPopupMessageReadTimeREQ\x12\x14\n\x0cmsg_table_id\x18\x01 \x01(\x03\"*\n\x1aSetPopupMessageReadTimeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x13\n\x11\x42\x61\x63kendBantalkREQ\"1\n\x11\x42\x61\x63kendBantalkRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06is_ban\x18\x02 \x01(\x08\"#\n\x11\x42\x61\x63kendBantalkBRC\x12\x0e\n\x06is_ban\x18\x02 \x01(\x08\"\x10\n\x0e\x46rozenValueREQ\"4\n\x0e\x46rozenValueRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0c\x66rozen_value\x18\x02 \x01(\x03\"@\n\x0cReportGPSREQ\x12\x17\n\x03lon\x18\x01 \x01(\x05:\n-360000000\x12\x17\n\x03lat\x18\x02 \x01(\x05:\n-360000000\"\x0e\n\x0cReportGPSRSP\"R\n\rTableUserInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07seat_id\x18\x02 \x01(\x03\x12\x11\n\tnick_name\x18\x03 \x01(\t\x12\x10\n\x08icon_url\x18\x04 \x01(\t\"4\n\x10TableUserInfoBRC\x12 \n\x05users\x18\x01 \x03(\x0b\x32\x11.pb.TableUserInfo*O\n\x10PopupMessageType\x12\x12\n\x0eREAD_POPUP_MSG\x10\x01\x12\x14\n\x10UNREAD_POPUP_MSG\x10\x02\x12\x11\n\rALL_POPUP_MSG\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tpb5.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x0b\x62\x61se2.proto\x1a\x13mtt_room_info.proto\x1a\tpb1.proto\x1a\npine.proto\x1a\tsng.proto\x1a\x15shark_king_flip.proto\x1a\x0f\x62lackjack.proto\"4\n\x14QuitMultipleTableREQ\x12\x0e\n\x06roomid\x18\x01 \x03(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"2\n\x14QuitMultipleTableRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04\x66lag\x18\x02 \x01(\x05\"\x1b\n\x19RoundHintMultipleTableREQ\"\x8c\x02\n\x19RoundHintMultipleTableRSP\x12\x10\n\x08roomtype\x18\x01 \x01(\r\x12\r\n\x05\x62lind\x18\x02 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x03 \x01(\x05\x12\x0e\n\x06roomid\x18\x04 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x11\n\x06seatid\x18\x06 \x01(\x05:\x01\x30\x12\x11\n\tlast_time\x18\x07 \x01(\x05\x12\x11\n\troom_name\x18\x08 \x01(\t\x12\x11\n\tclub_name\x18\t \x01(\t\x12\x10\n\x08seat_num\x18\n \x01(\x05\x12\x14\n\x0cmain_bet_min\x18\x0b \x01(\x03\x12\x14\n\x0cmain_bet_max\x18\x0c \x01(\x03\x12\x16\n\x0etotal_duration\x18\r \x01(\x03\"$\n\x12\x46inishRoundHintRSP\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\",\n\x1aMultipleTableChangeRoomREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\":\n\x1aMultipleTableChangeRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\" \n\x0eGetRoomInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\"\xbf\x05\n\x0eGetRoomInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12%\n\x0ctable_status\x18\x03 \x01(\x0b\x32\x0f.pb.TableStatus\x12#\n\x0broom_status\x18\x04 \x01(\x0b\x32\x0e.pb.RoomStatus\x12)\n\x0eplaying_status\x18\x05 \x01(\x0b\x32\x11.pb.PlayingStatus\x12\x1f\n\troom_info\x18\x06 \x01(\x0b\x32\x0c.pb.RoomInfo\x12\x1f\n\troom_type\x18\x07 \x01(\x0e\x32\x0c.pb.RoomType\x12%\n\x0csngroom_info\x18\x08 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12%\n\x0cmttroom_info\x18\t \x01(\x0b\x32\x0f.pb.MttRoomInfo\x12\x0e\n\x06roomid\x18\n \x01(\x05\x12/\n\troom_mode\x18\x0b \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\'\n\rpineroom_info\x18\x0c \x01(\x0b\x32\x10.pb.PineRoomInfo\x12,\n\x10pine_room_status\x18\r \x01(\x0b\x32\x12.pb.PineRoomStatus\x12,\n\x10spinup_room_info\x18\x0e \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\x12\x14\n\x0cis_first_sit\x18\x0f \x01(\x08\x12-\n\x11sk_flip_room_info\x18\x10 \x01(\x0b\x32\x12.pb.SKFlipRoomInfo\x12\x31\n\x13sk_flip_room_status\x18\x11 \x01(\x0b\x32\x14.pb.SKFlipRoomStatus\x12\x16\n\x0bupgrade_seq\x18\x12 \x01(\x05:\x01\x30\x12\x32\n\x13\x62lackjack_room_info\x18\x13 \x01(\x0b\x32\x15.pb.BlackjackRoomInfo\"_\n\x0cLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0f\n\x04\x66lag\x18\x03 \x01(\x05:\x01\x30\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\"<\n\x0cLeaveRoomREQ\x12\x0f\n\x04\x66lag\x18\x01 \x01(\x05:\x01\x30\x12\x1b\n\x0cseat_reserve\x18\x02 \x01(\x08:\x05\x66\x61lse\"\xb7\x01\n\x0f\x41\x63tionNotifyBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x17\n\x0f\x63\x61ll_need_chips\x18\x02 \x01(\x03\x12\x12\n\nmin_chipin\x18\x03 \x01(\x03\x12\x12\n\nmax_chipin\x18\x04 \x01(\x03\x12#\n\x0bround_stage\x18\x05 \x01(\x0e\x32\x0e.pb.RoundStage\x12\x17\n\x0f\x61\x63tion_duration\x18\x06 \x01(\x03\x12\x15\n\rcan_surrender\x18\x07 \x01(\x08\"\x17\n\x15GetCanWithdrawTimeREQ\"X\n\x15GetCanWithdrawTimeRSP\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x17\n\x0fis_ban_withdraw\x18\x02 \x01(\x08\x12\x18\n\x10kyc_can_withdraw\x18\x03 \x01(\x08\":\n\x18NotifyCanWithdrawTimeRSP\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x10\n\x08is_apply\x18\x02 \x01(\x08\"\x0c\n\nGetMailREQ\",\n\nGetMailRSP\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\x10\n\x08is_valid\x18\x02 \x01(\x08\"H\n\x10PopupMessageText\x12\x14\n\x0cmsg_table_id\x18\x01 \x01(\x03\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"?\n\x0fPopupMessageREQ\x12,\n\x0epopup_msg_type\x18\x01 \x01(\x0e\x32\x14.pb.PopupMessageType\"M\n\x0fPopupMessageRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12,\n\x0epopup_msg_text\x18\x02 \x03(\x0b\x32\x14.pb.PopupMessageText\"2\n\x1aSetPopupMessageReadTimeREQ\x12\x14\n\x0cmsg_table_id\x18\x01 \x01(\x03\"*\n\x1aSetPopupMessageReadTimeRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x13\n\x11\x42\x61\x63kendBantalkREQ\"1\n\x11\x42\x61\x63kendBantalkRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06is_ban\x18\x02 \x01(\x08\"#\n\x11\x42\x61\x63kendBantalkBRC\x12\x0e\n\x06is_ban\x18\x02 \x01(\x08\"\x10\n\x0e\x46rozenValueREQ\"4\n\x0e\x46rozenValueRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x14\n\x0c\x66rozen_value\x18\x02 \x01(\x03\"@\n\x0cReportGPSREQ\x12\x17\n\x03lon\x18\x01 \x01(\x05:\n-360000000\x12\x17\n\x03lat\x18\x02 \x01(\x05:\n-360000000\"\x0e\n\x0cReportGPSRSP\"R\n\rTableUserInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07seat_id\x18\x02 \x01(\x03\x12\x11\n\tnick_name\x18\x03 \x01(\t\x12\x10\n\x08icon_url\x18\x04 \x01(\t\"4\n\x10TableUserInfoBRC\x12 \n\x05users\x18\x01 \x03(\x0b\x32\x11.pb.TableUserInfo*O\n\x10PopupMessageType\x12\x12\n\x0eREAD_POPUP_MSG\x10\x01\x12\x14\n\x10UNREAD_POPUP_MSG\x10\x02\x12\x11\n\rALL_POPUP_MSG\x10\x03\x42\x07Z\x05../pb')
   ,
-  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
+  dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,base2__pb2.DESCRIPTOR,mtt__room__info__pb2.DESCRIPTOR,pb1__pb2.DESCRIPTOR,pine__pb2.DESCRIPTOR,sng__pb2.DESCRIPTOR,shark__king__flip__pb2.DESCRIPTOR,blackjack__pb2.DESCRIPTOR,])
 
 _POPUPMESSAGETYPE = _descriptor.EnumDescriptor(
   name='PopupMessageType',
@@ -53,8 +54,8 @@ _POPUPMESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2693,
-  serialized_end=2772,
+  serialized_start=2738,
+  serialized_end=2817,
 )
 _sym_db.RegisterEnumDescriptor(_POPUPMESSAGETYPE)
 
@@ -98,8 +99,8 @@ _QUITMULTIPLETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=184,
+  serialized_start=153,
+  serialized_end=205,
 )
 
 
@@ -136,8 +137,8 @@ _QUITMULTIPLETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=236,
+  serialized_start=207,
+  serialized_end=257,
 )
 
 
@@ -160,8 +161,8 @@ _ROUNDHINTMULTIPLETABLEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=238,
-  serialized_end=265,
+  serialized_start=259,
+  serialized_end=286,
 )
 
 
@@ -256,6 +257,13 @@ _ROUNDHINTMULTIPLETABLERSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='total_duration', full_name='pb.RoundHintMultipleTableRSP.total_duration', index=12,
+      number=13, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -268,8 +276,8 @@ _ROUNDHINTMULTIPLETABLERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=268,
-  serialized_end=512,
+  serialized_start=289,
+  serialized_end=557,
 )
 
 
@@ -299,8 +307,8 @@ _FINISHROUNDHINTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=514,
-  serialized_end=550,
+  serialized_start=559,
+  serialized_end=595,
 )
 
 
@@ -330,8 +338,8 @@ _MULTIPLETABLECHANGEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=552,
-  serialized_end=596,
+  serialized_start=597,
+  serialized_end=641,
 )
 
 
@@ -368,8 +376,8 @@ _MULTIPLETABLECHANGEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=598,
-  serialized_end=656,
+  serialized_start=643,
+  serialized_end=701,
 )
 
 
@@ -399,8 +407,8 @@ _GETROOMINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=658,
-  serialized_end=690,
+  serialized_start=703,
+  serialized_end=735,
 )
 
 
@@ -556,8 +564,8 @@ _GETROOMINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=693,
-  serialized_end=1396,
+  serialized_start=738,
+  serialized_end=1441,
 )
 
 
@@ -615,8 +623,8 @@ _LEAVEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1398,
-  serialized_end=1493,
+  serialized_start=1443,
+  serialized_end=1538,
 )
 
 
@@ -653,8 +661,8 @@ _LEAVEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1495,
-  serialized_end=1555,
+  serialized_start=1540,
+  serialized_end=1600,
 )
 
 
@@ -726,8 +734,8 @@ _ACTIONNOTIFYBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1558,
-  serialized_end=1741,
+  serialized_start=1603,
+  serialized_end=1786,
 )
 
 
@@ -750,8 +758,8 @@ _GETCANWITHDRAWTIMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1743,
-  serialized_end=1766,
+  serialized_start=1788,
+  serialized_end=1811,
 )
 
 
@@ -795,8 +803,8 @@ _GETCANWITHDRAWTIMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1768,
-  serialized_end=1856,
+  serialized_start=1813,
+  serialized_end=1901,
 )
 
 
@@ -833,8 +841,8 @@ _NOTIFYCANWITHDRAWTIMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1858,
-  serialized_end=1916,
+  serialized_start=1903,
+  serialized_end=1961,
 )
 
 
@@ -857,8 +865,8 @@ _GETMAILREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1918,
-  serialized_end=1930,
+  serialized_start=1963,
+  serialized_end=1975,
 )
 
 
@@ -895,8 +903,8 @@ _GETMAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1932,
-  serialized_end=1976,
+  serialized_start=1977,
+  serialized_end=2021,
 )
 
 
@@ -940,8 +948,8 @@ _POPUPMESSAGETEXT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1978,
-  serialized_end=2050,
+  serialized_start=2023,
+  serialized_end=2095,
 )
 
 
@@ -971,8 +979,8 @@ _POPUPMESSAGEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2052,
-  serialized_end=2115,
+  serialized_start=2097,
+  serialized_end=2160,
 )
 
 
@@ -1009,8 +1017,8 @@ _POPUPMESSAGERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2117,
-  serialized_end=2194,
+  serialized_start=2162,
+  serialized_end=2239,
 )
 
 
@@ -1040,8 +1048,8 @@ _SETPOPUPMESSAGEREADTIMEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2196,
-  serialized_end=2246,
+  serialized_start=2241,
+  serialized_end=2291,
 )
 
 
@@ -1071,8 +1079,8 @@ _SETPOPUPMESSAGEREADTIMERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2248,
-  serialized_end=2290,
+  serialized_start=2293,
+  serialized_end=2335,
 )
 
 
@@ -1095,8 +1103,8 @@ _BACKENDBANTALKREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2292,
-  serialized_end=2311,
+  serialized_start=2337,
+  serialized_end=2356,
 )
 
 
@@ -1133,8 +1141,8 @@ _BACKENDBANTALKRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2313,
-  serialized_end=2362,
+  serialized_start=2358,
+  serialized_end=2407,
 )
 
 
@@ -1164,8 +1172,8 @@ _BACKENDBANTALKBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2364,
-  serialized_end=2399,
+  serialized_start=2409,
+  serialized_end=2444,
 )
 
 
@@ -1188,8 +1196,8 @@ _FROZENVALUEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2401,
-  serialized_end=2417,
+  serialized_start=2446,
+  serialized_end=2462,
 )
 
 
@@ -1226,8 +1234,8 @@ _FROZENVALUERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2419,
-  serialized_end=2471,
+  serialized_start=2464,
+  serialized_end=2516,
 )
 
 
@@ -1264,8 +1272,8 @@ _REPORTGPSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2473,
-  serialized_end=2537,
+  serialized_start=2518,
+  serialized_end=2582,
 )
 
 
@@ -1288,8 +1296,8 @@ _REPORTGPSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2539,
-  serialized_end=2553,
+  serialized_start=2584,
+  serialized_end=2598,
 )
 
 
@@ -1340,8 +1348,8 @@ _TABLEUSERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2555,
-  serialized_end=2637,
+  serialized_start=2600,
+  serialized_end=2682,
 )
 
 
@@ -1371,8 +1379,8 @@ _TABLEUSERINFOBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2639,
-  serialized_end=2691,
+  serialized_start=2684,
+  serialized_end=2736,
 )
 
 _GETROOMINFORSP.fields_by_name['table_status'].message_type = pb1__pb2._TABLESTATUS
@@ -1381,7 +1389,7 @@ _GETROOMINFORSP.fields_by_name['playing_status'].message_type = pb1__pb2._PLAYIN
 _GETROOMINFORSP.fields_by_name['room_info'].message_type = base2__pb2._ROOMINFO
 _GETROOMINFORSP.fields_by_name['room_type'].enum_type = pre__base__pb2._ROOMTYPE
 _GETROOMINFORSP.fields_by_name['sngroom_info'].message_type = base__pb2._SNGROOMINFO
-_GETROOMINFORSP.fields_by_name['mttroom_info'].message_type = base__pb2._MTTROOMINFO
+_GETROOMINFORSP.fields_by_name['mttroom_info'].message_type = mtt__room__info__pb2._MTTROOMINFO
 _GETROOMINFORSP.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
 _GETROOMINFORSP.fields_by_name['pineroom_info'].message_type = pine__pb2._PINEROOMINFO
 _GETROOMINFORSP.fields_by_name['pine_room_status'].message_type = pine__pb2._PINEROOMSTATUS

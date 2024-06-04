@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\nbase.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\x14mystery_bounty.proto\"2\n\nRewardItem\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x0b\n\x03num\x18\x02 \x01(\x05\"V\n\x0cRewardAvatar\x12\x1b\n\x13\x61vatar_client_label\x18\x01 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x02 \x01(\t\x12\x14\n\x0c\x65xpired_time\x18\x03 \x01(\x03\"j\n\x0fRewardBlindCoin\x12\x1b\n\x13\x62lind_coin_class_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x62lind_coin_class_name\x18\x02 \x01(\t\x12\x1b\n\x13\x62lind_balance_value\x18\x03 \x01(\x05\"\xe9\x01\n\rMttRewardInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x1c\n\x04item\x18\x02 \x03(\x0b\x32\x0e.pb.RewardItem\x12\x12\n\nrank_begin\x18\x03 \x01(\x05\x12\x10\n\x08rank_end\x18\x04 \x01(\x05\x12\r\n\x05point\x18\x05 \x01(\x03\x12 \n\x06\x61vatar\x18\x06 \x01(\x0b\x32\x10.pb.RewardAvatar\x12\'\n\nblind_coin\x18\x07 \x03(\x0b\x32\x13.pb.RewardBlindCoin\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x08 \x01(\x03\x12\x12\n\ntrophy_ids\x18\t \x03(\x03\"\xa7\x04\n\nProfitInfo\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\r\n\x05\x62uyin\x18\x02 \x01(\x03\x12\x0e\n\x06profit\x18\x03 \x01(\x03\x12\x0b\n\x03uid\x18\x04 \x01(\x03\x12\x10\n\x08icon_url\x18\x05 \x01(\t\x12\x10\n\x08handsnum\x18\x06 \x01(\x05\x12\x0b\n\x03\x66\x65\x65\x18\x07 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x08 \x01(\x03\x12\x0e\n\x06reward\x18\t \x01(\x03\x12\x0c\n\x04rank\x18\n \x01(\x05\x12\x1a\n\x0finsurance_chips\x18\x0b \x01(\x03:\x01\x30\x12\x15\n\rhunter_reward\x18\x0c \x01(\x03\x12\x11\n\tagent_uid\x18\r \x01(\x03\x12&\n\x0breward_info\x18\x0e \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x11\n\trebuy_num\x18\x0f \x01(\x05\x12\x11\n\taddon_num\x18\x10 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x11 \x01(\x05\x12\x16\n\x0bjackpot_fee\x18\x12 \x01(\x03:\x01\x30\x12\x19\n\x0ejackpot_reward\x18\x13 \x01(\x03:\x01\x30\x12\x19\n\x0ewithdraw_chips\x18\x14 \x01(\x03:\x01\x30\x12\x15\n\nhunter_num\x18\x15 \x01(\x05:\x01\x30\x12\x17\n\x0f\x63ost_item_value\x18\x16 \x01(\x03\x12 \n\x18is_special_hunter_bounty\x18\x17 \x01(\x08\x12 \n\x18room_avatar_client_label\x18\x18 \x01(\t\x12\x17\n\x0ftotal_bet_chips\x18\x19 \x01(\x03\"|\n\tUserBrief\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12 \n\x18is_special_hunter_bounty\x18\x04 \x01(\x08\x12 \n\x18room_avatar_client_label\x18\x05 \x01(\t\"*\n\x0cRoomNameLang\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"2\n\x13SpecialHunterBounty\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x62ounty\x18\x02 \x03(\x03\"\x9f\x01\n\x15MttSpecialSceneConfig\x12\x1f\n\x17special_scene_skin_type\x18\x01 \x01(\x05\x12\x1f\n\x17special_scene_skin_name\x18\x02 \x01(\t\x12!\n\x19special_scene_ending_type\x18\x03 \x01(\x05\x12!\n\x19special_scene_ending_time\x18\x04 \x01(\x03\"\xe7\x02\n\x19MttSpecialSceneEndingInfo\x12\x11\n\troom_name\x18\x01 \x01(\t\x12(\n\x0eroom_name_lang\x18\x02 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x14\n\x0c\x63hampion_uid\x18\x03 \x01(\x03\x12\x19\n\x11\x63hampion_nickname\x18\x04 \x01(\t\x12\x1f\n\x17\x63hampion_head_image_url\x18\x05 \x01(\t\x12\x1b\n\x13\x61vatar_client_label\x18\x06 \x01(\t\x12\x12\n\nhand_cards\x18\x07 \x03(\x05\x12\x17\n\x0f\x63ommunity_cards\x18\x08 \x03(\x05\x12\x17\n\x0f\x62\x65st_hand_cards\x18\t \x03(\x05\x12*\n\x0f\x63hampion_reward\x18\n \x01(\x0b\x32\x11.pb.MttRewardInfo\x12,\n$special_scene_ending_close_timestamp\x18\x0b \x01(\x03\"\xd6\x08\n\x0bSngRoomInfo\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x0f\n\x07ownerid\x18\x03 \x01(\x03\x12\x12\n\nowner_name\x18\x04 \x01(\t\x12\x12\n\nowner_icon\x18\x05 \x01(\t\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x12\n\nblind_list\x18\x07 \x03(\x03\x12\x11\n\tante_list\x18\x08 \x03(\x03\x12\x14\n\x0cupblind_time\x18\t \x01(\x05\x12\r\n\x05\x62uyin\x18\n \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x0b \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x0c \x01(\x05\x12\x10\n\x08seat_num\x18\r \x01(\x05\x12-\n\troom_type\x18\x0e \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_SNG_ROOM\x12\x19\n\nauth_limit\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x0e\n\x06region\x18\x10 \x01(\x05\x12\x11\n\x06\x63lubid\x18\x11 \x01(\x05:\x01\x30\x12\x10\n\x08platform\x18\x12 \x01(\t\x12\x11\n\tclub_name\x18\x13 \x01(\t\x12\r\n\x05\x62lind\x18\x14 \x01(\x03\x12\x0c\n\x04\x61nte\x18\x15 \x01(\x03\x12\x0e\n\x06\x63harge\x18\x16 \x01(\x03\x12\x13\n\x08leagueid\x18\x17 \x01(\x05:\x01\x30\x12\x14\n\x0c\x63lub_ownerid\x18\x18 \x01(\x03\x12\x11\n\tclub_icon\x18\x19 \x01(\t\x12\x1b\n\x0c\x66ixed_reward\x18\x1a \x01(\x08:\x05\x66\x61lse\x12&\n\x0breward_info\x18\x1b \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x18\n\tgps_limit\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x1d \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x12gps_distance_limit\x18\x1e \x01(\x05:\x01\x30\x12/\n\troom_mode\x18\x1f \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\x17\n\x0fowner_vip_level\x18  \x01(\r\x12\x1a\n\x0bsitting_out\x18! \x01(\x08:\x05\x66\x61lse\x12\x32\n\tgame_mode\x18\" \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x19\n\npool_limit\x18# \x01(\x08:\x05\x66\x61lse\x12\x10\n\x08match_id\x18$ \x01(\x03\x12(\n\x0eroom_name_lang\x18% \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1b\n\x13is_auto_create_room\x18& \x01(\x08\x12\x12\n\nbuyin_item\x18\' \x01(\t\x12\x1a\n\x12total_reward_value\x18( \x01(\x03\x12\x14\n\x0c\x65nsure_chips\x18) \x01(\x03\x12\x14\n\x08\x66\x65\x65point\x18* \x01(\x05:\x02\x31\x30\x12\x18\n\x10\x66irst_buyin_item\x18+ \x01(\t\x12\x1e\n\x16is_buyin_can_use_money\x18, \x01(\x08\x12\x17\n\x0f\x61ll_buyin_items\x18- \x03(\t\"Q\n\x16MttSpecialHunterBounty\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x62ounty\x18\x02 \x03(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\"\xfe\x10\n\x0bMttRoomInfo\x12\x16\n\x0emtt_start_time\x18\x01 \x01(\x03\x12\x18\n\x10\x64\x65lay_join_level\x18\x02 \x01(\x05\x12\x11\n\trebuy_num\x18\x03 \x01(\x05\x12\x12\n\naddon_rate\x18\x04 \x01(\x05\x12\x12\n\nbreak_time\x18\x05 \x01(\x05\x12\x16\n\x0emin_player_num\x18\x06 \x01(\x05\x12\x16\n\x0emax_player_num\x18\x07 \x01(\x05\x12\x14\n\x0c\x65nsure_chips\x18\x08 \x01(\x03\x12\x15\n\rhunter_reward\x18\t \x01(\x03\x12\x17\n\x0fmtt_signup_time\x18\n \x01(\x03\x12\x17\n\x0fstart_timestamp\x18\x0b \x01(\x03\x12\x14\n\x0ctotal_reward\x18\x0c \x01(\x03\x12\x18\n\x10total_player_num\x18\r \x01(\x05\x12\x1a\n\x12\x63urrent_player_num\x18\x0e \x01(\x05\x12\x11\n\tavg_chips\x18\x0f \x01(\x03\x12\x15\n\rcurrent_level\x18\x10 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_left\x18\x11 \x01(\x05\x12\x17\n\x0f\x62reak_time_left\x18\x12 \x01(\x05\x12\x17\n\x0fpause_time_left\x18\x13 \x01(\x05\x12\x12\n\nmtt_status\x18\x14 \x01(\x05\x12\x1b\n\x13\x65nd_rebuy_timestamp\x18\x15 \x01(\x03\x12\x0b\n\x03now\x18\x16 \x01(\x03\x12\x13\n\x0bjoin_status\x18\x17 \x01(\x05\x12\x16\n\x0erebuy_num_left\x18\x18 \x01(\x05\x12\x16\n\x0e\x61\x64\x64on_num_left\x18\x19 \x01(\x05\x12\x12\n\nis_playing\x18\x1a \x01(\x08\x12\x0f\n\x03tid\x18\x1b \x01(\x05:\x02-1\x12/\n\troom_mode\x18\x1c \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\x18\n\tis_played\x18\x1d \x01(\x08:\x05\x66\x61lse\x12\x0f\n\x07rebuyin\x18\x1e \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x1f \x01(\x03\x12?\n\x0cpercent_type\x18  \x01(\x0e\x32\x18.pb.MttRewardPercentType:\x0fMTT_TEN_PERCENT\x12\x17\n\x0crebuy_charge\x18! \x01(\x03:\x01\x30\x12\x17\n\x0c\x61\x64\x64on_charge\x18\" \x01(\x03:\x01\x30\x12\x32\n\tgame_mode\x18# \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x19\n\npool_limit\x18$ \x01(\x08:\x05\x66\x61lse\x12\x1e\n\x08roomtype\x18% \x01(\x0e\x32\x0c.pb.RoomType\x12!\n\x12is_snowball_hunter\x18& \x01(\x08:\x05\x66\x61lse\x12\x12\n\nrebuy_item\x18\' \x01(\t\x12\x1c\n\x11sitting_out_level\x18( \x01(\x05:\x01\x30\x12\x12\n\naddon_item\x18) \x01(\t\x12-\n\x0creward_items\x18* \x03(\x0b\x32\x17.pb.RewardConfigureItem\x12\x17\n\x0ftotal_addon_num\x18- \x01(\x05\x12\x17\n\x0ftotal_rebuy_num\x18. \x01(\x05\x12\x10\n\x08is_addon\x18\x36 \x01(\x08\x12\x17\n\x0f\x62reak_time_wait\x18\x37 \x01(\x05\x12\x17\n\x0f\x62reak_time_rest\x18\x38 \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\x39 \x01(\x05\x12\x19\n\x0e\x65nd_game_level\x18: \x01(\x05:\x01\x30\x12 \n\x11is_special_hunter\x18; \x01(\x08:\x05\x66\x61lse\x12\x39\n\x15special_hunter_bounty\x18< \x03(\x0b\x32\x1a.pb.MttSpecialHunterBounty\x12\x1e\n\x16is_tournament_activity\x18= \x01(\x08\x12\x1a\n\x12is_set_room_avatar\x18> \x01(\x08\x12\x16\n\nrebuy_rate\x18? \x01(\x05:\x02\x31\x30\x12\x1d\n\x12multi_day_match_id\x18@ \x01(\x05:\x01\x30\x12\x10\n\x05level\x18\x41 \x01(\x05:\x01\x30\x12\x11\n\x06serial\x18\x42 \x01(\x05:\x01\x30\x12\x1c\n\x11match_final_level\x18\x43 \x01(\x05:\x01\x30\x12\x17\n\x0f\x65nd_blind_level\x18\x44 \x03(\x05\x12\x1b\n\x13total_hunter_reward\x18\x45 \x01(\x03\x12\x1c\n\x11mtt_room_info_ver\x18\x46 \x01(\x05:\x01\x30\x12\x1c\n\x10\x66irst_rebuy_item\x18G \x01(\tB\x02\x18\x01\x12\x1c\n\x10\x66irst_addon_item\x18H \x01(\tB\x02\x18\x01\x12\x1e\n\x16is_rebuy_can_use_money\x18I \x01(\x08\x12\x1e\n\x16is_addon_can_use_money\x18J \x01(\x08\x12#\n\x14is_auto_flipout_mode\x18K \x01(\x08:\x05\x66\x61lse\x12\x17\n\x0f\x61ll_rebuy_items\x18L \x03(\t\x12\x17\n\x0f\x61ll_addon_items\x18M \x03(\t\x12;\n\x18mtt_special_scene_config\x18N \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x44\n\x1dmtt_special_scene_ending_info\x18O \x01(\x0b\x32\x1d.pb.MttSpecialSceneEndingInfo\x12\x16\n\x0e\x65\x61rly_bird_num\x18P \x01(\x05\x12\x1b\n\x10\x65nd_game_percent\x18Q \x01(\x05:\x01\x30\x12\'\n\x18is_day1_end_game_percent\x18R \x01(\x08:\x05\x66\x61lse\x12\x19\n\x11is_mystery_bounty\x18S \x01(\x08\x12)\n\x0emystery_bounty\x18T \x03(\x0b\x32\x11.pb.MysteryBounty\x12\x14\n\x0chunter_ratio\x18U \x01(\x05\"0\n\x0eTableNoticeMsg\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\x12\r\n\x03msg\x18\x02 \x01(\t:\x00\".\n\x0cTableTipsMsg\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\x12\r\n\x03msg\x18\x02 \x01(\t:\x00\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\nbase.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\x14mystery_bounty.proto\"2\n\nRewardItem\x12\x17\n\x0fitem_class_name\x18\x01 \x01(\t\x12\x0b\n\x03num\x18\x02 \x01(\x05\"V\n\x0cRewardAvatar\x12\x1b\n\x13\x61vatar_client_label\x18\x01 \x01(\t\x12\x13\n\x0b\x61vatar_name\x18\x02 \x01(\t\x12\x14\n\x0c\x65xpired_time\x18\x03 \x01(\x03\"\xc0\x01\n\rMttRewardInfo\x12\r\n\x05\x63hips\x18\x01 \x01(\x03\x12\x1c\n\x04item\x18\x02 \x03(\x0b\x32\x0e.pb.RewardItem\x12\x12\n\nrank_begin\x18\x03 \x01(\x05\x12\x10\n\x08rank_end\x18\x04 \x01(\x05\x12\r\n\x05point\x18\x05 \x01(\x03\x12 \n\x06\x61vatar\x18\x06 \x01(\x0b\x32\x10.pb.RewardAvatar\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x08 \x01(\x03\x12\x12\n\ntrophy_ids\x18\t \x03(\x03\"\xa7\x04\n\nProfitInfo\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\r\n\x05\x62uyin\x18\x02 \x01(\x03\x12\x0e\n\x06profit\x18\x03 \x01(\x03\x12\x0b\n\x03uid\x18\x04 \x01(\x03\x12\x10\n\x08icon_url\x18\x05 \x01(\t\x12\x10\n\x08handsnum\x18\x06 \x01(\x05\x12\x0b\n\x03\x66\x65\x65\x18\x07 \x01(\x03\x12\x0c\n\x04\x63ost\x18\x08 \x01(\x03\x12\x0e\n\x06reward\x18\t \x01(\x03\x12\x0c\n\x04rank\x18\n \x01(\x05\x12\x1a\n\x0finsurance_chips\x18\x0b \x01(\x03:\x01\x30\x12\x15\n\rhunter_reward\x18\x0c \x01(\x03\x12\x11\n\tagent_uid\x18\r \x01(\x03\x12&\n\x0breward_info\x18\x0e \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x11\n\trebuy_num\x18\x0f \x01(\x05\x12\x11\n\taddon_num\x18\x10 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x11 \x01(\x05\x12\x16\n\x0bjackpot_fee\x18\x12 \x01(\x03:\x01\x30\x12\x19\n\x0ejackpot_reward\x18\x13 \x01(\x03:\x01\x30\x12\x19\n\x0ewithdraw_chips\x18\x14 \x01(\x03:\x01\x30\x12\x15\n\nhunter_num\x18\x15 \x01(\x05:\x01\x30\x12\x17\n\x0f\x63ost_item_value\x18\x16 \x01(\x03\x12 \n\x18is_special_hunter_bounty\x18\x17 \x01(\x08\x12 \n\x18room_avatar_client_label\x18\x18 \x01(\t\x12\x17\n\x0ftotal_bet_chips\x18\x19 \x01(\x03\"|\n\tUserBrief\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08icon_url\x18\x03 \x01(\t\x12 \n\x18is_special_hunter_bounty\x18\x04 \x01(\x08\x12 \n\x18room_avatar_client_label\x18\x05 \x01(\t\"*\n\x0cRoomNameLang\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"2\n\x13SpecialHunterBounty\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x62ounty\x18\x02 \x03(\x03\"\x9f\x01\n\x15MttSpecialSceneConfig\x12\x1f\n\x17special_scene_skin_type\x18\x01 \x01(\x05\x12\x1f\n\x17special_scene_skin_name\x18\x02 \x01(\t\x12!\n\x19special_scene_ending_type\x18\x03 \x01(\x05\x12!\n\x19special_scene_ending_time\x18\x04 \x01(\x03\"\xe7\x02\n\x19MttSpecialSceneEndingInfo\x12\x11\n\troom_name\x18\x01 \x01(\t\x12(\n\x0eroom_name_lang\x18\x02 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x14\n\x0c\x63hampion_uid\x18\x03 \x01(\x03\x12\x19\n\x11\x63hampion_nickname\x18\x04 \x01(\t\x12\x1f\n\x17\x63hampion_head_image_url\x18\x05 \x01(\t\x12\x1b\n\x13\x61vatar_client_label\x18\x06 \x01(\t\x12\x12\n\nhand_cards\x18\x07 \x03(\x05\x12\x17\n\x0f\x63ommunity_cards\x18\x08 \x03(\x05\x12\x17\n\x0f\x62\x65st_hand_cards\x18\t \x03(\x05\x12*\n\x0f\x63hampion_reward\x18\n \x01(\x0b\x32\x11.pb.MttRewardInfo\x12,\n$special_scene_ending_close_timestamp\x18\x0b \x01(\x03\"\x9c\t\n\x0bSngRoomInfo\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x0f\n\x07ownerid\x18\x03 \x01(\x03\x12\x12\n\nowner_name\x18\x04 \x01(\t\x12\x12\n\nowner_icon\x18\x05 \x01(\t\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x12\n\nblind_list\x18\x07 \x03(\x03\x12\x11\n\tante_list\x18\x08 \x03(\x03\x12\x14\n\x0cupblind_time\x18\t \x01(\x05\x12\r\n\x05\x62uyin\x18\n \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x0b \x01(\x03\x12\x13\n\x0b\x61\x63tion_time\x18\x0c \x01(\x05\x12\x10\n\x08seat_num\x18\r \x01(\x05\x12-\n\troom_type\x18\x0e \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_SNG_ROOM\x12\x19\n\nauth_limit\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x0e\n\x06region\x18\x10 \x01(\x05\x12\x11\n\x06\x63lubid\x18\x11 \x01(\x05:\x01\x30\x12\x10\n\x08platform\x18\x12 \x01(\t\x12\x11\n\tclub_name\x18\x13 \x01(\t\x12\r\n\x05\x62lind\x18\x14 \x01(\x03\x12\x0c\n\x04\x61nte\x18\x15 \x01(\x03\x12\x0e\n\x06\x63harge\x18\x16 \x01(\x03\x12\x13\n\x08leagueid\x18\x17 \x01(\x05:\x01\x30\x12\x14\n\x0c\x63lub_ownerid\x18\x18 \x01(\x03\x12\x11\n\tclub_icon\x18\x19 \x01(\t\x12\x1b\n\x0c\x66ixed_reward\x18\x1a \x01(\x08:\x05\x66\x61lse\x12&\n\x0breward_info\x18\x1b \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x18\n\tgps_limit\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x1d \x01(\x08:\x05\x66\x61lse\x12\x1d\n\x12gps_distance_limit\x18\x1e \x01(\x05:\x01\x30\x12/\n\troom_mode\x18\x1f \x01(\x0e\x32\x0c.pb.RoomMode:\x0eROOM_MODE_NONE\x12\x17\n\x0fowner_vip_level\x18  \x01(\r\x12\x1a\n\x0bsitting_out\x18! \x01(\x08:\x05\x66\x61lse\x12\x32\n\tgame_mode\x18\" \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x19\n\npool_limit\x18# \x01(\x08:\x05\x66\x61lse\x12\x10\n\x08match_id\x18$ \x01(\x03\x12(\n\x0eroom_name_lang\x18% \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x1b\n\x13is_auto_create_room\x18& \x01(\x08\x12\x12\n\nbuyin_item\x18\' \x01(\t\x12\x1a\n\x12total_reward_value\x18( \x01(\x03\x12\x14\n\x0c\x65nsure_chips\x18) \x01(\x03\x12\x14\n\x08\x66\x65\x65point\x18* \x01(\x05:\x02\x31\x30\x12\x18\n\x10\x66irst_buyin_item\x18+ \x01(\t\x12\x1e\n\x16is_buyin_can_use_money\x18, \x01(\x08\x12\x17\n\x0f\x61ll_buyin_items\x18- \x03(\t\x12\x1e\n\x16\x63ustomize_upblind_time\x18. \x03(\x05\x12$\n\x19\x63ustomize_upblind_time_id\x18/ \x01(\x05:\x01\x30\"Q\n\x16MttSpecialHunterBounty\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x62ounty\x18\x02 \x03(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\"0\n\x0eTableNoticeMsg\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\x12\r\n\x03msg\x18\x02 \x01(\t:\x00\".\n\x0cTableTipsMsg\x12\x0f\n\x04\x63ode\x18\x01 \x01(\x05:\x01\x30\x12\r\n\x03msg\x18\x02 \x01(\t:\x00\x42\x07Z\x05../pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
 
@@ -111,51 +111,6 @@ _REWARDAVATAR = _descriptor.Descriptor(
 )
 
 
-_REWARDBLINDCOIN = _descriptor.Descriptor(
-  name='RewardBlindCoin',
-  full_name='pb.RewardBlindCoin',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_id', full_name='pb.RewardBlindCoin.blind_coin_class_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_coin_class_name', full_name='pb.RewardBlindCoin.blind_coin_class_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blind_balance_value', full_name='pb.RewardBlindCoin.blind_balance_value', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=196,
-  serialized_end=302,
-)
-
-
 _MTTREWARDINFO = _descriptor.Descriptor(
   name='MttRewardInfo',
   full_name='pb.MttRewardInfo',
@@ -206,21 +161,14 @@ _MTTREWARDINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coin', full_name='pb.MttRewardInfo.blind_coin', index=6,
-      number=7, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cash_back_quota', full_name='pb.MttRewardInfo.cash_back_quota', index=7,
+      name='cash_back_quota', full_name='pb.MttRewardInfo.cash_back_quota', index=6,
       number=8, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='trophy_ids', full_name='pb.MttRewardInfo.trophy_ids', index=8,
+      name='trophy_ids', full_name='pb.MttRewardInfo.trophy_ids', index=7,
       number=9, type=3, cpp_type=2, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -238,8 +186,8 @@ _MTTREWARDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=305,
-  serialized_end=538,
+  serialized_start=197,
+  serialized_end=389,
 )
 
 
@@ -437,8 +385,8 @@ _PROFITINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=541,
-  serialized_end=1092,
+  serialized_start=392,
+  serialized_end=943,
 )
 
 
@@ -496,8 +444,8 @@ _USERBRIEF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1094,
-  serialized_end=1218,
+  serialized_start=945,
+  serialized_end=1069,
 )
 
 
@@ -534,8 +482,8 @@ _ROOMNAMELANG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1220,
-  serialized_end=1262,
+  serialized_start=1071,
+  serialized_end=1113,
 )
 
 
@@ -572,8 +520,8 @@ _SPECIALHUNTERBOUNTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1264,
-  serialized_end=1314,
+  serialized_start=1115,
+  serialized_end=1165,
 )
 
 
@@ -624,8 +572,8 @@ _MTTSPECIALSCENECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1317,
-  serialized_end=1476,
+  serialized_start=1168,
+  serialized_end=1327,
 )
 
 
@@ -725,8 +673,8 @@ _MTTSPECIALSCENEENDINGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1479,
-  serialized_end=1838,
+  serialized_start=1330,
+  serialized_end=1689,
 )
 
 
@@ -1052,6 +1000,20 @@ _SNGROOMINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='customize_upblind_time', full_name='pb.SngRoomInfo.customize_upblind_time', index=45,
+      number=46, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='customize_upblind_time_id', full_name='pb.SngRoomInfo.customize_upblind_time_id', index=46,
+      number=47, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1064,8 +1026,8 @@ _SNGROOMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1841,
-  serialized_end=2951,
+  serialized_start=1692,
+  serialized_end=2872,
 )
 
 
@@ -1116,564 +1078,8 @@ _MTTSPECIALHUNTERBOUNTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2953,
-  serialized_end=3034,
-)
-
-
-_MTTROOMINFO = _descriptor.Descriptor(
-  name='MttRoomInfo',
-  full_name='pb.MttRoomInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='mtt_start_time', full_name='pb.MttRoomInfo.mtt_start_time', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='delay_join_level', full_name='pb.MttRoomInfo.delay_join_level', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuy_num', full_name='pb.MttRoomInfo.rebuy_num', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_rate', full_name='pb.MttRoomInfo.addon_rate', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='break_time', full_name='pb.MttRoomInfo.break_time', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='min_player_num', full_name='pb.MttRoomInfo.min_player_num', index=5,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='max_player_num', full_name='pb.MttRoomInfo.max_player_num', index=6,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ensure_chips', full_name='pb.MttRoomInfo.ensure_chips', index=7,
-      number=8, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='hunter_reward', full_name='pb.MttRoomInfo.hunter_reward', index=8,
-      number=9, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_signup_time', full_name='pb.MttRoomInfo.mtt_signup_time', index=9,
-      number=10, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='start_timestamp', full_name='pb.MttRoomInfo.start_timestamp', index=10,
-      number=11, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_reward', full_name='pb.MttRoomInfo.total_reward', index=11,
-      number=12, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_player_num', full_name='pb.MttRoomInfo.total_player_num', index=12,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='current_player_num', full_name='pb.MttRoomInfo.current_player_num', index=13,
-      number=14, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='avg_chips', full_name='pb.MttRoomInfo.avg_chips', index=14,
-      number=15, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='current_level', full_name='pb.MttRoomInfo.current_level', index=15,
-      number=16, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_time_left', full_name='pb.MttRoomInfo.addon_time_left', index=16,
-      number=17, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='break_time_left', full_name='pb.MttRoomInfo.break_time_left', index=17,
-      number=18, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='pause_time_left', full_name='pb.MttRoomInfo.pause_time_left', index=18,
-      number=19, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_status', full_name='pb.MttRoomInfo.mtt_status', index=19,
-      number=20, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_rebuy_timestamp', full_name='pb.MttRoomInfo.end_rebuy_timestamp', index=20,
-      number=21, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='now', full_name='pb.MttRoomInfo.now', index=21,
-      number=22, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='join_status', full_name='pb.MttRoomInfo.join_status', index=22,
-      number=23, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuy_num_left', full_name='pb.MttRoomInfo.rebuy_num_left', index=23,
-      number=24, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_num_left', full_name='pb.MttRoomInfo.addon_num_left', index=24,
-      number=25, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_playing', full_name='pb.MttRoomInfo.is_playing', index=25,
-      number=26, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='tid', full_name='pb.MttRoomInfo.tid', index=26,
-      number=27, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=-1,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='room_mode', full_name='pb.MttRoomInfo.room_mode', index=27,
-      number=28, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_played', full_name='pb.MttRoomInfo.is_played', index=28,
-      number=29, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuyin', full_name='pb.MttRoomInfo.rebuyin', index=29,
-      number=30, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_buyin', full_name='pb.MttRoomInfo.addon_buyin', index=30,
-      number=31, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='percent_type', full_name='pb.MttRoomInfo.percent_type', index=31,
-      number=32, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuy_charge', full_name='pb.MttRoomInfo.rebuy_charge', index=32,
-      number=33, type=3, cpp_type=2, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_charge', full_name='pb.MttRoomInfo.addon_charge', index=33,
-      number=34, type=3, cpp_type=2, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='game_mode', full_name='pb.MttRoomInfo.game_mode', index=34,
-      number=35, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='pool_limit', full_name='pb.MttRoomInfo.pool_limit', index=35,
-      number=36, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='roomtype', full_name='pb.MttRoomInfo.roomtype', index=36,
-      number=37, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_snowball_hunter', full_name='pb.MttRoomInfo.is_snowball_hunter', index=37,
-      number=38, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuy_item', full_name='pb.MttRoomInfo.rebuy_item', index=38,
-      number=39, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sitting_out_level', full_name='pb.MttRoomInfo.sitting_out_level', index=39,
-      number=40, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_item', full_name='pb.MttRoomInfo.addon_item', index=40,
-      number=41, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='reward_items', full_name='pb.MttRoomInfo.reward_items', index=41,
-      number=42, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_addon_num', full_name='pb.MttRoomInfo.total_addon_num', index=42,
-      number=45, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_rebuy_num', full_name='pb.MttRoomInfo.total_rebuy_num', index=43,
-      number=46, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_addon', full_name='pb.MttRoomInfo.is_addon', index=44,
-      number=54, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='break_time_wait', full_name='pb.MttRoomInfo.break_time_wait', index=45,
-      number=55, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='break_time_rest', full_name='pb.MttRoomInfo.break_time_rest', index=46,
-      number=56, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='addon_time_rest', full_name='pb.MttRoomInfo.addon_time_rest', index=47,
-      number=57, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_game_level', full_name='pb.MttRoomInfo.end_game_level', index=48,
-      number=58, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_special_hunter', full_name='pb.MttRoomInfo.is_special_hunter', index=49,
-      number=59, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='special_hunter_bounty', full_name='pb.MttRoomInfo.special_hunter_bounty', index=50,
-      number=60, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_tournament_activity', full_name='pb.MttRoomInfo.is_tournament_activity', index=51,
-      number=61, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_set_room_avatar', full_name='pb.MttRoomInfo.is_set_room_avatar', index=52,
-      number=62, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rebuy_rate', full_name='pb.MttRoomInfo.rebuy_rate', index=53,
-      number=63, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=10,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='multi_day_match_id', full_name='pb.MttRoomInfo.multi_day_match_id', index=54,
-      number=64, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='level', full_name='pb.MttRoomInfo.level', index=55,
-      number=65, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='serial', full_name='pb.MttRoomInfo.serial', index=56,
-      number=66, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='match_final_level', full_name='pb.MttRoomInfo.match_final_level', index=57,
-      number=67, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_blind_level', full_name='pb.MttRoomInfo.end_blind_level', index=58,
-      number=68, type=5, cpp_type=1, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_hunter_reward', full_name='pb.MttRoomInfo.total_hunter_reward', index=59,
-      number=69, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_room_info_ver', full_name='pb.MttRoomInfo.mtt_room_info_ver', index=60,
-      number=70, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='first_rebuy_item', full_name='pb.MttRoomInfo.first_rebuy_item', index=61,
-      number=71, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\030\001'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='first_addon_item', full_name='pb.MttRoomInfo.first_addon_item', index=62,
-      number=72, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\030\001'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_rebuy_can_use_money', full_name='pb.MttRoomInfo.is_rebuy_can_use_money', index=63,
-      number=73, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_addon_can_use_money', full_name='pb.MttRoomInfo.is_addon_can_use_money', index=64,
-      number=74, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_auto_flipout_mode', full_name='pb.MttRoomInfo.is_auto_flipout_mode', index=65,
-      number=75, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='all_rebuy_items', full_name='pb.MttRoomInfo.all_rebuy_items', index=66,
-      number=76, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='all_addon_items', full_name='pb.MttRoomInfo.all_addon_items', index=67,
-      number=77, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_special_scene_config', full_name='pb.MttRoomInfo.mtt_special_scene_config', index=68,
-      number=78, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_special_scene_ending_info', full_name='pb.MttRoomInfo.mtt_special_scene_ending_info', index=69,
-      number=79, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='early_bird_num', full_name='pb.MttRoomInfo.early_bird_num', index=70,
-      number=80, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_game_percent', full_name='pb.MttRoomInfo.end_game_percent', index=71,
-      number=81, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_day1_end_game_percent', full_name='pb.MttRoomInfo.is_day1_end_game_percent', index=72,
-      number=82, type=8, cpp_type=7, label=1,
-      has_default_value=True, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_mystery_bounty', full_name='pb.MttRoomInfo.is_mystery_bounty', index=73,
-      number=83, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mystery_bounty', full_name='pb.MttRoomInfo.mystery_bounty', index=74,
-      number=84, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='hunter_ratio', full_name='pb.MttRoomInfo.hunter_ratio', index=75,
-      number=85, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3037,
-  serialized_end=5211,
+  serialized_start=2874,
+  serialized_end=2955,
 )
 
 
@@ -1710,8 +1116,8 @@ _TABLENOTICEMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5213,
-  serialized_end=5261,
+  serialized_start=2957,
+  serialized_end=3005,
 )
 
 
@@ -1748,13 +1154,12 @@ _TABLETIPSMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5263,
-  serialized_end=5309,
+  serialized_start=3007,
+  serialized_end=3053,
 )
 
 _MTTREWARDINFO.fields_by_name['item'].message_type = _REWARDITEM
 _MTTREWARDINFO.fields_by_name['avatar'].message_type = _REWARDAVATAR
-_MTTREWARDINFO.fields_by_name['blind_coin'].message_type = _REWARDBLINDCOIN
 _PROFITINFO.fields_by_name['reward_info'].message_type = _MTTREWARDINFO
 _MTTSPECIALSCENEENDINGINFO.fields_by_name['room_name_lang'].message_type = _ROOMNAMELANG
 _MTTSPECIALSCENEENDINGINFO.fields_by_name['champion_reward'].message_type = _MTTREWARDINFO
@@ -1763,18 +1168,8 @@ _SNGROOMINFO.fields_by_name['reward_info'].message_type = _MTTREWARDINFO
 _SNGROOMINFO.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
 _SNGROOMINFO.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
 _SNGROOMINFO.fields_by_name['room_name_lang'].message_type = _ROOMNAMELANG
-_MTTROOMINFO.fields_by_name['room_mode'].enum_type = pre__base__pb2._ROOMMODE
-_MTTROOMINFO.fields_by_name['percent_type'].enum_type = pre__base__pb2._MTTREWARDPERCENTTYPE
-_MTTROOMINFO.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
-_MTTROOMINFO.fields_by_name['roomtype'].enum_type = pre__base__pb2._ROOMTYPE
-_MTTROOMINFO.fields_by_name['reward_items'].message_type = pre__base__pb2._REWARDCONFIGUREITEM
-_MTTROOMINFO.fields_by_name['special_hunter_bounty'].message_type = _MTTSPECIALHUNTERBOUNTY
-_MTTROOMINFO.fields_by_name['mtt_special_scene_config'].message_type = _MTTSPECIALSCENECONFIG
-_MTTROOMINFO.fields_by_name['mtt_special_scene_ending_info'].message_type = _MTTSPECIALSCENEENDINGINFO
-_MTTROOMINFO.fields_by_name['mystery_bounty'].message_type = mystery__bounty__pb2._MYSTERYBOUNTY
 DESCRIPTOR.message_types_by_name['RewardItem'] = _REWARDITEM
 DESCRIPTOR.message_types_by_name['RewardAvatar'] = _REWARDAVATAR
-DESCRIPTOR.message_types_by_name['RewardBlindCoin'] = _REWARDBLINDCOIN
 DESCRIPTOR.message_types_by_name['MttRewardInfo'] = _MTTREWARDINFO
 DESCRIPTOR.message_types_by_name['ProfitInfo'] = _PROFITINFO
 DESCRIPTOR.message_types_by_name['UserBrief'] = _USERBRIEF
@@ -1784,7 +1179,6 @@ DESCRIPTOR.message_types_by_name['MttSpecialSceneConfig'] = _MTTSPECIALSCENECONF
 DESCRIPTOR.message_types_by_name['MttSpecialSceneEndingInfo'] = _MTTSPECIALSCENEENDINGINFO
 DESCRIPTOR.message_types_by_name['SngRoomInfo'] = _SNGROOMINFO
 DESCRIPTOR.message_types_by_name['MttSpecialHunterBounty'] = _MTTSPECIALHUNTERBOUNTY
-DESCRIPTOR.message_types_by_name['MttRoomInfo'] = _MTTROOMINFO
 DESCRIPTOR.message_types_by_name['TableNoticeMsg'] = _TABLENOTICEMSG
 DESCRIPTOR.message_types_by_name['TableTipsMsg'] = _TABLETIPSMSG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -1802,13 +1196,6 @@ RewardAvatar = _reflection.GeneratedProtocolMessageType('RewardAvatar', (_messag
   # @@protoc_insertion_point(class_scope:pb.RewardAvatar)
   ))
 _sym_db.RegisterMessage(RewardAvatar)
-
-RewardBlindCoin = _reflection.GeneratedProtocolMessageType('RewardBlindCoin', (_message.Message,), dict(
-  DESCRIPTOR = _REWARDBLINDCOIN,
-  __module__ = 'base_pb2'
-  # @@protoc_insertion_point(class_scope:pb.RewardBlindCoin)
-  ))
-_sym_db.RegisterMessage(RewardBlindCoin)
 
 MttRewardInfo = _reflection.GeneratedProtocolMessageType('MttRewardInfo', (_message.Message,), dict(
   DESCRIPTOR = _MTTREWARDINFO,
@@ -1873,13 +1260,6 @@ MttSpecialHunterBounty = _reflection.GeneratedProtocolMessageType('MttSpecialHun
   ))
 _sym_db.RegisterMessage(MttSpecialHunterBounty)
 
-MttRoomInfo = _reflection.GeneratedProtocolMessageType('MttRoomInfo', (_message.Message,), dict(
-  DESCRIPTOR = _MTTROOMINFO,
-  __module__ = 'base_pb2'
-  # @@protoc_insertion_point(class_scope:pb.MttRoomInfo)
-  ))
-_sym_db.RegisterMessage(MttRoomInfo)
-
 TableNoticeMsg = _reflection.GeneratedProtocolMessageType('TableNoticeMsg', (_message.Message,), dict(
   DESCRIPTOR = _TABLENOTICEMSG,
   __module__ = 'base_pb2'
@@ -1896,6 +1276,4 @@ _sym_db.RegisterMessage(TableTipsMsg)
 
 
 DESCRIPTOR._options = None
-_MTTROOMINFO.fields_by_name['first_rebuy_item']._options = None
-_MTTROOMINFO.fields_by_name['first_addon_item']._options = None
 # @@protoc_insertion_point(module_scope)

@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tsng.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x14mystery_bounty.proto\"V\n\x15SpinUpMultipleSetting\x12\x10\n\x08multiple\x18\x01 \x02(\x05\x12\x13\n\x0bstart_chips\x18\x02 \x01(\x03\x12\x16\n\x0e\x62linds_up_time\x18\x03 \x01(\x03\"\xd8\x04\n\x10\x43reateSngRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\x14\n\x0cupblind_time\x18\x02 \x01(\x05\x12\x13\n\x0b\x61\x63tion_time\x18\x03 \x01(\x05\x12\r\n\x05\x62uyin\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x05 \x01(\x03\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x19\n\nauth_limit\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x11\n\x06\x63lubid\x18\x08 \x01(\x05:\x01\x30\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\x0e\n\x06\x63harge\x18\n \x01(\x03\x12\x13\n\x08timezone\x18\x0b \x01(\x05:\x01\x38\x12(\n\x04type\x18\x0c \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_SNG_ROOM\x12\x0e\n\x06roomid\x18\r \x01(\x05\x12\x13\n\x08leagueid\x18\x0e \x01(\x05:\x01\x30\x12\x18\n\tgps_limit\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x10 \x01(\x08:\x05\x66\x61lse\x12\x32\n\tgame_mode\x18\x11 \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x1b\n\x13is_auto_create_room\x18\x12 \x01(\x08\x12\x1a\n\x0f\x63reator_user_id\x18\x13 \x01(\x03:\x01\x30\x12(\n\x0eroom_name_lang\x18\x14 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x14\n\x08\x66\x65\x65point\x18\x15 \x01(\x05:\x02\x31\x30\x12:\n\x17spinup_multiple_setting\x18\x16 \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\"0\n\x10\x43reateSngRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"(\n\x08\x41nteInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x02 \x01(\x03\"3\n\x07\x41nteBRC\x12\x1a\n\x04info\x18\x01 \x03(\x0b\x32\x0c.pb.AnteInfo\x12\x0c\n\x04\x61nte\x18\x02 \x01(\x03\":\n\nSngInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04lang\x18\x02 \x01(\t\x12\x0e\n\x06tempid\x18\x03 \x01(\t\">\n\x1cSpinUpDrawLotteryProbability\x12\r\n\x05times\x18\x01 \x01(\x05\x12\x0f\n\x07percent\x18\x02 \x01(\x05\"\x9d\x03\n\x0eSpinUpRoomInfo\x12(\n\rspinup_reward\x18\x01 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13spinup_reward_ratio\x18\x02 \x01(\x03\x12\x42\n\x18\x64raw_lottery_probability\x18\x03 \x03(\x0b\x32 .pb.SpinUpDrawLotteryProbability\x12\x0e\n\x06tempid\x18\x04 \x01(\t\x12#\n\x08\x62rc_type\x18\x05 \x01(\x0e\x32\x11.pb.SpinUpBRCType\x12\x1a\n\x12remain_second_time\x18\x06 \x01(\x03\x12\x16\n\x0eturntable_type\x18\x07 \x01(\x03\x12\x1b\n\x13turntable_parameter\x18\x08 \x01(\x03\x12\x1d\n\x15turntable_angle_point\x18\t \x01(\x03\x12\x1f\n\x17max_spinup_reward_ratio\x18\n \x01(\x03\x12:\n\x17spinup_multiple_setting\x18\x0b \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\"\x81\x01\n\nSngInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1d\n\x04info\x18\x02 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12\x1d\n\x06player\x18\x03 \x03(\x0b\x32\r.pb.UserBrief\x12\'\n\x0bspinup_info\x18\x04 \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\"B\n\rSeatStatusBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x14\n\x0cseat_reserve\x18\x02 \x01(\x08\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"w\n\x0eReserveSeatREQ\x12\x0f\n\x07reserve\x18\x01 \x01(\x08\x12\x1b\n\x07gps_lon\x18\x02 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x03 \x01(\x05:\n-360000000\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0e\n\x02pc\x18\x05 \x01(\x08\x42\x02\x18\x01\"/\n\x0eReserveSeatRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07reserve\x18\x02 \x01(\x08\"\x84\x04\n\x0eUserSngOverRSP\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\r\n\x05money\x18\x02 \x01(\x05\x12\x13\n\x0bitem_reward\x18\x03 \x03(\t\x12\x1c\n\x04item\x18\x04 \x03(\x0b\x32\x0e.pb.RewardItem\x12\x12\n\nhand_chips\x18\x05 \x01(\x03\x12\x15\n\rhunter_reward\x18\x06 \x01(\x03\x12\x12\n\nhunter_num\x18\x07 \x01(\x05\x12\x18\n\x10total_player_num\x18\x08 \x01(\x05\x12\x11\n\troom_name\x18\t \x01(\t\x12\r\n\x05point\x18\n \x01(\x03\x12 \n\x06\x61vatar\x18\x0b \x01(\x0b\x32\x10.pb.RewardAvatar\x12 \n\x18is_special_hunter_bounty\x18\x0c \x01(\x08\x12 \n\x18room_avatar_client_label\x18\r \x01(\t\x12\'\n\nblind_coin\x18\x0e \x03(\x0b\x32\x13.pb.RewardBlindCoin\x12;\n\x18mtt_special_scene_config\x18\x0f \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x10 \x01(\x03\x12\x12\n\ntrophy_ids\x18\x11 \x03(\x03\x12.\n\x13mystery_bounty_info\x18\x12 \x03(\x0b\x32\x11.pb.MysteryBounty\"\xb8\x01\n\nSngOverBRC\x12\x1c\n\x04info\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x12\n\nis_started\x18\x02 \x01(\x08\x12;\n\x18mtt_special_scene_config\x18\x03 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x11\n\troom_name\x18\x04 \x01(\t\x12(\n\x0eroom_name_lang\x18\x05 \x03(\x0b\x32\x10.pb.RoomNameLang\"\x1d\n\rGameComingRSP\x12\x0c\n\x04left\x18\x01 \x01(\x05\"\xed\x01\n\tSpinUpBRC\x12\x1f\n\x04type\x18\x01 \x01(\x0e\x32\x11.pb.SpinUpBRCType\x12!\n\x06reward\x18\x02 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13spinup_reward_ratio\x18\x03 \x01(\x03\x12\x16\n\x0eturntable_type\x18\x04 \x01(\x03\x12\x1b\n\x13turntable_parameter\x18\x05 \x01(\x03\x12\x1d\n\x15turntable_angle_point\x18\x06 \x01(\x03\x12\x13\n\x0bstart_chips\x18\x07 \x01(\x03\x12\x16\n\x0e\x62linds_up_time\x18\x08 \x01(\x03\"r\n\x13SpinUpGrandPrizeBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\tleft_time\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x15\n\rspinup_reward\x18\x04 \x01(\x03\x12\x11\n\troom_name\x18\x05 \x01(\t\"\x1b\n\x19SpinUpSNGRoomLeaveRoomREQ\")\n\x19SpinUpSNGRoomLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05*\xba\x01\n\rSpinUpBRCType\x12\x18\n\x14SPINUP_BRC_TYPE_NONE\x10\x00\x12\x1e\n\x1aSPINUP_BRC_TYPE_COUNT_DOWN\x10\x01\x12&\n\"SPINUP_BRC_TYPE_START_DRAW_LOTTERY\x10\x02\x12\'\n#SPINUP_BRC_TYPE_RESULT_DRAW_LOTTERY\x10\x03\x12\x1e\n\x1aSPINUP_BRC_TYPE_GAME_START\x10\x04\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tsng.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\x14mystery_bounty.proto\"V\n\x15SpinUpMultipleSetting\x12\x10\n\x08multiple\x18\x01 \x01(\x05\x12\x13\n\x0bstart_chips\x18\x02 \x01(\x03\x12\x16\n\x0e\x62linds_up_time\x18\x03 \x01(\x03\"\xd8\x04\n\x10\x43reateSngRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\x14\n\x0cupblind_time\x18\x02 \x01(\x05\x12\x13\n\x0b\x61\x63tion_time\x18\x03 \x01(\x05\x12\r\n\x05\x62uyin\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x05 \x01(\x03\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x19\n\nauth_limit\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x11\n\x06\x63lubid\x18\x08 \x01(\x05:\x01\x30\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\x0e\n\x06\x63harge\x18\n \x01(\x03\x12\x13\n\x08timezone\x18\x0b \x01(\x05:\x01\x38\x12(\n\x04type\x18\x0c \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_SNG_ROOM\x12\x0e\n\x06roomid\x18\r \x01(\x05\x12\x13\n\x08leagueid\x18\x0e \x01(\x05:\x01\x30\x12\x18\n\tgps_limit\x18\x0f \x01(\x08:\x05\x66\x61lse\x12\x17\n\x08ip_limit\x18\x10 \x01(\x08:\x05\x66\x61lse\x12\x32\n\tgame_mode\x18\x11 \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12\x1b\n\x13is_auto_create_room\x18\x12 \x01(\x08\x12\x1a\n\x0f\x63reator_user_id\x18\x13 \x01(\x03:\x01\x30\x12(\n\x0eroom_name_lang\x18\x14 \x03(\x0b\x32\x10.pb.RoomNameLang\x12\x14\n\x08\x66\x65\x65point\x18\x15 \x01(\x05:\x02\x31\x30\x12:\n\x17spinup_multiple_setting\x18\x16 \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\"0\n\x10\x43reateSngRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06roomid\x18\x02 \x01(\x05\"(\n\x08\x41nteInfo\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x0c\n\x04\x61nte\x18\x02 \x01(\x03\"3\n\x07\x41nteBRC\x12\x1a\n\x04info\x18\x01 \x03(\x0b\x32\x0c.pb.AnteInfo\x12\x0c\n\x04\x61nte\x18\x02 \x01(\x03\":\n\nSngInfoREQ\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x0c\n\x04lang\x18\x02 \x01(\t\x12\x0e\n\x06tempid\x18\x03 \x01(\t\">\n\x1cSpinUpDrawLotteryProbability\x12\r\n\x05times\x18\x01 \x01(\x05\x12\x0f\n\x07percent\x18\x02 \x01(\x05\"\x9d\x03\n\x0eSpinUpRoomInfo\x12(\n\rspinup_reward\x18\x01 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13spinup_reward_ratio\x18\x02 \x01(\x03\x12\x42\n\x18\x64raw_lottery_probability\x18\x03 \x03(\x0b\x32 .pb.SpinUpDrawLotteryProbability\x12\x0e\n\x06tempid\x18\x04 \x01(\t\x12#\n\x08\x62rc_type\x18\x05 \x01(\x0e\x32\x11.pb.SpinUpBRCType\x12\x1a\n\x12remain_second_time\x18\x06 \x01(\x03\x12\x16\n\x0eturntable_type\x18\x07 \x01(\x03\x12\x1b\n\x13turntable_parameter\x18\x08 \x01(\x03\x12\x1d\n\x15turntable_angle_point\x18\t \x01(\x03\x12\x1f\n\x17max_spinup_reward_ratio\x18\n \x01(\x03\x12:\n\x17spinup_multiple_setting\x18\x0b \x03(\x0b\x32\x19.pb.SpinUpMultipleSetting\"\x81\x01\n\nSngInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1d\n\x04info\x18\x02 \x01(\x0b\x32\x0f.pb.SngRoomInfo\x12\x1d\n\x06player\x18\x03 \x03(\x0b\x32\r.pb.UserBrief\x12\'\n\x0bspinup_info\x18\x04 \x01(\x0b\x32\x12.pb.SpinUpRoomInfo\"B\n\rSeatStatusBRC\x12\x0e\n\x06seatid\x18\x01 \x01(\x05\x12\x14\n\x0cseat_reserve\x18\x02 \x01(\x08\x12\x0b\n\x03uid\x18\x03 \x01(\x03\"w\n\x0eReserveSeatREQ\x12\x0f\n\x07reserve\x18\x01 \x01(\x08\x12\x1b\n\x07gps_lon\x18\x02 \x01(\x05:\n-360000000\x12\x1b\n\x07gps_lat\x18\x03 \x01(\x05:\n-360000000\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0e\n\x02pc\x18\x05 \x01(\x08\x42\x02\x18\x01\"/\n\x0eReserveSeatRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07reserve\x18\x02 \x01(\x08\"\xdb\x03\n\x0eUserSngOverRSP\x12\x0c\n\x04rank\x18\x01 \x01(\x05\x12\r\n\x05money\x18\x02 \x01(\x05\x12\x13\n\x0bitem_reward\x18\x03 \x03(\t\x12\x1c\n\x04item\x18\x04 \x03(\x0b\x32\x0e.pb.RewardItem\x12\x12\n\nhand_chips\x18\x05 \x01(\x03\x12\x15\n\rhunter_reward\x18\x06 \x01(\x03\x12\x12\n\nhunter_num\x18\x07 \x01(\x05\x12\x18\n\x10total_player_num\x18\x08 \x01(\x05\x12\x11\n\troom_name\x18\t \x01(\t\x12\r\n\x05point\x18\n \x01(\x03\x12 \n\x06\x61vatar\x18\x0b \x01(\x0b\x32\x10.pb.RewardAvatar\x12 \n\x18is_special_hunter_bounty\x18\x0c \x01(\x08\x12 \n\x18room_avatar_client_label\x18\r \x01(\t\x12;\n\x18mtt_special_scene_config\x18\x0f \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x17\n\x0f\x63\x61sh_back_quota\x18\x10 \x01(\x03\x12\x12\n\ntrophy_ids\x18\x11 \x03(\x03\x12.\n\x13mystery_bounty_info\x18\x12 \x03(\x0b\x32\x11.pb.MysteryBounty\"\xb8\x01\n\nSngOverBRC\x12\x1c\n\x04info\x18\x01 \x03(\x0b\x32\x0e.pb.ProfitInfo\x12\x12\n\nis_started\x18\x02 \x01(\x08\x12;\n\x18mtt_special_scene_config\x18\x03 \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x11\n\troom_name\x18\x04 \x01(\t\x12(\n\x0eroom_name_lang\x18\x05 \x03(\x0b\x32\x10.pb.RoomNameLang\"\x1d\n\rGameComingRSP\x12\x0c\n\x04left\x18\x01 \x01(\x05\"\xed\x01\n\tSpinUpBRC\x12\x1f\n\x04type\x18\x01 \x01(\x0e\x32\x11.pb.SpinUpBRCType\x12!\n\x06reward\x18\x02 \x03(\x0b\x32\x11.pb.MttRewardInfo\x12\x1b\n\x13spinup_reward_ratio\x18\x03 \x01(\x03\x12\x16\n\x0eturntable_type\x18\x04 \x01(\x03\x12\x1b\n\x13turntable_parameter\x18\x05 \x01(\x03\x12\x1d\n\x15turntable_angle_point\x18\x06 \x01(\x03\x12\x13\n\x0bstart_chips\x18\x07 \x01(\x03\x12\x16\n\x0e\x62linds_up_time\x18\x08 \x01(\x03\"r\n\x13SpinUpGrandPrizeBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\tleft_time\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x15\n\rspinup_reward\x18\x04 \x01(\x03\x12\x11\n\troom_name\x18\x05 \x01(\t\"\x1b\n\x19SpinUpSNGRoomLeaveRoomREQ\")\n\x19SpinUpSNGRoomLeaveRoomRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05*\xba\x01\n\rSpinUpBRCType\x12\x18\n\x14SPINUP_BRC_TYPE_NONE\x10\x00\x12\x1e\n\x1aSPINUP_BRC_TYPE_COUNT_DOWN\x10\x01\x12&\n\"SPINUP_BRC_TYPE_START_DRAW_LOTTERY\x10\x02\x12\'\n#SPINUP_BRC_TYPE_RESULT_DRAW_LOTTERY\x10\x03\x12\x1e\n\x1aSPINUP_BRC_TYPE_GAME_START\x10\x04\x42\x07Z\x05../pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
 
@@ -56,8 +56,8 @@ _SPINUPBRCTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2979,
-  serialized_end=3165,
+  serialized_start=2938,
+  serialized_end=3124,
 )
 _sym_db.RegisterEnumDescriptor(_SPINUPBRCTYPE)
 
@@ -79,7 +79,7 @@ _SPINUPMULTIPLESETTING = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='multiple', full_name='pb.SpinUpMultipleSetting.multiple', index=0,
-      number=1, type=5, cpp_type=1, label=2,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -884,35 +884,28 @@ _USERSNGOVERRSP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blind_coin', full_name='pb.UserSngOverRSP.blind_coin', index=13,
-      number=14, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtt_special_scene_config', full_name='pb.UserSngOverRSP.mtt_special_scene_config', index=14,
+      name='mtt_special_scene_config', full_name='pb.UserSngOverRSP.mtt_special_scene_config', index=13,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash_back_quota', full_name='pb.UserSngOverRSP.cash_back_quota', index=15,
+      name='cash_back_quota', full_name='pb.UserSngOverRSP.cash_back_quota', index=14,
       number=16, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='trophy_ids', full_name='pb.UserSngOverRSP.trophy_ids', index=16,
+      name='trophy_ids', full_name='pb.UserSngOverRSP.trophy_ids', index=15,
       number=17, type=3, cpp_type=2, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='mystery_bounty_info', full_name='pb.UserSngOverRSP.mystery_bounty_info', index=17,
+      name='mystery_bounty_info', full_name='pb.UserSngOverRSP.mystery_bounty_info', index=16,
       number=18, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -931,7 +924,7 @@ _USERSNGOVERRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1814,
-  serialized_end=2330,
+  serialized_end=2289,
 )
 
 
@@ -989,8 +982,8 @@ _SNGOVERBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2333,
-  serialized_end=2517,
+  serialized_start=2292,
+  serialized_end=2476,
 )
 
 
@@ -1020,8 +1013,8 @@ _GAMECOMINGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2519,
-  serialized_end=2548,
+  serialized_start=2478,
+  serialized_end=2507,
 )
 
 
@@ -1100,8 +1093,8 @@ _SPINUPBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2551,
-  serialized_end=2788,
+  serialized_start=2510,
+  serialized_end=2747,
 )
 
 
@@ -1159,8 +1152,8 @@ _SPINUPGRANDPRIZEBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2790,
-  serialized_end=2904,
+  serialized_start=2749,
+  serialized_end=2863,
 )
 
 
@@ -1183,8 +1176,8 @@ _SPINUPSNGROOMLEAVEROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2906,
-  serialized_end=2933,
+  serialized_start=2865,
+  serialized_end=2892,
 )
 
 
@@ -1214,8 +1207,8 @@ _SPINUPSNGROOMLEAVEROOMRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2935,
-  serialized_end=2976,
+  serialized_start=2894,
+  serialized_end=2935,
 )
 
 _CREATESNGROOMREQ.fields_by_name['type'].enum_type = pre__base__pb2._ROOMTYPE
@@ -1232,7 +1225,6 @@ _SNGINFORSP.fields_by_name['player'].message_type = base__pb2._USERBRIEF
 _SNGINFORSP.fields_by_name['spinup_info'].message_type = _SPINUPROOMINFO
 _USERSNGOVERRSP.fields_by_name['item'].message_type = base__pb2._REWARDITEM
 _USERSNGOVERRSP.fields_by_name['avatar'].message_type = base__pb2._REWARDAVATAR
-_USERSNGOVERRSP.fields_by_name['blind_coin'].message_type = base__pb2._REWARDBLINDCOIN
 _USERSNGOVERRSP.fields_by_name['mtt_special_scene_config'].message_type = base__pb2._MTTSPECIALSCENECONFIG
 _USERSNGOVERRSP.fields_by_name['mystery_bounty_info'].message_type = mystery__bounty__pb2._MYSTERYBOUNTY
 _SNGOVERBRC.fields_by_name['info'].message_type = base__pb2._PROFITINFO

@@ -22,10 +22,72 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0b\x63lub4.proto\x12\x02pb\x1a\x0f\x63lub_base.proto\x1a\x0b\x63lub1.proto\"\xdc\x05\n\x08\x43lubInfo\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\x12\n\nblackboard\x18\x04 \x01(\t\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x0f\n\x07max_num\x18\x06 \x01(\x05\x12\x0c\n\x04role\x18\x07 \x01(\x05\x12\r\n\x05rooms\x18\x08 \x01(\x05\x12\x10\n\x08jointime\x18\t \x01(\x05\x12\x0f\n\x07ownerid\x18\n \x01(\x03\x12\x11\n\townername\x18\x0b \x01(\t\x12\x11\n\townericon\x18\x0c \x01(\t\x12#\n\x0b\x63lub_config\x18\r \x01(\x0b\x32\x0e.pb.ClubConfig\x12#\n\x0bleague_list\x18\x0e \x03(\x0b\x32\x0e.pb.LeagueInfo\x12!\n\x08push_msg\x18\x0f \x01(\x0b\x32\x0f.pb.ClubPushMsg\x12\x19\n\x11\x66ree_rename_times\x18\x10 \x01(\x05\x12\x13\n\x0btimezone_id\x18\x11 \x01(\t\x12\x12\n\nutc_offset\x18\x12 \x01(\t\x12\x13\n\x0bmanager_num\x18\x13 \x01(\x05\x12\x17\n\x0fmax_manager_num\x18\x14 \x01(\x05\x12\x0b\n\x03\x62\x61n\x18\x15 \x01(\x05\x12\x13\n\x0b\x63onfig_name\x18\x16 \x01(\t\x12\x15\n\rjackpot_chips\x18\x17 \x01(\x03\x12\x18\n\x10jackpot_recharge\x18\x18 \x01(\x03\x12\x16\n\x0ejackpot_status\x18\x19 \x01(\x05\x12\x1c\n\x14is_rebate_rate_fixed\x18\x1a \x01(\x08\x12\x19\n\x11rebate_rate_level\x18\x1b \x01(\x05\x12\x10\n\x08platform\x18\x1c \x01(\t\x12\x1a\n\x12recent_playing_num\x18\x1d \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x1e \x01(\x03\x12\x18\n\x10yesterday_rebate\x18\x1f \x01(\x03\x12\x12\n\nclaim_pool\x18  \x01(\x03\x12\x17\n\x0f\x61uto_claim_time\x18! \x01(\x03\"\xd7\x02\n\x0b\x43lubInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04info\x18\x02 \x01(\x0b\x32\x0c.pb.ClubInfo\x12\x14\n\tagent_uid\x18\x03 \x01(\x03:\x01\x30\x12\x17\n\x0f\x63\x61n_change_club\x18\x04 \x01(\x08\x12\x43\n\x16\x63\x61n_change_club_reason\x18\x05 \x01(\x0e\x32#.pb.ClubInfoRSP.CanChangeClubReason\"\xa9\x01\n\x13\x43\x61nChangeClubReason\x12\x1f\n\x1b\x43\x41N_CHANGE_CLUB_REASON_NONE\x10\x00\x12#\n\x1f\x43\x41N_CHANGE_CLUB_REASON_NEW_JOIN\x10\x01\x12(\n$CAN_CHANGE_CLUB_REASON_HOST_INACTIVE\x10\x02\x12\"\n\x1e\x43\x41N_CHANGE_CLUB_REASON_SETTING\x10\x03\"9\n\rCreateClubRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04\x63lub\x18\x02 \x01(\x0b\x32\x0c.pb.ClubInfo\"(\n\rChangeClubREQ\x12\x17\n\x0finvitation_code\x18\x01 \x01(\t\"\x96\x01\n\rChangeClubRSP\x12$\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x16.pb.ChangeClubRSP.Code\"_\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x16\n\x12\x43ODE_DEFAULT_ERROR\x10\x01\x12\x15\n\x11\x43ODE_SYSTEM_ERROR\x10\x02\x12\x16\n\x12\x43ODE_IN_ROOM_ERROR\x10\x03\"y\n\x17GetItemRewardMttListREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x15\n\rmtt_join_type\x18\x05 \x01(\x05\"\x99\x01\n\x17GetItemRewardMttListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x17\n\x0fitem_class_name\x18\x05 \x01(\t\x12\x15\n\rmtt_join_type\x18\x06 \x01(\x05\"\xce\x01\n\rClubMemberREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x1a\n\x0brecent_mode\x18\x04 \x01(\x05:\x01\x30\x42\x02\x18\x01\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x07 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x08 \x01(\t:\x00\x12$\n\x06\x66ilter\x18\t \x01(\x0e\x32\x14.pb.ClubMemberFilter\"\x86\x01\n\rClubMemberRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\"\n\x06member\x18\x03 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x1d\n\x12total_member_count\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\"\xa4\x01\n\x12\x43lubAgentMemberREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tagent_uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0b\n\x03uid\x18\x04 \x01(\x03\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x07 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x08 \x01(\t:\x00\"\xac\x01\n\x12\x43lubAgentMemberRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\"\n\x06member\x18\x03 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x11\n\tagent_uid\x18\x04 \x01(\x03\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x1d\n\x12total_member_count\x18\x06 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x07 \x01(\x05:\x01\x31\"O\n\x15SearchClubMemberV2REQ\x12\x0e\n\x06search\x18\x01 \x01(\t\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x18.pb.SearchClubMemberType\";\n\x15SearchClubMemberV2RSP\x12\"\n\x06member\x18\x01 \x03(\x0b\x32\x12.pb.ClubMemberInfo\"i\n\x10InactivePopupMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08\x63lubname\x18\x02 \x01(\t\x12%\n\x06reason\x18\x03 \x01(\x0e\x32\x15.pb.InactivePopupType\x12\x0c\n\x04time\x18\x04 \x01(\x03\"\x15\n\x13GetInactivePopupREQ\"G\n\x13GetInactivePopupRSP\x12\x30\n\x12inactive_popup_msg\x18\x01 \x03(\x0b\x32\x14.pb.InactivePopupMsg\"O\n\x16RemoveInactivePopupREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12%\n\x06reason\x18\x02 \x01(\x0e\x32\x15.pb.InactivePopupType\"O\n\x16RemoveInactivePopupRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12%\n\x06reason\x18\x02 \x01(\x0e\x32\x15.pb.InactivePopupType*<\n\x10\x43lubMemberFilter\x12\x07\n\x03\x41LL\x10\x00\x12\x0e\n\nCLUB_AGENT\x10\x01\x12\x0f\n\x0b\x43LUB_MEMBER\x10\x02*J\n\x14SearchClubMemberType\x12\x19\n\x15SEARCH_COUNTER_PPCOIN\x10\x01\x12\x17\n\x13SEARCH_COUNTER_GIFT\x10\x02*r\n\x11InactivePopupType\x12\x1e\n\x1aINACTIVE_CLUB_DISBAND_HOST\x10\x01\x12 \n\x1cINACTIVE_CLUB_DISBAND_MEMBER\x10\x02\x12\x1b\n\x17INACTIVE_MEMBER_REMOVED\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0b\x63lub4.proto\x12\x02pb\x1a\x0f\x63lub_base.proto\x1a\x0b\x63lub1.proto\"\xdc\x05\n\x08\x43lubInfo\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\x12\n\nblackboard\x18\x04 \x01(\t\x12\x0b\n\x03num\x18\x05 \x01(\x05\x12\x0f\n\x07max_num\x18\x06 \x01(\x05\x12\x0c\n\x04role\x18\x07 \x01(\x05\x12\r\n\x05rooms\x18\x08 \x01(\x05\x12\x10\n\x08jointime\x18\t \x01(\x05\x12\x0f\n\x07ownerid\x18\n \x01(\x03\x12\x11\n\townername\x18\x0b \x01(\t\x12\x11\n\townericon\x18\x0c \x01(\t\x12#\n\x0b\x63lub_config\x18\r \x01(\x0b\x32\x0e.pb.ClubConfig\x12#\n\x0bleague_list\x18\x0e \x03(\x0b\x32\x0e.pb.LeagueInfo\x12!\n\x08push_msg\x18\x0f \x01(\x0b\x32\x0f.pb.ClubPushMsg\x12\x19\n\x11\x66ree_rename_times\x18\x10 \x01(\x05\x12\x13\n\x0btimezone_id\x18\x11 \x01(\t\x12\x12\n\nutc_offset\x18\x12 \x01(\t\x12\x13\n\x0bmanager_num\x18\x13 \x01(\x05\x12\x17\n\x0fmax_manager_num\x18\x14 \x01(\x05\x12\x0b\n\x03\x62\x61n\x18\x15 \x01(\x05\x12\x13\n\x0b\x63onfig_name\x18\x16 \x01(\t\x12\x15\n\rjackpot_chips\x18\x17 \x01(\x03\x12\x18\n\x10jackpot_recharge\x18\x18 \x01(\x03\x12\x16\n\x0ejackpot_status\x18\x19 \x01(\x05\x12\x1c\n\x14is_rebate_rate_fixed\x18\x1a \x01(\x08\x12\x19\n\x11rebate_rate_level\x18\x1b \x01(\x05\x12\x10\n\x08platform\x18\x1c \x01(\t\x12\x1a\n\x12recent_playing_num\x18\x1d \x01(\x05\x12\x14\n\x0ctotal_rebate\x18\x1e \x01(\x03\x12\x18\n\x10yesterday_rebate\x18\x1f \x01(\x03\x12\x12\n\nclaim_pool\x18  \x01(\x03\x12\x17\n\x0f\x61uto_claim_time\x18! \x01(\x03\"\xaa\x01\n\x0b\x43lubInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04info\x18\x02 \x01(\x0b\x32\x0c.pb.ClubInfo\x12\x14\n\tagent_uid\x18\x03 \x01(\x03:\x01\x30\x12\x17\n\x0f\x63\x61n_change_club\x18\x04 \x01(\x08\x12\x42\n\x16\x63\x61n_change_club_reason\x18\x05 \x01(\x0e\x32\".pb.ClubInfoRSPCanChangeClubReason\"9\n\rCreateClubRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x1a\n\x04\x63lub\x18\x02 \x01(\x0b\x32\x0c.pb.ClubInfo\"(\n\rChangeClubREQ\x12\x17\n\x0finvitation_code\x18\x01 \x01(\t\"4\n\rChangeClubRSP\x12#\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x15.pb.ChangeClubRSPCode\"y\n\x17GetItemRewardMttListREQ\x12\x10\n\x08leagueid\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12\x17\n\x0fitem_class_name\x18\x04 \x01(\t\x12\x15\n\rmtt_join_type\x18\x05 \x01(\x05\"\x99\x01\n\x17GetItemRewardMttListRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12\x17\n\x0fitem_class_name\x18\x05 \x01(\t\x12\x15\n\rmtt_join_type\x18\x06 \x01(\x05\"\xce\x01\n\rClubMemberREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\x0b\n\x03uid\x18\x03 \x01(\x03\x12\x1a\n\x0brecent_mode\x18\x04 \x01(\x05:\x01\x30\x42\x02\x18\x01\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x07 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x08 \x01(\t:\x00\x12$\n\x06\x66ilter\x18\t \x01(\x0e\x32\x14.pb.ClubMemberFilter\"\x86\x01\n\rClubMemberRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\x12\"\n\x06member\x18\x03 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x1d\n\x12total_member_count\x18\x04 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\"\xa4\x01\n\x12\x43lubAgentMemberREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x11\n\tagent_uid\x18\x02 \x01(\x03\x12\x10\n\x08leagueid\x18\x03 \x01(\x05\x12\x0b\n\x03uid\x18\x04 \x01(\x03\x12\x10\n\x05start\x18\x05 \x01(\x05:\x01\x31\x12\x0e\n\x03num\x18\x06 \x01(\x05:\x01\x30\x12\x14\n\tsort_type\x18\x07 \x01(\x05:\x01\x30\x12\x14\n\nsearch_str\x18\x08 \x01(\t:\x00\"\xac\x01\n\x12\x43lubAgentMemberRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\"\n\x06member\x18\x03 \x03(\x0b\x32\x12.pb.ClubMemberInfo\x12\x11\n\tagent_uid\x18\x04 \x01(\x03\x12\x10\n\x08leagueid\x18\x05 \x01(\x05\x12\x1d\n\x12total_member_count\x18\x06 \x01(\x05:\x01\x30\x12\x10\n\x05start\x18\x07 \x01(\x05:\x01\x31\"O\n\x15SearchClubMemberV2REQ\x12\x0e\n\x06search\x18\x01 \x01(\t\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x18.pb.SearchClubMemberType\";\n\x15SearchClubMemberV2RSP\x12\"\n\x06member\x18\x01 \x03(\x0b\x32\x12.pb.ClubMemberInfo\"i\n\x10InactivePopupMsg\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08\x63lubname\x18\x02 \x01(\t\x12%\n\x06reason\x18\x03 \x01(\x0e\x32\x15.pb.InactivePopupType\x12\x0c\n\x04time\x18\x04 \x01(\x03\"\x15\n\x13GetInactivePopupREQ\"G\n\x13GetInactivePopupRSP\x12\x30\n\x12inactive_popup_msg\x18\x01 \x03(\x0b\x32\x14.pb.InactivePopupMsg\"O\n\x16RemoveInactivePopupREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12%\n\x06reason\x18\x02 \x01(\x0e\x32\x15.pb.InactivePopupType\"O\n\x16RemoveInactivePopupRSP\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12%\n\x06reason\x18\x02 \x01(\x0e\x32\x15.pb.InactivePopupType\"p\n\x19GetRuleJoinableMttListREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x13\n\x08leagueid\x18\x02 \x01(\x05:\x01\x30\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12 \n\x18leaderboard_activity_key\x18\x04 \x01(\t\"\x8b\x01\n\x19GetRuleJoinableMttListRSP\x12 \n\x18leaderboard_activity_key\x18\x01 \x01(\t\x12\x1e\n\x04info\x18\x02 \x03(\x0b\x32\x10.pb.ClubRoomInfo\x12,\n\x04\x63ode\x18\x04 \x01(\x0e\x32\x1e.pb.GetRuleJoinableMttListCode*\xc4\x02\n\x1e\x43lubInfoRSPCanChangeClubReason\x12\x43\n?CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NONE\x10\x00\x12G\nCCLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NEW_JOIN\x10\x01\x12L\nHCLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_HOST_INACTIVE\x10\x02\x12\x46\nBCLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_SETTING\x10\x03*\xbc\x01\n\x11\x43hangeClubRSPCode\x12$\n CHANGE_CLUB_RSPCODE_CODE_SUCCESS\x10\x00\x12*\n&CHANGE_CLUB_RSPCODE_CODE_DEFAULT_ERROR\x10\x01\x12)\n%CHANGE_CLUB_RSPCODE_CODE_SYSTEM_ERROR\x10\x02\x12*\n&CHANGE_CLUB_RSPCODE_CODE_IN_ROOM_ERROR\x10\x03*<\n\x10\x43lubMemberFilter\x12\x07\n\x03\x41LL\x10\x00\x12\x0e\n\nCLUB_AGENT\x10\x01\x12\x0f\n\x0b\x43LUB_MEMBER\x10\x02*z\n\x14SearchClubMemberType\x12\x31\n-SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_PPCOIN\x10\x01\x12/\n+SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_GIFT\x10\x02*r\n\x11InactivePopupType\x12\x1e\n\x1aINACTIVE_CLUB_DISBAND_HOST\x10\x01\x12 \n\x1cINACTIVE_CLUB_DISBAND_MEMBER\x10\x02\x12\x1b\n\x17INACTIVE_MEMBER_REMOVED\x10\x03*\xa8\x01\n\x1aGetRuleJoinableMttListCode\x12-\n GetRuleJoinableMttListCode_ERROR\x10\xfe\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x33\n&GetRuleJoinableMttListCode_NOT_BY_RULE\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12&\n\"GetRuleJoinableMttListCode_SUCCESS\x10\x00\x42\x07Z\x05../pb')
   ,
   dependencies=[club__base__pb2.DESCRIPTOR,club1__pb2.DESCRIPTOR,])
 
+_CLUBINFORSPCANCHANGECLUBREASON = _descriptor.EnumDescriptor(
+  name='ClubInfoRSPCanChangeClubReason',
+  full_name='pb.ClubInfoRSPCanChangeClubReason',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NONE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NEW_JOIN', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_HOST_INACTIVE', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_SETTING', index=3, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2843,
+  serialized_end=3167,
+)
+_sym_db.RegisterEnumDescriptor(_CLUBINFORSPCANCHANGECLUBREASON)
+
+ClubInfoRSPCanChangeClubReason = enum_type_wrapper.EnumTypeWrapper(_CLUBINFORSPCANCHANGECLUBREASON)
+_CHANGECLUBRSPCODE = _descriptor.EnumDescriptor(
+  name='ChangeClubRSPCode',
+  full_name='pb.ChangeClubRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='CHANGE_CLUB_RSPCODE_CODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CHANGE_CLUB_RSPCODE_CODE_DEFAULT_ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CHANGE_CLUB_RSPCODE_CODE_SYSTEM_ERROR', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CHANGE_CLUB_RSPCODE_CODE_IN_ROOM_ERROR', index=3, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3170,
+  serialized_end=3358,
+)
+_sym_db.RegisterEnumDescriptor(_CHANGECLUBRSPCODE)
+
+ChangeClubRSPCode = enum_type_wrapper.EnumTypeWrapper(_CHANGECLUBRSPCODE)
 _CLUBMEMBERFILTER = _descriptor.EnumDescriptor(
   name='ClubMemberFilter',
   full_name='pb.ClubMemberFilter',
@@ -47,8 +109,8 @@ _CLUBMEMBERFILTER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2858,
-  serialized_end=2918,
+  serialized_start=3360,
+  serialized_end=3420,
 )
 _sym_db.RegisterEnumDescriptor(_CLUBMEMBERFILTER)
 
@@ -60,18 +122,18 @@ _SEARCHCLUBMEMBERTYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SEARCH_COUNTER_PPCOIN', index=0, number=1,
+      name='SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_PPCOIN', index=0, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SEARCH_COUNTER_GIFT', index=1, number=2,
+      name='SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_GIFT', index=1, number=2,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2920,
-  serialized_end=2994,
+  serialized_start=3422,
+  serialized_end=3544,
 )
 _sym_db.RegisterEnumDescriptor(_SEARCHCLUBMEMBERTYPE)
 
@@ -97,81 +159,59 @@ _INACTIVEPOPUPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2996,
-  serialized_end=3110,
+  serialized_start=3546,
+  serialized_end=3660,
 )
 _sym_db.RegisterEnumDescriptor(_INACTIVEPOPUPTYPE)
 
 InactivePopupType = enum_type_wrapper.EnumTypeWrapper(_INACTIVEPOPUPTYPE)
+_GETRULEJOINABLEMTTLISTCODE = _descriptor.EnumDescriptor(
+  name='GetRuleJoinableMttListCode',
+  full_name='pb.GetRuleJoinableMttListCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GetRuleJoinableMttListCode_ERROR', index=0, number=-2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GetRuleJoinableMttListCode_NOT_BY_RULE', index=1, number=-1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GetRuleJoinableMttListCode_SUCCESS', index=2, number=0,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3663,
+  serialized_end=3831,
+)
+_sym_db.RegisterEnumDescriptor(_GETRULEJOINABLEMTTLISTCODE)
+
+GetRuleJoinableMttListCode = enum_type_wrapper.EnumTypeWrapper(_GETRULEJOINABLEMTTLISTCODE)
+CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NONE = 0
+CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_NEW_JOIN = 1
+CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_HOST_INACTIVE = 2
+CLUB_INFO_RSPCAN_CHANGE_CLUB_REASON_CAN_CHANGE_CLUB_REASON_SETTING = 3
+CHANGE_CLUB_RSPCODE_CODE_SUCCESS = 0
+CHANGE_CLUB_RSPCODE_CODE_DEFAULT_ERROR = 1
+CHANGE_CLUB_RSPCODE_CODE_SYSTEM_ERROR = 2
+CHANGE_CLUB_RSPCODE_CODE_IN_ROOM_ERROR = 3
 ALL = 0
 CLUB_AGENT = 1
 CLUB_MEMBER = 2
-SEARCH_COUNTER_PPCOIN = 1
-SEARCH_COUNTER_GIFT = 2
+SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_PPCOIN = 1
+SEARCH_CLUB_MEMBER_TYPE_SEARCH_COUNTER_GIFT = 2
 INACTIVE_CLUB_DISBAND_HOST = 1
 INACTIVE_CLUB_DISBAND_MEMBER = 2
 INACTIVE_MEMBER_REMOVED = 3
+GetRuleJoinableMttListCode_ERROR = -2
+GetRuleJoinableMttListCode_NOT_BY_RULE = -1
+GetRuleJoinableMttListCode_SUCCESS = 0
 
-
-_CLUBINFORSP_CANCHANGECLUBREASON = _descriptor.EnumDescriptor(
-  name='CanChangeClubReason',
-  full_name='pb.ClubInfoRSP.CanChangeClubReason',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CAN_CHANGE_CLUB_REASON_NONE', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CAN_CHANGE_CLUB_REASON_NEW_JOIN', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CAN_CHANGE_CLUB_REASON_HOST_INACTIVE', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CAN_CHANGE_CLUB_REASON_SETTING', index=3, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=959,
-  serialized_end=1128,
-)
-_sym_db.RegisterEnumDescriptor(_CLUBINFORSP_CANCHANGECLUBREASON)
-
-_CHANGECLUBRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.ChangeClubRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_DEFAULT_ERROR', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_SYSTEM_ERROR', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CODE_IN_ROOM_ERROR', index=3, number=3,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1287,
-  serialized_end=1382,
-)
-_sym_db.RegisterEnumDescriptor(_CHANGECLUBRSP_CODE)
 
 
 _CLUBINFO = _descriptor.Descriptor(
@@ -476,7 +516,6 @@ _CLUBINFORSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CLUBINFORSP_CANCHANGECLUBREASON,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -485,7 +524,7 @@ _CLUBINFORSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=785,
-  serialized_end=1128,
+  serialized_end=955,
 )
 
 
@@ -522,8 +561,8 @@ _CREATECLUBRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1130,
-  serialized_end=1187,
+  serialized_start=957,
+  serialized_end=1014,
 )
 
 
@@ -553,8 +592,8 @@ _CHANGECLUBREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1189,
-  serialized_end=1229,
+  serialized_start=1016,
+  serialized_end=1056,
 )
 
 
@@ -577,7 +616,6 @@ _CHANGECLUBRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CHANGECLUBRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -585,8 +623,8 @@ _CHANGECLUBRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1232,
-  serialized_end=1382,
+  serialized_start=1058,
+  serialized_end=1110,
 )
 
 
@@ -644,8 +682,8 @@ _GETITEMREWARDMTTLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1384,
-  serialized_end=1505,
+  serialized_start=1112,
+  serialized_end=1233,
 )
 
 
@@ -710,8 +748,8 @@ _GETITEMREWARDMTTLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1508,
-  serialized_end=1661,
+  serialized_start=1236,
+  serialized_end=1389,
 )
 
 
@@ -797,8 +835,8 @@ _CLUBMEMBERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1664,
-  serialized_end=1870,
+  serialized_start=1392,
+  serialized_end=1598,
 )
 
 
@@ -856,8 +894,8 @@ _CLUBMEMBERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1873,
-  serialized_end=2007,
+  serialized_start=1601,
+  serialized_end=1735,
 )
 
 
@@ -936,8 +974,8 @@ _CLUBAGENTMEMBERREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2010,
-  serialized_end=2174,
+  serialized_start=1738,
+  serialized_end=1902,
 )
 
 
@@ -1009,8 +1047,8 @@ _CLUBAGENTMEMBERRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2177,
-  serialized_end=2349,
+  serialized_start=1905,
+  serialized_end=2077,
 )
 
 
@@ -1047,8 +1085,8 @@ _SEARCHCLUBMEMBERV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2351,
-  serialized_end=2430,
+  serialized_start=2079,
+  serialized_end=2158,
 )
 
 
@@ -1078,8 +1116,8 @@ _SEARCHCLUBMEMBERV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2432,
-  serialized_end=2491,
+  serialized_start=2160,
+  serialized_end=2219,
 )
 
 
@@ -1130,8 +1168,8 @@ _INACTIVEPOPUPMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2493,
-  serialized_end=2598,
+  serialized_start=2221,
+  serialized_end=2326,
 )
 
 
@@ -1154,8 +1192,8 @@ _GETINACTIVEPOPUPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2600,
-  serialized_end=2621,
+  serialized_start=2328,
+  serialized_end=2349,
 )
 
 
@@ -1185,8 +1223,8 @@ _GETINACTIVEPOPUPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2623,
-  serialized_end=2694,
+  serialized_start=2351,
+  serialized_end=2422,
 )
 
 
@@ -1223,8 +1261,8 @@ _REMOVEINACTIVEPOPUPREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2696,
-  serialized_end=2775,
+  serialized_start=2424,
+  serialized_end=2503,
 )
 
 
@@ -1261,19 +1299,114 @@ _REMOVEINACTIVEPOPUPRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2777,
-  serialized_end=2856,
+  serialized_start=2505,
+  serialized_end=2584,
+)
+
+
+_GETRULEJOINABLEMTTLISTREQ = _descriptor.Descriptor(
+  name='GetRuleJoinableMttListREQ',
+  full_name='pb.GetRuleJoinableMttListREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.GetRuleJoinableMttListREQ.clubid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leagueid', full_name='pb.GetRuleJoinableMttListREQ.leagueid', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='lang', full_name='pb.GetRuleJoinableMttListREQ.lang', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leaderboard_activity_key', full_name='pb.GetRuleJoinableMttListREQ.leaderboard_activity_key', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2586,
+  serialized_end=2698,
+)
+
+
+_GETRULEJOINABLEMTTLISTRSP = _descriptor.Descriptor(
+  name='GetRuleJoinableMttListRSP',
+  full_name='pb.GetRuleJoinableMttListRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='leaderboard_activity_key', full_name='pb.GetRuleJoinableMttListRSP.leaderboard_activity_key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='info', full_name='pb.GetRuleJoinableMttListRSP.info', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.GetRuleJoinableMttListRSP.code', index=2,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=-2,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2701,
+  serialized_end=2840,
 )
 
 _CLUBINFO.fields_by_name['club_config'].message_type = club__base__pb2._CLUBCONFIG
 _CLUBINFO.fields_by_name['league_list'].message_type = club1__pb2._LEAGUEINFO
 _CLUBINFO.fields_by_name['push_msg'].message_type = club1__pb2._CLUBPUSHMSG
 _CLUBINFORSP.fields_by_name['info'].message_type = _CLUBINFO
-_CLUBINFORSP.fields_by_name['can_change_club_reason'].enum_type = _CLUBINFORSP_CANCHANGECLUBREASON
-_CLUBINFORSP_CANCHANGECLUBREASON.containing_type = _CLUBINFORSP
+_CLUBINFORSP.fields_by_name['can_change_club_reason'].enum_type = _CLUBINFORSPCANCHANGECLUBREASON
 _CREATECLUBRSP.fields_by_name['club'].message_type = _CLUBINFO
-_CHANGECLUBRSP.fields_by_name['code'].enum_type = _CHANGECLUBRSP_CODE
-_CHANGECLUBRSP_CODE.containing_type = _CHANGECLUBRSP
+_CHANGECLUBRSP.fields_by_name['code'].enum_type = _CHANGECLUBRSPCODE
 _GETITEMREWARDMTTLISTRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
 _CLUBMEMBERREQ.fields_by_name['filter'].enum_type = _CLUBMEMBERFILTER
 _CLUBMEMBERRSP.fields_by_name['member'].message_type = club1__pb2._CLUBMEMBERINFO
@@ -1284,6 +1417,8 @@ _INACTIVEPOPUPMSG.fields_by_name['reason'].enum_type = _INACTIVEPOPUPTYPE
 _GETINACTIVEPOPUPRSP.fields_by_name['inactive_popup_msg'].message_type = _INACTIVEPOPUPMSG
 _REMOVEINACTIVEPOPUPREQ.fields_by_name['reason'].enum_type = _INACTIVEPOPUPTYPE
 _REMOVEINACTIVEPOPUPRSP.fields_by_name['reason'].enum_type = _INACTIVEPOPUPTYPE
+_GETRULEJOINABLEMTTLISTRSP.fields_by_name['info'].message_type = club1__pb2._CLUBROOMINFO
+_GETRULEJOINABLEMTTLISTRSP.fields_by_name['code'].enum_type = _GETRULEJOINABLEMTTLISTCODE
 DESCRIPTOR.message_types_by_name['ClubInfo'] = _CLUBINFO
 DESCRIPTOR.message_types_by_name['ClubInfoRSP'] = _CLUBINFORSP
 DESCRIPTOR.message_types_by_name['CreateClubRSP'] = _CREATECLUBRSP
@@ -1302,9 +1437,14 @@ DESCRIPTOR.message_types_by_name['GetInactivePopupREQ'] = _GETINACTIVEPOPUPREQ
 DESCRIPTOR.message_types_by_name['GetInactivePopupRSP'] = _GETINACTIVEPOPUPRSP
 DESCRIPTOR.message_types_by_name['RemoveInactivePopupREQ'] = _REMOVEINACTIVEPOPUPREQ
 DESCRIPTOR.message_types_by_name['RemoveInactivePopupRSP'] = _REMOVEINACTIVEPOPUPRSP
+DESCRIPTOR.message_types_by_name['GetRuleJoinableMttListREQ'] = _GETRULEJOINABLEMTTLISTREQ
+DESCRIPTOR.message_types_by_name['GetRuleJoinableMttListRSP'] = _GETRULEJOINABLEMTTLISTRSP
+DESCRIPTOR.enum_types_by_name['ClubInfoRSPCanChangeClubReason'] = _CLUBINFORSPCANCHANGECLUBREASON
+DESCRIPTOR.enum_types_by_name['ChangeClubRSPCode'] = _CHANGECLUBRSPCODE
 DESCRIPTOR.enum_types_by_name['ClubMemberFilter'] = _CLUBMEMBERFILTER
 DESCRIPTOR.enum_types_by_name['SearchClubMemberType'] = _SEARCHCLUBMEMBERTYPE
 DESCRIPTOR.enum_types_by_name['InactivePopupType'] = _INACTIVEPOPUPTYPE
+DESCRIPTOR.enum_types_by_name['GetRuleJoinableMttListCode'] = _GETRULEJOINABLEMTTLISTCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ClubInfo = _reflection.GeneratedProtocolMessageType('ClubInfo', (_message.Message,), dict(
@@ -1432,6 +1572,20 @@ RemoveInactivePopupRSP = _reflection.GeneratedProtocolMessageType('RemoveInactiv
   # @@protoc_insertion_point(class_scope:pb.RemoveInactivePopupRSP)
   ))
 _sym_db.RegisterMessage(RemoveInactivePopupRSP)
+
+GetRuleJoinableMttListREQ = _reflection.GeneratedProtocolMessageType('GetRuleJoinableMttListREQ', (_message.Message,), dict(
+  DESCRIPTOR = _GETRULEJOINABLEMTTLISTREQ,
+  __module__ = 'club4_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetRuleJoinableMttListREQ)
+  ))
+_sym_db.RegisterMessage(GetRuleJoinableMttListREQ)
+
+GetRuleJoinableMttListRSP = _reflection.GeneratedProtocolMessageType('GetRuleJoinableMttListRSP', (_message.Message,), dict(
+  DESCRIPTOR = _GETRULEJOINABLEMTTLISTRSP,
+  __module__ = 'club4_pb2'
+  # @@protoc_insertion_point(class_scope:pb.GetRuleJoinableMttListRSP)
+  ))
+_sym_db.RegisterMessage(GetRuleJoinableMttListRSP)
 
 
 DESCRIPTOR._options = None

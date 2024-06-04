@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x13inner_go_club.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x0b\x63lub4.proto\x1a\x0binner.proto\"+\n\x1ciBanUserAutoClaimRakebackREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\"<\n\x1ciBanUserAutoClaimRakebackRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\" \n\x11iGetClubListV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"V\n\x11iGetClubListV2RSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x1a\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x0c.pb.ClubInfo\"\xb3\x01\n\x12RestrictedPlatform\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x0f\n\x07\x63lub_id\x18\x02 \x01(\x05\x12&\n\x0c\x63ontact_info\x18\x03 \x03(\x0b\x32\x10.pb.MultiLangMsg\x12\x12\n\nbegin_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x0c\n\x04type\x18\x06 \x01(\x05\x12\x0f\n\x07\x63lubids\x18\x07 \x01(\t\x12\r\n\x05state\x18\x08 \x01(\t\"{\n\x1ciUpdateRestrictedPlatformREQ\x12$\n\x04info\x18\x01 \x01(\x0b\x32\x16.pb.RestrictedPlatform\x12\x35\n\x0bupdate_type\x18\x02 \x01(\x0e\x32 .pb.UpdateRestrictedPlatformType\"U\n\x1ciUpdateRestrictedPlatformRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x1b\n\x19iGetRestrictedPlatformREQ\"h\n\x19iGetRestrictedPlatformRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12$\n\x04info\x18\x02 \x03(\x0b\x32\x16.pb.RestrictedPlatform\"1\n\x0eiCreateClubREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x12\n\nutc_offset\x18\x02 \x01(\t\".\n\x0eiCreateClubRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode*X\n\x1cUpdateRestrictedPlatformType\x12\x0e\n\nCREATE_NEW\x10\x01\x12\x13\n\x0fUPDATE_EXISTING\x10\x02\x12\x13\n\x0f\x43\x41NCEL_EXISTING\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x13inner_go_club.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x0b\x63lub4.proto\x1a\x0binner.proto\"+\n\x1ciBanUserAutoClaimRakebackREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"<\n\x1ciBanUserAutoClaimRakebackRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\" \n\x11iGetClubListV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"V\n\x11iGetClubListV2RSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x1a\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x0c.pb.ClubInfo\"\xb3\x01\n\x12RestrictedPlatform\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x0f\n\x07\x63lub_id\x18\x02 \x01(\x05\x12&\n\x0c\x63ontact_info\x18\x03 \x03(\x0b\x32\x10.pb.MultiLangMsg\x12\x12\n\nbegin_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x0c\n\x04type\x18\x06 \x01(\x05\x12\x0f\n\x07\x63lubids\x18\x07 \x01(\t\x12\r\n\x05state\x18\x08 \x01(\t\"{\n\x1ciUpdateRestrictedPlatformREQ\x12$\n\x04info\x18\x01 \x01(\x0b\x32\x16.pb.RestrictedPlatform\x12\x35\n\x0bupdate_type\x18\x02 \x01(\x0e\x32 .pb.UpdateRestrictedPlatformType\"U\n\x1ciUpdateRestrictedPlatformRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x1b\n\x19iGetRestrictedPlatformREQ\"h\n\x19iGetRestrictedPlatformRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12$\n\x04info\x18\x02 \x03(\x0b\x32\x16.pb.RestrictedPlatform\"1\n\x0eiCreateClubREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x12\n\nutc_offset\x18\x02 \x01(\t\".\n\x0eiCreateClubRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"^\n\x18iGetEnterRoomClubInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x02 \x01(\x05\x12\x13\n\x0broom_clubid\x18\x03 \x01(\x05\x12\x10\n\x08leagueid\x18\x04 \x01(\x05\"\xb3\x01\n\x18iGetEnterRoomClubInfoRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x11\n\tagent_uid\x18\x02 \x01(\x03\x12\x11\n\tclub_name\x18\x03 \x01(\t\x12\x15\n\rclub_platform\x18\x04 \x01(\t\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x13\n\x0breal_clubid\x18\x07 \x01(\x05\"|\n\x10iSendClubMailREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x03(\x05\x12\x0c\n\x04role\x18\x02 \x03(\x05\x12\x10\n\x08title_en\x18\x03 \x01(\t\x12\x12\n\ncontent_en\x18\x04 \x01(\t\x12\x12\n\nattachment\x18\x05 \x01(\t\x12\x10\n\x08leagueid\x18\x06 \x03(\x05\"0\n\x10iSendClubMailRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x16\n\x14iClearGoClubCacheREQ\"4\n\x14iClearGoClubCacheRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"2\n\x0eiUpdateClubREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x10\n\x08leagueid\x18\x02 \x01(\x05\".\n\x0eiUpdateClubRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x9a\x01\n\x0fiGetClubInfoREQ\x12\x0e\n\x06\x63lubid\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x35\n\tload_mode\x18\x03 \x01(\x0e\x32\x1c.pb.iGetClubInfoREQ.LoadMode:\x04\x46ULL\"2\n\x08LoadMode\x12\n\n\x06SIMPLE\x10\x00\x12\x10\n\x0cMEMBER_COUNT\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\"T\n\x0fiGetClubInfoRSP\x12%\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode:\x07SUCCESS\x12\x1a\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0c.pb.ClubInfo\"B\n\x13iMigrationStatDbREQ\x12\r\n\x05op_id\x18\x01 \x01(\x05\x12\x0e\n\x06offset\x18\x02 \x01(\x05\x12\x0c\n\x04size\x18\x03 \x01(\x05\"F\n\x13iMigrationStatDbRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x11\n\top_result\x18\x02 \x01(\t\"0\n.iGetFailedClubMemberDataStatsV3InPast29DaysREQ\"m\n.iGetFailedClubMemberDataStatsV3InPast29DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\":\n*iRecalculateClubMemberDataStatsV3ByDateREQ\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\"Z\n*iRecalculateClubMemberDataStatsV3ByDateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\".\n,iGetClubMemberDataStatsV3Past28DaysStatusREQ\"\xa9\x01\n,iGetClubMemberDataStatsV3Past28DaysStatusRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x15\n\rcurrent_table\x18\x03 \x01(\t\x12\x19\n\x11status_of_a_table\x18\x04 \x01(\t\x12\x19\n\x11status_of_b_table\x18\x05 \x01(\t\"E\n+iReupdateClubMemberDataStatsV3Past28DaysREQ\x12\x16\n\x0ereupdate_table\x18\x01 \x01(\t\"[\n+iReupdateClubMemberDataStatsV3Past28DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"K\n.iRecalculateClubMemberDataStatsV3Past28DaysREQ\x12\x19\n\x11recalculate_table\x18\x01 \x01(\t\"^\n.iRecalculateClubMemberDataStatsV3Past28DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"3\n1iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ\"p\n1iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\"=\n-iRecalculateClubAgentUserDataStatsV3ByDateREQ\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\"]\n-iRecalculateClubAgentUserDataStatsV3ByDateRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"1\n/iGetClubAgentUserDataStatsV3Past28DaysStatusREQ\"\xac\x01\n/iGetClubAgentUserDataStatsV3Past28DaysStatusRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x15\n\rcurrent_table\x18\x03 \x01(\t\x12\x19\n\x11status_of_a_table\x18\x04 \x01(\t\x12\x19\n\x11status_of_b_table\x18\x05 \x01(\t\"H\n.iReupdateClubAgentUserDataStatsV3Past28DaysREQ\x12\x16\n\x0ereupdate_table\x18\x01 \x01(\t\"^\n.iReupdateClubAgentUserDataStatsV3Past28DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"N\n1iRecalculateClubAgentUserDataStatsV3Past28DaysREQ\x12\x19\n\x11recalculate_table\x18\x01 \x01(\t\"a\n1iRecalculateClubAgentUserDataStatsV3Past28DaysRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t*X\n\x1cUpdateRestrictedPlatformType\x12\x0e\n\nCREATE_NEW\x10\x01\x12\x13\n\x0fUPDATE_EXISTING\x10\x02\x12\x13\n\x0f\x43\x41NCEL_EXISTING\x10\x03\x42\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,club4__pb2.DESCRIPTOR,inner__pb2.DESCRIPTOR,])
 
@@ -48,8 +48,8 @@ _UPDATERESTRICTEDPLATFORMTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=923,
-  serialized_end=1011,
+  serialized_start=3708,
+  serialized_end=3796,
 )
 _sym_db.RegisterEnumDescriptor(_UPDATERESTRICTEDPLATFORMTYPE)
 
@@ -58,6 +58,32 @@ CREATE_NEW = 1
 UPDATE_EXISTING = 2
 CANCEL_EXISTING = 3
 
+
+_IGETCLUBINFOREQ_LOADMODE = _descriptor.EnumDescriptor(
+  name='LoadMode',
+  full_name='pb.iGetClubInfoREQ.LoadMode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SIMPLE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MEMBER_COUNT', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FULL', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1660,
+  serialized_end=1710,
+)
+_sym_db.RegisterEnumDescriptor(_IGETCLUBINFOREQ_LOADMODE)
 
 
 _IBANUSERAUTOCLAIMRAKEBACKREQ = _descriptor.Descriptor(
@@ -69,7 +95,7 @@ _IBANUSERAUTOCLAIMRAKEBACKREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='uid', full_name='pb.iBanUserAutoClaimRakebackREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -477,6 +503,1237 @@ _ICREATECLUBRSP = _descriptor.Descriptor(
   serialized_end=921,
 )
 
+
+_IGETENTERROOMCLUBINFOREQ = _descriptor.Descriptor(
+  name='iGetEnterRoomClubInfoREQ',
+  full_name='pb.iGetEnterRoomClubInfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.iGetEnterRoomClubInfoREQ.uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.iGetEnterRoomClubInfoREQ.clubid', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='room_clubid', full_name='pb.iGetEnterRoomClubInfoREQ.room_clubid', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leagueid', full_name='pb.iGetEnterRoomClubInfoREQ.leagueid', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=923,
+  serialized_end=1017,
+)
+
+
+_IGETENTERROOMCLUBINFORSP = _descriptor.Descriptor(
+  name='iGetEnterRoomClubInfoRSP',
+  full_name='pb.iGetEnterRoomClubInfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetEnterRoomClubInfoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='agent_uid', full_name='pb.iGetEnterRoomClubInfoRSP.agent_uid', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='club_name', full_name='pb.iGetEnterRoomClubInfoRSP.club_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='club_platform', full_name='pb.iGetEnterRoomClubInfoRSP.club_platform', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.iGetEnterRoomClubInfoRSP.clubid', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iGetEnterRoomClubInfoRSP.reason', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='real_clubid', full_name='pb.iGetEnterRoomClubInfoRSP.real_clubid', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1020,
+  serialized_end=1199,
+)
+
+
+_ISENDCLUBMAILREQ = _descriptor.Descriptor(
+  name='iSendClubMailREQ',
+  full_name='pb.iSendClubMailREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.iSendClubMailREQ.clubid', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='role', full_name='pb.iSendClubMailREQ.role', index=1,
+      number=2, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='title_en', full_name='pb.iSendClubMailREQ.title_en', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='content_en', full_name='pb.iSendClubMailREQ.content_en', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='attachment', full_name='pb.iSendClubMailREQ.attachment', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leagueid', full_name='pb.iSendClubMailREQ.leagueid', index=5,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1201,
+  serialized_end=1325,
+)
+
+
+_ISENDCLUBMAILRSP = _descriptor.Descriptor(
+  name='iSendClubMailRSP',
+  full_name='pb.iSendClubMailRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iSendClubMailRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1327,
+  serialized_end=1375,
+)
+
+
+_ICLEARGOCLUBCACHEREQ = _descriptor.Descriptor(
+  name='iClearGoClubCacheREQ',
+  full_name='pb.iClearGoClubCacheREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1377,
+  serialized_end=1399,
+)
+
+
+_ICLEARGOCLUBCACHERSP = _descriptor.Descriptor(
+  name='iClearGoClubCacheRSP',
+  full_name='pb.iClearGoClubCacheRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iClearGoClubCacheRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1401,
+  serialized_end=1453,
+)
+
+
+_IUPDATECLUBREQ = _descriptor.Descriptor(
+  name='iUpdateClubREQ',
+  full_name='pb.iUpdateClubREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.iUpdateClubREQ.clubid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='leagueid', full_name='pb.iUpdateClubREQ.leagueid', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1455,
+  serialized_end=1505,
+)
+
+
+_IUPDATECLUBRSP = _descriptor.Descriptor(
+  name='iUpdateClubRSP',
+  full_name='pb.iUpdateClubRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iUpdateClubRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1507,
+  serialized_end=1553,
+)
+
+
+_IGETCLUBINFOREQ = _descriptor.Descriptor(
+  name='iGetClubInfoREQ',
+  full_name='pb.iGetClubInfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubid', full_name='pb.iGetClubInfoREQ.clubid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='pb.iGetClubInfoREQ.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='load_mode', full_name='pb.iGetClubInfoREQ.load_mode', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=True, default_value=2,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _IGETCLUBINFOREQ_LOADMODE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1556,
+  serialized_end=1710,
+)
+
+
+_IGETCLUBINFORSP = _descriptor.Descriptor(
+  name='iGetClubInfoRSP',
+  full_name='pb.iGetClubInfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetClubInfoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='pb.iGetClubInfoRSP.data', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1712,
+  serialized_end=1796,
+)
+
+
+_IMIGRATIONSTATDBREQ = _descriptor.Descriptor(
+  name='iMigrationStatDbREQ',
+  full_name='pb.iMigrationStatDbREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='op_id', full_name='pb.iMigrationStatDbREQ.op_id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='pb.iMigrationStatDbREQ.offset', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='size', full_name='pb.iMigrationStatDbREQ.size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1798,
+  serialized_end=1864,
+)
+
+
+_IMIGRATIONSTATDBRSP = _descriptor.Descriptor(
+  name='iMigrationStatDbRSP',
+  full_name='pb.iMigrationStatDbRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iMigrationStatDbRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='op_result', full_name='pb.iMigrationStatDbRSP.op_result', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1866,
+  serialized_end=1936,
+)
+
+
+_IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSREQ = _descriptor.Descriptor(
+  name='iGetFailedClubMemberDataStatsV3InPast29DaysREQ',
+  full_name='pb.iGetFailedClubMemberDataStatsV3InPast29DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1938,
+  serialized_end=1986,
+)
+
+
+_IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSRSP = _descriptor.Descriptor(
+  name='iGetFailedClubMemberDataStatsV3InPast29DaysRSP',
+  full_name='pb.iGetFailedClubMemberDataStatsV3InPast29DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetFailedClubMemberDataStatsV3InPast29DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iGetFailedClubMemberDataStatsV3InPast29DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='dates', full_name='pb.iGetFailedClubMemberDataStatsV3InPast29DaysRSP.dates', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1988,
+  serialized_end=2097,
+)
+
+
+_IRECALCULATECLUBMEMBERDATASTATSV3BYDATEREQ = _descriptor.Descriptor(
+  name='iRecalculateClubMemberDataStatsV3ByDateREQ',
+  full_name='pb.iRecalculateClubMemberDataStatsV3ByDateREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='date', full_name='pb.iRecalculateClubMemberDataStatsV3ByDateREQ.date', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2099,
+  serialized_end=2157,
+)
+
+
+_IRECALCULATECLUBMEMBERDATASTATSV3BYDATERSP = _descriptor.Descriptor(
+  name='iRecalculateClubMemberDataStatsV3ByDateRSP',
+  full_name='pb.iRecalculateClubMemberDataStatsV3ByDateRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iRecalculateClubMemberDataStatsV3ByDateRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iRecalculateClubMemberDataStatsV3ByDateRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2159,
+  serialized_end=2249,
+)
+
+
+_IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSREQ = _descriptor.Descriptor(
+  name='iGetClubMemberDataStatsV3Past28DaysStatusREQ',
+  full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2251,
+  serialized_end=2297,
+)
+
+
+_IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSRSP = _descriptor.Descriptor(
+  name='iGetClubMemberDataStatsV3Past28DaysStatusRSP',
+  full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='current_table', full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP.current_table', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status_of_a_table', full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP.status_of_a_table', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status_of_b_table', full_name='pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP.status_of_b_table', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2300,
+  serialized_end=2469,
+)
+
+
+_IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSREQ = _descriptor.Descriptor(
+  name='iReupdateClubMemberDataStatsV3Past28DaysREQ',
+  full_name='pb.iReupdateClubMemberDataStatsV3Past28DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reupdate_table', full_name='pb.iReupdateClubMemberDataStatsV3Past28DaysREQ.reupdate_table', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2471,
+  serialized_end=2540,
+)
+
+
+_IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSRSP = _descriptor.Descriptor(
+  name='iReupdateClubMemberDataStatsV3Past28DaysRSP',
+  full_name='pb.iReupdateClubMemberDataStatsV3Past28DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iReupdateClubMemberDataStatsV3Past28DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iReupdateClubMemberDataStatsV3Past28DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2542,
+  serialized_end=2633,
+)
+
+
+_IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSREQ = _descriptor.Descriptor(
+  name='iRecalculateClubMemberDataStatsV3Past28DaysREQ',
+  full_name='pb.iRecalculateClubMemberDataStatsV3Past28DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='recalculate_table', full_name='pb.iRecalculateClubMemberDataStatsV3Past28DaysREQ.recalculate_table', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2635,
+  serialized_end=2710,
+)
+
+
+_IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSRSP = _descriptor.Descriptor(
+  name='iRecalculateClubMemberDataStatsV3Past28DaysRSP',
+  full_name='pb.iRecalculateClubMemberDataStatsV3Past28DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iRecalculateClubMemberDataStatsV3Past28DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iRecalculateClubMemberDataStatsV3Past28DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2712,
+  serialized_end=2806,
+)
+
+
+_IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSREQ = _descriptor.Descriptor(
+  name='iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ',
+  full_name='pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2808,
+  serialized_end=2859,
+)
+
+
+_IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSRSP = _descriptor.Descriptor(
+  name='iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP',
+  full_name='pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='dates', full_name='pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP.dates', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2861,
+  serialized_end=2973,
+)
+
+
+_IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATEREQ = _descriptor.Descriptor(
+  name='iRecalculateClubAgentUserDataStatsV3ByDateREQ',
+  full_name='pb.iRecalculateClubAgentUserDataStatsV3ByDateREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='date', full_name='pb.iRecalculateClubAgentUserDataStatsV3ByDateREQ.date', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2975,
+  serialized_end=3036,
+)
+
+
+_IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATERSP = _descriptor.Descriptor(
+  name='iRecalculateClubAgentUserDataStatsV3ByDateRSP',
+  full_name='pb.iRecalculateClubAgentUserDataStatsV3ByDateRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iRecalculateClubAgentUserDataStatsV3ByDateRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iRecalculateClubAgentUserDataStatsV3ByDateRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3038,
+  serialized_end=3131,
+)
+
+
+_IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSREQ = _descriptor.Descriptor(
+  name='iGetClubAgentUserDataStatsV3Past28DaysStatusREQ',
+  full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3133,
+  serialized_end=3182,
+)
+
+
+_IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSRSP = _descriptor.Descriptor(
+  name='iGetClubAgentUserDataStatsV3Past28DaysStatusRSP',
+  full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='current_table', full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP.current_table', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status_of_a_table', full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP.status_of_a_table', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status_of_b_table', full_name='pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP.status_of_b_table', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3185,
+  serialized_end=3357,
+)
+
+
+_IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ = _descriptor.Descriptor(
+  name='iReupdateClubAgentUserDataStatsV3Past28DaysREQ',
+  full_name='pb.iReupdateClubAgentUserDataStatsV3Past28DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reupdate_table', full_name='pb.iReupdateClubAgentUserDataStatsV3Past28DaysREQ.reupdate_table', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3359,
+  serialized_end=3431,
+)
+
+
+_IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP = _descriptor.Descriptor(
+  name='iReupdateClubAgentUserDataStatsV3Past28DaysRSP',
+  full_name='pb.iReupdateClubAgentUserDataStatsV3Past28DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iReupdateClubAgentUserDataStatsV3Past28DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iReupdateClubAgentUserDataStatsV3Past28DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3433,
+  serialized_end=3527,
+)
+
+
+_IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ = _descriptor.Descriptor(
+  name='iRecalculateClubAgentUserDataStatsV3Past28DaysREQ',
+  full_name='pb.iRecalculateClubAgentUserDataStatsV3Past28DaysREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='recalculate_table', full_name='pb.iRecalculateClubAgentUserDataStatsV3Past28DaysREQ.recalculate_table', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3529,
+  serialized_end=3607,
+)
+
+
+_IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP = _descriptor.Descriptor(
+  name='iRecalculateClubAgentUserDataStatsV3Past28DaysRSP',
+  full_name='pb.iRecalculateClubAgentUserDataStatsV3Past28DaysRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iRecalculateClubAgentUserDataStatsV3Past28DaysRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='pb.iRecalculateClubAgentUserDataStatsV3Past28DaysRSP.reason', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3609,
+  serialized_end=3706,
+)
+
 _IBANUSERAUTOCLAIMRAKEBACKRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETCLUBLISTV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETCLUBLISTV2RSP.fields_by_name['data'].message_type = club4__pb2._CLUBINFO
@@ -487,6 +1744,25 @@ _IUPDATERESTRICTEDPLATFORMRSP.fields_by_name['code'].enum_type = base2__pb2._IER
 _IGETRESTRICTEDPLATFORMRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETRESTRICTEDPLATFORMRSP.fields_by_name['info'].message_type = _RESTRICTEDPLATFORM
 _ICREATECLUBRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETENTERROOMCLUBINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_ISENDCLUBMAILRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_ICLEARGOCLUBCACHERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IUPDATECLUBRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETCLUBINFOREQ.fields_by_name['load_mode'].enum_type = _IGETCLUBINFOREQ_LOADMODE
+_IGETCLUBINFOREQ_LOADMODE.containing_type = _IGETCLUBINFOREQ
+_IGETCLUBINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETCLUBINFORSP.fields_by_name['data'].message_type = club4__pb2._CLUBINFO
+_IMIGRATIONSTATDBRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IRECALCULATECLUBMEMBERDATASTATSV3BYDATERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iBanUserAutoClaimRakebackREQ'] = _IBANUSERAUTOCLAIMRAKEBACKREQ
 DESCRIPTOR.message_types_by_name['iBanUserAutoClaimRakebackRSP'] = _IBANUSERAUTOCLAIMRAKEBACKRSP
 DESCRIPTOR.message_types_by_name['iGetClubListV2REQ'] = _IGETCLUBLISTV2REQ
@@ -498,6 +1774,38 @@ DESCRIPTOR.message_types_by_name['iGetRestrictedPlatformREQ'] = _IGETRESTRICTEDP
 DESCRIPTOR.message_types_by_name['iGetRestrictedPlatformRSP'] = _IGETRESTRICTEDPLATFORMRSP
 DESCRIPTOR.message_types_by_name['iCreateClubREQ'] = _ICREATECLUBREQ
 DESCRIPTOR.message_types_by_name['iCreateClubRSP'] = _ICREATECLUBRSP
+DESCRIPTOR.message_types_by_name['iGetEnterRoomClubInfoREQ'] = _IGETENTERROOMCLUBINFOREQ
+DESCRIPTOR.message_types_by_name['iGetEnterRoomClubInfoRSP'] = _IGETENTERROOMCLUBINFORSP
+DESCRIPTOR.message_types_by_name['iSendClubMailREQ'] = _ISENDCLUBMAILREQ
+DESCRIPTOR.message_types_by_name['iSendClubMailRSP'] = _ISENDCLUBMAILRSP
+DESCRIPTOR.message_types_by_name['iClearGoClubCacheREQ'] = _ICLEARGOCLUBCACHEREQ
+DESCRIPTOR.message_types_by_name['iClearGoClubCacheRSP'] = _ICLEARGOCLUBCACHERSP
+DESCRIPTOR.message_types_by_name['iUpdateClubREQ'] = _IUPDATECLUBREQ
+DESCRIPTOR.message_types_by_name['iUpdateClubRSP'] = _IUPDATECLUBRSP
+DESCRIPTOR.message_types_by_name['iGetClubInfoREQ'] = _IGETCLUBINFOREQ
+DESCRIPTOR.message_types_by_name['iGetClubInfoRSP'] = _IGETCLUBINFORSP
+DESCRIPTOR.message_types_by_name['iMigrationStatDbREQ'] = _IMIGRATIONSTATDBREQ
+DESCRIPTOR.message_types_by_name['iMigrationStatDbRSP'] = _IMIGRATIONSTATDBRSP
+DESCRIPTOR.message_types_by_name['iGetFailedClubMemberDataStatsV3InPast29DaysREQ'] = _IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSREQ
+DESCRIPTOR.message_types_by_name['iGetFailedClubMemberDataStatsV3InPast29DaysRSP'] = _IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSRSP
+DESCRIPTOR.message_types_by_name['iRecalculateClubMemberDataStatsV3ByDateREQ'] = _IRECALCULATECLUBMEMBERDATASTATSV3BYDATEREQ
+DESCRIPTOR.message_types_by_name['iRecalculateClubMemberDataStatsV3ByDateRSP'] = _IRECALCULATECLUBMEMBERDATASTATSV3BYDATERSP
+DESCRIPTOR.message_types_by_name['iGetClubMemberDataStatsV3Past28DaysStatusREQ'] = _IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSREQ
+DESCRIPTOR.message_types_by_name['iGetClubMemberDataStatsV3Past28DaysStatusRSP'] = _IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSRSP
+DESCRIPTOR.message_types_by_name['iReupdateClubMemberDataStatsV3Past28DaysREQ'] = _IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSREQ
+DESCRIPTOR.message_types_by_name['iReupdateClubMemberDataStatsV3Past28DaysRSP'] = _IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSRSP
+DESCRIPTOR.message_types_by_name['iRecalculateClubMemberDataStatsV3Past28DaysREQ'] = _IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSREQ
+DESCRIPTOR.message_types_by_name['iRecalculateClubMemberDataStatsV3Past28DaysRSP'] = _IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSRSP
+DESCRIPTOR.message_types_by_name['iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ'] = _IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSREQ
+DESCRIPTOR.message_types_by_name['iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP'] = _IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSRSP
+DESCRIPTOR.message_types_by_name['iRecalculateClubAgentUserDataStatsV3ByDateREQ'] = _IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATEREQ
+DESCRIPTOR.message_types_by_name['iRecalculateClubAgentUserDataStatsV3ByDateRSP'] = _IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATERSP
+DESCRIPTOR.message_types_by_name['iGetClubAgentUserDataStatsV3Past28DaysStatusREQ'] = _IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSREQ
+DESCRIPTOR.message_types_by_name['iGetClubAgentUserDataStatsV3Past28DaysStatusRSP'] = _IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSRSP
+DESCRIPTOR.message_types_by_name['iReupdateClubAgentUserDataStatsV3Past28DaysREQ'] = _IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ
+DESCRIPTOR.message_types_by_name['iReupdateClubAgentUserDataStatsV3Past28DaysRSP'] = _IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP
+DESCRIPTOR.message_types_by_name['iRecalculateClubAgentUserDataStatsV3Past28DaysREQ'] = _IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ
+DESCRIPTOR.message_types_by_name['iRecalculateClubAgentUserDataStatsV3Past28DaysRSP'] = _IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP
 DESCRIPTOR.enum_types_by_name['UpdateRestrictedPlatformType'] = _UPDATERESTRICTEDPLATFORMTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -577,6 +1885,230 @@ iCreateClubRSP = _reflection.GeneratedProtocolMessageType('iCreateClubRSP', (_me
   # @@protoc_insertion_point(class_scope:pb.iCreateClubRSP)
   ))
 _sym_db.RegisterMessage(iCreateClubRSP)
+
+iGetEnterRoomClubInfoREQ = _reflection.GeneratedProtocolMessageType('iGetEnterRoomClubInfoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETENTERROOMCLUBINFOREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetEnterRoomClubInfoREQ)
+  ))
+_sym_db.RegisterMessage(iGetEnterRoomClubInfoREQ)
+
+iGetEnterRoomClubInfoRSP = _reflection.GeneratedProtocolMessageType('iGetEnterRoomClubInfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETENTERROOMCLUBINFORSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetEnterRoomClubInfoRSP)
+  ))
+_sym_db.RegisterMessage(iGetEnterRoomClubInfoRSP)
+
+iSendClubMailREQ = _reflection.GeneratedProtocolMessageType('iSendClubMailREQ', (_message.Message,), dict(
+  DESCRIPTOR = _ISENDCLUBMAILREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iSendClubMailREQ)
+  ))
+_sym_db.RegisterMessage(iSendClubMailREQ)
+
+iSendClubMailRSP = _reflection.GeneratedProtocolMessageType('iSendClubMailRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ISENDCLUBMAILRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iSendClubMailRSP)
+  ))
+_sym_db.RegisterMessage(iSendClubMailRSP)
+
+iClearGoClubCacheREQ = _reflection.GeneratedProtocolMessageType('iClearGoClubCacheREQ', (_message.Message,), dict(
+  DESCRIPTOR = _ICLEARGOCLUBCACHEREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iClearGoClubCacheREQ)
+  ))
+_sym_db.RegisterMessage(iClearGoClubCacheREQ)
+
+iClearGoClubCacheRSP = _reflection.GeneratedProtocolMessageType('iClearGoClubCacheRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ICLEARGOCLUBCACHERSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iClearGoClubCacheRSP)
+  ))
+_sym_db.RegisterMessage(iClearGoClubCacheRSP)
+
+iUpdateClubREQ = _reflection.GeneratedProtocolMessageType('iUpdateClubREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IUPDATECLUBREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iUpdateClubREQ)
+  ))
+_sym_db.RegisterMessage(iUpdateClubREQ)
+
+iUpdateClubRSP = _reflection.GeneratedProtocolMessageType('iUpdateClubRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IUPDATECLUBRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iUpdateClubRSP)
+  ))
+_sym_db.RegisterMessage(iUpdateClubRSP)
+
+iGetClubInfoREQ = _reflection.GeneratedProtocolMessageType('iGetClubInfoREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBINFOREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubInfoREQ)
+  ))
+_sym_db.RegisterMessage(iGetClubInfoREQ)
+
+iGetClubInfoRSP = _reflection.GeneratedProtocolMessageType('iGetClubInfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBINFORSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubInfoRSP)
+  ))
+_sym_db.RegisterMessage(iGetClubInfoRSP)
+
+iMigrationStatDbREQ = _reflection.GeneratedProtocolMessageType('iMigrationStatDbREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IMIGRATIONSTATDBREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iMigrationStatDbREQ)
+  ))
+_sym_db.RegisterMessage(iMigrationStatDbREQ)
+
+iMigrationStatDbRSP = _reflection.GeneratedProtocolMessageType('iMigrationStatDbRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IMIGRATIONSTATDBRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iMigrationStatDbRSP)
+  ))
+_sym_db.RegisterMessage(iMigrationStatDbRSP)
+
+iGetFailedClubMemberDataStatsV3InPast29DaysREQ = _reflection.GeneratedProtocolMessageType('iGetFailedClubMemberDataStatsV3InPast29DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetFailedClubMemberDataStatsV3InPast29DaysREQ)
+  ))
+_sym_db.RegisterMessage(iGetFailedClubMemberDataStatsV3InPast29DaysREQ)
+
+iGetFailedClubMemberDataStatsV3InPast29DaysRSP = _reflection.GeneratedProtocolMessageType('iGetFailedClubMemberDataStatsV3InPast29DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETFAILEDCLUBMEMBERDATASTATSV3INPAST29DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetFailedClubMemberDataStatsV3InPast29DaysRSP)
+  ))
+_sym_db.RegisterMessage(iGetFailedClubMemberDataStatsV3InPast29DaysRSP)
+
+iRecalculateClubMemberDataStatsV3ByDateREQ = _reflection.GeneratedProtocolMessageType('iRecalculateClubMemberDataStatsV3ByDateREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBMEMBERDATASTATSV3BYDATEREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubMemberDataStatsV3ByDateREQ)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubMemberDataStatsV3ByDateREQ)
+
+iRecalculateClubMemberDataStatsV3ByDateRSP = _reflection.GeneratedProtocolMessageType('iRecalculateClubMemberDataStatsV3ByDateRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBMEMBERDATASTATSV3BYDATERSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubMemberDataStatsV3ByDateRSP)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubMemberDataStatsV3ByDateRSP)
+
+iGetClubMemberDataStatsV3Past28DaysStatusREQ = _reflection.GeneratedProtocolMessageType('iGetClubMemberDataStatsV3Past28DaysStatusREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubMemberDataStatsV3Past28DaysStatusREQ)
+  ))
+_sym_db.RegisterMessage(iGetClubMemberDataStatsV3Past28DaysStatusREQ)
+
+iGetClubMemberDataStatsV3Past28DaysStatusRSP = _reflection.GeneratedProtocolMessageType('iGetClubMemberDataStatsV3Past28DaysStatusRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBMEMBERDATASTATSV3PAST28DAYSSTATUSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubMemberDataStatsV3Past28DaysStatusRSP)
+  ))
+_sym_db.RegisterMessage(iGetClubMemberDataStatsV3Past28DaysStatusRSP)
+
+iReupdateClubMemberDataStatsV3Past28DaysREQ = _reflection.GeneratedProtocolMessageType('iReupdateClubMemberDataStatsV3Past28DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iReupdateClubMemberDataStatsV3Past28DaysREQ)
+  ))
+_sym_db.RegisterMessage(iReupdateClubMemberDataStatsV3Past28DaysREQ)
+
+iReupdateClubMemberDataStatsV3Past28DaysRSP = _reflection.GeneratedProtocolMessageType('iReupdateClubMemberDataStatsV3Past28DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IREUPDATECLUBMEMBERDATASTATSV3PAST28DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iReupdateClubMemberDataStatsV3Past28DaysRSP)
+  ))
+_sym_db.RegisterMessage(iReupdateClubMemberDataStatsV3Past28DaysRSP)
+
+iRecalculateClubMemberDataStatsV3Past28DaysREQ = _reflection.GeneratedProtocolMessageType('iRecalculateClubMemberDataStatsV3Past28DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubMemberDataStatsV3Past28DaysREQ)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubMemberDataStatsV3Past28DaysREQ)
+
+iRecalculateClubMemberDataStatsV3Past28DaysRSP = _reflection.GeneratedProtocolMessageType('iRecalculateClubMemberDataStatsV3Past28DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBMEMBERDATASTATSV3PAST28DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubMemberDataStatsV3Past28DaysRSP)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubMemberDataStatsV3Past28DaysRSP)
+
+iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ = _reflection.GeneratedProtocolMessageType('iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ)
+  ))
+_sym_db.RegisterMessage(iGetFailedClubAgentUserDataStatsV3InPast29DaysREQ)
+
+iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP = _reflection.GeneratedProtocolMessageType('iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETFAILEDCLUBAGENTUSERDATASTATSV3INPAST29DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP)
+  ))
+_sym_db.RegisterMessage(iGetFailedClubAgentUserDataStatsV3InPast29DaysRSP)
+
+iRecalculateClubAgentUserDataStatsV3ByDateREQ = _reflection.GeneratedProtocolMessageType('iRecalculateClubAgentUserDataStatsV3ByDateREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATEREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubAgentUserDataStatsV3ByDateREQ)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubAgentUserDataStatsV3ByDateREQ)
+
+iRecalculateClubAgentUserDataStatsV3ByDateRSP = _reflection.GeneratedProtocolMessageType('iRecalculateClubAgentUserDataStatsV3ByDateRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBAGENTUSERDATASTATSV3BYDATERSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubAgentUserDataStatsV3ByDateRSP)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubAgentUserDataStatsV3ByDateRSP)
+
+iGetClubAgentUserDataStatsV3Past28DaysStatusREQ = _reflection.GeneratedProtocolMessageType('iGetClubAgentUserDataStatsV3Past28DaysStatusREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubAgentUserDataStatsV3Past28DaysStatusREQ)
+  ))
+_sym_db.RegisterMessage(iGetClubAgentUserDataStatsV3Past28DaysStatusREQ)
+
+iGetClubAgentUserDataStatsV3Past28DaysStatusRSP = _reflection.GeneratedProtocolMessageType('iGetClubAgentUserDataStatsV3Past28DaysStatusRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETCLUBAGENTUSERDATASTATSV3PAST28DAYSSTATUSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetClubAgentUserDataStatsV3Past28DaysStatusRSP)
+  ))
+_sym_db.RegisterMessage(iGetClubAgentUserDataStatsV3Past28DaysStatusRSP)
+
+iReupdateClubAgentUserDataStatsV3Past28DaysREQ = _reflection.GeneratedProtocolMessageType('iReupdateClubAgentUserDataStatsV3Past28DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iReupdateClubAgentUserDataStatsV3Past28DaysREQ)
+  ))
+_sym_db.RegisterMessage(iReupdateClubAgentUserDataStatsV3Past28DaysREQ)
+
+iReupdateClubAgentUserDataStatsV3Past28DaysRSP = _reflection.GeneratedProtocolMessageType('iReupdateClubAgentUserDataStatsV3Past28DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IREUPDATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iReupdateClubAgentUserDataStatsV3Past28DaysRSP)
+  ))
+_sym_db.RegisterMessage(iReupdateClubAgentUserDataStatsV3Past28DaysRSP)
+
+iRecalculateClubAgentUserDataStatsV3Past28DaysREQ = _reflection.GeneratedProtocolMessageType('iRecalculateClubAgentUserDataStatsV3Past28DaysREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSREQ,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubAgentUserDataStatsV3Past28DaysREQ)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubAgentUserDataStatsV3Past28DaysREQ)
+
+iRecalculateClubAgentUserDataStatsV3Past28DaysRSP = _reflection.GeneratedProtocolMessageType('iRecalculateClubAgentUserDataStatsV3Past28DaysRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IRECALCULATECLUBAGENTUSERDATASTATSV3PAST28DAYSRSP,
+  __module__ = 'inner_go_club_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iRecalculateClubAgentUserDataStatsV3Past28DaysRSP)
+  ))
+_sym_db.RegisterMessage(iRecalculateClubAgentUserDataStatsV3Past28DaysRSP)
 
 
 DESCRIPTOR._options = None

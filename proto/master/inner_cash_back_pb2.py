@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x15inner_cash_back.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"+\n\x1ciBanUserAutoClaimCashbackREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\"<\n\x1ciBanUserAutoClaimCashbackRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x15inner_cash_back.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"+\n\x1ciBanUserAutoClaimCashbackREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"<\n\x1ciBanUserAutoClaimCashbackRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,])
 
@@ -36,7 +36,7 @@ _IBANUSERAUTOCLAIMCASHBACKREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='uid', full_name='pb.iBanUserAutoClaimCashbackREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

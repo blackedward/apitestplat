@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0cinvite.proto\x12\x02pb\"\x12\n\x10GetInviteInfoREQ\"\xa6\x02\n\x10GetInviteInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\x1b\n\x13\x61\x63tivity_start_time\x18\x02 \x01(\x03\x12\x19\n\x11\x61\x63tivity_end_time\x18\x03 \x01(\x03\x12\x30\n\x0einviter_status\x18\x04 \x01(\x0e\x32\x18.pb.InviteActivityStatus\x12.\n\x0einviter_reward\x18\x05 \x01(\x0e\x32\x16.pb.InviteRewardStatus\x12\x30\n\x0einvitee_status\x18\x06 \x01(\x0e\x32\x18.pb.InviteActivityStatus\x12.\n\x0einvitee_reward\x18\x07 \x01(\x0e\x32\x16.pb.InviteRewardStatus\"\x1b\n\x19GetInviterActivityInfoREQ\"\x87\x01\n\x19GetInviterActivityInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\x14\n\x0cinvite_stage\x18\x02 \x01(\x05\x12(\n\rinvite_status\x18\x03 \x01(\x0e\x32\x11.pb.InviterStatus\x12\x12\n\ninvite_num\x18\x04 \x01(\x05\"+\n\x13GetInviterRewardREQ\x12\x14\n\x0cinvite_stage\x18\x01 \x01(\x05\"\xaa\x01\n\x13GetInviterRewardRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\'\n\x06status\x18\x02 \x01(\x0e\x32\x17.pb.InviterRewardStatus\x12\x14\n\x0cinvite_stage\x18\x03 \x01(\x05\x12(\n\rinvite_status\x18\x04 \x01(\x0e\x32\x11.pb.InviterStatus\x12\x12\n\ninvite_num\x18\x05 \x01(\x05\"\x1b\n\x19GetInviteeActivityInfoREQ\"V\n\x19GetInviteeActivityInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12!\n\x06status\x18\x02 \x01(\x0e\x32\x11.pb.InviteeStatus\")\n\x12\x43heckFriendCodeREQ\x12\x13\n\x0b\x66riend_code\x18\x01 \x01(\x03\"R\n\x12\x43heckFriendCodeRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12$\n\x06status\x18\x02 \x01(\x0e\x32\x14.pb.FCodeCheckResult\"*\n\x13GetInviteeRewardREQ\x12\x13\n\x0b\x66riend_code\x18\x01 \x01(\x03\"V\n\x13GetInviteeRewardRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\'\n\x06status\x18\x02 \x01(\x0e\x32\x17.pb.InviteeRewardStatus*1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*N\n\x14InviteActivityStatus\x12\x1b\n\x17INVITER_STATUS_INACTIVE\x10\x01\x12\x19\n\x15INVITER_STATUS_ACTIVE\x10\x02*4\n\nKYC2Status\x12\x11\n\rKYC2_VERIFIED\x10\x01\x12\x13\n\x0fKYC2_UNVERIFIED\x10\x02*_\n\x12InviteRewardStatus\x12\x16\n\x12INVITE_REWARD_NONE\x10\x01\x12\x17\n\x13INVITE_REWARD_EXIST\x10\x02\x12\x18\n\x14INVITE_REWARD_FINISH\x10\x03*F\n\rInviterStatus\x12\x0f\n\x0bINVITE_NONE\x10\x01\x12\x11\n\rINVITE_REWAED\x10\x02\x12\x11\n\rINVITE_FINISH\x10\x03*V\n\x13InviterRewardStatus\x12\x17\n\x13INVITER_FAILED_KYC2\x10\x01\x12\x11\n\rINVITER_ERROR\x10\x02\x12\x13\n\x0fINVITER_SUCCESS\x10\x03*f\n\rInviteeStatus\x12\x10\n\x0cINVITEE_NONE\x10\x01\x12\x1b\n\x17INVITEE_KYC2_UNVERIFIED\x10\x02\x12\x12\n\x0eINVITEE_REWARD\x10\x03\x12\x12\n\x0eINVITEE_FINISH\x10\x04*L\n\x10\x46\x43odeCheckResult\x12\x1c\n\x18\x46\x43ODECHECKRESULT_INVALID\x10\x01\x12\x1a\n\x16\x46\x43ODECHECKRESULT_VALID\x10\x02*\xdd\x01\n\x13InviteeRewardStatus\x12\x1a\n\x16INVITEE_REWARD_SUCCESS\x10\x01\x12$\n INVITEE_REWARD_INVITEE_NOT_EXIST\x10\x02\x12$\n INVITEE_REWARD_INVITER_NOT_EXIST\x10\x03\x12 \n\x1cINVITEE_REWARD_ACTIVITY_OVER\x10\x04\x12\"\n\x1eINVITEE_REWARD_KYC2_UNVERIFIED\x10\x05\x12\x18\n\x14INVITEE_REWARD_ERROR\x10\x06\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0cinvite.proto\x12\x02pb\"\x12\n\x10GetInviteInfoREQ\"\xd8\x02\n\x10GetInviteInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\x1b\n\x13\x61\x63tivity_start_time\x18\x02 \x01(\x03\x12\x19\n\x11\x61\x63tivity_end_time\x18\x03 \x01(\x03\x12\x30\n\x0einviter_status\x18\x04 \x01(\x0e\x32\x18.pb.InviteActivityStatus\x12.\n\x0einviter_reward\x18\x05 \x01(\x0e\x32\x16.pb.InviteRewardStatus\x12\x30\n\x0einvitee_status\x18\x06 \x01(\x0e\x32\x18.pb.InviteActivityStatus\x12.\n\x0einvitee_reward\x18\x07 \x01(\x0e\x32\x16.pb.InviteRewardStatus\x12\x18\n\x10vegas_start_time\x18\x08 \x01(\x03\x12\x16\n\x0evegas_end_time\x18\t \x01(\x03\"\x1b\n\x19GetInviterActivityInfoREQ\"\x96\x01\n\x19GetInviterActivityInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\x14\n\x0cinvite_stage\x18\x02 \x01(\x05\x12(\n\rinvite_status\x18\x03 \x01(\x0e\x32\x11.pb.InviterStatus\x12\x12\n\ninvite_num\x18\x04 \x01(\x05\x12\r\n\x05hands\x18\x05 \x01(\x03\"+\n\x13GetInviterRewardREQ\x12\x14\n\x0cinvite_stage\x18\x01 \x01(\x05\"\xb9\x01\n\x13GetInviterRewardRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\'\n\x06status\x18\x02 \x01(\x0e\x32\x17.pb.InviterRewardStatus\x12\x14\n\x0cinvite_stage\x18\x03 \x01(\x05\x12(\n\rinvite_status\x18\x04 \x01(\x0e\x32\x11.pb.InviterStatus\x12\x12\n\ninvite_num\x18\x05 \x01(\x05\x12\r\n\x05hands\x18\x06 \x01(\x03\"\x1b\n\x19GetInviteeActivityInfoREQ\"k\n\x19GetInviteeActivityInfoRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12!\n\x06status\x18\x02 \x01(\x0e\x32\x11.pb.InviteeStatus\x12\x13\n\x0b\x66riend_code\x18\x03 \x01(\x03\")\n\x12\x43heckFriendCodeREQ\x12\x13\n\x0b\x66riend_code\x18\x01 \x01(\x03\"R\n\x12\x43heckFriendCodeRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12$\n\x06status\x18\x02 \x01(\x0e\x32\x14.pb.FCodeCheckResult\"*\n\x13GetInviteeRewardREQ\x12\x13\n\x0b\x66riend_code\x18\x01 \x01(\x03\"V\n\x13GetInviteeRewardRSP\x12\x16\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x08.pb.Code\x12\'\n\x06status\x18\x02 \x01(\x0e\x32\x17.pb.InviteeRewardStatus*1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*N\n\x14InviteActivityStatus\x12\x1b\n\x17INVITER_STATUS_INACTIVE\x10\x01\x12\x19\n\x15INVITER_STATUS_ACTIVE\x10\x02*4\n\nKYC2Status\x12\x11\n\rKYC2_VERIFIED\x10\x01\x12\x13\n\x0fKYC2_UNVERIFIED\x10\x02*_\n\x12InviteRewardStatus\x12\x16\n\x12INVITE_REWARD_NONE\x10\x01\x12\x17\n\x13INVITE_REWARD_EXIST\x10\x02\x12\x18\n\x14INVITE_REWARD_FINISH\x10\x03*F\n\rInviterStatus\x12\x0f\n\x0bINVITE_NONE\x10\x01\x12\x11\n\rINVITE_REWAED\x10\x02\x12\x11\n\rINVITE_FINISH\x10\x03*V\n\x13InviterRewardStatus\x12\x17\n\x13INVITER_FAILED_KYC2\x10\x01\x12\x11\n\rINVITER_ERROR\x10\x02\x12\x13\n\x0fINVITER_SUCCESS\x10\x03*f\n\rInviteeStatus\x12\x10\n\x0cINVITEE_NONE\x10\x01\x12\x1b\n\x17INVITEE_KYC2_UNVERIFIED\x10\x02\x12\x12\n\x0eINVITEE_REWARD\x10\x03\x12\x12\n\x0eINVITEE_FINISH\x10\x04*L\n\x10\x46\x43odeCheckResult\x12\x1c\n\x18\x46\x43ODECHECKRESULT_INVALID\x10\x01\x12\x1a\n\x16\x46\x43ODECHECKRESULT_VALID\x10\x02*\xdd\x01\n\x13InviteeRewardStatus\x12\x1a\n\x16INVITEE_REWARD_SUCCESS\x10\x01\x12$\n INVITEE_REWARD_INVITEE_NOT_EXIST\x10\x02\x12$\n INVITEE_REWARD_INVITER_NOT_EXIST\x10\x03\x12 \n\x1cINVITEE_REWARD_ACTIVITY_OVER\x10\x04\x12\"\n\x1eINVITEE_REWARD_KYC2_UNVERIFIED\x10\x05\x12\x18\n\x14INVITEE_REWARD_ERROR\x10\x06\x42\x07Z\x05../pb')
 )
 
 _CODE = _descriptor.EnumDescriptor(
@@ -40,8 +40,8 @@ _CODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1098,
-  serialized_end=1147,
+  serialized_start=1199,
+  serialized_end=1248,
 )
 _sym_db.RegisterEnumDescriptor(_CODE)
 
@@ -63,8 +63,8 @@ _INVITEACTIVITYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1149,
-  serialized_end=1227,
+  serialized_start=1250,
+  serialized_end=1328,
 )
 _sym_db.RegisterEnumDescriptor(_INVITEACTIVITYSTATUS)
 
@@ -86,8 +86,8 @@ _KYC2STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1229,
-  serialized_end=1281,
+  serialized_start=1330,
+  serialized_end=1382,
 )
 _sym_db.RegisterEnumDescriptor(_KYC2STATUS)
 
@@ -113,8 +113,8 @@ _INVITEREWARDSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1283,
-  serialized_end=1378,
+  serialized_start=1384,
+  serialized_end=1479,
 )
 _sym_db.RegisterEnumDescriptor(_INVITEREWARDSTATUS)
 
@@ -140,8 +140,8 @@ _INVITERSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1380,
-  serialized_end=1450,
+  serialized_start=1481,
+  serialized_end=1551,
 )
 _sym_db.RegisterEnumDescriptor(_INVITERSTATUS)
 
@@ -167,8 +167,8 @@ _INVITERREWARDSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1452,
-  serialized_end=1538,
+  serialized_start=1553,
+  serialized_end=1639,
 )
 _sym_db.RegisterEnumDescriptor(_INVITERREWARDSTATUS)
 
@@ -198,8 +198,8 @@ _INVITEESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1540,
-  serialized_end=1642,
+  serialized_start=1641,
+  serialized_end=1743,
 )
 _sym_db.RegisterEnumDescriptor(_INVITEESTATUS)
 
@@ -221,8 +221,8 @@ _FCODECHECKRESULT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1644,
-  serialized_end=1720,
+  serialized_start=1745,
+  serialized_end=1821,
 )
 _sym_db.RegisterEnumDescriptor(_FCODECHECKRESULT)
 
@@ -260,8 +260,8 @@ _INVITEEREWARDSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1723,
-  serialized_end=1944,
+  serialized_start=1824,
+  serialized_end=2045,
 )
 _sym_db.RegisterEnumDescriptor(_INVITEEREWARDSTATUS)
 
@@ -376,6 +376,20 @@ _GETINVITEINFORSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vegas_start_time', full_name='pb.GetInviteInfoRSP.vegas_start_time', index=7,
+      number=8, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vegas_end_time', full_name='pb.GetInviteInfoRSP.vegas_end_time', index=8,
+      number=9, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -389,7 +403,7 @@ _GETINVITEINFORSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=41,
-  serialized_end=335,
+  serialized_end=385,
 )
 
 
@@ -412,8 +426,8 @@ _GETINVITERACTIVITYINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=337,
-  serialized_end=364,
+  serialized_start=387,
+  serialized_end=414,
 )
 
 
@@ -452,6 +466,13 @@ _GETINVITERACTIVITYINFORSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hands', full_name='pb.GetInviterActivityInfoRSP.hands', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -464,8 +485,8 @@ _GETINVITERACTIVITYINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=502,
+  serialized_start=417,
+  serialized_end=567,
 )
 
 
@@ -495,8 +516,8 @@ _GETINVITERREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=504,
-  serialized_end=547,
+  serialized_start=569,
+  serialized_end=612,
 )
 
 
@@ -542,6 +563,13 @@ _GETINVITERREWARDRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hands', full_name='pb.GetInviterRewardRSP.hands', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -554,8 +582,8 @@ _GETINVITERREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=550,
-  serialized_end=720,
+  serialized_start=615,
+  serialized_end=800,
 )
 
 
@@ -578,8 +606,8 @@ _GETINVITEEACTIVITYINFOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=722,
-  serialized_end=749,
+  serialized_start=802,
+  serialized_end=829,
 )
 
 
@@ -604,6 +632,13 @@ _GETINVITEEACTIVITYINFORSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='friend_code', full_name='pb.GetInviteeActivityInfoRSP.friend_code', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -616,8 +651,8 @@ _GETINVITEEACTIVITYINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=751,
-  serialized_end=837,
+  serialized_start=831,
+  serialized_end=938,
 )
 
 
@@ -647,8 +682,8 @@ _CHECKFRIENDCODEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=839,
-  serialized_end=880,
+  serialized_start=940,
+  serialized_end=981,
 )
 
 
@@ -685,8 +720,8 @@ _CHECKFRIENDCODERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=882,
-  serialized_end=964,
+  serialized_start=983,
+  serialized_end=1065,
 )
 
 
@@ -716,8 +751,8 @@ _GETINVITEEREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=966,
-  serialized_end=1008,
+  serialized_start=1067,
+  serialized_end=1109,
 )
 
 
@@ -754,8 +789,8 @@ _GETINVITEEREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1010,
-  serialized_end=1096,
+  serialized_start=1111,
+  serialized_end=1197,
 )
 
 _GETINVITEINFORSP.fields_by_name['code'].enum_type = _CODE

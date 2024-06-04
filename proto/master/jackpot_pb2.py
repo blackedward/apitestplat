@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\rjackpot.proto\x12\x02pb\x1a\x0c\x63ommon.proto\x1a\tpb2.proto\x1a\x0epre_base.proto\"\xa6\x01\n\x10JackpotFeeConfig\x12\x12\n\nbb_or_ante\x18\x01 \x01(\x03\x12\x34\n\x0b\x63harge_type\x18\x02 \x01(\x0e\x32\x1f.pb.JackpotFeeConfig.ChargeType\x12\x0b\n\x03\x66\x65\x65\x18\x03 \x01(\x03\";\n\nChargeType\x12\x16\n\x12\x43HARGE_TYPE_NORMAL\x10\x01\x12\x15\n\x11\x43HARGE_TYPE_FLUSH\x10\x02\"\x80\x02\n\x13JackpotRewardConfig\x12\n\n\x02id\x18\x01 \x01(\x03\x12&\n\tgame_type\x18\x02 \x01(\x0e\x32\x13.pb.JackpotGameType\x12%\n\x0cjackpot_type\x18\x03 \x01(\x0e\x32\x0f.pb.JackpotType\x12\x13\n\x0bsmall_blind\x18\x04 \x01(\x03\x12\x0c\n\x04\x61nte\x18\x05 \x01(\x03\x12\r\n\x05quads\x18\x06 \x01(\x03\x12\x16\n\x0estraight_flush\x18\x07 \x01(\x03\x12\x13\n\x0broyal_flush\x18\x08 \x01(\x03\x12\x12\n\nquads_lost\x18\t \x01(\x03\x12\x1b\n\x13straight_flush_lost\x18\n \x01(\x03\"\x85\x01\n\x17JackpotRewardUserConfig\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x30\n\x12\x61ssign_reward_type\x18\x02 \x01(\x0e\x32\x14.pb.AssignRewardType\x12\x0e\n\x06winner\x18\x03 \x01(\x03\x12\r\n\x05loser\x18\x04 \x01(\x03\x12\r\n\x05other\x18\x05 \x01(\x03\"\xf6\x02\n\rJackpotReward\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12\x0f\n\x07game_id\x18\x02 \x01(\t\x12\x1e\n\x08roomtype\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x04 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1c\n\x14winner_jackpot_cards\x18\x05 \x03(\x03\x12\x1b\n\x13loser_jackpot_cards\x18\x06 \x03(\x03\x12\x15\n\rreward_amount\x18\x07 \x01(\x03\x12\x13\n\x0brewarded_at\x18\x08 \x01(\x03\x12%\n\x0cjackpot_type\x18\t \x01(\x0e\x32\x0f.pb.JackpotType\x12&\n\tgame_type\x18\n \x01(\x0e\x32\x13.pb.JackpotGameType\x12\x12\n\nbb_or_ante\x18\x0b \x01(\x03\x12\x0f\n\x07room_id\x18\x0c \x01(\x05\x12\x10\n\x08table_id\x18\r \x01(\x05\x12\x16\n\x0b\x62oard_index\x18\x0e \x01(\x05:\x01\x30\"\xd2\x01\n\x11JackpotRewardUser\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07\x63lub_id\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12#\n\x0breward_role\x18\x04 \x01(\x0e\x32\x0e.pb.RewardRole\x12\x15\n\rreward_amount\x18\x05 \x01(\x03\x12\x1f\n\thand_type\x18\x06 \x01(\x0e\x32\x0c.pb.HandType\x12\x0e\n\x06seatid\x18\x07 \x01(\x05\x12\x0c\n\x04icon\x18\x08 \x01(\t\x12\x16\n\x0b\x62oard_index\x18\t \x01(\x05:\x01\x30\"y\n\x10JackpotRewardBRC\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05money\x18\x02 \x01(\x03\x12%\n\x0cjackpot_type\x18\x03 \x01(\x0e\x32\x0f.pb.JackpotType\x12\x0f\n\x07room_id\x18\x04 \x01(\x05\x12\x10\n\x08table_id\x18\x05 \x01(\x05\"s\n\x11JackpotRewardList\x12)\n\x0ejackpot_reward\x18\x01 \x01(\x0b\x32\x11.pb.JackpotReward\x12\x33\n\x14jackpot_reward_users\x18\x02 \x03(\x0b\x32\x15.pb.JackpotRewardUser\"?\n\x17GetJackpotRewardListREQ\x12\x12\n\nstart_time\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x03\"e\n\x17GetJackpotRewardListRSP\x12\x32\n\x13jackpot_reward_list\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardList\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"s\n\x11JackPotRewardInfo\x12\x33\n\x14jackpot_reward_users\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\"\x9c\x01\n\nJackPotBRC\x12\x33\n\x14jackpot_reward_users\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\x12.\n\x13second_board_reward\x18\x03 \x01(\x0b\x32\x11.pb.JackpotReward\"\x19\n\x17GetJackpotRewardPoolREQ\"F\n\x17GetJackpotRewardPoolRSP\x12\x13\n\x0breward_pool\x18\x01 \x01(\x03\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"v\n\x15JackpotOtherRewardBrc\x12\x32\n\x13jackpot_reward_user\x18\x01 \x01(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\"\x1c\n\x1aGetJackpotRewardConfigsREQ\"m\n\x1aGetJackpotRewardConfigsRSP\x12\x37\n\x16jackpot_reward_configs\x18\x01 \x03(\x0b\x32\x17.pb.JackpotRewardConfig\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"\x19\n\x17GetJackpotFeeConfigsREQ\"d\n\x17GetJackpotFeeConfigsRSP\x12\x31\n\x13jackpot_fee_configs\x18\x01 \x03(\x0b\x32\x14.pb.JackpotFeeConfig\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error*\xe5\x02\n\x0fJackpotGameType\x12\x1a\n\x16JACKPOT_GAME_TYPE_NONE\x10\x00\x12\x19\n\x15JACKPOT_GAME_TYPE_NLH\x10\x01\x12\x1a\n\x16JACKPOT_GAME_TYPE_PLO4\x10\x02\x12\x1a\n\x16JACKPOT_GAME_TYPE_PLO5\x10\x03\x12\x1d\n\x19JACKPOT_GAME_TYPE_SIXPLUS\x10\x04\x12\x19\n\x15JACKPOT_GAME_TYPE_AOF\x10\x05\x12\x1f\n\x1bJACKPOT_GAME_TYPE_NLH_FLUSH\x10\x0b\x12 \n\x1cJACKPOT_GAME_TYPE_PLO4_FLUSH\x10\x0c\x12 \n\x1cJACKPOT_GAME_TYPE_PLO5_FLUSH\x10\r\x12#\n\x1fJACKPOT_GAME_TYPE_SIXPLUS_FLUSH\x10\x0e\x12\x1f\n\x1bJACKPOT_GAME_TYPE_AOF_FLUSH\x10\x0f*X\n\x0bJackpotType\x12\x15\n\x11JACKPOT_TYPE_NONE\x10\x00\x12\x19\n\x15JACKPOT_TYPE_HIGHHAND\x10\x01\x12\x17\n\x13JACKPOT_TYPE_COOLER\x10\x02*\xb6\x01\n\x10\x41ssignRewardType\x12&\n\"ASSIGN_REWARD_TYPE_HIGHHAND_NORMAL\x10\x01\x12*\n&ASSIGN_REWARD_TYPE_HIGHHAND_NONE_OTHER\x10\x02\x12$\n ASSIGN_REWARD_TYPE_COOLER_NORMAL\x10\x03\x12(\n$ASSIGN_REWARD_TYPE_COOLER_NONE_OTHER\x10\x04*R\n\nRewardRole\x12\x16\n\x12REWARD_ROLE_WINNER\x10\x01\x12\x15\n\x11REWARD_ROLE_LOSER\x10\x02\x12\x15\n\x11REWARD_ROLE_OTHER\x10\x03*\x9f\x03\n\x0fWinLoseCardType\x12\x1b\n\x17WIN_LOSE_CARD_TYPE_NONE\x10\x00\x12&\n\"WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH\x10\x01\x12)\n%WIN_LOSE_CARD_TYPE_WIN_STRAIGHT_FLUSH\x10\x02\x12 \n\x1cWIN_LOSE_CARD_TYPE_WIN_QUADS\x10\x03\x12:\n6WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH_LOSE_STRAIGHT_FLUSH\x10\x04\x12\x31\n-WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH_LOSE_QUADS\x10\x05\x12.\n*WIN_LOSE_CARD_TYPE_WIN_LOSE_STRAIGHT_FLUSH\x10\x06\x12\x34\n0WIN_LOSE_CARD_TYPE_WIN_STRAIGHT_FLUSH_LOSE_QUADS\x10\x07\x12%\n!WIN_LOSE_CARD_TYPE_WIN_LOSE_QUADS\x10\x08\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\rjackpot.proto\x12\x02pb\x1a\x0c\x63ommon.proto\x1a\tpb2.proto\x1a\x0epre_base.proto\"h\n\x10JackpotFeeConfig\x12\x12\n\nbb_or_ante\x18\x01 \x01(\x03\x12\x33\n\x0b\x63harge_type\x18\x02 \x01(\x0e\x32\x1e.pb.JackpotFeeConfigChargeType\x12\x0b\n\x03\x66\x65\x65\x18\x03 \x01(\x03\"\x80\x02\n\x13JackpotRewardConfig\x12\n\n\x02id\x18\x01 \x01(\x03\x12&\n\tgame_type\x18\x02 \x01(\x0e\x32\x13.pb.JackpotGameType\x12%\n\x0cjackpot_type\x18\x03 \x01(\x0e\x32\x0f.pb.JackpotType\x12\x13\n\x0bsmall_blind\x18\x04 \x01(\x03\x12\x0c\n\x04\x61nte\x18\x05 \x01(\x03\x12\r\n\x05quads\x18\x06 \x01(\x03\x12\x16\n\x0estraight_flush\x18\x07 \x01(\x03\x12\x13\n\x0broyal_flush\x18\x08 \x01(\x03\x12\x12\n\nquads_lost\x18\t \x01(\x03\x12\x1b\n\x13straight_flush_lost\x18\n \x01(\x03\"\x85\x01\n\x17JackpotRewardUserConfig\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x30\n\x12\x61ssign_reward_type\x18\x02 \x01(\x0e\x32\x14.pb.AssignRewardType\x12\x0e\n\x06winner\x18\x03 \x01(\x03\x12\r\n\x05loser\x18\x04 \x01(\x03\x12\r\n\x05other\x18\x05 \x01(\x03\"\xf6\x02\n\rJackpotReward\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12\x0f\n\x07game_id\x18\x02 \x01(\t\x12\x1e\n\x08roomtype\x18\x03 \x01(\x0e\x32\x0c.pb.RoomType\x12\x1f\n\tgame_mode\x18\x04 \x01(\x0e\x32\x0c.pb.GameMode\x12\x1c\n\x14winner_jackpot_cards\x18\x05 \x03(\x03\x12\x1b\n\x13loser_jackpot_cards\x18\x06 \x03(\x03\x12\x15\n\rreward_amount\x18\x07 \x01(\x03\x12\x13\n\x0brewarded_at\x18\x08 \x01(\x03\x12%\n\x0cjackpot_type\x18\t \x01(\x0e\x32\x0f.pb.JackpotType\x12&\n\tgame_type\x18\n \x01(\x0e\x32\x13.pb.JackpotGameType\x12\x12\n\nbb_or_ante\x18\x0b \x01(\x03\x12\x0f\n\x07room_id\x18\x0c \x01(\x05\x12\x10\n\x08table_id\x18\r \x01(\x05\x12\x16\n\x0b\x62oard_index\x18\x0e \x01(\x05:\x01\x30\"\xd2\x01\n\x11JackpotRewardUser\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07\x63lub_id\x18\x02 \x01(\x03\x12\x0c\n\x04name\x18\x03 \x01(\t\x12#\n\x0breward_role\x18\x04 \x01(\x0e\x32\x0e.pb.RewardRole\x12\x15\n\rreward_amount\x18\x05 \x01(\x03\x12\x1f\n\thand_type\x18\x06 \x01(\x0e\x32\x0c.pb.HandType\x12\x0e\n\x06seatid\x18\x07 \x01(\x05\x12\x0c\n\x04icon\x18\x08 \x01(\t\x12\x16\n\x0b\x62oard_index\x18\t \x01(\x05:\x01\x30\"y\n\x10JackpotRewardBRC\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05money\x18\x02 \x01(\x03\x12%\n\x0cjackpot_type\x18\x03 \x01(\x0e\x32\x0f.pb.JackpotType\x12\x0f\n\x07room_id\x18\x04 \x01(\x05\x12\x10\n\x08table_id\x18\x05 \x01(\x05\"s\n\x11JackpotRewardList\x12)\n\x0ejackpot_reward\x18\x01 \x01(\x0b\x32\x11.pb.JackpotReward\x12\x33\n\x14jackpot_reward_users\x18\x02 \x03(\x0b\x32\x15.pb.JackpotRewardUser\"?\n\x17GetJackpotRewardListREQ\x12\x12\n\nstart_time\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\x03\"e\n\x17GetJackpotRewardListRSP\x12\x32\n\x13jackpot_reward_list\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardList\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"s\n\x11JackPotRewardInfo\x12\x33\n\x14jackpot_reward_users\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\"\x9c\x01\n\nJackPotBRC\x12\x33\n\x14jackpot_reward_users\x18\x01 \x03(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\x12.\n\x13second_board_reward\x18\x03 \x01(\x0b\x32\x11.pb.JackpotReward\"\x19\n\x17GetJackpotRewardPoolREQ\"F\n\x17GetJackpotRewardPoolRSP\x12\x13\n\x0breward_pool\x18\x01 \x01(\x03\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"v\n\x15JackpotOtherRewardBrc\x12\x32\n\x13jackpot_reward_user\x18\x01 \x01(\x0b\x32\x15.pb.JackpotRewardUser\x12)\n\x0ejackpot_reward\x18\x02 \x01(\x0b\x32\x11.pb.JackpotReward\"\x1c\n\x1aGetJackpotRewardConfigsREQ\"m\n\x1aGetJackpotRewardConfigsRSP\x12\x37\n\x16jackpot_reward_configs\x18\x01 \x03(\x0b\x32\x17.pb.JackpotRewardConfig\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error\"\x19\n\x17GetJackpotFeeConfigsREQ\"d\n\x17GetJackpotFeeConfigsRSP\x12\x31\n\x13jackpot_fee_configs\x18\x01 \x03(\x0b\x32\x14.pb.JackpotFeeConfig\x12\x16\n\x03\x65rr\x18\x02 \x01(\x0b\x32\t.pb.Error*\xe5\x02\n\x0fJackpotGameType\x12\x1a\n\x16JACKPOT_GAME_TYPE_NONE\x10\x00\x12\x19\n\x15JACKPOT_GAME_TYPE_NLH\x10\x01\x12\x1a\n\x16JACKPOT_GAME_TYPE_PLO4\x10\x02\x12\x1a\n\x16JACKPOT_GAME_TYPE_PLO5\x10\x03\x12\x1d\n\x19JACKPOT_GAME_TYPE_SIXPLUS\x10\x04\x12\x19\n\x15JACKPOT_GAME_TYPE_AOF\x10\x05\x12\x1f\n\x1bJACKPOT_GAME_TYPE_NLH_FLUSH\x10\x0b\x12 \n\x1cJACKPOT_GAME_TYPE_PLO4_FLUSH\x10\x0c\x12 \n\x1cJACKPOT_GAME_TYPE_PLO5_FLUSH\x10\r\x12#\n\x1fJACKPOT_GAME_TYPE_SIXPLUS_FLUSH\x10\x0e\x12\x1f\n\x1bJACKPOT_GAME_TYPE_AOF_FLUSH\x10\x0f*X\n\x0bJackpotType\x12\x15\n\x11JACKPOT_TYPE_NONE\x10\x00\x12\x19\n\x15JACKPOT_TYPE_HIGHHAND\x10\x01\x12\x17\n\x13JACKPOT_TYPE_COOLER\x10\x02*\xb6\x01\n\x10\x41ssignRewardType\x12&\n\"ASSIGN_REWARD_TYPE_HIGHHAND_NORMAL\x10\x01\x12*\n&ASSIGN_REWARD_TYPE_HIGHHAND_NONE_OTHER\x10\x02\x12$\n ASSIGN_REWARD_TYPE_COOLER_NORMAL\x10\x03\x12(\n$ASSIGN_REWARD_TYPE_COOLER_NONE_OTHER\x10\x04*R\n\nRewardRole\x12\x16\n\x12REWARD_ROLE_WINNER\x10\x01\x12\x15\n\x11REWARD_ROLE_LOSER\x10\x02\x12\x15\n\x11REWARD_ROLE_OTHER\x10\x03*\x9f\x03\n\x0fWinLoseCardType\x12\x1b\n\x17WIN_LOSE_CARD_TYPE_NONE\x10\x00\x12&\n\"WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH\x10\x01\x12)\n%WIN_LOSE_CARD_TYPE_WIN_STRAIGHT_FLUSH\x10\x02\x12 \n\x1cWIN_LOSE_CARD_TYPE_WIN_QUADS\x10\x03\x12:\n6WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH_LOSE_STRAIGHT_FLUSH\x10\x04\x12\x31\n-WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH_LOSE_QUADS\x10\x05\x12.\n*WIN_LOSE_CARD_TYPE_WIN_LOSE_STRAIGHT_FLUSH\x10\x06\x12\x34\n0WIN_LOSE_CARD_TYPE_WIN_STRAIGHT_FLUSH_LOSE_QUADS\x10\x07\x12%\n!WIN_LOSE_CARD_TYPE_WIN_LOSE_QUADS\x10\x08*q\n\x1aJackpotFeeConfigChargeType\x12)\n%JACKPOT_FEE_CONFIG_CHARGE_TYPE_NORMAL\x10\x01\x12(\n$JACKPOT_FEE_CONFIG_CHARGE_TYPE_FLUSH\x10\x02\x42\x07Z\x05../pb')
   ,
   dependencies=[common__pb2.DESCRIPTOR,pb2__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,])
 
@@ -80,8 +80,8 @@ _JACKPOTGAMETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2390,
-  serialized_end=2747,
+  serialized_start=2327,
+  serialized_end=2684,
 )
 _sym_db.RegisterEnumDescriptor(_JACKPOTGAMETYPE)
 
@@ -107,8 +107,8 @@ _JACKPOTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2749,
-  serialized_end=2837,
+  serialized_start=2686,
+  serialized_end=2774,
 )
 _sym_db.RegisterEnumDescriptor(_JACKPOTTYPE)
 
@@ -138,8 +138,8 @@ _ASSIGNREWARDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2840,
-  serialized_end=3022,
+  serialized_start=2777,
+  serialized_end=2959,
 )
 _sym_db.RegisterEnumDescriptor(_ASSIGNREWARDTYPE)
 
@@ -165,8 +165,8 @@ _REWARDROLE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3024,
-  serialized_end=3106,
+  serialized_start=2961,
+  serialized_end=3043,
 )
 _sym_db.RegisterEnumDescriptor(_REWARDROLE)
 
@@ -216,12 +216,35 @@ _WINLOSECARDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3109,
-  serialized_end=3524,
+  serialized_start=3046,
+  serialized_end=3461,
 )
 _sym_db.RegisterEnumDescriptor(_WINLOSECARDTYPE)
 
 WinLoseCardType = enum_type_wrapper.EnumTypeWrapper(_WINLOSECARDTYPE)
+_JACKPOTFEECONFIGCHARGETYPE = _descriptor.EnumDescriptor(
+  name='JackpotFeeConfigChargeType',
+  full_name='pb.JackpotFeeConfigChargeType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='JACKPOT_FEE_CONFIG_CHARGE_TYPE_NORMAL', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='JACKPOT_FEE_CONFIG_CHARGE_TYPE_FLUSH', index=1, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3463,
+  serialized_end=3576,
+)
+_sym_db.RegisterEnumDescriptor(_JACKPOTFEECONFIGCHARGETYPE)
+
+JackpotFeeConfigChargeType = enum_type_wrapper.EnumTypeWrapper(_JACKPOTFEECONFIGCHARGETYPE)
 JACKPOT_GAME_TYPE_NONE = 0
 JACKPOT_GAME_TYPE_NLH = 1
 JACKPOT_GAME_TYPE_PLO4 = 2
@@ -252,29 +275,9 @@ WIN_LOSE_CARD_TYPE_WIN_ROYAL_FLUSH_LOSE_QUADS = 5
 WIN_LOSE_CARD_TYPE_WIN_LOSE_STRAIGHT_FLUSH = 6
 WIN_LOSE_CARD_TYPE_WIN_STRAIGHT_FLUSH_LOSE_QUADS = 7
 WIN_LOSE_CARD_TYPE_WIN_LOSE_QUADS = 8
+JACKPOT_FEE_CONFIG_CHARGE_TYPE_NORMAL = 1
+JACKPOT_FEE_CONFIG_CHARGE_TYPE_FLUSH = 2
 
-
-_JACKPOTFEECONFIG_CHARGETYPE = _descriptor.EnumDescriptor(
-  name='ChargeType',
-  full_name='pb.JackpotFeeConfig.ChargeType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CHARGE_TYPE_NORMAL', index=0, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CHARGE_TYPE_FLUSH', index=1, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=170,
-  serialized_end=229,
-)
-_sym_db.RegisterEnumDescriptor(_JACKPOTFEECONFIG_CHARGETYPE)
 
 
 _JACKPOTFEECONFIG = _descriptor.Descriptor(
@@ -310,7 +313,6 @@ _JACKPOTFEECONFIG = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _JACKPOTFEECONFIG_CHARGETYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -318,8 +320,8 @@ _JACKPOTFEECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=63,
-  serialized_end=229,
+  serialized_start=62,
+  serialized_end=166,
 )
 
 
@@ -412,8 +414,8 @@ _JACKPOTREWARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=232,
-  serialized_end=488,
+  serialized_start=169,
+  serialized_end=425,
 )
 
 
@@ -471,8 +473,8 @@ _JACKPOTREWARDUSERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=491,
-  serialized_end=624,
+  serialized_start=428,
+  serialized_end=561,
 )
 
 
@@ -593,8 +595,8 @@ _JACKPOTREWARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=627,
-  serialized_end=1001,
+  serialized_start=564,
+  serialized_end=938,
 )
 
 
@@ -680,8 +682,8 @@ _JACKPOTREWARDUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1004,
-  serialized_end=1214,
+  serialized_start=941,
+  serialized_end=1151,
 )
 
 
@@ -739,8 +741,8 @@ _JACKPOTREWARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1216,
-  serialized_end=1337,
+  serialized_start=1153,
+  serialized_end=1274,
 )
 
 
@@ -777,8 +779,8 @@ _JACKPOTREWARDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1339,
-  serialized_end=1454,
+  serialized_start=1276,
+  serialized_end=1391,
 )
 
 
@@ -815,8 +817,8 @@ _GETJACKPOTREWARDLISTREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1456,
-  serialized_end=1519,
+  serialized_start=1393,
+  serialized_end=1456,
 )
 
 
@@ -853,8 +855,8 @@ _GETJACKPOTREWARDLISTRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1521,
-  serialized_end=1622,
+  serialized_start=1458,
+  serialized_end=1559,
 )
 
 
@@ -891,8 +893,8 @@ _JACKPOTREWARDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1624,
-  serialized_end=1739,
+  serialized_start=1561,
+  serialized_end=1676,
 )
 
 
@@ -936,8 +938,8 @@ _JACKPOTBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1742,
-  serialized_end=1898,
+  serialized_start=1679,
+  serialized_end=1835,
 )
 
 
@@ -960,8 +962,8 @@ _GETJACKPOTREWARDPOOLREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1900,
-  serialized_end=1925,
+  serialized_start=1837,
+  serialized_end=1862,
 )
 
 
@@ -998,8 +1000,8 @@ _GETJACKPOTREWARDPOOLRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1927,
-  serialized_end=1997,
+  serialized_start=1864,
+  serialized_end=1934,
 )
 
 
@@ -1036,8 +1038,8 @@ _JACKPOTOTHERREWARDBRC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1999,
-  serialized_end=2117,
+  serialized_start=1936,
+  serialized_end=2054,
 )
 
 
@@ -1060,8 +1062,8 @@ _GETJACKPOTREWARDCONFIGSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2119,
-  serialized_end=2147,
+  serialized_start=2056,
+  serialized_end=2084,
 )
 
 
@@ -1098,8 +1100,8 @@ _GETJACKPOTREWARDCONFIGSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2149,
-  serialized_end=2258,
+  serialized_start=2086,
+  serialized_end=2195,
 )
 
 
@@ -1122,8 +1124,8 @@ _GETJACKPOTFEECONFIGSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2260,
-  serialized_end=2285,
+  serialized_start=2197,
+  serialized_end=2222,
 )
 
 
@@ -1160,12 +1162,11 @@ _GETJACKPOTFEECONFIGSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2287,
-  serialized_end=2387,
+  serialized_start=2224,
+  serialized_end=2324,
 )
 
-_JACKPOTFEECONFIG.fields_by_name['charge_type'].enum_type = _JACKPOTFEECONFIG_CHARGETYPE
-_JACKPOTFEECONFIG_CHARGETYPE.containing_type = _JACKPOTFEECONFIG
+_JACKPOTFEECONFIG.fields_by_name['charge_type'].enum_type = _JACKPOTFEECONFIGCHARGETYPE
 _JACKPOTREWARDCONFIG.fields_by_name['game_type'].enum_type = _JACKPOTGAMETYPE
 _JACKPOTREWARDCONFIG.fields_by_name['jackpot_type'].enum_type = _JACKPOTTYPE
 _JACKPOTREWARDUSERCONFIG.fields_by_name['assign_reward_type'].enum_type = _ASSIGNREWARDTYPE
@@ -1215,6 +1216,7 @@ DESCRIPTOR.enum_types_by_name['JackpotType'] = _JACKPOTTYPE
 DESCRIPTOR.enum_types_by_name['AssignRewardType'] = _ASSIGNREWARDTYPE
 DESCRIPTOR.enum_types_by_name['RewardRole'] = _REWARDROLE
 DESCRIPTOR.enum_types_by_name['WinLoseCardType'] = _WINLOSECARDTYPE
+DESCRIPTOR.enum_types_by_name['JackpotFeeConfigChargeType'] = _JACKPOTFEECONFIGCHARGETYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 JackpotFeeConfig = _reflection.GeneratedProtocolMessageType('JackpotFeeConfig', (_message.Message,), dict(

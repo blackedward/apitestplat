@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\tmtt.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\nmtt2.proto\x1a\x14mystery_bounty.proto\"\x0f\n\rMttSynDealBRC\"\x14\n\x12MttWaitForPrizeBRC\"\x1d\n\rMttNoStartBRC\x12\x0c\n\x04type\x18\x01 \x01(\x05\"/\n\x0cMttNoticeBRC\x12\x1f\n\x04type\x18\x01 \x01(\x0e\x32\x11.pb.MttNoticeType\"K\n\x1cMttSpecialSceneEndingInfoBRC\x12+\n\x04info\x18\x01 \x01(\x0b\x32\x1d.pb.MttSpecialSceneEndingInfo\"n\n\x13\x43lubMttNotification\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tclub_name\x18\x03 \x01(\t\x12\x11\n\tleft_time\x18\x04 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\"?\n\x16\x43lubMttNotificationBRC\x12%\n\x04info\x18\x01 \x01(\x0b\x32\x17.pb.ClubMttNotification\"m\n%LeaderBoardBeforeStartNotificationBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tleft_time\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\"m\n%LeaderBoardBeforeAddOnNotificationBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tleft_time\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\"\x81\x01\n\x18GetLeaderBoardPlyaerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04rank\x18\x02 \x01(\x03\x12\r\n\x05score\x18\x03 \x01(\x03\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x16\n\x0ehead_image_url\x18\x05 \x01(\t\x12\x11\n\tclub_name\x18\x06 \x01(\t\"]\n\x15GetLeaderBoardInfoREQ\x12\x0c\n\x04year\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x13\n\x0brank_number\x18\x03 \x01(\x05\x12\x12\n\nweek_index\x18\x04 \x01(\x05\"\x83\x02\n\x15GetLeaderBoardInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12+\n\x05infos\x18\x02 \x03(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\x12*\n\x04self\x18\x03 \x01(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\x12\x0c\n\x04type\x18\x04 \x01(\x08\x12\x0c\n\x04year\x18\x05 \x01(\x05\x12\r\n\x05month\x18\x06 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x07 \x01(\x05\x12\x12\n\nweek_index\x18\x08 \x01(\x05\x12\x12\n\nweek_count\x18\t \x01(\x05\x12\x12\n\nrank_count\x18\n \x01(\x05\x12\x0f\n\x07rewards\x18\x0b \x03(\x03\"\x92\x01\n\x1dMttScrollingTextFristPrizeBRC\x12\x11\n\troom_name\x18\x01 \x01(\t\x12-\n\x12\x66irst_prize_reward\x18\x02 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1f\n\x17\x66irst_prize_player_name\x18\x03 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x04 \x01(\x03\"\x1c\n\x1aGetLeaderBoardFirstInfoREQ\"\xb1\x01\n\x1aGetLeaderBoardFirstInfoRSP\x12\x31\n\x04\x63ode\x18\x01 \x01(\x0e\x32#.pb.GetLeaderBoardFirstInfoRSP.Code\x12*\n\x04info\x18\x02 \x01(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\"4\n\x04\x43ode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x12\n\x05\x45RROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07NO_DATA\x10\x01\"\xeb\x08\n\x10\x43reateMttRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\x14\n\x0cupblind_time\x18\x02 \x01(\x05\x12\x13\n\x0b\x61\x63tion_time\x18\x03 \x01(\x05\x12\r\n\x05\x62uyin\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x05 \x01(\x03\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x19\n\nauth_limit\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x11\n\x06\x63lubid\x18\x08 \x01(\x05:\x01\x30\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\x0e\n\x06\x63harge\x18\n \x01(\x03\x12\x13\n\x08timezone\x18\x12 \x01(\x05:\x01\x38\x12\x16\n\x0emtt_start_time\x18\x0b \x01(\x03\x12\x16\n\x0emin_player_num\x18\x0c \x01(\x05\x12\x16\n\x0emax_player_num\x18\r \x01(\x05\x12\x18\n\x10\x64\x65lay_join_level\x18\x0e \x01(\x05\x12\x11\n\trebuy_num\x18\x0f \x01(\x05\x12\x12\n\naddon_rate\x18\x10 \x01(\x01\x12\x12\n\nbreak_time\x18\x11 \x01(\x05\x12\x0e\n\x06roomid\x18\x13 \x01(\x05\x12\x13\n\x08leagueid\x18\x14 \x01(\x05:\x01\x30\x12\x14\n\x0c\x65nsure_chips\x18\x15 \x01(\x03\x12\x15\n\rhunter_reward\x18\x16 \x01(\x03\x12\x0f\n\x07rebuyin\x18\x17 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x18 \x01(\x03\x12?\n\x0cpercent_type\x18\x19 \x01(\x0e\x32\x18.pb.MttRewardPercentType:\x0fMTT_TEN_PERCENT\x12\x32\n\tgame_mode\x18\x1a \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12,\n\x08roomtype\x18\x1b \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_MTT_ROOM\x12!\n\x12is_snowball_hunter\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x1c\n\x11sitting_out_level\x18\x1d \x01(\x05:\x01\x30\x12(\n\x0eroom_name_lang\x18\x1e \x03(\x0b\x32\x10.pb.RoomNameLang\x12-\n\x0creward_items\x18\x1f \x03(\x0b\x32\x17.pb.RewardConfigureItem\x12\x17\n\x0f\x62reak_time_wait\x18  \x01(\x05\x12\x17\n\x0f\x62reak_time_rest\x18! \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\" \x01(\x05\x12\x14\n\x08\x66\x65\x65point\x18# \x01(\x05:\x02\x31\x30\x12\x19\n\x0e\x65nd_game_level\x18$ \x01(\x05:\x01\x30\x12/\n\x12mtt_multi_day_info\x18% \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12#\n\x14is_auto_flipout_mode\x18& \x01(\x08:\x05\x66\x61lse\x12;\n\x18mtt_special_scene_config\x18\' \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1b\n\x10\x65nd_game_percent\x18( \x01(\x05:\x01\x30*F\n\rMttNoticeType\x12\x10\n\x0c\x42UBBLE_STAGE\x10\x01\x12\x12\n\x0eIN_MONEY_STAGE\x10\x02\x12\x0f\n\x0b\x46INAL_STAGE\x10\x03\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\tmtt.proto\x12\x02pb\x1a\x0epre_base.proto\x1a\nbase.proto\x1a\nmtt2.proto\x1a\x14mystery_bounty.proto\"\x0f\n\rMttSynDealBRC\"\x14\n\x12MttWaitForPrizeBRC\"\x1d\n\rMttNoStartBRC\x12\x0c\n\x04type\x18\x01 \x01(\x05\"/\n\x0cMttNoticeBRC\x12\x1f\n\x04type\x18\x01 \x01(\x0e\x32\x11.pb.MttNoticeType\"K\n\x1cMttSpecialSceneEndingInfoBRC\x12+\n\x04info\x18\x01 \x01(\x0b\x32\x1d.pb.MttSpecialSceneEndingInfo\"n\n\x13\x43lubMttNotification\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tclub_name\x18\x03 \x01(\t\x12\x11\n\tleft_time\x18\x04 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x05 \x01(\x05\"?\n\x16\x43lubMttNotificationBRC\x12%\n\x04info\x18\x01 \x01(\x0b\x32\x17.pb.ClubMttNotification\"m\n%LeaderBoardBeforeStartNotificationBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tleft_time\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\"m\n%LeaderBoardBeforeAddOnNotificationBRC\x12\x0e\n\x06roomid\x18\x01 \x01(\x05\x12\x11\n\troom_name\x18\x02 \x01(\t\x12\x11\n\tleft_time\x18\x03 \x01(\x03\x12\x0e\n\x06\x63lubid\x18\x04 \x01(\x05\"\x81\x01\n\x18GetLeaderBoardPlyaerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04rank\x18\x02 \x01(\x03\x12\r\n\x05score\x18\x03 \x01(\x03\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x16\n\x0ehead_image_url\x18\x05 \x01(\t\x12\x11\n\tclub_name\x18\x06 \x01(\t\"]\n\x15GetLeaderBoardInfoREQ\x12\x0c\n\x04year\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x13\n\x0brank_number\x18\x03 \x01(\x05\x12\x12\n\nweek_index\x18\x04 \x01(\x05\"\x83\x02\n\x15GetLeaderBoardInfoRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12+\n\x05infos\x18\x02 \x03(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\x12*\n\x04self\x18\x03 \x01(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\x12\x0c\n\x04type\x18\x04 \x01(\x08\x12\x0c\n\x04year\x18\x05 \x01(\x05\x12\r\n\x05month\x18\x06 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x07 \x01(\x05\x12\x12\n\nweek_index\x18\x08 \x01(\x05\x12\x12\n\nweek_count\x18\t \x01(\x05\x12\x12\n\nrank_count\x18\n \x01(\x05\x12\x0f\n\x07rewards\x18\x0b \x03(\x03\"\x92\x01\n\x1dMttScrollingTextFristPrizeBRC\x12\x11\n\troom_name\x18\x01 \x01(\t\x12-\n\x12\x66irst_prize_reward\x18\x02 \x01(\x0b\x32\x11.pb.MttRewardInfo\x12\x1f\n\x17\x66irst_prize_player_name\x18\x03 \x01(\t\x12\x0e\n\x06\x62ounty\x18\x04 \x01(\x03\"\x1c\n\x1aGetLeaderBoardFirstInfoREQ\"z\n\x1aGetLeaderBoardFirstInfoRSP\x12\x30\n\x04\x63ode\x18\x01 \x01(\x0e\x32\".pb.GetLeaderBoardFirstInfoRSPCode\x12*\n\x04info\x18\x02 \x01(\x0b\x32\x1c.pb.GetLeaderBoardPlyaerInfo\"\xeb\x08\n\x10\x43reateMttRoomREQ\x12\x11\n\troom_name\x18\x01 \x01(\t\x12\x14\n\x0cupblind_time\x18\x02 \x01(\x05\x12\x13\n\x0b\x61\x63tion_time\x18\x03 \x01(\x05\x12\r\n\x05\x62uyin\x18\x04 \x01(\x03\x12\x13\n\x0b\x62\x65gin_chips\x18\x05 \x01(\x03\x12\x12\n\nblind_type\x18\x06 \x01(\x05\x12\x19\n\nauth_limit\x18\x07 \x01(\x08:\x05\x66\x61lse\x12\x11\n\x06\x63lubid\x18\x08 \x01(\x05:\x01\x30\x12\x10\n\x08seat_num\x18\t \x01(\x05\x12\x0e\n\x06\x63harge\x18\n \x01(\x03\x12\x13\n\x08timezone\x18\x12 \x01(\x05:\x01\x38\x12\x16\n\x0emtt_start_time\x18\x0b \x01(\x03\x12\x16\n\x0emin_player_num\x18\x0c \x01(\x05\x12\x16\n\x0emax_player_num\x18\r \x01(\x05\x12\x18\n\x10\x64\x65lay_join_level\x18\x0e \x01(\x05\x12\x11\n\trebuy_num\x18\x0f \x01(\x05\x12\x12\n\naddon_rate\x18\x10 \x01(\x01\x12\x12\n\nbreak_time\x18\x11 \x01(\x05\x12\x0e\n\x06roomid\x18\x13 \x01(\x05\x12\x13\n\x08leagueid\x18\x14 \x01(\x05:\x01\x30\x12\x14\n\x0c\x65nsure_chips\x18\x15 \x01(\x03\x12\x15\n\rhunter_reward\x18\x16 \x01(\x03\x12\x0f\n\x07rebuyin\x18\x17 \x01(\x03\x12\x13\n\x0b\x61\x64\x64on_buyin\x18\x18 \x01(\x03\x12?\n\x0cpercent_type\x18\x19 \x01(\x0e\x32\x18.pb.MttRewardPercentType:\x0fMTT_TEN_PERCENT\x12\x32\n\tgame_mode\x18\x1a \x01(\x0e\x32\x0c.pb.GameMode:\x11GAME_MODE_REGULAR\x12,\n\x08roomtype\x18\x1b \x01(\x0e\x32\x0c.pb.RoomType:\x0cNLH_MTT_ROOM\x12!\n\x12is_snowball_hunter\x18\x1c \x01(\x08:\x05\x66\x61lse\x12\x1c\n\x11sitting_out_level\x18\x1d \x01(\x05:\x01\x30\x12(\n\x0eroom_name_lang\x18\x1e \x03(\x0b\x32\x10.pb.RoomNameLang\x12-\n\x0creward_items\x18\x1f \x03(\x0b\x32\x17.pb.RewardConfigureItem\x12\x17\n\x0f\x62reak_time_wait\x18  \x01(\x05\x12\x17\n\x0f\x62reak_time_rest\x18! \x01(\x05\x12\x17\n\x0f\x61\x64\x64on_time_rest\x18\" \x01(\x05\x12\x14\n\x08\x66\x65\x65point\x18# \x01(\x05:\x02\x31\x30\x12\x19\n\x0e\x65nd_game_level\x18$ \x01(\x05:\x01\x30\x12/\n\x12mtt_multi_day_info\x18% \x01(\x0b\x32\x13.pb.MttMultiDayInfo\x12#\n\x14is_auto_flipout_mode\x18& \x01(\x08:\x05\x66\x61lse\x12;\n\x18mtt_special_scene_config\x18\' \x01(\x0b\x32\x19.pb.MttSpecialSceneConfig\x12\x1b\n\x10\x65nd_game_percent\x18( \x01(\x05:\x01\x30*F\n\rMttNoticeType\x12\x10\n\x0c\x42UBBLE_STAGE\x10\x01\x12\x12\n\x0eIN_MONEY_STAGE\x10\x02\x12\x0f\n\x0b\x46INAL_STAGE\x10\x03*\xab\x01\n\x1eGetLeaderBoardFirstInfoRSPCode\x12*\n&GetLeaderBoardFirstInfoRSPCode_SUCCESS\x10\x00\x12\x31\n$GetLeaderBoardFirstInfoRSPCode_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12*\n&GetLeaderBoardFirstInfoRSPCode_NO_DATA\x10\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[pre__base__pb2.DESCRIPTOR,base__pb2.DESCRIPTOR,mtt2__pb2.DESCRIPTOR,mystery__bounty__pb2.DESCRIPTOR,])
 
@@ -49,42 +49,46 @@ _MTTNOTICETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2656,
-  serialized_end=2726,
+  serialized_start=2600,
+  serialized_end=2670,
 )
 _sym_db.RegisterEnumDescriptor(_MTTNOTICETYPE)
 
 MttNoticeType = enum_type_wrapper.EnumTypeWrapper(_MTTNOTICETYPE)
-BUBBLE_STAGE = 1
-IN_MONEY_STAGE = 2
-FINAL_STAGE = 3
-
-
-_GETLEADERBOARDFIRSTINFORSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetLeaderBoardFirstInfoRSP.Code',
+_GETLEADERBOARDFIRSTINFORSPCODE = _descriptor.EnumDescriptor(
+  name='GetLeaderBoardFirstInfoRSPCode',
+  full_name='pb.GetLeaderBoardFirstInfoRSPCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
+      name='GetLeaderBoardFirstInfoRSPCode_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='ERROR', index=1, number=-1,
+      name='GetLeaderBoardFirstInfoRSPCode_ERROR', index=1, number=-1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='NO_DATA', index=2, number=1,
+      name='GetLeaderBoardFirstInfoRSPCode_NO_DATA', index=2, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1468,
-  serialized_end=1520,
+  serialized_start=2673,
+  serialized_end=2844,
 )
-_sym_db.RegisterEnumDescriptor(_GETLEADERBOARDFIRSTINFORSP_CODE)
+_sym_db.RegisterEnumDescriptor(_GETLEADERBOARDFIRSTINFORSPCODE)
+
+GetLeaderBoardFirstInfoRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETLEADERBOARDFIRSTINFORSPCODE)
+BUBBLE_STAGE = 1
+IN_MONEY_STAGE = 2
+FINAL_STAGE = 3
+GetLeaderBoardFirstInfoRSPCode_SUCCESS = 0
+GetLeaderBoardFirstInfoRSPCode_ERROR = -1
+GetLeaderBoardFirstInfoRSPCode_NO_DATA = 1
+
 
 
 _MTTSYNDEALBRC = _descriptor.Descriptor(
@@ -743,7 +747,6 @@ _GETLEADERBOARDFIRSTINFORSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETLEADERBOARDFIRSTINFORSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -751,8 +754,8 @@ _GETLEADERBOARDFIRSTINFORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1343,
-  serialized_end=1520,
+  serialized_start=1342,
+  serialized_end=1464,
 )
 
 
@@ -1055,8 +1058,8 @@ _CREATEMTTROOMREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1523,
-  serialized_end=2654,
+  serialized_start=1467,
+  serialized_end=2598,
 )
 
 _MTTNOTICEBRC.fields_by_name['type'].enum_type = _MTTNOTICETYPE
@@ -1065,9 +1068,8 @@ _CLUBMTTNOTIFICATIONBRC.fields_by_name['info'].message_type = _CLUBMTTNOTIFICATI
 _GETLEADERBOARDINFORSP.fields_by_name['infos'].message_type = _GETLEADERBOARDPLYAERINFO
 _GETLEADERBOARDINFORSP.fields_by_name['self'].message_type = _GETLEADERBOARDPLYAERINFO
 _MTTSCROLLINGTEXTFRISTPRIZEBRC.fields_by_name['first_prize_reward'].message_type = base__pb2._MTTREWARDINFO
-_GETLEADERBOARDFIRSTINFORSP.fields_by_name['code'].enum_type = _GETLEADERBOARDFIRSTINFORSP_CODE
+_GETLEADERBOARDFIRSTINFORSP.fields_by_name['code'].enum_type = _GETLEADERBOARDFIRSTINFORSPCODE
 _GETLEADERBOARDFIRSTINFORSP.fields_by_name['info'].message_type = _GETLEADERBOARDPLYAERINFO
-_GETLEADERBOARDFIRSTINFORSP_CODE.containing_type = _GETLEADERBOARDFIRSTINFORSP
 _CREATEMTTROOMREQ.fields_by_name['percent_type'].enum_type = pre__base__pb2._MTTREWARDPERCENTTYPE
 _CREATEMTTROOMREQ.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
 _CREATEMTTROOMREQ.fields_by_name['roomtype'].enum_type = pre__base__pb2._ROOMTYPE
@@ -1092,6 +1094,7 @@ DESCRIPTOR.message_types_by_name['GetLeaderBoardFirstInfoREQ'] = _GETLEADERBOARD
 DESCRIPTOR.message_types_by_name['GetLeaderBoardFirstInfoRSP'] = _GETLEADERBOARDFIRSTINFORSP
 DESCRIPTOR.message_types_by_name['CreateMttRoomREQ'] = _CREATEMTTROOMREQ
 DESCRIPTOR.enum_types_by_name['MttNoticeType'] = _MTTNOTICETYPE
+DESCRIPTOR.enum_types_by_name['GetLeaderBoardFirstInfoRSPCode'] = _GETLEADERBOARDFIRSTINFORSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 MttSynDealBRC = _reflection.GeneratedProtocolMessageType('MttSynDealBRC', (_message.Message,), dict(

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x02pb\"2\n\x05\x45rror\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.ErrorCodes\x12\x0b\n\x03msg\x18\x02 \x01(\t\"+\n\rMultiLangName\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\xd8\x01\n\x0e\x43ommonItemInfo\x12%\n\titem_type\x18\x01 \x01(\x0e\x32\x12.pb.CommonItemType\x12\x0b\n\x03num\x18\x02 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\x03 \x01(\x03\x12\x15\n\ritem_class_id\x18\x1f \x01(\x03\x12\x17\n\x0fitem_class_name\x18  \x01(\t\x12\x17\n\x0f\x61vatar_frame_id\x18[ \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\\ \x01(\t\x12\x11\n\ttrophy_id\x18\x65 \x01(\x03*.\n\x07YesOrNo\x12\x10\n\x0cYES_OR_NO_NO\x10\x00\x12\x11\n\rYES_OR_NO_YES\x10\x01*Z\n\nErrorCodes\x12\x13\n\x0f\x45RROR_CODE_NONE\x10\x00\x12\x15\n\x11\x45RROR_CODE_UNKNOW\x10\x01\x12 \n\x1c\x45RROR_CODE_DATA_CONVERT_FAIL\x10\x02*\xe0\x01\n\x0e\x43ommonItemType\x12\x1c\n\x18\x43OMMON_ITEM_TYPE_DEFAULT\x10\x00\x12\x1a\n\x16\x43OMMON_ITEM_TYPE_POINT\x10\x02\x12\x19\n\x15\x43OMMON_ITEM_TYPE_ITEM\x10\x03\x12\x18\n\x14\x43OMMON_ITEM_TYPE_VIP\x10\x05\x12\x1f\n\x1b\x43OMMON_ITEM_TYPE_BLIND_COIN\x10\x08\x12!\n\x1d\x43OMMON_ITEM_TYPE_AVATAR_FRAME\x10\t\x12\x1b\n\x17\x43OMMON_ITEM_TYPE_TROPHY\x10\nB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x02pb\"2\n\x05\x45rror\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.ErrorCodes\x12\x0b\n\x03msg\x18\x02 \x01(\t\"+\n\rMultiLangName\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\xd8\x01\n\x0e\x43ommonItemInfo\x12%\n\titem_type\x18\x01 \x01(\x0e\x32\x12.pb.CommonItemType\x12\x0b\n\x03num\x18\x02 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\x03 \x01(\x03\x12\x15\n\ritem_class_id\x18\x1f \x01(\x03\x12\x17\n\x0fitem_class_name\x18  \x01(\t\x12\x17\n\x0f\x61vatar_frame_id\x18[ \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\\ \x01(\t\x12\x11\n\ttrophy_id\x18\x65 \x01(\x03*.\n\x07YesOrNo\x12\x10\n\x0cYES_OR_NO_NO\x10\x00\x12\x11\n\rYES_OR_NO_YES\x10\x01*Z\n\nErrorCodes\x12\x13\n\x0f\x45RROR_CODE_NONE\x10\x00\x12\x15\n\x11\x45RROR_CODE_UNKNOW\x10\x01\x12 \n\x1c\x45RROR_CODE_DATA_CONVERT_FAIL\x10\x02*\xbf\x01\n\x0e\x43ommonItemType\x12\x1c\n\x18\x43OMMON_ITEM_TYPE_DEFAULT\x10\x00\x12\x1a\n\x16\x43OMMON_ITEM_TYPE_POINT\x10\x02\x12\x19\n\x15\x43OMMON_ITEM_TYPE_ITEM\x10\x03\x12\x18\n\x14\x43OMMON_ITEM_TYPE_VIP\x10\x05\x12!\n\x1d\x43OMMON_ITEM_TYPE_AVATAR_FRAME\x10\t\x12\x1b\n\x17\x43OMMON_ITEM_TYPE_TROPHY\x10\nB\x07Z\x05../pb')
 )
 
 _YESORNO = _descriptor.EnumDescriptor(
@@ -96,22 +96,18 @@ _COMMONITEMTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='COMMON_ITEM_TYPE_BLIND_COIN', index=4, number=8,
+      name='COMMON_ITEM_TYPE_AVATAR_FRAME', index=4, number=9,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='COMMON_ITEM_TYPE_AVATAR_FRAME', index=5, number=9,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='COMMON_ITEM_TYPE_TROPHY', index=6, number=10,
+      name='COMMON_ITEM_TYPE_TROPHY', index=5, number=10,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=477,
-  serialized_end=701,
+  serialized_end=668,
 )
 _sym_db.RegisterEnumDescriptor(_COMMONITEMTYPE)
 
@@ -125,7 +121,6 @@ COMMON_ITEM_TYPE_DEFAULT = 0
 COMMON_ITEM_TYPE_POINT = 2
 COMMON_ITEM_TYPE_ITEM = 3
 COMMON_ITEM_TYPE_VIP = 5
-COMMON_ITEM_TYPE_BLIND_COIN = 8
 COMMON_ITEM_TYPE_AVATAR_FRAME = 9
 COMMON_ITEM_TYPE_TROPHY = 10
 

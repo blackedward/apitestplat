@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x13user_relation.proto\x12\x02pb\"\x9c\x01\n\x0cUserMarkInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12,\n\nmark_color\x18\x03 \x01(\x0e\x32\x0e.pb.MarkColors:\x08NO_COLOR\x12\x16\n\x0bno_speaking\x18\x04 \x01(\x05:\x01\x30\x12\x13\n\x08no_image\x18\x05 \x01(\x05:\x01\x30\x12\x13\n\x08no_emoji\x18\x06 \x01(\x05:\x01\x30\"P\n\x0bMarkUserREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1e\n\x04mark\x18\x02 \x01(\x0b\x32\x10.pb.UserMarkInfo\x12\x14\n\x0creq_ban_type\x18\x03 \x01(\x03\"q\n\x0bMarkUserRSP\x12\"\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x14.pb.MarkUserRSP.Code\x12\x1e\n\x04mark\x18\x02 \x01(\x0b\x32\x10.pb.UserMarkInfo\"\x1e\n\x04\x43ode\x12\x0b\n\x07SUCCESS\x10\x00\x12\t\n\x05\x45RROR\x10\x01\"0\n\x0fGetUserMarksREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08mark_uid\x18\x02 \x03(\x03\">\n\x0fGetUserMarksRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1e\n\x04mark\x18\x02 \x03(\x0b\x32\x10.pb.UserMarkInfo*a\n\nMarkColors\x12\x0c\n\x08NO_COLOR\x10\x00\x12\n\n\x06YELLOW\x10\x01\x12\n\n\x06ORANGE\x10\x02\x12\x07\n\x03RED\x10\x03\x12\n\n\x06PURPLE\x10\x04\x12\x08\n\x04\x42LUE\x10\x05\x12\x0e\n\nLIGHT_BLUE\x10\x06\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x13user_relation.proto\x12\x02pb\"\x9c\x01\n\x0cUserMarkInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12,\n\nmark_color\x18\x03 \x01(\x0e\x32\x0e.pb.MarkColors:\x08NO_COLOR\x12\x16\n\x0bno_speaking\x18\x04 \x01(\x05:\x01\x30\x12\x13\n\x08no_image\x18\x05 \x01(\x05:\x01\x30\x12\x13\n\x08no_emoji\x18\x06 \x01(\x05:\x01\x30\"P\n\x0bMarkUserREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1e\n\x04mark\x18\x02 \x01(\x0b\x32\x10.pb.UserMarkInfo\x12\x14\n\x0creq_ban_type\x18\x03 \x01(\x03\"P\n\x0bMarkUserRSP\x12!\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x13.pb.MarkUserRSPCode\x12\x1e\n\x04mark\x18\x02 \x01(\x0b\x32\x10.pb.UserMarkInfo\"0\n\x0fGetUserMarksREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x10\n\x08mark_uid\x18\x02 \x03(\x03\">\n\x0fGetUserMarksRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x1e\n\x04mark\x18\x02 \x03(\x0b\x32\x10.pb.UserMarkInfo*a\n\nMarkColors\x12\x0c\n\x08NO_COLOR\x10\x00\x12\n\n\x06YELLOW\x10\x01\x12\n\n\x06ORANGE\x10\x02\x12\x07\n\x03RED\x10\x03\x12\n\n\x06PURPLE\x10\x04\x12\x08\n\x04\x42LUE\x10\x05\x12\x0e\n\nLIGHT_BLUE\x10\x06*M\n\x0fMarkUserRSPCode\x12\x1d\n\x19MARK_USER_RSPCODE_SUCCESS\x10\x00\x12\x1b\n\x17MARK_USER_RSPCODE_ERROR\x10\x01\x42\x07Z\x05../pb')
 )
 
 _MARKCOLORS = _descriptor.EnumDescriptor(
@@ -60,12 +60,35 @@ _MARKCOLORS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=497,
-  serialized_end=594,
+  serialized_start=464,
+  serialized_end=561,
 )
 _sym_db.RegisterEnumDescriptor(_MARKCOLORS)
 
 MarkColors = enum_type_wrapper.EnumTypeWrapper(_MARKCOLORS)
+_MARKUSERRSPCODE = _descriptor.EnumDescriptor(
+  name='MarkUserRSPCode',
+  full_name='pb.MarkUserRSPCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='MARK_USER_RSPCODE_SUCCESS', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MARK_USER_RSPCODE_ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=563,
+  serialized_end=640,
+)
+_sym_db.RegisterEnumDescriptor(_MARKUSERRSPCODE)
+
+MarkUserRSPCode = enum_type_wrapper.EnumTypeWrapper(_MARKUSERRSPCODE)
 NO_COLOR = 0
 YELLOW = 1
 ORANGE = 2
@@ -73,29 +96,9 @@ RED = 3
 PURPLE = 4
 BLUE = 5
 LIGHT_BLUE = 6
+MARK_USER_RSPCODE_SUCCESS = 0
+MARK_USER_RSPCODE_ERROR = 1
 
-
-_MARKUSERRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.MarkUserRSP.Code',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='ERROR', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=351,
-  serialized_end=381,
-)
-_sym_db.RegisterEnumDescriptor(_MARKUSERRSP_CODE)
 
 
 _USERMARKINFO = _descriptor.Descriptor(
@@ -235,7 +238,6 @@ _MARKUSERRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _MARKUSERRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -244,7 +246,7 @@ _MARKUSERRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=268,
-  serialized_end=381,
+  serialized_end=348,
 )
 
 
@@ -281,8 +283,8 @@ _GETUSERMARKSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=383,
-  serialized_end=431,
+  serialized_start=350,
+  serialized_end=398,
 )
 
 
@@ -319,15 +321,14 @@ _GETUSERMARKSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=495,
+  serialized_start=400,
+  serialized_end=462,
 )
 
 _USERMARKINFO.fields_by_name['mark_color'].enum_type = _MARKCOLORS
 _MARKUSERREQ.fields_by_name['mark'].message_type = _USERMARKINFO
-_MARKUSERRSP.fields_by_name['code'].enum_type = _MARKUSERRSP_CODE
+_MARKUSERRSP.fields_by_name['code'].enum_type = _MARKUSERRSPCODE
 _MARKUSERRSP.fields_by_name['mark'].message_type = _USERMARKINFO
-_MARKUSERRSP_CODE.containing_type = _MARKUSERRSP
 _GETUSERMARKSRSP.fields_by_name['mark'].message_type = _USERMARKINFO
 DESCRIPTOR.message_types_by_name['UserMarkInfo'] = _USERMARKINFO
 DESCRIPTOR.message_types_by_name['MarkUserREQ'] = _MARKUSERREQ
@@ -335,6 +336,7 @@ DESCRIPTOR.message_types_by_name['MarkUserRSP'] = _MARKUSERRSP
 DESCRIPTOR.message_types_by_name['GetUserMarksREQ'] = _GETUSERMARKSREQ
 DESCRIPTOR.message_types_by_name['GetUserMarksRSP'] = _GETUSERMARKSRSP
 DESCRIPTOR.enum_types_by_name['MarkColors'] = _MARKCOLORS
+DESCRIPTOR.enum_types_by_name['MarkUserRSPCode'] = _MARKUSERRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 UserMarkInfo = _reflection.GeneratedProtocolMessageType('UserMarkInfo', (_message.Message,), dict(

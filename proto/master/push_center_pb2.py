@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -19,54 +20,60 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x11push_center.proto\x12\x02pb\"\x1f\n\x0c\x43lickPushREQ\x12\x0f\n\x07task_id\x18\x01 \x02(\x03\"\x0e\n\x0c\x43lickPushRSP\"-\n\x18\x43reatePushUserAndroidREQ\x12\x11\n\tfcm_token\x18\x01 \x02(\t\"~\n\x18\x43reatePushUserAndroidRSP\x12/\n\x04\x63ode\x18\x01 \x01(\x0e\x32!.pb.CreatePushUserAndroidRSP.Code\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\">\n\x14\x43reatePushUserIOSREQ\x12\x11\n\tapn_token\x18\x01 \x02(\t\x12\x13\n\x0b\x61pplication\x18\x02 \x02(\t\"v\n\x14\x43reatePushUserIOSRSP\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.pb.CreatePushUserIOSRSP.Code\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\x11push_center.proto\x12\x02pb\"\x1f\n\x0c\x43lickPushREQ\x12\x0f\n\x07task_id\x18\x01 \x01(\x03\"\x0e\n\x0c\x43lickPushRSP\"-\n\x18\x43reatePushUserAndroidREQ\x12\x11\n\tfcm_token\x18\x01 \x01(\t\"J\n\x18\x43reatePushUserAndroidRSP\x12.\n\x04\x63ode\x18\x01 \x01(\x0e\x32 .pb.CreatePushUserAndroidRSPCode\">\n\x14\x43reatePushUserIOSREQ\x12\x11\n\tapn_token\x18\x01 \x01(\t\x12\x13\n\x0b\x61pplication\x18\x02 \x01(\t\"B\n\x14\x43reatePushUserIOSRSP\x12*\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.CreatePushUserIOSRSPCode*\x8b\x01\n\x1c\x43reatePushUserAndroidRSPCode\x12\x31\n-CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_SUCCESS\x10\x00\x12\x38\n+CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01*}\n\x18\x43reatePushUserIOSRSPCode\x12,\n(CREATE_PUSH_USER_IOSRSPCODE_CODE_SUCCESS\x10\x00\x12\x33\n&CREATE_PUSH_USER_IOSRSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
 )
 
-
-
-_CREATEPUSHUSERANDROIDRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.CreatePushUserAndroidRSP.Code',
+_CREATEPUSHUSERANDROIDRSPCODE = _descriptor.EnumDescriptor(
+  name='CreatePushUserAndroidRSPCode',
+  full_name='pb.CreatePushUserAndroidRSPCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
+      name='CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_ERROR', index=1, number=-1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=198,
-  serialized_end=247,
+  serialized_start=330,
+  serialized_end=469,
 )
-_sym_db.RegisterEnumDescriptor(_CREATEPUSHUSERANDROIDRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_CREATEPUSHUSERANDROIDRSPCODE)
 
-_CREATEPUSHUSERIOSRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.CreatePushUserIOSRSP.Code',
+CreatePushUserAndroidRSPCode = enum_type_wrapper.EnumTypeWrapper(_CREATEPUSHUSERANDROIDRSPCODE)
+_CREATEPUSHUSERIOSRSPCODE = _descriptor.EnumDescriptor(
+  name='CreatePushUserIOSRSPCode',
+  full_name='pb.CreatePushUserIOSRSPCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='CREATE_PUSH_USER_IOSRSPCODE_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
+      name='CREATE_PUSH_USER_IOSRSPCODE_CODE_ERROR', index=1, number=-1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=198,
-  serialized_end=247,
+  serialized_start=471,
+  serialized_end=596,
 )
-_sym_db.RegisterEnumDescriptor(_CREATEPUSHUSERIOSRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_CREATEPUSHUSERIOSRSPCODE)
+
+CreatePushUserIOSRSPCode = enum_type_wrapper.EnumTypeWrapper(_CREATEPUSHUSERIOSRSPCODE)
+CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_SUCCESS = 0
+CREATE_PUSH_USER_ANDROID_RSPCODE_CODE_ERROR = -1
+CREATE_PUSH_USER_IOSRSPCODE_CODE_SUCCESS = 0
+CREATE_PUSH_USER_IOSRSPCODE_CODE_ERROR = -1
+
 
 
 _CLICKPUSHREQ = _descriptor.Descriptor(
@@ -78,7 +85,7 @@ _CLICKPUSHREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='task_id', full_name='pb.ClickPushREQ.task_id', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -133,7 +140,7 @@ _CREATEPUSHUSERANDROIDREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='fcm_token', full_name='pb.CreatePushUserAndroidREQ.fcm_token', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -174,7 +181,6 @@ _CREATEPUSHUSERANDROIDRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CREATEPUSHUSERANDROIDRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -183,7 +189,7 @@ _CREATEPUSHUSERANDROIDRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=121,
-  serialized_end=247,
+  serialized_end=195,
 )
 
 
@@ -196,14 +202,14 @@ _CREATEPUSHUSERIOSREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='apn_token', full_name='pb.CreatePushUserIOSREQ.apn_token', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='application', full_name='pb.CreatePushUserIOSREQ.application', index=1,
-      number=2, type=9, cpp_type=9, label=2,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -220,8 +226,8 @@ _CREATEPUSHUSERIOSREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=249,
-  serialized_end=311,
+  serialized_start=197,
+  serialized_end=259,
 )
 
 
@@ -244,7 +250,6 @@ _CREATEPUSHUSERIOSRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _CREATEPUSHUSERIOSRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -252,20 +257,20 @@ _CREATEPUSHUSERIOSRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=313,
-  serialized_end=431,
+  serialized_start=261,
+  serialized_end=327,
 )
 
-_CREATEPUSHUSERANDROIDRSP.fields_by_name['code'].enum_type = _CREATEPUSHUSERANDROIDRSP_CODE
-_CREATEPUSHUSERANDROIDRSP_CODE.containing_type = _CREATEPUSHUSERANDROIDRSP
-_CREATEPUSHUSERIOSRSP.fields_by_name['code'].enum_type = _CREATEPUSHUSERIOSRSP_CODE
-_CREATEPUSHUSERIOSRSP_CODE.containing_type = _CREATEPUSHUSERIOSRSP
+_CREATEPUSHUSERANDROIDRSP.fields_by_name['code'].enum_type = _CREATEPUSHUSERANDROIDRSPCODE
+_CREATEPUSHUSERIOSRSP.fields_by_name['code'].enum_type = _CREATEPUSHUSERIOSRSPCODE
 DESCRIPTOR.message_types_by_name['ClickPushREQ'] = _CLICKPUSHREQ
 DESCRIPTOR.message_types_by_name['ClickPushRSP'] = _CLICKPUSHRSP
 DESCRIPTOR.message_types_by_name['CreatePushUserAndroidREQ'] = _CREATEPUSHUSERANDROIDREQ
 DESCRIPTOR.message_types_by_name['CreatePushUserAndroidRSP'] = _CREATEPUSHUSERANDROIDRSP
 DESCRIPTOR.message_types_by_name['CreatePushUserIOSREQ'] = _CREATEPUSHUSERIOSREQ
 DESCRIPTOR.message_types_by_name['CreatePushUserIOSRSP'] = _CREATEPUSHUSERIOSRSP
+DESCRIPTOR.enum_types_by_name['CreatePushUserAndroidRSPCode'] = _CREATEPUSHUSERANDROIDRSPCODE
+DESCRIPTOR.enum_types_by_name['CreatePushUserIOSRSPCode'] = _CREATEPUSHUSERIOSRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ClickPushREQ = _reflection.GeneratedProtocolMessageType('ClickPushREQ', (_message.Message,), dict(

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x10inner_demo.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"\x1e\n\x0eiHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"L\n\x0eiHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x1d\n\rHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x1d\n\rHelloWorldRSP\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\"\n\x12iCallHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"P\n\x12iCallHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x10\n\x0eiHelloMysqlREQ\">\n\x0eiHelloMysqlRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x10\n\x0eiHelloMongoREQ\">\n\x0eiHelloMongoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\tB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x10inner_demo.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\"\x1e\n\x0eiHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"L\n\x0eiHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\"\n\x12iCallHelloWorldREQ\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"P\n\x12iCallHelloWorldRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"\x10\n\x0eiHelloMysqlREQ\">\n\x0eiHelloMysqlRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"\x10\n\x0eiHelloMongoREQ\">\n\x0eiHelloMongoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\tB\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,])
 
@@ -103,68 +103,6 @@ _IHELLOWORLDRSP = _descriptor.Descriptor(
 )
 
 
-_HELLOWORLDREQ = _descriptor.Descriptor(
-  name='HelloWorldREQ',
-  full_name='pb.HelloWorldREQ',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data', full_name='pb.HelloWorldREQ.data', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=147,
-  serialized_end=176,
-)
-
-
-_HELLOWORLDRSP = _descriptor.Descriptor(
-  name='HelloWorldRSP',
-  full_name='pb.HelloWorldRSP',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data', full_name='pb.HelloWorldRSP.data', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=178,
-  serialized_end=207,
-)
-
-
 _ICALLHELLOWORLDREQ = _descriptor.Descriptor(
   name='iCallHelloWorldREQ',
   full_name='pb.iCallHelloWorldREQ',
@@ -191,8 +129,8 @@ _ICALLHELLOWORLDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=209,
-  serialized_end=243,
+  serialized_start=147,
+  serialized_end=181,
 )
 
 
@@ -236,8 +174,8 @@ _ICALLHELLOWORLDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=245,
-  serialized_end=325,
+  serialized_start=183,
+  serialized_end=263,
 )
 
 
@@ -260,8 +198,8 @@ _IHELLOMYSQLREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=327,
-  serialized_end=343,
+  serialized_start=265,
+  serialized_end=281,
 )
 
 
@@ -298,8 +236,8 @@ _IHELLOMYSQLRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=345,
-  serialized_end=407,
+  serialized_start=283,
+  serialized_end=345,
 )
 
 
@@ -322,8 +260,8 @@ _IHELLOMONGOREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=409,
-  serialized_end=425,
+  serialized_start=347,
+  serialized_end=363,
 )
 
 
@@ -360,8 +298,8 @@ _IHELLOMONGORSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=427,
-  serialized_end=489,
+  serialized_start=365,
+  serialized_end=427,
 )
 
 _IHELLOWORLDRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
@@ -370,8 +308,6 @@ _IHELLOMYSQLRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IHELLOMONGORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iHelloWorldREQ'] = _IHELLOWORLDREQ
 DESCRIPTOR.message_types_by_name['iHelloWorldRSP'] = _IHELLOWORLDRSP
-DESCRIPTOR.message_types_by_name['HelloWorldREQ'] = _HELLOWORLDREQ
-DESCRIPTOR.message_types_by_name['HelloWorldRSP'] = _HELLOWORLDRSP
 DESCRIPTOR.message_types_by_name['iCallHelloWorldREQ'] = _ICALLHELLOWORLDREQ
 DESCRIPTOR.message_types_by_name['iCallHelloWorldRSP'] = _ICALLHELLOWORLDRSP
 DESCRIPTOR.message_types_by_name['iHelloMysqlREQ'] = _IHELLOMYSQLREQ
@@ -393,20 +329,6 @@ iHelloWorldRSP = _reflection.GeneratedProtocolMessageType('iHelloWorldRSP', (_me
   # @@protoc_insertion_point(class_scope:pb.iHelloWorldRSP)
   ))
 _sym_db.RegisterMessage(iHelloWorldRSP)
-
-HelloWorldREQ = _reflection.GeneratedProtocolMessageType('HelloWorldREQ', (_message.Message,), dict(
-  DESCRIPTOR = _HELLOWORLDREQ,
-  __module__ = 'inner_demo_pb2'
-  # @@protoc_insertion_point(class_scope:pb.HelloWorldREQ)
-  ))
-_sym_db.RegisterMessage(HelloWorldREQ)
-
-HelloWorldRSP = _reflection.GeneratedProtocolMessageType('HelloWorldRSP', (_message.Message,), dict(
-  DESCRIPTOR = _HELLOWORLDRSP,
-  __module__ = 'inner_demo_pb2'
-  # @@protoc_insertion_point(class_scope:pb.HelloWorldRSP)
-  ))
-_sym_db.RegisterMessage(HelloWorldRSP)
 
 iCallHelloWorldREQ = _reflection.GeneratedProtocolMessageType('iCallHelloWorldREQ', (_message.Message,), dict(
   DESCRIPTOR = _ICALLHELLOWORLDREQ,

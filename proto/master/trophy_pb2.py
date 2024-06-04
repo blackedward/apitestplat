@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -21,15 +22,13 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x0ctrophy.proto\x12\x02pb\x1a\x11trophy_base.proto\x1a\x0epre_base.proto\"\xf0\x01\n\x0fTrophyClassInfo\x12\x17\n\x0ftrophy_class_id\x18\x01 \x01(\x03\x12\x19\n\x11trophy_class_name\x18\x02 \x01(\t\x12\x19\n\x11\x63lient_show_order\x18\x03 \x01(\x05\x12\x14\n\x0c\x63lient_title\x18\x04 \x01(\t\x12\x13\n\x0b\x63lient_desc\x18\x05 \x01(\t\x12!\n\x04type\x18\x06 \x01(\x0e\x32\x13.pb.TrophyClassType\x12\x18\n\x10\x65vent_start_time\x18\x07 \x01(\x03\x12\x16\n\x0e\x65vent_end_time\x18\x08 \x01(\x03\x12\x0e\n\x06\x65xdata\x18\t \x01(\t\"\x10\n\x0eTrophyClassREQ\"4\n\x0eTrophyClassRSP\x12\"\n\x05infos\x18\x01 \x03(\x0b\x32\x13.pb.TrophyClassInfo\"\xba\x01\n\nTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x13\n\x0btrophy_name\x18\x02 \x01(\t\x12\x17\n\x0ftrophy_class_id\x18\x03 \x01(\x03\x12\x19\n\x11trophy_class_name\x18\x04 \x01(\t\x12 \n\x04tier\x18\x05 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\x06 \x01(\x05\x12\x19\n\x11\x63lient_show_order\x18\x07 \x01(\x05\"\x0b\n\tTrophyREQ\"*\n\tTrophyRSP\x12\x1d\n\x05infos\x18\x01 \x03(\x0b\x32\x0e.pb.TrophyInfo\"_\n\x0eUserTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\x03 \x01(\x03\x12\x12\n\ntarget_num\x18\x04 \x01(\x03\"\x0f\n\rSelfTrophyREQ\"2\n\rSelfTrophyRSP\x12!\n\x05infos\x18\x01 \x03(\x0b\x32\x12.pb.UserTrophyInfo\"L\n\x10UserShowcaseInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x12\n\ntarget_num\x18\x03 \x01(\x03\"!\n\x12GetUserShowcaseREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"F\n\x12GetUserShowcaseRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12#\n\x05infos\x18\x02 \x03(\x0b\x32\x14.pb.UserShowcaseInfo\"<\n\x12SetSelfShowcaseREQ\x12\x12\n\ntrophy_ids\x18\x01 \x03(\x03\x12\x12\n\nseason_ids\x18\x02 \x03(\x03\"\"\n\x12SetSelfShowcaseRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x14\n\x12TrophyAnimationBRC\"\x17\n\x15GetTrophyAnimationREQ\"O\n\x15GetTrophyAnimationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x12\n\ntrophy_ids\x18\x02 \x03(\x03\x12\x14\n\x0c\x65xpiry_times\x18\x03 \x03(\x03\"\xb5\x01\n\x0fTrophyOwnerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x14\n\x0chead_img_url\x18\x04 \x01(\t\x12\x10\n\x08match_id\x18\x05 \x01(\t\x12\x17\n\x0fmatch_photo_url\x18\x06 \x01(\t\x12\x10\n\x08subtitle\x18\x07 \x01(\t\x12!\n\x19\x61vatar_frame_client_label\x18\x08 \x01(\t\"4\n\x11GetTrophyOwnerREQ\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x0c\n\x04page\x18\x02 \x01(\x05\"E\n\x11GetTrophyOwnerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x05infos\x18\x02 \x03(\x0b\x32\x13.pb.TrophyOwnerInfo\"\x90\x01\n\x10TrophyWinnerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x14\n\x0chead_img_url\x18\x03 \x01(\t\x12\x15\n\rwinning_times\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x06 \x01(\t\"\x94\x01\n\x14TrophyChallengerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x14\n\x0chead_img_url\x18\x03 \x01(\t\x12\x15\n\rwinning_times\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x06 \x01(\t\"5\n\x0eTrophySelfInfo\x12\x15\n\rwinning_times\x18\x01 \x01(\x03\x12\x0c\n\x04time\x18\x02 \x01(\x03\"o\n\x1fGetTrophyWinnerAndChallengerREQ\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x61nnual_achievement_id\x18\x02 \x01(\x03\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x0c\n\x04year\x18\x04 \x01(\x03\"\xb6\x01\n\x1fGetTrophyWinnerAndChallengerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12*\n\x0cwinner_infos\x18\x02 \x03(\x0b\x32\x14.pb.TrophyWinnerInfo\x12\x32\n\x10\x63hallenger_infos\x18\x03 \x03(\x0b\x32\x18.pb.TrophyChallengerInfo\x12%\n\tself_info\x18\x04 \x01(\x0b\x32\x12.pb.TrophySelfInfo\"\xef\x02\n\x12TrophyPlayerDetail\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12\x12\n\ntable_icon\x18\x02 \x01(\t\x12\x0e\n\x06\x62uy_in\x18\x03 \x01(\x03\x12\x1f\n\tgame_mode\x18\x04 \x01(\x0e\x32\x0c.pb.GameMode\x12\x11\n\troom_name\x18\x05 \x01(\t\x12\x10\n\x08win_time\x18\x06 \x01(\x03\x12\x0f\n\x07\x65ntries\x18\x07 \x01(\x03\x12\x1b\n\x13winner_reward_money\x18\x08 \x01(\x03\x12\x43\n\x12winner_reward_type\x18\t \x01(\x0e\x32\'.pb.TrophyPlayerDetail.WinnerRewardType\"l\n\x10WinnerRewardType\x12\x1b\n\x17WINNER_REWARD_TYPE_NONE\x10\x00\x12\x1c\n\x18WINNER_REWARD_TYPE_MONEY\x10\x01\x12\x1d\n\x19WINNER_REWARD_TYPE_TICKET\x10\x02\":\n\x18GetTrophyPlayerDetailREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\ttrophy_id\x18\x02 \x01(\x03\"^\n\x18GetTrophyPlayerDetailRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x34\n\x14trophy_player_detail\x18\x02 \x03(\x0b\x32\x16.pb.TrophyPlayerDetail\"c\n\x15GoldenPowerTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x16\n\x0emax_target_num\x18\x03 \x01(\x03\x12\x0c\n\x04time\x18\x04 \x01(\x03\"4\n\x17GetGoldenPowerTrophyREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x05\"Q\n\x17GetGoldenPowerTrophyRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12(\n\x05infos\x18\x02 \x03(\x0b\x32\x19.pb.GoldenPowerTrophyInfoB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x0ctrophy.proto\x12\x02pb\x1a\x11trophy_base.proto\x1a\x0epre_base.proto\"\xf0\x01\n\x0fTrophyClassInfo\x12\x17\n\x0ftrophy_class_id\x18\x01 \x01(\x03\x12\x19\n\x11trophy_class_name\x18\x02 \x01(\t\x12\x19\n\x11\x63lient_show_order\x18\x03 \x01(\x05\x12\x14\n\x0c\x63lient_title\x18\x04 \x01(\t\x12\x13\n\x0b\x63lient_desc\x18\x05 \x01(\t\x12!\n\x04type\x18\x06 \x01(\x0e\x32\x13.pb.TrophyClassType\x12\x18\n\x10\x65vent_start_time\x18\x07 \x01(\x03\x12\x16\n\x0e\x65vent_end_time\x18\x08 \x01(\x03\x12\x0e\n\x06\x65xdata\x18\t \x01(\t\"\x10\n\x0eTrophyClassREQ\"4\n\x0eTrophyClassRSP\x12\"\n\x05infos\x18\x01 \x03(\x0b\x32\x13.pb.TrophyClassInfo\"\xba\x01\n\nTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x13\n\x0btrophy_name\x18\x02 \x01(\t\x12\x17\n\x0ftrophy_class_id\x18\x03 \x01(\x03\x12\x19\n\x11trophy_class_name\x18\x04 \x01(\t\x12 \n\x04tier\x18\x05 \x01(\x0e\x32\x12.pb.TrophyTierType\x12\x13\n\x0b\x64istinction\x18\x06 \x01(\x05\x12\x19\n\x11\x63lient_show_order\x18\x07 \x01(\x05\"\x0b\n\tTrophyREQ\"*\n\tTrophyRSP\x12\x1d\n\x05infos\x18\x01 \x03(\x0b\x32\x0e.pb.TrophyInfo\"_\n\x0eUserTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x13\n\x0b\x65xpiry_time\x18\x03 \x01(\x03\x12\x12\n\ntarget_num\x18\x04 \x01(\x03\"\x0f\n\rSelfTrophyREQ\"2\n\rSelfTrophyRSP\x12!\n\x05infos\x18\x01 \x03(\x0b\x32\x12.pb.UserTrophyInfo\"L\n\x10UserShowcaseInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x12\n\ntarget_num\x18\x03 \x01(\x03\"!\n\x12GetUserShowcaseREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"F\n\x12GetUserShowcaseRSP\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12#\n\x05infos\x18\x02 \x03(\x0b\x32\x14.pb.UserShowcaseInfo\"<\n\x12SetSelfShowcaseREQ\x12\x12\n\ntrophy_ids\x18\x01 \x03(\x03\x12\x12\n\nseason_ids\x18\x02 \x03(\x03\"\"\n\x12SetSelfShowcaseRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"\x14\n\x12TrophyAnimationBRC\"\x17\n\x15GetTrophyAnimationREQ\"O\n\x15GetTrophyAnimationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x12\n\ntrophy_ids\x18\x02 \x03(\x03\x12\x14\n\x0c\x65xpiry_times\x18\x03 \x03(\x03\"\xb5\x01\n\x0fTrophyOwnerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x14\n\x0chead_img_url\x18\x04 \x01(\t\x12\x10\n\x08match_id\x18\x05 \x01(\t\x12\x17\n\x0fmatch_photo_url\x18\x06 \x01(\t\x12\x10\n\x08subtitle\x18\x07 \x01(\t\x12!\n\x19\x61vatar_frame_client_label\x18\x08 \x01(\t\"4\n\x11GetTrophyOwnerREQ\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x0c\n\x04page\x18\x02 \x01(\x05\"E\n\x11GetTrophyOwnerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\"\n\x05infos\x18\x02 \x03(\x0b\x32\x13.pb.TrophyOwnerInfo\"\x90\x01\n\x10TrophyWinnerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x14\n\x0chead_img_url\x18\x03 \x01(\t\x12\x15\n\rwinning_times\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x06 \x01(\t\"\x94\x01\n\x14TrophyChallengerInfo\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\tnick_name\x18\x02 \x01(\t\x12\x14\n\x0chead_img_url\x18\x03 \x01(\t\x12\x15\n\rwinning_times\x18\x04 \x01(\x03\x12\x0c\n\x04time\x18\x05 \x01(\x03\x12!\n\x19\x61vatar_frame_client_label\x18\x06 \x01(\t\"5\n\x0eTrophySelfInfo\x12\x15\n\rwinning_times\x18\x01 \x01(\x03\x12\x0c\n\x04time\x18\x02 \x01(\x03\"o\n\x1fGetTrophyWinnerAndChallengerREQ\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x1d\n\x15\x61nnual_achievement_id\x18\x02 \x01(\x03\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x0c\n\x04year\x18\x04 \x01(\x03\"\xb6\x01\n\x1fGetTrophyWinnerAndChallengerRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12*\n\x0cwinner_infos\x18\x02 \x03(\x0b\x32\x14.pb.TrophyWinnerInfo\x12\x32\n\x10\x63hallenger_infos\x18\x03 \x03(\x0b\x32\x18.pb.TrophyChallengerInfo\x12%\n\tself_info\x18\x04 \x01(\x0b\x32\x12.pb.TrophySelfInfo\"\xee\x01\n\x12TrophyPlayerDetail\x12\x0e\n\x06set_id\x18\x01 \x01(\t\x12\x12\n\ntable_icon\x18\x02 \x01(\t\x12\x0e\n\x06\x62uy_in\x18\x03 \x01(\x03\x12\x1f\n\tgame_mode\x18\x04 \x01(\x0e\x32\x0c.pb.GameMode\x12\x11\n\troom_name\x18\x05 \x01(\t\x12\x10\n\x08win_time\x18\x06 \x01(\x03\x12\x0f\n\x07\x65ntries\x18\x07 \x01(\x03\x12\x1b\n\x13winner_reward_money\x18\x08 \x01(\x03\x12\x30\n\x12winner_reward_type\x18\t \x01(\x0e\x32\x14.pb.WinnerRewardType\":\n\x18GetTrophyPlayerDetailREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x11\n\ttrophy_id\x18\x02 \x01(\x03\"^\n\x18GetTrophyPlayerDetailRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x34\n\x14trophy_player_detail\x18\x02 \x03(\x0b\x32\x16.pb.TrophyPlayerDetail\"c\n\x15GoldenPowerTrophyInfo\x12\x11\n\ttrophy_id\x18\x01 \x01(\x03\x12\x11\n\tseason_id\x18\x02 \x01(\x03\x12\x16\n\x0emax_target_num\x18\x03 \x01(\x03\x12\x0c\n\x04time\x18\x04 \x01(\x03\"4\n\x17GetGoldenPowerTrophyREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0c\n\x04year\x18\x02 \x01(\x05\"Q\n\x17GetGoldenPowerTrophyRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12(\n\x05infos\x18\x02 \x03(\x0b\x32\x19.pb.GoldenPowerTrophyInfo*l\n\x10WinnerRewardType\x12\x1b\n\x17WINNER_REWARD_TYPE_NONE\x10\x00\x12\x1c\n\x18WINNER_REWARD_TYPE_MONEY\x10\x01\x12\x1d\n\x19WINNER_REWARD_TYPE_TICKET\x10\x02\x42\x07Z\x05../pb')
   ,
   dependencies=[trophy__base__pb2.DESCRIPTOR,pre__base__pb2.DESCRIPTOR,])
 
-
-
-_TROPHYPLAYERDETAIL_WINNERREWARDTYPE = _descriptor.EnumDescriptor(
+_WINNERREWARDTYPE = _descriptor.EnumDescriptor(
   name='WinnerRewardType',
-  full_name='pb.TrophyPlayerDetail.WinnerRewardType',
+  full_name='pb.WinnerRewardType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -48,10 +47,16 @@ _TROPHYPLAYERDETAIL_WINNERREWARDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2413,
-  serialized_end=2521,
+  serialized_start=2788,
+  serialized_end=2896,
 )
-_sym_db.RegisterEnumDescriptor(_TROPHYPLAYERDETAIL_WINNERREWARDTYPE)
+_sym_db.RegisterEnumDescriptor(_WINNERREWARDTYPE)
+
+WinnerRewardType = enum_type_wrapper.EnumTypeWrapper(_WINNERREWARDTYPE)
+WINNER_REWARD_TYPE_NONE = 0
+WINNER_REWARD_TYPE_MONEY = 1
+WINNER_REWARD_TYPE_TICKET = 2
+
 
 
 _TROPHYCLASSINFO = _descriptor.Descriptor(
@@ -1212,7 +1217,6 @@ _TROPHYPLAYERDETAIL = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _TROPHYPLAYERDETAIL_WINNERREWARDTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1221,7 +1225,7 @@ _TROPHYPLAYERDETAIL = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2154,
-  serialized_end=2521,
+  serialized_end=2392,
 )
 
 
@@ -1258,8 +1262,8 @@ _GETTROPHYPLAYERDETAILREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2523,
-  serialized_end=2581,
+  serialized_start=2394,
+  serialized_end=2452,
 )
 
 
@@ -1296,8 +1300,8 @@ _GETTROPHYPLAYERDETAILRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2583,
-  serialized_end=2677,
+  serialized_start=2454,
+  serialized_end=2548,
 )
 
 
@@ -1348,8 +1352,8 @@ _GOLDENPOWERTROPHYINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2679,
-  serialized_end=2778,
+  serialized_start=2550,
+  serialized_end=2649,
 )
 
 
@@ -1386,8 +1390,8 @@ _GETGOLDENPOWERTROPHYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2780,
-  serialized_end=2832,
+  serialized_start=2651,
+  serialized_end=2703,
 )
 
 
@@ -1424,8 +1428,8 @@ _GETGOLDENPOWERTROPHYRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2834,
-  serialized_end=2915,
+  serialized_start=2705,
+  serialized_end=2786,
 )
 
 _TROPHYCLASSINFO.fields_by_name['type'].enum_type = trophy__base__pb2._TROPHYCLASSTYPE
@@ -1439,8 +1443,7 @@ _GETTROPHYWINNERANDCHALLENGERRSP.fields_by_name['winner_infos'].message_type = _
 _GETTROPHYWINNERANDCHALLENGERRSP.fields_by_name['challenger_infos'].message_type = _TROPHYCHALLENGERINFO
 _GETTROPHYWINNERANDCHALLENGERRSP.fields_by_name['self_info'].message_type = _TROPHYSELFINFO
 _TROPHYPLAYERDETAIL.fields_by_name['game_mode'].enum_type = pre__base__pb2._GAMEMODE
-_TROPHYPLAYERDETAIL.fields_by_name['winner_reward_type'].enum_type = _TROPHYPLAYERDETAIL_WINNERREWARDTYPE
-_TROPHYPLAYERDETAIL_WINNERREWARDTYPE.containing_type = _TROPHYPLAYERDETAIL
+_TROPHYPLAYERDETAIL.fields_by_name['winner_reward_type'].enum_type = _WINNERREWARDTYPE
 _GETTROPHYPLAYERDETAILRSP.fields_by_name['trophy_player_detail'].message_type = _TROPHYPLAYERDETAIL
 _GETGOLDENPOWERTROPHYRSP.fields_by_name['infos'].message_type = _GOLDENPOWERTROPHYINFO
 DESCRIPTOR.message_types_by_name['TrophyClassInfo'] = _TROPHYCLASSINFO
@@ -1474,6 +1477,7 @@ DESCRIPTOR.message_types_by_name['GetTrophyPlayerDetailRSP'] = _GETTROPHYPLAYERD
 DESCRIPTOR.message_types_by_name['GoldenPowerTrophyInfo'] = _GOLDENPOWERTROPHYINFO
 DESCRIPTOR.message_types_by_name['GetGoldenPowerTrophyREQ'] = _GETGOLDENPOWERTROPHYREQ
 DESCRIPTOR.message_types_by_name['GetGoldenPowerTrophyRSP'] = _GETGOLDENPOWERTROPHYRSP
+DESCRIPTOR.enum_types_by_name['WinnerRewardType'] = _WINNERREWARDTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TrophyClassInfo = _reflection.GeneratedProtocolMessageType('TrophyClassInfo', (_message.Message,), dict(

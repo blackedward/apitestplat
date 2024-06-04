@@ -28,7 +28,7 @@ class User(db.Model):
     project = db.relationship('Project', backref='users', lazy='dynamic')
     interfacecase = db.relationship('InterfaceCase', backref='users', lazy='dynamic')
     interfacesuite = db.relationship('TestSuite', backref='users', lazy='dynamic')
-
+    tasks = db.relationship('Task', backref='users', lazy=True)
 
     def __repr__(self):
         # return str(self.user_id) + self.username
@@ -221,7 +221,6 @@ class InterfaceCase(db.Model):
     case_assert = db.relationship('InterfaceCaseAssert', backref='interfacecase', lazy='dynamic')
     precase = db.relationship('Precase', backref='interfacecase', lazy='dynamic')
 
-
     def __repr__(self):
         return self.desc
 
@@ -286,6 +285,7 @@ class TestcaseResult(db.Model):  # 测试用例结果
     spend = db.Column(db.String(52))
     date = db.Column(db.DateTime, default=datetime.now())
     testevent_id = db.Column(db.Integer, db.ForeignKey('t_environment.id'))
+    task_id = db.Column(db.Integer, db.ForeignKey('t_task.id'))
 
     def __repr__(self):
         return str(self.id)
@@ -314,3 +314,42 @@ class TestSuite(db.Model):  # 测试套件
         if "_sa_instance_state" in dict:
             del dict["_sa_instance_state"]
         return dict
+
+
+class Task(db.Model):  # 任务
+    __tablename__ = 't_task'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    task_content = db.Column(db.String(255))
+    creator = db.Column(db.Integer, db.ForeignKey('t_user.user_id'))
+    running_status = db.Column(db.Integer)
+    create_time = db.Column(db.DateTime(), default=datetime.now())
+    end_time = db.Column(db.DateTime())
+    spend = db.Column(db.String(255))
+    product_line = db.Column(db.String(255))
+    status = db.Column(db.Boolean(), default=True)
+    origin_taskid = db.Column(db.Integer)
+
+    def __repr__(self):
+        return str(self.id)
+
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'task_content': self.task_content,
+            'creator': self.creator,
+            'running_status': self.running_status,
+            'create_time': self.create_time,
+            'end_time': self.end_time,
+            'spend': self.spend,
+            'product_line': self.product_line,
+            'status': self.status,
+            'origin_taskid': self.origin_taskid
+        }

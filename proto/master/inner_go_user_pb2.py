@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\x13inner_go_user.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\"\xa0\x01\n\x0fiBanUserChatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x18.pb.iBanUserChatREQ.Type\"X\n\x04Type\x12\r\n\tTYPE_NONE\x10\x00\x12\x13\n\x0fTYPE_BAN_7_DAYS\x10\x01\x12\x14\n\x10TYPE_BAN_14_DAYS\x10\x02\x12\x16\n\x12TYPE_BAN_PERMANENT\x10\x03\"?\n\x0fiBanUserChatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\" \n\x11iUnbanUserChatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"A\n\x11iUnbanUserChatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"%\n\x16iBanKickOfflineUserREQ\x12\x0b\n\x03uid\x18\x01 \x02(\x03\"6\n\x16iBanKickOfflineUserRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\xdc\x01\n\x11iSetUserHandleREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06handle\x18\x02 \x01(\r\x12\x17\n\x0fwatchdog_harbor\x18\x03 \x01(\x05\x12\x17\n\x0b\x63lient_type\x18\x04 \x01(\x05\x42\x02\x18\x01\x12\x12\n\x06\x64omain\x18\x05 \x01(\x05\x42\x02\x18\x01\x12\x16\n\x0emobile_network\x18\x06 \x01(\t\x12\n\n\x02ip\x18\x07 \x01(\t\x12\x13\n\x0b\x64\x65vice_lang\x18\x08 \x01(\t\x12\n\n\x02os\x18\t \x01(\t\x12\x1f\n\x17go_game_gateway_service\x18\n \x01(\t\"1\n\x11iSetUserHandleRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iGetFullUserInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"F\n\x13iGetFullUserInfoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x11\n\tjson_data\x18\x02 \x01(\t\"L\n\x14iDeleteUserHandleREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x17\n\x0fwatchdog_harbor\x18\x02 \x01(\x05\x12\x0e\n\x06handle\x18\x03 \x01(\r\"4\n\x14iDeleteUserHandleRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\" \n\x11iGetUserInfoV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"M\n\x11iGetUserInfoV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1a\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0c.pb.UserInfo\"\x1c\n\x1aiGetOnlineUidByLanguageREQ\"-\n\x0bLanguageUid\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0c\n\x04uids\x18\x02 \x03(\x03\"Y\n\x1aiGetOnlineUidByLanguageRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1d\n\x04lang\x18\x02 \x03(\x0b\x32\x0f.pb.LanguageUid\"3\n\x18iGetAllUidsInWatchdogREQ\x12\x17\n\x0fwatchdog_harbor\x18\x01 \x01(\x05\"F\n\x18iGetAllUidsInWatchdogRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x03(\x03\"B\n\x10iCheckLoginV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05rdkey\x18\x02 \x01(\t\x12\x12\n\nis_enhence\x18\x03 \x01(\x08\"0\n\x10iCheckLoginV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
+  serialized_pb=_b('\n\x13inner_go_user.proto\x12\x02pb\x1a\x0b\x62\x61se2.proto\x1a\x10inner_base.proto\"\xa0\x01\n\x0fiBanUserChatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x18.pb.iBanUserChatREQ.Type\"X\n\x04Type\x12\r\n\tTYPE_NONE\x10\x00\x12\x13\n\x0fTYPE_BAN_7_DAYS\x10\x01\x12\x14\n\x10TYPE_BAN_14_DAYS\x10\x02\x12\x16\n\x12TYPE_BAN_PERMANENT\x10\x03\"?\n\x0fiBanUserChatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\" \n\x11iUnbanUserChatREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"A\n\x11iUnbanUserChatRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0e\n\x06reason\x18\x02 \x01(\t\"%\n\x16iBanKickOfflineUserREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"6\n\x16iBanKickOfflineUserRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\xdc\x01\n\x11iSetUserHandleREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x0e\n\x06handle\x18\x02 \x01(\r\x12\x17\n\x0fwatchdog_harbor\x18\x03 \x01(\x05\x12\x17\n\x0b\x63lient_type\x18\x04 \x01(\x05\x42\x02\x18\x01\x12\x12\n\x06\x64omain\x18\x05 \x01(\x05\x42\x02\x18\x01\x12\x16\n\x0emobile_network\x18\x06 \x01(\t\x12\n\n\x02ip\x18\x07 \x01(\t\x12\x13\n\x0b\x64\x65vice_lang\x18\x08 \x01(\t\x12\n\n\x02os\x18\t \x01(\t\x12\x1f\n\x17go_game_gateway_service\x18\n \x01(\t\"1\n\x11iSetUserHandleRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\"\n\x13iGetFullUserInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"F\n\x13iGetFullUserInfoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x11\n\tjson_data\x18\x02 \x01(\t\"L\n\x14iDeleteUserHandleREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\x17\n\x0fwatchdog_harbor\x18\x02 \x01(\x05\x12\x0e\n\x06handle\x18\x03 \x01(\r\"4\n\x14iDeleteUserHandleRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\" \n\x11iGetUserInfoV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\"M\n\x11iGetUserInfoV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1a\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x0c.pb.UserInfo\"\xcd\x03\n\x12iUpdateUserInfoREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12)\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x1b.pb.iUpdateUserInfoREQ.Info\x1a\xfe\x02\n\x04Info\x12\x18\n\x10last_update_time\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x14\n\x0chead_img_url\x18\x03 \x01(\t\x12\x10\n\x08platform\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x15\n\rregister_time\x18\x06 \x01(\x03\x12\x17\n\x0flast_login_time\x18\x07 \x01(\x03\x12\x0e\n\x06status\x18\x08 \x01(\x05\x12\x1b\n\x13last_login_platform\x18\t \x01(\t\x12\x0c\n\x04imei\x18\n \x01(\t\x12\r\n\x05state\x18\x0b \x01(\t\x12\n\n\x02os\x18\x0c \x01(\t\x12\x10\n\x08nickname\x18\r \x01(\t\x12\x0f\n\x07\x63hannel\x18\x0e \x01(\t\x12\x0c\n\x04type\x18\x0f \x01(\x05\x12\x17\n\x0finvitation_code\x18\x10 \x01(\t\x12\x14\n\x0crename_count\x18\x11 \x01(\x05\x12\x14\n\x0clicense_type\x18\x12 \x01(\x05\x12\x15\n\rplatform_type\x18\x13 \x01(\x05\"2\n\x12iUpdateUserInfoRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"\x1c\n\x1aiGetOnlineUidByLanguageREQ\"-\n\x0bLanguageUid\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0c\n\x04uids\x18\x02 \x03(\x03\"Y\n\x1aiGetOnlineUidByLanguageRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x1d\n\x04lang\x18\x02 \x03(\x0b\x32\x0f.pb.LanguageUid\"3\n\x18iGetAllUidsInWatchdogREQ\x12\x17\n\x0fwatchdog_harbor\x18\x01 \x01(\x05\"F\n\x18iGetAllUidsInWatchdogRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x03(\x03\"B\n\x10iCheckLoginV2REQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05rdkey\x18\x02 \x01(\t\x12\x12\n\nis_enhence\x18\x03 \x01(\x08\"0\n\x10iCheckLoginV2RSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\"-\n\x19iGetPlatformOnlineUidsREQ\x12\x10\n\x08platform\x18\x01 \x01(\t\"G\n\x19iGetPlatformOnlineUidsRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCode\x12\x0c\n\x04\x64\x61ta\x18\x02 \x03(\x03\".\n\x10iSetUserRdkeyREQ\x12\x0b\n\x03uid\x18\x01 \x01(\x03\x12\r\n\x05rdkey\x18\x02 \x01(\t\"0\n\x10iSetUserRdkeyRSP\x12\x1c\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x0e.pb.iErrorCodeB\x07Z\x05../pb')
   ,
   dependencies=[base2__pb2.DESCRIPTOR,inner__base__pb2.DESCRIPTOR,])
 
@@ -213,7 +213,7 @@ _IBANKICKOFFLINEUSERREQ = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='uid', full_name='pb.iBanKickOfflineUserREQ.uid', index=0,
-      number=1, type=3, cpp_type=2, label=2,
+      number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -605,6 +605,231 @@ _IGETUSERINFOV2RSP = _descriptor.Descriptor(
 )
 
 
+_IUPDATEUSERINFOREQ_INFO = _descriptor.Descriptor(
+  name='Info',
+  full_name='pb.iUpdateUserInfoREQ.Info',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='last_update_time', full_name='pb.iUpdateUserInfoREQ.Info.last_update_time', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='language', full_name='pb.iUpdateUserInfoREQ.Info.language', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='head_img_url', full_name='pb.iUpdateUserInfoREQ.Info.head_img_url', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='platform', full_name='pb.iUpdateUserInfoREQ.Info.platform', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='country', full_name='pb.iUpdateUserInfoREQ.Info.country', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='register_time', full_name='pb.iUpdateUserInfoREQ.Info.register_time', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='last_login_time', full_name='pb.iUpdateUserInfoREQ.Info.last_login_time', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='pb.iUpdateUserInfoREQ.Info.status', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='last_login_platform', full_name='pb.iUpdateUserInfoREQ.Info.last_login_platform', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='imei', full_name='pb.iUpdateUserInfoREQ.Info.imei', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='state', full_name='pb.iUpdateUserInfoREQ.Info.state', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='os', full_name='pb.iUpdateUserInfoREQ.Info.os', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nickname', full_name='pb.iUpdateUserInfoREQ.Info.nickname', index=12,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='channel', full_name='pb.iUpdateUserInfoREQ.Info.channel', index=13,
+      number=14, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='pb.iUpdateUserInfoREQ.Info.type', index=14,
+      number=15, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='invitation_code', full_name='pb.iUpdateUserInfoREQ.Info.invitation_code', index=15,
+      number=16, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rename_count', full_name='pb.iUpdateUserInfoREQ.Info.rename_count', index=16,
+      number=17, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='license_type', full_name='pb.iUpdateUserInfoREQ.Info.license_type', index=17,
+      number=18, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='platform_type', full_name='pb.iUpdateUserInfoREQ.Info.platform_type', index=18,
+      number=19, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1189,
+  serialized_end=1571,
+)
+
+_IUPDATEUSERINFOREQ = _descriptor.Descriptor(
+  name='iUpdateUserInfoREQ',
+  full_name='pb.iUpdateUserInfoREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.iUpdateUserInfoREQ.uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='pb.iUpdateUserInfoREQ.data', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_IUPDATEUSERINFOREQ_INFO, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1110,
+  serialized_end=1571,
+)
+
+
+_IUPDATEUSERINFORSP = _descriptor.Descriptor(
+  name='iUpdateUserInfoRSP',
+  full_name='pb.iUpdateUserInfoRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iUpdateUserInfoRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1573,
+  serialized_end=1623,
+)
+
+
 _IGETONLINEUIDBYLANGUAGEREQ = _descriptor.Descriptor(
   name='iGetOnlineUidByLanguageREQ',
   full_name='pb.iGetOnlineUidByLanguageREQ',
@@ -624,8 +849,8 @@ _IGETONLINEUIDBYLANGUAGEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1109,
-  serialized_end=1137,
+  serialized_start=1625,
+  serialized_end=1653,
 )
 
 
@@ -662,8 +887,8 @@ _LANGUAGEUID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1139,
-  serialized_end=1184,
+  serialized_start=1655,
+  serialized_end=1700,
 )
 
 
@@ -700,8 +925,8 @@ _IGETONLINEUIDBYLANGUAGERSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1186,
-  serialized_end=1275,
+  serialized_start=1702,
+  serialized_end=1791,
 )
 
 
@@ -731,8 +956,8 @@ _IGETALLUIDSINWATCHDOGREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1277,
-  serialized_end=1328,
+  serialized_start=1793,
+  serialized_end=1844,
 )
 
 
@@ -769,8 +994,8 @@ _IGETALLUIDSINWATCHDOGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1330,
-  serialized_end=1400,
+  serialized_start=1846,
+  serialized_end=1916,
 )
 
 
@@ -814,8 +1039,8 @@ _ICHECKLOGINV2REQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1402,
-  serialized_end=1468,
+  serialized_start=1918,
+  serialized_end=1984,
 )
 
 
@@ -845,8 +1070,146 @@ _ICHECKLOGINV2RSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1470,
-  serialized_end=1518,
+  serialized_start=1986,
+  serialized_end=2034,
+)
+
+
+_IGETPLATFORMONLINEUIDSREQ = _descriptor.Descriptor(
+  name='iGetPlatformOnlineUidsREQ',
+  full_name='pb.iGetPlatformOnlineUidsREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='platform', full_name='pb.iGetPlatformOnlineUidsREQ.platform', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2036,
+  serialized_end=2081,
+)
+
+
+_IGETPLATFORMONLINEUIDSRSP = _descriptor.Descriptor(
+  name='iGetPlatformOnlineUidsRSP',
+  full_name='pb.iGetPlatformOnlineUidsRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iGetPlatformOnlineUidsRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='pb.iGetPlatformOnlineUidsRSP.data', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2083,
+  serialized_end=2154,
+)
+
+
+_ISETUSERRDKEYREQ = _descriptor.Descriptor(
+  name='iSetUserRdkeyREQ',
+  full_name='pb.iSetUserRdkeyREQ',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='pb.iSetUserRdkeyREQ.uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rdkey', full_name='pb.iSetUserRdkeyREQ.rdkey', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2156,
+  serialized_end=2202,
+)
+
+
+_ISETUSERRDKEYRSP = _descriptor.Descriptor(
+  name='iSetUserRdkeyRSP',
+  full_name='pb.iSetUserRdkeyRSP',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='pb.iSetUserRdkeyRSP.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2204,
+  serialized_end=2252,
 )
 
 _IBANUSERCHATREQ.fields_by_name['type'].enum_type = _IBANUSERCHATREQ_TYPE
@@ -859,10 +1222,15 @@ _IGETFULLUSERINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IDELETEUSERHANDLERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETUSERINFOV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETUSERINFOV2RSP.fields_by_name['data'].message_type = inner__base__pb2._USERINFO
+_IUPDATEUSERINFOREQ_INFO.containing_type = _IUPDATEUSERINFOREQ
+_IUPDATEUSERINFOREQ.fields_by_name['data'].message_type = _IUPDATEUSERINFOREQ_INFO
+_IUPDATEUSERINFORSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETONLINEUIDBYLANGUAGERSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _IGETONLINEUIDBYLANGUAGERSP.fields_by_name['lang'].message_type = _LANGUAGEUID
 _IGETALLUIDSINWATCHDOGRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 _ICHECKLOGINV2RSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_IGETPLATFORMONLINEUIDSRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
+_ISETUSERRDKEYRSP.fields_by_name['code'].enum_type = base2__pb2._IERRORCODE
 DESCRIPTOR.message_types_by_name['iBanUserChatREQ'] = _IBANUSERCHATREQ
 DESCRIPTOR.message_types_by_name['iBanUserChatRSP'] = _IBANUSERCHATRSP
 DESCRIPTOR.message_types_by_name['iUnbanUserChatREQ'] = _IUNBANUSERCHATREQ
@@ -877,6 +1245,8 @@ DESCRIPTOR.message_types_by_name['iDeleteUserHandleREQ'] = _IDELETEUSERHANDLEREQ
 DESCRIPTOR.message_types_by_name['iDeleteUserHandleRSP'] = _IDELETEUSERHANDLERSP
 DESCRIPTOR.message_types_by_name['iGetUserInfoV2REQ'] = _IGETUSERINFOV2REQ
 DESCRIPTOR.message_types_by_name['iGetUserInfoV2RSP'] = _IGETUSERINFOV2RSP
+DESCRIPTOR.message_types_by_name['iUpdateUserInfoREQ'] = _IUPDATEUSERINFOREQ
+DESCRIPTOR.message_types_by_name['iUpdateUserInfoRSP'] = _IUPDATEUSERINFORSP
 DESCRIPTOR.message_types_by_name['iGetOnlineUidByLanguageREQ'] = _IGETONLINEUIDBYLANGUAGEREQ
 DESCRIPTOR.message_types_by_name['LanguageUid'] = _LANGUAGEUID
 DESCRIPTOR.message_types_by_name['iGetOnlineUidByLanguageRSP'] = _IGETONLINEUIDBYLANGUAGERSP
@@ -884,6 +1254,10 @@ DESCRIPTOR.message_types_by_name['iGetAllUidsInWatchdogREQ'] = _IGETALLUIDSINWAT
 DESCRIPTOR.message_types_by_name['iGetAllUidsInWatchdogRSP'] = _IGETALLUIDSINWATCHDOGRSP
 DESCRIPTOR.message_types_by_name['iCheckLoginV2REQ'] = _ICHECKLOGINV2REQ
 DESCRIPTOR.message_types_by_name['iCheckLoginV2RSP'] = _ICHECKLOGINV2RSP
+DESCRIPTOR.message_types_by_name['iGetPlatformOnlineUidsREQ'] = _IGETPLATFORMONLINEUIDSREQ
+DESCRIPTOR.message_types_by_name['iGetPlatformOnlineUidsRSP'] = _IGETPLATFORMONLINEUIDSRSP
+DESCRIPTOR.message_types_by_name['iSetUserRdkeyREQ'] = _ISETUSERRDKEYREQ
+DESCRIPTOR.message_types_by_name['iSetUserRdkeyRSP'] = _ISETUSERRDKEYRSP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 iBanUserChatREQ = _reflection.GeneratedProtocolMessageType('iBanUserChatREQ', (_message.Message,), dict(
@@ -984,6 +1358,28 @@ iGetUserInfoV2RSP = _reflection.GeneratedProtocolMessageType('iGetUserInfoV2RSP'
   ))
 _sym_db.RegisterMessage(iGetUserInfoV2RSP)
 
+iUpdateUserInfoREQ = _reflection.GeneratedProtocolMessageType('iUpdateUserInfoREQ', (_message.Message,), dict(
+
+  Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), dict(
+    DESCRIPTOR = _IUPDATEUSERINFOREQ_INFO,
+    __module__ = 'inner_go_user_pb2'
+    # @@protoc_insertion_point(class_scope:pb.iUpdateUserInfoREQ.Info)
+    ))
+  ,
+  DESCRIPTOR = _IUPDATEUSERINFOREQ,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iUpdateUserInfoREQ)
+  ))
+_sym_db.RegisterMessage(iUpdateUserInfoREQ)
+_sym_db.RegisterMessage(iUpdateUserInfoREQ.Info)
+
+iUpdateUserInfoRSP = _reflection.GeneratedProtocolMessageType('iUpdateUserInfoRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IUPDATEUSERINFORSP,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iUpdateUserInfoRSP)
+  ))
+_sym_db.RegisterMessage(iUpdateUserInfoRSP)
+
 iGetOnlineUidByLanguageREQ = _reflection.GeneratedProtocolMessageType('iGetOnlineUidByLanguageREQ', (_message.Message,), dict(
   DESCRIPTOR = _IGETONLINEUIDBYLANGUAGEREQ,
   __module__ = 'inner_go_user_pb2'
@@ -1032,6 +1428,34 @@ iCheckLoginV2RSP = _reflection.GeneratedProtocolMessageType('iCheckLoginV2RSP', 
   # @@protoc_insertion_point(class_scope:pb.iCheckLoginV2RSP)
   ))
 _sym_db.RegisterMessage(iCheckLoginV2RSP)
+
+iGetPlatformOnlineUidsREQ = _reflection.GeneratedProtocolMessageType('iGetPlatformOnlineUidsREQ', (_message.Message,), dict(
+  DESCRIPTOR = _IGETPLATFORMONLINEUIDSREQ,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetPlatformOnlineUidsREQ)
+  ))
+_sym_db.RegisterMessage(iGetPlatformOnlineUidsREQ)
+
+iGetPlatformOnlineUidsRSP = _reflection.GeneratedProtocolMessageType('iGetPlatformOnlineUidsRSP', (_message.Message,), dict(
+  DESCRIPTOR = _IGETPLATFORMONLINEUIDSRSP,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iGetPlatformOnlineUidsRSP)
+  ))
+_sym_db.RegisterMessage(iGetPlatformOnlineUidsRSP)
+
+iSetUserRdkeyREQ = _reflection.GeneratedProtocolMessageType('iSetUserRdkeyREQ', (_message.Message,), dict(
+  DESCRIPTOR = _ISETUSERRDKEYREQ,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iSetUserRdkeyREQ)
+  ))
+_sym_db.RegisterMessage(iSetUserRdkeyREQ)
+
+iSetUserRdkeyRSP = _reflection.GeneratedProtocolMessageType('iSetUserRdkeyRSP', (_message.Message,), dict(
+  DESCRIPTOR = _ISETUSERRDKEYRSP,
+  __module__ = 'inner_go_user_pb2'
+  # @@protoc_insertion_point(class_scope:pb.iSetUserRdkeyRSP)
+  ))
+_sym_db.RegisterMessage(iSetUserRdkeyRSP)
 
 
 DESCRIPTOR._options = None

@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -20,33 +21,36 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pb',
   syntax='proto2',
   serialized_options=_b('Z\005../pb'),
-  serialized_pb=_b('\n\nitem.proto\x12\x02pb\x1a\nbase.proto\"\\\n\x08UserItem\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x13\n\x0b\x63reate_time\x18\x04 \x01(\x03\"/\n\x14GetUserItemsBatchREQ\x12\x17\n\x0fitem_class_name\x18\x02 \x03(\t\"\x92\x01\n\x14GetUserItemsBatchRSP\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.pb.GetUserItemsBatchRSP.Code\x12\x1a\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x0c.pb.UserItem\"1\n\x04\x43ode\x12\x10\n\x0c\x43ODE_SUCCESS\x10\x00\x12\x17\n\nCODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\"A\n\x15UserActivityRewardREQ\x12\x11\n\titem_name\x18\x01 \x01(\t\x12\x15\n\ractivity_name\x18\x02 \x01(\t\"\\\n\x15UserActivityRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x15\n\ractivity_name\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x0b\n\x03num\x18\x04 \x01(\x05\"\x16\n\x14GetEmojiMigrationREQ\"\x9d\x01\n\x14GetEmojiMigrationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65moji\x18\x02 \x01(\x05\x12\x12\n\nking_emoji\x18\x03 \x01(\x05\x12\x13\n\x0bshark_emoji\x18\x04 \x01(\x05\x12\x16\n\x0e\x66ootball_emoji\x18\x05 \x01(\x05\x12\x12\n\nexpression\x18\x06 \x01(\x05\x12\x13\n\x0binteraction\x18\x07 \x01(\x05\"\x13\n\x11\x45mojiMigrationREQ\"A\n\x11\x45mojiMigrationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x11\n\titem_name\x18\x02 \x03(\t\x12\x0b\n\x03num\x18\x03 \x03(\x05\"\x1a\n\x18UpgradeServiceVersionREQ\"\'\n\x18UpgradeServiceVersionRSP\x12\x0b\n\x03seq\x18\x01 \x01(\x05\x42\x07Z\x05../pb')
+  serialized_pb=_b('\n\nitem.proto\x12\x02pb\x1a\nbase.proto\"\\\n\x08UserItem\x12\x15\n\ritem_class_id\x18\x01 \x01(\x03\x12\x17\n\x0fitem_class_name\x18\x02 \x01(\t\x12\x0b\n\x03num\x18\x03 \x01(\x05\x12\x13\n\x0b\x63reate_time\x18\x04 \x01(\x03\"/\n\x14GetUserItemsBatchREQ\x12\x17\n\x0fitem_class_name\x18\x02 \x03(\t\"^\n\x14GetUserItemsBatchRSP\x12*\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1c.pb.GetUserItemsBatchRSPCode\x12\x1a\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x0c.pb.UserItem\"A\n\x15UserActivityRewardREQ\x12\x11\n\titem_name\x18\x01 \x01(\t\x12\x15\n\ractivity_name\x18\x02 \x01(\t\"\\\n\x15UserActivityRewardRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x15\n\ractivity_name\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\x12\x0b\n\x03num\x18\x04 \x01(\x05\"\x16\n\x14GetEmojiMigrationREQ\"\x9d\x01\n\x14GetEmojiMigrationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65moji\x18\x02 \x01(\x05\x12\x12\n\nking_emoji\x18\x03 \x01(\x05\x12\x13\n\x0bshark_emoji\x18\x04 \x01(\x05\x12\x16\n\x0e\x66ootball_emoji\x18\x05 \x01(\x05\x12\x12\n\nexpression\x18\x06 \x01(\x05\x12\x13\n\x0binteraction\x18\x07 \x01(\x05\"\x13\n\x11\x45mojiMigrationREQ\"A\n\x11\x45mojiMigrationRSP\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x11\n\titem_name\x18\x02 \x03(\t\x12\x0b\n\x03num\x18\x03 \x03(\x05\"\x1a\n\x18UpgradeServiceVersionREQ\"\'\n\x18UpgradeServiceVersionRSP\x12\x0b\n\x03seq\x18\x01 \x01(\x05*\x7f\n\x18GetUserItemsBatchRSPCode\x12-\n)GET_USER_ITEMS_BATCH_RSPCODE_CODE_SUCCESS\x10\x00\x12\x34\n\'GET_USER_ITEMS_BATCH_RSPCODE_CODE_ERROR\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x42\x07Z\x05../pb')
   ,
   dependencies=[base__pb2.DESCRIPTOR,])
 
-
-
-_GETUSERITEMSBATCHRSP_CODE = _descriptor.EnumDescriptor(
-  name='Code',
-  full_name='pb.GetUserItemsBatchRSP.Code',
+_GETUSERITEMSBATCHRSPCODE = _descriptor.EnumDescriptor(
+  name='GetUserItemsBatchRSPCode',
+  full_name='pb.GetUserItemsBatchRSPCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CODE_SUCCESS', index=0, number=0,
+      name='GET_USER_ITEMS_BATCH_RSPCODE_CODE_SUCCESS', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CODE_ERROR', index=1, number=-1,
+      name='GET_USER_ITEMS_BATCH_RSPCODE_CODE_ERROR', index=1, number=-1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=271,
-  serialized_end=320,
+  serialized_start=771,
+  serialized_end=898,
 )
-_sym_db.RegisterEnumDescriptor(_GETUSERITEMSBATCHRSP_CODE)
+_sym_db.RegisterEnumDescriptor(_GETUSERITEMSBATCHRSPCODE)
+
+GetUserItemsBatchRSPCode = enum_type_wrapper.EnumTypeWrapper(_GETUSERITEMSBATCHRSPCODE)
+GET_USER_ITEMS_BATCH_RSPCODE_CODE_SUCCESS = 0
+GET_USER_ITEMS_BATCH_RSPCODE_CODE_ERROR = -1
+
 
 
 _USERITEM = _descriptor.Descriptor(
@@ -158,7 +162,6 @@ _GETUSERITEMSBATCHRSP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _GETUSERITEMSBATCHRSP_CODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -166,8 +169,8 @@ _GETUSERITEMSBATCHRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=320,
+  serialized_start=173,
+  serialized_end=267,
 )
 
 
@@ -204,8 +207,8 @@ _USERACTIVITYREWARDREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=322,
-  serialized_end=387,
+  serialized_start=269,
+  serialized_end=334,
 )
 
 
@@ -256,8 +259,8 @@ _USERACTIVITYREWARDRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=389,
-  serialized_end=481,
+  serialized_start=336,
+  serialized_end=428,
 )
 
 
@@ -280,8 +283,8 @@ _GETEMOJIMIGRATIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=483,
-  serialized_end=505,
+  serialized_start=430,
+  serialized_end=452,
 )
 
 
@@ -353,8 +356,8 @@ _GETEMOJIMIGRATIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=508,
-  serialized_end=665,
+  serialized_start=455,
+  serialized_end=612,
 )
 
 
@@ -377,8 +380,8 @@ _EMOJIMIGRATIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=667,
-  serialized_end=686,
+  serialized_start=614,
+  serialized_end=633,
 )
 
 
@@ -422,8 +425,8 @@ _EMOJIMIGRATIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=688,
-  serialized_end=753,
+  serialized_start=635,
+  serialized_end=700,
 )
 
 
@@ -446,8 +449,8 @@ _UPGRADESERVICEVERSIONREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=755,
-  serialized_end=781,
+  serialized_start=702,
+  serialized_end=728,
 )
 
 
@@ -477,13 +480,12 @@ _UPGRADESERVICEVERSIONRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=783,
-  serialized_end=822,
+  serialized_start=730,
+  serialized_end=769,
 )
 
-_GETUSERITEMSBATCHRSP.fields_by_name['code'].enum_type = _GETUSERITEMSBATCHRSP_CODE
+_GETUSERITEMSBATCHRSP.fields_by_name['code'].enum_type = _GETUSERITEMSBATCHRSPCODE
 _GETUSERITEMSBATCHRSP.fields_by_name['data'].message_type = _USERITEM
-_GETUSERITEMSBATCHRSP_CODE.containing_type = _GETUSERITEMSBATCHRSP
 DESCRIPTOR.message_types_by_name['UserItem'] = _USERITEM
 DESCRIPTOR.message_types_by_name['GetUserItemsBatchREQ'] = _GETUSERITEMSBATCHREQ
 DESCRIPTOR.message_types_by_name['GetUserItemsBatchRSP'] = _GETUSERITEMSBATCHRSP
@@ -495,6 +497,7 @@ DESCRIPTOR.message_types_by_name['EmojiMigrationREQ'] = _EMOJIMIGRATIONREQ
 DESCRIPTOR.message_types_by_name['EmojiMigrationRSP'] = _EMOJIMIGRATIONRSP
 DESCRIPTOR.message_types_by_name['UpgradeServiceVersionREQ'] = _UPGRADESERVICEVERSIONREQ
 DESCRIPTOR.message_types_by_name['UpgradeServiceVersionRSP'] = _UPGRADESERVICEVERSIONRSP
+DESCRIPTOR.enum_types_by_name['GetUserItemsBatchRSPCode'] = _GETUSERITEMSBATCHRSPCODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 UserItem = _reflection.GeneratedProtocolMessageType('UserItem', (_message.Message,), dict(
