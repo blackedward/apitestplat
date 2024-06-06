@@ -2789,3 +2789,47 @@ class Reportlist(MethodView):
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_report_error.value[0],
                            message=MessageEnum.get_report_error.value[1])
+
+
+class Reportcaselist(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            start_time = request.args.get('start_time')
+            end_time = request.args.get('end_time')
+            model_id = request.args.get('model_id')
+            project_id = request.args.get('project_id')
+
+            gross_caselist = TestcaseResult.query.filter(
+                TestcaseResult.date.between(start_time, end_time)
+            ).with_entities(TestcaseResult.case_id).distinct().all()
+
+            case_list = [case.case_id for case in gross_caselist]
+
+            if model_id:
+                filtered_case_ids = InterfaceCase.query.filter(
+                    InterfaceCase.case_id.in_(case_list),
+                    InterfaceCase.model_id == model_id
+                ).with_entities(InterfaceCase.case_id).all()
+            else:
+                filtered_case_ids = InterfaceCase.query.filter(
+                    InterfaceCase.case_id.in_(case_list),
+                    InterfaceCase.project_id == project_id
+                ).with_entities(InterfaceCase.case_id).all()
+
+            case_list = [case.case_id for case in filtered_case_ids]
+            if not case_list:
+                return reponse(code=MessageEnum.no_report_here.value[0],
+                               message=MessageEnum.no_report_here.value[1])
+
+            cases = InterfaceCase.query.filter(InterfaceCase.case_id.in_(case_list)).all()
+            ret = []
+            for i in cases:
+                res = {'case_id': i.case_id, 'case_desc': i.desc}
+                ret.append(res)
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_report_error.value[0],
+                           message=MessageEnum.get_report_error.value[1])

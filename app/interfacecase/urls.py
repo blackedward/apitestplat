@@ -39,6 +39,9 @@ interfacecase.add_url_rule("/saveautocases", view_func=Saveautocases.as_view('sa
 interfacecase.add_url_rule("/batchdelcase", view_func=Batchdelcase.as_view('batchdelcase'))
 interfacecase.add_url_rule("/testreport", view_func=Testreport.as_view('testreport'))
 interfacecase.add_url_rule("/reportlist", view_func=Reportlist.as_view('reportlist'))
+interfacecase.add_url_rule("/reportcaselist", view_func=Reportcaselist.as_view('reportcaselist'))
+
+
 
 
 
