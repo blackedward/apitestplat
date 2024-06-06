@@ -590,13 +590,15 @@ class ExecuteCase(MethodView):
                         'is_pass': False,
                         'except': assertdesc.excepted_result,
                         'actual': current,
-                        'expression': assertdesc.expression
+                        'expression': assertdesc.expression,
+                        'operator': assert_operators.get(assertdesc.operator),
                     }, False
                 assertinfos.append({
                     'case_id': caseid,
                     'ast_res': '断言通过',
                     'expression': assertdesc.expression,
                     'actual_result': current,
+                    'operator': assert_operators.get(assertdesc.operator),
                     'excepted_result': assertdesc.excepted_result,
                 })
             return assertinfos, True
@@ -1673,21 +1675,24 @@ class Executeproto(MethodView):
             if not assert_info:
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=res)
             else:
-                expected = assert_info.get('excepted_result')
-                expression = assert_info.get('expression')
+                keys = assert_info.get('expression').split('.')
+                current = temp
+                for key in keys:
+                    if isinstance(current, list):
+                        current = current[int(key)]
+                    else:
+                        current = current[key]
+                if isinstance(current, str):
+                    flag = assert_value(temp, assert_info.get('expression'), assert_info.get('excepted_result'),
+                                        'string_equal_to')
+                else:
+                    flag = assert_value(temp, assert_info.get('expression'), assert_info.get('excepted_result'),
+                                        'is_equal_to')
 
-                if '.' in expression:
-                    for i in expression.split('.'):
-                        temp = temp[i]
-                else:
-                    temp = temp[expression]
-                assertres = {'excepted_result': expected, 'actual_result': temp}
-                ret = {'assert_info': assertres, 'response': res}
-                if isinstance(temp, bool):
-                    temp = str(temp).lower()
-                else:
-                    temp = str(temp)
-                if temp == expected:
+                assert_rest = {'excepted_result': assert_info.get('excepted_result'), 'actual_result': current}
+                ret = {'assert_info': assert_rest, 'response': res}
+
+                if flag:
                     return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
                 else:
                     return reponse(code=MessageEnum.assert_error.value[0], message=MessageEnum.assert_error.value[1],
