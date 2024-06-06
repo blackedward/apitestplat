@@ -28,6 +28,7 @@ from common.log import logger
 from common.executehandler import ExecuteHandler
 from common.AnalysisPB import ProtoHandler, ProtoDir
 from common.GenerateProto import *
+from common.AssertClass import assert_value
 
 from lib.CustomException import TimeOutException
 
@@ -401,6 +402,7 @@ class ExecuteCase(MethodView):
             return case_raw
         for material in materials:
             case_raw = case_raw.replace('${' + material['name'] + '}', str(material['value']))
+        logger.info('替换后的参数是：{}'.format(case_raw))
         return case_raw
 
     def execute_proto_case(self, data, case):
@@ -423,9 +425,15 @@ class ExecuteCase(MethodView):
             res = result_queue.get()
             for precase in precases:
                 if precase.extract_expression is not None:
+                    keys = precase.extract_expression.split('.')
                     result = [item for item in res if item['case_id'] == precase.pre_case_id]
-                    expvalue = result[0]['exe_rsp'].get(precase.extract_expression)
-                    materials.append({'name': precase.extract_expression, 'value': expvalue})
+                    current = result
+                    for key in keys:
+                        if isinstance(current, list):
+                            current = current[int(key)]
+                        else:
+                            current = current[key]
+                    materials.append({'name': precase.extract_expression, 'value': current})
             if self.handle_process_result(res, start_time, data.get('env_id')):
                 return self.respond_with_error(MessageEnum.assert_error, res)
 
@@ -543,22 +551,55 @@ class ExecuteCase(MethodView):
         logger.info('执行前置proto用例完毕，结果是：{}'.format(res))
 
     def evaluate_assertion(self, caseid, rsp):
-        assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
-        if assertdesc:
-            temp = self.extract_value(rsp, assertdesc.expression)
-            if temp is None:
-                return {'case_id': caseid, 'is_pass': False, 'error': '无法提取值'}, False
-            is_pass = str(temp).lower() == assertdesc.excepted_result if isinstance(temp, bool) else str(
-                temp) == assertdesc.excepted_result
-            return {
-                'case_id': caseid,
-                'is_pass': is_pass,
-                'except': assertdesc.excepted_result,
-                'actual': temp,
-                'assert_desc': assertdesc.assert_name,
-                'expression': assertdesc.expression
-            }, is_pass
-        return {}, True
+        caseasserts = InterfaceCaseAssert.query.filter_by(case_id=caseid, status=1).order_by(
+            InterfaceCaseAssert.order).all()
+
+        if caseasserts:
+            assertinfos = []
+            for assertdesc in caseasserts:
+                assert_operators = {
+                    0: 'is_equal_to',
+                    1: 'is_less_than',
+                    2: 'is_greater_than',
+                    3: 'is_less_than_or_equal_to',
+                    4: 'is_greater_than_or_equal_to',
+                    5: 'string_equal_to',
+                    6: 'is_not_equal_to',
+                    7: 'matches',
+                    8: 'is_none',
+                    9: 'is_not_none',
+                    10: 'contains',
+                    11: 'is_empty',
+                    12: 'is_not_empty',
+                }
+
+                keys = assertdesc.expression.split('.')
+                current = rsp
+                for key in keys:
+                    if isinstance(current, list):
+                        current = current[int(key)]
+                    else:
+                        current = current[key]
+
+                assert_res = assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
+                                          assert_operators.get(assertdesc.operator))
+                if not assert_res:
+                    return {
+                        'case_id': caseid,
+                        'is_pass': False,
+                        'except': assertdesc.excepted_result,
+                        'actual': current,
+                        'expression': assertdesc.expression
+                    }, False
+                assertinfos.append({
+                    'case_id': caseid,
+                    'ast_res': '断言通过',
+                    'expression': assertdesc.expression,
+                    'actual_result': current,
+                    'excepted_result': assertdesc.excepted_result,
+                })
+            return assertinfos, True
+        return {'用例:{}', format(caseid) + '没有设置断言'}, True
 
     def extract_value(self, data, expression):
         temp = data
@@ -574,13 +615,30 @@ class ExecuteCase(MethodView):
 
     def finalize_test_result(self, res, case, env_id, start_time):
         assert_pass = True
-        caseassert = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
-        if caseassert:
+        caseasserts = InterfaceCaseAssert.query.filter_by(case_id=case.case_id, status=1).all()
+        if caseasserts:
             assert_infos = []
-            for i in caseassert:
+            for i in caseasserts:
+                assert_operators = {
+                    0: 'is_equal_to',
+                    1: 'is_less_than',
+                    2: 'is_greater_than',
+                    3: 'is_less_than_or_equal_to',
+                    4: 'is_greater_than_or_equal_to',
+                    5: 'string_equal_to',
+                    6: 'is_not_equal_to',
+                    7: 'matches',
+                    8: 'is_none',
+                    9: 'is_not_none',
+                    10: 'contains',
+                    11: 'is_empty',
+                    12: 'is_not_empty',
+                }
+                assert_res = assert_value(res, i.expression, i.excepted_result, assert_operators.get(i.operator))
+
                 current_value = self.extract_value(res, i.expression)
                 current_value = str(current_value).lower() if isinstance(current_value, bool) else str(current_value)
-                asres = '断言通过' if i.excepted_result == current_value else '断言失败'
+                asres = '断言通过' if assert_res else '断言失败'
                 assert_pass = assert_pass and asres == '断言通过'
                 assert_infos.append({
                     'assert_res': asres,

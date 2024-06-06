@@ -2,11 +2,9 @@ import google.protobuf.descriptor_pb2 as descriptor
 
 
 def get_messages_and_enums(proto_file_path):
-    # Load the proto file
     with open(proto_file_path, 'rb') as f:
         file_descriptor_set = descriptor.FileDescriptorSet.FromString(f.read())
 
-    # Get all the messages and enums from the file descriptor
     messages = []
     enums = []
     for file_descriptor_proto in file_descriptor_set.file:

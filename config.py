@@ -33,7 +33,7 @@ class ProductionConfig(BaseConfig):
 
 class DevelopmentConfig:
     DEBUG = True
-    SQLALCHEMY_ECHO = True
+    SQLALCHEMY_ECHO = False
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:G@meloft1@localhost:3306/Ktest?charset=utf8mb4"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = 'development&*5290123'

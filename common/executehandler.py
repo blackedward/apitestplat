@@ -3,6 +3,7 @@ import time
 import traceback
 from decimal import Decimal
 
+from common.AssertClass import assert_value
 from common.casemethod import CaseMethods
 from common.exesql import ExeSql
 from common.jsontools import reponse
@@ -11,7 +12,6 @@ from common.request_case import Api
 from error_message import MessageEnum
 from app.models import *
 from common.log import logger
-from assertpy import assert_that
 
 
 class ExecuteHandler(object):
@@ -173,10 +173,10 @@ class ExecuteHandler(object):
                 res = self.judgecase(apijson, case_id)[0]
                 if res is True:
                     self.save_case_result(apijson, case_id, ispass=True, testevir=env_id, spend=spend)
-                    return '{"result": "断言通过"}', apijson
+                    return json.dumps({'result': "断言通过", 'response': apijson}), apijson
                 else:
                     self.save_case_result(apijson, case_id, ispass=False, testevir=env_id, spend=spend)
-                    return '{"result": "断言失败"}', apijson
+                    return json.dumps({'result': "断言失败", 'response': apijson}), apijson
 
             elif parameterdic['protocol'] == 1:
                 # 处理其他协议的情况
@@ -220,9 +220,9 @@ class ExecuteHandler(object):
             self.save_case_result(apijson, case_id, ispass=result, testevir=env_id, spend=spend)
 
             if result:
-                return '{"result": "断言通过"}', apijson
+                return json.dumps({'result': "断言通过", 'response': apijson}), apijson
             else:
-                return '{"result": "断言失败"}', apijson
+                return json.dumps({'result': "断言失败", 'response': apijson}), apijson
 
         except Exception as e:
             logger.exception(e)
@@ -239,13 +239,16 @@ class ExecuteHandler(object):
                 if not exerespon or json.loads(exerespon[0])['result'] in ['断言失败', '请求出错了']:
                     return None
                 if extract_expression:
-                    if '.' in extract_expression:
-                        temp = exerespon[1]
-                        for i in extract_expression.split('.'):
-                            temp = temp[i]
-                        exerespon[1][extract_expression] = temp
+                    keys = extract_expression.split('.')
+                    current = exerespon[1]
+                    for key in keys:
+                        if isinstance(current, list):
+                            current = current[int(key)]
+                        else:
+                            current = current[key]
+
                     precaseinfo = {
-                        'extract_result': exerespon[1][extract_expression],
+                        'extract_result': current,
                         'extract_expression': extract_expression,
                         'pre_case_id': caseid
                     }
@@ -263,6 +266,7 @@ class ExecuteHandler(object):
                     '${' + extract_expression + '}',
                     str(precaseinfo.get("extract_result"))
                 )
+        logger.info('替换后的参数是: {}'.format(parameterdic['case_params']))
 
     def send_request_and_assert(self, parameterdic, case_id, env_id):
         if parameterdic['protocol'] == 0:
@@ -298,7 +302,7 @@ class ExecuteHandler(object):
                 2: 'is_greater_than',
                 3: 'is_less_than_or_equal_to',
                 4: 'is_greater_than_or_equal_to',
-                5: 'is_equal_to',
+                5: 'string_equal_to',
                 6: 'is_not_equal_to',
                 7: 'matches',
                 8: 'is_none',
@@ -310,36 +314,21 @@ class ExecuteHandler(object):
 
             assertsinfs = []
             for i in caseasserts:
-                assertinf = {}
-                assertinf['expression'] = i.expression
-                assertinf['operator'] = i.operator
-                assertinf['excepted_result'] = i.excepted_result
+                assertinf = {'expression': i.expression, 'operator': i.operator, 'excepted_result': i.excepted_result}
                 assertsinfs.append(assertinf)
 
             if not assertsinfs:
                 return flag, {'组装断言信息出错'}
 
-            logger.info(assertsinfs)
+            logger.info('用例:{}'.format(case_id) + '  断言信息是: {}'.format(assertsinfs))
             for i in assertsinfs:
                 try:
                     expression = i['expression']
                     operator = assert_operators.get(i['operator'])
                     expected_result = i['excepted_result']
-
-                    if '.' in expression:
-                        temp = result
-                        for j in expression.split('.'):
-                            temp = temp[j]
-                        result[expression] = temp
-
-                    if i['operator'] in [0, 1, 2, 3, 4, 6]:
-                        getattr(assert_that(Decimal(result[expression])), operator)(Decimal(expected_result))
-                    elif i['operator'] in [5, 7, 10]:
-                        getattr(assert_that(str(result[expression])), operator)(expected_result)
-                    elif i['operator'] in [8, 9, 11, 12]:
-                        getattr(assert_that(str(result[expression])), operator)()
-                    else:
-                        return flag, {'断言符号错误'}
+                    assertflg = assert_value(result, expression, expected_result, operator)
+                    if not assertflg:
+                        return flag, {'断言失败'}
                 except Exception as e:
                     logger.exception(e)
                     return flag, {'断言失败'}
