@@ -424,7 +424,7 @@ class ExecuteCase(MethodView):
             process.join()
             res = result_queue.get()
             for precase in precases:
-                if precase.extract_expression is not None:
+                if precase.extract_expression is not None and precase.extract_expression != '':
                     logger.info('precase.extract_expression is:{}'.format(precase.extract_expression))
                     keys = precase.extract_expression.split('.')
                     result = [item for item in res if item['case_id'] == precase.pre_case_id]
