@@ -2740,8 +2740,17 @@ class Reportlist(MethodView):
                     'pass_count': pass_count,
                     'fail_count': fail_count
                 }
-            else:
+            elif test_res:
                 query = query.filter(TestcaseResult.ispass == (test_res.lower() == 'true'))
+            else:
+                total_count = query.count()
+                pass_count = query.filter(TestcaseResult.ispass == True).count()
+                fail_count = query.filter(TestcaseResult.ispass == False).count()
+                stats = {
+                    'total_count': total_count,
+                    'pass_count': pass_count,
+                    'fail_count': fail_count
+                }
 
             # 分页查询
             total = query.count()
