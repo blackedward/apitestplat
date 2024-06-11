@@ -548,7 +548,23 @@ class BaseTaskHandler(MethodView):
                 rsp = i.get('exe_rsp')
                 assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
                 assert_info = {}
+
                 if assertdesc is not None:
+                    assert_operators = {
+                        0: 'is_equal_to',
+                        1: 'is_less_than',
+                        2: 'is_greater_than',
+                        3: 'is_less_than_or_equal_to',
+                        4: 'is_greater_than_or_equal_to',
+                        5: 'string_equal_to',
+                        6: 'is_not_equal_to',
+                        7: 'matches',
+                        8: 'is_none',
+                        9: 'is_not_none',
+                        10: 'contains',
+                        11: 'is_empty',
+                        12: 'is_not_empty',
+                    }
                     keys = assertdesc.expression.split('.')
                     current = rsp
                     for key in keys:
@@ -557,7 +573,7 @@ class BaseTaskHandler(MethodView):
                         else:
                             current = current[key]
                     assert_res = AssertClass.assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
-                                                          assertdesc.operator)
+                                                          assert_operators.get(assertdesc.operator))
 
                     if assert_res and i.get('exe_res'):
                         isPass = True
