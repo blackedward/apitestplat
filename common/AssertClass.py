@@ -4,6 +4,7 @@ from common.log import logger
 
 
 def assert_value(data, path, expected_value, operator):
+    logger.info(f"Asserting value:{data} {path} {operator} {expected_value}")
     keys = path.split('.')
     current = data
     for key in keys:
@@ -103,7 +104,6 @@ def is_not_empty(a, b=None):
     result = bool(a)
     return result
 
-
 # if __name__ == '__main__':
 #     data = {
 #         "banned_platform_contact_info": [],
@@ -154,37 +154,3 @@ def is_not_empty(a, b=None):
 #     assert_value(data, 'info.0.icon', 'club_icon', 'contains')
 #     assert_value(data, 'info.1.league_list', [], 'is_not_empty')
 #     assert_value(data, 'is_banned_create_club_platform', False, 'is_equal_to')
-
-if __name__ == '__main__':
-    data = [{'case_id': 3241, 'exe_res': True,
-             'exe_rsp': {'code': -2, 'agent_uid': '2529624', 'clubid': 1286860, 'club_ppcoin': '0',
-                         'change_ppcoin': '1000000000', 'agent_ppcoin': '0', 'leagueid': 0}, 'exe_spend': '0.04'},
-            {'case_id': 3242, 'exe_res': True,
-             'exe_rsp': {'code': -2, 'agent_uid': '2529625', 'clubid': 1286860, 'club_ppcoin': '0',
-                         'change_ppcoin': '100', 'agent_ppcoin': '0', 'leagueid': 0}, 'exe_spend': '0.05'},
-            {'case_id': 3243, 'exe_res': True,
-             'exe_rsp': {'code': -2, 'agent_uid': '2529624', 'clubid': 1286860, 'club_ppcoin': '0',
-                         'change_ppcoin': '-100', 'agent_ppcoin': '0', 'leagueid': 0}, 'exe_spend': '0.00'},
-            {'case_id': 3244, 'exe_res': True,
-             'exe_rsp': {'code': -2, 'agent_uid': '2529624', 'clubid': 1286860, 'club_ppcoin': '0',
-                         'change_ppcoin': '-100000000', 'agent_ppcoin': '0', 'leagueid': 0}, 'exe_spend': '0.00'},
-            {'case_id': 3245, 'exe_res': False, 'exe_rsp': 'time out, uid:2529620', 'exe_spend': '6.01'},
-            {'case_id': 3246, 'exe_res': False, 'exe_rsp': 'time out, uid:2529620', 'exe_spend': '6.00'},
-            {'case_id': 3247, 'exe_res': False, 'exe_rsp': 'time out, uid:2529620', 'exe_spend': '6.01'},
-            {'case_id': 3269, 'exe_res': True,
-             'exe_rsp': {'code': -5, 'clubid': 1286860, 'club_ppchips': '0', 'leagueid': 0}, 'exe_spend': '0.01'},
-            {'case_id': 3273, 'exe_res': True,
-             'exe_rsp': {'code': -4, 'clubid': 1286860, 'club_ppchips': '0', 'leagueid': 0}, 'exe_spend': '0.01'}]
-
-    for i in data:
-        rsp = i.get('exe_rsp')
-        keys = 'code'.split('.')
-        current = rsp
-
-        if not isinstance(current, str):
-            for key in keys:
-                if isinstance(current, list):
-                    current = current[int(key)]
-                else:
-                    current = current[key]
-            print(current)
