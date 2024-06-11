@@ -520,6 +520,9 @@ class BaseTaskHandler(MethodView):
         return ret
 
     def handle_other_protocol(self, env_id, caseinfos, suite, task, start_time):
+        logger.info('开始处理proto协议测试套件')
+        caseids = [case['case_id'] for case in caseinfos]
+        logger.info('待处理的proto caseids是: {}'.format(caseids))
         result_queue = multiprocessing.Queue()
         process = multiprocessing.Process(
             target=self.run_in_new_process_multproto,
@@ -736,7 +739,7 @@ class Reruntask(BaseTaskHandler):
                 logger.error(traceback.format_exc())
                 return reponse(code=MessageEnum.task_create_error.value[0],
                                message=MessageEnum.task_create_error.value[1])
-
+            time.sleep(1)
             self.start_new_process(newtask_id)
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
