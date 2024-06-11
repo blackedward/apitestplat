@@ -4,7 +4,6 @@ from common.log import logger
 
 
 def assert_value(data, path, expected_value, operator):
-    logger.info(f"Asserting value:{data} {path} {operator} {expected_value}")
     keys = path.split('.')
     current = data
     for key in keys:

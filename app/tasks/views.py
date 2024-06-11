@@ -573,16 +573,16 @@ class BaseTaskHandler(MethodView):
                                 current = current[int(key)]
                             else:
                                 current = current[key]
-                    assert_res = AssertClass.assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
-                                                          assert_operators.get(assertdesc.operator))
-                    if assert_res and i.get('exe_res'):
-                        isPass = True
-                    else:
-                        isPass = False
-                        flag = False
-                    assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
-                                   'actual': current, 'assert_desc': assertdesc.assert_name,
-                                   'expression': assertdesc.expression}
+                        assert_res = AssertClass.assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
+                                                              assert_operators.get(assertdesc.operator))
+                        if assert_res and i.get('exe_res'):
+                            isPass = True
+                        else:
+                            isPass = False
+                            flag = False
+                        assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
+                                       'actual': current, 'assert_desc': assertdesc.assert_name,
+                                       'expression': assertdesc.expression}
 
                 i['assert_info'] = assert_info
                 testres = TestcaseResult(
