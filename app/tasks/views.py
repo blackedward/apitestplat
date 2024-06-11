@@ -566,15 +566,15 @@ class BaseTaskHandler(MethodView):
                         12: 'is_not_empty',
                     }
                     keys = assertdesc.expression.split('.')
-                    current = json.loads(json.dumps(rsp))
-                    for key in keys:
-                        if isinstance(current, list):
-                            current = current[int(key)]
-                        else:
-                            current = current[key]
+                    current = rsp
+                    if not isinstance(current, str):
+                        for key in keys:
+                            if isinstance(current, list):
+                                current = current[int(key)]
+                            else:
+                                current = current[key]
                     assert_res = AssertClass.assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
                                                           assert_operators.get(assertdesc.operator))
-
                     if assert_res and i.get('exe_res'):
                         isPass = True
                     else:
