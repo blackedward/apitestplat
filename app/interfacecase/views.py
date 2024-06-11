@@ -607,9 +607,9 @@ class ExecuteCase(MethodView):
     def extract_value(self, data, expression):
         temp = data
         logger.info(f"初始数据: {temp}")
-
+        keys = expression.split('.')
         current = temp
-        for key in expression:
+        for key in keys:
             if isinstance(current, list):
                 current = current[int(key)]
             else:
