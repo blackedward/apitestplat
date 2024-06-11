@@ -128,8 +128,9 @@ class Taskfilter(MethodView):
                 ret = []
                 for task in tasks:
                     task_data = task.to_dict()
-                    task_data['creator_name'] = task.users.username  # 获取关联的用户名
+                    task_data['creator_name'] = task.users.username
                     task_data['create_time'] = task.create_time.strftime('%Y-%m-%d %H:%M:%S')
+                    task_data['end_time'] = task.end_time.strftime('%Y-%m-%d %H:%M:%S') if task.end_time else ''
                     ret.append(task_data)
 
                 data = {
@@ -263,6 +264,8 @@ class BaseTaskHandler(MethodView):
         return caseinfos
 
     def handle_http_protocol(self, env, caseinfos, suite, task, start_time):
+        logger.info('开始处理HTTP协议测试套件')
+        logger.info('用例是:{}', caseinfos)
         flag = True
         exe_res = []
         for case in caseinfos:

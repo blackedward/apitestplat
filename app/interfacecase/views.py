@@ -607,14 +607,14 @@ class ExecuteCase(MethodView):
     def extract_value(self, data, expression):
         temp = data
         logger.info(f"初始数据: {temp}")
-        for j in expression.split('.'):
-            if isinstance(temp, dict):
-                temp = temp.get(j)
+
+        current = temp
+        for key in expression:
+            if isinstance(current, list):
+                current = current[int(key)]
             else:
-                logger.error(f"在处理表达式 {expression} 时，数据 {temp} 不是字典，无法使用 'get' 方法")
-                return None
-            logger.info(f"当前表达式: {j}, 当前值: {temp}")
-        return temp
+                current = current[key]
+        return current
 
     def finalize_test_result(self, res, case, env_id, start_time):
         assert_pass = True
