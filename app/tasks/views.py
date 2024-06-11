@@ -15,6 +15,7 @@ from gevent import spawn, joinall
 from app.models import *
 from flask.views import View, MethodView
 
+from common import AssertClass
 from common.Client import Client
 from common.executehandler import ExecuteHandler
 from common.jsontools import reponse
@@ -548,23 +549,23 @@ class BaseTaskHandler(MethodView):
                 assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
                 assert_info = {}
                 if assertdesc is not None:
-                    temp = rsp
-                    if '.' in assertdesc.expression:
-                        for j in assertdesc.expression.split('.'):
-                            temp = temp[j]
-                    else:
-                        temp = temp[assertdesc.expression]
-                    if isinstance(temp, bool):
-                        temp = str(temp).lower()
-                    else:
-                        temp = str(temp)
-                    if (temp == assertdesc.excepted_result) and i.get('exe_res'):
+                    keys = assertdesc.expression.split('.')
+                    current = rsp
+                    for key in keys:
+                        if isinstance(current, list):
+                            current = current[int(key)]
+                        else:
+                            current = current[key]
+                    assert_res = AssertClass.assert_value(rsp, assertdesc.expression, assertdesc.excepted_result,
+                                                          assertdesc.operator)
+
+                    if assert_res and i.get('exe_res'):
                         isPass = True
                     else:
                         isPass = False
                         flag = False
                     assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
-                                   'actual': temp, 'assert_desc': assertdesc.assert_name,
+                                   'actual': current, 'assert_desc': assertdesc.assert_name,
                                    'expression': assertdesc.expression}
 
                 i['assert_info'] = assert_info
@@ -739,7 +740,6 @@ class Reruntask(BaseTaskHandler):
                 logger.error(traceback.format_exc())
                 return reponse(code=MessageEnum.task_create_error.value[0],
                                message=MessageEnum.task_create_error.value[1])
-            time.sleep(1)
             self.start_new_process(newtask_id)
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
