@@ -19,7 +19,7 @@ app.register_blueprint(tasks, url_prefix='/tasks')
 
 
 @app.route('/')
-def hello_world():  # put application's code here
+def hello_world():
     return 'Hello World!'
 
 

@@ -34,123 +34,71 @@ def assert_value(data, path, expected_value, operator):
 
 def is_equal_to(a, b):
     result = (a == b) if isinstance(a, bool) and isinstance(b, bool) else (str(a) == str(b))
-    if result:
-        logger.info(f"Assertion succeeded: {a} is equal to {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is not equal to {b}")
     return result
 
 
 def is_less_than(a, b):
     a, b = float(a), float(b)
     result = a < b
-    if result:
-        logger.info(f"Assertion succeeded: {a} is less than {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is not less than {b}")
     return result
 
 
 def is_greater_than(a, b):
     a, b = float(a), float(b)
     result = a > b
-    if result:
-        logger.info(f"Assertion succeeded: {a} is greater than {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is not greater than {b}")
     return result
 
 
 def is_less_than_or_equal_to(a, b):
     a, b = float(a), float(b)
     result = a <= b
-    if result:
-        logger.info(f"Assertion succeeded: {a} is less than or equal to {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is not less than or equal to {b}")
     return result
 
 
 def is_greater_than_or_equal_to(a, b):
     a, b = float(a), float(b)
     result = a >= b
-    if result:
-        logger.info(f"Assertion succeeded: {a} is greater than or equal to {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is not greater than or equal to {b}")
     return result
 
 
 def string_equal_to(a, b):
     result = str(a) == str(b)
-    if result:
-        logger.info(f"Assertion succeeded: {a} as string is equal to {b} as string")
-    else:
-        logger.error(f"Assertion failed: {a} as string is not equal to {b} as string")
     return result
 
 
 def is_not_equal_to(a, b):
     result = (a != b) if isinstance(a, bool) and isinstance(b, bool) else (str(a) != str(b))
-    if result:
-        logger.info(f"Assertion succeeded: {a} is not equal to {b}")
-    else:
-        logger.error(f"Assertion failed: {a} is equal to {b}")
     return result
 
 
 def matches(a, pattern):
     import re
     result = bool(re.match(pattern, str(a)))
-    if result:
-        logger.info(f"Assertion succeeded: {a} matches {pattern}")
-    else:
-        logger.error(f"Assertion failed: {a} does not match {pattern}")
     return result
 
 
 def is_none(a, b=None):
     result = (a is None)
-    if result:
-        logger.info(f"Assertion succeeded: {a} is None")
-    else:
-        logger.error(f"Assertion failed: {a} is not None")
     return result
 
 
 def is_not_none(a, b=None):
     result = (a is not None)
-    if result:
-        logger.info(f"Assertion succeeded: {a} is not None")
-    else:
-        logger.error(f"Assertion failed: {a} is None")
     return result
 
 
 def contains(a, b):
     result = str(b) in str(a)
-    if result:
-        logger.info(f"Assertion succeeded: {b} is in {a}")
-    else:
-        logger.error(f"Assertion failed: {b} is not in {a}")
     return result
 
 
 def is_empty(a, b=None):
     result = not a
-    if result:
-        logger.info(f"Assertion succeeded: {a} is empty")
-    else:
-        logger.error(f"Assertion failed: {a} is not empty")
     return result
 
 
 def is_not_empty(a, b=None):
     result = bool(a)
-    if result:
-        logger.info(f"Assertion succeeded: {a} is not empty")
-    else:
-        logger.error(f"Assertion failed: {a} is empty")
     return result
 
 

@@ -7,7 +7,6 @@ import time
 import traceback
 from enum import Enum
 
-import requests
 from flask import Blueprint, typing as ft, render_template, jsonify
 from flask import redirect, request, session, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
@@ -233,6 +232,236 @@ class Taskreport(MethodView):
                            message=MessageEnum.task_report_error.value[1])
 
 
+# class BaseTaskHandler(MethodView):
+#     def handle_task_execution(self, task_id):
+#         try:
+#             start_time = time.time()
+#             task = Task.query.filter_by(id=task_id).first()
+#             task_content = json.loads(task.task_content)
+#             env_id = task_content['env_id']
+#             suite = TestSuite.query.filter_by(id=task_content['suite_id']).first()
+#             caseids = json.loads(suite.caseids)
+#             caseinfos = self.get_case_infos(caseids)
+#             env = Environment.query.filter_by(id=env_id).first()
+#
+#             if env.protocol == 'http':
+#                 return self.handle_http_protocol(env, caseinfos, suite, task, start_time)
+#             else:
+#                 return self.handle_other_protocol(env_id, caseinfos, suite, task, start_time)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             raise e
+#
+#     def get_case_infos(self, caseids):
+#         caseinfos = []
+#         for case_id in caseids:
+#             case = InterfaceCase.query.filter_by(case_id=case_id).first()
+#             if case.status == 1:
+#                 case_info = {'case_id': case.case_id, 'case_raw': case.raw}
+#                 caseinfos.append(case_info)
+#         return caseinfos
+#
+#     def handle_http_protocol(self, env, caseinfos, suite, task, start_time):
+#         logger.info('开始处理HTTP协议测试套件')
+#         caseids = [case['case_id'] for case in caseinfos]
+#         logger.info('待处理的caseids是: {}', caseids)
+#         flag = True
+#         exe_res = []
+#         for case in caseinfos:
+#             executehandler = ExecuteHandler(case['case_id'], env.id)
+#             res = executehandler.execute_task_http(case_id=case['case_id'], env_id=env.id, task_id=task.id)
+#             if json.loads(res[0])['result'] != '断言通过':
+#                 flag = False
+#             ret = {'collections_name': suite.name, 'is_pass': flag, 'result': exe_res}
+#             logger.info('ret is {}', ret)
+#             self.update_task_status(task, flag, start_time)
+#         return ret
+#
+#     def handle_other_protocol(self, env_id, caseinfos, suite, task, start_time):
+#         result_queue = multiprocessing.Queue()
+#         process = multiprocessing.Process(
+#             target=self.run_in_new_process_multproto,
+#             args=(env_id, caseinfos, result_queue)
+#         )
+#
+#         process.start()
+#         process.join()
+#
+#         res = result_queue.get()
+#
+#         if isinstance(res, tuple):
+#             case_name = InterfaceCase.query.filter_by(case_id=res[0]).first().desc
+#             return {'error_caseid': res[0], 'error_casename': case_name, 'error_info': format(res[1])}
+#         elif isinstance(res, Exception):
+#             return {'error_info': format(res)}
+#
+#         try:
+#             flag = True
+#             for i in res:
+#                 caseid = i.get('case_id')
+#                 rsp = i.get('exe_rsp')
+#                 assertdesc = InterfaceCaseAssert.query.filter_by(case_id=caseid).first()
+#                 assert_info = {}
+#                 if assertdesc is not None:
+#                     temp = rsp
+#                     if '.' in assertdesc.expression:
+#                         for j in assertdesc.expression.split('.'):
+#                             temp = temp[j]
+#                     else:
+#                         temp = temp[assertdesc.expression]
+#                     if isinstance(temp, bool):
+#                         temp = str(temp).lower()
+#                     else:
+#                         temp = str(temp)
+#                     if (temp == assertdesc.excepted_result) and i.get('exe_res'):
+#                         isPass = True
+#                     else:
+#                         isPass = False
+#                         flag = False
+#                     assert_info = {'case_id': caseid, 'is_pass': isPass, 'except': assertdesc.excepted_result,
+#                                    'actual': temp, 'assert_desc': assertdesc.assert_name,
+#                                    'expression': assertdesc.expression}
+#
+#                 i['assert_info'] = assert_info
+#                 testres = TestcaseResult(
+#                     case_id=caseid,
+#                     result=str(rsp),
+#                     ispass=i.get('assert_info', {}).get('is_pass', True) and i.get('exe_res', False),
+#                     date=datetime.now(),
+#                     spend=i['exe_spend'],
+#                     testevent_id=env_id,
+#                     task_id=task.id
+#                 )
+#                 db.session.add(testres)
+#             db.session.commit()
+#             ret = {'collections_name': suite.name, 'is_pass': flag, 'result': res}
+#             self.update_task_status(task, flag, start_time)
+#             return ret
+#         except Exception as e:
+#             db.session.rollback()
+#             logger.error(traceback.format_exc())
+#             raise e
+#
+#     def update_task_status(self, task, flag, start_time):
+#         if flag:
+#             task.running_status = RunningStatus.FINISHED.value
+#         else:
+#             task.running_status = RunningStatus.FAILED.value
+#         task.end_time = datetime.now()
+#         task.spend = str("{:.2f}".format(time.time() - start_time))
+#         db.session.commit()
+#
+#     def run_in_new_process_multproto(self, env_id, caseinfos, result_queue):
+#         try:
+#             logger.info('Task当前进程号：{}'.format(os.getpid()))
+#             sys.stdin = open(os.devnull, 'r')
+#             sys.stdout = open(os.devnull, 'w')
+#             sys.stderr = open(os.devnull, 'w')
+#             res = self.exemulproto(env_id, caseinfos)
+#
+#             result_queue.put(res)
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             result_queue.put(e)
+#         finally:
+#             sys.exit(0)
+#
+#     def exemulproto(self, env_id, caseinfos):
+#         try:
+#             logger.info('Task执行请求方法exeproto的进程号：{}'.format(os.getpid()))
+#             source = json.loads(caseinfos[0]['case_raw'])['source']
+#             branch_name = json.loads(caseinfos[0]['case_raw'])['branch_name']
+#             proto_path = PROJECT_ROOT + ("/proto/" if source in ('kk', None) else "/proto/pp/") + branch_name
+#             logger.info(f"proto_path: {proto_path}")
+#
+#             env = Environment.query.filter_by(id=env_id).first()
+#             host, port = env.url, env.port
+#
+#             sys.path.append(proto_path)
+#             uid = json.loads(caseinfos[0]['case_raw'])['uid']
+#             player = Player(uid, host, port)
+#             player.client = client = Client(host=host, port=port) if not player.client else player.client
+#
+#             for name in os.listdir(proto_path):
+#                 if name == '__init__.py' or not name.endswith('.py'):
+#                     continue
+#                 module = importlib.import_module(
+#                     f"proto.{branch_name}.{name[:-3]}" if source in (
+#                         'kk', None) else f"proto.pp.{branch_name}.{name[:-3]}")
+#                 for item in dir(module):
+#                     player.client.pb[item] = getattr(module, item)
+#
+#             if source in ('kk', None):
+#                 player = player.login_by_uid(uid)[1]
+#             else:
+#                 player = player.login_by_uid_pp(uid)[1]
+#
+#             reslut = []
+#             for i in caseinfos:
+#                 r = {'case_id': i['case_id']}
+#                 params = json.loads(i['case_raw'])['proto_content']
+#                 reqmessage = json.loads(i['case_raw'])['req_message_name']
+#                 rspmessage = reqmessage[:-3] + "RSP"
+#                 start_time = time.time()
+#                 try:
+#                     client.send(reqmessage, params)
+#                     msg = client.recv(rspmessage)
+#                     r['exe_res'] = True
+#                     r['exe_rsp'] = msg.body
+#                 except Exception as e:
+#                     logger.error(f"Error processing case {i['case_id']}: {e}")
+#                     logger.error(traceback.format_exc())
+#                     r['exe_res'] = False
+#                     r['exe_rsp'] = str(e)
+#                 finally:
+#                     end_time = time.time()
+#                     r['exe_spend'] = str("{:.2f}".format(end_time - start_time))
+#                     reslut.append(r)
+#
+#             logger.info('reslut is {}', reslut)
+#             return reslut
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             raise e
+#         finally:
+#             client.stop() if 'client' in locals() else None
+
+
+# class Executetask(BaseTaskHandler):
+#     @login_required
+#     def post(self):
+#         try:
+#             data = request.get_json()
+#             if not data.get('task_id'):
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#
+#             task_id = data.get('task_id')
+#             task = Task.query.filter_by(id=task_id).first()
+#             if not task:
+#                 return reponse(code=MessageEnum.task_not_exist.value[0],
+#                                message=MessageEnum.task_not_exist.value[1])
+#
+#             if task.running_status == RunningStatus.RUNNING.value:
+#                 return reponse(code=MessageEnum.task_is_running.value[0],
+#                                message=MessageEnum.task_is_running.value[1])
+#
+#             task.running_status = RunningStatus.RUNNING.value
+#             db.session.commit()
+#
+#             spawn(self.dealtask, task_id)
+#
+#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             return reponse(code=MessageEnum.task_execute_error.value[0],
+#                            message=MessageEnum.task_execute_error.value[1])
+#
+#     def dealtask(self, task_id):
+#         self.handle_task_execution(task_id)
 class BaseTaskHandler(MethodView):
     def handle_task_execution(self, task_id):
         try:
@@ -246,13 +475,14 @@ class BaseTaskHandler(MethodView):
             env = Environment.query.filter_by(id=env_id).first()
 
             if env.protocol == 'http':
-                return self.handle_http_protocol(env, caseinfos, suite, task, start_time)
+                result = self.handle_http_protocol(env, caseinfos, suite, task, start_time)
             else:
-                return self.handle_other_protocol(env_id, caseinfos, suite, task, start_time)
+                result = self.handle_other_protocol(env_id, caseinfos, suite, task, start_time)
 
+            self.update_task_status(task, result['is_pass'], start_time)
         except Exception as e:
             logger.error(traceback.format_exc())
-            raise e
+            self.update_task_status(task, False, start_time)
 
     def get_case_infos(self, caseids):
         caseinfos = []
@@ -265,7 +495,8 @@ class BaseTaskHandler(MethodView):
 
     def handle_http_protocol(self, env, caseinfos, suite, task, start_time):
         logger.info('开始处理HTTP协议测试套件')
-        logger.info('用例是:{}', caseinfos)
+        caseids = [case['case_id'] for case in caseinfos]
+        logger.info('待处理的caseids是: {}'.format(caseids))
         flag = True
         exe_res = []
         for case in caseinfos:
@@ -273,9 +504,9 @@ class BaseTaskHandler(MethodView):
             res = executehandler.execute_task_http(case_id=case['case_id'], env_id=env.id, task_id=task.id)
             if json.loads(res[0])['result'] != '断言通过':
                 flag = False
-            ret = {'collections_name': suite.name, 'is_pass': flag, 'result': exe_res}
-            logger.info('ret is {}', ret)
-            self.update_task_status(task, flag, start_time)
+            exe_res.append(res)
+        ret = {'collections_name': suite.name, 'is_pass': flag, 'result': exe_res}
+        logger.info('ret is {}'.format(ret))
         return ret
 
     def handle_other_protocol(self, env_id, caseinfos, suite, task, start_time):
@@ -336,7 +567,6 @@ class BaseTaskHandler(MethodView):
                 db.session.add(testres)
             db.session.commit()
             ret = {'collections_name': suite.name, 'is_pass': flag, 'result': res}
-            self.update_task_status(task, flag, start_time)
             return ret
         except Exception as e:
             db.session.rollback()
@@ -344,10 +574,7 @@ class BaseTaskHandler(MethodView):
             raise e
 
     def update_task_status(self, task, flag, start_time):
-        if flag:
-            task.running_status = RunningStatus.FINISHED.value
-        else:
-            task.running_status = RunningStatus.FAILED.value
+        task.running_status = RunningStatus.FINISHED.value if flag else RunningStatus.FAILED.value
         task.end_time = datetime.now()
         task.spend = str("{:.2f}".format(time.time() - start_time))
         db.session.commit()
@@ -420,7 +647,7 @@ class BaseTaskHandler(MethodView):
                     r['exe_spend'] = str("{:.2f}".format(end_time - start_time))
                     reslut.append(r)
 
-            logger.info('reslut is {}', reslut)
+            logger.info('reslut is {}'.format(reslut))
             return reslut
         except Exception as e:
             logger.error(traceback.format_exc())
@@ -451,7 +678,7 @@ class Executetask(BaseTaskHandler):
             task.running_status = RunningStatus.RUNNING.value
             db.session.commit()
 
-            spawn(self.dealtask, task_id)
+            self.start_new_process(task_id)
 
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
 
@@ -460,8 +687,15 @@ class Executetask(BaseTaskHandler):
             return reponse(code=MessageEnum.task_execute_error.value[0],
                            message=MessageEnum.task_execute_error.value[1])
 
+    def start_new_process(self, task_id):
+        process = multiprocessing.Process(target=self.dealtask, args=(task_id,))
+        process.start()
+
     def dealtask(self, task_id):
-        self.handle_task_execution(task_id)
+        try:
+            self.handle_task_execution(task_id)
+        except Exception as e:
+            logger.error(f"Error executing task {task_id}: {e}")
 
 
 class Reruntask(BaseTaskHandler):

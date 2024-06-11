@@ -1637,10 +1637,8 @@ class Executeproto(MethodView):
             else:
                 params = data.get('proto_content')
 
-            # Use multiprocessing Queue to communicate results
             result_queue = multiprocessing.Queue()
 
-            # Use multiprocessing to run the function in a new process
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
                 args=(data, branch_name, params, source, result_queue)
