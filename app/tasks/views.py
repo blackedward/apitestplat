@@ -566,7 +566,7 @@ class BaseTaskHandler(MethodView):
                         12: 'is_not_empty',
                     }
                     keys = assertdesc.expression.split('.')
-                    current = rsp
+                    current = json.loads(rsp)
                     for key in keys:
                         if isinstance(current, list):
                             current = current[int(key)]
