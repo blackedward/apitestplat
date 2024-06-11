@@ -484,6 +484,16 @@ class BaseTaskHandler(MethodView):
             logger.error(traceback.format_exc())
             self.update_task_status(task, False, start_time)
 
+    def start_new_process(self, task_id):
+        process = multiprocessing.Process(target=self.dealtask, args=(task_id,))
+        process.start()
+
+    def dealtask(self, task_id):
+        try:
+            self.handle_task_execution(task_id)
+        except Exception as e:
+            logger.error(f"Error executing task {task_id}: {e}")
+
     def get_case_infos(self, caseids):
         caseinfos = []
         for case_id in caseids:
@@ -687,16 +697,6 @@ class Executetask(BaseTaskHandler):
             return reponse(code=MessageEnum.task_execute_error.value[0],
                            message=MessageEnum.task_execute_error.value[1])
 
-    def start_new_process(self, task_id):
-        process = multiprocessing.Process(target=self.dealtask, args=(task_id,))
-        process.start()
-
-    def dealtask(self, task_id):
-        try:
-            self.handle_task_execution(task_id)
-        except Exception as e:
-            logger.error(f"Error executing task {task_id}: {e}")
-
 
 class Reruntask(BaseTaskHandler):
     @login_required
@@ -737,16 +737,12 @@ class Reruntask(BaseTaskHandler):
                 return reponse(code=MessageEnum.task_create_error.value[0],
                                message=MessageEnum.task_create_error.value[1])
 
-            spawn(self.dealtask, newtask_id)
+            self.start_new_process(newtask_id)
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
-
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.task_execute_error.value[0],
                            message=MessageEnum.task_execute_error.value[1])
-
-    def dealtask(self, task_id):
-        self.handle_task_execution(task_id)
 
 
 class Creatorlist(MethodView):
