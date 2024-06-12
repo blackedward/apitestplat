@@ -1,8 +1,3 @@
-import json
-
-from common.log import logger
-
-
 def assert_value(data, path, expected_value, operator):
     keys = path.split('.')
     current = data

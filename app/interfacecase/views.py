@@ -401,7 +401,7 @@ class ExecuteCase(MethodView):
         if not materials:
             return case_raw
         for material in materials:
-            case_raw = case_raw.replace('${' + material['name'] + '}', str(material['value']))
+            case_raw = case_raw.replace('"$' + material['name'] + '"', str(material['value']))
         logger.info('替换后的参数是：{}'.format(case_raw))
         return case_raw
 
@@ -414,7 +414,7 @@ class ExecuteCase(MethodView):
         materials = []
 
         if case.is_relycase == 1:
-            precases = Precase.query.filter_by(parent_case_id=case.case_id).order_by(Precase.order).all()
+            precases = Precase.query.filter_by(parent_case_id=case.case_id, status=1).order_by(Precase.order).all()
             if not precases:
                 return self.respond_with_error(MessageEnum.not_find_your_case)
             precaseinfos = self.get_precaseinfos(precases)
@@ -428,7 +428,7 @@ class ExecuteCase(MethodView):
                     logger.info('precase.extract_expression is:{}'.format(precase.extract_expression))
                     keys = precase.extract_expression.split('.')
                     result = [item for item in res if item['case_id'] == precase.pre_case_id]
-                    current = result
+                    current = result[0]['exe_rsp']
                     for key in keys:
                         if isinstance(current, list):
                             current = current[int(key)]
@@ -449,6 +449,7 @@ class ExecuteCase(MethodView):
 
         logger.info('需要被替换的参数是：{}'.format(materials))
         replaced_case_raw = self.replace_protocase_params(case_raw, materials)
+        logger.info('替换后的用例是：{}'.format(replaced_case_raw))
         result_queue = multiprocessing.Queue()
         process = multiprocessing.Process(target=self.run_proto_case,
                                           args=(data, json.loads(replaced_case_raw), env_id, result_queue))

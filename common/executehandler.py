@@ -261,9 +261,9 @@ class ExecuteHandler(object):
     def replace_parameters(self, precasesinfos, parameterdic):
         for precaseinfo in precasesinfos:
             extract_expression = precaseinfo.get("extract_expression")
-            if '${' + extract_expression + '}' in parameterdic['case_params']:
+            if '"$' + extract_expression + '"' in parameterdic['case_params']:
                 parameterdic['case_params'] = parameterdic['case_params'].replace(
-                    '${' + extract_expression + '}',
+                    '"$' + extract_expression + '"',
                     str(precaseinfo.get("extract_result"))
                 )
         logger.info('替换后的参数是: {}'.format(parameterdic['case_params']))
