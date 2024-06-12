@@ -721,6 +721,8 @@ class GetModelByPrjId(MethodView):
             for i in model.items:
                 tdic = {}
                 tdic['id'] = i.id
+                model_case_count = InterfaceCase.query.filter_by(model_id=i.id, status=1).count()
+                tdic['model_case_count'] = model_case_count
                 tdic['model_name'] = i.model_name
                 tdic['project'] = project_name
                 tdic['status'] = i.status
