@@ -1035,10 +1035,18 @@ class Updatecasereq(MethodView):
             interfacecase.socketreq = requestinfo.get('socketreq')
             interfacecase.socketrsp = requestinfo.get('socketrsp')
             if interfacecase.case_protocol == 2:
-                raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
-                raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
-                raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
-                raw_data['req_message_name'] = requestinfo.get('socketreq')
+                # raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
+                # raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
+                # raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
+                # raw_data['req_message_name'] = requestinfo.get('socketreq')
+                # interfacecase.raw = json.dumps(raw_data)
+                raw_str = requestinfo.get('raw')
+                raw_data = {
+                    'proto_content': json.loads(raw_str)[
+                        'request_content'] if 'request_content' in raw_str else raw_str,
+                    'uid': json.loads(raw_str)['request_uid'] if 'request_uid' in raw_str else raw_str,
+                    'req_message_name': requestinfo.get('socketreq')
+                }
                 interfacecase.raw = json.dumps(raw_data)
             else:
                 interfacecase.raw = requestinfo.get('raw')
