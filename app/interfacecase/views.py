@@ -1002,72 +1002,6 @@ class Updatecasebase(MethodView):
                            message=MessageEnum.case_edit_error.value[1])
 
 
-# class Updatecasereq(MethodView):
-#     @login_required
-#     def post(self):
-#         try:
-#             # 获取请求数据
-#             data = request.get_json()
-#
-#             # 如果请求数据为空，返回错误响应
-#             if not data:
-#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
-#                                message=MessageEnum.must_be_every_parame.value[1])
-#
-#             # 获取请求信息和接口实例
-#             requestinfo = data.get('requestinfo')
-#             interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
-#
-#             # 如果接口实例不存在，返回错误响应
-#             if not interfacecase:
-#                 return reponse(code=MessageEnum.case_edit_error.value[0],
-#                                message=MessageEnum.case_edit_error.value[1])
-#
-#             # 更新接口实例的属性
-#             interfacecase.case_protocol = requestinfo.get('caseprotcol')
-#             interfacecase.url = requestinfo.get('url')
-#             interfacecase.method = requestinfo.get('method')
-#
-#             # 更新请求头和参数
-#             interfacecase.headers = requestinfo.get('headers')
-#             interfacecase.params = self._parse_json(requestinfo.get('params'))
-#
-#             interfacecase.socketreq = requestinfo.get('socketreq')
-#             interfacecase.socketrsp = requestinfo.get('socketrsp')
-#             if interfacecase.case_protocol == 2:
-#                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
-#                 raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
-#                 raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
-#                 raw_data['req_message_name'] = requestinfo.get('socketreq')
-#                 interfacecase.raw = json.dumps(raw_data)
-#             else:
-#                 interfacecase.raw = requestinfo.get('raw')
-#
-#             interfacecase.update_time = datetime.now()
-#             interfacecase.creater = current_user.user_id
-#
-#             # 提交事务
-#             db.session.commit()
-#
-#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-#
-#         except Exception as e:
-#             logger.error(traceback.format_exc())
-#             db.session.rollback()
-#             return reponse(code=MessageEnum.case_edit_error.value[0],
-#                            message=MessageEnum.case_edit_error.value[1])
-#
-#     def _parse_json(self, data):
-#         """
-#         解析 JSON 数据并返回字符串格式
-#         """
-#         if data:
-#             parsed_data = {}
-#             json_data = json.loads(data)
-#             for item in json_data:
-#                 parsed_data[item['name']] = item['value']
-#             return json.dumps(parsed_data)
-#         return None
 class Updatecasereq(MethodView):
     @login_required
     def post(self):
@@ -1100,16 +1034,11 @@ class Updatecasereq(MethodView):
 
             interfacecase.socketreq = requestinfo.get('socketreq')
             interfacecase.socketrsp = requestinfo.get('socketrsp')
-
-            # 存储原始请求内容
             if interfacecase.case_protocol == 2:
-                raw_str = requestinfo.get('raw')
-                # 不进行 JSON 解析，直接将字符串存储
-                raw_data = {
-                    'proto_content': self._safe_loads(raw_str).get('request_content', raw_str),
-                    'uid': self._safe_loads(raw_str).get('request_uid', raw_str),
-                    'req_message_name': requestinfo.get('socketreq')
-                }
+                raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
+                raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
+                raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
+                raw_data['req_message_name'] = requestinfo.get('socketreq')
                 interfacecase.raw = json.dumps(raw_data)
             else:
                 interfacecase.raw = requestinfo.get('raw')
@@ -1140,14 +1069,78 @@ class Updatecasereq(MethodView):
             return json.dumps(parsed_data)
         return None
 
-    def _safe_loads(self, data):
-        """
-        安全地加载 JSON 数据。如果加载失败，则返回空字典。
-        """
-        try:
-            return json.loads(data)
-        except json.JSONDecodeError:
-            return {}
+
+# class Updatecasereq(MethodView):
+#     @login_required
+#     def post(self):
+#         try:
+#             # 获取请求数据
+#             data = request.get_json()
+#
+#             # 如果请求数据为空，返回错误响应
+#             if not data:
+#                 return reponse(code=MessageEnum.must_be_every_parame.value[0],
+#                                message=MessageEnum.must_be_every_parame.value[1])
+#
+#             # 获取请求信息和接口实例
+#             requestinfo = data.get('requestinfo')
+#             interfacecase = InterfaceCase.query.filter_by(case_id=data.get('caseid')).first()
+#
+#             # 如果接口实例不存在，返回错误响应
+#             if not interfacecase:
+#                 return reponse(code=MessageEnum.case_edit_error.value[0],
+#                                message=MessageEnum.case_edit_error.value[1])
+#
+#             # 更新接口实例的属性
+#             interfacecase.case_protocol = requestinfo.get('caseprotcol')
+#             interfacecase.url = requestinfo.get('url')
+#             interfacecase.method = requestinfo.get('method')
+#
+#             # 更新请求头和参数
+#             interfacecase.headers = requestinfo.get('headers')
+#             interfacecase.params = self._parse_json(requestinfo.get('params'))
+#
+#             interfacecase.socketreq = requestinfo.get('socketreq')
+#             interfacecase.socketrsp = requestinfo.get('socketrsp')
+#
+#             if interfacecase.case_protocol == 2:
+#
+#                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
+#                 new_raw_data = json.loads(requestinfo.get('raw'))
+#                 # 更新特定字段，而保留其他字段
+#                 raw_data['proto_content'] = new_raw_data.get('request_content', raw_data.get('proto_content'))
+#                 raw_data['uid'] = new_raw_data.get('request_uid', raw_data.get('uid'))
+#                 raw_data['req_message_name'] = requestinfo.get('socketreq')
+#
+#                 interfacecase.raw = json.dumps(raw_data)
+#             else:
+#                 interfacecase.raw = requestinfo.get('raw')
+#
+#             interfacecase.update_time = datetime.now()
+#             interfacecase.creater = current_user.user_id
+#
+#             # 提交事务
+#             db.session.commit()
+#
+#             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+#
+#         except Exception as e:
+#             logger.error(traceback.format_exc())
+#             db.session.rollback()
+#             return reponse(code=MessageEnum.case_edit_error.value[0],
+#                            message=MessageEnum.case_edit_error.value[1])
+#
+#     def _parse_json(self, data):
+#         """
+#         解析 JSON 数据并返回字符串格式
+#         """
+#         if data:
+#             parsed_data = {}
+#             json_data = json.loads(data)
+#             for item in json_data:
+#                 parsed_data[item['name']] = item['value']
+#             return json.dumps(parsed_data)
+#         return None
 
 
 class Updatecasesql(MethodView):
