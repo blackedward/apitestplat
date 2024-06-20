@@ -21,7 +21,7 @@ class Api:
                                                  headers=json.loads(self.headers))
 
             elif self.fangsh == 'GET' or self.fangsh == 'get':
-                if self.param is None or self.param == "":
+                if self.param is None or self.param == "" or self.param == '{}':
                     response, spend = self.requ.get(url=self.url, headers=json.loads(self.headers))
                 else:
                     response, spend = self.requ.get(url=self.url, headers=json.loads(self.headers),
