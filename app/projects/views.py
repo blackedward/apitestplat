@@ -31,18 +31,15 @@ class CreateProject(MethodView):
             if Project.query.filter_by(project_name=project_name).first():
                 return reponse(code=MessageEnum.project_only_one.value[0],
                                message=MessageEnum.project_only_one.value[1])
-            if current_user.role_id == 2:
-                project = Project()
-                project.project_name = project_name
-                project.status = 1
-                project.product = data.get('product')
-                project.project_user_id = current_user.user_id
-                db.session.add(project)
-                db.session.commit()
-                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-            else:
-                return reponse(code=MessageEnum.permiss_is_ness.value[0],
-                               message=MessageEnum.permiss_is_ness.value[1])
+            project = Project()
+            project.project_name = project_name
+            project.status = 1
+            project.product = data.get('product')
+            project.project_user_id = current_user.user_id
+            db.session.add(project)
+            db.session.commit()
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.project_add_error.value[0],
@@ -99,72 +96,70 @@ class UpdateProject(MethodView):
             if not project or project.status == 0:
                 return reponse(code=MessageEnum.project_search.value[0],
                                message=MessageEnum.project_search.value[1])
-            if current_user.role_id == 2:
-                project.project_name = project_name
-                try:
-                    db.session.commit()
-                except Exception as e:
-                    db.session.rollback()
-                    logger.error(traceback.format_exc())
-                    return reponse(code=MessageEnum.edit_fial.value[0],
-                                   message=MessageEnum.edit_fial.value[1])
-                if not data.get('envs'):
-                    return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
-                else:
-                    newenvs = data.get('envs')
-                    oldnenvs = Environment.query.filter_by(project=project_id, status=1).all()
-                    for i in newenvs:
-                        if i.get('envid'):
-                            env = Environment.query.filter_by(id=i.get('envid')).first()
-                            env.name = i.get('name')
-                            env.url = i.get('url')
-                            env.port = i.get('port')
-                            env.protocol = i.get('protocol')
-                            env.desc = i.get('desc')
-                            env.project = project_id
-                            env.make_user = current_user.user_id
-                            env.status = 1
-                            try:
-                                db.session.commit()
-                            except Exception as e:
-                                db.session.rollback()
-                                logger.error(traceback.format_exc())
-                                return reponse(code=MessageEnum.edit_fial.value[0],
-                                               message=MessageEnum.edit_fial.value[1])
-                        else:
-                            env = Environment()
-                            env.name = i.get('name')
-                            env.url = i.get('url')
-                            env.port = i.get('port')
-                            env.protocol = i.get('protocol')
-                            env.desc = i.get('desc')
-                            env.project = project_id
-                            env.make_user = current_user.user_id
-                            env.status = 1
-                            try:
-                                db.session.add(env)
-                                db.session.commit()
-                            except Exception as e:
-                                db.session.rollback()
-                                logger.error(traceback.format_exc())
-                                return reponse(code=MessageEnum.edit_fial.value[0],
-                                               message=MessageEnum.edit_fial.value[1])
-                    for j in oldnenvs:
-                        logger.info(j.id)
-                        logger.info(newenvs)
-                        if not any(j.id == d.get('envid') for d in newenvs):
-                            j.status = 0
-                            try:
-                                db.session.commit()
-                            except Exception as e:
-                                db.session.rollback()
-                                logger.error(traceback.format_exc())
-                                return reponse(code=MessageEnum.edit_fial.value[0],
-                                               message=MessageEnum.edit_fial.value[1])
+
+            project.project_name = project_name
+            try:
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                logger.error(traceback.format_exc())
+                return reponse(code=MessageEnum.edit_fial.value[0],
+                               message=MessageEnum.edit_fial.value[1])
+            if not data.get('envs'):
                 return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
             else:
-                return reponse(code=MessageEnum.permiss_is_ness.value[0],
-                               message=MessageEnum.permiss_is_ness.value[1])
+                newenvs = data.get('envs')
+                oldnenvs = Environment.query.filter_by(project=project_id, status=1).all()
+                for i in newenvs:
+                    if i.get('envid'):
+                        env = Environment.query.filter_by(id=i.get('envid')).first()
+                        env.name = i.get('name')
+                        env.url = i.get('url')
+                        env.port = i.get('port')
+                        env.protocol = i.get('protocol')
+                        env.desc = i.get('desc')
+                        env.project = project_id
+                        env.make_user = current_user.user_id
+                        env.status = 1
+                        try:
+                            db.session.commit()
+                        except Exception as e:
+                            db.session.rollback()
+                            logger.error(traceback.format_exc())
+                            return reponse(code=MessageEnum.edit_fial.value[0],
+                                           message=MessageEnum.edit_fial.value[1])
+                    else:
+                        env = Environment()
+                        env.name = i.get('name')
+                        env.url = i.get('url')
+                        env.port = i.get('port')
+                        env.protocol = i.get('protocol')
+                        env.desc = i.get('desc')
+                        env.project = project_id
+                        env.make_user = current_user.user_id
+                        env.status = 1
+                        try:
+                            db.session.add(env)
+                            db.session.commit()
+                        except Exception as e:
+                            db.session.rollback()
+                            logger.error(traceback.format_exc())
+                            return reponse(code=MessageEnum.edit_fial.value[0],
+                                           message=MessageEnum.edit_fial.value[1])
+                for j in oldnenvs:
+                    logger.info(j.id)
+                    logger.info(newenvs)
+                    if not any(j.id == d.get('envid') for d in newenvs):
+                        j.status = 0
+                        try:
+                            db.session.commit()
+                        except Exception as e:
+                            db.session.rollback()
+                            logger.error(traceback.format_exc())
+                            return reponse(code=MessageEnum.edit_fial.value[0],
+                                           message=MessageEnum.edit_fial.value[1])
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.edit_fial.value[0],
