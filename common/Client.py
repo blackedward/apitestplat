@@ -133,9 +133,6 @@ class Client(object):
             self.recv_event.set()
 
     def send(self, param0, param1=None, roomid=0):
-        logger.info("uid:{}|发送消息:{}".format(self.uid, param0))
-        logger.info("uid:{}|发送消息:{}".format(self.uid, param1))
-        logger.info("uid:{}|发送消息:{}".format(self.uid, roomid))
         start_time = time.time()
         if type(param0) == bytes:
             data = param0
