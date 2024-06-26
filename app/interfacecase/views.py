@@ -480,6 +480,7 @@ class ExecuteCase(MethodView):
 
             res = exeproto(
                 uid=case_raw['uid'],
+                roomid=case_raw['roomid'] if 'roomid' in case_raw else 0,
                 env_id=env_id,
                 branch_name=case_raw['branch_name'],
                 reqmessage=case_raw['req_message_name'],
@@ -1039,6 +1040,8 @@ class Updatecasereq(MethodView):
                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
                 raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
                 raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
+                raw_data['roomid'] = json.loads(requestinfo.get('raw'))['request_uid'] if 'roomid' in json.loads(
+                    requestinfo.get('raw')) else 0
                 raw_data['req_message_name'] = requestinfo.get('socketreq')
                 interfacecase.raw = json.dumps(raw_data)
             else:
@@ -1247,6 +1250,7 @@ class Getcasedetail(MethodView):
                 request_uid = json.loads(interfacecase.raw)['uid']
                 raw['request_content'] = request_content
                 raw['request_uid'] = request_uid
+                raw['roomid'] = json.loads(interfacecase.raw).get('roomid', 0)
                 interfacecase.raw = json.dumps(raw)
 
             requestinfo = {
@@ -1649,7 +1653,7 @@ def get_message_attributes(branch_name, message_name, source):
         raise e
 
 
-def exeproto(uid, env_id, branch_name, reqmessage, params, source):
+def exeproto(uid, roomid, env_id, branch_name, reqmessage, params, source):
     try:
         logger.info('执行请求方法exeproto的进程号：{}'.format(os.getpid()))
         if source == 'kk' or source is None:
@@ -1679,9 +1683,10 @@ def exeproto(uid, env_id, branch_name, reqmessage, params, source):
         else:
             player = player.login_by_uid_pp(uid)[1]
         client = player.client
-        client.send(reqmessage, params)
-        logger.info('send message:{},send content:{}', reqmessage, params)
+        client.send(reqmessage, params, roomid)
+        logger.info('send message:{},send content:{},roomid:{}', reqmessage, params, roomid)
         rspmessage = reqmessage[:-3] + "RSP"
+        logger.info('try to receive message:{}'.format(rspmessage))
         msg = client.recv(rspmessage)
 
         return msg.body
@@ -1711,11 +1716,16 @@ class Executeproto(MethodView):
             else:
                 params = data.get('proto_content')
 
+            if not data.get('roomid') or data.get('roomid') is None:
+                roomid = 0
+            else:
+                roomid = data.get('roomid')
+
             result_queue = multiprocessing.Queue()
 
             process = multiprocessing.Process(
                 target=self.run_in_new_process,
-                args=(data, branch_name, params, source, result_queue)
+                args=(data, roomid, branch_name, params, source, result_queue)
             )
 
             process.start()
@@ -1775,10 +1785,10 @@ class Executeproto(MethodView):
             return reponse(code=MessageEnum.execute_proto_error.value[0],
                            message=MessageEnum.execute_proto_error.value[1], data=format(e))
 
-    def run_in_new_process(self, data, branch_name, params, source, result_queue):
+    def run_in_new_process(self, data, roomid, branch_name, params, source, result_queue):
         try:
             logger.info('当前进程号：{}'.format(os.getpid()))
-            res = exeproto(uid=data.get('uid'), env_id=data.get('env_id'), branch_name=branch_name,
+            res = exeproto(uid=data.get('uid'), roomid=roomid, env_id=data.get('env_id'), branch_name=branch_name,
                            reqmessage=data.get('req_message_name'), params=params, source=source)
 
             largecachekey = data.get('req_message_name') + " " + str(time.time())[:6] + str(os.getpid())
@@ -2475,6 +2485,7 @@ def exemulproto(env_id, caseinfos, is_skip):
         for i in caseinfos:
             r = {'case_id': i['case_id']}
             params = json.loads(i['case_raw'])['proto_content']
+            roomid = json.loads(i['case_raw'])['roomid'] if 'roomid' in json.loads(i['case_raw']) else 0
             reqmessage = json.loads(i['case_raw'])['req_message_name']
             rspmessage = reqmessage[:-3] + "RSP"
 
@@ -2485,7 +2496,7 @@ def exemulproto(env_id, caseinfos, is_skip):
                 logger.info(str(i['case_id']) + '执行依赖的dbf结果是：{}'.format(exe_dbf))
 
             try:
-                client.send(reqmessage, params)
+                client.send(reqmessage, params, roomid)
                 msg = client.recv(rspmessage)
                 r['exe_res'] = True
                 r['exe_rsp'] = msg.body

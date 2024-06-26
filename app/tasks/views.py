@@ -659,11 +659,12 @@ class BaseTaskHandler(MethodView):
             for i in caseinfos:
                 r = {'case_id': i['case_id']}
                 params = json.loads(i['case_raw'])['proto_content']
+                roomid = json.loads(i['case_raw'])['roomid'] if 'roomid' in json.loads(i['case_raw']) else 0
                 reqmessage = json.loads(i['case_raw'])['req_message_name']
                 rspmessage = reqmessage[:-3] + "RSP"
                 start_time = time.time()
                 try:
-                    client.send(reqmessage, params)
+                    client.send(reqmessage, params, roomid=roomid)
                     msg = client.recv(rspmessage)
                     r['exe_res'] = True
                     r['exe_rsp'] = msg.body
