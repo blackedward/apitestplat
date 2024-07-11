@@ -353,3 +353,23 @@ class Task(db.Model):  # 任务
             'status': self.status,
             'origin_taskid': self.origin_taskid
         }
+
+
+class VariableConf(db.Model):  # 变量
+    __tablename__ = 't_variable'
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.Integer)
+    expression = db.Column(db.String(255))
+    value = db.Column(db.String(255))
+    creator = db.Column(db.Integer, db.ForeignKey('t_user.user_id'))
+    create_time = db.Column(db.DateTime(), default=datetime.now())
+    status = db.Column(db.Boolean(), default=True)
+
+    def __repr__(self):
+        return str(self.id)
+
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict

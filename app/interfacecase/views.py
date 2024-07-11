@@ -344,9 +344,12 @@ class GetCaseByMod(MethodView):
                 cr = User.query.filter_by(user_id=i.creater).first().username
                 pn = Project.query.filter_by(id=i.project_id).first().project_name
                 mn = Model.query.filter_by(id=i.model_id).first().model_name
+                if i.case_protocol == 2:
+                    testinterface = json.loads(i.raw).get('req_message_name')
+                else:
+                    testinterface = i.url.split('/')[-1]
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
-                        'project_name': pn, 'creator': cr,
-                        'model_name': mn}
+                        'project_name': pn, 'creator': cr, 'model_name': mn, 'test_interface': testinterface}
                 res.append(tdic)
             ret = {"list": res, "total": interfacecase.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
@@ -865,8 +868,12 @@ class GetCaseByProj(MethodView):
                 cr = User.query.filter_by(user_id=i.creater).first().username
                 pn = Project.query.filter_by(id=i.project_id).first().project_name
                 mn = Model.query.filter_by(id=i.model_id).first().model_name
+                if i.case_protocol == 2:
+                    testinterface = json.loads(i.raw).get('req_message_name')
+                else:
+                    testinterface = i.url.split('/')[-1]
                 tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
-                        'creator': cr, 'project_name': pn, 'model_name': mn}
+                        'creator': cr, 'project_name': pn, 'model_name': mn, 'test_interface': testinterface}
                 res.append(tdic)
             ret = {"list": res, "total": interfacecase.total}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
@@ -1367,6 +1374,35 @@ class Allcases(MethodView):
             ret = {"list": res, "total": len(interfacecase)}
             return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
 
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])
+
+
+class Getcasebyitf(MethodView):
+    @login_required
+    def get(self):
+        try:
+            itf = request.args.get('itf_name')
+            page_index = int(request.args.get('page_index', 1))
+            page_number = int(request.args.get('page_number', 10))
+            if not itf:
+                return reponse(code=MessageEnum.must_be_every_parame.value[0],
+                               message=MessageEnum.must_be_every_parame.value[1])
+            interfacecases = InterfaceCase.query.filter(InterfaceCase.socketreq == itf).paginate(page_index,
+                                                                                                 page_number, False)
+            if not interfacecases:
+                return reponse(code=MessageEnum.case_not_exict.value[0],
+                               message=MessageEnum.case_not_exict.value[1])
+            res = []
+            for i in interfacecases.items:
+                cr = User.query.filter_by(user_id=i.creater).first().username
+                pn = Project.query.filter_by(id=i.project_id).first().project_name
+                tdic = {'case_id': i.case_id, 'project_id': i.project_id, 'model_id': i.model_id, 'desc': i.desc,
+                        'creator': cr, 'project_name': pn, 'test_interface': i.socketreq}
+                res.append(tdic)
+            ret = {"list": res, "total": interfacecases.total}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.get_assert_error.value[0], message=MessageEnum.get_assert_error.value[1])

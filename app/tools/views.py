@@ -59,3 +59,133 @@ class Changecard(MethodView):
         except Exception as e:
             logger.error(traceback.format_exc())
             return reponse(code=MessageEnum.test_error.value[0], message=MessageEnum.test_error.value[1])
+
+
+class Addvar(MethodView):
+
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not all([data.get('expression'), data.get('type'), data.get('value')]):
+                return reponse(code=MessageEnum.parames_not_null.value[0],
+                               message=MessageEnum.parames_not_null.value[1])
+            expression = data.get('expression')
+            value = data.get('value')
+            type = data.get('type')
+
+            varconf = VariableConf()
+            varconf.expression = expression
+            varconf.value = value
+            varconf.type = type
+            varconf.creator = current_user.user_id
+            varconf.create_time = datetime.now()
+            varconf.status = 1
+            try:
+                db.session.add(varconf)
+                db.session.commit()
+                varid = varconf.id
+                ret = {'varid': varid}
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+            except Exception as e:
+                db.session.rollback()
+                return reponse(code=MessageEnum.add_var_error.value[0], message=MessageEnum.add_var_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.add_var_error.value[0], message=MessageEnum.add_var_error.value[1])
+
+
+class Delvar(MethodView):
+
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not data.get('id'):
+                return reponse(code=MessageEnum.parames_not_null.value[0],
+                               message=MessageEnum.parames_not_null.value[1])
+            id = data.get('id')
+            try:
+                varconf = VariableConf.query.filter_by(id=id).first()
+                varconf.status = 0
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                db.session.rollback()
+                return reponse(code=MessageEnum.del_var_error.value[0], message=MessageEnum.del_var_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.del_var_error.value[0], message=MessageEnum.del_var_error.value[1])
+
+
+class Varlist(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            page_index = int(request.args.get('page_index', 1))
+            page_number = int(request.args.get('page_number', 10))
+            varlist = VariableConf.query.filter_by(status=1).order_by(VariableConf.create_time.desc()).paginate(
+                page_index, page_number, False)
+            total = varlist.total
+            items = varlist.items
+            vars = []
+            for item in items:
+                vars.append({'id': item.id, 'expression': item.expression, 'value': item.value,
+                             'creator': item.creator, 'create_time': str(item.create_time)})
+            ret = {'total': total, 'items': vars}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_var_error.value[0], message=MessageEnum.get_var_error.value[1])
+
+
+class Getvar(MethodView):
+
+    @login_required
+    def get(self):
+        try:
+            id = request.args.get('id')
+            if not id:
+                return reponse(code=MessageEnum.parames_not_null.value[0],
+                               message=MessageEnum.parames_not_null.value[1])
+            varconf = VariableConf.query.filter_by(id=id).first()
+            if varconf.status == 0:
+                return reponse(code=MessageEnum.var_status_del.value[0], message=MessageEnum.var_status_del.value[1])
+            ret = {'id': varconf.id, 'expression': varconf.expression, 'value': varconf.value,
+                   'creator': varconf.creator, 'create_time': str(varconf.create_time)}
+            return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1], data=ret)
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.get_var_error.value[0], message=MessageEnum.get_var_error.value[1])
+
+
+class Updatevar(MethodView):
+
+    @login_required
+    def post(self):
+        try:
+            data = request.get_json()
+            if not all([data.get('id'), data.get('expression'), data.get('type'), data.get('value')]):
+                return reponse(code=MessageEnum.parames_not_null.value[0],
+                               message=MessageEnum.parames_not_null.value[1])
+            id = data.get('id')
+            expression = data.get('expression')
+            value = data.get('value')
+            type = data.get('type')
+
+            try:
+                varconf = VariableConf.query.filter_by(id=id).first()
+                varconf.expression = expression
+                varconf.value = value
+                varconf.type = type
+                varconf.creat_time = datetime.now()
+                db.session.commit()
+                return reponse(code=MessageEnum.successs.value[0], message=MessageEnum.successs.value[1])
+            except Exception as e:
+                db.session.rollback()
+                return reponse(code=MessageEnum.update_var_error.value[0],
+                               message=MessageEnum.update_var_error.value[1])
+        except Exception as e:
+            logger.error(traceback.format_exc())
+            return reponse(code=MessageEnum.update_var_error.value[0], message=MessageEnum.update_var_error.value[1])

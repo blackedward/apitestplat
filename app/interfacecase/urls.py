@@ -19,6 +19,7 @@ interfacecase.add_url_rule("/getcasedetail", view_func=Getcasedetail.as_view('ge
 interfacecase.add_url_rule("/deletecase", view_func=Deletecase.as_view('deletecase'))
 interfacecase.add_url_rule("/getcaseres", view_func=Getcaseres.as_view('getcaseres'))
 interfacecase.add_url_rule("/allcases", view_func=Allcases.as_view('allcases'))
+interfacecase.add_url_rule("/getcasebyitf", view_func=Getcasebyitf.as_view('getcasebyitf'))
 interfacecase.add_url_rule("/getbranchproto", view_func=Getbranchproto.as_view('getbranchproto'))
 interfacecase.add_url_rule("/getprotomessages", view_func=GetMessageInfo.as_view('getprotomessages'))
 interfacecase.add_url_rule("/getattbymessage", view_func=Getattbymessage.as_view('getattbymessage'))

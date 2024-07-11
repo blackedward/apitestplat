@@ -255,3 +255,8 @@ class MessageEnum(Enum):
     task_report_error = 100247, '任务报告异常'
     task_not_done = 100248, '任务未完成'
     creator_list_error = 100249, '获取创建者列表异常'
+    add_var_error = 100250, '添加变量异常'
+    del_var_error = 100251, '删除变量异常'
+    get_var_error = 100252, '获取变量异常'
+    var_status_del = 100253, '变量已删除'
+    update_var_error = 100254, '更新变量异常'
