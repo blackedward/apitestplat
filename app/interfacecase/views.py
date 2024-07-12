@@ -1047,7 +1047,7 @@ class Updatecasereq(MethodView):
                 raw_data = json.loads(interfacecase.raw) if interfacecase.raw else {}
                 raw_data['proto_content'] = json.loads(requestinfo.get('raw'))['request_content']
                 raw_data['uid'] = json.loads(requestinfo.get('raw'))['request_uid']
-                raw_data['roomid'] = json.loads(requestinfo.get('raw'))['request_uid'] if 'roomid' in json.loads(
+                raw_data['roomid'] = json.loads(requestinfo.get('raw'))['roomid'] if 'roomid' in json.loads(
                     requestinfo.get('raw')) else 0
                 raw_data['req_message_name'] = requestinfo.get('socketreq')
                 interfacecase.raw = json.dumps(raw_data)
