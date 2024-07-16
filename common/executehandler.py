@@ -1,4 +1,5 @@
 import json
+import re
 import time
 import traceback
 from decimal import Decimal
@@ -340,6 +341,22 @@ class ExecuteHandler(object):
             logger.exception(e)
             return flag, {'执行过程中发生异常'}
 
+    def replace_casepara_selfvar(self, case_raw):
+        case_json = json.loads(case_raw)
+        pattern = re.compile(r"#(\w+)")
+        placeholders = []
+        for key, value in case_json.items():
+            matches = pattern.findall(str(value))
+            placeholders.extend(matches)
+        if placeholders:
+            logger.info('需要替换的自定义参数是：{}'.format(placeholders))
+            for placeholder in placeholders:
+                varconf = VariableConf.query.filter_by(expression=placeholder).first()
+                if varconf:
+                    case_raw = case_raw.replace(f'"#{placeholder}"', varconf.value)
+        logger.info('替换后的参数是: {}'.format(case_raw))
+        return case_raw
+
     def assemble_parameters(self, case_id, env_id):
         """根据用例信息和环境信息组装参数"""
         res = {'case_url': None, 'case_method': None, 'case_params': None, 'case_headers': None, 'protocol': None}
@@ -372,6 +389,7 @@ class ExecuteHandler(object):
                 res['case_params'] = case.params
             elif case.method == 1:  # POST 方法
                 res['case_params'] = case.raw
+        self.replace_casepara_selfvar(res['case_params'])
         return res
 
     def save_case_result(self, result, caseid, ispass, testevir, spend=None):

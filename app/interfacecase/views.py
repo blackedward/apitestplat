@@ -11,6 +11,7 @@ from datetime import datetime
 import traceback
 from enum import Enum
 from socket import socket
+from unicodedata import decimal
 
 from flask import Blueprint, request, jsonify
 from flask.views import MethodView
@@ -408,11 +409,26 @@ class ExecuteCase(MethodView):
         logger.info('替换后的参数是：{}'.format(case_raw))
         return case_raw
 
+    def replace_casepara_selfvar(self, case_raw):
+        case_json = json.loads(case_raw)
+        pattern = re.compile(r"#(\w+)")
+        placeholders = []
+        for key, value in case_json.items():
+            matches = pattern.findall(str(value))
+            placeholders.extend(matches)
+        if placeholders:
+            logger.info('需要替换的自定义参数是：{}'.format(placeholders))
+            for placeholder in placeholders:
+                varconf = VariableConf.query.filter_by(expression=placeholder).first()
+                if varconf:
+                    case_raw = case_raw.replace(f'"#{placeholder}"', varconf.value)
+        return case_raw
+
     def execute_proto_case(self, data, case):
         start_time = time.time()
         logger.info('开始执行proto协议用例')
-        case_raw = case.raw
-        logger.info('用例原始数据是：{}'.format(case_raw))
+        case_raw = self.replace_casepara_selfvar(case.raw)
+        logger.info('用例替换自定义后的数据是：{}'.format(case_raw))
         env_id = data.get('env_id')
         materials = []
 
@@ -450,9 +466,9 @@ class ExecuteCase(MethodView):
                 logger.error(traceback.format_exc())
                 return self.respond_with_error(MessageEnum.test_sql_query_error, format(e))
 
-        logger.info('需要被替换的参数是：{}'.format(materials))
+        logger.info('前置用例需要被替换的参数是：{}'.format(materials))
         replaced_case_raw = self.replace_protocase_params(case_raw, materials)
-        logger.info('替换后的用例是：{}'.format(replaced_case_raw))
+        logger.info('前置用例替换后的最终用例参数是：{}'.format(replaced_case_raw))
         result_queue = multiprocessing.Queue()
         process = multiprocessing.Process(target=self.run_proto_case,
                                           args=(data, json.loads(replaced_case_raw), env_id, result_queue))
