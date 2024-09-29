@@ -37,7 +37,4 @@ _本工程是kiwitest平台的后端代码，基于flask框架简单实现，目
 
 ### 部署情况
 
-```目前部署在阿里云服务器上，gunicorn+flask+supervisor的方式在部署，不过目前supervisor没有激活，容器地址 47.242.225.5端口 5000```
 
-```部署方式：root用户下进入项目根目录 /root/code/kiwitest ，执行命令 gunicorn -w5 -b0.0.0.0:5000 run:app  不要用文件方式启动，否则会报错```
-```本地开发测试可以直接执行run.py启动 ```
